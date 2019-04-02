@@ -4,7 +4,6 @@ from numpy import *
 
 fname   = "../data/master_data.csv"
 data    = open(fname, 'r')
-labels  = []
 read    = data.readlines()
 
 def overcast():
