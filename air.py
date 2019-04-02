@@ -2,73 +2,46 @@ import matplotlib
 from  matplotlib import pyplot as plt
 from numpy import *
 
-
-fname   = "./master_data_overcast_omit.csv"
+fname   = "./master_data.csv"
 data    = open(fname, 'r')
 labels  = []
 read    = data.readlines()
-# Pulls the date from the csv/txt file in the format presented in the file. (Format doesn't matter)
-# def overcast():
-# 	notovercast = []
-# 	c 		= [z.split(',') for z in read]
-# 	for j in c:
-# 		for k in range(0, 12):
-# 			if j[11] != 'overcast':
-# 				notovercast.append(j)
-# 			else:
-# 				continue
-# 	return notovercast
-# overcast = overcast()
-def datefromfile():
-	y       = [y.split(',')[0] for y in read]
-	content = [y.strip() for y in y]
-	labels.append(content[0])
-	del content[0]
-	x       = content
-	return x
+# Pulls the air temperature that are not labeled as overcast
+def overcast():
+	domain		= []
+	overcast1 	= []
+	overcast2 	= []
+	overcast3 	= []
+	c 		= [z.split(',') for z in read]
+	del c[0]
+	for j in c:
+		if j[11] != 'overcast':
+			domain.append(j[0])
+			overcast1.append(j[2])
+			overcast2.append(j[4])
+			overcast3.append(j[6])
+		else:
+			continue
+	y1 = overcast1
+	y2 = overcast2
+	y3 = overcast3
+	return domain, y1,y2,y3
 
-# Pulls columned data from file. (n) is the column number starting from 0
-def range(n):
-	y 		= [y.split(',')[n] for y in read]
-	content = [y.strip() for y in y]
-	labels.append(content[0])
-	del content[0]
-	y1      = array([float(y) for y in content])
-	return y1
-# Output of the function datefromfile()
-x   = datefromfile()
-y1  = range(2)
-y2  = range(4)
-y3 	= range(6)
-def dualy():
-	fig,ax1 = plt.subplots()
-	#plt.xlabel(labels[0])
-	plt.xticks(arange(0,len(x)), x, rotation=30, fontsize='small', horizontalalignment='center')
-	#plt.subplots_adjust(bottom=0.16)
-	plt.title("Testing plot:\nIf you can see this then it may or may not have worked")
+x,y1,y2,y3 	= overcast()
+range1 = [float(line) for line in y1]
+range2 = [float(line) for line in y2]
+range3 = [float(line) for line in y3]
 
-	# Example plot
-	ax1.scatter(arange(0,len(x)),y1,color='crimson', label=labels[1])
-	ax1.set_ylabel("This thing")
+plt.xlabel("Date")
+plt.xticks(arange(0,len(x), 7), x, rotation=30, fontsize='small', horizontalalignment='center')
+plt.subplots_adjust(bottom=0.16)
+plt.title("Air Temperature")
 
-	ax2 = ax1.twinx()
-	ax2.scatter(arange(0,len(x)),y2,color='gold', label=labels[2])
-	ax2.set_ylabel("This other thing")
-	#fig.legend(loc=1, bbox_to_anchor=(1,1), bbox_transform=ax1.transAxes)
+plt.scatter(arange(0,len(x)),array(range1),color='crimson')
+plt.scatter(arange(0,len(x)),array(range2),color='deepskyblue')
+plt.scatter(arange(0,len(x)),array(range3), color='green')
 
-def singley():
-	plt.xlabel(labels[0])
-	plt.xticks(arange(0,len(x), 7), x, rotation=30, fontsize='small', horizontalalignment='center')
-	plt.subplots_adjust(bottom=0.16)
-	plt.title("Air Temperature")
-	# Example plot
-	plt.scatter(arange(0,len(x)),y1,color='crimson', label=labels[1])
-	plt.scatter(arange(0,len(x)),y2, color='deepskyblue', label=labels[2])
-	plt.scatter(arange(0,len(x)),y3, color='green', label=labels[3])
+plt.ylabel("Temperature [C]")
 
-	plt.ylabel("Temperature [C]")
-
-singley()
-#dualy()
 plt.legend(loc='upper left')
 plt.show()
