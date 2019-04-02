@@ -3,7 +3,7 @@ from  matplotlib import pyplot as plt
 from numpy import *
 
 
-fname   = "./data_ground.csv"
+fname   = "./master_data.csv"
 data    = open(fname, 'r')
 labels  = []
 read    = data.readlines()
@@ -27,8 +27,8 @@ def range(n):
 # Output of the function datefromfile()
 x   = datefromfile()
 y1  = range(1)
-y2  = range(2)
-y3 	= range(3)
+y2  = range(3)
+y3 	= range(5)
 def dualy():
 	fig,ax1 = plt.subplots()
 	#plt.xlabel(labels[0])
@@ -47,17 +47,17 @@ def dualy():
 
 def singley():
 	plt.xlabel(labels[0])
-	plt.xticks(arange(0,len(x)), x, rotation=30, fontsize='small', horizontalalignment='center')
+	plt.xticks(arange(0,len(x), 7), x, rotation=30, fontsize='small', horizontalalignment='center')
 	plt.subplots_adjust(bottom=0.16)
-	plt.title("Testing plot:\nIf you can see this then it may or may not have worked")
+	plt.title("Ground Temperature")
 	# Example plot
 	plt.scatter(arange(0,len(x)),y1,color='crimson', label=labels[1])
 	plt.scatter(arange(0,len(x)),y2, color='deepskyblue', label=labels[2])
 	plt.scatter(arange(0,len(x)),y3, color='green', label=labels[3])
 
-	plt.ylabel("This thing")
+	plt.ylabel("Temperature [C]")
 
 singley()
 #dualy()
-plt.legend()
+plt.legend(loc='upper left')
 plt.show()
