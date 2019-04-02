@@ -3,11 +3,22 @@ from  matplotlib import pyplot as plt
 from numpy import *
 
 
-fname   = "./data_air.csv"
+fname   = "./master_data_overcast_omit.csv"
 data    = open(fname, 'r')
 labels  = []
 read    = data.readlines()
 # Pulls the date from the csv/txt file in the format presented in the file. (Format doesn't matter)
+# def overcast():
+# 	notovercast = []
+# 	c 		= [z.split(',') for z in read]
+# 	for j in c:
+# 		for k in range(0, 12):
+# 			if j[11] != 'overcast':
+# 				notovercast.append(j)
+# 			else:
+# 				continue
+# 	return notovercast
+# overcast = overcast()
 def datefromfile():
 	y       = [y.split(',')[0] for y in read]
 	content = [y.strip() for y in y]
@@ -24,12 +35,11 @@ def range(n):
 	del content[0]
 	y1      = array([float(y) for y in content])
 	return y1
-
 # Output of the function datefromfile()
 x   = datefromfile()
 y1  = range(2)
-y2  = range(3)
-y3 	= range(4)
+y2  = range(4)
+y3 	= range(6)
 def dualy():
 	fig,ax1 = plt.subplots()
 	#plt.xlabel(labels[0])
@@ -48,17 +58,17 @@ def dualy():
 
 def singley():
 	plt.xlabel(labels[0])
-	plt.xticks(arange(0,len(x)), x, rotation=30, fontsize='small', horizontalalignment='center')
+	plt.xticks(arange(0,len(x), 7), x, rotation=30, fontsize='small', horizontalalignment='center')
 	plt.subplots_adjust(bottom=0.16)
-	plt.title("Testing plot:\nIf you can see this then it may or may not have worked")
+	plt.title("Air Temperature")
 	# Example plot
 	plt.scatter(arange(0,len(x)),y1,color='crimson', label=labels[1])
 	plt.scatter(arange(0,len(x)),y2, color='deepskyblue', label=labels[2])
 	plt.scatter(arange(0,len(x)),y3, color='green', label=labels[3])
 
-	plt.ylabel("This thing")
+	plt.ylabel("Temperature [C]")
 
 singley()
 #dualy()
-plt.legend()
+plt.legend(loc='upper left')
 plt.show()
