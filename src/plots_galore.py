@@ -1,45 +1,50 @@
 import matplotlib
 from  matplotlib import pyplot as plt
 from numpy import *
-from scipy import optimize
 
-fname   = "./master_data_overcast_omit.csv"
+fname   = "../data/master_data.csv"
 data    = open(fname, 'r')
 labels  = []
 read    = data.readlines()
-# Pulls the date from the csv/txt file in the format presented in the file. (Format doesn't matter)
-def datefromfile():
-	y       = [y.split(',')[0] for y in read]
-	content = [y.strip() for y in y]
-	labels.append(content[0])
-	del content[0]
-	x       = content
-	return x
+def overcast():
+    overcast1 	= []
+    overcast2 	= []
+    overcast3 	= []
+    overcast4 	= []
+    overcast5 	= []
+    c 		= [z.split(',') for z in read]
+    del c[0]
+    for j in c:
+        if j[11] != 'overcast':
+            overcast1.append(j[6])
+            overcast2.append(j[7])
+            overcast3.append(j[8])
+            overcast4.append(j[9])
+            overcast5.append(j[10])
+        else:
+            continue
+    y1 = overcast1
+    y2 = overcast2
+    y3 = overcast3
+    y4 = overcast4
+    y5 = overcast5
+    return y1,y2,y3,y4,y5
 
-# Pulls columned data from file. (n) is the column number starting from 0
-def range(n):
-	y 		= [y.split(',')[n] for y in read]
-	content = [y.strip() for y in y]
-	labels.append(content[0])
-	del content[0]
-	y1      = array([float(y) for y in content])
-	return y1
+y1,y2,y3,y4,y5 = overcast()
+print("Check 1")
+x           = array([float(line) for line in y1])
+print("Check 2")
+y1_abq1     = array([float(line) for line in y2])
+print("Check 3")
+y1_abq2     = array([float(line) for line in y3])
+print("Check 4")
+y2_epz1     = array([float(line) for line in y4])
+print("Check 5")
+y2_epz2     = array([float(line) for line in y5])
 
-# Output of the function datefromfile()
-x        = range(6)
-y1_abq1  = range(7)
-y1_abq2  = range(8)
-y2_epz1  = range(9)
-y2_epz2  = range(10)
-
-y1_abq = (y1_abq1+y1_abq2)/2
-y2_epz = (y2_epz1+y2_epz2)/2
-super_avg = (y1_abq1+y1_abq2+y2_epz1+y2_epz2)/4
-
-#def test_func(x,a,b,c):
-#    return a + b * exp(-x/c)
-
-#params, params_covariance = optimize.curve_fit(test_func, x, super_avg, p0=[2,2])
+y1_abq      = (y1_abq1+y1_abq2)/2
+y2_epz      = (y2_epz1+y2_epz2)/2
+super_avg   = (y1_abq1+y1_abq2+y2_epz1+y2_epz2)/4
 
 plt.figure(1)
 plt.xlabel("Zenith Sky Temperature [C]")
