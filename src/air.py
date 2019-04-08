@@ -39,8 +39,6 @@ plt.title("Air Temperature")
 plt.scatter(arange(0,len(x)),array(range1),color='crimson', label="1610 TE")
 plt.scatter(arange(0,len(x)),array(range2),color='deepskyblue',label="FLIRi3")
 plt.scatter(arange(0,len(x)),array(range3), color='green',label="AMES")
-
 plt.ylabel("Temperature [C]")
-
 plt.legend(loc='upper left')
 plt.show()
