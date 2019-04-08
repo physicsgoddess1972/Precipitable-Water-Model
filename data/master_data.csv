@@ -1,4 +1,4 @@
-Date,1610 TE (Ground),1610 TE (Air),FLIRi3 (Ground),FLIRi3 (Air),AMES (Ground),AMES (Air),PW ABQ 12Z (5AM),PW ABQ 00Z (5 PM),PW EPZ 12Z (5AM),PW EPZ 00Z (5 PM),conditions,comments
+Date,1610 TE (Ground),1610 TE (AIr),FLIRi3 (Ground),FLIRi3 (Air),AMES (Ground),AMES (Air),PW ABQ 12Z (5AM),PW ABQ 00Z (5 PM),PW EPZ 12Z (5AM),PW EPZ 00Z (5 PM),conditions,comments
 1/22/19,7.2,-13.3,5.3,-13.2,NaN,NaN,5.93,6.15,8.14,6.17,overcast,Overcast so NaN to exclude data
 1/23/19,17,NaN,13.7,NaN,NaN,NaN,2.89,4.86,4.37,4.81,,
 1/24/19,11.2,NaN,7.2,NaN,NaN,NaN,4.73,2.95,4.76,3.15,,
@@ -68,3 +68,10 @@ Date,1610 TE (Ground),1610 TE (Air),FLIRi3 (Ground),FLIRi3 (Air),AMES (Ground),A
 3/29/19,30.7,NaN,31,NaN,32.5,-38.1,3.19,3.4,5.9,2.88,,
 3/30/19,22,NaN,21.7,NaN,22.4,-37.8,3.09,6.23,3.45,8.06,,
 3/31/19,17.4,NaN,15.7,-38.3,16.1,-23.4,8.3,9.47,10.39,7.95,overcast,Overcast so NaN to exclude data
+4/1/19,21.5,NaN,20.8,NaN,22.2,-36.4,6.07,6.84,6.81,5.24,,
+4/2/19,19.5,NaN,19.1,-30.5,19.9,-17.4,7.3,8.35,9.62,8.38,overcast,
+4/3/19,28.9,NaN,29.4,NaN,31.8,-23.3,8.14,8.54,7.96,8.02,,
+4/4/19,28,NaN,27.4,NaN,29.9,-27.1,6.82,7.96,7.99,6.78,,
+4/5/19,29.9,NaN,29.3,NaN,31.7,-20.7,6.53,8.34,9.62,11.57,,
+4/6/19,17.8,NaN,17.4,NaN,18.2,-31.1,8.98,8.78,8.81,10.98,,
+4/7/19,36.4,NaN,37.6,NaN,39.1,-22.6,9.04,6.8,12.22,8.32,,
