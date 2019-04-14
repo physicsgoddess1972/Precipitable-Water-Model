@@ -22,7 +22,7 @@ def overcast():
 	overcast3 	= []
 	overcast4 	= []
 	overcast5 	= []
-	overcast6 	= []
+#	overcast6 	= []
 	c 		= [z.split(',') for z in read]
 	del c[0]
 	for j in c:
@@ -32,7 +32,7 @@ def overcast():
 			overcast3.append(j[8])
 			overcast4.append(j[9])
 			overcast5.append(j[10])
-			overcast6.append(j[15])
+#			overcast6.append(j[15])
 		else:
 			continue
 	y1 = overcast1
@@ -40,8 +40,8 @@ def overcast():
 	y3 = overcast3
 	y4 = overcast4
 	y5 = overcast5
-	y6 = overcast6
-	return y1,y2,y3,y4,y5,y6
+#	y6 = overcast6
+	return y1,y2,y3,y4,y5
 
 ## Creates an exponential fit
 def trendline(x, input, d, e):
@@ -71,7 +71,7 @@ def trendline(x, input, d, e):
 	r2          = 1 - (ss_res/ss_tot)
 	return t, avg, yy, t1,popt,r2, residuals
 
-y1,y2,y3,y4,y5,y6 = overcast()
+y1,y2,y3,y4,y5 = overcast()
 x           = array([float(line) for line in y1])
 y1_abq1     = array([float(line) for line in y2])
 y1_abq2     = array([float(line) for line in y3])
@@ -82,7 +82,7 @@ y1_abq      = (y1_abq1+y1_abq2)/2
 y2_epz      = (y2_epz1+y2_epz2)/2
 super_avg   = (y1_abq1+y1_abq2+y2_epz1+y2_epz2)/4
 
-rel_humid 	= array([float(line) for line in y6])
+#rel_humid 	= array([float(line) for line in y6])
 
 t, avg, yy, t1,popt,r2, res = trendline(x, super_avg, 19.7, 0.0306)
 residual    = array([float(line) for line in res])
@@ -131,17 +131,17 @@ plt.xlabel("Zenith Sky Temperature [C]")
 plt.ylabel("$\sigma$")
 
 ## Analytical Solution
-PW = analytical(rel_humid, x)
+#PW = analytical(rel_humid, x)
 #t, avg, yy, t1,popt,r2, res = trendline(x, PW, 19.7,0.5)
 #
-plt.figure(5)
-plt.subplots_adjust(bottom=0.16)
-plt.scatter(x,PW,color='black')
-#plt.plot(t1, yy, color='limegreen',label=r'%2.3f $e^{%2.3f x}$' % tuple(popt))
-plt.title("Analytical Precipitable Water (Work in Progress)")
-plt.xlabel("Zenith Sky Temperature [C]")
-plt.ylabel("Precipitable Water [mm]")
-plt.legend(loc='best')
+# plt.figure(5)
+# plt.subplots_adjust(bottom=0.16)
+# plt.scatter(x,PW,color='black')
+# #plt.plot(t1, yy, color='limegreen',label=r'%2.3f $e^{%2.3f x}$' % tuple(popt))
+# plt.title("Analytical Precipitable Water (Work in Progress)")
+# plt.xlabel("Zenith Sky Temperature [C]")
+# plt.ylabel("Precipitable Water [mm]")
+# plt.legend(loc='best')
 
 ## Residual Plot for Analytical
 # plt.figure(6)
