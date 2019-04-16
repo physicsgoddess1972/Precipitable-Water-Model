@@ -21,6 +21,13 @@ def range(n):
 	del content[0]
 	y1      = array([float(y) for y in content])
 	return y1
+x 	= datefromfile()
+y1 = range(1)
+y2 = range(2)
+y3 = range(3)
+y4 = range(4)
+y5 = range(5)
+y6 = range(6)
 
 def overcast():
 	domain		= []
@@ -51,7 +58,8 @@ def overcast():
 	y6 = overcast6
 	return domain, y1,y2,y3,y4,y5,y6
 
-x,y1,y2,y3,y4,y5,y6 = overcast()
+#x,y1,y2,y3,y4,y5,y6 = overcast()
+
 ## TE Thermometer
 y1_gro  = array([float(line) for line in y1])
 y1_air  = array([float(line) for line in y2])
