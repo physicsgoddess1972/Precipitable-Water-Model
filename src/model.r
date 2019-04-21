@@ -125,6 +125,7 @@ epz = (as.numeric(y4) + as.numeric(y5))/2
 # Super Average
 avg = (abq + epz)/2
 
+# Creates legend for the PW
 legend_temp <- function(n){
 	if (n == 5){
 		legend("topright", inset=c(-0.357, 0), title="Normal",
@@ -169,11 +170,12 @@ cat(cyan(">>> Program start <<<\n"))
 cat(bold(yellow("(m)ain/(p)lots_galore/(o)ther:\n>> ")))
 input <- readLines("stdin", n=1)
 
-n <- 5
+n <- 5	# Size of window
 if (input == "m"){
 	cat(green("[1]"), "Air Temperature\n")
 	cat(green("[2]"), "Ground Temperature\n")
 	cat(green("[3]"), "Change in Temperature\n")
+
 # Air Temperature plot
 	X11(type="cairo", width=n, height=n)
 	xmin = min(as.numeric(y0), na.rm=TRUE)
@@ -241,6 +243,7 @@ if (input == "m"){
 	cat(red("[4]"), "Residual for Total Mean PW and Temperature\n")
 	cat(red("[5]"), "Logged Total Mean PW and Temperature\n")
 	cat(red("[6]"), "Residual for Logged Total Mean PW and Temperature\n")
+
 ## Individual Location plots
 	X11(type="cairo", width=n, height=n)
 	xmin  = min(as.numeric(y1), na.rm=TRUE)
@@ -283,7 +286,7 @@ if (input == "m"){
 	newx 	<- seq(-50, -10, length.out=length(y1))
 	temp 	<- data.frame(y=avg, x=as.numeric(y1))
 
-	model.0 <- lm(avg~as.numeric(newx))
+	model.0 <- lm(avg~exp(as.numeric(newx)))
 	start 	<- list(a=coef(model.0)[1], b=coef(model.0)[2])
 	model 	<- nls(y~a*exp(b*x), data=temp, start=start)
 	p 		<- coef(model)
@@ -293,14 +296,17 @@ if (input == "m"){
 		xlab="Zenith Sky Temperature [C]", ylab="PW [mm]",
 		main="Correlation between Mean\nPrecipitable Water and Temperature")
 	curve(p["a"]*exp(p["b"] * x), col="Red", add=TRUE)
+
     overview(model)
-	Predict <- predict(model, newdata = data.frame(x=newx), interval="confidence")
-    Predict.0 <- predict(model.0, newdata=data.frame(newx), interval="confidence")
-#    curve(21.2*exp(0.0353 * x), lty="dotted", add=TRUE)
+
+	Predict 	<- predict(model, 	newdata = data.frame(newx))
+    Predict.0 	<- predict(model.0, newdata = data.frame(newx), interval="confidence")
+	print(Predict.0)
+    curve(25.08*exp(0.041 * x), col="Blue", add=TRUE)
 #    curve(12.6*exp(0.0184 * x), lty="dotted", add=TRUE)
 
-#	lines(newx, Predict.0[, 2], lty="dotted")
-#	lines(newx, Predict.0[, 3], lty="dotted")
+	lines(newx, Predict.0[, 2], lty="dotted")
+	lines(newx, Predict.0[, 3], lty="dotted")
 
 	legend("topleft",
 			legend=parse(text=sprintf('%.2f*e^{%.3f*x}', p["a"],p["b"])),
@@ -328,7 +334,6 @@ if (input == "m"){
 	start 	<- list(a=coef(model.0)[1], b=coef(model.0)[2])
 	model 	<- nls(y~a+b*x, data=temp, start=start)
 	p 		<- coef(model)
-#	print(summary(model))
 
 	plot(y1, avg, col=c("blueviolet"), pch=16,
 		xlim=c(xmin, xmax), ylim=c(ymin3, ymax3),
