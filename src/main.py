@@ -6,30 +6,26 @@ fname   = "../data/master_data.csv"
 data    = open(fname, 'r')
 read    = data.readlines()
 
+
 # Pulls the date from the csv/txt file in the format presented in the file. (Format doesn't matter)
 def datefromfile():
-	y       = [y.split(',')[0] for y in read]
+	y = [y.split(',')[0] for y in read]
 	content = [y.strip() for y in y]
 	del content[0]
-	x       = content
+	x = content
 	return x
+
 
 # Pulls columned data from file. (n) is the column number starting from 0
 def range(n):
-	y 		= [y.split(',')[n] for y in read]
+	y = [y.split(',')[n] for y in read]
 	content = [y.strip() for y in y]
 	del content[0]
-	y1      = array([float(y) for y in content])
+	y1 = array([float(y) for y in content])
 	return y1
-x 	= datefromfile()
-y1 = range(1)
-y2 = range(2)
-y3 = range(3)
-y4 = range(4)
-y5 = range(5)
-y6 = range(6)
 
-def overcast():
+
+def filter():
 	domain		= []
 	overcast1 	= []
 	overcast2 	= []
@@ -58,8 +54,19 @@ def overcast():
 	y6 = overcast6
 	return domain, y1,y2,y3,y4,y5,y6
 
-#x,y1,y2,y3,y4,y5,y6 = overcast()
+def no_filter():
+	x 	= datefromfile()
+	y1 = range(1)
+	y2 = range(2)
+	y3 = range(3)
+	y4 = range(4)
+	y5 = range(5)
+	y6 = range(6)
+	return x,y1,y2,y3,y4,y5,y6
 
+x,y1,y2,y3,y4,y5,y6 = filter()
+x,y1,y2,y3,y4,y5,y6 = no_filter()
+#x,y1,y2,y3,y4,y5,y6 = filter()
 ## TE Thermometer
 y1_gro  = array([float(line) for line in y1])
 y1_air  = array([float(line) for line in y2])
