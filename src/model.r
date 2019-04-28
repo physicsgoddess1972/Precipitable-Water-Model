@@ -132,6 +132,40 @@ avg = (abq + epz)/2
 # write.csv(yup, file="data.csv", row.names=FALSE)
 
 # Creates legend for the PW
+sav_legend_temp <- function(n){
+	if (n == 5){
+		legend("topright", inset=c(-0.21, 0), title="Normal",
+				legend=c("AMES", "FLIRi3", "1610 TE"),
+				col=c("green4", "blue", "red"),
+				pch=c(16,16, 16))
+		legend("topright", inset=c(-0.21, 0.4), title="Overcast",
+				legend=c("AMES", "FLIRi3", "1610 TE"),
+				col=c("magenta", "goldenrod", "brown"),
+				pch=c(15,15,15))
+	}
+	if (n == 6){
+		legend("topright", inset=c(-0.265, 0), title="Normal",
+				legend=c("AMES", "FLIRi3", "1610 TE"),
+				col=c("green4", "blue", "red"),
+				pch=c(16,16, 16))
+		legend("topright", inset=c(-0.265, 0.4), title="Overcast",
+				legend=c("AMES", "FLIRi3", "1610 TE"),
+				col=c("magenta", "goldenrod", "brown"),
+				pch=c(15,15,15))
+
+	}
+	if (n == 7){
+		legend("topright", inset=c(-0.212, 0), title="Normal",
+				legend=c("AMES", "FLIRi3", "1610 TE"),
+				col=c("green4", "blue", "red"),
+				pch=c(16,16, 16))
+		legend("topright", inset=c(-0.212, 0.4), title="Overcast",
+				legend=c("AMES", "FLIRi3", "1610 TE"),
+				col=c("magenta", "goldenrod", "brown"),
+				pch=c(15,15,15))
+	}
+}
+
 legend_temp <- function(n){
 	if (n == 5){
 		legend("topright", inset=c(-0.357, 0), title="Normal",
@@ -181,9 +215,14 @@ if (input == "m"){
 	cat(green("[2]"), "Ground Temperature\n")
 	cat(green("[3]"), "Change in Temperature\n")
 
+	pdf('main.pdf')
 # Air Temperature plot
+<<<<<<< HEAD
 	X11(type="cairo", width=n, height=n)
 #	pdf('air_temp.pdf')
+=======
+	#X11(type="cairo", width=n, height=n)
+>>>>>>> d52898a1384ee686bc8ed14cd8ceb9b8ab5d2304
 	xmin = min(as.numeric(y0), na.rm=TRUE)
 	xmax = max(as.numeric(y0), na.rm=TRUE)
 	ymax = max(as.numeric(y9), as.numeric(y7), as.numeric(y1),
@@ -201,11 +240,15 @@ if (input == "m"){
 	points(y0o, y9o, pch=15, col=c("goldenrod"))
 	points(y0o, y7o, pch=15, col=c("brown"))
 
+<<<<<<< HEAD
 	legend_temp(n)
 #	dev.off()
+=======
+	sav_legend_temp(n)
+>>>>>>> d52898a1384ee686bc8ed14cd8ceb9b8ab5d2304
 
 ## Ground Temperature plot
-	X11(type="cairo", width=n, height=n)
+	#X11(type="cairo", width=n, height=n)
 	ymax  = max(as.numeric(y10), as.numeric(y8), as.numeric(y6),
 		as.numeric(y6o),as.numeric(y8o),as.numeric(y10o),na.rm=TRUE)
 	ymin  = min(as.numeric(y10), as.numeric(y8), as.numeric(y6),
@@ -221,10 +264,10 @@ if (input == "m"){
 	points(y0o, y8o, pch=15, col=c("goldenrod"))
 	points(y0o, y6o, pch=15, col=c("brown"))
 
-	legend_temp(n)
+	sav_legend_temp(n)
 
 ## Delta T plot
-	X11(type="cairo", width=n, height=n)
+	#X11(type="cairo", width=n, height=n)
 	par(mar=c(5.1, 5.1, 5.1, 5.3), xpd=TRUE)
 	ymax = max(as.numeric(d_flir), as.numeric(d_ames), as.numeric(d_te),
 		as.numeric(d_fliro),as.numeric(d_ameso),as.numeric(d_teo),na.rm=TRUE)
@@ -240,8 +283,8 @@ if (input == "m"){
 	points(y0o, d_fliro, pch=15, col=c("goldenrod"))
 	points(y0o, d_teo, pch=15, col=c("brown"))
 
-	legend_temp(n)
-
+	sav_legend_temp(n)
+	dev.off()
 	continue_input()
 } else if (input == "p"){
 	cat(green("[1]"), "Individual Location PW and Temperature\n")
@@ -251,8 +294,9 @@ if (input == "m"){
 	cat(red("[5]"), "Logged Total Mean PW and Temperature\n")
 	cat(red("[6]"), "Residual for Logged Total Mean PW and Temperature\n")
 
+	pdf('plots_galore.pdf')
 ## Individual Location plots
-	X11(type="cairo", width=n, height=n)
+	#X11(type="cairo", width=n, height=n)
 	xmin  = min(as.numeric(y1), na.rm=TRUE)
 	xmax  = max(as.numeric(y1), na.rm=TRUE)
 	ymax1 = max(as.numeric(y3), as.numeric(y4), as.numeric(y5), na.rm=TRUE)
@@ -271,7 +315,7 @@ if (input == "m"){
 			pch=c(16,16))
 
 ## Locational Average Plots
-	X11(type="cairo", width=n, height=n)
+	#X11(type="cairo", width=n, height=n)
 	ymax2 = max(abq, epz, na.rm=TRUE)
 	ymin2 = min(abq, epz, na.rm=TRUE)
 	plot(y1, abq, col=c("gold2"), pch=16,
@@ -285,7 +329,7 @@ if (input == "m"){
 			pch=c(16))
 
 ## Super Average Plot with exponential fit
-	X11(type="cairo", width=n, height=n)
+	#X11(type="cairo", width=n, height=n)
 	avg <- log(avg, base=exp(1))
 
 	ymax3 = max(exp(avg), na.rm=TRUE)
@@ -317,17 +361,20 @@ if (input == "m"){
 			,col=c("Green"), pch="-")
 
 ## Residual Plot
-	X11(type="cairo", width=n, height=n)
+	#X11(type="cairo", width=n, height=n)
 	residual = resid(model)
 	plot(residual, col=c("royalblue"), pch=16,
 		xlab="Zenith Sky Temperature [C]", ylab=expression(sigma),
 		main="Residual Plot for the Mean Precipitable\nWater and Temperature")
 
-continue_input()
+	dev.off()
+	continue_input()
+
 } else if (input == "o"){
 	cat(green("[1]"), "Overcast Condition Percentage\n")
 
-	X11(type="cairo", width=n, height=n)
+	#X11(type="cairo", width=n, height=n)
+	pdf('other.pdf')
 	par(mar=c(5.1, 5.1, 5.1, 5.3), xpd=TRUE)
 	norm 	<- list()
 	norm_na <- list()
@@ -353,8 +400,9 @@ continue_input()
 	slices 	<- c(length(norm), length(norm_na),
 				 length(over), length(over_na))
 
-	title 	<- c("Normal\t\t", "Normal NaN\t",
-				 "Overcast\t\t", "Overcast NaN")
+	title 	<- c("Normal          ", "Normal NaN  ",
+				 "Overcast        ", "Overcast NaN")
+
 	color 	<- c("paleturquoise", "deepskyblue", "plum", "magenta")
 
 	pct 	<- round(slices/sum(slices)*100)
@@ -364,13 +412,13 @@ continue_input()
 	pie(slices, labels=lbls, main="Overcast Condition Percentage",
 	col=color, cex=0.8)
 
-	lbls 	<- paste(title, "\tSample Size:", slices)
-	legend("bottomleft", lbls, cex=0.8, inset=c(-0.3,-0.3),
-			fill=color)
+	lbls 	<- paste(title, "   | Sample Size:", slices)
+	legend("bottomleft", lbls, cex=0.8, inset=c(-0.1,-0.1),
+			fill=color, text.width= strwidth(title)[1]*2.3)
 
 	#pie3D(slices, explode=0.1, labels=lbls, main="Overcast Condition Percentage",
 	# col=c("plum","paleturquoise"))
-
+	dev.off()
 	continue_input()
 
 } else {
