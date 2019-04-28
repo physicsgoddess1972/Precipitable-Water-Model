@@ -112,7 +112,7 @@ y4o     <- array(t(overcast$y4o))    # PW for EPZ @ 12Z
 y5o     <- array(t(overcast$y5o))    # PW for EPZ @ 00Z
 
 y6o      <- array(t(overcast$y6o))    # Ground Temp 1610 TE
-y7o    git a  <- array(t(overcast$y7o))    # Air Temp 1610 TE
+y7o     <- array(t(overcast$y7o))    # Air Temp 1610 TE
 y8o      <- array(t(overcast$y8o))    # Ground Temp FLIRi3
 y9o      <- array(t(overcast$y9o))    # Air Temp FLIRi3
 y10o     <- array(t(overcast$y10o))   # Ground Temp AMES
@@ -183,7 +183,7 @@ if (input == "m"){
 
 # Air Temperature plot
 	X11(type="cairo", width=n, height=n)
-	pdf('air_temp.pdf')
+#	pdf('air_temp.pdf')
 	xmin = min(as.numeric(y0), na.rm=TRUE)
 	xmax = max(as.numeric(y0), na.rm=TRUE)
 	ymax = max(as.numeric(y9), as.numeric(y7), as.numeric(y1),
@@ -202,7 +202,7 @@ if (input == "m"){
 	points(y0o, y7o, pch=15, col=c("brown"))
 
 	legend_temp(n)
-	dev.off()
+#	dev.off()
 
 ## Ground Temperature plot
 	X11(type="cairo", width=n, height=n)
