@@ -4,34 +4,37 @@
 library(tcltk)
 library(tkrplot)
 library(nlstools)
+#library(plotrix)
 library(crayon)
 # Imports data from master_data.csv
 fname       <- read.csv(file="../data/master_data.csv", sep=",")
+# Size of window
+n <- 5
 # Filters out data with overcast condition
 overcast <- function(){
-	overcast0 <- list()
-	overcast1 <- list()
-	overcast2 <- list()
-	overcast3 <- list()
-	overcast4 <- list()
-	overcast5 <- list()
-	overcast6 <- list()
-	overcast7 <- list()
-	overcast8 <- list()
-	overcast9 <- list()
-	overcast10 <- list()
-	overcast11 <- list()
+	overcast0 	<- list()
+	overcast1 	<- list()
+	overcast2 	<- list()
+	overcast3 	<- list()
+	overcast4 	<- list()
+	overcast5 	<- list()
+	overcast6 	<- list()
+	overcast7 	<- list()
+	overcast8 	<- list()
+	overcast9 	<- list()
+	overcast10 	<- list()
+	overcast11 	<- list()
 
-	overcast0o <- list()
-	overcast1o <- list()
-	overcast2o <- list()
-	overcast3o <- list()
-	overcast4o <- list()
-	overcast5o <- list()
-	overcast6o <- list()
-	overcast7o <- list()
-	overcast8o <- list()
-	overcast9o <- list()
+	overcast0o 	<- list()
+	overcast1o 	<- list()
+	overcast2o 	<- list()
+	overcast3o 	<- list()
+	overcast4o 	<- list()
+	overcast5o 	<- list()
+	overcast6o 	<- list()
+	overcast7o 	<- list()
+	overcast8o 	<- list()
+	overcast9o 	<- list()
 	overcast10o <- list()
 	overcast11o <- list()
 
@@ -109,13 +112,13 @@ y4o     <- array(t(overcast$y4o))    # PW for EPZ @ 12Z
 y5o     <- array(t(overcast$y5o))    # PW for EPZ @ 00Z
 
 y6o      <- array(t(overcast$y6o))    # Ground Temp 1610 TE
-y7o      <- array(t(overcast$y7o))    # Air Temp 1610 TE
+y7o    git a  <- array(t(overcast$y7o))    # Air Temp 1610 TE
 y8o      <- array(t(overcast$y8o))    # Ground Temp FLIRi3
 y9o      <- array(t(overcast$y9o))    # Air Temp FLIRi3
 y10o     <- array(t(overcast$y10o))   # Ground Temp AMES
 
-d_ameso  <- as.numeric(y10o) - as.numeric(y1o) # Change in Temp for Ames
-d_fliro  <- as.numeric(y8o) - as.numeric(y9o) # Change in temp fot FLIRi3
+d_ameso  <- as.numeric(y10o) - as.numeric(y1o) 	# Change in Temp for Ames
+d_fliro  <- as.numeric(y8o) - as.numeric(y9o) 	# Change in temp fot FLIRi3
 d_teo    <- as.numeric(y6o) - as.numeric(y7o)	# Change in temp for 1610 Temperature
 
 # ABQ average
@@ -124,6 +127,9 @@ abq = (as.numeric(y2) + as.numeric(y3))/2
 epz = (as.numeric(y4) + as.numeric(y5))/2
 # Super Average
 avg = (abq + epz)/2
+
+# yup = data.frame(x=as.numeric(y1), y=array(avg))
+# write.csv(yup, file="data.csv", row.names=FALSE)
 
 # Creates legend for the PW
 legend_temp <- function(n){
@@ -134,7 +140,7 @@ legend_temp <- function(n){
 				pch=c(16,16, 16))
 		legend("topright", inset=c(-0.357, 0.4), title="Overcast",
 				legend=c("AMES", "FLIRi3", "1610 TE"),
-				col=c("green4", "blue", "red"),
+				col=c("magenta", "goldenrod", "brown"),
 				pch=c(15,15,15))
 	}
 	if (n == 6){
@@ -144,7 +150,7 @@ legend_temp <- function(n){
 				pch=c(16,16, 16))
 		legend("topright", inset=c(-0.265, 0.4), title="Overcast",
 				legend=c("AMES", "FLIRi3", "1610 TE"),
-				col=c("green4", "blue", "red"),
+				col=c("magenta", "goldenrod", "brown"),
 				pch=c(15,15,15))
 
 	}
@@ -155,7 +161,7 @@ legend_temp <- function(n){
 				pch=c(16,16, 16))
 		legend("topright", inset=c(-0.212, 0.4), title="Overcast",
 				legend=c("AMES", "FLIRi3", "1610 TE"),
-				col=c("green4", "blue", "red"),
+				col=c("magenta", "goldenrod", "brown"),
 				pch=c(15,15,15))
 	}
 }
@@ -170,7 +176,6 @@ cat(cyan(">>> Program start <<<\n"))
 cat(bold(yellow("(m)ain/(p)lots_galore/(o)ther:\n>> ")))
 input <- readLines("stdin", n=1)
 
-n <- 5	# Size of window
 if (input == "m"){
 	cat(green("[1]"), "Air Temperature\n")
 	cat(green("[2]"), "Ground Temperature\n")
@@ -178,6 +183,7 @@ if (input == "m"){
 
 # Air Temperature plot
 	X11(type="cairo", width=n, height=n)
+	pdf('air_temp.pdf')
 	xmin = min(as.numeric(y0), na.rm=TRUE)
 	xmax = max(as.numeric(y0), na.rm=TRUE)
 	ymax = max(as.numeric(y9), as.numeric(y7), as.numeric(y1),
@@ -191,11 +197,12 @@ if (input == "m"){
 		xlim=c(xmin, xmax), ylim=c(ymin, ymax))
 	points(y0, y9, col=c("blue"), pch=16)
 	points(y0, y7, col=c("red"), pch=16)
-	points(y0o, y1o, pch=15, col=c("green4"))
-	points(y0o, y9o, pch=15, col=c("blue"))
-	points(y0o, y7o, pch=15, col=c("red"))
+	points(y0o, y1o, pch=15, col=c("magenta"))
+	points(y0o, y9o, pch=15, col=c("goldenrod"))
+	points(y0o, y7o, pch=15, col=c("brown"))
 
 	legend_temp(n)
+	dev.off()
 
 ## Ground Temperature plot
 	X11(type="cairo", width=n, height=n)
@@ -210,9 +217,9 @@ if (input == "m"){
 		xlim=c(xmin, xmax), ylim=c(ymin, ymax))
 	points(y0, y8,col=c("blue"), pch=16)
 	points(y0, y6,col=c("red"), pch=16)
-	points(y0o, y10o, pch=15, col=c("green4"))
-	points(y0o, y8o, pch=15, col=c("blue"))
-	points(y0o, y6o, pch=15, col=c("red"))
+	points(y0o, y10o, pch=15, col=c("magenta"))
+	points(y0o, y8o, pch=15, col=c("goldenrod"))
+	points(y0o, y6o, pch=15, col=c("brown"))
 
 	legend_temp(n)
 
@@ -229,9 +236,9 @@ if (input == "m"){
 		main="Change in Temperature between Air and Ground", pch=16)
 	points(y0, d_flir, col=c("blue"), pch=16)
 	points(y0, d_te, col=c("red"), pch=16)
-	points(y0o, d_ameso, pch=15, col=c("green4"))
-	points(y0o, d_fliro, pch=15, col=c("blue"))
-	points(y0o, d_teo, pch=15, col=c("red"))
+	points(y0o, d_ameso, pch=15, col=c("magenta"))
+	points(y0o, d_fliro, pch=15, col=c("goldenrod"))
+	points(y0o, d_teo, pch=15, col=c("brown"))
 
 	legend_temp(n)
 
@@ -279,38 +286,35 @@ if (input == "m"){
 
 ## Super Average Plot with exponential fit
 	X11(type="cairo", width=n, height=n)
-	ymax3 = max(avg, na.rm=TRUE)
-	ymin3 = min(avg, na.rm=TRUE)
+	avg <- log(avg, base=exp(1))
+
+	ymax3 = max(exp(avg), na.rm=TRUE)
+	ymin3 = min(exp(avg), na.rm=TRUE)
+
+	xmin 	= min(as.numeric(y1), na.rm=TRUE)
+	xmax 	= max(as.numeric(y1), na.rm=TRUE)
 
 # Non-linear model (exponential)
-	newx 	<- seq(-50, -10, length.out=length(y1))
+	newx 	<- seq(xmin, xmax, length.out=length(y1))
 	temp 	<- data.frame(y=avg, x=as.numeric(y1))
 
-	model.0 <- lm(avg~exp(as.numeric(newx)))
+	model.0 <- lm(avg~as.numeric(newx))
 	start 	<- list(a=coef(model.0)[1], b=coef(model.0)[2])
-	model 	<- nls(y~a*exp(b*x), data=temp, start=start)
+	model	<- nls(y~a+b*x, data=temp, start=start)
+
+#	print(overview(model))
 	p 		<- coef(model)
 
-	plot(temp$x, temp$y, col=c("blueviolet"), pch=16,
+	plot(temp$x,exp(avg), col=c("blueviolet"), pch=16,
 		xlim=c(xmin, xmax), ylim=c(ymin3, ymax3),
 		xlab="Zenith Sky Temperature [C]", ylab="PW [mm]",
 		main="Correlation between Mean\nPrecipitable Water and Temperature")
-	curve(p["a"]*exp(p["b"] * x), col="Red", add=TRUE)
 
-    overview(model)
-
-	Predict 	<- predict(model, 	newdata = data.frame(newx))
-    Predict.0 	<- predict(model.0, newdata = data.frame(newx), interval="confidence")
-	print(Predict.0)
-    curve(25.08*exp(0.041 * x), col="Blue", add=TRUE)
-#    curve(12.6*exp(0.0184 * x), lty="dotted", add=TRUE)
-
-	lines(newx, Predict.0[, 2], lty="dotted")
-	lines(newx, Predict.0[, 3], lty="dotted")
+	curve(exp(p["a"]+p["b"] * x), col="Green", add=TRUE)
 
 	legend("topleft",
-			legend=parse(text=sprintf('%.2f*e^{%.3f*x}', p["a"],p["b"])),
-			,col=c("Red"), pch="-")
+			legend=parse(text=sprintf('%.2f*e^{%.3f*x}', exp(p["a"]),p["b"])),
+			,col=c("Green"), pch="-")
 
 ## Residual Plot
 	X11(type="cairo", width=n, height=n)
@@ -319,40 +323,56 @@ if (input == "m"){
 		xlab="Zenith Sky Temperature [C]", ylab=expression(sigma),
 		main="Residual Plot for the Mean Precipitable\nWater and Temperature")
 
-## Logged Super Average
-	X11(type="cairo", width=n, height=n)
-	avg <- log(avg, base=exp(1))
-	ymax3 = max(avg, na.rm=TRUE)
-	ymin3 = min(avg, na.rm=TRUE)
-    xmin3 = min(as.numeric(y1), na.rm=TRUE)
-
-# linear model (logged)
-	newx 	<- seq(xmin3,-5, length.out=length(y1))
-	temp 	<- data.frame(y=avg, x=as.numeric(y1))
-
-	model.0 <- lm(avg~as.numeric(newx))
-	start 	<- list(a=coef(model.0)[1], b=coef(model.0)[2])
-	model 	<- nls(y~a+b*x, data=temp, start=start)
-	p 		<- coef(model)
-
-	plot(y1, avg, col=c("blueviolet"), pch=16,
-		xlim=c(xmin, xmax), ylim=c(ymin3, ymax3),
-		xlab="Zenith Sky Temperature [C]", ylab="PW [mm]",
-		main="Correlation between Logged Mean\nPrecipitable Water and Temperature")
-	curve(p[1] + (p[2] * x), col="Red", add=TRUE)
-	Predict <- predict(model.0, newdata = data.frame(x=newx), interval="confidence")
-
-	lines(newx, Predict[, 1], col="Blue")
-	lines(newx, Predict[, 2], lty="dotted")
-	lines(newx, Predict[, 3], lty="dotted")
-
-	legend("topleft",
-			legend=parse(text=sprintf('%.2f+%.3f*x', p[1],p[2])),
-			,col=c("Red"), pch="-")
-
 continue_input()
 } else if (input == "o"){
-	cat(red("!?! No plots in this category !?!\n"))
+	cat(green("[1]"), "Overcast Condition Percentage\n")
+
+	X11(type="cairo", width=n, height=n)
+	par(mar=c(5.1, 5.1, 5.1, 5.3), xpd=TRUE)
+	norm 	<- list()
+	norm_na <- list()
+	over 	<- list()
+	over_na <- list()
+
+	for(k in y1o){
+		if(is.na(k)){
+			over_na 	<- append(over_na, k)
+		}else if(!is.na(k)){
+			over		<- append(over, k)
+		}
+
+	}
+	for(k in y1){
+		if(is.na(k)){
+			norm_na 	<- append(norm_na, k)
+		}else if(!is.na(k)){
+			norm		<- append(norm, k)
+		}
+
+	}
+	slices 	<- c(length(norm), length(norm_na),
+				 length(over), length(over_na))
+
+	title 	<- c("Normal\t\t", "Normal NaN\t",
+				 "Overcast\t\t", "Overcast NaN")
+	color 	<- c("paleturquoise", "deepskyblue", "plum", "magenta")
+
+	pct 	<- round(slices/sum(slices)*100)
+	lbls 	<- paste(pct)
+	lbls 	<- paste(lbls, "%", sep="")
+
+	pie(slices, labels=lbls, main="Overcast Condition Percentage",
+	col=color, cex=0.8)
+
+	lbls 	<- paste(title, "\tSample Size:", slices)
+	legend("bottomleft", lbls, cex=0.8, inset=c(-0.3,-0.3),
+			fill=color)
+
+	#pie3D(slices, explode=0.1, labels=lbls, main="Overcast Condition Percentage",
+	# col=c("plum","paleturquoise"))
+
+	continue_input()
+
 } else {
 	cat(red(bold("!!! Invalid Selection !!!\n")))
 }
