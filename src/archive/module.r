@@ -1,6 +1,6 @@
 library(crayon)
 # Imports data from master_data.csv
-fname       <- read.csv(file="./data.csv", sep=" ")
+fname       <- read.csv(file="../../data/data.dat", sep=" ", header=FALSE)
 
 datax   <- array(t(fname[1]))
 datay   <- array(t(fname[2]))
