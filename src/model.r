@@ -217,12 +217,7 @@ if (input == "m"){
 
 	pdf('main.pdf')
 # Air Temperature plot
-<<<<<<< HEAD
-	X11(type="cairo", width=n, height=n)
-#	pdf('air_temp.pdf')
-=======
 	#X11(type="cairo", width=n, height=n)
->>>>>>> d52898a1384ee686bc8ed14cd8ceb9b8ab5d2304
 	xmin = min(as.numeric(y0), na.rm=TRUE)
 	xmax = max(as.numeric(y0), na.rm=TRUE)
 	ymax = max(as.numeric(y9), as.numeric(y7), as.numeric(y1),
@@ -240,12 +235,8 @@ if (input == "m"){
 	points(y0o, y9o, pch=15, col=c("goldenrod"))
 	points(y0o, y7o, pch=15, col=c("brown"))
 
-<<<<<<< HEAD
-	legend_temp(n)
 #	dev.off()
-=======
 	sav_legend_temp(n)
->>>>>>> d52898a1384ee686bc8ed14cd8ceb9b8ab5d2304
 
 ## Ground Temperature plot
 	#X11(type="cairo", width=n, height=n)
