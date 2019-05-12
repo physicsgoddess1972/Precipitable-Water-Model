@@ -590,7 +590,7 @@ if (args$data){
 
 	data 	<- data.frame(list(air_temp=c(x), pw=c(y)))
 	tmp 	<- gsub("/", "_", recent)
-	sname 	<- sprintf("~Downloads/trendline_verify_%s.csv", tmp)
+	sname 	<- sprintf("~/Downloads/trendline_verify_%s.csv", tmp)
 
 	write.csv(data, file=sname, row.names=FALSE)
 	cat(green("Data sent to data.csv\n"))
