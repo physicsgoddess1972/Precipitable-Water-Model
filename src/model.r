@@ -12,18 +12,19 @@ library(crayon)
 parser <- ArgumentParser()
 parser$add_argument("--save", action="store_true", default=FALSE,
 	help="Saves plots")
-parser$add_argument("--show", action="store_true", default=TRUE,
- 	help="Shows plots [default]")
 parser$add_argument("--opt", type="character", default=FALSE,
 	help="Select plot sets: (m)ain/(p)lots_galore/(o)ther")
 parser$add_argument("--poster", action="store_true", default=FALSE,
 	help="Produces poster plots")
 parser$add_argument("--dev", action="store_true", default=FALSE,
 	help="Development plots")
+parser$add_argument("--data", action="store_true", default=FALSE,
+	help="Produces two columned datset including mean temp and PW")
 args <- parser$parse_args()
-
 ## Imports data from master_data.csv
 fname       <- read.csv(file="../data/master_data.csv", sep=",")
+date 		<- fname[1]
+recent 		<- t(date)[length(t(date))]
 ## Size of window
 n <- 5
 ## Filters out data with overcast condition
@@ -128,7 +129,7 @@ y4o     <- array(t(overcast$y4o))    # PW for EPZ @ 12Z
 y5o     <- array(t(overcast$y5o))    # PW for EPZ @ 00Z
 
 y6o      <- array(t(overcast$y6o))    # Ground Temp 1610 TE
-y7o     <- array(t(overcast$y7o))    # Air Temp 1610 TE
+y7o      <- array(t(overcast$y7o))    # Air Temp 1610 TE
 y8o      <- array(t(overcast$y8o))    # Ground Temp FLIRi3
 y9o      <- array(t(overcast$y9o))    # Air Temp FLIRi3
 y10o     <- array(t(overcast$y10o))   # Ground Temp AMES
@@ -143,9 +144,6 @@ abq = (as.numeric(y2) + as.numeric(y3))/2
 epz = (as.numeric(y4) + as.numeric(y5))/2
 ## Super Average
 avg = (abq + epz)/2
-
-# yup = data.frame(x=as.numeric(y1), y=array(avg))
-# write.csv(yup, file="data.csv", row.names=FALSE)
 
 ## A function that will produce popups through the x11 framework
 show <- function(...){
@@ -421,41 +419,72 @@ plots4 <- function(...){
 ## Overcast Condition Percentage
 other1 <- function(...){
 	par(mar=c(7.1, 7.1, 7.1, 1.3), xpd=TRUE)
-	norm 	<- list()
-	norm_na <- list()
-	over 	<- list()
-	over_na <- list()
 
-	for(k in y1o){
-		if(is.na(k)){
-			over_na 	<- append(over_na, k)
-		}else if(!is.na(k)){
-			over		<- append(over, k)
-		}
+	pw_nan 		<- which(avg %in% NaN)
+	norm 		<- y1[-c(pw_nan)]
+	over 		<- y1o[-c(pw_nan)]
 
-	}
-	for(k in y1){
-		if(is.na(k)){
-			norm_na 	<- append(norm_na, k)
-		}else if(!is.na(k)){
-			norm		<- append(norm, k)
-		}
+	pw_norm_na 	<- length(y1) - length(norm)
+	pw_over_na 	<- length(y1o) - length(over)
 
-	}
-	slices 	<- c(length(norm), length(over), length(norm_na), length(over_na))
+	norm_na 	<- which(norm %in% NaN)
+	over_na 	<- which(over %in% NaN)
 
+	norm 		<- norm[-c(norm_na)]
+	over 		<- over[-c(over_na)]
+
+	tot_norm_na <- length(norm_na) + pw_norm_na
+	tot_over_na <- length(over_na) + pw_over_na
+
+	slices 	<- c(length(norm), length(over), tot_norm_na, tot_over_na)
 	title 	<- c("Normal","Overcast", "Normal NaN", "Overcast NaN")
 
 	color 	<- c("paleturquoise", "plum", "deepskyblue", "magenta")
 	bar <- barplot(rev(slices), names.arg=rev(title), col=rev(color),
-	horiz=TRUE, las=1,xlab="Samples", axes=FALSE, main="Overcast Condition Percentage")
-	axis(side = 1, at = slices, labels=TRUE)
-#		abline(v=3)
+	horiz=TRUE, las=1,xlab="Samples",
+	axes=FALSE, main="Overcast Condition Percentage")
+
+	axis(side = 1, at = slices, labels=TRUE, las=2)
+
 	pct 	<- round(rev(slices)/sum(rev(slices))*100)
 	lbls 	<- paste(" ",pct)
 	lbls 	<- paste(lbls, "%", sep="")
 
 	text(0, bar, lbls, cex=1, pos=4)
+}
+other2 <- function(...){
+	par(mar=c(1.1, 1.1, 1.1, 1.3), xpd=TRUE)
+	pw_nan 		<- which(avg %in% NaN)
+	norm 		<- y1[-c(pw_nan)]
+	over 		<- y1o[-c(pw_nan)]
+
+	pw_norm_na 	<- length(y1) - length(norm)
+	pw_over_na 	<- length(y1o) - length(over)
+
+	norm_na 	<- which(norm %in% NaN)
+	over_na 	<- which(over %in% NaN)
+
+	norm 		<- norm[-c(norm_na)]
+	over 		<- over[-c(over_na)]
+
+	tot_norm_na <- length(norm_na) + pw_norm_na
+	tot_over_na <- length(over_na) + pw_over_na
+
+	slices 	<- c(length(norm), length(over), tot_norm_na, tot_over_na)
+
+	title 	<- c("Normal\t\t","Overcast\t\t", "Normal NaN\t", "Overcast NaN\t")
+
+	color 	<- c("paleturquoise", "plum", "deepskyblue", "magenta")
+	pct 	<- round(slices/sum(slices)*100)
+	lbls 	<- paste(" ", pct)
+	lbls	<- paste(lbls, "%", sep="")
+
+	pie3D(slices, explode=0.07, labels=lbls, main="Overcast Condition Percentage",
+		col=color)
+
+	lbls 	<- paste(title, "|\tSample Size:", slices)
+	legend("bottomleft", lbls, cex=0.8, inset=c(-0.1, -0.1), fill=color,
+			text.width=strwidth(title)[1]*2)
 }
 
 ## Pacman Residual Plot
@@ -513,11 +542,6 @@ poster1 <- function(legend){
 		points(y0o, y1o, pch=15, col=c("magenta"))
 		points(y0o, y9o, pch=15, col=c("goldenrod"))
 		points(y0o, y7o, pch=15, col=c("brown"))
-		# if (legend == "save"){
-		#     save_legend(n)
-		# }else if(legend == "show"){
-		#     show_legend(n)
-		# }
 
 ## Ground Temperature plot
 		xmin = min(as.numeric(y0), na.rm=TRUE)
@@ -535,11 +559,6 @@ poster1 <- function(legend){
 		points(y0o, y10o, pch=15, col=c("magenta"))
 		points(y0o, y8o, pch=15, col=c("goldenrod"))
 		points(y0o, y6o, pch=15, col=c("brown"))
-		# if (legend == "save"){
-		#     save_legend(n)
-		# }else if(legend == "show"){
-		#     show_legend(n)
-		# }
 
 ## Delta T plot
 		xmin = min(as.numeric(y0), na.rm=TRUE)
@@ -557,21 +576,39 @@ poster1 <- function(legend){
 		points(y0o, d_ameso, pch=15, col=c("magenta"))
 		points(y0o, d_fliro, pch=15, col=c("goldenrod"))
 		points(y0o, d_teo, pch=15, col=c("brown"))
-		# if (legend == "save"){
-		#     save_legend(n)
-		# }else if(legend == "show"){
-		#     show_legend(n)
-		# }
 	}
+if (args$data){
+	norm  <- data.frame(list(x=as.numeric(y1), y=avg))
+	y_nan <- which(avg %in% NaN)
+	x_nan <- which(y1 %in% NaN)
 
+	norm <- norm[-c(y_nan), ]
+	norm <- norm[-c(x_nan), ]
+
+	x <- norm$x
+	y <- norm$y
+
+	data 	<- data.frame(list(air_temp=c(x), pw=c(y)))
+	tmp 	<- gsub("/", "_", recent)
+	sname 	<- sprintf("~Downloads/trendline_verify_%s.csv", tmp)
+
+	write.csv(data, file=sname, row.names=FALSE)
+	cat(green("Data sent to data.csv\n"))
+}
 if (args$opt == "m"){
 ## Plots avaiable with this option
-	cat(green("[1]"), "Air Temperature\n")
-	cat(green("[2]"), "Ground Temperature\n")
-	cat(green("[3]"), "Change in Temperature\n")
+	cat(green("[1]"), "Air Temperature Time Series\n")
+	cat(green("[2]"), "Ground Temperature Time Series\n")
+	cat(green("[3]"), "Change in Temperature Time Series\n")
 
 ## Shows plots
 	show(main1, main2, main3)
+## Saves plots
+	if (args$save){
+		tmp <- gsub("/", "_", recent)
+		sname <- sprintf("~/Downloads/main_%s.pdf", tmp)
+		save(c(main1("save"),main2("save"), main3("save")), sname)
+	}
 
 }else if (args$opt == "p"){
 ## Plots avaiable with this option
@@ -582,34 +619,49 @@ if (args$opt == "m"){
 
 ## Shows plots
 	show(plots1, plots2, plots3, plots4)
-
+## Saves plots
+	if (args$save){
+		tmp <- gsub("/", "_", recent)
+		sname <- sprintf("~/Downloads/plots_galore_%s.pdf", tmp)
+		save(c(plots1(), plots2(), plots3(), plots4()), sname)
+	}
 }else if (args$opt == "o"){
 ## Plots avaiable with this option
-	cat(green("[1]"), "Overcast Condition Percentage\n")
-## Shows plots
-	show(other1)
+	cat(green("[1]"), "Overcast Condition Percentage (Bar)\n")
+	cat(green("[2]"), "Overcast Condition Percentage (Pie)\n")
+
+	## Shows plots
+	show(other1, other2)
+## Saves plots
+	if (args$save){
+		tmp 	<- gsub("/", "_", recent)
+		sname 	<- sprintf("~/Downloads/other_%s.pdf", tmp)
+		save(c(other1("save"), other2("save")), sname)
+	}
 
 }
 if(args$poster){
 	cat(red("[1]"), "Main Plots\n")
 ## Shows plots
 	show(poster1)
+## Saves plots
+	if(args$poster){
+		tmp <- gsub("/", "_", recent)
+		sname <- sprintf("~/Downloads/poster_%s.pdf", tmp)
 
+		save(poster1(), sname)
+	}
 }
 if(args$dev){
-		cat(red("[1]"), "Pacman Residual Plot\n")
+	cat(yellow("[1]"), "Pacman Residual Plot\n")
 ## Shows plots
-		show(dev1)
+	show(dev1)
+## Saves plots
+	if(args$save){
+		tmp <- gsub("/", "_", recent)
+		sname <- sprintf("~/Downloads/dev_%s.pdf", tmp)
+		save(dev1(), sname)
+	}
 }
-if (args$save){
-	cat(green("Plots are being saved\n"))
-## Saves plots to ~/Downloads folder in PDF form
-	save(c(main1("save"),main2("save"), main3("save")), "~/Downloads/main.pdf")
-	save(c(plots1(), plots2(), plots3(), plots4()), "~/Downloads/plots_galore.pdf")
-	save(other1("save"), "~/Downloads/other.pdf")
-#	save(poster1(), "~/Downloads/poster.pdf")
-#	save(dev1(), "~Downloads/dev.pdf")
-
-}
-## Command Prompt "Start of Program"
+## Command Prompt for End of Program
 cat(bold(cyan(">>>>>>> Program Complete <<<<<<<\n")))
