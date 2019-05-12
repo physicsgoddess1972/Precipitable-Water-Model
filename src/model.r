@@ -389,8 +389,8 @@ plots3 <- function(...){
 	lines(newx, exp(predint[ ,2]), col="magenta", lty="dashed")
 
 	legend("topleft",
-			legend=c(parse(text=sprintf("%.2f*e^{%.3f*x}", exp(q[1]), q[2]))),
-			,col=c("Red"), pch="-")
+			legend=c(parse(text=sprintf("%.2f*e^{%.3f*x}", exp(q[1]), q[2])), "Prediction", "Confidence"),
+			,col=c("Red", "Magenta", "Blue"), pch=c("-", '--', "--"))
  }
 ## Residual Plot
 plots4 <- function(...){
