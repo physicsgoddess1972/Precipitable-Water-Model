@@ -1,6 +1,11 @@
 #### Precipitable Water Model
-# Spencer Riley / Vicki Kelsey
+## Spencer Riley / Vicki Kelsey
+## To get a list of arguments run Rscript model.r --help
+
+
+
 ####
+
 ## Necessary Libraries for the script to run
 library(argparse)
 library(tcltk)
@@ -8,7 +13,8 @@ library(tkrplot)
 suppressPackageStartupMessages(library(nlstools))
 library(plotrix)
 library(crayon)
-##
+
+## Used for argument parsing
 parser <- ArgumentParser()
 parser$add_argument("--save", action="store_true", default=FALSE,
 	help="Saves plots")
@@ -20,13 +26,23 @@ parser$add_argument("--dev", action="store_true", default=FALSE,
 	help="Development plots")
 parser$add_argument("--data", action="store_true", default=FALSE,
 	help="Produces two columned datset including mean temp and PW")
+parser$add_argument("-o", "--overcast", action="store_true", default=FALSE,
+	help="Shows time series data for days with overcast condition. (Used with --opt m)")
 args <- parser$parse_args()
+
 ## Imports data from master_data.csv
 fname       <- read.csv(file="../data/master_data.csv", sep=",")
 date 		<- fname[1]
 recent 		<- t(date)[length(t(date))]
+
 ## Size of window
 n <- 5
+
+## Thermometer Labels
+Thermo1 <- "AMES"
+Thermo2 <- "FLIRi3"
+Thermo3 <- "1610 TE"
+
 ## Filters out data with overcast condition
 overcast_filter <- function(){
 	overcast0 	<- list()
@@ -100,8 +116,10 @@ overcast_filter <- function(){
 	return (output)
 
 }
+
 ## Pushes returned values to the variable overcast
 overcast <- overcast_filter()
+
 ## Pulls returned values into variables (filtered)
 y0      <- overcast$y0    			# Date
 y1      <- array(t(overcast$y1))    # Air Temperature from AMES
@@ -163,72 +181,38 @@ save <- function(func, name){
 }
 
 ## Creates legend for the PW that is used for the pdf plots
-save_legend	<- function(n){
+save_legend	<- function(n, filter){
 	if (n == 5){
-		legend("topright", inset=c(-0.21, 0), title="Normal",
-				legend=c("AMES", "FLIRi3", "1610 TE"),
-				col=c("green4", "blue", "red"),
-				pch=c(16,16, 16))
-		legend("topright", inset=c(-0.21, 0.4), title="Overcast",
-				legend=c("AMES", "FLIRi3", "1610 TE"),
-				col=c("magenta", "goldenrod", "brown"),
-				pch=c(15,15,15))
-	}
-	if (n == 6){
-		legend("topright", inset=c(-0.265, 0), title="Normal",
-				legend=c("AMES", "FLIRi3", "1610 TE"),
-				col=c("green4", "blue", "red"),
-				pch=c(16,16, 16))
-		legend("topright", inset=c(-0.265, 0.4), title="Overcast",
-				legend=c("AMES", "FLIRi3", "1610 TE"),
-				col=c("magenta", "goldenrod", "brown"),
-				pch=c(15,15,15))
+		if (filter){
+			legend("topright", inset=c(-0.21, 0),
+			legend=c(Thermo1, Thermo2, Thermo3),
+			col=c("magenta", "goldenrod", "brown"),
+			pch=c(15,15,15))
 
-	}
-	if (n == 7){
-		legend("topright", inset=c(-0.212, 0), title="Normal",
-				legend=c("AMES", "FLIRi3", "1610 TE"),
-				col=c("green4", "blue", "red"),
-				pch=c(16,16, 16))
-		legend("topright", inset=c(-0.212, 0.4), title="Overcast",
-				legend=c("AMES", "FLIRi3", "1610 TE"),
-				col=c("magenta", "goldenrod", "brown"),
-				pch=c(15,15,15))
+		}else{
+			legend("topright", inset=c(-0.21, 0),
+					legend=c(Thermo1, Thermo2, Thermo3),
+					col=c("green4", "blue", "red"),
+					pch=c(16,16, 16))
+		}
 	}
 }
 
 ## Creates legend for the PW that is used for the popup window plots
-show_legend <- function(n){
+show_legend <- function(n, filter){
 	if (n == 5){
-		legend("topright", inset=c(-0.357, 0), title="Normal",
-				legend=c("AMES", "FLIRi3", "1610 TE"),
-				col=c("green4", "blue", "red"),
-				pch=c(16,16, 16))
-		legend("topright", inset=c(-0.357, 0.4), title="Overcast",
-				legend=c("AMES", "FLIRi3", "1610 TE"),
-				col=c("magenta", "goldenrod", "brown"),
-				pch=c(15,15,15))
-	}
-	if (n == 6){
-		legend("topright", inset=c(-0.265, 0), title="Normal",
-				legend=c("AMES", "FLIRi3", "1610 TE"),
-				col=c("green4", "blue", "red"),
-				pch=c(16,16, 16))
-		legend("topright", inset=c(-0.265, 0.4), title="Overcast",
-				legend=c("AMES", "FLIRi3", "1610 TE"),
-				col=c("magenta", "goldenrod", "brown"),
-				pch=c(15,15,15))
+		if(filter){
+			legend("topright", inset=c(-0.357, 0),
+					legend=c(Thermo1, Thermo2, Thermo3),
+					col=c("magenta", "goldenrod", "brown"),
+					pch=c(15,15,15))
+		}else {
+			legend("topright", inset=c(-0.357, 0),
+			legend=c(Thermo1, Thermo2, Thermo3),
+			col=c("green4", "blue", "red"),
+			pch=c(16,16, 16))
 
-	}
-	if (n == 7){
-		legend("topright", inset=c(-0.212, 0), title="Normal",
-				legend=c("AMES", "FLIRi3", "1610 TE"),
-				col=c("green4", "blue", "red"),
-				pch=c(16,16, 16))
-		legend("topright", inset=c(-0.212, 0.4), title="Overcast",
-				legend=c("AMES", "FLIRi3", "1610 TE"),
-				col=c("magenta", "goldenrod", "brown"),
-				pch=c(15,15,15))
+		}
 	}
 }
 
@@ -247,49 +231,39 @@ cat(bold(cyan(">>>>>>> Program Start <<<<<<<\n")))
 main1 	<- function(legend){
 	xmin = min(as.numeric(y0), na.rm=TRUE)
 	xmax = max(as.numeric(y0), na.rm=TRUE)
-	ymax = max(as.numeric(y9), as.numeric(y7), as.numeric(y1),
-		as.numeric(y1o),as.numeric(y7o),as.numeric(y9o),na.rm=TRUE)
-	ymin = min(as.numeric(y9), as.numeric(y7), as.numeric(y1),
-		as.numeric(y1o),as.numeric(y7o),as.numeric(y9o),na.rm=TRUE)
+	ymax = max(as.numeric(y9), as.numeric(y7), as.numeric(y1),na.rm=TRUE)
+	ymin = min(as.numeric(y9), as.numeric(y7), as.numeric(y1),na.rm=TRUE)
 
 	par(mar=c(5.1, 5.1, 5.1, 5.3), xpd=TRUE)
 	plot(y0, y1, xlab="Date", ylab="Temperature [C]",
-		col="green4", main="Air temperature", pch=16,
+		col="green4", main="Air Temperature\nCondition: Clear Sky", pch=16,
 		xlim=c(xmin, xmax), ylim=c(ymin, ymax))
 	points(y0, y9, col=c("blue"), pch=16)
 	points(y0, y7, col=c("red"), pch=16)
-	points(y0o, y1o, pch=15, col=c("magenta"))
-	points(y0o, y9o, pch=15, col=c("goldenrod"))
-	points(y0o, y7o, pch=15, col=c("brown"))
 	if (legend == "save"){
-		save_legend(n)
+		save_legend(n, FALSE)
 	}else if(legend == "show"){
-		show_legend(n)
+		show_legend(n, FALSE)
 	}
 }
 ## Ground Temperature plot
 main2 	<- function(legend){
 	xmin = min(as.numeric(y0), na.rm=TRUE)
 	xmax = max(as.numeric(y0), na.rm=TRUE)
-	ymax  = max(as.numeric(y10), as.numeric(y8), as.numeric(y6),
-		as.numeric(y6o),as.numeric(y8o),as.numeric(y10o),na.rm=TRUE)
-	ymin  = min(as.numeric(y10), as.numeric(y8), as.numeric(y6),
-		as.numeric(y6o),as.numeric(y8o),as.numeric(y10o),na.rm=TRUE)
+	ymax  = max(as.numeric(y10), as.numeric(y8), as.numeric(y6),na.rm=TRUE)
+	ymin  = min(as.numeric(y10), as.numeric(y8), as.numeric(y6),na.rm=TRUE)
 
 	par(mar=c(5.1, 5.1, 5.1, 5.3), xpd=TRUE)
 	plot(y0, y10, xlab="Date", ylab="Temperature [C]",
-		 col=c("green4"), main="Ground Temperature", pch=16,
+		 col=c("green4"), main="Ground Temperature\nCondition: Clear Sky", pch=16,
 		xlim=c(xmin, xmax), ylim=c(ymin, ymax))
 	points(y0, y8,col=c("blue"), pch=16)
 	points(y0, y6,col=c("red"), pch=16)
-	points(y0o, y10o, pch=15, col=c("magenta"))
-	points(y0o, y8o, pch=15, col=c("goldenrod"))
-	points(y0o, y6o, pch=15, col=c("brown"))
 
 	if (legend == "save"){
-		save_legend(n)
+		save_legend(n, FALSE)
 	}else if(legend == "show"){
-		show_legend(n)
+		show_legend(n, FALSE)
 	}
 }
 ## Delta T plot
@@ -297,23 +271,78 @@ main3 	<- function(legend){
 	par(mar=c(5.1, 5.1, 5.1, 5.3), xpd=TRUE)
 	xmin = min(as.numeric(y0), na.rm=TRUE)
 	xmax = max(as.numeric(y0), na.rm=TRUE)
-	ymax = max(as.numeric(d_flir), as.numeric(d_ames), as.numeric(d_te),
-		as.numeric(d_fliro),as.numeric(d_ameso),as.numeric(d_teo),na.rm=TRUE)
-	ymin = min(as.numeric(d_flir), as.numeric(d_ames), as.numeric(d_te),
-		as.numeric(d_fliro),as.numeric(d_ameso),as.numeric(d_teo),na.rm=TRUE)
+	ymax = max(as.numeric(d_flir), as.numeric(d_ames), as.numeric(d_te),na.rm=TRUE)
+	ymin = min(as.numeric(d_flir), as.numeric(d_ames), as.numeric(d_te),na.rm=TRUE)
 
 	plot(y0, d_ames, xlab="Date", ylab="Temperature [C]",
 		 col=c("green4"), xlim=c(xmin, xmax), ylim=c(ymin, ymax),
-		main="Change in Temperature between Air and Ground", pch=16)
+		main="Change in Temperature between Air and Ground\nCondition: Clear Sky", pch=16)
 	points(y0, d_flir, col=c("blue"), pch=16)
 	points(y0, d_te, col=c("red"), pch=16)
-	points(y0o, d_ameso, pch=15, col=c("magenta"))
+	if (legend == "save"){
+		save_legend(n, FALSE)
+	}else if(legend == "show"){
+		show_legend(n, FALSE)
+	}
+}
+## Air Temperature with Filter
+main4 	<- function(legend){
+	xmin = min(as.numeric(y0), na.rm=TRUE)
+	xmax = max(as.numeric(y0), na.rm=TRUE)
+	ymax = max(as.numeric(y1o),as.numeric(y7o),as.numeric(y9o),na.rm=TRUE)
+	ymin = min(as.numeric(y1o),as.numeric(y7o),as.numeric(y9o),na.rm=TRUE)
+	par(mar=c(5.1, 5.1, 5.1, 5.3), xpd=TRUE)
+
+	plot(y0o, y1o, xlab="Date", ylab="Temperature [C]",
+		col="magenta", main="Air Temperature\nCondition: Overcast", pch=15,
+		xlim=c(xmin, xmax), ylim=c(ymin, ymax))
+
+	points(y0o, y9o, pch=15, col=c("goldenrod"))
+	points(y0o, y7o, pch=15, col=c("brown"))
+	if (legend == "save"){
+		save_legend(n, TRUE)
+	}else if(legend == "show"){
+		show_legend(n, TRUE)
+	}
+
+}
+## Ground Temperature with Filter
+main5 	<- function(legend){
+	xmin 	= min(as.numeric(y0), na.rm=TRUE)
+	xmax 	= max(as.numeric(y0), na.rm=TRUE)
+	ymax  	= max(as.numeric(y6o),as.numeric(y8o),as.numeric(y10o),na.rm=TRUE)
+	ymin  	= min(as.numeric(y6o),as.numeric(y8o),as.numeric(y10o),na.rm=TRUE)
+
+	par(mar=c(5.1, 5.1, 5.1, 5.3), xpd=TRUE)
+	plot(y0o, y10o, xlab="Date", ylab="Temperature [C]",
+		 col=c("magenta"), main="Ground Temperature\nCondition: Overcast", pch=15,
+		xlim=c(xmin, xmax), ylim=c(ymin, ymax))
+	points(y0o, y8o, pch=15, col=c("goldenrod"))
+	points(y0o, y6o, pch=15, col=c("brown"))
+
+	if (legend == "save"){
+		save_legend(n, TRUE)
+	}else if(legend == "show"){
+		show_legend(n, TRUE)
+	}
+}
+## Delta T plot with filter
+main6 	<- function(legend){
+	par(mar=c(5.1, 5.1, 5.1, 5.3), xpd=TRUE)
+	xmin = min(as.numeric(y0), na.rm=TRUE)
+	xmax = max(as.numeric(y0), na.rm=TRUE)
+	ymax = max(as.numeric(d_fliro),as.numeric(d_ameso),as.numeric(d_teo),na.rm=TRUE)
+	ymin = min(as.numeric(d_fliro),as.numeric(d_ameso),as.numeric(d_teo),na.rm=TRUE)
+
+	plot(y0o, d_ameso, xlab="Date", ylab="Temperature [C]",
+		 col=c("magenta"), xlim=c(xmin, xmax), ylim=c(ymin, ymax),
+		main="Change in Temperature between Air and Ground\nCondition: Overcast", pch=15)
 	points(y0o, d_fliro, pch=15, col=c("goldenrod"))
 	points(y0o, d_teo, pch=15, col=c("brown"))
 	if (legend == "save"){
-		save_legend(n)
+		save_legend(n, TRUE)
 	}else if(legend == "show"){
-		show_legend(n)
+		show_legend(n, TRUE)
 	}
 }
 
@@ -338,7 +367,6 @@ plots1 <- function(...){
 }
 ## Locational Average Plots
 plots2 <- function(...){
-
 	xmin  = min(as.numeric(y1), na.rm=TRUE)
 	xmax  = max(as.numeric(y1), na.rm=TRUE)
 	ymax2 = max(abq, epz, na.rm=TRUE)
@@ -437,7 +465,7 @@ other1 <- function(...){
 	tot_over_na <- length(over_na) + pw_over_na
 
 	slices 	<- c(length(norm), length(over), tot_norm_na, tot_over_na)
-	title 	<- c("Normal","Overcast", "Normal NaN", "Overcast NaN")
+	title 	<- c("Clear Sky","Overcast", "Clear Sky NaN", "Overcast NaN")
 
 	color 	<- c("paleturquoise", "plum", "deepskyblue", "magenta")
 	bar <- barplot(rev(slices), names.arg=rev(title), col=rev(color),
@@ -446,7 +474,7 @@ other1 <- function(...){
 
 	axis(side = 1, at = slices, labels=TRUE, las=2)
 
-	pct 	<- round(rev(slices)/sum(rev(slices))*100)
+	pct 	<- round(rev(slices)/sum(rev(slices))*100, 1)
 	lbls 	<- paste(" ",pct)
 	lbls 	<- paste(lbls, "%", sep="")
 
@@ -472,11 +500,11 @@ other2 <- function(...){
 
 	slices 	<- c(length(norm), length(over), tot_norm_na, tot_over_na)
 
-	title 	<- c("Normal\t\t","Overcast\t\t", "Normal NaN\t", "Overcast NaN\t")
+	title 	<- c("Clear Sky\t","Overcast\t\t", "Clear Sky NaN\t", "Overcast NaN\t")
 
 	color 	<- c("paleturquoise", "plum", "deepskyblue", "magenta")
-	pct 	<- round(slices/sum(slices)*100)
-	lbls 	<- paste(" ", pct)
+	pct 	<- round(slices/sum(slices)*100, 1)
+	lbls 	<- paste("  ", pct)
 	lbls	<- paste(lbls, "%", sep="")
 
 	pie3D(slices, explode=0.07, labels=lbls, main="Overcast Condition Percentage",
@@ -484,99 +512,230 @@ other2 <- function(...){
 
 	lbls 	<- paste(title, "|\tSample Size:", slices)
 	legend("bottomleft", lbls, cex=0.8, inset=c(-0.1, -0.1), fill=color,
-			text.width=strwidth(title)[1]*2)
+			text.width=strwidth(title)[1]*3)
 }
 
 ## Pacman Residual Plot
 dev1 <- function(...){
-			y 	<- as.numeric(avg)
-			x 	<- as.numeric(y1)
+	y 	<- as.numeric(avg)
+	x 	<- as.numeric(y1)
 
-			ymax = max(y, na.rm=TRUE)
-			ymin = min(y, na.rm=TRUE)
+	ymax = max(y, na.rm=TRUE)
+	ymin = min(y, na.rm=TRUE)
 
-			xmin = min(x, na.rm=TRUE)
-			xmax = max(x, na.rm=TRUE)
+	xmin = min(x, na.rm=TRUE)
+	xmax = max(x, na.rm=TRUE)
 
-		# Non-linear model (exponential)
-			newx 	<- seq(xmin, xmax, length.out=length(x))
+# Non-linear model (exponential)
+	newx 	<- seq(xmin, xmax, length.out=length(x))
 
-			model.0 <- lm(log(y, base=exp(1))~x, data=data.frame(x,log(y, base=exp(1))))
-			start 	<- list(a=coef(model.0)[1], b=coef(model.0)[2])
-			model 	<- nls(y~a+b*x, data=data.frame(x=x, y=log(y, base=exp(1))), start=start)
+	model.0 <- lm(log(y, base=exp(1))~x, data=data.frame(x,log(y, base=exp(1))))
+	start 	<- list(a=coef(model.0)[1], b=coef(model.0)[2])
+	model 	<- nls(y~a+b*x, data=data.frame(x=x, y=log(y, base=exp(1))), start=start)
 
-			residual = abs(resid(model))
-			t 		<- seq(30, 330, len=length(residual))
-			x 		<- residual * cos(t)
-			y 		<- residual * sin(t)
+	residual = abs(resid(model))
+	t 		<- seq(40, 320, len=length(residual))
 
-			rmax 	<- max(as.numeric(residual), na.rm=TRUE)
-			polar.plot(residual, t, rp.type="s", labels="", point.col="blue",
-			point.symbols=16, show.grid.labels=4, show.grid=TRUE,
-				show.radial.grid=FALSE, grid.col="black",
-			main="[Dev] Pacman Residual Plot",
-			)#grid.bg=c("yellow", "green"))
+	rmax 	<- max(as.numeric(residual), na.rm=TRUE)
+	test <- polar.plot(residual, t, rp.type="s",labels="",
+		radial.lim=c(0, 1),show.grid=TRUE, show.grid.labels=FALSE,
+		main="[Dev] Pac-Man Residual Plot",
+		show.radial.grid=FALSE, grid.col="black")
 
-			polar.plot(c(0, round(rmax, 1) + .1), c(min(t) - 10, min(t) - 10), lwd=1, rp.type="p",
-			line.col="black", add=TRUE)
-			polar.plot(c(0, round(rmax, 1)+0.1), c(max(t) + 10, max(t) + 10), lwd=1, rp.type="p",
-			line.col="black", add=TRUE)
-		}
+	color1 <- "Yellow"
+	color2 <- "White"
+	draw.circle(0, 0, radius=1, col=color1)
+	draw.circle(0, 0, radius=0.8, col=color2)
+	draw.circle(0, 0, radius=0.6, col=color1)
+	draw.circle(0, 0, radius=0.4, col=color2)
+	draw.circle(0, 0, radius=0.2, col=color1)
+
+	polar.plot(residual, t, rp.type="s",point.col="blue",
+		point.symbols=16, add=TRUE)
+	text(c(0.12, 0.3, 0.5, 0.7, .9), 0, c(0.2, 0.4, 0.6, 0.8, 1.0), cex=1)
+
+	polar.plot(c(0, 1), c(min(t) - 10, min(t) - 10), lwd=1, rp.type="p",
+	line.col="black", add=TRUE)
+	polar.plot(c(0, 1), c(max(t) + 10, max(t) + 10), lwd=1, rp.type="p",
+	line.col="black", add=TRUE)
+}
 
 ## Main plots for poster
-poster1 <- function(legend){
-		par(mfrow=c(3,1))
+poster1 <- function(...){
+		par(mfrow=c(3,2),mar=c(1,2, 3.1, 1), oma=c(1,2,0,0), xpd=TRUE)
+		titlesize <- 1
 		xmin = min(as.numeric(y0), na.rm=TRUE)
 		xmax = max(as.numeric(y0), na.rm=TRUE)
-		ymax = max(as.numeric(y9), as.numeric(y7), as.numeric(y1),
-			as.numeric(y1o),as.numeric(y7o),as.numeric(y9o),na.rm=TRUE)
-		ymin = min(as.numeric(y9), as.numeric(y7), as.numeric(y1),
-			as.numeric(y1o),as.numeric(y7o),as.numeric(y9o),na.rm=TRUE)
+		ymax = max(as.numeric(y9), as.numeric(y7), as.numeric(y1),na.rm=TRUE)
+		ymin = min(as.numeric(y9), as.numeric(y7), as.numeric(y1),na.rm=TRUE)
 
-		par(mar=c(2.1,4.1, 3.1, 1), xpd=TRUE)
-		plot(y0, y1, ylab="Temperature [C]",
-			col="green4", main="Air temperature", pch=16,
-			xlim=c(xmin, xmax), ylim=c(ymin, ymax))
+		plot(y0, y1, xlab="Date", ylab="Temperature [C]",
+			col="green4", main=NA, pch=16, las=1,
+			xlim=c(xmin, xmax), ylim=c(ymin, ymax), cex.main=titlesize)
+
+		title("Air Temperature",line=0.5)
+		mtext("Temperature [C]", side=2, line=2.5, cex=0.65)
 		points(y0, y9, col=c("blue"), pch=16)
 		points(y0, y7, col=c("red"), pch=16)
-		points(y0o, y1o, pch=15, col=c("magenta"))
-		points(y0o, y9o, pch=15, col=c("goldenrod"))
-		points(y0o, y7o, pch=15, col=c("brown"))
+
+		xmin = min(as.numeric(y0), na.rm=TRUE)
+		xmax = max(as.numeric(y0), na.rm=TRUE)
+		ymax = max(as.numeric(y1o),as.numeric(y7o),as.numeric(y9o),na.rm=TRUE)
+		ymin = min(as.numeric(y1o),as.numeric(y7o),as.numeric(y9o),na.rm=TRUE)
+
+		plot(y0o, y1o, ylab=NA,
+			col="green4", main=NA, pch=16, las=1,
+			xlim=c(xmin, xmax), ylim=c(ymin, ymax), cex.main=titlesize)
+		title("Air Temperature", line=0.5)
+		points(y0o, y9o, pch=16, col=c("blue"))
+		points(y0o, y7o, pch=16, col=c("red"))
 
 ## Ground Temperature plot
 		xmin = min(as.numeric(y0), na.rm=TRUE)
 		xmax = max(as.numeric(y0), na.rm=TRUE)
-		ymax  = max(as.numeric(y10), as.numeric(y8), as.numeric(y6),
-			as.numeric(y6o),as.numeric(y8o),as.numeric(y10o),na.rm=TRUE)
-		ymin  = min(as.numeric(y10), as.numeric(y8), as.numeric(y6),
-			as.numeric(y6o),as.numeric(y8o),as.numeric(y10o),na.rm=TRUE)
+		ymax  = max(as.numeric(y10), as.numeric(y8), as.numeric(y6),na.rm=TRUE)
+		ymin  = min(as.numeric(y10), as.numeric(y8), as.numeric(y6),na.rm=TRUE)
 
 		plot(y0, y10, ylab="Temperature [C]",
-			 col=c("green4"), main="Ground Temperature", pch=16,
-			xlim=c(xmin, xmax), ylim=c(ymin, ymax))
+			 col=c("green4"), main=NA, pch=16, las=1,
+			xlim=c(xmin, xmax), ylim=c(ymin, ymax), cex.main=titlesize)
+		title("Ground Temperature", line=0.5)
+		mtext("Temperature [C]", side=2, line=2.5, cex=0.65)
 		points(y0, y8,col=c("blue"), pch=16)
 		points(y0, y6,col=c("red"), pch=16)
-		points(y0o, y10o, pch=15, col=c("magenta"))
-		points(y0o, y8o, pch=15, col=c("goldenrod"))
-		points(y0o, y6o, pch=15, col=c("brown"))
+
+		xmin 	= min(as.numeric(y0), na.rm=TRUE)
+		xmax 	= max(as.numeric(y0), na.rm=TRUE)
+		ymax  	= max(as.numeric(y6o),as.numeric(y8o),as.numeric(y10o),na.rm=TRUE)
+		ymin  	= min(as.numeric(y6o),as.numeric(y8o),as.numeric(y10o),na.rm=TRUE)
+
+		plot(y0o, y10o, ylab=NA,
+			 col=c("green4"), main=NA, pch=16, las=1,
+			xlim=c(xmin, xmax), ylim=c(ymin, ymax), cex.main=titlesize)
+		title("Ground Temperature", line=0.5)
+		points(y0o, y8o, pch=16, col=c("blue"))
+		points(y0o, y6o, pch=16, col=c("red"))
 
 ## Delta T plot
 		xmin = min(as.numeric(y0), na.rm=TRUE)
 		xmax = max(as.numeric(y0), na.rm=TRUE)
-		ymax = max(as.numeric(d_flir), as.numeric(d_ames), as.numeric(d_te),
-			as.numeric(d_fliro),as.numeric(d_ameso),as.numeric(d_teo),na.rm=TRUE)
-		ymin = min(as.numeric(d_flir), as.numeric(d_ames), as.numeric(d_te),
-			as.numeric(d_fliro),as.numeric(d_ameso),as.numeric(d_teo),na.rm=TRUE)
+		ymax = max(as.numeric(d_flir), as.numeric(d_ames), as.numeric(d_te),na.rm=TRUE)
+		ymin = min(as.numeric(d_flir), as.numeric(d_ames), as.numeric(d_te),na.rm=TRUE)
 
-		plot(y0, d_ames, ylab="Temperature [C]",
+		plot(y0, d_ames,ylab="Temperature [C]", las=1,
 			 col=c("green4"), xlim=c(xmin, xmax), ylim=c(ymin, ymax),
-			main="Change in Temperature between Air and Ground", pch=16)
+			main=NA, pch=16, cex.main=titlesize)
+
+		title("Change in Temperature", line=0.5)
+		mtext("Temperature [C]", side=2, line=2.5, cex=0.65)
 		points(y0, d_flir, col=c("blue"), pch=16)
 		points(y0, d_te, col=c("red"), pch=16)
-		points(y0o, d_ameso, pch=15, col=c("magenta"))
-		points(y0o, d_fliro, pch=15, col=c("goldenrod"))
-		points(y0o, d_teo, pch=15, col=c("brown"))
+
+		xmin = min(as.numeric(y0), na.rm=TRUE)
+		xmax = max(as.numeric(y0), na.rm=TRUE)
+		ymax = max(as.numeric(d_fliro),as.numeric(d_ameso),as.numeric(d_teo),na.rm=TRUE)
+		ymin = min(as.numeric(d_fliro),as.numeric(d_ameso),as.numeric(d_teo),na.rm=TRUE)
+
+		plot(y0o, d_ameso,ylab=NA, las=1,
+			 col=c("green4"), xlim=c(xmin, xmax), ylim=c(ymin, ymax),
+			main=NA, pch=16, cex.main=titlesize)
+		title("Change in Temperature", line=0.5)
+		points(y0o, d_fliro, pch=16, col=c("blue"))
+		points(y0o, d_teo, pch=16, col=c("red"))
+
+		mtext("Condition: Overcast", outer=TRUE, cex=0.75, line=-1.5, at=c(x=0.76))
+		mtext("Condition: Clear Sky", outer=TRUE, cex=0.75, line=-1.5, at=c(x=0.26))
+
+}
+## Plots Galore for poster
+poster2 <- function(...){
+		par(mar=c(1,2, 2, 1), oma=c(1,1,0,0))
+		layout(matrix(c(1,2,3,3), 2, 2, byrow=TRUE))
+		titlesize <- 1
+
+		xmin  = min(as.numeric(y1), na.rm=TRUE)
+		xmax  = max(as.numeric(y1), na.rm=TRUE)
+		ymax1 = max(as.numeric(y3), as.numeric(y4), as.numeric(y5), na.rm=TRUE)
+		ymin1 = min(as.numeric(y3), as.numeric(y4), as.numeric(y5), na.rm=TRUE)
+
+		plot(y1, y2, col=c("red"), las=1,
+			pch=16, xlim=c(xmin, xmax), ylim=c(ymin1, ymax1),
+			xlab="Zenith Sky Temperature [C]", ylab=NA,
+			main=NA)
+		title("PW vs Temp",line=0.5, cex.main=titlesize)
+		mtext("PW [mm]", side=2, line=2.25, cex=0.65)
+
+		points(y1, y3, col=c("blue"), pch=16)
+		points(y1, y4, col=c("green"), pch=16)
+		points(y1, y5, col=c("violet"), pch=16)
+		legend("topleft",
+				legend=c("ABQ 12Z", "ABQ 00Z", "EPZ 12Z", "EPZ 00Z"),
+				col=c("red", "blue", "green", "violet"),
+				pch=c(16,16))
+
+		xmin  = min(as.numeric(y1), na.rm=TRUE)
+		xmax  = max(as.numeric(y1), na.rm=TRUE)
+		ymax2 = max(abq, epz, na.rm=TRUE)
+		ymin2 = min(abq, epz, na.rm=TRUE)
+		plot(y1, abq, col=c("gold2"), pch=16, las=1,
+			xlim = c(xmin, xmax), ylim=c(ymin2, ymax2),
+			xlab = "Zenith Sky Temperature [C]", ylab=NA,
+			main = NA)
+		title("Locationional Mean PW and Temp",line=0.5, cex.main=titlesize)
+
+		points(y1, epz, col=c("dodgerblue"), pch=16)
+		legend("topleft",
+				legend=c("ABQ", "EPZ"),
+				col=c("gold2", "dodgerblue"),
+				pch=c(16))
+
+		y 	<- as.numeric(avg)
+		x 	<- as.numeric(y1)
+
+		ymax = max(y, na.rm=TRUE)
+		ymin = min(y, na.rm=TRUE)
+
+		xmin = min(x, na.rm=TRUE)
+		xmax = max(x, na.rm=TRUE)
+
+# Non-linear model (exponential)
+		newx 	<- seq(xmin, xmax, length.out=length(x))
+
+		plot(x,y, col=c("blueviolet"), pch=16, las=1,
+			xlim=c(xmin, xmax), ylim=c(ymin, ymax),
+			xlab="Zenith Sky Temperature [C]", ylab=NA,
+			main=NA)
+		title("Mean PW vs Temp",line=0.5, cex.main=titlesize)
+		mtext("PW [mm]", side=2, line=2.25, cex=0.65)
+
+		model.0 <- lm(log(y, base=exp(1))~x, data=data.frame(x,log(y, base=exp(1))))
+		start 	<- list(a=coef(model.0)[1], b=coef(model.0)[2])
+		model 	<- nls(y~a+b*x, data=data.frame(x=x, y=log(y, base=exp(1))), start=start)
+
+		confint <- predict(model.0, newdata=data.frame(x=newx), interval='confidence')
+		q 		<- coef(model)
+
+		predint <- predict(model.0, newdata=data.frame(x=newx), interval='prediction')
+
+		curve(exp(q[1] +q[2]*x), col="Red", add=TRUE)
+		lines(newx, exp(confint[ ,3]), col="blue", lty="dashed")
+		lines(newx, exp(confint[ ,2]), col="blue", lty="dashed")
+
+		lines(newx, exp(predint[ ,3]), col="magenta", lty="dashed")
+		lines(newx, exp(predint[ ,2]), col="magenta", lty="dashed")
+
+		legend("topleft",
+				legend=c(parse(text=sprintf("%.2f*e^{%.3f*x}", exp(q[1]), q[2])), "Prediction", "Confidence"),
+				,col=c("Red", "Magenta", "Blue"), pch=c("-", '--', "--"))
 	}
+##
+poster3 <- function(...){
+	layout(matrix(c(1), 2, 2, byrow=TRUE))
+	other1()
+}
+poster4 <- function(...){
+	dev1()
+}
 if (args$data){
 	norm  <- data.frame(list(x=as.numeric(y1), y=avg))
 	y_nan <- which(avg %in% NaN)
@@ -596,21 +755,36 @@ if (args$data){
 	cat(green("Data sent to data.csv\n"))
 }
 if (args$opt == "m"){
+		if (!args$overcast){
 ## Plots avaiable with this option
-	cat(green("[1]"), "Air Temperature Time Series\n")
-	cat(green("[2]"), "Ground Temperature Time Series\n")
-	cat(green("[3]"), "Change in Temperature Time Series\n")
+			cat(magenta("Condition: Clear Sky\n"))
+			cat(green("[1]"), "Air Temperature Time Series \n")
+			cat(green("[2]"), "Ground Temperature Time Series \n")
+			cat(green("[3]"), "Change in Temperature Time Series\n")
 
 ## Shows plots
-	show(main1, main2, main3)
+			show(main1, main2, main3)
 ## Saves plots
-	if (args$save){
-		tmp <- gsub("/", "_", recent)
-		sname <- sprintf("~/Downloads/main_%s.pdf", tmp)
-		save(c(main1("save"),main2("save"), main3("save")), sname)
-	}
-
-}else if (args$opt == "p"){
+			if (args$save){
+				tmp <- gsub("/", "_", recent)
+				sname <- sprintf("~/Downloads/main_clear_%s.pdf", tmp)
+				save(c(main1("save"),main2("save"), main3("save"), main4("save"), main5("save"), main6("save")), sname)
+			}
+		}else{
+			cat(magenta("Condition: Overcast\n"))
+			cat(green("[1]"), "Air Temperature Time Series \n")
+			cat(green("[2]"), "Ground Temperature Time Series\n")
+			cat(green("[3]"), "Change in Temperature Time Series\n")
+## Shows plots
+			show(main4, main5, main6)
+## Saves plots
+			if (args$save){
+				tmp <- gsub("/", "_", recent)
+				sname <- sprintf("~/Downloads/main_overcast_%s.pdf", tmp)
+				save(c(main4("save"), main5("save"), main6("save")), sname)
+			}
+		}
+	}else if (args$opt == "p"){
 ## Plots avaiable with this option
 	cat(green("[1]"), "Individual Location PW and Temperature\n")
 	cat(green("[2]"), "Locationional Average PW and Temperature\n")
@@ -636,24 +810,24 @@ if (args$opt == "m"){
 	if (args$save){
 		tmp 	<- gsub("/", "_", recent)
 		sname 	<- sprintf("~/Downloads/other_%s.pdf", tmp)
-		save(c(other1("save"), other2("save")), sname)
+		save(c(other1(), other2()), sname)
 	}
 
 }
 if(args$poster){
 	cat(red("[1]"), "Main Plots\n")
 ## Shows plots
-	show(poster1)
+	show(poster1, poster2, poster3, poster4)
 ## Saves plots
 	if(args$poster){
 		tmp <- gsub("/", "_", recent)
 		sname <- sprintf("~/Downloads/poster_%s.pdf", tmp)
 
-		save(poster1(), sname)
+		save(c(poster1(),poster2(), poster3(), poster4()), sname)
 	}
 }
 if(args$dev){
-	cat(yellow("[1]"), "Pacman Residual Plot\n")
+	cat(green("[1]"), "Pac-Man Residual Plot\n")
 ## Shows plots
 	show(dev1)
 ## Saves plots
