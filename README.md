@@ -1,7 +1,9 @@
 # Precipitable Water Model
-Developed by Vicki Kelsey and Spencer Riley
+Developed by Vicki Kelsey and Spencer Riley.
 ## Introduction
+### Goal
 ```
+### DIRECTORY TREE
 Precipitable-Water-Model
 |
 |--- data/
@@ -12,14 +14,12 @@ Precipitable-Water-Model
 |--- README.md
 |
 `--- src/
-    |--- archive/
-    |   |--- main.py
-    |   |--- mrop.py
-    |   `--- plots_galore.py
-    `--- model.r
-
+	|--- archive/
+	|   |--- main.py
+	|   |--- mrop.py
+	|   `--- plots_galore.py
+	`--- model.r
 ```
-### Goal
 
 ## Methodology
 
@@ -60,19 +60,20 @@ optional arguments:
   --dev           Development plots
   --data          Produces two columned dataset including mean temp and PW
   -o, --overcast  Shows time series data for days with overcast condition
-                  (Used with --opt m)
+				  (Used with --opt m)
 ```
 There are two primary sets of plots, the first set pulls 
 air and ground temperature measurements and the date
 and plots the air, ground, and change in the air and ground
 temperature as a time series. 
+
+### 'Main' Set Contents
 ```bash
 $ Rscript model.r --opt m
 ```
 ```bash
 $ Rscript model.r --opt m --overcast
 ```
-### 'Main' Set Contents
  1) Air Temperature Time Series
 
  2) Ground Temperature Time Series
@@ -84,10 +85,11 @@ temperature and precipitable water. The current configuration
 of ```model.r``` is set such that there are a source of 
 precipitable water data for two locations at two 
 different times. 
+
+### 'Plots Galore' Set Contents
 ```bash
 $ Rscript model.r --opt p
 ```
-### 'Plots Galore' Set Contents
  1) Individual Location PW and Temperature
  
  2) Locational Average PW and Temperature
@@ -97,14 +99,18 @@ $ Rscript model.r --opt p
  4) Residual for Total Mean PW and Temperature  
  
 ### 'Other' Set Contents
+```bash
+$ Rscript model.r --opt o
+```
  1) Overcast Condition Percentage (Bar)
+ 
  2) Overcast Condition Percentage (Pie)
 ## R Features
 The following sections define and show interesting 
 features in the R source code
 that exist as a part of the model. To use the following 
 code snippets it is important to run the bash script
-defined in [Requirements](#requirements). 
+defined in [Requirements](#precipitable-water-model-requirements). 
 ### Show and Save Functions
 This collection of functions uses the X11 framework 
 to produce pop-up windows of the visual outputs of
