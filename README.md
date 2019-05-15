@@ -12,9 +12,10 @@ requirements.
 The computational model is enclosed in the script ``model.r``. 
 The capabilities of the program include the production of three groups of 
 plots:
-1) 
-2)
-3)
+
+* 
+*
+*
 
 For the command line arguments run the command:
 ```
