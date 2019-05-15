@@ -1,8 +1,5 @@
 # Precipitable Water Model
 Developed by Vicki Kelsey and Spencer Riley.
-## Introduction
-### Goal
-### Instrumentation
 ```
 Precipitable-Water-Model
 |
@@ -20,6 +17,10 @@ Precipitable-Water-Model
 	|   `--- plots_galore.py
 	`--- model.r
 ```
+
+## Introduction
+### Goal
+### Instrumentation
 
 ## Methodology
 
@@ -143,7 +144,7 @@ save <- function(func, name){
 The ```save()``` function can be used in-joint with the ```show()```
 function, as seen in the usage snippet. The resulting output
 is a PDF file by the name "cool_plots.pdf" with three pages, one
-for each plot unless otherwise specified.
+for each plot unless an alternate plot layout is specified.
 ```R
 ### USAGE
 dummy <- function(){
@@ -153,17 +154,18 @@ dummy <- function(){
 }
 ```
 ### Exponential Regression
+
 ```R
 ## Data
 y 	<- as.numeric(ydata)
 x 	<- as.numeric(xdata)
 
 ## Max & Min values for limits
-ymax = max(y, na.rm=TRUE)
-ymin = min(y, na.rm=TRUE)
+ymax <- max(y, na.rm=TRUE)
+ymin <- min(y, na.rm=TRUE)
 
-xmin = min(x, na.rm=TRUE)
-xmax = max(x, na.rm=TRUE)
+xmin <- min(x, na.rm=TRUE)
+xmax <- max(x, na.rm=TRUE)
 
 ## Sequence between the minimum and maximum x value
 newx 	<- seq(xmin, xmax, length.out=length(x))
@@ -176,9 +178,8 @@ model.0 <- lm(log(y, base=exp(1))~x, data=data.frame(x,log(y, base=exp(1))))
 start 	<- list(a=coef(model.0)[1], b=coef(model.0)[2])
 model 	<- nls(y~a+b*x, data=data.frame(x=x, y=log(y, base=exp(1))), start=start)
 
-q 	<- coef(model)
-
 ## Trendline
+q 	<- coef(model)
 curve(exp(q[1] +q[2]*x), col="Red", add=TRUE)
 
 ## Confidence Interval
