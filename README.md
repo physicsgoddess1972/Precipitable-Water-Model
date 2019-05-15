@@ -2,8 +2,8 @@
 Developed by Vicki Kelsey and Spencer Riley.
 ## Introduction
 ### Goal
+### Instrumentation
 ```
-### DIRECTORY TREE
 Precipitable-Water-Model
 |
 |--- data/
@@ -46,7 +46,10 @@ plots:
 
  3)
  
-For the command line arguments run the command:
+There are two primary sets of plots, the first set pulls 
+air and ground temperature measurements and the date
+and plots the air, ground, and change in the air and ground
+temperature as a time series. 
 ```bash
 $ Rscript model.r --help
 
@@ -62,18 +65,7 @@ optional arguments:
   -o, --overcast  Shows time series data for days with overcast condition
 				  (Used with --opt m)
 ```
-There are two primary sets of plots, the first set pulls 
-air and ground temperature measurements and the date
-and plots the air, ground, and change in the air and ground
-temperature as a time series. 
-
 ### 'Main' Set Contents
-```bash
-$ Rscript model.r --opt m
-```
-```bash
-$ Rscript model.r --opt m --overcast
-```
  1) Air Temperature Time Series
 
  2) Ground Temperature Time Series
@@ -85,11 +77,14 @@ temperature and precipitable water. The current configuration
 of ```model.r``` is set such that there are a source of 
 precipitable water data for two locations at two 
 different times. 
+```bash
+$ Rscript model.r --opt m
+```
+```bash
+$ Rscript model.r --opt m --overcast
+```
 
 ### 'Plots Galore' Set Contents
-```bash
-$ Rscript model.r --opt p
-```
  1) Individual Location PW and Temperature
  
  2) Locational Average PW and Temperature
@@ -97,14 +92,16 @@ $ Rscript model.r --opt p
  3) Total Mean PW and Temperature
  
  4) Residual for Total Mean PW and Temperature  
- 
-### 'Other' Set Contents
 ```bash
-$ Rscript model.r --opt o
+ $ Rscript model.r --opt p
 ```
+### 'Other' Set Contents
  1) Overcast Condition Percentage (Bar)
  
  2) Overcast Condition Percentage (Pie)
+```bash
+$ Rscript model.r --opt o
+```
 ## R Features
 The following sections define and show interesting 
 features in the R source code
