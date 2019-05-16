@@ -1,0 +1,4 @@
+Sensor, Error
+AMES, NA
+FLIRi3, NA
+1610 TE, NA

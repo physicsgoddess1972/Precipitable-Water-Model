@@ -1,12 +1,9 @@
 #### Precipitable Water Model
 ## Spencer Riley / Vicki Kelsey
 ## To get a list of arguments run Rscript model.r --help
-
-
-
 ####
 
-## Necessary Libraries for the script to run
+## Necessary Libraries for the script to run, for installation run install.sh
 library(argparse)
 library(tcltk)
 library(tkrplot)
@@ -14,93 +11,95 @@ suppressPackageStartupMessages(library(nlstools))
 library(plotrix)
 library(crayon)
 
+## Colors
+red 		<- make_style("red1")
+orange 		<- make_style("orange")
+yellow 		<- make_style("gold2")
+green 		<- make_style("lawngreen")
+cloudblue 	<- make_style("lightskyblue")
+
 ## Used for argument parsing
 parser <- ArgumentParser()
 parser$add_argument("--save", action="store_true", default=FALSE,
 	help="Saves plots")
-parser$add_argument("--opt", type="character", default=FALSE,
+parser$add_argument("--set", type="character", default=FALSE,
 	help="Select plot sets: (m)ain/(p)lots_galore/(o)ther")
 parser$add_argument("--poster", action="store_true", default=FALSE,
 	help="Produces poster plots")
 parser$add_argument("--dev", action="store_true", default=FALSE,
 	help="Development plots")
-parser$add_argument("--data", action="store_true", default=FALSE,
+parser$add_argument("-d", "--data", action="store_true", default=FALSE,
 	help="Produces two columned datset including mean temp and PW")
 parser$add_argument("-o", "--overcast", action="store_true", default=FALSE,
-	help="Shows time series data for days with overcast condition. (Used with --opt m)")
+	help="Shows time series data for days with overcast condition. (Used with --set m)")
+parser$add_argument("-w", "--warning", action="store_true", default=FALSE,
+	help="Shows warnings associated with the script")
 args <- parser$parse_args()
+
+## Command Prompt "Start of Program"
+if(args$warning){
+	cat(bold(red("-----------------------------------------------------------------\n")))
+	cat(bold(red("| \t\t\t!!!! Warning !!!!\t\t\t|\n")))
+	cat(bold(red("| "), orange("!!! Do not resize the plotting windows, they will break !!!", red(" |\n"))))
+	cat(bold(red("| "), orange("!!! To close the window, follow the cmd line directions !!!", red(" |\n"))))
+	cat(bold(red("| "), yellow("!!! For more information, please read the documentation !!!", red("\t|\n"))))
+	cat(bold(red("-----------------------------------------------------------------\n")))
+	quit()
+}else{
+	cat(bold(cloudblue("-----------------------------------------------------------------\n")))
+	cat(bold(cloudblue("|\t\t   Precipitable Water Model   \t\t\t|\n")))
+	cat(bold(cloudblue("-----------------------------------------------------------------\n")))
+	cat(bold(cyan("\t\t>>>>>>>>> Program Start <<<<<<<<\n\n")))
+}
 
 ## Imports data from master_data.csv
 fname       <- read.csv(file="../data/master_data.csv", sep=",")
-date 		<- fname[1]
-recent 		<- t(date)[length(t(date))]
-
-## Size of window
-n <- 5
+sensor 		<- suppressWarnings(read.csv(file="../data/instruments.txt", sep=","))
+recent 		<- t(fname[1])[length(t(fname[1]))]
 
 ## Thermometer Labels
-Thermo1 <- "AMES"
-Thermo2 <- "FLIRi3"
-Thermo3 <- "1610 TE"
+Thermo1 <- paste(sensor[1,1])
+Thermo2 <- paste(sensor[2,1])
+Thermo3 <- paste(sensor[3,1])
 
 ## Filters out data with overcast condition
 overcast_filter <- function(){
-	overcast0 	<- list()
-	overcast1 	<- list()
-	overcast2 	<- list()
-	overcast3 	<- list()
-	overcast4 	<- list()
-	overcast5 	<- list()
-	overcast6 	<- list()
-	overcast7 	<- list()
-	overcast8 	<- list()
-	overcast9 	<- list()
-	overcast10 	<- list()
-	overcast11 	<- list()
+	date_clear	<- overcast1 	<- overcast2 	<- overcast3 	<- list()
+	overcast4 	<- overcast5 	<- overcast6 	<- overcast7 	<- list()
+	overcast8 	<- overcast9 	<- overcast10 	<- list()
 
-	overcast0o 	<- list()
-	overcast1o 	<- list()
-	overcast2o 	<- list()
-	overcast3o 	<- list()
-	overcast4o 	<- list()
-	overcast5o 	<- list()
-	overcast6o 	<- list()
-	overcast7o 	<- list()
-	overcast8o 	<- list()
-	overcast9o 	<- list()
-	overcast10o <- list()
-	overcast11o <- list()
+	date_over 	<- overcast1o 	<- overcast2o 	<- overcast3o	<- list()
+	overcast4o 	<- overcast5o 	<- overcast6o	<- overcast7o	<- list()
+	overcast8o	<- overcast9o 	<- overcast10o	<- list()
 
 	for (j in 1:length(t(fname[12]))){
 		if (!"overcast" %in% fname[j,12]){
-			overcast0   <- append(overcast0, as.Date(fname[j, 1], "%m/%d/%Y"))
+			date_clear  <- append(date_clear, as.Date(fname[j, 1], "%m/%d/%Y"))
 			overcast6   <- append(overcast6, fname[j, 2])
 			overcast7   <- append(overcast7, fname[j, 3])
 			overcast8   <- append(overcast8, fname[j, 4])
 			overcast9   <- append(overcast9, fname[j, 5])
 			overcast10  <- append(overcast10, fname[j, 6])
-			overcast11  <- append(overcast11, fname[j, 7])
 
-			overcast1 <- append(overcast1, fname[j, 7])
-			overcast2 <- append(overcast2, fname[j, 8])
-			overcast3 <- append(overcast3, fname[j, 9])
-			overcast4 <- append(overcast4, fname[j, 10])
-			overcast5 <- append(overcast5, fname[j, 11])
+			overcast1 	<- append(overcast1, fname[j, 7])
+			overcast2 	<- append(overcast2, fname[j, 8])
+			overcast3 	<- append(overcast3, fname[j, 9])
+			overcast4 	<- append(overcast4, fname[j, 10])
+			overcast5 	<- append(overcast5, fname[j, 11])
 		}
 		else{
-			overcast0o  <- append(overcast0o, as.Date(fname[j, 1], "%m/%d/%Y"))
+			date_over   <- append(date_over, as.Date(fname[j, 1], "%m/%d/%Y"))
 			overcast6o 	<- append(overcast6o, fname[j, 2])
 			overcast7o 	<- append(overcast7o, fname[j, 3])
 			overcast8o 	<- append(overcast8o, fname[j, 4])
 			overcast9o 	<- append(overcast9o, fname[j, 5])
 			overcast10o <- append(overcast10o, fname[j, 6])
-			overcast11o <- append(overcast11o, fname[j, 7])
 
-			overcast1o <- append(overcast1o, fname[j, 7])
-			overcast2o <- append(overcast2o, fname[j, 8])
-			overcast3o <- append(overcast3o, fname[j, 9])
-			overcast4o <- append(overcast4o, fname[j, 10])
-			overcast5o <- append(overcast5o, fname[j, 11])
+			overcast1o 	<- append(overcast1o, fname[j, 7])
+			overcast2o 	<- append(overcast2o, fname[j, 8])
+			overcast3o 	<- append(overcast3o, fname[j, 9])
+			overcast4o 	<- append(overcast4o, fname[j, 10])
+			overcast5o 	<- append(overcast5o, fname[j, 11])
 		}
 	}
 	output <- list("y1"=overcast1,"y2"=overcast2,
@@ -112,7 +111,7 @@ overcast_filter <- function(){
 					"y4o"=overcast3o, "y5o"=overcast5o,
 					"y6o"=overcast6o, "y7o"=overcast7o, "y8o"=overcast8o,
 					"y9o"=overcast9o, "y10o"=overcast10o,
-					"y0"=overcast0, "y0o"=overcast0o)
+					"y0"=date_clear, "y0o"=date_over)
 	return (output)
 
 }
@@ -157,38 +156,35 @@ d_fliro  <- as.numeric(y8o) - as.numeric(y9o) 	# Change in temp fot FLIRi3
 d_teo    <- as.numeric(y6o) - as.numeric(y7o)	# Change in temp for 1610 Temperature
 
 ## ABQ average
-abq = (as.numeric(y2) + as.numeric(y3))/2
+abq <- (as.numeric(y2) + as.numeric(y3))/2
 ## EPZ average
-epz = (as.numeric(y4) + as.numeric(y5))/2
+epz <- (as.numeric(y4) + as.numeric(y5))/2
 ## Super Average
-avg = (abq + epz)/2
+avg <- (abq + epz)/2
 
-## A function that will produce popups through the x11 framework
+## A function that will produce popups through the X11 framework
 show <- function(..., overcast){
 	args <- list(...)
-	print(overcast)
 	for (i in args){
-		X11(type="cairo", width=n, height=n)
+		X11(type="cairo", width=5, height=5)
 		i("show", overcast)
 	}
 	continue_input()
 }
-
 ## A general function that will save plots (works with the show function above)
 save <- function(func, name){
 	pdf(name)
 	func
-	dev.off()
+	invisible(dev.off())
 }
-
 ## Creates legend for the PW that is used for the pdf plots
-save_legend	<- function(n, filter){
-	if (n == 5){
+legend_plot	<- function(filter, show){
+	if(!show){
 		if (filter){
 			legend("topright", inset=c(-0.21, 0),
-			legend=c(Thermo1, Thermo2, Thermo3),
-			col=c("magenta", "goldenrod", "brown"),
-			pch=c(15,15,15))
+					legend=c(Thermo1, Thermo2, Thermo3),
+					col=c("magenta", "goldenrod", "brown"),
+					pch=c(15,15,15))
 
 		}else{
 			legend("topright", inset=c(-0.21, 0),
@@ -196,12 +192,7 @@ save_legend	<- function(n, filter){
 					col=c("green4", "blue", "red"),
 					pch=c(16,16, 16))
 		}
-	}
-}
-
-## Creates legend for the PW that is used for the popup window plots
-show_legend <- function(n, filter){
-	if (n == 5){
+	}else{
 		if(filter){
 			legend("topright", inset=c(-0.357, 0),
 					legend=c(Thermo1, Thermo2, Thermo3),
@@ -209,25 +200,19 @@ show_legend <- function(n, filter){
 					pch=c(15,15,15))
 		}else {
 			legend("topright", inset=c(-0.357, 0),
-			legend=c(Thermo1, Thermo2, Thermo3),
-			col=c("green4", "blue", "red"),
-			pch=c(16,16, 16))
-
+					legend=c(Thermo1, Thermo2, Thermo3),
+					col=c("green4", "blue", "red"),
+					pch=c(16,16, 16))
 		}
 	}
 }
-
 ## Allows the plots to stay open
 continue_input <- function(){
-	cat(bold(yellow("Press any Key to Continue:\n>> ")))
+	cat(bold(yellow("Slam Enter to Continue:\n>> ")))
 	x <- readLines(con="stdin", 1)
 }
 
-## Command Prompt "Start of Program"
-cat(bold(cyan(">>>>>>> Program Start <<<<<<<\n")))
-
 ### Plot functions
-
 ## Air Temperature plot
 main1 	<- function(legend, overcast){
 	xmin = min(as.numeric(y0), na.rm=TRUE)
@@ -243,11 +228,6 @@ main1 	<- function(legend, overcast){
 
 		points(y0o, y9o, pch=15, col=c("goldenrod"))
 		points(y0o, y7o, pch=15, col=c("brown"))
-		if (legend == "save"){
-			save_legend(n, TRUE)
-		}else if(legend == "show"){
-			show_legend(n, TRUE)
-		}
 	}else{
 		ymax = max(as.numeric(y9), as.numeric(y7), as.numeric(y1),na.rm=TRUE)
 		ymin = min(as.numeric(y9), as.numeric(y7), as.numeric(y1),na.rm=TRUE)
@@ -257,11 +237,11 @@ main1 	<- function(legend, overcast){
 			xlim=c(xmin, xmax), ylim=c(ymin, ymax))
 		points(y0, y9, col=c("blue"), pch=16)
 		points(y0, y7, col=c("red"), pch=16)
-		if (legend == "save"){
-			save_legend(n, FALSE)
-		}else if(legend == "show"){
-			show_legend(n, FALSE)
-		}
+	}
+	if (legend == "save"){
+		legend_plot(overcast, FALSE)
+	}else if(legend == "show"){
+		legend_plot(overcast, TRUE)
 	}
 }
 ## Ground Temperature plot
@@ -278,12 +258,6 @@ main2 	<- function(legend, overcast){
 			xlim=c(xmin, xmax), ylim=c(ymin, ymax))
 		points(y0o, y8o, pch=15, col=c("goldenrod"))
 		points(y0o, y6o, pch=15, col=c("brown"))
-
-		if (legend == "save"){
-			save_legend(n, TRUE)
-		}else if(legend == "show"){
-			show_legend(n, TRUE)
-		}
 	}else{
 		ymax  = max(as.numeric(y10), as.numeric(y8), as.numeric(y6),na.rm=TRUE)
 		ymin  = min(as.numeric(y10), as.numeric(y8), as.numeric(y6),na.rm=TRUE)
@@ -293,12 +267,11 @@ main2 	<- function(legend, overcast){
 			xlim=c(xmin, xmax), ylim=c(ymin, ymax))
 		points(y0, y8,col=c("blue"), pch=16)
 		points(y0, y6,col=c("red"), pch=16)
-
-		if (legend == "save"){
-			save_legend(n, FALSE)
-		}else if(legend == "show"){
-			show_legend(n, FALSE)
-		}
+	}
+	if (legend == "save"){
+		legend_plot(overcast, FALSE)
+	}else if(legend == "show"){
+		legend_plot(overcast, TRUE)
 	}
 }
 ## Delta T plot
@@ -315,11 +288,6 @@ main3 	<- function(legend, overcast){
 			main="Change in Temperature between Air and Ground\nCondition: Overcast", pch=15)
 		points(y0o, d_fliro, pch=15, col=c("goldenrod"))
 		points(y0o, d_teo, pch=15, col=c("brown"))
-		if (legend == "save"){
-			save_legend(n, TRUE)
-		}else if(legend == "show"){
-			show_legend(n, TRUE)
-		}
 	}else{
 		ymax = max(as.numeric(d_flir), as.numeric(d_ames), as.numeric(d_te),na.rm=TRUE)
 		ymin = min(as.numeric(d_flir), as.numeric(d_ames), as.numeric(d_te),na.rm=TRUE)
@@ -329,13 +297,14 @@ main3 	<- function(legend, overcast){
 			main="Change in Temperature between Air and Ground\nCondition: Clear Sky", pch=16)
 		points(y0, d_flir, col=c("blue"), pch=16)
 		points(y0, d_te, col=c("red"), pch=16)
-		if (legend == "save"){
-			save_legend(n, FALSE)
-		}else if(legend == "show"){
-			show_legend(n, FALSE)
-		}
+	}
+	if (legend == "save"){
+		legend_plot(overcast, FALSE)
+	}else if(legend == "show"){
+		legend_plot(overcast, TRUE)
 	}
 }
+
 ## Individual Location plots
 plots1 <- function(...){
 	xmin  = min(as.numeric(y1), na.rm=TRUE)
@@ -350,10 +319,8 @@ plots1 <- function(...){
 	points(y1, y3, col=c("blue"), pch=16)
 	points(y1, y4, col=c("green"), pch=16)
 	points(y1, y5, col=c("violet"), pch=16)
-	legend("topleft",
-			legend=c("ABQ 12Z", "ABQ 00Z", "EPZ 12Z", "EPZ 00Z"),
-			col=c("red", "blue", "green", "violet"),
-			pch=c(16,16))
+	legend("topleft", legend=c("ABQ 12Z", "ABQ 00Z", "EPZ 12Z", "EPZ 00Z"),
+			col=c("red", "blue", "green", "violet"), pch=c(16,16))
 }
 ## Locational Average Plots
 plots2 <- function(...){
@@ -366,9 +333,7 @@ plots2 <- function(...){
 		xlab = "Zenith Sky Temperature [C]", ylab="PW [mm]",
 		main = "Correlation between Location-Based Mean\nPrecipitable Water and Temperature")
 	points(y1, epz, col=c("dodgerblue"), pch=16)
-	legend("topleft",
-			legend=c("ABQ", "EPZ"),
-			col=c("gold2", "dodgerblue"),
+	legend("topleft", legend=c("ABQ", "EPZ"), col=c("gold2", "dodgerblue"),
 			pch=c(16))
 }
 ## Super Average Plot with Exponential Fit
@@ -394,15 +359,17 @@ plots3 <- function(...){
 	start 	<- list(a=coef(model.0)[1], b=coef(model.0)[2])
 	model 	<- nls(y~a+b*x, data=data.frame(x=x, y=log(y, base=exp(1))), start=start)
 
-	confint <- predict(model.0, newdata=data.frame(x=newx), interval='confidence')
+# Best Fit
 	q 		<- coef(model)
-
-	predint <- predict(model.0, newdata=data.frame(x=newx), interval='prediction')
-
 	curve(exp(q[1] +q[2]*x), col="Red", add=TRUE)
+
+# Confidence Interval
+	confint <- predict(model.0, newdata=data.frame(x=newx), interval='confidence')
 	lines(newx, exp(confint[ ,3]), col="blue", lty="dashed")
 	lines(newx, exp(confint[ ,2]), col="blue", lty="dashed")
 
+# Prediction Interval
+	predint <- predict(model.0, newdata=data.frame(x=newx), interval='prediction')
 	lines(newx, exp(predint[ ,3]), col="magenta", lty="dashed")
 	lines(newx, exp(predint[ ,2]), col="magenta", lty="dashed")
 
@@ -434,7 +401,7 @@ plots4 <- function(...){
 		main="Residual Plot for the Mean Precipitable\nWater and Temperature")
 }
 
-## Overcast Condition Percentage
+## Overcast Condition Percentage (bar)
 other1 <- function(...){
 	par(mar=c(7.1, 7.1, 7.1, 1.3), xpd=TRUE)
 
@@ -470,6 +437,7 @@ other1 <- function(...){
 
 	text(0, bar, lbls, cex=1, pos=4)
 }
+## Overcast Condition Percentage (pie)
 other2 <- function(...){
 	par(mar=c(1.1, 1.1, 1.1, 1.3), xpd=TRUE)
 	pw_nan 		<- which(avg %in% NaN)
@@ -528,9 +496,9 @@ dev1 <- function(...){
 
 	rmax 	<- max(as.numeric(residual), na.rm=TRUE)
 	test <- polar.plot(residual, t, rp.type="s",labels="",
-	 	radial.lim=c(0, 1),show.grid=TRUE, show.grid.labels=FALSE,
-	 	main="[Dev] Pac-Man Residual Plot",
-	 	show.radial.grid=FALSE, grid.col="black")
+		radial.lim=c(0, 1),show.grid=TRUE, show.grid.labels=FALSE,
+		main="[Dev] Pac-Man Residual Plot",
+		show.radial.grid=FALSE, grid.col="black")
 
 	color1 <- "Yellow"
 	color2 <- "White"
@@ -717,15 +685,9 @@ poster2 <- function(...){
 		legend("topleft",
 				legend=c(parse(text=sprintf("%.2f*e^{%.3f*x}", exp(q[1]), q[2])), "Prediction", "Confidence"),
 				,col=c("Red", "Magenta", "Blue"), pch=c("-", '--', "--"))
+		layout(matrix(c(1), 2, 2, byrow=TRUE))
 	}
-##
-poster3 <- function(...){
-	layout(matrix(c(1), 2, 2, byrow=TRUE))
-	other1()
-}
-poster4 <- function(...){
-	dev1()
-}
+
 if (args$data){
 	norm  <- data.frame(list(x=as.numeric(y1), y=avg))
 	y_nan <- which(avg %in% NaN)
@@ -744,14 +706,13 @@ if (args$data){
 	write.csv(data, file=sname, row.names=FALSE)
 	cat(green("Data sent to data.csv\n"))
 }
-if (args$opt == "m"){
+if (args$set == "m"){
 		if (!args$overcast){
 ## Plots avaiable with this option
-			cat(magenta("Condition: Clear Sky\n"))
+			cat(magenta("Condition:"), "Clear Sky\n")
 			cat(green("[1]"), "Air Temperature Time Series \n")
 			cat(green("[2]"), "Ground Temperature Time Series \n")
 			cat(green("[3]"), "Change in Temperature Time Series\n")
-
 ## Shows plots
 			show(main1, main2, main3, overcast=FALSE)
 ## Saves plots
@@ -761,7 +722,7 @@ if (args$opt == "m"){
 				save(c(main1("save", FALSE),main2("save", FALSE), main3("save", FALSE)), sname)
 			}
 		}else{
-			cat(magenta("Condition: Overcast\n"))
+			cat(magenta("Condition:"), "Overcast\n")
 			cat(green("[1]"), "Air Temperature Time Series \n")
 			cat(green("[2]"), "Ground Temperature Time Series\n")
 			cat(green("[3]"), "Change in Temperature Time Series\n")
@@ -774,13 +735,12 @@ if (args$opt == "m"){
 				save(c(main1("save", TRUE),main2("save", TRUE), main3("save", TRUE)), sname)
 			}
 		}
-	}else if (args$opt == "p"){
+	}else if (args$set == "p"){
 ## Plots avaiable with this option
 	cat(green("[1]"), "Individual Location PW and Temperature\n")
 	cat(green("[2]"), "Locationional Average PW and Temperature\n")
 	cat(green("[3]"), "Total Mean PW and Temperature\n")
-	cat(yellow("[4]"), "Residual for Total Mean PW and Temperature\n")
-
+	cat(green("[4]"), "Residual for Total Mean PW and Temperature\n")
 ## Shows plots
 	show(plots1, plots2, plots3, plots4, overcast=NA)
 ## Saves plots
@@ -789,37 +749,37 @@ if (args$opt == "m"){
 		sname <- sprintf("~/Downloads/plots_galore_%s.pdf", tmp)
 		save(c(plots1(), plots2(), plots3(), plots4()), sname)
 	}
-}else if (args$opt == "o"){
+}else if (args$set == "o"){
 ## Plots avaiable with this option
 	cat(green("[1]"), "Overcast Condition Percentage (Bar)\n")
 	cat(green("[2]"), "Overcast Condition Percentage (Pie)\n")
-
-	## Shows plots
-	show(other1, other2)
+## Shows plots
+	show(other1, other2, overcast=NA)
 ## Saves plots
 	if (args$save){
 		tmp 	<- gsub("/", "_", recent)
 		sname 	<- sprintf("~/Downloads/other_%s.pdf", tmp)
 		save(c(other1(), other2()), sname)
 	}
-
 }
 if(args$poster){
-	cat(red("[1]"), "Main Plots\n")
+	cat(orange("[1]"), "Main\n")
+	cat(orange("[2]"), "Plots Galore\n")
+	cat(green("[3]"), "Overcast Condition Percentage\n")
+	cat(green("[4]"), "Pac-Man Residual Plot\n")
 ## Shows plots
-	show(poster1, poster2, poster3, poster4)
+	show(poster1, poster2, other1, dev1, overcast=NA)
 ## Saves plots
 	if(args$poster){
 		tmp <- gsub("/", "_", recent)
 		sname <- sprintf("~/Downloads/poster_%s.pdf", tmp)
-
-		save(c(poster1(),poster2(), poster3(), poster4()), sname)
+		save(c(poster1(),poster2(), other1(), dev1()), sname)
 	}
 }
 if(args$dev){
 	cat(green("[1]"), "Pac-Man Residual Plot\n")
 ## Shows plots
-	show(dev1)
+	show(dev1, overcast=NA)
 ## Saves plots
 	if(args$save){
 		tmp <- gsub("/", "_", recent)
@@ -827,5 +787,6 @@ if(args$dev){
 		save(dev1(), sname)
 	}
 }
+
 ## Command Prompt for End of Program
-cat(bold(cyan(">>>>>>> Program Complete <<<<<<<\n")))
+cat(bold(cyan("\t\t>>>>>>> Program Complete <<<<<<<\n")))

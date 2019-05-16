@@ -1,5 +1,7 @@
 # Precipitable Water Model
-Developed by Vicki Kelsey and Spencer Riley.
+## Introduction
+#### Goal
+#### Instrumentation
 ```
 Precipitable-Water-Model
 |
@@ -17,13 +19,6 @@ Precipitable-Water-Model
 	|   `--- plots_galore.py
 	`--- model.r
 ```
-
-## Introduction
-### Goal
-### Instrumentation
-
-## Methodology
-
 ## Data Format
 
 ## Requirements
@@ -39,69 +34,61 @@ $ bash install.sh
 
 The computational model is enclosed in the script ``model.r``. 
 The capabilities of the program include the production of three groups of 
-plots:
+plots: 
 
- 1)
- 
- 2)
-
- 3)
- 
-There are two primary sets of plots, the first set pulls 
+There are three primary sets of plots, the first set pulls 
 air and ground temperature measurements and the date
 and plots the air, ground, and change in the air and ground
-temperature as a time series. 
+temperature as a time series. The second set of plots 
+
 ```bash
 $ Rscript model.r --help
 
-usage: model.r [-h] [--save] [--opt OPT] [--poster] [--dev] [-o]
+usage: model.r [-h] [--save] [--set SET] [--poster] [--dev] [-d] [-o] [-w]
 
 optional arguments:
   -h, --help      show this help message and exit
   --save          Saves plots
-  --opt OPT       Select plot sets: (m)ain/(p)lots_galore/(o)ther
+  --set SET       Select plot sets: (m)ain/(p)lots_galore/(o)ther
   --poster        Produces poster plots
   --dev           Development plots
-  --data          Produces two columned dataset including mean temp and PW
+  -d, --data      Produces two columned dataset including mean temp and PW
   -o, --overcast  Shows time series data for days with overcast condition
-				  (Used with --opt m)
+				  (Used with --set m)
+  -w, --warning	  Shows warnings associated with the script
 ```
 ### 'Main' Set Contents
- 1) Air Temperature Time Series
-
- 2) Ground Temperature Time Series
-
- 3) Change in Temperature Time Series
-
-The second set plots the 
-temperature and precipitable water. The current configuration
-of ```model.r``` is set such that there are a source of 
-precipitable water data for two locations at two 
-different times. 
 ```bash
-$ Rscript model.r --opt m
+$ Rscript model.r --set m
 ```
 ```bash
-$ Rscript model.r --opt m --overcast
+$ Rscript model.r --set m --overcast
 ```
+
+[1] Air Temperature Time Series
+
+[2] Ground Temperature Time Series
+
+[3] Change in Temperature Time Series
 
 ### 'Plots Galore' Set Contents
- 1) Individual Location PW and Temperature
- 
- 2) Locational Average PW and Temperature
-
- 3) Total Mean PW and Temperature
- 
- 4) Residual for Total Mean PW and Temperature  
 ```bash
- $ Rscript model.r --opt p
+ $ Rscript model.r --set p
 ```
+[1] Individual Location PW and Temperature
+ 
+[2] Locational Average PW and Temperature
+
+[3] Total Mean PW and Temperature
+ 
+[4] Residual for Total Mean PW and Temperature  
+
 ### 'Other' Set Contents
  1) Overcast Condition Percentage (Bar)
  
  2) Overcast Condition Percentage (Pie)
 ```bash
-$ Rscript model.r --opt o
+$ Rscript model.r --set o
 ```
 ## R Features
 The following sections define and show interesting 
@@ -249,3 +236,6 @@ polar.plot(c(0, 1), c(min(t) - 10, min(t) - 10), lwd=1, rp.type="p",
 polar.plot(c(0, 1), c(max(t) + 10, max(t) + 10), lwd=1, rp.type="p",
 	line.col="black", add=TRUE)
 ```
+# 
+This repository is maintained by [Vicki Kelsey](physicsgoddess.github.io) 
+and [Spencer Riley](pharaohcola13.github.io). 

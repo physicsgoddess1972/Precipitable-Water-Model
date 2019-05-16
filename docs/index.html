@@ -13,13 +13,13 @@
     <script src='https://cdn.rawgit.com/rstacruz/flatdoc/v0.9.0/flatdoc.js'></script>
 
     <!-- Flatdoc theme -->
-    <link  href='./style.css' rel='stylesheet'>
+    <link  href='./assets/css/style.css' rel='stylesheet'>
     <script src='https://cdn.rawgit.com/rstacruz/flatdoc/v0.9.0/theme-white/script.js'></script>
 
     <!-- Initializer -->
     <script>
         Flatdoc.run({
-            fetcher: Flatdoc.github('physicsgoddess1972/Precipitable-Water-Model')
+            fetcher: Flatdoc.file('../README.md')
         });
     </script>
 </head>
@@ -28,9 +28,6 @@
 <div class='header'>
     <div class='left'>
         <h1>PW Model</h1>
-        <ul>
-            <li><a href='https://github.com/physicsgoddess1972/Precipitable-Water-Model'>View on GitHub</a></li>
-        </ul>
     </div>
     <div class='right'>
         <!-- GitHub buttons: see http://ghbtns.com -->
@@ -42,6 +39,11 @@
 
 <div class='content-root'>
     <div class='menubar'>
+        <div class="section">
+            <a class="big button" href="" target="_blank">View on Github</a>
+            <br />
+            <a class="big button" href="" target="_blank">Download</a>
+        </div>
         <div class='menu section' role='flatdoc-menu'></div>
         <!-- Place this tag where you want the button to render. -->
         <iframe src="https://ghbtns.com/github-btn.html?user=physicsgoddess1972&type=follow" frameborder="0" scrolling="0" width="220px" height="30px"></iframe>
