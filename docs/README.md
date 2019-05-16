@@ -1,4 +1,3 @@
-# Precipitable Water Model
 ## Introduction
 
 ### Goal: 
