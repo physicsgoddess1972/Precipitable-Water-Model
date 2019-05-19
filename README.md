@@ -44,18 +44,19 @@ temperature as a time series. The second set of plots
 ```bash
 $ Rscript model.r --help
 
-usage: model.r [-h] [--save] [--set SET] [--poster] [--dev] [-d] [-o] [-w]
+usage: model.r [-h] [--save] [--set SET] [--poster] [--dev] [-d] [-o] [-w] [-i]
 
 optional arguments:
   -h, --help      show this help message and exit
   --save          Saves plots
-  --set SET       Select plot sets: (m)ain/(p)lots_galore/(o)ther
+  --set SET       Select plot sets: [m]ain/[p]lots_galore/[o]ther
   --poster        Produces poster plots
   --dev           Development plots
   -d, --data      Produces two columned dataset including mean temp and PW
   -o, --overcast  Shows time series data for days with overcast condition
 				  (Used with --set m)
   -w, --warning	  Shows warnings associated with the script
+  -i, --instrument	Prints out sensor data stored in instruments.txt
 ```
 ### 'Main' Set Contents
 ```bash
