@@ -440,10 +440,10 @@ other1 	<- function(...){
 	horiz=TRUE, las=1,xlab="Samples",
 	axes=FALSE, main="Overcast Condition Percentage")
 
-	axis(side = 1, at = slices, labels=TRUE, las=2)
+	axis(side = 1, at = slices, labels=TRUE, las=1)
 
 	pct 	<- round(rev(slices)/sum(rev(slices))*100, 1)
-	lbls 	<- paste(" ",pct)
+	lbls 	<- paste("  ",pct)
 	lbls 	<- paste(lbls, "%", sep="")
 
 	text(0, bar, lbls, cex=1, pos=4)
