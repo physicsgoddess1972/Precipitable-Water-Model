@@ -237,6 +237,8 @@ polar.plot(c(0, 1), c(min(t) - 10, min(t) - 10), lwd=1, rp.type="p",
 polar.plot(c(0, 1), c(max(t) + 10, max(t) + 10), lwd=1, rp.type="p",
 	line.col="black", add=TRUE)
 ```
+## Contributing to the Research
+
 # 
-This repository is maintained by [Vicki Kelsey](physicsgoddess.github.io) 
-and [Spencer Riley](pharaohcola13.github.io). 
+This repository is maintained by [Vicki Kelsey](https://physicsgoddess1972.github.io) 
+and [Spencer Riley](http://pharaohcola13.github.io). 

@@ -4,9 +4,6 @@
 ####
 ## Necessary Libraries for the script to run, for installation run install.sh
 library(argparse)
-library(tcltk)
-library(tkrplot)
-suppressPackageStartupMessages(library(nlstools))
 library(plotrix)
 library(crayon)
 
@@ -57,7 +54,6 @@ quit_it <- function(){
 	cat(bold(cyan("\n\t\t>>>>>>> Program Complete <<<<<<<\n")))
 	quit()
 }
-
 
 ## Imports data from master_data.csv
 fname       <- read.csv(file="../data/master_data.csv", sep=",")
@@ -443,7 +439,7 @@ other1 	<- function(...){
 	axis(side = 1, at = slices, labels=TRUE, las=1)
 
 	pct 	<- round(rev(slices)/sum(rev(slices))*100, 1)
-	lbls 	<- paste("  ",pct)
+	lbls 	<- paste("    ",pct)
 	lbls 	<- paste(lbls, "%", sep="")
 
 	text(0, bar, lbls, cex=1, pos=4)
@@ -519,8 +515,8 @@ poster1 <- function(...){
 		range 		<- cbind(y1, y9, y7)
 		range_index <- list(y1, y9, y7)
 
-		plot(y0, t(range)[1,], xlab="Date", ylab=NA,
-			 main=NA, pch=16, las=1,col=c(toString(sensor[1,3])),
+		plot(y0, t(range)[1,], xlab=NA, ylab=NA,main=NA, pch=16,
+			las=1,col=c(toString(sensor[1,3])),
 			xlim=c(xmin, xmax), ylim=c(ymin, ymax), cex.main=titlesize)
 
 		title("Air Temperature",line=0.5)
@@ -530,27 +526,28 @@ poster1 <- function(...){
 			points(y0, t(range)[j,], pch=16, col=c(toString(sensor[j, 3])))
 		}
 
+		legend("topleft", legend=c(sensor_name),col=c(sensor_color), pch=16)
+
 		ymax = max(as.numeric(y1o),as.numeric(y7o),as.numeric(y9o),na.rm=TRUE)
 		ymin = min(as.numeric(y1o),as.numeric(y7o),as.numeric(y9o),na.rm=TRUE)
 		range 		<- cbind(y1o, y9o, y7o)
 		range_index <- list(y1o, y9o, y7o)
 
 		plot(y0o, t(range)[1,], ylab=NA,
-			main=NA, pch=15, las=1, col=c(toString(sensor[1,3])),
+			main=NA, pch=16, las=1, col=c(toString(sensor[1,3])),
 			xlim=c(xmin, xmax), ylim=c(ymin, ymax), cex.main=titlesize)
 
 		title("Air Temperature", line=0.5)
 		for(j in 2:length(range_index)){
-			points(y0o, t(range)[j,], pch=15, col=c(toString(sensor[j, 3])))
+			points(y0o, t(range)[j,], pch=16, col=c(toString(sensor[j, 3])))
 		}
-
 ## Ground Temperature plot
 		ymax  <- max(as.numeric(y10), as.numeric(y8), as.numeric(y6),na.rm=TRUE)
 		ymin  <- min(as.numeric(y10), as.numeric(y8), as.numeric(y6),na.rm=TRUE)
 		range 		<- cbind(y10, y8, y6)
 		range_index <- list(y10, y8, y6)
 
-		plot(y0, t(range)[1,], xlab="Date", ylab=NA, main=NA, pch=16,
+		plot(y0, t(range)[1,], xlab=NA, ylab=NA, main=NA, pch=16,
 			xlim=c(xmin, xmax), ylim=c(ymin, ymax), col=c(toString(sensor[1, 3])))
 		title("Ground Temperature", line=0.5)
 		mtext("Temperature [C]", side=2, line=2.5, cex=0.65)
@@ -564,21 +561,20 @@ poster1 <- function(...){
 		range 		<- cbind(y10o, y8o, y6o)
 		range_index <- list(y10o, y8o, y6o)
 
-		plot(y0o, t(range)[1,], xlab="Date", ylab=NA, main=NA, pch=15,
+		plot(y0o, t(range)[1,], xlab=NA, ylab=NA, main=NA, pch=16,
 			xlim=c(xmin, xmax), ylim=c(ymin, ymax), col=c(toString(sensor[1,3])))
 		title("Ground Temperature", line=0.5)
 
 		for(j in 2:length(range_index)){
-			points(y0o, t(range)[j,], pch=15, col=c(toString(sensor[j, 3])))
+			points(y0o, t(range)[j,], pch=16, col=c(toString(sensor[j, 3])))
 		}
-
 ## Delta T plot
 		ymax = max(as.numeric(d_flir), as.numeric(d_ames), as.numeric(d_te),na.rm=TRUE)
 		ymin = min(as.numeric(d_flir), as.numeric(d_ames), as.numeric(d_te),na.rm=TRUE)
 		range 		<- cbind(d_ames, d_flir, d_te)
 		range_index <- list(d_ames, d_flir, d_te)
 
-		plot(y0, t(range)[1,], xlab="Date", ylab=NA,main=NA, pch=16,
+		plot(y0, t(range)[1,], xlab=NA, ylab=NA,main=NA, pch=16,
 			  xlim=c(xmin, xmax), ylim=c(ymin, ymax),col=c(toString(sensor[1, 3])))
 		title("Change in Temperature", line=0.5)
 		mtext("Temperature [C]", side=2, line=2.5, cex=0.65)
@@ -592,13 +588,13 @@ poster1 <- function(...){
 		range 		<- cbind(d_ameso, d_fliro, d_teo)
 		range_index <- list(d_ameso, d_fliro, d_teo)
 
-		plot(y0o, t(range)[1,], xlab="Date", ylab=NA,main=NA, pch=15,
+		plot(y0o, t(range)[1,], xlab=NA, ylab=NA,main=NA, pch=16,
 			 xlim=c(xmin, xmax), ylim=c(ymin, ymax),col=c(toString(sensor[1, 3])))
 
 		title("Change in Temperature", line=0.5)
 
 		for(j in 2:length(range_index)){
-			points(y0o, t(range)[j,], pch=15, col=c(toString(sensor[j, 3])))
+			points(y0o, t(range)[j,], pch=16, col=c(toString(sensor[j, 3])))
 		}
 
 		mtext("Condition: Overcast", outer=TRUE, cex=0.75, line=-1.5, at=c(x=0.76))
@@ -607,7 +603,7 @@ poster1 <- function(...){
 }
 ## Plots Galore for poster
 poster2 <- function(...){
-		par(mar=c(1,2, 2, 1), oma=c(1,1,0,0))
+		par(mar=c(3,3, 3, 1), oma=c(1,1.5,0,0), xpd=FALSE)
 		layout(matrix(c(1,2,3,3), 2, 2, byrow=TRUE))
 		titlesize <- 1
 
@@ -619,10 +615,10 @@ poster2 <- function(...){
 
 		plot(y1, y2, col=c("red"), las=1,
 			pch=16, xlim=c(xmin, xmax), ylim=c(ymin1, ymax1),
-			xlab="Zenith Sky Temperature [C]", ylab=NA,
-			main=NA)
+			xlab=NA, ylab=NA, main=NA)
 		title("PW vs Temp",line=0.5, cex.main=titlesize)
 		mtext("PW [mm]", side=2, line=2.25, cex=0.65)
+		mtext("Zenith Sky Temperature [C]", side=1, line=2.25, cex=0.65)
 
 		points(y1, y3, col=c("blue"), pch=16)
 		points(y1, y4, col=c("green"), pch=16)
@@ -636,9 +632,9 @@ poster2 <- function(...){
 		ymin2 = min(abq, epz, na.rm=TRUE)
 		plot(y1, abq, col=c("gold2"), pch=16, las=1,
 			xlim = c(xmin, xmax), ylim=c(ymin2, ymax2),
-			xlab = "Zenith Sky Temperature [C]", ylab=NA,
-			main = NA)
+			xlab = NA, ylab=NA, main = NA)
 		title("Locationional Mean PW and Temp",line=0.5, cex.main=titlesize)
+		mtext("Zenith Sky Temperature [C]", side=1, line=2.25, cex=0.65)
 
 		points(y1, epz, col=c("dodgerblue"), pch=16)
 		legend("topleft",
@@ -654,10 +650,12 @@ poster2 <- function(...){
 # Non-linear model (exponential)
 		plot(exp_reg$x,exp_reg$y, col=c("blueviolet"), pch=16,
 		xlim=c(exp_reg$xmin, exp_reg$xmax), ylim=c(ymin, ymax),
-		xlab="Zenith Sky Temperature [C]", ylab=NA, main=NA)
+		xlab=NA, ylab=NA, main=NA)
 
 		title("Mean PW vs Temp",line=0.5, cex.main=titlesize)
 		mtext("PW [mm]", side=2, line=2.25, cex=0.65)
+		mtext("Zenith Sky Temperature [C]", side=1, line=2.25, cex=0.65)
+
 # Best Fit
 		curve(exp(coef(exp_reg$model)[1] + coef(exp_reg$model)[2]*x), col="Red", add=TRUE)
 # Confidence Interval
@@ -680,7 +678,6 @@ if(args$instrument){
 }
 if(args$data){
 	norm  <- data.frame(list(x=as.numeric(y1), y=avg))
-
 	norm <- norm[-c(which(avg %in% NaN)), ]
 	norm <- norm[-c(which(y1 %in% NaN)), ]
 
@@ -689,7 +686,7 @@ if(args$data){
 	sname 	<- sprintf("~/Downloads/trendline_verify_%s.csv", tmp)
 
 	write.csv(data, file=sname, row.names=FALSE)
-	cat(green("Data sent to data.csv\n"))
+	cat(green(sprintf("Data sent to %s\n", sname)))
 	quit_it()
 }
 if(args$set == "m"){
@@ -750,8 +747,8 @@ if(args$set == "m"){
 	}
 }
 if(args$poster){
-	cat(orange("[1]"), "Main\n")
-	cat(orange("[2]"), "Plots Galore\n")
+	cat(green("[1]"), "Main\n")
+	cat(green("[2]"), "Plots Galore\n")
 	cat(green("[3]"), "Overcast Condition Percentage\n")
 	cat(green("[4]"), "Pac-Man Residual Plot\n")
 ## Shows plots
@@ -774,4 +771,5 @@ if(args$dev){
 		save(dev1(), sname)
 	}
 }
+
 quit_it()
