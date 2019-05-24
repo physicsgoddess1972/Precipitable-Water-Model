@@ -150,13 +150,24 @@ a:hover {
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
+table {
+	border-collapse: separate;
+	border-spacing: 0;
+	vertical-align: middle;
+}
+caption, th, td{
+	text-align: left;
+	font-weight: 400;
+	vertical-align: middle;
+}
+
 .content h1,
 .content h2,
 .content h3,
 .content h4,
 .content h5,
 .content h6 {
-    color: #25274d;
+	color: #25274d;
 	font-weight: bold;
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizeLegibility;
@@ -221,7 +232,36 @@ a:hover {
 .content blockquote :last-child {
 	padding-bottom: 0;
 }
-
+.content table {
+	margin-top: 10px;
+	color: #000;
+	margin-bottom: 10px;
+	padding: 0;
+	border-collapse: collapse;
+	clear: both;
+	float: left;
+}
+.content table tr{
+	border-top: 1px solid #ccc;
+	background-color: transparent;
+	margin: 0;
+	padding: 0;
+}
+.content table tr :nth-child(2n){
+	background-color: #f8f8f8;
+}
+.content table tr td{
+	text-align: auto;
+	border: 1px solid #ccc;
+	margin: 0;
+	padding: 6px 13px;
+}
+.content table tr th :first-child, .content table tr td :first-child{
+	margin-top: 0;
+}
+.content table tr th :last-child, .content table tr td :last-child{
+	margin-bottom: 0;
+}
 
 /* ----------------------------------------------------------------------------
  * Content
@@ -270,11 +310,11 @@ a:hover {
 .content h2 ol,
 .content h3 ol {
 	padding-top: 10px;
-    color: #25274d;
+	color: #25274d;
 }
 .content h1,
 .content h2 {
-    color: #25274d;
+	color: #25274d;
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	font-size: 1.5em;
@@ -393,7 +433,7 @@ body.no-literate .content pre > code:hover::-webkit-scrollbar-thumb {
 }
 @media (max-width: 1180px) {
 	.content pre > code {
-        background-color: #25274d;
+		background-color: #25274d;
 		color: #fff;
 		border: solid 1px #e7eaee;
 		border-top: solid 1px #dbdde2;
@@ -542,6 +582,12 @@ body.no-literate .content pre > code:hover::-webkit-scrollbar-thumb {
 		padding-left: 0;
 		padding-right: 0;
 	}
+	body:not(.no-literate) .content>table{
+		margin-left: 40px;
+		margin-right: 40px;
+		max-width: 470px;
+	}
+
 	body:not(.no-literate):not(.big-h3) .content > h3 {
 		margin-left: 40px;
 		width: 470px;
