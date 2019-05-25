@@ -30,16 +30,15 @@ requirements.
 $ bash install.sh
 ```
 
-## Using the Model
-
+## Overview of the Model
 The computational model is enclosed in the script ``model.r``. 
-The capabilities of the program include the production of three groups of 
-plots: 
-
-There are three primary sets of plots, the first set pulls 
-air and ground temperature measurements and the date
-and plots the air, ground, and change in the air and ground
-temperature as a time series. The second set of plots 
+There are some minor difficulties that you may encounter using this script, 
+many of these difficulties relate to the plotting window. 
+The first is important, resizing the plot display will cause the window to blank.
+The quick fix is to just re-run the script. There is currently no permanent fix for this bug.
+The second issue is seemingly random. Upon running the script if one or more of the plot displays is blank 
+re-run the script until there are no blank windows. 
+It should be noted that these issues only impacts the display of the plots and will not affect plots that are saved.
 
 ```bash
 $ Rscript model.r --help
@@ -58,24 +57,33 @@ optional arguments:
   -w, --warning	  Shows warnings associated with the script
   -i, --instrument	Prints out sensor data stored in instruments.txt
 ```
+The following subsections define each of the plot sets that are enclosed in the model.
 ### 'Main' Set Contents
+This set of plots comes in two subsets. Although both subsets include the
+time series of zenith sky temperature measurements from each of the 
+different infrared sensors, the only distinction is the weather condition. 
+This condition can either be 'clear sky' or 'overcast'.  To run this plot set
+use the terminal commands in this section. The overcast data can be seen via the
+```--overcast``` argument.
 ```bash
 $ Rscript model.r --set m
 ```
 ```bash
 $ Rscript model.r --set m --overcast
 ```
-
+Both plot subsets include three plots 
+```
 [1] Air Temperature Time Series
 
 [2] Ground Temperature Time Series
 
 [3] Change in Temperature Time Series
-
+```
 ### 'Plots Galore' Set Contents
 ```bash
  $ Rscript model.r --set p
 ```
+```print
 [1] Individual Location PW and Temperature
  
 [2] Locational Average PW and Temperature
@@ -83,14 +91,18 @@ $ Rscript model.r --set m --overcast
 [3] Total Mean PW and Temperature
  
 [4] Residual for Total Mean PW and Temperature  
-
+```
 ### 'Other' Set Contents
- 1) Overcast Condition Percentage (Bar)
- 
- 2) Overcast Condition Percentage (Pie)
 ```bash
 $ Rscript model.r --set o
 ```
+```
+[1] Overcast Condition Percentage (Bar)
+ 
+[2] Overcast Condition Percentage (Pie)
+```
+### Step-by-Step usage
+
 ## R Features
 The following sections define and show interesting 
 features in the R source code
@@ -136,10 +148,11 @@ for each plot unless an alternate plot layout is specified.
 ```R
 ### USAGE
 dummy <- function(){
-## The test_plots are functions that make plots
+# The test_plots are functions that make plots
 	show(test_plot1, test_plot2, test_plot3)
 	save(c(test_plot1(), test_plot2(), test_plot3()), "cool_plots")
 }
+dummy()
 ```
 ### Exponential Regression
 
@@ -239,6 +252,8 @@ polar.plot(c(0, 1), c(max(t) + 10, max(t) + 10), lwd=1, rp.type="p",
 ```
 ## Contributing to the Research
 
+## Next Steps
+The future development of this project with regards to the data collection include 
 # 
-This repository is maintained by [Vicki Kelsey](https://physicsgoddess1972.github.io) 
+This repository is maintained by [Vicki Kelsey](http://physicsgoddess1972.github.io) 
 and [Spencer Riley](http://pharaohcola13.github.io). 
