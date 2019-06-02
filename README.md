@@ -21,7 +21,7 @@
 <div id="intro">
 <div class="collapsible">
 <div class="collapsible-header">
-    <h2>Introduction</h2><h2><a id="top" class="material-icons" href="#">arrow_upward</a></h2>
+    <h2 id="intro">Introduction</h2><a id="top" class="material-icons" href="#">arrow_upward</a>
 </div>
 <div class="collapsible-body">
 <h3>Goal</h3>
@@ -43,7 +43,7 @@ Spot ratio.
 <div id="data">
 <div class="collapsible">
 <div class="collapsible-header">
-    <h2>Data Format</h2><h2><a id="top" class="material-icons" href="#">arrow_upward</a></h2>
+    <h2>Data Format</h2><a id="top" class="material-icons" href="#">arrow_upward</a>
 </div>
 <div class="collapsible-body">
 
@@ -52,7 +52,7 @@ Spot ratio.
 <div id="require">
 <div class="collapsible">
 <div class="collapsible-header">
-    <h2>Requirements</h2><h2><a id="top" class="material-icons" href="#">arrow_upward</a></h2>
+    <h2>Requirements</h2><a id="top" class="material-icons" href="#">arrow_upward</a>
 </div>
 <div class="collapsible-body">
 To satisfy the requirements to execute the script. Run <code>install.sh</code>. 
@@ -69,7 +69,7 @@ $ bash install.sh
 <div id="overview">
 <div class="collapsible">
 <div class="collapsible-header">
-    <h2>Overview of the Model</h2><h2><a id="top" class="material-icons" href="#">arrow_upward</a></h2>
+    <h2>Overview of the Model</h2><a id="top" class="material-icons" href="#">arrow_upward</a>
 </div>
 <div class="collapsible-body">
 <b>Please read this section before using the script</b>
@@ -193,7 +193,7 @@ $ Rscript model.r --set o
     <td>
         Update <code>master_data.csv</code> with your collected
         data following the format earlier defined in 
-        <a href="#precipitable-water-model-data-format">Data Format</a>. </li>
+        <a href="#data">Data Format</a>. </li>
     </td>
 </tr>
 <tr>
@@ -213,14 +213,14 @@ $ Rscript model.r --set o
 <div id="r-feat">
 <div class="collapsible">
 <div class="collapsible-header">
-    <h2>R Features</h2><h2><a id="top" class="material-icons" href="#">arrow_upward</a></h2>
+    <h2>R Features</h2><a id="top" class="material-icons" href="#">arrow_upward</a>
 </div>
 <div class="collapsible-body">
 The following sections define and show interesting 
 features in the R source code
 that exist as a part of the model. To use the following 
 code snippets it is important to run the bash script
-defined in <a href="#precipitable-water-model-requirements">Requirements</a>. 
+defined in <a href="#require">Requirements</a>. 
 
 <div class="collapsible">
 <div class="collapsible-body">
@@ -385,7 +385,7 @@ polar.plot(c(<num>0</num>, <num>1</num>), c(max(t) + <num>10</num>, max(t) + <nu
 <div id="contrib">
 <div class="collapsible">
 <div class="collapsible-header">
-<h2>Contributing to the Research</h2><h2><a id="top" class="material-icons" href="#">arrow_upward</a></h2>
+<h2>Contributing to the Research</h2><a id="top" class="material-icons" href="#">arrow_upward</a>
 </div>
 <div class="collapsible-body">
 </div></div></div>
@@ -393,7 +393,7 @@ polar.plot(c(<num>0</num>, <num>1</num>), c(max(t) + <num>10</num>, max(t) + <nu
 <div id="next">
 <div class="collapsible">
 <div class="collapsible-header">
-<h2>Next Steps</h2><h2><a id="top" class="material-icons" href="#">arrow_upward</a></h2>
+<h2>Next Steps</h2><a id="top" class="material-icons" href="#">arrow_upward</a>
 </div>
 <div class="collapsible-body">
 The future development of this project with regards to the data collection include 
@@ -401,8 +401,8 @@ The future development of this project with regards to the data collection inclu
 
 <div id="footer">
     <hr style="border-color: rgba(46,156,202,0.96); width: 100%; margin-left: -20rem;">
-    <div style="margin-left: -1rem; width: 120%; margin-right: -20rem;">
-        <h2>The Maintainers<a id="top" class="material-icons" href="#">arrow_upward</a></h2>
+    <div style="margin-left: -1rem; width: 100%; margin-right: -20rem;">
+        <h2>The Maintainers</h2>
     </div>
     <table class="maintain">
         <tbody>
