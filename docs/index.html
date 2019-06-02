@@ -1,56 +1,114 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width">
+	<meta charset='utf-8'>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width">
 
-    <title>Precipitable Water Model</title>
+	<title>Precipitable Water Model</title>
 
-    <!-- Flatdoc -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src='https://cdn.rawgit.com/rstacruz/flatdoc/v0.9.0/legacy.js'></script>
-    <script src='https://cdn.rawgit.com/rstacruz/flatdoc/v0.9.0/flatdoc.js'></script>
+	<!-- Flatdoc -->
+	<script src="./assets/js/jquery.min.js"></script>
+	<script src='https://cdn.rawgit.com/rstacruz/flatdoc/v0.9.0/legacy.js'></script>
+	<script src='https://cdn.rawgit.com/rstacruz/flatdoc/v0.9.0/flatdoc.js'></script>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css">
 
-    <!-- Flatdoc theme -->
-    <link  href='./assets/css/style.css' rel='stylesheet'>
-    <script src='https://cdn.rawgit.com/rstacruz/flatdoc/v0.9.0/theme-white/script.js'></script>
+	<!-- Flatdoc theme -->
+	<link  href='./assets/css/style.css' rel='stylesheet'>
+	<script src='https://cdn.rawgit.com/rstacruz/flatdoc/v0.9.0/theme-white/script.js'></script>
 
-    <!-- Initializer -->
-    <script>
-        Flatdoc.run({
-            fetcher: Flatdoc.file('https://raw.githubusercontent.com/physicsgoddess1972/Precipitable-Water-Model/master/README.md')
-        });
-    </script>
+
+	<!-- Compiled and minified CSS-->
+	<link rel="stylesheet" href="./assets/css/materialize.min.css">
+	<link rel="stylesheet" href="./assets/css/tooltip.css">
+
+	<!-- Compiled and minified JavaScript -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+	<script>
+		Flatdoc.run({
+			fetcher: Flatdoc.github('physicsgoddess1972/Precipitable-Water-Model')
+		});
+	</script>
 </head>
-<body role='flatdoc'>
+<body role='flatdoc' onload="$('.tap-target').tapTarget('open')">
 
 <div class='header'>
-    <div class='left'>
-        <h1>PW Model</h1>
-    </div>
-    <div class='right'>
-        <!-- GitHub buttons: see http://ghbtns.com -->
-        <iframe src="https://ghbtns.com/github-btn.html?user=physicsgoddess1972&repo=Precipitable-Water-Model&type=fork&count=true" frameborder="0" scrolling="0" width="100px" height="30px"></iframe>
-        <iframe src="https://ghbtns.com/github-btn.html?user=physicsgoddess1972&repo=Precipitable-Water-Model&type=watch&count=true&v=2" frameborder="0" scrolling="0" width="100px" height="30px"></iframe>
-        <iframe src="https://ghbtns.com/github-btn.html?user=physicsgoddess1972&repo=Precipitable-Water-Model&type=watch&count=true" frameborder="0" scrolling="0" width="100px" height="30px"></iframe>
-    </div>
+	<div class='left'>
+			<h1>PW Model</h1>
+	</div>
+	<div class='right'>
+		<iframe src="https://ghbtns.com/github-btn.html?user=physicsgoddess1972&repo=Precipitable-Water-Model&type=fork&count=true" frameborder="0" scrolling="0" width="100px" height="30px"></iframe>
+		<iframe src="https://ghbtns.com/github-btn.html?user=physicsgoddess1972&repo=Precipitable-Water-Model&type=watch&count=true&v=2" frameborder="0" scrolling="0" width="100px" height="30px"></iframe>
+		<iframe src="https://ghbtns.com/github-btn.html?user=physicsgoddess1972&repo=Precipitable-Water-Model&type=watch&count=true" frameborder="0" scrolling="0" width="100px" height="30px"></iframe>
+	</div>
 </div>
 
 <div class='content-root'>
-    <div class='menubar'>
-        <div class="section">
-            <a class="big button" href="" target="_blank">View on Github</a>
-            <br />
-            <a class="big button" href="" target="_blank">Download</a>
-        </div>
-        <div class='menu section' role='flatdoc-menu'></div>
-        <!-- Place this tag where you want the button to render. -->
-        <iframe src="https://ghbtns.com/github-btn.html?user=physicsgoddess1972&type=follow" frameborder="0" scrolling="0" width="220px" height="30px"></iframe>
-        <iframe src="https://ghbtns.com/github-btn.html?user=pharaohcola13&type=follow" frameborder="0" scrolling="0" width="220px" height="30px"></iframe>
-    </div>
-    <div role='flatdoc-content' class='content'></div>
-</div>
+	<nav></nav>
+	<div class="menubar">
+		<br />
+		<div class='menu section' role='flatdoc-menu'></div>
+		<hr>
+		<iframe src="https://ghbtns.com/github-btn.html?user=physicsgoddess1972&type=follow" frameborder="0" scrolling="0" width="220px" height="30px"></iframe>
+		<iframe src="https://ghbtns.com/github-btn.html?user=pharaohcola13&type=follow" frameborder="0" scrolling="0" width="220px" height="30px"></iframe>
+	</div>
+	<div role='flatdoc-content' class='content'></div>
+	<div class="fixed-action-btn">
+		<a class="btn-floating btn-large" style="background-color: blue;" id="menu">
+			<i class="fa fa-bars big-icon"></i>
+		</a>
+		<ul>
 
+			<li>
+				<a target="_blank" href="https://github.com/physicsgoddess1972/Precipitable-Water-Model" class="btn-floating" style="background-color: red;">
+					<i class="fab fa-github big-icon" id="git"></i>
+				</a>
+			</li>
+			<li>
+				<a target="_blank" href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/archive/master.zip" class="btn-floating" style="background-color: orange;">
+					<i class="fa fa-download big-icon" id="download"></i>
+				</a>
+			</li>
+			<li>
+				<a target="_blank" href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/tree/master/data" class="btn-floating" style="background-color: green;">
+					<i class="fa fa-file-csv big-icon" id="csv"></i>
+				</a>
+			</li>
+		</ul>
+	</div>
+	<div class="tap-target" data-target="menu">
+		<div class="tap-target-content">
+			<h1>Welcome to the Precipitable Water</h1>
+			<h1>Documentation Page</h1>
+			<br /><hr style="width: 68%; float: right;">
+			<p>
+				Feel free to browse around on this page to learn
+				how to use this model.
+			</p>
+			<br /><br /><br /><hr style="width: 79%; float: right;">
+			<p style="width: 470px;">
+				If you are interested in conducting this experiment in your
+				location click the menu button and visit our github page
+				and take a look at the documentation on this page.
+			</p>
+		</div>
+	</div>
+</div>
+<script src="https://unpkg.com/popper.js@1"></script>
+<script src="https://unpkg.com/tippy.js@4"></script>
+<script src="./assets/js/tooltip.js"></script>
+
+<script>
+  $(document).ready(function(){
+	$('.tap-target').tapTarget();
+  });
+</script>
+<script>
+	$(document).ready(function(){
+		$('.fixed-action-btn').floatingActionButton();
+	});
+</script>
 </body>
 </html>
