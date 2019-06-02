@@ -430,8 +430,5 @@ The future development of this project with regards to the data collection inclu
             </tr>
         </tbody>
     </table>
-<<<<<<< HEAD
 </div>
-=======
-</div>
->>>>>>> 875fcfa54958363f9774949242703a2bc5acaa4c
+
