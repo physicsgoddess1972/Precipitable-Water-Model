@@ -1,0 +1,26 @@
+.tippy-tooltip.ocean-theme{
+	background-color: #ffff00;
+	color: #000;
+    text-align: left;
+}
+
+.tippy-tooltip.ocean-theme strong{
+	color: #e6eceb;
+}
+
+.tippy-tooltip.ocean-theme .tippy-arrow{
+    transform: scale(1.5);
+}
+
+.tippy-tooltip.ocean-theme[x-placement^='top'] .tippy-arrow {
+    border-top-color: inherit;
+}
+.tippy-tooltip.ocean-theme[x-placement^='bottom'] .tippy-arrow {
+    border-bottom-color: inherit;
+}
+.tippy-tooltip.ocean-theme[x-placement^='left'] .tippy-arrow {
+    border-left-color: inherit;
+}
+.tippy-tooltip.ocean-theme[x-placement^='right'] .tippy-arrow {
+    border-right-color: inherit;
+}
