@@ -27,3 +27,13 @@ tippy("#csv", {
 	theme: 'ocean',
 	content: "See our data"
 })
+
+tippy("#top", {
+	animation: 'scale',
+	duration: 1000,
+	arrow: true,
+	interactive: true,
+	placement: 'top',
+	theme: 'ocean',
+	content: "Back to Top"
+})
