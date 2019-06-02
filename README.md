@@ -21,7 +21,7 @@
 <div id="intro">
 <div class="collapsible">
 <div class="collapsible-header">
-    <h2>Introduction</h2>
+    <h2>Introduction</h2><h2><a id="top" class="material-icons" href="#">arrow_upward</a></h2>
 </div>
 <div class="collapsible-body">
 <h3>Goal</h3>
@@ -43,7 +43,7 @@ Spot ratio.
 <div id="data">
 <div class="collapsible">
 <div class="collapsible-header">
-    <h2>Data Format</h2>
+    <h2>Data Format</h2><h2><a id="top" class="material-icons" href="#">arrow_upward</a></h2>
 </div>
 <div class="collapsible-body">
 
@@ -52,7 +52,7 @@ Spot ratio.
 <div id="require">
 <div class="collapsible">
 <div class="collapsible-header">
-    <h2>Requirements</h2>
+    <h2>Requirements</h2><h2><a id="top" class="material-icons" href="#">arrow_upward</a></h2>
 </div>
 <div class="collapsible-body">
 To satisfy the requirements to execute the script. Run <code>install.sh</code>. 
@@ -69,7 +69,7 @@ $ bash install.sh
 <div id="overview">
 <div class="collapsible">
 <div class="collapsible-header">
-    <h2>Overview of the Model</h2>
+    <h2>Overview of the Model</h2><h2><a id="top" class="material-icons" href="#">arrow_upward</a></h2>
 </div>
 <div class="collapsible-body">
 <b>Please read this section before using the script</b>
@@ -139,7 +139,7 @@ Both plot subsets include three plots
     <li> Individual Location PW and Temperature </li>
     <li> Locational Average PW and Temperature </li>
     <li> Total Mean PW and Temperature </li>
-    <li> Residual for Total Mean PW and Temperature </li>  
+    <li> Residual for Total Mean PW and Temperature</li>
     <li> Pac-Man Residual for Total Mean PW and Temperature </li>
 </ol>
 </div>
@@ -213,7 +213,7 @@ $ Rscript model.r --set o
 <div id="r-feat">
 <div class="collapsible">
 <div class="collapsible-header">
-    <h2> R Features </h2>
+    <h2>R Features</h2><h2><a id="top" class="material-icons" href="#">arrow_upward</a></h2>
 </div>
 <div class="collapsible-body">
 The following sections define and show interesting 
@@ -235,21 +235,21 @@ function, the plotting window would automatically open and close, ending the
 script. 
 <pre lang="R">
 <code>
-## Allows the plots to stay open
+<comment>## Allows the plots to stay open</comment>
 continue_input <- function(){
-	cat(bold(yellow("Press Enter to Continue:\n>> ")))
-	x <- readLines(con="stdin", 1)
+	cat(bold(yellow(<str>"Press Enter to Continue:\n>> "</str>)))
+	x <- readLines(con=<str>"stdin"</str>, <num>1</num>)
 }
-## A function that will produce popups through the x11 framework
+<comment>## A function that will produce popups through the x11 framework</comment>
 show <- function(...){
 	args <- list(...)
 	for (i in args){
-		X11(type="cairo", width=n, height=n)
+		X11(type=<str>"cairo"</str>, width=n, height=n)
 		i()
 	}
 	continue_input()
 }
-## A general function that will save plots
+<comment>## A general function that will save plots</comment>
 save <- function(func, name){
 	pdf(name)
 	func
@@ -264,11 +264,11 @@ is a PDF file by the name "cool_plots.pdf" with three pages, one
 for each plot unless an alternate plot layout is specified.
 <pre lang="R">
 <code>
-### USAGE
+<comment>### USAGE</comment>
 dummy <- function(){
-# The test_plots are functions that make plots
+<comment># The test_plots are functions that make plots</comment>
 	show(test_plot1, test_plot2, test_plot3)
-	save(c(test_plot1(), test_plot2(), test_plot3()), "cool_plots")
+	save(c(test_plot1(), test_plot2(), test_plot3()), <str>"cool_plots"</str>)
 }
 dummy()
 </code>
@@ -280,43 +280,43 @@ dummy()
 
 <pre lang="R">
 <code>
-## Data
+<comment>## Data</comment>
 y 	<- as.numeric(ydata)
 x 	<- as.numeric(xdata)
 
-## Max & Min values for limits
-ymax <- max(y, na.rm=TRUE)
-ymin <- min(y, na.rm=TRUE)
+<comment>## Max & Min values for limits</comment>
+ymax <- max(y, na.rm=<bool>TRUE</bool>)
+ymin <- min(y, na.rm=<bool>TRUE</bool>)
 
-xmin <- min(x, na.rm=TRUE)
-xmax <- max(x, na.rm=TRUE)
+xmin <- min(x, na.rm=<bool>TRUE</bool>)
+xmax <- max(x, na.rm=<bool>TRUE</bool>)
 
-## Sequence between the minimum and maximum x value
+<comment>## Sequence between the minimum and maximum x value</comment>
 newx 	<- seq(xmin, xmax, length.out=length(x))
 
-# Non-linear model (exponential)
-plot(x,y, col=c("blueviolet"), pch=16,
+<comment># Non-linear model (exponential)</comment>
+plot(x,y, col=c(<str>"blueviolet"</str>), pch=<num>16</num>,
 	xlim=c(xmin, xmax), ylim=c(ymin, ymax))
 
-model.0 <- lm(log(y, base=exp(1))~x, data=data.frame(x,log(y, base=exp(1))))
-start 	<- list(a=coef(model.0)[1], b=coef(model.0)[2])
-model 	<- nls(y~a+b*x, data=data.frame(x=x, y=log(y, base=exp(1))), start=start)
+model.0 <- lm(log(y, base=exp(<num>1</num>))~x, data=data.frame(x,log(y, base=exp(<num>1</num>))))
+start 	<- list(a=coef(model.0)[<num>1</num>], b=coef(model.0)[<num>2</num>])
+model 	<- nls(y~a+b*x, data=data.frame(x=x, y=log(y, base=exp(<num>1</num>))), start=start)
 
-## Trendline
+<comment>## Trendline</comment>
 q 	<- coef(model)
-curve(exp(q[1] +q[2]*x), col="Red", add=TRUE)
+curve(exp(q[<num>1</num>]+q[<num>2</num>]*x), col=<str>"Red"</str>, add=<bool>TRUE</bool>)
 
-## Confidence Interval
-confint <- predict(model.0, newdata=data.frame(x=newx), interval='confidence')
+<comment>## Confidence Interval</comment>
+confint <- predict(model.0, newdata=data.frame(x=newx), interval=<str>'confidence'</str>)
 
-lines(newx, exp(confint[ ,3]), col="blue", lty="dashed")
-lines(newx, exp(confint[ ,2]), col="blue", lty="dashed")
+lines(newx, exp(confint[ ,<num>3</num>]), col=<str>"blue"</str>, lty=<str>"dashed"</str>)
+lines(newx, exp(confint[ ,<num>2</num>]), col=<str>"blue"</str>, lty=<str>"dashed"</str>)
 
-## Prediction Interval
-predint <- predict(model.0, newdata=data.frame(x=newx), interval='prediction')
+<comment>## Prediction Interval</comment>
+predint <- predict(model.0, newdata=data.frame(x=newx), interval=<str>'prediction'</str>)
 
-lines(newx, exp(predint[ ,3]), col="magenta", lty="dashed")
-lines(newx, exp(predint[ ,2]), col="magenta", lty="dashed")
+lines(newx, exp(predint[ ,<num>3</num>]), col=<str>"magenta"</str>, lty=<str>"dashed"</str>)
+lines(newx, exp(predint[ ,<num>2</num>]), col=<str>"magenta"</str>, lty=<str>"dashed"</str>)
 </code>
 </pre>
 
@@ -329,35 +329,35 @@ y 	<- as.numeric(ydata)
 x 	<- as.numeric(xdata)
 
 <comment>## Max & Min values for limits</comment>
-ymax    <- max(y, na.rm=TRUE)
-ymin    <- min(y, na.rm=TRUE)
+ymax    <- max(y, na.rm=<bool>TRUE</bool>)
+ymin    <- min(y, na.rm=<bool>TRUE</bool>)
 
-xmin    <- min(x, na.rm=TRUE)
-xmax    <- max(x, na.rm=TRUE)
+xmin    <- min(x, na.rm=<bool>TRUE</bool>)
+xmax    <- max(x, na.rm=<bool>TRUE</bool>)
 
-## Sequence between the minimum and maximum x value
+<comment>## Sequence between the minimum and maximum x value</comment>
 newx 	<- seq(xmin, xmax, length.out=length(x))
 
 <comment># Non-linear model (exponential)</comment>
-plot(x,y, col=c("blueviolet"), pch=<num>16</num>,
+plot(x,y, col=c(<str>"blueviolet"</str>), pch=<num>16</num>,
 	xlim=c(xmin, xmax), ylim=c(ymin, ymax))
 
-model.0 <- lm(log(y, base=exp(<num>1</num>))~x, data=data.frame(x,log(y, base=exp(1))))
+model.0 <- lm(log(y, base=exp(<num>1</num>))~x, data=data.frame(x,log(y, base=exp(<num>1</num>))))
 start 	<- list(a=coef(model.0)[<num>1</num>], b=coef(model.0)[<num>2</num>])
 model 	<- nls(y~a+b*x, data=data.frame(x=x, y=log(y, base=exp(<num>1</num>))), start=start)
 
 residual <- abs(resid(model))
 t 	<- seq(<num>40</num>, <num>320</num>, len=length(residual))
 
-rmax 	<- max(as.numeric(residual), na.rm=TRUE)
-test    <- polar.plot(residual, t, rp.type="s",labels="",
-		radial.lim=c(<num>0</num>, <num>1</num>),show.grid=TRUE, show.grid.labels=FALSE,
-		main="Pac-Man Residual Plot",
-		show.radial.grid=FALSE, grid.col="black")
+rmax 	<- max(as.numeric(residual), na.rm=<bool>TRUE</bool>)
+test    <- polar.plot(residual, t, rp.type=<str>"s"</str>,labels=<str>""</str>,
+		radial.lim=c(<num>0</num>, <num>1</num>),show.grid=<bool>TRUE</bool>, show.grid.labels=<bool>FALSE</bool>,
+		main=<str>"Pac-Man Residual Plot"</str>,
+		show.radial.grid=<bool>FALSE</bool>, grid.col=<str>"black"</str>)
 
 <comment>## Alternates Colors for contrast</comment>
-color1 <- "Yellow"
-color2 <- "White"
+color1 <- <str>"Yellow"</str>
+color2 <- <str>"White"</str>
 draw.circle(<num>0</num>, <num>0</num>, radius=<num>1.0</num>, col=color1)
 draw.circle(<num>0</num>, <num>0</num>, radius=<num>0.8</num>, col=color2)
 draw.circle(<num>0</num>, <num>0</num>, radius=<num>0.6</num>, col=color1)
@@ -365,8 +365,8 @@ draw.circle(<num>0</num>, <num>0</num>, radius=<num>0.4</num>, col=color2)
 draw.circle(<num>0</num>, <num>0</num>, radius=<num>0.2</num>, col=color1)
 
 <comment>## Plots output of residual against an arbitary angle</comment>
-polar.plot(residual, t, rp.type="s",point.col="blue",
-	point.symbols=<num>16</num>, add=TRUE)
+polar.plot(residual, t, rp.type=<str>"s"</str>,point.col=<str>"blue"</str>,
+	point.symbols=<num>16</num>, add=<bool>TRUE</bool>)
 
 <comment>## Labeling</comment>
 text(c(<num>0.12</num>, <num>0.3</num>, <num>0.5</num>, <num>0.7</num>, <num>0.9</num>), <num>0</num>, 
@@ -374,9 +374,9 @@ text(c(<num>0.12</num>, <num>0.3</num>, <num>0.5</num>, <num>0.7</num>, <num>0.9
 
 <comment>## Defines region dedicated to labeling </comment>
 polar.plot(c(<num>0</num>, <num>1</num>), c(min(t) - <num>10</num>, min(t) - <num>10</num>), lwd=<num>1</num>, 
-            rp.type="p", line.col="black", add=TRUE)
+            rp.type=<str>"p"</str>, line.col=<str>"black"</str>, add=<bool>TRUE</bool>)
 polar.plot(c(<num>0</num>, <num>1</num>), c(max(t) + <num>10</num>, max(t) + <num>10</num>), lwd=<num>1</num>, 
-            rp.type="p", line.col="black", add=TRUE)
+            rp.type=<str>"p"</str>, line.col=<str>"black"</str>, add=<bool>TRUE</bool>)
 
 </code>
 </pre>
@@ -385,7 +385,7 @@ polar.plot(c(<num>0</num>, <num>1</num>), c(max(t) + <num>10</num>, max(t) + <nu
 <div id="contrib">
 <div class="collapsible">
 <div class="collapsible-header">
-<h2> Contributing to the Research </h2>
+<h2>Contributing to the Research</h2><h2><a id="top" class="material-icons" href="#">arrow_upward</a></h2>
 </div>
 <div class="collapsible-body">
 </div></div></div>
@@ -393,7 +393,7 @@ polar.plot(c(<num>0</num>, <num>1</num>), c(max(t) + <num>10</num>, max(t) + <nu
 <div id="next">
 <div class="collapsible">
 <div class="collapsible-header">
-<h2> Next Steps </h2>
+<h2>Next Steps</h2><h2><a id="top" class="material-icons" href="#">arrow_upward</a></h2>
 </div>
 <div class="collapsible-body">
 The future development of this project with regards to the data collection include 
@@ -401,12 +401,20 @@ The future development of this project with regards to the data collection inclu
 
 <div id="footer">
     <hr style="border-color: rgba(46,156,202,0.96); width: 100%; margin-left: -20rem;">
-    <h2>The Maintainers</h2>
+    <div style="margin-left: -1rem; width: 120%; margin-right: -20rem;">
+        <h2>The Maintainers<a id="top" class="material-icons" href="#">arrow_upward</a></h2>
+    </div>
     <table class="maintain">
         <tbody>
             <tr style="border: 0px;">
                 <td>
+                    <i class="material-icons">face</i> 
+                </td>
+                <td>
                     Spencer Riley
+                </td>
+                <td>
+                    <i class="material-icons">face</i>
                 </td>
                 <td>
                     Vicki Kelsey
@@ -414,7 +422,13 @@ The future development of this project with regards to the data collection inclu
             </tr>
             <tr>
                 <td>
+                    <i class="material-icons">public</i>
+                </td>
+                <td>
                     <a href="pharaohcola13.github.io">pharaohcola13.github.io</a>
+                </td>
+                <td>
+                    <i class="material-icons">public</i>
                 </td>
                 <td>
                     <a href="physicsgoddess1972.github.io">physicsgoddess1972.github.io</a>
@@ -422,7 +436,13 @@ The future development of this project with regards to the data collection inclu
             </tr>
             <tr>
                 <td>
+                    <i class="material-icons">alternate_email</i>
+                </td>
+                <td>
                     spencer.riley@student.nmt.edu
+                </td>
+                <td>
+                    <i class="material-icons">alternate_email</i>
                 </td>
                 <td>
                     vicki.kelsey@student.nmt.edu

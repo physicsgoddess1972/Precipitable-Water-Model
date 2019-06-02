@@ -1209,7 +1209,7 @@ button.btn-floating {
     box-sizing: border-box;
     padding-left: 2rem;
     padding-top: 2rem;
-    padding-right: 0;
+    padding-right: 1.5rem;
     margin-bottom: 0;
 }
 
@@ -1222,14 +1222,19 @@ button.btn-floating {
     margin-right: 0rem;
 }
 
-.collapsible code .string{
-	color: #b5bd68;
-}
 .collapsible code comment {
 	color: #f0c674;
 }
 .collapsible code num {
     color: #81a2be;
+}
+
+.collapsible code str {
+	color: #b5bd68;
+}
+
+.collapsible code bool {
+    color: #de935f;
 }
 
 .usage .numbered{
@@ -1296,25 +1301,41 @@ table {
 	text-align: auto;
 	border: 0;
 	border-collapse: collapse;
-	margin: 0;
 	padding: 6px 13px;
+	vertical-align: top;
 }
 
-.wy-side-nav-search {
-    display: block;
-    width: inherit;
-    height: inherit;
-    text-align: center;
-    padding-top: 0.809em;
-    padding-bottom: 0.809em;
-    color: #fcfcfc;
-    margin-bottom: 0.809em;
-   background-color: inherit;
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
 }
 
-.wy-side-nav-search input[type=text]{
-    width: 90%;
-    border-radius: 50px;
-    padding: 6px 0px;
-    border-color: #555;
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+#top {
+
 }
