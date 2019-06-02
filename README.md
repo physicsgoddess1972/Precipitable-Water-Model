@@ -425,13 +425,13 @@ The future development of this project with regards to the data collection inclu
                     <i class="material-icons">public</i>
                 </td>
                 <td>
-                    <a href="pharaohcola13.github.io">pharaohcola13.github.io</a>
+                    <a target="_blank" href="http://pharaohcola13.github.io">pharaohcola13.github.io</a>
                 </td>
                 <td>
                     <i class="material-icons">public</i>
                 </td>
                 <td>
-                    <a href="physicsgoddess1972.github.io">physicsgoddess1972.github.io</a>
+                    <a target="_blank" href="http://physicsgoddess1972.github.io">physicsgoddess1972.github.io</a>
                 </td>
             </tr>
             <tr>
