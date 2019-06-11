@@ -121,7 +121,7 @@ a:hover {
  */
 
 .content pre{
-	font-family: Menlo, monospace;
+	font-family: "Source Code Pro", monospace;
 	padding: 10px 0px;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -161,7 +161,7 @@ a:hover {
 
 .content code {
 	width: 100%;
-	font-family: Menlo, monospace;
+	font-family: "Source Code Pro", monospace;
 	background: #f3f6fb;
 	padding: 1px 3px;
 	font-size: 0.95em;
@@ -405,7 +405,7 @@ body.no-literate .content pre > code:hover::-webkit-scrollbar-thumb {
 		color: #fff;
 	}
 	body:not(.no-literate) .content pre{
-		font-family: Menlo, monospace;
+		font-family: "Source Code Pro", monospace;
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
 		box-sizing: border-box;
@@ -492,7 +492,7 @@ body.no-literate .content pre > code:hover::-webkit-scrollbar-thumb {
 	}
 	body:not(.no-literate) .content code {
 		width: 100%;
-		font-family: Menlo, monospace;
+		font-family: "Source Code Pro", monospace;
 		background: #f3f6fb;
 		font-size: 0.95em;
 		overflow: auto;
@@ -729,7 +729,7 @@ a.big.button:hover:visited {
 }
 
 .btn:focus, .btn-large:focus, .btn-small:focus, .btn-floating:focus {
-	background-color: #1d7d74
+	background-color: #3c83d7;
 }
 .btn-floating {
 	display: inline-block;
@@ -741,7 +741,7 @@ a.big.button:hover:visited {
 	height: 40px;
 	line-height: 40px;
 	padding: 0;
-	background-color: #26a69a;
+	background-color: #3c83d7;
 	border-radius: 50%;
 	-webkit-transition: background-color .3s;
 	transition: background-color .3s;
@@ -750,7 +750,7 @@ a.big.button:hover:visited {
 }
 
 .btn-floating:hover {
-	background-color: #26a69a
+	background-color: #3c83d7;
 }
 
 .btn-floating:before {
@@ -1141,6 +1141,7 @@ button.btn-floating {
 	padding-left: 2rem;
 	padding-top: 2rem;
 	padding-right: 1.5rem;
+	padding-bottom: 1rem;
 	margin-bottom: 0;
 }
 
@@ -1168,10 +1169,29 @@ button.btn-floating {
 	color: #de935f;
 }
 
+.collapsible code inp{
+	color: #00ffff;
+}
+
 .usage .numbered{
 	margin-top: 20px;
 	margin-bottom: 10px;
 	padding-top: 2px;
+	background: #bdbdbd;
+	border-radius: 50%;
+	color: #fff;
+	display: inline-block;
+	height: 34px;
+	font-size: 18px;
+	text-align: center;
+	width: 36px;
+}
+
+.usage .subnumbered{
+	margin-top: 20px;
+	margin-bottom: 10px;
+	padding-top: 2px;
+	margin-left: 50px;
 	background: #bdbdbd;
 	border-radius: 50%;
 	color: #fff;
@@ -1211,7 +1231,6 @@ table {
 	background-color: inherit;
 }
 .content table tr td{
-	text-align: auto;
 	border: 0;
 	border-collapse: collapse;
 	margin: 0;
@@ -1225,7 +1244,19 @@ table {
 }
 
 #overview .collapsible-body .step{
-	padding-bottom: 28rem;
+	padding-bottom: 25rem;
+}
+
+#guidelines .collapsible-body .guide{
+	padding-bottom: 19rem
+}
+
+#give-code .collapsible-body .give-code{
+	padding-bottom: 28rem
+}
+
+#give-data .collapsible-body .give-data{
+	padding-bottom: 33rem
 }
 
 #footer table tr td{
