@@ -1,4 +1,4 @@
-Date,1610 TE (Ground),1610 TE (AIr),FLIRi3 (Ground),FLIRi3 (Air),AMES (Ground),AMES (Air),PW ABQ 12Z (5AM),PW ABQ 00Z (5 PM),PW EPZ 12Z (5AM),PW EPZ 00Z (5 PM),conditions,Vicki time,NWS time,NWS temp,relative humidity,comments
+Date,1610 TE (Ground),1610_TE_Air,FLIRi3 (Ground),FLIRi3_Air,AMES (Ground),AMES_Air,PW ABQ 12Z (5AM),PW ABQ 00Z (5 PM),PW EPZ 12Z (5AM),PW EPZ 00Z (5 PM),conditions,Vicki time,NWS time,NWS temp,relative humidity,comments
 1/22/19,7.2,-13.3,5.3,-13.2,NaN,NaN,5.93,6.15,8.14,6.17,overcast,10:38,10:15,5,40,Overcast so NaN to exclude data
 1/23/19,17,NaN,13.7,NaN,NaN,NaN,2.89,4.86,4.37,4.81,,13:38,13:15,7,23,
 1/24/19,11.2,NaN,7.2,NaN,NaN,NaN,4.73,2.95,4.76,3.15,,10:38,10:35,6,34,
