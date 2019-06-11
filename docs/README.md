@@ -23,6 +23,7 @@ Precipitable-Water-Model
 	`--- model.r
 ```
 ## Data Format
+<div>
 
 ## Requirements
 To satisfy the requirements to execute the script. Run ```install.sh```. 
@@ -32,6 +33,7 @@ requirements.
 ```bash
 $ bash install.sh
 ```
+</div>
 
 ## Using the Model
 
