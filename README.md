@@ -61,7 +61,7 @@ requirements.
 
 <pre lang="bash">
 <code>
-$ bash install.sh
+<inp>$</inp> bash install.sh
 </code>
 </pre>
 </div></div></div>
@@ -85,7 +85,7 @@ It should be noted that these issues only impacts the display of the plots and w
 
 <pre lang="bash">
 <code>
-$ Rscript model.r --help
+<inp>$</inp> Rscript model.r --help
 
 usage: model.r [-h] [--save] [--set SET] [--poster] [--dev] [-d] [-o] [-w] [-i]
 
@@ -108,8 +108,8 @@ optional arguments:
 <h3> 'Main' Set Contents </h3>
 <pre lang="bash">
 <code>
-$ Rscript model.r --set m
-$ Rscript model.r --set m --overcast
+<inp>$</inp> Rscript model.r --set m
+<inp>$</inp> Rscript model.r --set m --overcast
 </code>
 </pre>
 
@@ -117,7 +117,7 @@ This set of plots is divided into two subsets based on the condition labels.
 In our case the conditions are clear skies and overcast.
 To run this plot set use the terminal commands in this section. 
 The overcast data can be seen via the
-```--overcast``` argument.
+<code>--overcast</code> argument.
 
 Both plot subsets include three plots 
 
@@ -131,7 +131,7 @@ Both plot subsets include three plots
 <h3> 'Plots Galore' Set Contents </h3>
 <pre lang="bash">
 <code>
- $ Rscript model.r --set p
+<inp>$</inp> Rscript model.r --set p
 </code>
 </pre>
 
@@ -148,7 +148,7 @@ Both plot subsets include three plots
 
 <pre lang="bash">
 <code>
-$ Rscript model.r --set o
+<inp>$</inp> Rscript model.r --set o
 </code>
 </pre>
 
@@ -157,7 +157,7 @@ $ Rscript model.r --set o
     <li> Overcast Condition Percentage (Pie) </li>
 </ol>
 <div class="step">
-<h3> Step-by-Step usage </h3>
+<h3> Step-by-Step usage (Linux)</h3>
 <table class="usage">
 <tbody>
 <tr style="border: 0px;">
@@ -165,7 +165,7 @@ $ Rscript model.r --set o
         <span class="numbered">1</span>
     </td>
     <td>
-        Fork, Clone, or Download the repository.
+        Fork, Clone, or Download the repository. 
     </td>
 </tr>
 <tr>
@@ -388,6 +388,7 @@ polar.plot(c(<num>0</num>, <num>1</num>), c(max(t) + <num>10</num>, max(t) + <nu
 <h2>Contributing to the Research</h2><a id="top" class="material-icons" href="#">arrow_upward</a>
 </div>
 <div class="collapsible-body">
+If you would like to contribute to this project, visit our <a href="./contrib.html">contribution page</a>.
 </div></div></div>
 
 <div id="next">

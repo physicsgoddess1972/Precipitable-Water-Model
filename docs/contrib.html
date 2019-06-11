@@ -15,24 +15,22 @@
     <script src='./assets/js/script.js'></script>
     <script src="./assets/js/materialize.min.js"></script>
 
-
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" >
     <link rel='stylesheet' href='./assets/css/style.css' >
     <link rel="stylesheet" href="./assets/css/tooltip.css">
+
     <script>
         Flatdoc.run({
-            fetcher: Flatdoc.file('../README.md')
+            fetcher: Flatdoc.file('../CONTRIBUTING.md')
         });
     </script>
 </head>
-<body role='flatdoc' onload="$('.tap-target').tapTarget('open')">
+<body role='flatdoc'>
 <div class='content-root'>
     <div class="menubar">
         <div class='menu section' role='flatdoc-menu'></div>
     </div>
-    <div role='flatdoc-content' class='content'></div>
     <div class="fixed-action-btn">
         <a class="btn-floating btn-large" style="background-color: indigo" id="menu">
             <i class="fa fa-bars big-icon"></i>
@@ -72,38 +70,13 @@
                     <i class="material-icons" id="contribute">people</i>
                 </a>
             </li>
-
         </ul>
     </div>
-    <div class="tap-target" data-target="menu">
-        <div class="tap-target-content" style="float: right; margin-top: 0px;">
-            <h1 style="margin-left: -100px;">Welcome to the Precipitable Water</h1>
-            <h1 style="margin-left: -50px;">Documentation Page</h1>
-            <br/>
-            <hr style="width: 100%; margin-left: -175px">
-            <p style="margin-left: -175px; margin-right: 300px;">
-                Feel free to browse around on this page to learn
-                how to use this model.
-            </p>
-            <hr style="width: 100%; margin-left: -225px"/>
-            <p style="margin-left: -225px; margin-right: 300px;">
-                If you are interested in conducting this experiment in your
-                location click the menu button and visit our github page
-                and take a look at the documentation on this page.
-            </p>
-        </div>
-    </div>
+<div role='flatdoc-content' class='content'></div>
 </div>
 <script src="./assets/js/popper.js"></script>
 <script src="./assets/js/tippy.js"></script>
 <script src="./assets/js/tooltip.js"></script>
-
-<script>
-    $(document).ready(function(){
-        $('.tap-target').tapTarget();
-    });
-
-</script>
 <script>
     $(document).ready(function(){
         $('.fixed-action-btn').floatingActionButton();
