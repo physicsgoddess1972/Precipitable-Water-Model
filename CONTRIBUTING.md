@@ -1,11 +1,11 @@
-<h1>Precipitable Water Model</h1><a href="./index.html" class="material-icons">arrow_back</a>
+<h1>Precipitable Water Model</h1>
 
 <div id="guidelines">
 <div class="collapsible" >
 <div class="collapsible-header">
-<h2>Guidelines</h2>
+<h2>Guidelines for Contributors</h2>
 </div>
-<div class="collapsible-body">
+<div class="panel">
 While working on data collection or any contributions to this project, keep in mind
 the following guidelines. Contributions that do not follow these guidelines will
 not be included in the project.
@@ -37,7 +37,7 @@ not be included in the project.
 <div class="collapsible-header">
 <h2>Contributing Data</h2>
 </div>
-<div class="collapsible-body">
+<div class="panel">
 If you would like to add temperature and precipitable water measurements to our dataset please follow the following rules:
 Use the data format requirements that are included on the
 <a href="./index.html#precipitable-water-model-data-format">documentation page</a>. 
@@ -83,7 +83,7 @@ Follow the brief procedure below.
 <div class="collapsible-header">
 <h2>Contributing Features</h2>
 </div>
-<div class="collapsible-body">
+<div class="panel">
 <div class="give-code">
 If you would like to add an additional feature to the model follow the procedure below.
 <table class="usage">
@@ -114,13 +114,13 @@ If you would like to add an additional feature to the model follow the procedure
 </tr>
 </tbody>
 </table>
-</div></div></div></div></div>
+</div></div></div></div>
 
 <div class="collapsible">
 <div class="collapsible-header">
 <h2>Issues and Bugs</h2>
 </div>
-<div class="collapsible-body">
+<div class="panel">
 <p> To file a report on an bug, visit <a href="">this</a> page and fill out the form
 with as much detail as possible. Include system information and the exact method 
 used to generate the issue. We will make an attempt to resolve the issue as soon 
@@ -134,54 +134,54 @@ and we will actively try to find a workaround.</p>
 </div></div>
 
 <div id="footer">
-    <hr style="border-color: rgba(46,156,202,0.96); width: 100%; margin-left: -20rem;">
-    <div style="margin-left: -1rem; width: 100%; margin-right: -20rem;">
-        <h2>The Maintainers</h2>
-    </div>
-    <table class="maintain">
-        <tbody>
-            <tr style="border: 0px;">
-                <td>
-                    <i class="material-icons">face</i> 
-                </td>
-                <td>
-                    Spencer Riley
-                </td>
-                <td>
-                    <i class="material-icons">face</i>
-                </td>
-                <td>
-                    Vicki Kelsey
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <i class="material-icons">public</i>
-                </td>
-                <td>
-                    <a target="_blank" href="http://pharaohcola13.github.io">pharaohcola13.github.io</a>
-                </td>
-                <td>
-                    <i class="material-icons">public</i>
-                </td>
-                <td>
-                    <a target="_blank" href="http://physicsgoddess1972.github.io">physicsgoddess1972.github.io</a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <i class="material-icons">alternate_email</i>
-                </td>
-                <td>
-                    spencer.riley@student.nmt.edu
-                </td>
-                <td>
-                    <i class="material-icons">alternate_email</i>
-                </td>
-                <td>
-                    vicki.kelsey@student.nmt.edu
-                </td>
-            </tr>
-        </tbody>
-    </table>
+	<hr style="border-color: rgba(46,156,202,0.96); width: 100%; margin-left: -20rem;">
+	<div style="margin-left: -1rem; width: 100%; margin-right: -20rem;">
+		<h2>The Maintainers</h2>
+	</div>
+	<table class="maintain">
+		<tbody>
+			<tr style="border: 0px;">
+				<td>
+					<i class="material-icons">face</i> 
+				</td>
+				<td>
+					Spencer Riley
+				</td>
+				<td>
+					<i class="material-icons">face</i>
+				</td>
+				<td>
+					Vicki Kelsey
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<i class="material-icons">public</i>
+				</td>
+				<td>
+					<a target="_blank" href="http://pharaohcola13.github.io">pharaohcola13.github.io</a>
+				</td>
+				<td>
+					<i class="material-icons">public</i>
+				</td>
+				<td>
+					<a target="_blank" href="http://physicsgoddess1972.github.io">physicsgoddess1972.github.io</a>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<i class="material-icons">alternate_email</i>
+				</td>
+				<td>
+					spencer.riley@student.nmt.edu
+				</td>
+				<td>
+					<i class="material-icons">alternate_email</i>
+				</td>
+				<td>
+					vicki.kelsey@student.nmt.edu
+				</td>
+			</tr>
+		</tbody>
+	</table>
 </div>
