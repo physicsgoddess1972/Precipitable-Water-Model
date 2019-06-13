@@ -20,54 +20,72 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" >
     <link rel='stylesheet' href='./assets/css/style.css' >
     <link rel="stylesheet" href="./assets/css/tooltip.css">
+    <link rel="stylesheet" href="./assets/css/materialize.min.css">
+
 
     <script>
         Flatdoc.run({
             fetcher: Flatdoc.github('physicsgoddess1972/Precipitable-Water-Model', "CONTRIBUTING.md")
+            /*fetcher: Flatdoc.file('../CONTRIBUTING.md')*/
+
         });
     </script>
 </head>
 <body role='flatdoc'>
 <div class='content-root'>
-    <div class="fixed-action-btn-alt-alt" style="top: 50%">
-        <a class="btn-floating-alt-alt btn-large pulse" style="background-color: white; color: black" href="#">
-            <i class="material-icons" style="color: black">arrow_upward</i>
-        </a>
+    <div id="modal2" class="modal bottom-sheet">
+        <div class="modal-content">
+            <h4>Internal Pages</h4>
+            <a href="./index.html" class="waves-effect waves-red btn-flat" id="home" style="border-radius: 40%">
+                <div class="collapsible" style="width: 10rem;  border-radius: 40%;">
+                    <div class="collapsible-body" style="text-align: center;  padding-top: 2rem;">
+                        <i class="material-icons" style="font-size: 36px;">home</i>
+                        <p>Home</p>
+                    </div>
+                </div>
+            </a>
+            <a href="./contrib.html" class="waves-effect waves-orange btn-flat" id="contrib" style="border-radius: 40%">
+                <div class="collapsible" style="width: 10rem; border-radius: 40%; background-color: rgba(255, 152, 0, 0.7);">
+                    <div class="collapsible-body" style="text-align: center; padding-top: 2rem;">
+                        <i class="material-icons" style="font-size: 36px;">people</i>
+                        <p>Contribute</p>
+                    </div>
+                </div>
+            </a>
+            <a href="./code.html" class="waves-effect waves-green btn-flat" id="code" style="border-radius: 40%">
+                <div class="collapsible" style="width: 10rem;  border-radius: 40%">
+                    <div class="collapsible-body" style="text-align: center; padding-top: 2rem;">
+                        <i class="material-icons big-icon" style="font-size: 36px;">code</i>
+                        <p>R Features</p>
+                    </div>
+                </div>
+            </a>
+            <a href="." class="waves-effect waves-teal btn-flat" id="cancel" style="border-radius: 40%">
+                <div class="collapsible" style="width: 10rem;  border-radius: 40%">
+                    <div class="collapsible-body" style="text-align: center; padding-top: 2rem;">
+                        <i class="material-icons big-icon" style="font-size: 36px;">cancel</i>
+                        <p>Cancel</p>
+                    </div>
+                </div>
+            </a>
+        </div>
     </div>
     <div class="menubar">
         <div class='menu section' role='flatdoc-menu'></div>
     </div>
-    <div class="fixed-action-btn-alt" style="top: 0;">
-        <a class="btn-floating-alt btn-large pulse" style="background-color: blue;" id="menu-alt">
+    <div role='flatdoc-content' class='content'></div>
+    <div class="fixed-action-btn" style="top: 0;" onclick="$('#modal2').modal('open')">
+        <a class="btn-floating btn-large pulse" style="background-color: blue;" id="menu-alt" >
             <i class="fa fa-bars big-icon"></i>
         </a>
-        <ul>
-            <li>
-                <a target="_blank"
-                   href="./contrib.html"
-                   class="btn-floating pulse" style="background-color: green">
-                    <i class="material-icons" id="contribute">people</i>
-                </a>
-            </li>
-            <li>
-                <a target="_blank"
-                   href="./code.html"
-                   class="btn-floating pulse" style="background-color: orange;">
-                    <i class="material-icons" id="code">code</i>
-                </a>
-            </li>
-            <li>
-                <a target="_blank"
-                   href="./index.html"
-                   class="btn-floating pulse" style="background-color: red;">
-                    <i class="material-icons" id="home">home</i>
-                </a>
-            </li>
-        </ul>
     </div>
-    <div role='flatdoc-content' class='content'></div>
-    <div class="fixed-action-btn" style="top: 78%">
-        <a class="btn-floating btn-large pulse" style="background-color: indigo;" id="menu">
+    <div class="fixed-action-btn" style="top: 35%">
+        <a class="btn-floating btn-large pulse" style="background-color: white; color: black" href="#">
+            <i class="material-icons" style="color: black">arrow_upward</i>
+        </a>
+    </div>
+    <div class="fixed-action-btn" style="top: 78%" >
+        <a class="btn-floating btn-large pulse" style="background-color: indigo" id="menu">
             <i class="fa fa-bars big-icon"></i>
         </a>
         <ul style="top: -78%">
@@ -100,35 +118,22 @@
             </li>
         </ul>
     </div>
+
 </div>
 
 <script src="./assets/js/popper.js"></script>
 <script src="./assets/js/tippy.js"></script>
 <script src="./assets/js/tooltip.js"></script>
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var elems = document.querySelectorAll('.fixed-action-btn');
-        var instances = M.FloatingActionButton.init(elems, {
-            direction: 'left',
-            hoverEnabled: false
-        });
+    $('.fixed-action-btn').floatingActionButton({
+        direction: 'left',
+        hoverEnabled: false
     });
 </script>
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var elems_alt = document.querySelectorAll('.fixed-action-btn-alt');
-        var instances_alt = M.FloatingActionButton.init(elems_alt, {
-            direction: 'right',
-            hoverEnabled: false
-        });
-    });
-</script>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var elems_alt = document.querySelectorAll('.fixed-action-btn-alt-alt');
-        var instances_alt = M.FloatingActionButton.init(elems_alt, {
-            direction: 'right',
-            hoverEnabled: false
+    $(document).ready(function(){
+        $('.modal').modal({
+            dismissible: false
         });
     });
 </script>

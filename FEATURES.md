@@ -91,7 +91,7 @@ plot(x,y, col=c(<str>"blueviolet"</str>), pch=<num>16</num>,
 
 model.0 <- lm(log(y, base=exp(<num>1</num>))~x, data=data.frame(x,log(y, base=exp(<num>1</num>))))
 start 	<- list(a=coef(model.0)[<num>1</num>], b=coef(model.0)[<num>2</num>])
-model 	<- nls(y~a+b*x, data=data.frame(x=x, y=log(y, base=exp(<num>1</num>))), start=start)
+model 	<- nls(y~a+b\*x, data=data.frame(x=x, y=log(y, base=exp(<num>1</num>))), start=start)
 
 <comment>## Trendline</comment>
 q 	<- coef(model)
