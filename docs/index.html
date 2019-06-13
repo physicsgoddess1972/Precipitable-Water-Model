@@ -20,69 +20,129 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" >
 	<link rel='stylesheet' href='./assets/css/style.css' >
 	<link rel="stylesheet" href="./assets/css/tooltip.css">
-   <!-- <link rel="stylesheet" href="./assets/css/materialize.min.css"> -->
+	<link rel="stylesheet" href="./assets/css/materialize.min.css">
 
 	<script>
 		Flatdoc.run({
 			fetcher: Flatdoc.github('physicsgoddess1972/Precipitable-Water-Model')
+			/*fetcher: Flatdoc.file('../README.md')*/
 		});
 	</script>
 </head>
-<body role='flatdoc' onload="$('.tap-target').tapTarget('open')">
+<body role='flatdoc'>
 <div class='content-root'>
-    <div class="fixed-action-btn-alt-alt" style="top: 50%">
-        <a class="btn-floating-alt-alt btn-large pulse" style="background-color: white; color: black" href="#">
-            <i class="material-icons" style="color: black">arrow_upward</i>
-        </a>
-    </div>
+	<div id="modal1" class="modal">
+		<div class="modal-content">
+			<h4 style="text-align: center">Welcome to the Precipitable Water Model Documentation Page</h4>
+			<p>
+				If you are interested in conducting this experiment in your
+				location click the menu button in the upper right-hand corner and visit our contribution page
+				for directions on how to retrieve the model.
+			</p>
+		</div>
+		<div class="modal-footer">
+			<a href="#!" class="modal-close waves-effect waves-teal btn-flat" data-dismiss="modal1"
+			   onclick="$('#lower').tapTarget('open'); this.onclick=null">Continue</a>
+		</div>
+	</div>
+	<div id="modal2" class="modal bottom-sheet">
+		<div class="modal-content">
+			<h4>Internal Pages</h4>
+			<a href="./index.html" class="waves-effect waves-red btn-flat" id="home" style="border-radius: 40%;">
+				<div class="collapsible" style="width: 10rem;  border-radius: 40%; background-color: rgba(244, 67, 54, 0.7);">
+					<div class="collapsible-body" style="text-align: center;  padding-top: 2rem;">
+						<i class="material-icons" style="font-size: 36px;">home</i>
+						<p>Home</p>
+					</div>
+				</div>
+			</a>
+			<a href="./contrib.html" class="waves-effect waves-orange btn-flat" id="contrib" style="border-radius: 40%">
+				<div class="collapsible" style="width: 10rem; border-radius: 40%">
+					<div class="collapsible-body" style="text-align: center; padding-top: 2rem;">
+						<i class="material-icons" style="font-size: 36px;">people</i>
+						<p>Contribute</p>
+					</div>
+				</div>
+			</a>
+			<a href="./code.html" class="waves-effect waves-green btn-flat" id="code" style="border-radius: 40%">
+				<div class="collapsible" style="width: 10rem;  border-radius: 40%">
+					<div class="collapsible-body" style="text-align: center; padding-top: 2rem;">
+						<i class="material-icons big-icon" style="font-size: 36px;">code</i>
+						<p>R Features</p>
+					</div>
+				</div>
+			</a>
+			<a class="waves-effect waves-teal btn-flat" id="cancel" style="border-radius: 40%" onclick="$('#modal2').modal('close')">
+				<div class="collapsible" style="width: 10rem;  border-radius: 40%">
+					<div class="collapsible-body" style="text-align: center; padding-top: 2rem;">
+						<i class="material-icons big-icon" style="font-size: 36px;">cancel</i>
+						<p>Cancel</p>
+					</div>
+				</div>
+			</a>
+		</div>
+	</div>
 	<div class="menubar">
 		<div class='menu section' role='flatdoc-menu'></div>
 	</div>
-	<div class="fixed-action-btn-alt" style="top: 0;">
-		<a class="btn-floating-alt btn-large pulse" style="background-color: blue;" id="menu-alt">
+	<div role='flatdoc-content' class='content'></div>
+	<div class="tap-target-wave tap-target-origin"  style="top: 0; left: 100%;">
+	<div class="tap-target" data-target="menu" id="lower">
+		<div class="tap-target-content" style="float: right; margin-top: -20%;">
+			<p style="margin-left: -110%; margin-right: 100%;">
+				Hover over this menu button to access external pages.
+				Here you can:
+				<ol style="margin-left: -95%; margin-right: 120%;">
+					<li>- Access our GitHub page</li>
+					<li>- Download our repository</li>
+					<li>- View our data</li>
+					<li>- File a bug report or request a new feature</li>
+				 </ol>
+			</p>
+				<a href="#!" class="waves-effect waves-teal btn-flat"
+				   style="margin-left: -110%; margin-right: 100%; background-color:#fff;"
+				   onclick="closeTap(); $('#upper').tapTarget('open')">Continue</a>
+		</div>
+	</div>
+	</div>
+	<div class="tap-target-wave tap-target-origin"  style="top: 0px; left: 100%;">
+	<div class="tap-target" data-target="menu-alt" id="upper" onshow="$('#lower').tapTarget('close');">
+		<div class="tap-target-content" style="float: right; margin-top: -20%; z-index: 10000">
+			<p style="margin-left: -110%; margin-right: 100%;">
+				Hover over this menu button to access internal pages.
+				Here you can:
+			<ol style="margin-left: -95%; margin-right: 120%;">
+				<li>- Access our Contribution page</li>
+				<li>- View the code features</li>
+				<li>- Come back to this width: 80px; height: 80px;page</li>
+			</ol>
+			<a href="#!" class="waves-effect waves-teal btn-flat"
+			   style="margin-left: -110%; margin-right: 100%; background-color:#fff;"
+			   onclick=closeTap()>Continue</a>
+			</p>
+		</div>
+	</div>
+	</div>
+	<div class="fixed-action-btn" style="top: 30%;" onclick="$('#modal2').modal('open')">
+		<a class="btn-floating btn-large pulse" style="background-color: blue;" id="menu-alt" >
 			<i class="fa fa-bars big-icon"></i>
 		</a>
-		<ul>
-			<li>
-				<a target="_blank"
-				   href="./contrib.html"
-				   class="btn-floating pulse" style="background-color: green">
-					<i class="material-icons" id="contribute">people</i>
-				</a>
-			</li>
-			<li>
-				<a target="_blank"
-				   href="./code.html"
-				   class="btn-floating pulse" style="background-color: orange;">
-					<i class="material-icons" id="code">code</i>
-				</a>
-			</li>
-			<li>
-				<a target="_blank"
-				   href="./index.html"
-				   class="btn-floating pulse" style="background-color: red;">
-					<i class="material-icons" id="home">home</i>
-				</a>
-			</li>
-		</ul>
 	</div>
-	<div role='flatdoc-content' class='content'></div>
-	<div class="fixed-action-btn" style="top: 78%">
+	<div class="fixed-action-btn" style="top: 35%">
+		<a class="btn-floating btn-large pulse" style="background-color: white; color: black" href="#">
+			<i class="material-icons" style="color: black">arrow_upward</i>
+		</a>
+	</div>
+	<div class="fixed-action-btn" style="top: 40%" >
 		<a class="btn-floating btn-large pulse" style="background-color: indigo" id="menu">
 			<i class="fa fa-bars big-icon"></i>
 		</a>
-        <ul style="top: -78%">
-			<li>
-				<a target="_blank" href="https://github.com/physicsgoddess1972/Precipitable-Water-Model"
-				   class="btn-floating pulse" style="background-color: red;">
-					<i class="fab fa-github big-icon" id="git"></i>
-				</a>
-			</li>
+		<ul style="top: 12%">
 			<li>
 				<a target="_blank"
-				   href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/archive/master.zip"
-				   class="btn-floating pulse" style="background-color: orange;">
-					<i class="material-icons" id="download">cloud_download</i>
+				   href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/issues"
+				   class="btn-floating pulse" style="background-color: blue;">
+					<i class="material-icons" id="bug-report">bug_report</i>
 				</a>
 			</li>
 			<li>
@@ -94,90 +154,51 @@
 			</li>
 			<li>
 				<a target="_blank"
-				   href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/issues"
-				   class="btn-floating pulse" style="background-color: blue;">
-					<i class="material-icons" id="bug-report">bug_report</i>
+				   href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/archive/master.zip"
+				   class="btn-floating pulse" style="background-color: orange;">
+					<i class="material-icons" id="download">cloud_download</i>
 				</a>
 			</li>
+			<li>
+				<a target="_blank" href="https://github.com/physicsgoddess1972/Precipitable-Water-Model"
+				   class="btn-floating pulse" style="background-color: red;">
+					<i class="fab fa-github big-icon" id="git"></i>
+				</a>
+			</li>
+
 		</ul>
 	</div>
-	<div class="tap-target" data-target="menu-alt">
-		<div class="tap-target-content" style="float: right; padding-bottom: 100%">
-			<h1 style="margin-left: -250px; margin-top: -80px;">Welcome to the </h1>
-			<h1 style="margin-left: -200px">Precipitable Water Model</h1>
-			<h1 style="margin-left: -150px;">Documentation Page</h1>
-			<hr style="width: 100%; margin-left: -275px">
-			<p style="margin-left: -255px; margin-right: 300px;">
-				Hover over this menu button to access internal pages.
-				Here you can:
-			<ul style="margin-left: -40%">
-				<li>- Access our contribution page</li>
-				<li>- View our feature page</li>
-			</ul>
-			</p>
-			<hr style="width: 100%; margin-left: -225px"/>
-			<p style="margin-left: -120px; margin-right: 300px;">
-				If you are interested in conducting this experiment in your
-				location click this menu button and visit our contribution page
-                for directions on how to retrieve the model.
-			</p>
-		</div>
-	</div>
-	<div class="tap-target" data-target="menu">
-		<div class="tap-target-content" style="float: right; margin-top: 0px;">
-			<h1 style="margin-left: -80px;">Welcome to the </h1>
-			<h1 style="margin-left: -55px">Precipitable Water Model</h1>
-			<h1 style="margin-left: -30px;">Documentation Page</h1>
-			<hr style="width: 100%; margin-left: -175px">
-			<p style="margin-left: -175px; margin-right: 300px;">
-				Hover over this menu button to access external pages.
-				Here you can:
-				<ol style="margin-left: -35%">
-					<li>- Access our GitHub page</li>
-					<li>- Download our repository</li>
-					<li>- View our data</li>
-					<li>- File a bug report or request a new feature</li>
-				 </ol>
-			</p>
-		</div>
-	</div>
+
 </div>
 
 <script src="./assets/js/popper.js"></script>
 <script src="./assets/js/tippy.js"></script>
 <script src="./assets/js/tooltip.js"></script>
 
+
 <script>
 	$(document).ready(function(){
 		$('.tap-target').tapTarget();
 	});
+	function closeTap() {
+		$('.tap-target').tapTarget('close');
+		$('.tap-target').tapTarget('destroy');
+	}
+
 </script>
 <script>
-	document.addEventListener('DOMContentLoaded', function() {
-		var elems = document.querySelectorAll('.fixed-action-btn');
-		var instances = M.FloatingActionButton.init(elems, {
-			direction: 'left',
-			hoverEnabled: false
-		});
+	$('.fixed-action-btn').floatingActionButton({
+		direction: 'left',
+		hoverEnabled: false
 	});
 </script>
 <script>
-	document.addEventListener('DOMContentLoaded', function() {
-		var elems_alt = document.querySelectorAll('.fixed-action-btn-alt');
-		var instances_alt = M.FloatingActionButton.init(elems_alt, {
-			direction: 'right',
-			hoverEnabled: false
+	$(document).ready(function(){
+		$('.modal').modal({
+			dismissible: false
 		});
 	});
 </script>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var elems_alt = document.querySelectorAll('.fixed-action-btn-alt-alt');
-        var instances_alt = M.FloatingActionButton.init(elems_alt, {
-            direction: 'right',
-            hoverEnabled: false
-        });
-    });
-</script>
+<script src="./assets/js/modal1.js"></script>
 </body>
 </html>

@@ -90,7 +90,7 @@ where the format can be more interpretive.
 <div id="require">
 <div class="collapsible">
 <div class="collapsible-header">
-	<h2>Requirements</h2><a id="top" class="material-icons" href="#">arrow_upward</a>
+	<h2>Requirements</h2>
 </div>
 <div class="panel">
 To satisfy the requirements to execute the script. Run <code>install.sh</code>. 
@@ -242,7 +242,7 @@ Both plot subsets include three plots
 		<a href="#data">Data Format</a>. </li>
 	</td>
 </tr>
-<tr>
+<tr style="border: 0px;">
 	<td>
 		<span class="numbered">5</span>
 	</td>
