@@ -2,7 +2,6 @@
 <html>
 <head>
 	<meta charset='utf-8'>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width">
 
@@ -24,18 +23,13 @@
 	<link rel="stylesheet" href="./assets/css/test.css">
 	<link rel="stylesheet" href="./assets/css/materialize.min.css">
 	<script src="./assets/js/layout.js"></script>
-	<!-- Uses a header that contracts as the page scrolls down. -->
 	<script>
 		Flatdoc.run({
-<<<<<<< HEAD
-=======
-			/*fetcher: Flatdoc.github('physicsgoddess1972/Precipitable-Water-Model')*/
->>>>>>> 18b5bdaeea7841d57d9913c2a17bf9a38455e213
-			fetcher: Flatdoc.file('../README.md')
+			fetcher: Flatdoc.github('physicsgoddess1972/Precipitable-Water-Model', 'FEATURES.md')
+			/*fetcher: Flatdoc.file('../FEATURES.md')*/
 		});
 	</script>
 </head>
-
 <body role='flatdoc'>
 <nav class="bottom-nav" style="width: 100%;">
 	<a class="bottom-nav__action" href="#">
@@ -52,48 +46,26 @@
 	</a>
 
 </nav>
-
 <div class='content-root'>
-	<div id="modal1" class="modal">
-		<div class="modal-content">
-			<h4 style="text-align: center">Welcome to the Precipitable Water Model Documentation Page</h4>
-			<p>
-				If you are interested in conducting this experiment in your
-				location click the menu button in the upper right-hand corner and visit our contribution page
-				for directions on how to retrieve the model.
-			</p>
-		</div>
-		<div class="modal-footer">
-			<a href="#!" class="modal-close waves-effect waves-teal btn-flat" data-dismiss="modal1"
-			   onclick="$('#lower').tapTarget('open'); this.onclick=null">Continue</a>
-		</div>
-	</div>
 	<div class="menubar" style="background-color: transparent"></div>
 	<div role='flatdoc-content' class='content'></div>
 </div>
+
 <script src="./assets/js/popper.js"></script>
 <script src="./assets/js/tippy.js"></script>
+<script src="./assets/js/tooltip.js"></script>
 <script>
-	$(document).ready(function(){
-		$('.tap-target').tapTarget();
-	});
-	function closeTap() {
-		$('.tap-target').tapTarget('close');
-		$('.tap-target').tapTarget('destroy');
-	}
-
+    $('.fixed-action-btn').floatingActionButton({
+        direction: 'left',
+        hoverEnabled: false
+    });
 </script>
 <script>
-	$('.fixed-action-btn').floatingActionButton({
-		direction: 'bottom',
-		hoverEnabled: false
-	});
+    $(document).ready(function(){
+        $('.modal').modal({
+            dismissible: false
+        });
+    });
 </script>
-<script>
-	$(document).ready(function(){
-		$('.modal').modal({});
-	});
-</script>
-<script src="./assets/js/modal1.js"></script>
 </body>
 </html>

@@ -1,3 +1,13 @@
+tippy('#bug-report', {
+    animation: 'scale',
+    duration: 1000,
+    arrow: true,
+    interactive: true,
+    placement: 'left',
+    theme: 'ocean',
+    content:"Bug report/Feature Request"
+})
+
 tippy('#git', {
 	animation: 'scale',
 	duration: 1000,
@@ -6,16 +16,6 @@ tippy('#git', {
 	placement: 'left',
 	theme: 'ocean',
 	content: "View on Github"
-})
-
-tippy('#download', {
-	animation: 'scale',
-	duration: 1000,
-	arrow: true,
-	interactive: true,
-	placement: 'left',
-	theme: 'ocean',
-	content:"Download our repository"
 })
 
 tippy("#csv", {
@@ -28,12 +28,14 @@ tippy("#csv", {
 	content: "See our data"
 })
 
-tippy("#top", {
-	animation: 'scale',
-	duration: 1000,
-	arrow: true,
-	interactive: true,
-	placement: 'top',
-	theme: 'ocean',
-	content: "Back to Top"
+tippy('#download', {
+    animation: 'scale',
+    duration: 1000,
+    arrow: true,
+    interactive: true,
+    placement: 'left',
+    theme: 'ocean',
+    content:"Download our repository"
 })
+
+
