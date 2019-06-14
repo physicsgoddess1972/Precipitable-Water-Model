@@ -2,6 +2,7 @@
 <html>
 <head>
 	<meta charset='utf-8'>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width">
 
@@ -20,16 +21,35 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" >
 	<link rel='stylesheet' href='./assets/css/style.css' >
 	<link rel="stylesheet" href="./assets/css/tooltip.css">
+	<link rel="stylesheet" href="./assets/css/test.css">
 	<link rel="stylesheet" href="./assets/css/materialize.min.css">
-
+	<script src="./assets/js/layout.js"></script>
+	<!-- Uses a header that contracts as the page scrolls down. -->
 	<script>
 		Flatdoc.run({
-			fetcher: Flatdoc.github('physicsgoddess1972/Precipitable-Water-Model')
-			/*fetcher: Flatdoc.file('../README.md')*/
+			/*fetcher: Flatdoc.github('physicsgoddess1972/Precipitable-Water-Model')*/
+			fetcher: Flatdoc.file('../README.md')
 		});
 	</script>
 </head>
+
 <body role='flatdoc'>
+<nav class="bottom-nav" style="width: 100%;">
+	<a class="bottom-nav__action" href="#">
+		<svg class="bottom-nav__icon" viewBox="0 0 24 24">
+			<path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"/>
+		</svg>
+		<span class="bottom-nav__label">Back to Top</span>
+	</a>
+	<a class="bottom-nav__action" href="./testing/index.html">
+		<svg class="bottom-nav__icon" viewBox="0 0 24 24">
+			<path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"/>
+		</svg>
+		<span class="bottom-nav__label">Back Home</span>
+	</a>
+
+</nav>
+
 <div class='content-root'>
 	<div id="modal1" class="modal">
 		<div class="modal-content">
@@ -45,47 +65,10 @@
 			   onclick="$('#lower').tapTarget('open'); this.onclick=null">Continue</a>
 		</div>
 	</div>
-	<div id="modal2" class="modal bottom-sheet">
-		<div class="modal-content">
-			<h4>Internal Pages</h4>
-			<a href="./index.html" class="waves-effect waves-red btn-flat" id="home" style="border-radius: 40%;">
-				<div class="collapsible" style="width: 10rem;  border-radius: 40%; background-color: rgba(244, 67, 54, 0.7);">
-					<div class="collapsible-body" style="text-align: center;  padding-top: 2rem;">
-						<i class="material-icons" style="font-size: 36px;">home</i>
-						<p>Home</p>
-					</div>
-				</div>
-			</a>
-			<a href="./contrib.html" class="waves-effect waves-orange btn-flat" id="contrib" style="border-radius: 40%">
-				<div class="collapsible" style="width: 10rem; border-radius: 40%">
-					<div class="collapsible-body" style="text-align: center; padding-top: 2rem;">
-						<i class="material-icons" style="font-size: 36px;">people</i>
-						<p>Contribute</p>
-					</div>
-				</div>
-			</a>
-			<a href="./code.html" class="waves-effect waves-green btn-flat" id="code" style="border-radius: 40%">
-				<div class="collapsible" style="width: 10rem;  border-radius: 40%">
-					<div class="collapsible-body" style="text-align: center; padding-top: 2rem;">
-						<i class="material-icons big-icon" style="font-size: 36px;">code</i>
-						<p>R Features</p>
-					</div>
-				</div>
-			</a>
-			<a class="waves-effect waves-teal btn-flat" id="cancel" style="border-radius: 40%" onclick="$('#modal2').modal('close')">
-				<div class="collapsible" style="width: 10rem;  border-radius: 40%">
-					<div class="collapsible-body" style="text-align: center; padding-top: 2rem;">
-						<i class="material-icons big-icon" style="font-size: 36px;">cancel</i>
-						<p>Cancel</p>
-					</div>
-				</div>
-			</a>
-		</div>
-	</div>
-	<div class="menubar">
-		<div class='menu section' role='flatdoc-menu'></div>
-	</div>
+	<div class="menubar" style="background-color: transparent"></div>
 	<div role='flatdoc-content' class='content'></div>
+<<<<<<< HEAD
+=======
 	<div class="tap-target-wave tap-target-origin"  style="top: 0; left: 100%;">
 	<div class="tap-target" data-target="menu" id="lower">
 		<div class="tap-target-content" style="float: right; margin-top: -20%;">
@@ -169,13 +152,10 @@
 		</ul>
 	</div>
 
+>>>>>>> f31882ce3b6f12a85dcf4ff14a272fb81dbfddf6
 </div>
-
 <script src="./assets/js/popper.js"></script>
 <script src="./assets/js/tippy.js"></script>
-<script src="./assets/js/tooltip.js"></script>
-
-
 <script>
 	$(document).ready(function(){
 		$('.tap-target').tapTarget();
@@ -188,15 +168,13 @@
 </script>
 <script>
 	$('.fixed-action-btn').floatingActionButton({
-		direction: 'left',
+		direction: 'bottom',
 		hoverEnabled: false
 	});
 </script>
 <script>
 	$(document).ready(function(){
-		$('.modal').modal({
-			dismissible: false
-		});
+		$('.modal').modal({});
 	});
 </script>
 <script src="./assets/js/modal1.js"></script>
