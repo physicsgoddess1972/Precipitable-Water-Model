@@ -51,40 +51,6 @@
 The computational model that was developed to analyze the data collected uses a strict format. There are some cases
 where the format can be more interpretive.
 
-<table class="usage">
-<tbody>
-<tr style="border: 0px;">
-	<td>Date</td>
-	<td>A</td>
-	<td>B</td>
-	<td>C</td>
-	<td>D</td>
-	<td>E</td>
-	<td>F</td>
-	<td>G</td>
-	<td>H</td>
-	<td>I</td>
-	<td>J</td>
-	<td>K</td>
-	<td>L</td>
-</tr>
-</tbody>
-</table>
-<br>
-<ol>
-	<li>Sensor 1 Ground Temperature</li>
-	<li>Sensor 1 Air Temperature</li>
-	<li>Sensor 2 Ground Temperature</li>
-	<li>Sensor 2 Air Temperature</li>
-	<li>Sensor 3 Ground Temperature</li>
-	<li>Sensor 3 Air Temperature</li>
-	<li>Precipitable Water Measurement for Location 1</li>
-	<li>Precipitable Water Measurement for Location 2</li>
-	<li>Precipitable Water Measurement for Location 3</li>
-	<li>Precipitable Water Measurement for Location 4</li>
-	<li>Condition</li>
-	<li>Relative Humidity</li>
-</ol>
 </div></div></div></div>
 
 <div id="require">
