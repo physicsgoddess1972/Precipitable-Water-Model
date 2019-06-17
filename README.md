@@ -1,5 +1,5 @@
+<a id="top"></a>
 <h1>Precipitable Water Model</h1>
-
 
 [comment]: # (Precipitable-Water-Model)
 [comment]: # (|)
@@ -244,15 +244,13 @@ The future development of this project with regards to the data collection inclu
 <div id="resource">
 <div class="collapsible">
 <div class="collapsible-header">
-<h2>Resources</h2><a id="top" class="material-icons" href="#">arrow_upward</a>
+    <h2>Resources</h2>
 </div>
-<div class="collapsible-body">
-<ul>
-<li><a href="" target="_blank">Wyoming Sounding Data</a></li>
-</ul>
-</div>
-</div>
-</div>
+<div class="panel">
+    <ul>
+        <li><a href="" target="_blank">Wyoming Sounding Data</a></li>
+    </ul>
+</div></div></div>
 
 <div id="footer">
 	<hr style="border-color: rgba(46,156,202,0.96); width: 100%; margin-left: -20rem;">
