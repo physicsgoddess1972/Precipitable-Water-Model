@@ -73,48 +73,54 @@ overcast_filter <- function(){
 # Initializes the lists to store values
 	date_clear	<- overcast1 	<- overcast2 	<- overcast3 	<- list()
 	overcast4 	<- overcast5 	<- overcast6 	<- overcast7 	<- list()
-	overcast8 	<- overcast9 	<- overcast10 	<- list()
+	overcast8 	<- overcast9 	<- overcast10 	<- overcast11 	<- list()
+	overcast12 	<- list()
 
 	date_over 	<- overcast1o 	<- overcast2o 	<- overcast3o	<- list()
 	overcast4o 	<- overcast5o 	<- overcast6o	<- overcast7o	<- list()
-	overcast8o	<- overcast9o 	<- overcast10o	<- list()
-
+	overcast8o	<- overcast9o 	<- overcast10o	<- overcast11o	<- list()
+	overcast12o <- list()
 # Divides the data based on condition (Overcast/Clear Skies)
 	for (j in 1:length(t(fname[12]))){
 		if (!"overcast" %in% fname[j,12]){
 			date_clear  <- append(date_clear, as.Date(fname[j, 1], "%m/%d/%Y"))
 
-			overcast1 	<- append(overcast1, fname[j, 7])
-			overcast2 	<- append(overcast2, fname[j, 8])
-			overcast3 	<- append(overcast3, fname[j, 9])
-			overcast4 	<- append(overcast4, fname[j, 10])
-			overcast5 	<- append(overcast5, fname[j, 11])
+			overcast1 	<- append(overcast1, fname[j, 9])
+			overcast2 	<- append(overcast2, fname[j, 10])
+			overcast3 	<- append(overcast3, fname[j, 11])
+			overcast4 	<- append(overcast4, fname[j, 12])
+			overcast5 	<- append(overcast5, fname[j, 13])
 			overcast6   <- append(overcast6, fname[j, 2])
 			overcast7   <- append(overcast7, fname[j, 3])
 			overcast8   <- append(overcast8, fname[j, 4])
 			overcast9   <- append(overcast9, fname[j, 5])
 			overcast10  <- append(overcast10, fname[j, 6])
+			overcast11	<- append(overcast11, fname[j, 7])
+			overcast12  <- append(overcast12, fname[j, 8])
 		}
 		else{
 			date_over   <- append(date_over, as.Date(fname[j, 1], "%m/%d/%Y"))
 
-			overcast1o 	<- append(overcast1o, fname[j, 7])
-			overcast2o 	<- append(overcast2o, fname[j, 8])
-			overcast3o 	<- append(overcast3o, fname[j, 9])
-			overcast4o 	<- append(overcast4o, fname[j, 10])
-			overcast5o 	<- append(overcast5o, fname[j, 11])
+			overcast1o 	<- append(overcast1o, fname[j, 9])
+			overcast2o 	<- append(overcast2o, fname[j, 10])
+			overcast3o 	<- append(overcast3o, fname[j, 11])
+			overcast4o 	<- append(overcast4o, fname[j, 12])
+			overcast5o 	<- append(overcast5o, fname[j, 13])
 			overcast6o 	<- append(overcast6o, fname[j, 2])
 			overcast7o 	<- append(overcast7o, fname[j, 3])
 			overcast8o 	<- append(overcast8o, fname[j, 4])
 			overcast9o 	<- append(overcast9o, fname[j, 5])
 			overcast10o <- append(overcast10o, fname[j, 6])
+			overcast11o	<- append(overcast11, fname[j, 7])
+			overcast12o <- append(overcast12, fname[j, 8])
+
 		}
 	}
 	output <- list("y1"=overcast1,"y2"=overcast2, "y3"=overcast3,"y4"=overcast4,
 					"y5"=overcast5, "y6"=overcast6,"y7"=overcast7, "y8"=overcast8,
-					"y9"=overcast9, "y10"=overcast10,
+					"y9"=overcast9, "y10"=overcast10, "y1_2"=overcast12, "y10_2"=overcast11,
 					"y1o"=overcast1o, "y2o"=overcast2o, "y3o"=overcast3o,
-					"y4o"=overcast3o, "y5o"=overcast5o,
+					"y4o"=overcast3o, "y5o"=overcast5o, "y1_2"=overcast12o, "y10_2"=overcast11o,
 					"y6o"=overcast6o, "y7o"=overcast7o, "y8o"=overcast8o,
 					"y9o"=overcast9o, "y10o"=overcast10o,"y0"=date_clear, "y0o"=date_over)
 	return (output)
@@ -133,8 +139,11 @@ pw_epz00    <- as.numeric(array(t(overcast$y5)))    	# PW for EPZ @ 00Z
 gtemp_te   	<- as.numeric(array(t(overcast$y6)))    	# Ground Temp 1610 TE
 gtemp_fl	<- as.numeric(array(t(overcast$y8)))    	# Ground Temp FLIRi3
 gtemp_am   	<- as.numeric(array(t(overcast$y10)))   	# Ground Temp AMES
+gtemp_am2  	<- as.numeric(array(t(overcast$y10_2)))   	# Ground Temp AMES
 
 atemp_am    <- as.numeric(array(t(overcast$y1)))    	# Air Temperature from AMES
+atemp_am2   <- as.numeric(array(t(overcast$y1_2)))    	# Air Temperature from AMES
+
 atemp_fl    <- as.numeric(array(t(overcast$y9)))    	# Air Temp FLIRi3
 atemp_te    <- as.numeric(array(t(overcast$y7)))    	# Air Temp 1610 TE
 
@@ -154,10 +163,12 @@ pw_epz12o   <- as.numeric(array(t(overcast$y4o)))    	# PW for EPZ @ 12Z
 pw_epz00o   <- as.numeric(array(t(overcast$y5o)))    	# PW for EPZ @ 00Z
 
 atemp_amo   <- as.numeric(array(t(overcast$y1o)))    	# Air Temperature from AMES
+atemp_am2o  <- as.numeric(array(t(overcast$y1o_2)))    	# Air Temperature from AMES
 atemp_flo	<- as.numeric(array(t(overcast$y9o)))   	# Air Temp FLIRi3
 atemp_teo   <- as.numeric(array(t(overcast$y7o)))    	# Air Temp 1610 TE
 
 gtemp_amo    <- as.numeric(array(t(overcast$y10o)))   	# Ground Temp AMES
+gtemp_am2o   <- as.numeric(array(t(overcast$y10o_2)))   	# Ground Temp AMES
 gtemp_flo    <- as.numeric(array(t(overcast$y8o)))    	# Ground Temp FLIRi3
 gtemp_teo    <- as.numeric(array(t(overcast$y6o)))    	# Ground Temp 1610 TE
 
@@ -212,6 +223,7 @@ exp_regression 	<- function(x,y){
 	model.0 <- lm(log(y, base=exp(1))~x, data=data.frame(x,log(y, base=exp(1))))
 	start 	<- list(a=coef(model.0)[1], b=coef(model.0)[2])
 	model 	<- nls(y~a+b*x, data=data.frame(x=x, y=log(y, base=exp(1))), start=start)
+	print(summary(model))
 # Intervals
 	confint <- predict(model.0, newdata=data.frame(x=newx), interval='confidence')
 	predint <- predict(model.0, newdata=data.frame(x=newx), interval='prediction')
@@ -316,6 +328,214 @@ main3 	<- function(legend, overcast=args$overcast){
 	for(j in 2:length(range_index)){
 		points(date, t(range)[j,], pch=16, col=c(toString(sensor[j, 3])))
 	}
+	if (legend == "save"){
+		legend_plot(overcast, FALSE)
+	}else if(legend == "show"){
+		legend_plot(overcast, TRUE)
+	}
+}
+
+## 1610 TE
+## Air Temperature plot
+te1 	<- function(legend, overcast=args$overcast){
+	xmin <- min(clear_date, na.rm=TRUE)
+	xmax <- max(clear_date, na.rm=TRUE)
+	par(mar=c(5.1, 5.1, 5.1, 5.3), xpd=TRUE)
+	if(overcast){
+		ymax 		<- max(atemp_teo,na.rm=TRUE)
+		ymin 		<- min(atemp_teo,na.rm=TRUE)
+		range 		<- cbind(atemp_teo)
+		range_index <- list(atemp_teo)
+		title 		<- "Air Temperature Time Series\nCondition: Overcast"
+		date 		<- over_date
+	}else{
+		ymax 		<- max(atemp_am,na.rm=TRUE)
+		ymin 		<- min(atemp_am,na.rm=TRUE)
+		range 		<- cbind(atemp_te)
+		range_index <- list(atemp_te)
+		title 		<- "Air Temperature Time Series\nCondition: Clear Sky"
+		date 		<- clear_date
+	}
+	plot(date, t(range)[1,], xlab="Date", ylab="Temperature [C]",
+			main=title, pch=16, xlim=c(xmin, xmax), ylim=c(ymin, ymax), col=c(toString(sensor[1,3])))
+
+	for(j in 2:length(range_index)){
+		points(date, t(range)[j,], pch=16, col=c(toString(sensor[j, 3])))
+	}
+	if (legend == "save"){
+		legend_plot(overcast, FALSE)
+	}else if(legend == "show"){
+		legend_plot(overcast, TRUE)
+	}
+}
+## Ground Temperature plot
+te2 	<- function(legend, overcast=args$overcast){
+# Margin Configuration
+	par(mar=c(5.1, 5.1, 5.1, 5.3), xpd=TRUE)
+	xmin 	<- min(clear_date, na.rm=TRUE)
+	xmax 	<- max(clear_date, na.rm=TRUE)
+	if(overcast){
+		ymax  		<- max(gtemp_teo,na.rm=TRUE)
+		ymin  		<- min(gtemp_teo,na.rm=TRUE)
+		range 		<- cbind(gtemp_teo)
+		range_index <- list(gtemp_teo)
+		title 		<- "Ground Temperature Time Series\nCondition: Overcast"
+		date 		<- over_date
+	}else{
+		ymax  		<- max(gtemp_te,na.rm=TRUE)
+		ymin  		<- min(gtemp_te,na.rm=TRUE)
+		range 		<- cbind(gtemp_te)
+		range_index <- list(gtemp_te)
+		title 		<- "Ground Temperature Time Series\nCondition: Clear Sky"
+		date 		<- clear_date
+	}
+	plot(date, t(range)[1,], xlab="Date", ylab="Temperature [C]",
+		 main=title, pch=16,
+		xlim=c(xmin, xmax), ylim=c(ymin, ymax), col=c(toString(sensor[1,3])))
+
+	for(j in 2:length(range_index)){
+		points(date, t(range)[j,], pch=16, col=c(toString(sensor[j, 3])))
+	}
+	# Legend configuration
+	if (legend == "save"){
+		legend_plot(overcast, FALSE)
+	}else if(legend == "show"){
+		legend_plot(overcast, TRUE)
+	}
+}
+
+## AMES
+## Air Temperature plot
+am11 	<- function(legend, overcast=args$overcast){
+	xmin <- min(clear_date, na.rm=TRUE)
+	xmax <- max(clear_date, na.rm=TRUE)
+	par(mar=c(5.1, 5.1, 5.1, 5.3), xpd=TRUE)
+	if(overcast){
+		ymax 		<- max(atemp_amo, atemp_am2o,na.rm=TRUE)
+		ymin 		<- min(atemp_amo,atemp_am2o,na.rm=TRUE)
+		range 		<- cbind(atemp_amo,atemp_am2o)
+		range_index <- list(atemp_amo,atemp_am2o)
+		title 		<- "Air Temperature Time Series\nCondition: Overcast"
+		date 		<- over_date
+	}else{
+		ymax 		<- max(atemp_am,atemp_am2,na.rm=TRUE)
+		ymin 		<- min(atemp_am,atemp_am2,na.rm=TRUE)
+		range 		<- cbind(atemp_am,atemp_am2)
+		range_index <- list(atemp_am,atemp_am2)
+		title 		<- "Air Temperature Time Series\nCondition: Clear Sky"
+		date 		<- clear_date
+	}
+
+	plot(date, t(range)[1,], xlab="Date", ylab="Temperature [C]",
+			main=title, pch=16, xlim=c(xmin, xmax), ylim=c(ymin, ymax), col=c(toString(sensor[1,3])))
+
+	for(j in 2:length(range_index)){
+		points(date, t(range)[j,], pch=16, col=c(toString(sensor[j, 3])))
+	}
+	if (legend == "save"){
+		legend_plot(overcast, FALSE)
+	}else if(legend == "show"){
+		legend_plot(overcast, TRUE)
+	}
+}
+## Ground Temperature plot
+am12 	<- function(legend, overcast=args$overcast){
+# Margin Configuration
+	par(mar=c(5.1, 5.1, 5.1, 5.3), xpd=TRUE)
+	xmin 	<- min(clear_date, na.rm=TRUE)
+	xmax 	<- max(clear_date, na.rm=TRUE)
+	if(overcast){
+		ymax  		<- max(gtemp_amo,gtemp_am2o,na.rm=TRUE)
+		ymin  		<- min(gtemp_amo,gtemp_am2o,na.rm=TRUE)
+		range 		<- cbind(gtemp_amo,gtemp_am2o)
+		range_index <- list(gtemp_amo,gtemp_am2o)
+		title 		<- "Ground Temperature Time Series\nCondition: Overcast"
+		date 		<- over_date
+	}else{
+		ymax  		<- max(gtemp_am,gtemp_am2o,na.rm=TRUE)
+		ymin  		<- min(gtemp_am,gtemp_am2o,na.rm=TRUE)
+		range 		<- cbind(gtemp_am,gtemp_am2o)
+		range_index <- list(gtemp_am,gtemp_am2o)
+		title 		<- "Ground Temperature Time Series\nCondition: Clear Sky"
+		date 		<- clear_date
+	}
+	plot(date, t(range)[1,], xlab="Date", ylab="Temperature [C]",
+		 main=title, pch=16,
+		xlim=c(xmin, xmax), ylim=c(ymin, ymax), col=c(toString(sensor[1,3])))
+
+	for(j in 2:length(range_index)){
+		points(date, t(range)[j,], pch=16, col=c(toString(sensor[j, 3])))
+	}
+	# Legend configuration
+	if (legend == "save"){
+		legend_plot(overcast, FALSE)
+	}else if(legend == "show"){
+		legend_plot(overcast, TRUE)
+	}
+}
+
+## FLIRi3
+## Air Temperature plot
+fl1 	<- function(legend, overcast=args$overcast){
+	xmin <- min(clear_date, na.rm=TRUE)
+	xmax <- max(clear_date, na.rm=TRUE)
+	par(mar=c(5.1, 5.1, 5.1, 5.3), xpd=TRUE)
+	if(overcast){
+		ymax 		<- max(atemp_flo,na.rm=TRUE)
+		ymin 		<- min(atemp_flo,na.rm=TRUE)
+		range 		<- cbind(atemp_flo)
+		range_index <- list(atemp_flo)
+		title 		<- "Air Temperature Time Series\nCondition: Overcast"
+		date 		<- over_date
+	}else{
+		ymax 		<- max(atemp_fl,na.rm=TRUE)
+		ymin 		<- min(atemp_fl,na.rm=TRUE)
+		range 		<- cbind(atemp_fl)
+		range_index <- list(atemp_fl)
+		title 		<- "Air Temperature Time Series\nCondition: Clear Sky"
+		date 		<- clear_date
+	}
+	plot(date, t(range)[1,], xlab="Date", ylab="Temperature [C]",
+			main=title, pch=16, xlim=c(xmin, xmax), ylim=c(ymin, ymax), col=c(toString(sensor[1,3])))
+
+	for(j in 2:length(range_index)){
+		points(date, t(range)[j,], pch=16, col=c(toString(sensor[j, 3])))
+	}
+	if (legend == "save"){
+		legend_plot(overcast, FALSE)
+	}else if(legend == "show"){
+		legend_plot(overcast, TRUE)
+	}
+}
+## Ground Temperature plot
+fl2 	<- function(legend, overcast=args$overcast){
+# Margin Configuration
+	par(mar=c(5.1, 5.1, 5.1, 5.3), xpd=TRUE)
+	xmin 	<- min(clear_date, na.rm=TRUE)
+	xmax 	<- max(clear_date, na.rm=TRUE)
+	if(overcast){
+		ymax  		<- max(gtemp_flo,na.rm=TRUE)
+		ymin  		<- min(gtemp_flo,na.rm=TRUE)
+		range 		<- cbind(gtemp_flo)
+		range_index <- list(gtemp_flo)
+		title 		<- "Ground Temperature Time Series\nCondition: Overcast"
+		date 		<- over_date
+	}else{
+		ymax  		<- max(gtemp_fl,na.rm=TRUE)
+		ymin  		<- min(gtemp_fl,na.rm=TRUE)
+		range 		<- cbind(gtemp_fl)
+		range_index <- list(gtemp_fl)
+		title 		<- "Ground Temperature Time Series\nCondition: Clear Sky"
+		date 		<- clear_date
+	}
+	plot(date, t(range)[1,], xlab="Date", ylab="Temperature [C]",
+		 main=title, pch=16,
+		xlim=c(xmin, xmax), ylim=c(ymin, ymax), col=c(toString(sensor[1,3])))
+
+	for(j in 2:length(range_index)){
+		points(date, t(range)[j,], pch=16, col=c(toString(sensor[j, 3])))
+	}
+	# Legend configuration
 	if (legend == "save"){
 		legend_plot(overcast, FALSE)
 	}else if(legend == "show"){
@@ -431,7 +651,7 @@ plots5 	<- function(..., overcast=args$overcast){
 # 6 equal divisions
 	divs 		<- seq(round(min(residual)), round(max(residual)), len=6)
 # Plots the residual against an angular position
-	polar.plot(residual, t, rp.type="s",labels="",
+	polar.plot(0, rp.type="s",labels="",
 		radial.lim=c(0, round(rmax, 0)),show.grid=TRUE, show.grid.labels=FALSE,
 		main= title, show.radial.grid=FALSE, grid.col="black")
 
@@ -666,7 +886,7 @@ poster2 <- function(...){
 		legend("topleft", legend=c("ABQ", "EPZ"),
 				col=c("gold2", "dodgerblue"), pch=16)
 # Total Mean PW Temperature Correlation with expotential regression
-		exp_reg <- exp_regression()
+		exp_reg <- exp_regression(atemp_am, avg)
 
 		ymax = max(exp_reg$y, na.rm=TRUE)
 		ymin = min(exp_reg$y, na.rm=TRUE)
@@ -738,6 +958,33 @@ if(args$data){
 	}
 	quit_it()
 }
+if(args$set == "i"){
+	if (!args$overcast){
+# Clear Sky condition
+		cat(magenta("Condition:"), "Clear Sky\n")
+		sname <- sprintf("~/Downloads/main_%s.pdf", gsub("/", "_", recent)) # File name of saved pdf
+	}else{
+# Overcast Condition
+		cat(magenta("Condition:"), "Overcast\n")
+		sname <- sprintf("~/Downloads/main_overcast_%s.pdf", gsub("/", "_", recent)) # File name of saved pdf
+	}
+# Plots avaiable with this option
+	cat(green("[1]"), "Air Temperature Time Series\n")
+	cat(green("[2]"), "Ground Temperature Time Series\n")
+	cat(green("[3]"), "Change in Temperature between Air and Ground Time Series\n")
+# Shows plots
+	show(te1, te2, am11, am12, am21, am22, fl1, fl2, overcast=args$overcast)
+# Saves plots
+	if (args$save){
+		save(c(te1("save", overcast=args$overcast),
+				te2("save", overcast=args$overcast),
+				am11("save", overcast=args$overcast),
+				am12("save", overcast=args$overcast),
+				am21("save", overcast=args$overcast),
+				am22("save", overcast=args$overcast)), sname)
+		cat(green(sprintf("Plot set downloaded to %s\n", sname)))
+	}
+}
 if(args$set == "m"){
 	if (!args$overcast){
 # Clear Sky condition
@@ -807,7 +1054,7 @@ if(args$poster){
 # Saves plots
 	if(args$save){
 		sname <- sprintf("~/Downloads/poster_%s.pdf", gsub("/", "_", recent))
-		save(c(poster1(),poster2(), other1(), dev1()), sname)
+		save(c(poster1(),poster2(), other1(), plots5()), sname)
 		cat(green(sprintf("Plot set downloaded to %s\n", sname)))
 	}
 }
