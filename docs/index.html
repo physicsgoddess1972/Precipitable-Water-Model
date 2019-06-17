@@ -67,6 +67,92 @@
 	</div>
 	<div class="menubar" style="background-color: transparent"></div>
 	<div role='flatdoc-content' class='content'></div>
+<<<<<<< HEAD
+=======
+	<div class="tap-target-wave tap-target-origin"  style="top: 0; left: 100%;">
+	<div class="tap-target" data-target="menu" id="lower">
+		<div class="tap-target-content" style="float: right; margin-top: -20%;">
+			<p style="margin-left: -110%; margin-right: 100%;">
+				Hover over this menu button to access external pages.
+				Here you can:
+				<ol style="margin-left: -95%; margin-right: 120%;">
+					<li>- Access our GitHub page</li>
+					<li>- Download our repository</li>
+					<li>- View our data</li>
+					<li>- File a bug report or request a new feature</li>
+				 </ol>
+			</p>
+				<a href="#!" class="waves-effect waves-teal btn-flat"
+				   style="margin-left: -110%; margin-right: 100%; background-color:#fff;"
+				   onclick="closeTap(); $('#upper').tapTarget('open')">Continue</a>
+		</div>
+	</div>
+	</div>
+	<div class="tap-target-wave tap-target-origin"  style="top: 0px; left: 100%;">
+	<div class="tap-target" data-target="menu-alt" id="upper" onshow="$('#lower').tapTarget('close');">
+		<div class="tap-target-content" style="float: right; margin-top: -20%; z-index: 10000">
+			<p style="margin-left: -110%; margin-right: 100%;">
+				Hover over this menu button to access internal pages.
+				Here you can:
+			<ol style="margin-left: -95%; margin-right: 120%;">
+				<li>- Access our Contribution page</li>
+				<li>- View the code features</li>
+				<li>- Come back to this page</li>
+			</ol>
+			<a href="#!" class="waves-effect waves-teal btn-flat"
+			   style="margin-left: -110%; margin-right: 100%; background-color:#fff;"
+			   onclick=closeTap()>Continue</a>
+			</p>
+		</div>
+	</div>
+	</div>
+	<div class="fixed-action-btn" style="top: 30%;" onclick="$('#modal2').modal('open')">
+		<a class="btn-floating btn-large pulse" style="background-color: blue;" id="menu-alt" >
+			<i class="fa fa-bars big-icon"></i>
+		</a>
+	</div>
+	<div class="fixed-action-btn" style="top: 35%">
+		<a class="btn-floating btn-large pulse" style="background-color: white; color: black" href="#">
+			<i class="material-icons" style="color: black">arrow_upward</i>
+		</a>
+	</div>
+	<div class="fixed-action-btn" style="top: 40%" >
+		<a class="btn-floating btn-large pulse" style="background-color: indigo" id="menu">
+			<i class="fa fa-bars big-icon"></i>
+		</a>
+		<ul style="top: 12%">
+			<li>
+				<a target="_blank"
+				   href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/issues"
+				   class="btn-floating pulse" style="background-color: blue;">
+					<i class="material-icons" id="bug-report">bug_report</i>
+				</a>
+			</li>
+			<li>
+				<a target="_blank"
+				   href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/tree/master/data"
+				   class="btn-floating pulse" style="background-color: green;">
+					<i class="fa fa-file-csv big-icon" id="csv"></i>
+				</a>
+			</li>
+			<li>
+				<a target="_blank"
+				   href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/archive/master.zip"
+				   class="btn-floating pulse" style="background-color: orange;">
+					<i class="material-icons" id="download">cloud_download</i>
+				</a>
+			</li>
+			<li>
+				<a target="_blank" href="https://github.com/physicsgoddess1972/Precipitable-Water-Model"
+				   class="btn-floating pulse" style="background-color: red;">
+					<i class="fab fa-github big-icon" id="git"></i>
+				</a>
+			</li>
+
+		</ul>
+	</div>
+
+>>>>>>> f31882ce3b6f12a85dcf4ff14a272fb81dbfddf6
 </div>
 <script src="./assets/js/popper.js"></script>
 <script src="./assets/js/tippy.js"></script>
