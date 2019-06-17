@@ -666,7 +666,7 @@ poster2 <- function(...){
 		legend("topleft", legend=c("ABQ", "EPZ"),
 				col=c("gold2", "dodgerblue"), pch=16)
 # Total Mean PW Temperature Correlation with expotential regression
-		exp_reg <- exp_regression()
+		exp_reg <- exp_regression(atemp_am, avg)
 
 		ymax = max(exp_reg$y, na.rm=TRUE)
 		ymin = min(exp_reg$y, na.rm=TRUE)
@@ -807,7 +807,7 @@ if(args$poster){
 # Saves plots
 	if(args$save){
 		sname <- sprintf("~/Downloads/poster_%s.pdf", gsub("/", "_", recent))
-		save(c(poster1(),poster2(), other1(), dev1()), sname)
+		save(c(poster1(),poster2(), other1(), plots5()), sname)
 		cat(green(sprintf("Plot set downloaded to %s\n", sname)))
 	}
 }

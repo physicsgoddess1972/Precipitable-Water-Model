@@ -399,6 +399,19 @@ polar.plot(c(<num>0</num>, <num>1</num>), c(max(t) + <num>10</num>, max(t) + <nu
 The future development of this project with regards to the data collection include 
 </div></div></div>
 
+<div id="resource">
+<div class="collapsible">
+<div class="collapsible-header">
+<h2>Resources</h2><a id="top" class="material-icons" href="#">arrow_upward</a>
+</div>
+<div class="collapsible-body">
+<ul>
+<li><a href="" target="_blank">Wyoming Sounding Data</a></li>
+</ul>
+</div>
+</div>
+</div>
+
 <div id="footer">
     <hr style="border-color: rgba(46,156,202,0.96); width: 100%; margin-left: -20rem;">
     <div style="margin-left: -1rem; width: 100%; margin-right: -20rem;">
