@@ -959,11 +959,12 @@ a.big.button:hover:visited {
 		padding-bottom: 32rem;
 	}
 }
-@media only screen and (max-width: 500px){
+@media only screen and (max-width: 520px){
 	#step .collapsible .panel{
 		padding-bottom: 34rem;
 	}
 }
+
 @media only screen and (max-width: 434px){
 	#step .collapsible .panel{
 		padding-bottom: 36rem;
@@ -972,6 +973,16 @@ a.big.button:hover:visited {
 @media only screen and (max-width: 434px){
 	#step .collapsible .panel{
 		padding-bottom: 37rem;
+	}
+}
+@media only screen and (max-width: 434px){
+	#step .collapsible .panel{
+		padding-bottom: 37rem;
+	}
+}
+@media only screen and (max-width: 396px){
+	#step .collapsible .panel{
+		padding-bottom: 39rem;
 	}
 }
 
@@ -988,7 +999,6 @@ a.big.button:hover:visited {
 		padding-bottom: 38rem;
 	}
 }
-
 @media only screen and (max-width: 810px){
 	#give-data .panel .give-data {
 		padding-bottom: 40rem;
@@ -996,7 +1006,7 @@ a.big.button:hover:visited {
 }
 
 #give-code .panel .give-code{
-	padding-bottom: 30rem
+	padding-bottom: 30rem;
 }
 @media only screen and (max-width: 1200px){
 	#give-code .panel .give-code{
