@@ -212,6 +212,7 @@ exp_regression 	<- function(x,y){
 	model.0 <- lm(log(y, base=exp(1))~x, data=data.frame(x,log(y, base=exp(1))))
 	start 	<- list(a=coef(model.0)[1], b=coef(model.0)[2])
 	model 	<- nls(y~a+b*x, data=data.frame(x=x, y=log(y, base=exp(1))), start=start)
+	print(summary(model))
 # Intervals
 	confint <- predict(model.0, newdata=data.frame(x=newx), interval='confidence')
 	predint <- predict(model.0, newdata=data.frame(x=newx), interval='prediction')
@@ -431,7 +432,7 @@ plots5 	<- function(..., overcast=args$overcast){
 # 6 equal divisions
 	divs 		<- seq(round(min(residual)), round(max(residual)), len=6)
 # Plots the residual against an angular position
-	polar.plot(residual, t, rp.type="s",labels="",
+	polar.plot(0, rp.type="s",labels="",
 		radial.lim=c(0, round(rmax, 0)),show.grid=TRUE, show.grid.labels=FALSE,
 		main= title, show.radial.grid=FALSE, grid.col="black")
 
