@@ -1,5 +1,4 @@
-<h1>Precipitable Water Model</h1>
-
+<a id="top"></a>
 
 [comment]: # (Precipitable-Water-Model)
 [comment]: # (|)
@@ -18,7 +17,8 @@
 [comment]: # (	|   |--- mrop.py)
 [comment]: # (	|   `--- plots_galore.py)
 [comment]: # (	`--- model.r)
-<div id="intro">
+
+<div id="data">
 <div class="collapsible">
 <div class="collapsible-header">
 		<h2>Introduction</h2>
@@ -38,7 +38,7 @@
 	The purpose of these sensors is to measure the thermal energy of a
 	given area in the atmosphere. The area is determined by the Distance to
 	Spot ratio.
-</div></div></div>
+</div></div>
 
 <div id="data">
 <div class="collapsible">
@@ -49,6 +49,7 @@
 <div class="data-format">
 The computational model that was developed to analyze the data collected uses a strict format. There are some cases
 where the format can be more interpretive.
+
 </div></div></div></div>
 
 <div id="require">
@@ -239,56 +240,14 @@ If you would like to contribute to this project, visit our <a href="./contrib.ht
 The future development of this project with regards to the data collection include 
 </div></div></div>
 
-<div id="footer">
-	<hr style="border-color: rgba(46,156,202,0.96); width: 100%; margin-left: -20rem;">
-	<div style="margin-left: -1rem; width: 100%; margin-right: -20rem;">
-		<h2>The Maintainers</h2>
-	</div>
-	<table class="maintain">
-		<tbody>
-			<tr style="border: 0px;">
-				<td>
-					<i class="material-icons">face</i> 
-				</td>
-				<td>
-					Spencer Riley
-				</td>
-				<td>
-					<i class="material-icons">face</i>
-				</td>
-				<td>
-					Vicki Kelsey
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<i class="material-icons">public</i>
-				</td>
-				<td>
-					<a target="_blank" href="http://pharaohcola13.github.io">pharaohcola13.github.io</a>
-				</td>
-				<td>
-					<i class="material-icons">public</i>
-				</td>
-				<td>
-					<a target="_blank" href="http://physicsgoddess1972.github.io">physicsgoddess1972.github.io</a>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<i class="material-icons">alternate_email</i>
-				</td>
-				<td>
-					spencer.riley@student.nmt.edu
-				</td>
-				<td>
-					<i class="material-icons">alternate_email</i>
-				</td>
-				<td>
-					vicki.kelsey@student.nmt.edu
-				</td>
-			</tr>
-		</tbody>
-	</table>
+<div id="resource">
+<div class="collapsible">
+<div class="collapsible-header">
+    <h2>Resources</h2>
 </div>
+<div class="panel">
+    <ul>
+        <li><a href="" target="_blank">Wyoming Sounding Data</a></li>
+    </ul>
+</div></div></div>
 
