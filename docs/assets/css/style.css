@@ -129,8 +129,9 @@ input {
 	}
 }
 a {
-	color: #009eb7;
+	color: #004487;
 	text-decoration: none;
+	font-weight: bold;
 }
 a:hover {
 	color: #228a8a;
@@ -1123,7 +1124,6 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 	vertical-align: middle;
-	margin-left: -2rem;
 
 }
 
