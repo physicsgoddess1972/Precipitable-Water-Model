@@ -1,5 +1,4 @@
 <a id="top"></a>
-<h1>Precipitable Water Model</h1>
 
 [comment]: # (Precipitable-Water-Model)
 [comment]: # (|)
@@ -251,57 +250,4 @@ The future development of this project with regards to the data collection inclu
         <li><a href="" target="_blank">Wyoming Sounding Data</a></li>
     </ul>
 </div></div></div>
-
-<div id="footer">
-	<hr style="border-color: rgba(46,156,202,0.96); width: 100%; margin-left: -20rem;">
-	<div style="margin-left: -1rem; width: 100%; margin-right: -20rem;">
-		<h2>The Maintainers</h2>
-	</div>
-	<table class="maintain">
-		<tbody>
-			<tr style="border: 0px;">
-				<td>
-					<i class="material-icons">face</i> 
-				</td>
-				<td>
-					Spencer Riley
-				</td>
-				<td>
-					<i class="material-icons">face</i>
-				</td>
-				<td>
-					Vicki Kelsey
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<i class="material-icons">public</i>
-				</td>
-				<td>
-					<a target="_blank" href="http://pharaohcola13.github.io">pharaohcola13.github.io</a>
-				</td>
-				<td>
-					<i class="material-icons">public</i>
-				</td>
-				<td>
-					<a target="_blank" href="http://physicsgoddess1972.github.io">physicsgoddess1972.github.io</a>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<i class="material-icons">alternate_email</i>
-				</td>
-				<td>
-					spencer.riley@student.nmt.edu
-				</td>
-				<td>
-					<i class="material-icons">alternate_email</i>
-				</td>
-				<td>
-					vicki.kelsey@student.nmt.edu
-				</td>
-			</tr>
-		</tbody>
-	</table>
-</div>
 
