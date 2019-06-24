@@ -179,8 +179,14 @@ _:-ms-input-placeholder, :root .demo-graph {
 .demo-updates .mdl-card__title {
   min-height: 200px;
   background-image: url('../img/sky.jpg');
-  background-position: 50% 50%;
+  background-position: 20% 0%;
   background-repeat: no-repeat;
+}
+.demo-updates2 .mdl-card__title {
+    min-height: 200px;
+    background-image: url('../img/sun.jpg');
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
 }
 
 .demo-options h3 {
