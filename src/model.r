@@ -548,7 +548,7 @@ poster1 <- function(...){
 		plot(clear_date, t(range)[1,], xlab=NA, ylab=NA, main=NA, pch=16,
 			xlim=c(xmin, xmax), ylim=c(ymin, ymax), col=c(toString(sensor[1,3])))
 
-		title("Air Temperature",line=0.5)
+		title("Sky Temperature",line=0.5)
 		mtext("Temperature [C]", side=2, line=2.5, cex=0.65)
 
 		for(j in 2:length(range_index)){
@@ -566,7 +566,7 @@ poster1 <- function(...){
 			main=NA, pch=16, las=1, col=c(toString(sensor[1,3])),
 			xlim=c(xmin, xmax), ylim=c(ymin, ymax))
 
-		title("Air Temperature", line=0.5)
+		title("Sky Temperature", line=0.5)
 		for(j in 2:length(range_index)){
 			points(over_date, t(range)[j,], pch=16, col=c(toString(sensor[j, 3])))
 		}
@@ -805,11 +805,11 @@ if(args$set == "t"){
 	cat(green("[4]"), "Residual of the Mean PW and Temperature Model\n")
 	cat(green("[5]"), "Pac-Man Residual of the Mean PW and Temperature Model\n")
 # Shows plots
-	show(plots1, plots2, plots3, plots4, plots5, overcast=args$overcast)
+	show(plots1, plots2, plots3, plots4, overcast=args$overcast)
 # Saves plots
 	if (args$save){
 		save(c(plots1(overcast=args$overcast), plots2(overcast=args$overcast),
-			plots3(overcast=args$overcast), plots4(overcast=args$overcast), plots5(overcast=args$overcast)), sname)
+			plots3(overcast=args$overcast), plots4(overcast=args$overcast)), sname)
 		cat(green(sprintf("Plot set downloaded to %s\n", sname)))
 	}
 	}else if(args$set == "o"){
@@ -832,11 +832,11 @@ if(args$poster){
 	cat(green("[3]"), "Overcast Condition Percentage\n")
 	cat(green("[4]"), "Pac-Man Residual for Total Mean PW and Temperature\n")
 # Shows plots
-	show(poster1, poster2, other1, plots5, overcast=NA)
+	show(poster1, poster2, other1, overcast=NA)
 # Saves plots
 	if(args$save){
 		sname <- sprintf("~/Downloads/poster_%s.pdf", gsub("/", "_", recent))
-		save(c(poster1(),poster2(), other1(), plots5()), sname)
+		save(c(poster1(),poster2(), other1()), sname)
 		cat(green(sprintf("Plot set downloaded to %s\n", sname)))
 	}
 }

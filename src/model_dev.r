@@ -107,7 +107,7 @@ overcast_filter <- function(){
 		}
 	}
 	output <- list(clear_date=date_clear, "pw_l1t1"=pw_l1t1, "pw_l1t2"=pw_l1t2, "pw_l2t1"=pw_l2t1, "pw_l2t2"=pw_l2t2,
-                    "date_over"=date_over, "pw_l1t1o"=pw_l1t1o, "pw_l1t2o"=pw_l1t2o, "pw_l2t1o"=pw_l2t1o, "pw_l2t2o"=pw_l2t2o)
+                    over_date=date_over, "pw_l1t1o"=pw_l1t1o, "pw_l1t2o"=pw_l1t2o, "pw_l2t1o"=pw_l2t1o, "pw_l2t2o"=pw_l2t2o)
 	output1 <- list()
 	for(k in 1:length(sensor_name)){
 		output1 <- append(x=output1, values=list("snsr_gro"=snsr_gro[[ paste("snsr_gro",k,sep="") ]]))
@@ -232,12 +232,14 @@ main1 	<- function(legend, overcast=args$overcast){
 		title 		<- "Air Temperature Time Series\nCondition: Clear Sky"
 		date 		<- clear_date
 	}
+
 	plot(date, t(unlist(range_index[1])), xlab="Date", ylab="Temperature [C]",
 			main=title, pch=16, xlim=c(xmin, xmax), ylim=c(ymin, ymax), col=c(toString(sensor[1,3])))
 
 	for(j in 2:length(range_index)){
-		points(date, t(unlist(snsr_sky[j])), pch=16, col=c(toString(sensor[j, 3])))
+		points(date, t(unlist(range_index[j])), pch=16, col=c(toString(sensor[j, 3])))
 	}
+
 	if (legend == "save"){
 		legend_plot(overcast, FALSE)
 	}else if(legend == "show"){
@@ -246,7 +248,8 @@ main1 	<- function(legend, overcast=args$overcast){
 }
 ## Ground Temperature plot
 main2 	<- function(legend, overcast=args$overcast){
-# Margin Configuration
+	print("Main 2")
+	# Margin Configuration
 	par(mar=c(5.1, 5.1, 5.1, 5.3), xpd=TRUE)
 	xmin 	<- min(clear_date, na.rm=TRUE)
 	xmax 	<- max(clear_date, na.rm=TRUE)
@@ -263,6 +266,9 @@ main2 	<- function(legend, overcast=args$overcast){
 		title 		<- "Ground Temperature Time Series\nCondition: Clear Sky"
 		date 		<- clear_date
 	}
+	print(length(unlist(range_index[1])))
+	print(length(date))
+
 	plot(date, t(unlist(range_index[1])), xlab="Date", ylab="Temperature [C]",
 		 main=title, pch=16,
 		xlim=c(xmin, xmax), ylim=c(ymin, ymax), col=c(toString(sensor[1,3])))
@@ -316,7 +322,7 @@ plots1 	<- function(..., overcast=args$overcast){
 		xmin 	<- min(as.numeric(unlist(snsr_sky)), na.rm=TRUE)
 		ymax	<- max(pw_l1t1, pw_l1t2,pw_l2t1, pw_l2t2, na.rm=TRUE)
 		ymin	<- min(pw_l1t1, pw_l1t2,pw_l2t1, pw_l2t2, na.rm=TRUE)
-		x 		<- Reduce("+", snsr_sky)/length(snsr_sky)
+		x 		<- snsr_sky[[ paste("snsr_sky",3,sep="") ]]
 		y 		<- pw_l1t1; y1 <- pw_l1t2; y2 <- pw_l2t1; y3 <- pw_l2t2
 		title	<- "Correlation between PW and Temperature\nCondition: Clear Sky"
 	}else{
@@ -324,11 +330,10 @@ plots1 	<- function(..., overcast=args$overcast){
 		xmin 	<- min(as.numeric(unlist(snsr_skyo)), na.rm=TRUE)
 		ymax	<- max(pw_l1t1o, pw_l1t2o, pw_l2t1o, pw_l2t2o, na.rm=TRUE)
 		ymin	<- min(pw_l1t1o, pw_l1t2o, pw_l2t1o, pw_l2t2o, na.rm=TRUE)
-		x 		<- Reduce("+", snsr_skyo)/length(snsr_skyo)
+		x 		<- t(snsr_skyo)[3]
 		y 		<- pw_l1t1o; y1 <- pw_l1t2o; y2 <- pw_l2t1o; y3 <- pw_l2t2o
 		title 	<- "Correlation between PW and Temperature\nCondition: Overcast"
 	}
-	print(t(x))
 	plot(x, y, col=c("red"), pch=16, xlim=c(xmin, xmax), ylim=c(ymin, ymax),
 			xlab="Zenith Sky Temperature [C]", ylab="PW [mm]", main=title)
 	points(x, y1, col=c("blue"), pch=16)
@@ -345,7 +350,7 @@ plots2 	<- function(..., overcast=args$overcast){
 		xmin 	<- min(as.numeric(unlist(snsr_sky)), na.rm=TRUE)
 		ymax	<- max(l1_avg, l2_avg, na.rm=TRUE)
 		ymin	<- min(l1_avg, l2_avg, na.rm=TRUE)
-		x 		<- Reduce("+", snsr_sky)/length(snsr_sky)
+		x 		<- snsr_sky[[ paste("snsr_sky",3,sep="") ]]
 		y 		<- l1_avg; y1 <- l2_avg
 		title 	<- "Correlation between Locational Mean PW and Temperature\nCondition: Clear Sky"
 	}else{
@@ -353,7 +358,7 @@ plots2 	<- function(..., overcast=args$overcast){
 		xmin 	<- min(as.numeric(unlist(snsr_skyo)), na.rm=TRUE)
 		ymax	<- max(l1_avgo, l2_avgo, na.rm=TRUE)
 		ymin	<- min(l1_avgo, l2_avgo, na.rm=TRUE)
-		x 		<- Reduce("+", snsr_skyo)/length(snsr_skyo)
+		x 		<- snsr_skyo[3]
 		y 		<- l1_avgo; y1 <- l2_avgo
 		title 	<- "Correlation between Locational Mean PW and Temperature\nCondition: Overcast"
 	}
@@ -366,7 +371,7 @@ plots2 	<- function(..., overcast=args$overcast){
 ## Super Average Plot with Exponential Fit
 plots3 	<- function(..., overcast=args$overcast){
 	if(!overcast){
-		exp_reg <- exp_regression(Reduce("+", snsr_sky)/length(snsr_sky), avg)
+		exp_reg <- exp_regression(snsr_sky[[ paste("snsr_sky",3,sep="") ]], avg)
 		ymax 	<- max(exp_reg$y, na.rm=TRUE)
 		ymin 	<- min(exp_reg$y, na.rm=TRUE)
 		title 	<- "Correlation between Mean PW and Temperature\nCondition: Clear Sky"
@@ -395,7 +400,7 @@ plots3 	<- function(..., overcast=args$overcast){
 ## Residual Plot
 plots4 	<- function(..., overcast=args$overcast){
 	if(!overcast){
-		exp_reg <- exp_regression(as.numeric(unlist(snsr_sky)), avg)
+		exp_reg <- exp_regression(snsr_sky[[ paste("snsr_sky",3,sep="") ]], avg)
 		title 	<- "Residual of the Mean PW and Temperature Model\nCondition: Clear Sky"
 	}else{
 		exp_reg <- exp_regression(as.numeric(unlist(snsr_skyo)), avgo)
