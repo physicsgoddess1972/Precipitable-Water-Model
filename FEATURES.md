@@ -11,10 +11,17 @@ features in the R source code
 that exist as a part of the model. To use the following 
 code snippets it is important to run the bash script
 defined in <a href="#require">Requirements</a>. 
+<br><br>
+In a more general sense, the features included in the computational model are related to
+methods of generalized data input. This is significant because it allows flexibility in the 
+number of sensors and precipitable water measurements that can be used. In other words,
+two distinct groups, one using three infrared sensors and the other using one hundred sensors, can use
+the same model with zero changes to the source code.
+</div></div>
 
 <div class="collapsible">
 <div class="panel">
-<h3> Show and Save Functions </h3>
+<h2> Show and Save Functions </h2>
 This collection of functions uses the X11 framework 
 to produce pop-up windows of the visual outputs of
 the R script. The <code>show()</code> function produces the 
@@ -67,7 +74,7 @@ dummy()
 
 <div class="collapsible">
 <div class="panel">
-<h3> Exponential Regression </h3>
+<h2> Exponential Regression </h2>
 
 <pre lang="R">
 <code>
@@ -114,7 +121,7 @@ lines(newx, exp(predint[ ,<num>2</num>]), col=<str>"magenta"</str>, lty=<str>"da
 
 <div class="collapsible">
 <div class="panel">
-<h3> The Pac-Man Residual plot </h3>
+<h2> The Pac-Man Residual plot </h2>
 
 <pre lang="R">
 <code>
