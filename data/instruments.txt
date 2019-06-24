@@ -2,4 +2,3 @@ Sensor, Error, Color Code, D to S
 AMES1,NA,green4,NA
 FLIRi3,NA,blue,NA
 1610 TE,NA,red,NA
-AMES2, NA, magenta, NA
