@@ -2891,7 +2891,7 @@ ul, ol {
     height: 36px;
     margin: 0;
     min-width: 64px;
-    padding: 0 16px;
+    padding: 3px 3px;
     display: inline-block;
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
     font-size: 14px;
@@ -4981,8 +4981,7 @@ fieldset[disabled] .mdl-checkbox .mdl-checkbox__ripple-container .mdl-ripple, .m
         opacity: 1
     }
 }
-
-.mdl-layout__content {
+.mdl-layout__content{
     -ms-flex: 0 1 auto;
     position: relative;
     display: inline-block;
@@ -4992,9 +4991,18 @@ fieldset[disabled] .mdl-checkbox .mdl-checkbox__ripple-container .mdl-ripple, .m
     -ms-flex-positive: 1;
     flex-grow: 1;
     z-index: 1;
-    -webkit-overflow-scrolling: touch
+    -webkit-overflow-scrolling: touch;
+    background-color: #f5f5f5
 }
 
+@media only screen and (max-width: 700px){
+    .mdl-layout__content {
+        left: 0%;
+        margin: 0px;
+        padding: 0px;
+        background-color: #fff;
+    }
+}
 .mdl-layout--fixed-drawer > .mdl-layout__content {
     margin-left: 240px
 }
