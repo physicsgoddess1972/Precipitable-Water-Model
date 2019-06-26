@@ -189,6 +189,14 @@ _:-ms-input-placeholder, :root .demo-graph {
     background-repeat: no-repeat;
 }
 
+.demo-updates3 .mdl-card__title {
+    min-height: 200px;
+    background-image: url('../img/nmt.jpg');
+    background-position: 43% 35%;
+    background-repeat: no-repeat;
+}
+
+
 .demo-options h3 {
   margin: 0;
 }
