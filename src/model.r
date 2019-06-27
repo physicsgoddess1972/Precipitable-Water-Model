@@ -3,7 +3,7 @@
 ## To get a list of arguments run Rscript model.r --help
 ####
 ## Necessary Libraries for the script to run, for installation run install.sh
-library(argparse); library(plotrix); library(crayon)
+library(argparse); library(crayon)
 
 ## Custom Colors for cmd line features
 red 		<- make_style("red1")
