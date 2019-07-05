@@ -1,23 +1,5 @@
 <a id="top"></a>
 
-[comment]: # (Precipitable-Water-Model)
-[comment]: # (|)
-[comment]: # (|--- data/)
-[comment]: # (|   |--- instruments.txt)
-[comment]: # (|   |--- master_data.csv)
-[comment]: # (|   `--- ml_data.csv)
-[comment]: # (|)
-[comment]: # (|--- install.sh)
-[comment]: # (|)
-[comment]: # (|--- README.md)
-[comment]: # (|)
-[comment]: # (`--- src/)
-[comment]: # (	|--- archive/)
-[comment]: # (	|   |--- main.py)
-[comment]: # (	|   |--- mrop.py)
-[comment]: # (	|   `--- plots_galore.py)
-[comment]: # (	`--- model.r)
-
 <div id="data">
 <div class="collapsible">
 <div class="collapsible-header">
