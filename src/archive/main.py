@@ -2,7 +2,7 @@ import matplotlib
 from  matplotlib import pyplot as plt
 from numpy import *
 
-fname   = "../data/master_data.csv"
+fname   = "../../data/master_data.csv"
 data    = open(fname, 'r')
 read    = data.readlines()
 
@@ -10,6 +10,7 @@ read    = data.readlines()
 # Pulls the date from the csv/txt file in the format presented in the file. (Format doesn't matter)
 def datefromfile():
 	y = [y.split(',')[0] for y in read]
+	print(y)
 	content = [y.strip() for y in y]
 	del content[0]
 	x = content
