@@ -1,5 +1,5 @@
 Sensor, Error, Color Code, D to S, Poster
 1610 TE,NA,red,NA,TRUE
 FLIRi3,NA,blue,NA,TRUE
-AMES1,NA,green4,NA,TRUE
-AMES2,NA, magenta,NA,FALSE
+AMES_1,NA,green,NA,TRUE
+AMES_2,NA,purple,NA,FALSE
