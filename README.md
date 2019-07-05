@@ -1,23 +1,4 @@
 <a id="top"></a>
-
-[comment]: # (Precipitable-Water-Model)
-[comment]: # (|)
-[comment]: # (|--- data/)
-[comment]: # (|   |--- instruments.txt)
-[comment]: # (|   |--- master_data.csv)
-[comment]: # (|   `--- ml_data.csv)
-[comment]: # (|)
-[comment]: # (|--- install.sh)
-[comment]: # (|)
-[comment]: # (|--- README.md)
-[comment]: # (|)
-[comment]: # (`--- src/)
-[comment]: # (	|--- archive/)
-[comment]: # (	|   |--- main.py)
-[comment]: # (	|   |--- mrop.py)
-[comment]: # (	|   `--- plots_galore.py)
-[comment]: # (	`--- model.r)
-
 <div id="data">
 <div class="collapsible">
 <div class="collapsible-header">
@@ -27,7 +8,10 @@
 	<h3>Goal</h3>
 	The goal of this project is to determine the correlation between
 	zenith sky temperature and the precipitable water. This experiment
-	is based off of a similar study conducted by Mims (?...?).
+	is based off of a similar study conducted by Mims et al. The primary
+	difference between the two endeavors is the methodology and data 
+	source, for instance our method is more rigorous and more 
+	accessable.(?...?).
 	<h3>Intstrumentation</h3>
 	This experiment used three infrared sensors:
 	<ol>
@@ -37,7 +21,15 @@
 	</ol>
 	The purpose of these sensors is to measure the thermal energy of a
 	given area in the atmosphere. The area is determined by the Distance to
-	Spot ratio.
+	Spot ratio. 
+	<br /><br />
+    When using the model for your analysis, take the time to fully complete the 
+    <code>instruments.txt</code>
+	file with the appropriate information. This will assure that the data
+	properly corresponds to the labels of the sensors. If there is an entry
+	that you are unable to fill, please use NA as a filler. More information 
+	regarding the different columns of the <code>instruments.txt</code> will
+	be discussed in the Data Format section of this documentation page.
 </div></div>
 
 <div id="data">
@@ -47,8 +39,7 @@
 </div>
 <div class="panel">
 <div class="data-format">
-The computational model that was developed to analyze the data collected uses a strict format. There are some cases
-where the format can be more interpretive.
+Using pattern identification, the data format is flexible with few strict requirements. 
 
 </div></div></div></div>
 
@@ -78,65 +69,61 @@ requirements.
 <b>Please read this section before using the script</b>
 <br />
 The computational model is enclosed in the script <code>model.r</code>. 
-There are some minor difficulties that you may encounter using this script, 
-many of these difficulties relate to the plotting window. 
-The first is important, resizing the plot display will cause the window to blank.
-The quick fix is to just re-run the script. There is currently no permanent fix for this bug.
-The second issue is seemingly random. Upon running the script if one or more of the plot displays is blank 
-re-run the script until there are no blank windows. 
-It should be noted that these issues only impacts the display of the plots and will not affect plots that are saved.
+Some of the plot sets are divided into two subcategories: clear sky and overcast. 
+This division is used to isolate data where clouds may have interfered with the temperature
+measurement. To access the overcast subcategory use the <code>--overcast</code> or <code>-o</code> 
+argument.
+<br /><br />
 
 <pre lang="bash">
 <code>
 <inp>$</inp> Rscript model.r --help
 
-usage: model.r [-h] [--save] [--set SET] [--poster] [--dev] [-d] [-o] [-w] [-i]
+usage: model.r [-h] [--save] [--set SET] [--poster] [--dev] [-d] [-o] [-1st] 
+               [-i] [-ml]
 
 optional arguments:
-  -h, --help      show this help message and exit
-  --save          Saves plots
-  --set SET       Select plot sets: [m]ain/[p]lots_galore/[o]ther
-  --poster        Produces poster plots
-  --dev           Development plots
-  -d, --data      Produces two columned dataset including mean temp and PW
-  -o, --overcast  Shows time series data for days with overcast condition
-				  (Used with --set m)
-  -w, --warning	  Shows warnings associated with the script
-  -i, --instrument	Prints out sensor data stored in instruments.txt
+  -h, --help          Show this help message and exit
+  --save              Saves plots
+  --set SET           Select plot sets: 
+                          [t]ime series
+                          [a]nalytics
+                          [c]harts
+                          [i]ndividual sensors
+  --poster            Produces poster plots
+  --dev               Development plots
+  -d, --data          Produces two columned dataset including mean temp and PW
+  -o, --overcast      Shows time series data for days with overcast condition
+	                  (Used with --set [t/a/i])
+  -1st, --first_time  Notes for first time users.
+  -i, --instrument    Prints out sensor data stored in instruments.txt
 </code>
 </pre>
 
 <div class="collapsible">
 <div class="panel">
-<h3> 'Main' Set Contents </h3>
+<h3> 'Time Series' Set Contents </h3>
 <pre lang="bash">
 <code>
-<inp>$</inp> Rscript model.r --set m
-<inp>$</inp> Rscript model.r --set m --overcast
+<inp>$</inp> Rscript model.r --set t
+<inp>$</inp> Rscript model.r --set t --overcast
 </code>
 </pre>
-
-This set of plots is divided into two subsets based on the condition labels.
-In our case the conditions are clear skies and overcast.
-To run this plot set use the terminal commands in this section. 
-The overcast data can be seen via the
-<code>--overcast</code> argument.
-
-Both plot subsets include three plots 
-
 <ol>
 	<li> Air Temperature Time Series </li>
 	<li> Ground Temperature Time Series </li>
 	<li> Change in Temperature Time Series </li>
+    <li> Precipitable Water Time Series </li>
 </ol>
 </div></div>
 
 <div class="collapsible">
 <div class="panel">
-<h3> 'Plots Galore' Set Contents </h3>
+<h3> 'Analytics' Set Contents </h3>
 <pre lang="bash">
 <code>
-<inp>$</inp> Rscript model.r --set p
+<inp>$</inp> Rscript model.r --set a
+<inp>$</inp> Rscript model.r --set a --overcast
 </code>
 </pre>
 
@@ -151,17 +138,32 @@ Both plot subsets include three plots
 
 <div class="collapsible">
 <div class="panel">
-<h3> 'Other' Set Contents </h3>
+<h3> 'Charts' Set Contents </h3>
 
 <pre lang="bash">
 <code>
-<inp>$</inp> Rscript model.r --set o
+<inp>$</inp> Rscript model.r --set c
 </code>
 </pre>
 
 <ol>
 	<li> Overcast Condition Percentage (Bar) </li>
-	<li> Overcast Condition Percentage (Pie) </li>
+</ol>
+</div></div>
+
+<div class="collapsible">
+<div class="panel">
+<h3> 'Individual Sensors' Set Contents </h3>
+
+<pre lang="bash">
+<code>
+<inp>$</inp> Rscript model.r --set i
+<inp>$</inp> Rscript model.r --set i --overcast
+</code>
+</pre>
+
+<ol>
+	<li> Sky and Ground Temperature Time Series for each sensor</li>
 </ol>
 </div></div>
 

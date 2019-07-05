@@ -30,7 +30,7 @@ works to keep the window open until the Enter key is
 inputted into the terminal. Without the <code>continue_input()</code>
 function, the plotting window would automatically open and close, ending the 
 script. 
-<pre lang="R">
+<pre lang="R" translate="no" dir="ltr">
 <code>
 <comment>## Allows the plots to stay open</comment>
 continue_input <- function(){
@@ -59,7 +59,7 @@ The <code>save()</code> function can be used in-joint with the <code>show()</cod
 function, as seen in the usage snippet. The resulting output
 is a PDF file by the name "cool_plots.pdf" with three pages, one
 for each plot unless an alternate plot layout is specified.
-<pre lang="R">
+<pre lang="R" translate="no" dir="ltr">
 <code>
 <comment>### USAGE</comment>
 dummy <- function(){
@@ -76,7 +76,7 @@ dummy()
 <div class="panel">
 <h2> Exponential Regression </h2>
 
-<pre lang="R">
+<pre lang="R" translate="no" dir="ltr">
 <code>
 <comment>## Data</comment>
 y 	<- as.numeric(ydata)
