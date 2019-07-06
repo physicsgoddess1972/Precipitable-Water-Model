@@ -22,54 +22,7 @@ the same model with zero changes to the source code.
 <div class="collapsible">
 <div class="panel">
 <h2> Show and Save Functions </h2>
-This collection of functions uses the X11 framework 
-to produce pop-up windows of the visual outputs of
-the R script. The <code>show()</code> function produces the 
-plotting window, and the <code>continue_input()</code> function
-works to keep the window open until the Enter key is
-inputted into the terminal. Without the <code>continue_input()</code>
-function, the plotting window would automatically open and close, ending the 
-script. 
-<pre lang="R" translate="no" dir="ltr">
-<code>
-<comment>## Allows the plots to stay open</comment>
-continue_input <- function(){
-	cat(bold(yellow(<str>"Press Enter to Continue:\n>> "</str>)))
-	x <- readLines(con=<str>"stdin"</str>, <num>1</num>)
-}
-<comment>## A function that will produce popups through the x11 framework</comment>
-show <- function(...){
-	args <- list(...)
-	for (i in args){
-		X11(type=<str>"cairo"</str>, width=n, height=n)
-		i()
-	}
-	continue_input()
-}
-<comment>## A general function that will save plots</comment>
-save <- function(func, name){
-	pdf(name)
-	func
-	dev.off()
-}
 
-</code>
-</pre>
-The <code>save()</code> function can be used in-joint with the <code>show()</code>
-function, as seen in the usage snippet. The resulting output
-is a PDF file by the name "cool_plots.pdf" with three pages, one
-for each plot unless an alternate plot layout is specified.
-<pre lang="R" translate="no" dir="ltr">
-<code>
-<comment>### USAGE</comment>
-dummy <- function(){
-<comment># The test_plots are functions that make plots</comment>
-	show(test_plot1, test_plot2, test_plot3)
-	save(c(test_plot1(), test_plot2(), test_plot3()), <str>"cool_plots"</str>)
-}
-dummy()
-</code>
-</pre>
 </div></div>
 
 <div class="collapsible">
