@@ -3,7 +3,7 @@
 <div id="guidelines">
 <div class="collapsible" >
 <div class="collapsible-header">
-<h2>Guidelines for Contributors</h2>
+    <h2>Guidelines for Contributors</h2>
 </div>
 <div class="panel">
 While working on data collection or any contributions to this project, keep in mind
