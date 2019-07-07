@@ -196,7 +196,12 @@ _:-ms-input-placeholder, :root .demo-graph {
     background-repeat: no-repeat;
 }
 
-
+.demo-updates4 .mdl-card__title {
+    min-height: 200px;
+    background-image: url('../img/rain.jpg');
+    background-position: 70% 0%;
+    background-repeat: no-repeat;
+}
 .demo-options h3 {
   margin: 0;
 }
@@ -213,6 +218,7 @@ _:-ms-input-placeholder, :root .demo-graph {
 .demo-options .material-icons {
   color: rgba(255, 255, 255, 0.89);
 }
+
 .demo-options .mdl-card__actions {
   height: 64px;
   display: -webkit-flex;
@@ -222,4 +228,14 @@ _:-ms-input-placeholder, :root .demo-graph {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
+}
+.demo-card-wide.mdl-card {
+    width: 512px;
+}
+.demo-card-wide > .mdl-card__title {
+    color: #fff;
+    height: 176px;
+}
+.demo-card-wide > .mdl-card__menu {
+    color: #fff;
 }
