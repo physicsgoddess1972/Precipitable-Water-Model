@@ -13,7 +13,6 @@ pyrun("from numpy import *")
 pyrun("matplotlib.rcParams['figure.figsize'] = (10.0, 10.0)")
 ## Font size (tick labels/axis labels/title)
 pyrun("matplotlib.rcParams['font.size']=18")
-
 ## Custom Colors for cmd line features
 red 		<- make_style("red1")
 orange 		<- make_style("orange")
@@ -80,9 +79,15 @@ recent 		<- t(fname[1])[length(t(fname[1]))]
 ## Pulls the column number of the first Sky Temperature measurement
 col_sky 	<- grep("Sky", colnames(fname))
 ## Pulls the column number of the first Ground Temperature measurement
-col_gro		<- grep("Ground", colnames(fname))
+col_gro		<- as.numeric(grep("Ground", colnames(fname)))
 ## Pulls the column number of the first PW measurement
-col_pw 		<- grep("PW", colnames(fname))
+col_pw 		<- as.numeric(grep("PW", colnames(fname)))
+## Pulls the column number of the date
+col_date 	<- grep("Date", colnames(fname))
+## Pulls the column number of the Relative Humidity
+col_rh 		<- grep("RH", colnames(fname))
+## Pulls the column number of the Condition
+col_con 	<- as.numeric(grep("Condition", colnames(fname)))
 ## Pulls sensor labels and colors from instruments.txt
 snsr_name 	<- list(); snsr_color 	<- unlist(list())
 for(i in 1:length(sensor[, 1])){
@@ -118,9 +123,9 @@ overcast_filter <- function(){
 	date_clear	<- snsr_sky		<- snsr_gro		<- pw_loc	<- list()
 	date_over	<- snsr_skyo	<- snsr_groo	<- pw_loco	<- list()
 	# Divides the data based on condition (Overcast/Clear Skies)
-	for (j in 1:length(t(fname[2]))){
-		if (!"overcast" %in% fname[j,2]){
-			date_clear  <- append(date_clear, as.Date(fname[j, 1], "%m/%d/%Y"))
+	for (j in 1:length(t(fname[col_con]))){
+		if (!"overcast" %in% fname[j,col_con]){
+			date_clear  <- append(date_clear, as.Date(fname[j, as.numeric(col_date)], "%m/%d/%Y"))
 			for (l in 1:length(pw_name)){
 				pw_loc[[ paste("pw_loc", l, sep="")]] 		<- append(x=pw_loc[[ paste("pw_loc", l, sep="")]],  values=fname[j, l+col_pw[1]-1])
 			}
@@ -129,7 +134,7 @@ overcast_filter <- function(){
 				snsr_sky[[ paste("snsr_sky",k,sep="") ]] 	<- append(x=snsr_sky[[ paste("snsr_sky",k,sep="") ]], values=fname[j, k+col_sky[1]-1])
 			}
 		}else{
-			date_over   <- append(date_over, as.Date(fname[j, 1], "%m/%d/%Y"))
+			date_over   <- append(date_over, as.Date(fname[j, as.numeric(col_date)], "%m/%d/%Y"))
 			for (l in 1:length(pw_name)){
 				pw_loco[[ paste("pw_loco", l, sep="")]] 		<- append(x=pw_loco[[ paste("pw_loco", l, sep="")]],  values=fname[j, l+col_pw[1]-1])
 			}
@@ -288,6 +293,7 @@ py_time_series <- function(date,range, title_py, color, label){
 		date <- sapply(date, paste, collapse=",")
 		pyvar('name', unique(t(label))[1])
 		pyvar("dates", date); pyvar("y", t(unlist(range[1]))); pyvar("col", color[1])
+		pyprint("len(dates)"); pyprint("len(y)")
 		pyrun("dates_list = [datetime.strptime(str(date), '%Y-%m-%d') for date in dates]")
 		pyrun("ax.scatter(dates_list, y, c=col, label=name[0])")
 		pyrun("ax.xaxis.set_major_locator(mdates.MonthLocator(interval=1))")
@@ -300,7 +306,6 @@ py_time_series <- function(date,range, title_py, color, label){
 		}
         pyrun("box = ax.get_position()")
         pyrun("ax.set_position([box.x0, box.y0, box.width * 0.85, box.height])")
-
         pyrun("plt.legend(loc='center left', bbox_to_anchor=(1, 0.9), fancybox=True)")
 }
 ### Plot functions
@@ -324,7 +329,6 @@ main1 	<- function(legend, overcast=args$overcast){
 		title_py 	<- "Sky Temperature Time Series \\n Condition: Clear Sky"
 		date 		<- clear_date
 	}
-
 	if (args$save){
 		plot(date, t(unlist(range_index[1])), xlab="Date", ylab="Temperature [C]",
 			main=title, pch=16, xlim=c(xmin, xmax), ylim=c(ymin, ymax), col=snsr_color[1])
