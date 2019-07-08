@@ -79,15 +79,15 @@ recent 		<- t(fname[1])[length(t(fname[1]))]
 ## Pulls the column number of the first Sky Temperature measurement
 col_sky 	<- grep("Sky", colnames(fname))
 ## Pulls the column number of the first Ground Temperature measurement
-col_gro		<- as.numeric(grep("Ground", colnames(fname)))
+col_gro		<- grep("Ground", colnames(fname))
 ## Pulls the column number of the first PW measurement
-col_pw 		<- as.numeric(grep("PW", colnames(fname)))
+col_pw 		<- grep("PW", colnames(fname))
 ## Pulls the column number of the date
 col_date 	<- grep("Date", colnames(fname))
 ## Pulls the column number of the Relative Humidity
 col_rh 		<- grep("RH", colnames(fname))
 ## Pulls the column number of the Condition
-col_con 	<- as.numeric(grep("Condition", colnames(fname)))
+col_con 	<- grep("Condition", colnames(fname))
 ## Pulls sensor labels and colors from instruments.txt
 snsr_name 	<- list(); snsr_color 	<- unlist(list())
 for(i in 1:length(sensor[, 1])){
