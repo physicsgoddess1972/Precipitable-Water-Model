@@ -21,12 +21,6 @@ the same model with zero changes to the source code.
 
 <div class="collapsible">
 <div class="panel">
-<h2> Show and Save Functions </h2>
-
-</div></div>
-
-<div class="collapsible">
-<div class="panel">
 <h2> Exponential Regression </h2>
 
 <pre lang="R" translate="no" dir="ltr">
