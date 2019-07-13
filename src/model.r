@@ -8,6 +8,7 @@ library(argparse); library(crayon); library(randomcoloR); library(Rpyplot)
 pyrun("from datetime import datetime")
 pyrun("import matplotlib.dates as mdates")
 pyrun("from numpy import *")
+pyrun("import matplotlib.gridspec as gridspec")
 ### Python plotting properties
 ## Figure size
 pyrun("matplotlib.rcParams['figure.figsize'] = (10.0, 10.0)")
@@ -33,16 +34,14 @@ parser$add_argument("--dev", action="store_true", default=FALSE,
 parser$add_argument("-d", "--data", action="store_true", default=FALSE,
 	help="Produces two columned datset including mean temp and PW")
 parser$add_argument("-o", "--overcast", action="store_true", default=FALSE,
-	help="Shows plots for days with overcast condition. (Used with --set [m/p/i])")
+	help="Shows plots for days with overcast condition. \\n\ (Used with --set [m/p/i] and --data)")
 parser$add_argument("-1st", "--first_time", action="store_true", default=FALSE,
 	help="Notes for first time users")
 parser$add_argument("-i", "--instrument", action="store_true", default=FALSE,
 	help="Prints out sensor data stored in instruments.txt")
-parser$add_argument("-ml", action="store_true", default=FALSE,
-	help="Builds dataset for machine learning things")
 args <- parser$parse_args()
 
-## Command Prompt "Start of Program" with Warning box and stuff
+## Command Prompt "Start of Program" and 1st time user stuff
 if(args$first_time){
 	cat(bold(cloudblue(" \t\t**** Welcome First Time Users ****\t\t\t\n")))
 	cat(bold(cloudblue(paste(rep("\t   _  _\t\t\t", 2, collapse="")))))
@@ -68,6 +67,7 @@ if(args$first_time){
 }
 ## Command Prompt "End of Program"
 quit_it <- function(){
+	if(file.exists("Rplots.pdf")){file.remove("Rplots.pdf")}
 	cat(bold(cyan("\n\t\t>>>>>>> Program Complete <<<<<<<\n"))); quit()
 }
 
@@ -144,8 +144,7 @@ overcast_filter <- function(){
 			}
 		}
 	}
-	output <- list(clear_date=date_clear, over_date=date_over)
-	output1 <- list()
+	output1 <- list(clear_date=date_clear, over_date=date_over)
 	for(k in 1:length(snsr_name)){
 		output1 <- append(x=output1, values=list("clear_gro"=snsr_gro[[ paste("snsr_gro",k,sep="") ]]))
 	}
@@ -164,17 +163,19 @@ overcast_filter <- function(){
 	for(l in 1:length(pw_name)){
 		output1 <- append(x=output1, values=list("over_pw"=pw_loco[[ paste("pw_loco", l, sep="")]]))
 	}
-	output2 <- c(output, output1)
-	return(output2)
+	return(output1)
 }
 ## Pushes returned values to the variable overcast
 overcast 	<- overcast_filter()
 ## Pulls returned values into variables (filtered)
 clear_date  <- overcast$clear_date	# Date
+# Initialize empty lists
 snsr_del 	<- snsr_sky <- snsr_gro <- pw_loc <- loc_avg <- snsr_sky_calc <- list()
+# Adds PW measurements for clear sky to list
 for (l in 1:length(pw_name)){
 	pw_loc[[ paste("pw_loc", l, sep="")]]	 <- as.numeric(unlist(overcast[grep("clear_pw", names(overcast), fixed=TRUE)[1]+l-1]))
 }
+# Adds Sky temperature, Ground temperature, and Change in temperature for each sensor to empty list
 for (k in 1:length(snsr_name)){
 	snsr_sky[[ paste("snsr_sky",k,sep="") ]] <- as.numeric(unlist(overcast[grep("clear_sky", names(overcast), fixed=TRUE)[1]+k-1]))
 	snsr_gro[[ paste("snsr_gro",k,sep="") ]] <- as.numeric(unlist(overcast[grep("clear_gro", names(overcast), fixed=TRUE)[1]+k-1]))
@@ -235,7 +236,6 @@ for (p in 1:length(col_pwpl)){
 	}
 }
 avgo <-  Reduce("+", pw_loco)/length(pw_loco)			# Super Average
-
 ## A function that will produce popups through the matplotlib framework
 show 			<- function(..., overcast){
 # Pulls the input arguments
@@ -293,7 +293,6 @@ py_time_series <- function(date,range, title_py, color, label){
 		date <- sapply(date, paste, collapse=",")
 		pyvar('name', unique(t(label))[1])
 		pyvar("dates", date); pyvar("y", t(unlist(range[1]))); pyvar("col", color[1])
-		pyprint("len(dates)"); pyprint("len(y)")
 		pyrun("dates_list = [datetime.strptime(str(date), '%Y-%m-%d') for date in dates]")
 		pyrun("ax.scatter(dates_list, y, c=col, label=name[0])")
 		pyrun("ax.xaxis.set_major_locator(mdates.MonthLocator(interval=1))")
@@ -479,7 +478,6 @@ plots1 	<- function(..., overcast=args$overcast){
 			pyvar('label', unlist(pw_name)[j]); pyvar('y', t(unlist(range[j])))
 			pyvar('col', pw_color[j]); pyvar('x', x)
 			pyrun('plt.scatter(x,  y, c=col, marker="o", label=label[0])')
-            pyscatter(x, t(unlist(range[j])), marker="o", c=pw_color[j])
         }
 		pyrun("plt.legend(loc='upper left')")
         }else{
@@ -556,17 +554,16 @@ plots3 	<- function(..., overcast=args$overcast){
 	}
     if (!args$save){
 		pyrun("plt.figure()")
-		pyvar('x', exp_reg$x); pyvar('y', )
         pyscatter(exp_reg$x,exp_reg$y, c="blueviolet", marker="o")
         xlabel("Zenith Sky Temperature [C]"); ylabel("PW [mm]"); pytitle(title_py)
         pyplot(exp_reg$newx, exp(exp_reg$confint[, 1]), c="Red")
-        pyplot(exp_reg$newx, exp(exp_reg$confint[ ,2]), c="Blue", linestyle="--")
         pyplot(exp_reg$newx, exp(exp_reg$predint[ ,3]), c="purple", linestyle="--")
-        pyplot(exp_reg$newx, exp(exp_reg$predint[ ,2]), c="purple", linestyle="--")
+        pyplot(exp_reg$newx, exp(exp_reg$confint[ ,2]), c="Blue", linestyle="--")
         pyplot(exp_reg$newx, exp(exp_reg$confint[ ,3]), c="Blue", linestyle="--")
+        pyplot(exp_reg$newx, exp(exp_reg$predint[ ,2]), c="purple", linestyle="--")
 		pyvar("label", sprintf("%.2fe$^{%.3fx}$",
 					exp(coef(exp_reg$model)[1]),coef(exp_reg$model)[2]))
-		pyrun("plt.legend((label[0], 'Confidint', 'Predicint'))")
+		pyrun("plt.legend((label[0], 'Prediction', 'Confidence'))")
     }else{
 # Non-linear model (exponential)
 		plot(exp_reg$x,exp_reg$y, col=c("blueviolet"), pch=16,
@@ -658,7 +655,7 @@ charts1 	<- function(...){
 			norm_na <- length(unlist(snsr_sky[count])) - norm
 			over_na <- length(unlist(snsr_skyo[count])) - over
 
-			slices 	<- c(norm, over, norm_na, over_na)
+			slices 	<- matrix(c(norm, over, norm_na, over_na), nrow=4, byrow=TRUE)
 			title 	<- c("Clear Sky","Overcast", "Clear Sky NaN", "Overcast NaN")
 
 			color 	<- c("paleturquoise", "plum", "deepskyblue", "magenta")
@@ -697,6 +694,7 @@ poster1 <- function(...){
 			snsr_name[[i]] <- NULL
 		}
 	}
+	if(args$save){
 # Layout/Margin configuration
 		par(mfrow=c(3,2),mar=c(1,2, 3.1, 1), oma=c(1,2,0,0), xpd=TRUE)
 # Date limits
@@ -749,11 +747,9 @@ poster1 <- function(...){
 		ymax  		<- max(as.numeric(unlist(snsr_groo)),na.rm=TRUE)
 		ymin  		<- min(as.numeric(unlist(snsr_groo)),na.rm=TRUE)
 		range_index <- snsr_groo
-
 		plot(over_date, t(unlist(range_index[1])), xlab=NA, ylab=NA, main=NA, pch=16,
 			xlim=c(xmin, xmax), ylim=c(ymin, ymax), col=snsr_color[1])
 		title("Ground Temperature", line=0.5)
-
 		for(j in 2:length(range_index)){
 			points(over_date,t(unlist(range_index[j])), pch=16, col=snsr_color[j])
 		}
@@ -786,9 +782,101 @@ poster1 <- function(...){
 # Column Titles
 		mtext("Condition: Overcast", outer=TRUE, cex=0.75, line=-1.5, at=c(x=0.76))
 		mtext("Condition: Clear Sky", outer=TRUE, cex=0.75, line=-1.5, at=c(x=0.26))
+	}else{
+		pyrun("gs = gridspec.GridSpec(3,2)")
+		pyrun("fig = plt.figure(figsize=(12,12))")
+		pyrun("plt.subplots_adjust(wspace=0.2, hspace=0.3,
+				left=0.1, right=0.96, top=0.92)")
+		pyrun("ax1 = fig.add_subplot(gs[0,0])")
+		date <- sapply(clear_date, paste, collapse=",")
+		pyvar('name', unique(t(c(gsub("_", " ",snsr_name))))[1])
+		pyvar("dates", date); pyvar("y", t(unlist(snsr_sky[1]))); pyvar("col", snsr_color[1])
+		pyrun("dates_list = [datetime.strptime(str(date), '%Y-%m-%d') for date in dates]")
+		pyrun("ax1.scatter(dates_list, y, c=col, label=name[0])")
+		pyrun("ax1.xaxis.set_major_locator(mdates.MonthLocator(interval=1))")
+		pyrun("ax1.xaxis.set_major_formatter(mdates.DateFormatter('%b'))")
+        ylabel("Temperature [C]"); pytitle("Sky Temperature")
+        for(j in 2:length(snsr_sky)){
+			pyvar("y", t(unlist(snsr_sky[j]))); pyvar("col", snsr_color[j])
+			pyvar('name', unique(t(c(gsub("_", " ",snsr_name))))[j])
+			pyrun("ax1.scatter(dates_list, y, c=col, label=name[0])")
+		}
+		pyrun("ax2 = fig.add_subplot(gs[0,1])")
+		date <- sapply(over_date, paste, collapse=",")
+		pyvar('name', unique(t(c(gsub("_", " ",snsr_name))))[1])
+		pyvar("dates", date); pyvar("y", t(unlist(snsr_skyo[1]))); pyvar("col", snsr_color[1])
+		pyrun("dates_list = [datetime.strptime(str(date), '%Y-%m-%d') for date in dates]")
+		pyrun("ax2.scatter(dates_list, y, c=col, label=name[0])")
+        pytitle("Sky Temperature")
+		pyrun("ax2.xaxis.set_major_locator(mdates.MonthLocator(interval=1))")
+		pyrun("ax2.xaxis.set_major_formatter(mdates.DateFormatter('%b'))")
+        for(j in 2:length(snsr_skyo)){
+			pyvar("y", t(unlist(snsr_skyo[j]))); pyvar("col", snsr_color[j])
+			pyvar('name', unique(t(c(gsub("_", " ",snsr_name))))[j])
+			pyrun("ax2.scatter(dates_list, y, c=col, label=name[0])")
+		}
+		pyrun("ax3 = fig.add_subplot(gs[1,0])")
+		date <- sapply(clear_date, paste, collapse=",")
+		pyvar('name', unique(t(c(gsub("_", " ",snsr_name))))[1])
+		pyvar("dates", date); pyvar("y", t(unlist(snsr_gro[1]))); pyvar("col", snsr_color[1])
+		pyrun("dates_list = [datetime.strptime(str(date), '%Y-%m-%d') for date in dates]")
+		pyrun("ax3.scatter(dates_list, y, c=col, label=name[0])")
+		pyrun("ax3.xaxis.set_major_locator(mdates.MonthLocator(interval=1))")
+		pyrun("ax3.xaxis.set_major_formatter(mdates.DateFormatter('%b'))")
+        ylabel("Temperature [C]"); pytitle("Ground Temperature")
+        for(j in 2:length(snsr_gro)){
+			pyvar("y", t(unlist(snsr_gro[j]))); pyvar("col", snsr_color[j])
+			pyvar('name', unique(t(c(gsub("_", " ",snsr_name))))[j])
+			pyrun("ax3.scatter(dates_list, y, c=col, label=name[0])")
+		}
+		pyrun("ax4 = fig.add_subplot(gs[1,1])")
+		date <- sapply(over_date, paste, collapse=",")
+		pyvar('name', unique(t(c(gsub("_", " ",snsr_name))))[1])
+		pyvar("dates", date); pyvar("y", t(unlist(snsr_groo[1]))); pyvar("col", snsr_color[1])
+		pyrun("dates_list = [datetime.strptime(str(date), '%Y-%m-%d') for date in dates]")
+		pyrun("ax4.scatter(dates_list, y, c=col, label=name[0])")
+        pytitle("Ground Temperature")
+		pyrun("ax4.xaxis.set_major_locator(mdates.MonthLocator(interval=1))")
+		pyrun("ax4.xaxis.set_major_formatter(mdates.DateFormatter('%b'))")
+        for(j in 2:length(snsr_groo)){
+			pyvar("y", t(unlist(snsr_groo[j]))); pyvar("col", snsr_color[j])
+			pyvar('name', unique(t(c(gsub("_", " ",snsr_name))))[j])
+			pyrun("ax4.scatter(dates_list, y, c=col, label=name[0])")
+		}
+		pyrun("ax5 = fig.add_subplot(gs[2,0])")
+		date <- sapply(clear_date, paste, collapse=",")
+		pyvar('name', unique(t(c(gsub("_", " ",snsr_name))))[1])
+		pyvar("dates", date); pyvar("y", t(unlist(snsr_del[1]))); pyvar("col", snsr_color[1])
+		pyrun("dates_list = [datetime.strptime(str(date), '%Y-%m-%d') for date in dates]")
+		pyrun("ax5.scatter(dates_list, y, c=col, label=name[0])")
+		pyrun("ax5.xaxis.set_major_locator(mdates.MonthLocator(interval=1))")
+		pyrun("ax5.xaxis.set_major_formatter(mdates.DateFormatter('%b'))")
+        ylabel("Temperature [C]"); pytitle("Change in Temperature")
+        for(j in 2:length(snsr_del)){
+			pyvar("y", t(unlist(snsr_del[j]))); pyvar("col", snsr_color[j])
+			pyvar('name', unique(t(c(gsub("_", " ",snsr_name))))[j])
+			pyrun("ax5.scatter(dates_list, y, c=col, label=name[0])")
+		}
+		pyrun("ax6 = fig.add_subplot(gs[2,1])")
+		date <- sapply(over_date, paste, collapse=",")
+		pyvar('name', unique(t(c(gsub("_", " ",snsr_name))))[1])
+		pyvar("dates", date); pyvar("y", t(unlist(snsr_delo[1]))); pyvar("col", snsr_color[1])
+		pyrun("dates_list = [datetime.strptime(str(date), '%Y-%m-%d') for date in dates]")
+		pyrun("ax6.scatter(dates_list, y, c=col, label=name[0])")
+        pytitle("Change in Temperature")
+		pyrun("ax6.xaxis.set_major_locator(mdates.MonthLocator(interval=1))")
+		pyrun("ax6.xaxis.set_major_formatter(mdates.DateFormatter('%b'))")
+        for(j in 2:length(snsr_delo)){
+			pyvar("y", t(unlist(snsr_delo[j]))); pyvar("col", snsr_color[j])
+			pyvar('name', unique(t(c(gsub("_", " ",snsr_name))))[j])
+			pyrun("ax6.scatter(dates_list, y, c=col, label=name[0])")
+		}
+
+	}
 }
 ## Plots Galore for poster
 poster2 <- function(...){
+		if (args$save){
 # Layout/Margin Configuration
 		par(mar=c(3,3, 3, 1), oma=c(1,1.5,0,0), xpd=FALSE)
 		layout(matrix(c(1,2,3,3), 2, 2, byrow=TRUE))
@@ -859,6 +947,48 @@ poster2 <- function(...){
 			,col=c("Red", "Magenta", "Blue"), pch=c("-", '--', "--"))
 # Layout configuration for preceding plots
 		layout(matrix(c(1), 2, 2, byrow=TRUE))
+		}else{
+			pyrun("gs = gridspec.GridSpec(2,2)")
+			pyrun("fig = plt.figure(figsize=(12,12))")
+			pyrun("plt.subplots_adjust(wspace=0.2, hspace=0.3,
+					left=0.1, right=0.96, top=0.92)")
+			pyrun("ax1 = fig.add_subplot(gs[0,0])")
+			pyvar('label', unlist(pw_name)[1]); pyvar('y', t(unlist(pw_loc[1])))
+			pyvar('col', pw_color[1]); pyvar('x', as.numeric(unlist(snsr_sky_calc)))
+        	pyrun('ax1.scatter(x,  y, c=col, marker="o", label=label[0])')
+        	xlabel("Zenith Sky Temperature [C]"); ylabel("PW [mm]"); pytitle("PW vs Temp")
+        	for(j in 2:length(pw_loc)){
+				pyvar('label', unlist(pw_name)[j]); pyvar('y', t(unlist(pw_loc[j])))
+				pyvar('col', pw_color[j]); pyvar('x', as.numeric(unlist(snsr_sky_calc)))
+				pyrun('ax1.scatter(x,  y, c=col, marker="o", label=label[0])')
+			}
+			pyrun("ax1.legend(loc='upper left')")
+			pyrun("ax2 = fig.add_subplot(gs[0,1])")
+			colscheme <- distinctColorPalette(length(loc_avg), runTsne=FALSE, altCol=TRUE)
+			pyvar('x', as.numeric(unlist(snsr_sky_calc))); pyvar('y', t(unlist(loc_avg[1])));
+			pyvar("col", colscheme[1]); pyvar('name', unique(pw_place)[1])
+			pyrun("plt.scatter(x, y, c=col, marker='o', label=name[0])")
+			xlabel("Zenith Sky Temperature [C]"); pytitle("Locational Mean PW and Temp")
+			for(j in 2:length(loc_avg)){
+				pyvar('y', t(unlist(loc_avg[j]))); pyvar("col", colscheme[j])
+				pyvar('name', unique(pw_place)[j])
+				pyrun("plt.scatter(x, y, c=col, marker='o', label=name[0])")
+			}
+			pyrun("plt.legend(loc='upper left')")
+			pyrun("ax3 = fig.add_subplot(gs[1,:])")
+			exp_reg <- exp_regression(as.numeric(unlist(snsr_sky_calc)), avg)
+			pyscatter(exp_reg$x,exp_reg$y, c="blueviolet", marker="o")
+			xlabel("Zenith Sky Temperature [C]"); ylabel("PW [mm]"); pytitle("Mean PW vs Temp")
+			pyplot(exp_reg$newx, exp(exp_reg$confint[, 1]), c="Red")
+			pyplot(exp_reg$newx, exp(exp_reg$predint[ ,3]), c="purple", linestyle="--")
+			pyplot(exp_reg$newx, exp(exp_reg$confint[ ,2]), c="Blue", linestyle="--")
+			pyplot(exp_reg$newx, exp(exp_reg$confint[ ,3]), c="Blue", linestyle="--")
+			pyplot(exp_reg$newx, exp(exp_reg$predint[ ,2]), c="purple", linestyle="--")
+			pyvar("label", sprintf("%.2fe$^{%.3fx}$",
+						exp(coef(exp_reg$model)[1]),coef(exp_reg$model)[2]))
+			pyrun("plt.legend((label[0], 'Prediction', 'Confidence'))")
+
+		}
 }
 
 ## Sensor plot
@@ -873,23 +1003,23 @@ instr 	<- function(...,overcast=args$overcast){
 				sky_ymax 	<- max(as.numeric(unlist(snsr_skyo)), na.rm=TRUE)
 				sky_ymin 	<- min(as.numeric(unlist(snsr_skyo)), na.rm=TRUE)
 				sky_range	<- snsr_skyo[count]
-				sky_title 	<- sprintf("Sky Temperature Time Series for %s\nCondition: Overcast", snsr_tag[count])
+				sky_title 	<- sprintf("Condition: Overcast \n Sky Temperature Time Series for %s", snsr_tag[count[1]])
 
 				gro_ymax 	<- max(as.numeric(unlist(snsr_groo)), na.rm=TRUE)
 				gro_ymin 	<- min(as.numeric(unlist(snsr_groo)), na.rm=TRUE)
 				gro_range	<- snsr_groo[count]
-				gro_title 	<- sprintf("Ground Temperature Time Series for %s\nCondition: Overcast", snsr_tag[count[1]])
+				gro_title 	<- sprintf("Ground Temperature Time Series for %s", snsr_tag[count[1]])
 				date 		<- over_date
 			}else{
 				sky_ymax 	<- max(as.numeric(unlist(snsr_sky)),na.rm=TRUE)
 				sky_ymin 	<- min(as.numeric(unlist(snsr_sky)),na.rm=TRUE)
 				sky_range 	<- snsr_sky[count]
-				sky_title 	<- sprintf("Sky Temperature Time Series for %s\nCondition: Clear Sky", snsr_tag[count[1]])
+				sky_title 	<- sprintf("Condition: Clear Sky \n Sky Temperature Time Series for %s", snsr_tag[count[1]])
 
 				gro_ymax 	<- max(as.numeric(unlist(snsr_gro)),na.rm=TRUE)
 				gro_ymin 	<- min(as.numeric(unlist(snsr_gro)),na.rm=TRUE)
 				gro_range 	<- snsr_gro[count]
-				gro_title 	<- sprintf("Ground Temperature Time Series for %s\nCondition: Clear Sky", snsr_tag[count[1]])
+				gro_title 	<- sprintf("Ground Temperature Time Series for %s", snsr_tag[count[1]])
 				date 		<- clear_date
 			}
 			plot(date, t(unlist(sky_range[1])), xlab="Date", ylab="Temperature [C]",
@@ -915,23 +1045,23 @@ instr 	<- function(...,overcast=args$overcast){
 				sky_ymax 	<- max(as.numeric(unlist(snsr_skyo)), na.rm=TRUE)
 				sky_ymin 	<- min(as.numeric(unlist(snsr_skyo)), na.rm=TRUE)
 				sky_range	<- snsr_skyo[count]
-				sky_title 	<- sprintf("Sky Temperature Time Series for %s \n Condition: Overcast", snsr_tag[count])
+				sky_title 	<- sprintf("Condition: Overcast \n Sky Temperature Time Series for %s", snsr_tag[count[1]])
 
 				gro_ymax 	<- max(as.numeric(unlist(snsr_groo)), na.rm=TRUE)
 				gro_ymin 	<- min(as.numeric(unlist(snsr_groo)), na.rm=TRUE)
 				gro_range	<- snsr_groo[count]
-				gro_title 	<- sprintf("Ground Temperature Time Series for %s \n Condition: Overcast", snsr_tag[count[1]])
+				gro_title 	<- sprintf("Ground Temperature Time Series for %s", snsr_tag[count[1]])
 				date 		<- over_date
 			}else{
 				sky_ymax 	<- max(as.numeric(unlist(snsr_sky)),na.rm=TRUE)
 				sky_ymin 	<- min(as.numeric(unlist(snsr_sky)),na.rm=TRUE)
 				sky_range 	<- snsr_sky[count]
-				sky_title 	<- sprintf("Sky Temperature Time Series for %s \n Condition: Clear Sky", snsr_tag[count[1]])
+				sky_title 	<- sprintf("Condition: Clear Sky \n Sky Temperature Time Series for %s", snsr_tag[count[1]])
 
 				gro_ymax 	<- max(as.numeric(unlist(snsr_gro)),na.rm=TRUE)
 				gro_ymin 	<- min(as.numeric(unlist(snsr_gro)),na.rm=TRUE)
 				gro_range 	<- snsr_gro[count]
-				gro_title 	<- sprintf("Ground Temperature Time Series for %s \n Condition: Clear Sky", snsr_tag[count[1]])
+				gro_title 	<- sprintf("Ground Temperature Time Series for %s", snsr_tag[count[1]])
 				date 		<- clear_date
 			}
 			pyrun("fig, ax = plt.subplots(2, sharex=True, sharey=False)")
@@ -962,6 +1092,9 @@ instr 	<- function(...,overcast=args$overcast){
 					pyvar("col", snsr_color[count[j]])
 					pyrun("ax[1].scatter(dates_list, y, c=col)")
 				}
+				pyvar('label', c(gsub("_", " ",snsr_name[count])))
+				pyrun("plt.legend(label, loc='upper left')")
+
 			}
 		}
 	}
@@ -971,27 +1104,42 @@ if(args$instrument){
 	quit_it()
 }
 if(args$data){
+	if (!args$overcast){
 # Pulls the data
-	avg_temp	<- fname[7]
-	avg_pw 		<- (fname[8] + fname[9] + fname[10] + fname[11])/4
+		avg_temp	<- as.numeric(unlist(snsr_sky_calc))
+		avg_pw 		<- avg
 # Pulls the data
-	norm  		<- data.frame(list(x=fname[1], y1=avg_temp, y2=avg_pw, y3=fname[12]))
-	print(norm)
+		norm  		<- data.frame(list(x=clear_date, y1=avg_temp, y2=avg_pw))
 # Removes the NaN data
-	norm 		<- norm[-c(which(avg_pw %in% NaN)), ]
-	norm 		<- norm[-c(which(avg_temp %in% NaN)), ]
+		norm 		<- norm[-c(which(avg_pw %in% NaN)), ]
+		norm 		<- norm[-c(which(avg_temp %in% NaN)), ]
 
-	print(norm)
-	data 		<- data.frame(list(date=c(norm$x),
-								avg_temp=c(norm$y1),
-								avg_pw=c(norm$y2),
-								condition=c(norm$y3)))
-	print(data)
-	colnames(data) <- c("date", "avg_temp", "avg_pw", "condition")
+		data 		<- data.frame(list(date=c(norm$x),
+									avg_temp=c(norm$y1),
+									avg_pw=c(norm$y2)))
+		colnames(data) <- c("date", "avg_temp", "avg_pw")
 # Writes the data to a csv
-	write.csv(data, file="../data/ml_data.csv", row.names=FALSE)
-	cat(green(sprintf("Data sent to ../data/ml_data.csv\n")))
+		write.csv(data, file="../data/data.csv", row.names=FALSE)
+		cat(green(sprintf("Data sent to ../data/data.csv\n")))
+	}else{
+# Pulls the data
+		avg_temp	<- as.numeric(unlist(snsr_sky_calco))
+		avg_pw 		<- avgo
+# Pulls the data
+		norm  		<- data.frame(list(x=over_date, y1=avg_temp, y2=avg_pw))
+# Removes the NaN data
+		norm 		<- norm[-c(which(avg_pw %in% NaN)), ]
+		norm 		<- norm[-c(which(avg_temp %in% NaN)), ]
 
+		data 		<- data.frame(list(date=c(norm$x),
+									avg_temp=c(norm$y1),
+									avg_pw=c(norm$y2)))
+		colnames(data) <- c("date", "avg_temp", "avg_pw")
+# Writes the data to a csv
+		write.csv(data, file="../data/data.csv", row.names=FALSE)
+		cat(green(sprintf("Data sent to ../data/data_overcast.csv\n")))
+
+	}
 	quit_it()
 }
 if(args$set == "i"){
@@ -1086,7 +1234,7 @@ if(args$poster){
 # Saves plots
 	if(args$save){
 		sname <- sprintf("~/Downloads/poster_%s.pdf", gsub("/", "_", recent))
-		save(c(poster1(),poster2(), other1(), plots5()), sname)
+		save(c(poster1(),poster2()), sname)
 		cat(green(sprintf("Plot set downloaded to %s\n", sname)))
 	}
 }
