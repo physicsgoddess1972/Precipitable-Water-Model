@@ -5,15 +5,21 @@
 ## Necessary Libraries for the script to run, for installation run install.sh
 library(argparse); library(crayon); library(randomcoloR); library(Rpyplot)
 ## Python imports for plotting mechanism
-pyrun("from datetime import datetime")
+pyrun("from datetime import datetime, timedelta")
 pyrun("import matplotlib.dates as mdates")
 pyrun("from numpy import *")
 pyrun("import matplotlib.gridspec as gridspec")
+#pyrun("import seaborn as sns")
 ### Python plotting properties
 ## Figure size
 pyrun("matplotlib.rcParams['figure.figsize'] = (10.0, 10.0)")
-## Font size (tick labels/axis labels/title)
-pyrun("matplotlib.rcParams['font.size']=18")
+## Font size (tick labels/axis)
+pyrun("matplotlib.rcParams['font.size']=12")
+## Font size for title
+pyrun("matplotlib.rcParams['axes.titlesize']=18")
+## Font weight for title
+pyrun("matplotlib.rcParams['axes.titleweight']='bold'")
+
 ## Custom Colors for cmd line features
 red 		<- make_style("red1")
 orange 		<- make_style("orange")
@@ -34,7 +40,7 @@ parser$add_argument("--dev", action="store_true", default=FALSE,
 parser$add_argument("-d", "--data", action="store_true", default=FALSE,
 	help="Produces two columned datset including mean temp and PW")
 parser$add_argument("-o", "--overcast", action="store_true", default=FALSE,
-	help="Shows plots for days with overcast condition. \\n\ (Used with --set [m/p/i] and --data)")
+	help="Shows plots for days with overcast condition. \\n\ (Used with --set [t/a/i] and --data)")
 parser$add_argument("-1st", "--first_time", action="store_true", default=FALSE,
 	help="Notes for first time users")
 parser$add_argument("-i", "--instrument", action="store_true", default=FALSE,
@@ -55,7 +61,7 @@ if(args$first_time){
 	cat(bold(cloudblue("Some Notes:\n")))
 	cat((green("\t- Arguments: Rscript model.r -h or Rscript model.r --help.\n")))
 	cat((yellow("\t- Issues/Bugs?: https://git.io/fjKRx.\n")))
-	cat((orange("\t- Window plots will differ from the plots that are saved. However, the data and color schemes for the plots are consistent.\n")))
+	cat((orange("\t- Window plots will sightly differ from the plots that are saved. However, the data and color schemes for the plots are consistent.\n")))
 	quit()
 }else{
 	cat(bold(cloudblue(paste(replicate(65, "-"), collapse=""), "\n")))
@@ -122,7 +128,7 @@ overcast_filter <- function(){
 # Initializes the lists to store values
 	date_clear	<- snsr_sky		<- snsr_gro		<- pw_loc	<- list()
 	date_over	<- snsr_skyo	<- snsr_groo	<- pw_loco	<- list()
-	# Divides the data based on condition (Overcast/Clear Skies)
+# Divides the data based on condition (Overcast/Clear Skies)
 	for (j in 1:length(t(fname[col_con]))){
 		if (!"overcast" %in% fname[j,col_con]){
 			date_clear  <- append(date_clear, as.Date(fname[j, as.numeric(col_date)], "%m/%d/%Y"))
@@ -144,6 +150,7 @@ overcast_filter <- function(){
 			}
 		}
 	}
+# Adds divided data into list to output from function
 	output1 <- list(clear_date=date_clear, over_date=date_over)
 	for(k in 1:length(snsr_name)){
 		output1 <- append(x=output1, values=list("clear_gro"=snsr_gro[[ paste("snsr_gro",k,sep="") ]]))
@@ -181,17 +188,19 @@ for (k in 1:length(snsr_name)){
 	snsr_gro[[ paste("snsr_gro",k,sep="") ]] <- as.numeric(unlist(overcast[grep("clear_gro", names(overcast), fixed=TRUE)[1]+k-1]))
 	snsr_del[[ paste("snsr_del",k,sep="") ]] <- as.numeric(unlist(overcast[grep("clear_gro", names(overcast), fixed=TRUE)[1]+k-1])) - as.numeric(unlist(overcast[grep("clear_sky", names(overcast), fixed=TRUE)[1]+k-1]))
 }
-len <- length(unlist(snsr_sky))/length(snsr_sky)
+## Takes average of available sky temperature measurements
+# Removes all NaN values from daily lists
 for (a in snsr_sky){
-	for (b in 1:len){
-		thing <- na.omit(c(a[b]))
+	for (b in 1:(length(unlist(snsr_sky))/length(snsr_sky))){
 		snsr_sky_calc[[ paste("snsr_sky_calc",b,sep="") ]] <-
-			append(x=snsr_sky_calc[[ paste("snsr_sky_calc", b, sep="")]], values=thing)
+			append(x=snsr_sky_calc[[ paste("snsr_sky_calc", b, sep="")]], values=na.omit(c(a[b])))
 	}
 }
-for (d in 1:len){
+# Takes averages of each list
+for (d in 1:(length(unlist(snsr_sky))/length(snsr_sky))){
 	snsr_sky_calc[[ paste("snsr_sky_calc",d,sep="") ]] <- mean(snsr_sky_calc[[ paste("snsr_sky_calc",d,sep="") ]])
 }
+
 for (p in 1:length(col_pwpl)){
 	for (q in col_pwpl[p]){
 		list_len <- length(unlist(overcast[grep("clear_pw", names(overcast), fixed=TRUE)[1]])) + 1
@@ -214,15 +223,13 @@ for (k in 1:length(snsr_name)){
 	snsr_groo[[ paste("snsr_groo",k,sep="") ]] <- as.numeric(unlist(overcast[grep("over_gro", names(overcast), fixed=TRUE)[1]+k-1]))
 	snsr_delo[[ paste("snsr_delo",k,sep="") ]] <- as.numeric(unlist(overcast[grep("over_gro", names(overcast), fixed=TRUE)[1]+k-1])) - as.numeric(unlist(overcast[grep("over_sky", names(overcast), fixed=TRUE)[1]+k-1]))
 }
-len <- length(unlist(snsr_skyo))/length(snsr_skyo)
 for (a in snsr_skyo){
-	for (b in 1:len){
-		thing <- na.omit(c(a[b]))
+	for (b in 1:(length(unlist(snsr_skyo))/length(snsr_skyo))){
 		snsr_sky_calco[[ paste("snsr_sky_calco",b,sep="") ]] <-
-			append(x=snsr_sky_calco[[ paste("snsr_sky_calco", b, sep="")]], values=thing)
+			append(x=snsr_sky_calco[[ paste("snsr_sky_calco", b, sep="")]], values=na.omit(c(a[b])))
 	}
 }
-for (d in 1:len){
+for (d in 1:(length(unlist(snsr_skyo))/length(snsr_skyo))){
 	snsr_sky_calco[[ paste("snsr_sky_calco",d,sep="") ]] <- mean(snsr_sky_calco[[ paste("snsr_sky_calco",d,sep="") ]])
 }
 for (p in 1:length(col_pwpl)){
@@ -295,6 +302,7 @@ py_time_series <- function(date,range, title_py, color, label){
 		pyvar("dates", date); pyvar("y", t(unlist(range[1]))); pyvar("col", color[1])
 		pyrun("dates_list = [datetime.strptime(str(date), '%Y-%m-%d') for date in dates]")
 		pyrun("ax.scatter(dates_list, y, c=col, label=name[0])")
+		pyrun('ax.set_xlim([dates_list[0] - timedelta(days=7), dates_list[-1] + timedelta(days=7)])')
 		pyrun("ax.xaxis.set_major_locator(mdates.MonthLocator(interval=1))")
 		pyrun("ax.xaxis.set_major_formatter(mdates.DateFormatter('%b'))")
         xlabel("Date"); ylabel("Temperature [C]"); pytitle(title_py)
@@ -304,8 +312,9 @@ py_time_series <- function(date,range, title_py, color, label){
 			pyrun("ax.scatter(dates_list, y, c=col, label=name[0])")
 		}
         pyrun("box = ax.get_position()")
-        pyrun("ax.set_position([box.x0, box.y0, box.width * 0.85, box.height])")
-        pyrun("plt.legend(loc='center left', bbox_to_anchor=(1, 0.9), fancybox=True)")
+        pyrun("ax.set_position([box.x0, box.y0, box.width * 0.95, box.height])")
+        pyrun("leg = plt.legend(loc=2, borderaxespad=0, bbox_to_anchor=(1.005, 1), fancybox=True)")
+		pyrun("leg.get_frame().set_edgecolor('k')")
 }
 ### Plot functions
 ## Sky Temperature plot
@@ -469,17 +478,21 @@ plots1 	<- function(..., overcast=args$overcast){
 
 	}
     if (!args$save){
-		pyrun("plt.figure()")
+		pyrun("fig = plt.figure()"); pyrun("ax = fig.add_subplot(111)")
 		pyvar('label', unlist(pw_name)[1]); pyvar('y', t(unlist(range[1])))
 		pyvar('col', pw_color[1]); pyvar('x', x)
-        pyrun('plt.scatter(x,  y, c=col, marker="o", label=label[0])')
+        pyrun('ax.scatter(x,  y, c=col, marker="o", label=label[0])')
         xlabel("Zenith Sky Temperature [C]"); ylabel("PW [mm]"); pytitle(title_py)
         for(j in 2:length(range)){
 			pyvar('label', unlist(pw_name)[j]); pyvar('y', t(unlist(range[j])))
 			pyvar('col', pw_color[j]); pyvar('x', x)
-			pyrun('plt.scatter(x,  y, c=col, marker="o", label=label[0])')
+			pyrun('ax.scatter(x,  y, c=col, marker="o", label=label[0])')
         }
-		pyrun("plt.legend(loc='upper left')")
+		pyrun("plt.subplots_adjust(left=0.09)")
+		pyrun("box = ax.get_position()")
+		pyrun("ax.set_position([box.x0, box.y0, box.width * 1.05, box.height])")
+		pyrun("leg = plt.legend(loc='upper left', borderaxespad=0, bbox_to_anchor=(0, 1))")
+		pyrun("leg.get_frame().set_edgecolor('k')")
         }else{
     	    plot(x,  t(unlist(range[1])), xlab="Zenith Sky Temperature [C]", ylab="PW [mm]",
 		    xlim=c(xmin, xmax), ylim=c(ymin, ymax), main=title, pch=16, col=pw_color[1])
@@ -515,17 +528,21 @@ plots2 	<- function(..., overcast=args$overcast){
 	colscheme <- distinctColorPalette(length(range), runTsne=FALSE, altCol=TRUE)
 
     if (!args$save){
-		pyrun("plt.figure()")
+		pyrun("fig = plt.figure()"); pyrun("ax = fig.add_subplot(111)")
 		pyvar('x', x); pyvar('y', t(unlist(range[1]))); pyvar("col", colscheme[1])
 		pyvar('name', unique(pw_place)[1])
 		pyrun("plt.scatter(x, y, c=col, marker='o', label=name[0])")
         xlabel("Zenith Sky Temperature [C]"); ylabel("PW [mm]"); pytitle(title_py)
-        for(j in 2:length(range)){
+		for(j in 2:length(range)){
 			pyvar('y', t(unlist(range[j]))); pyvar("col", colscheme[j])
 			pyvar('name', unique(pw_place)[j])
 			pyrun("plt.scatter(x, y, c=col, marker='o', label=name[0])")
         }
-		pyrun("plt.legend(loc='upper left')")
+		pyrun("plt.subplots_adjust(left=0.09)")
+		pyrun("box = ax.get_position()")
+		pyrun("ax.set_position([box.x0, box.y0, box.width * 1.05, box.height])")
+		pyrun("leg = plt.legend(loc='upper left', borderaxespad=0, bbox_to_anchor=(0, 1))")
+		pyrun("leg.get_frame().set_edgecolor('k')")
     }else{
         plot(x,  t(unlist(range[1])), xlab="Zenith Sky Temperature [C]", ylab="PW [mm]",
              xlim=c(xmin, xmax), ylim=c(ymin, ymax), main=title, pch=16, col=colscheme[1])
@@ -553,7 +570,7 @@ plots3 	<- function(..., overcast=args$overcast){
 
 	}
     if (!args$save){
-		pyrun("plt.figure()")
+		pyrun("fig = plt.figure()"); pyrun("ax = fig.add_subplot(111)")
         pyscatter(exp_reg$x,exp_reg$y, c="blueviolet", marker="o")
         xlabel("Zenith Sky Temperature [C]"); ylabel("PW [mm]"); pytitle(title_py)
         pyplot(exp_reg$newx, exp(exp_reg$confint[, 1]), c="Red")
@@ -563,7 +580,12 @@ plots3 	<- function(..., overcast=args$overcast){
         pyplot(exp_reg$newx, exp(exp_reg$predint[ ,2]), c="purple", linestyle="--")
 		pyvar("label", sprintf("%.2fe$^{%.3fx}$",
 					exp(coef(exp_reg$model)[1]),coef(exp_reg$model)[2]))
-		pyrun("plt.legend((label[0], 'Prediction', 'Confidence'))")
+		pyrun("plt.subplots_adjust(left=0.09)")
+		pyrun("box = ax.get_position()")
+		pyrun("ax.set_position([box.x0, box.y0, box.width * 1.05, box.height])")
+		pyrun("leg = plt.legend((label[0], 'Prediction', 'Confidence'), loc='upper left', borderaxespad=0, bbox_to_anchor=(0, 1))")
+		pyrun("leg.get_frame().set_edgecolor('k')")
+
     }else{
 # Non-linear model (exponential)
 		plot(exp_reg$x,exp_reg$y, col=c("blueviolet"), pch=16,
@@ -596,7 +618,10 @@ plots4 	<- function(..., overcast=args$overcast){
 
 	}
     if (!args$save){
-		pyrun("plt.figure()")
+		pyrun("fig = plt.figure()"); pyrun("ax = fig.add_subplot(111)")
+		pyrun("plt.subplots_adjust(left=0.09)")
+		pyrun("box = ax.get_position()"); pyvar('title_py', title_py)
+		pyrun("ax.set_position([box.x0, box.y0, box.width * 1.05, box.height])")
 		pyscatter(exp_reg$x, resid(exp_reg$model), c="royalblue", marker="o")
         xlabel("Zenith Sky Temperature [C]"); ylabel(sprintf("$\\sigma$")); pytitle(title_py)
     }else{
@@ -657,6 +682,7 @@ charts1 	<- function(...){
 
 			slices 	<- matrix(c(norm, over, norm_na, over_na), nrow=4, byrow=TRUE)
 			title 	<- c("Clear Sky","Overcast", "Clear Sky NaN", "Overcast NaN")
+			pct 	<- round(rev(slices)/sum(rev(slices))*100, 1)
 
 			color 	<- c("paleturquoise", "plum", "deepskyblue", "magenta")
 
@@ -665,20 +691,39 @@ charts1 	<- function(...){
 			bar <- barplot(rev(slices), names.arg=rev(title), col=rev(color),
 			horiz=TRUE, las=1,xlab="Samples", axes=FALSE, main=sprintf("Overcast Condition Percentage: %s", gsub("_", " ",snsr_name[count])))
 			axis(side = 1, at = slices, labels=TRUE, las=1)
-			pct 	<- round(rev(slices)/sum(rev(slices))*100, 1)
-			lbls 	<- paste("              ",pct)
-			lbls 	<- paste(lbls, "%", sep="")
-			text(0, bar, lbls, cex=1, pos=4)
+			for (i in 1:length(slices)){
+				if (pct[i] < 3){
+					text(pct[i] + 7, bar[i], labels=sprintf('%s %%', as.character(pct[i])))
+				}else{
+					text(pct[i], bar[i], labels=sprintf('%s %%', as.character(pct[i])))
+				}
+			}
 		}else{
 			pyvar("head", sprintf("Overcast Condition Percentage: %s", gsub("_", " ",snsr_name[count])))
 			pyrun("fig, ax = plt.subplots()")
 			pyrun("plt.subplots_adjust(0.2, 0.1, 0.95, 0.9)")
-			pyvar("title", title); pyvar('x', slices); pyvar('col', color)
-			pyrun("y = arange(len(title))")
-			pyrun("ax.barh(y, x, align='center', color=col)")
+			pyvar("title", rev(title)); pyvar('x', rev(slices)); pyvar('col', rev(color))
+			pyrun("y = arange(len(title))"); pyvar('pct',pct)
+			pyrun("ax.barh(y, x, align='center', color=col, edgecolor='black', linewidth=1)")
 			pyrun("ax.set_title(head[0])")
 			pyrun("ax.set_yticks(y)")
 			pyrun("ax.set_yticklabels(title)")
+			pyrun("ax.set_xticks(x)")
+			pyrun("ax.set_xticklabels(x)")
+			pyrun("ax.set_xlabel('Samples')")
+			pyrun("ax.spines['right'].set_visible(False)")
+			pyrun("ax.spines['left'].set_visible(False)")
+			pyrun("ax.spines['top'].set_visible(False)")
+#			pyrun("sns.despine(offset=10, trim=True)")
+			for (i in 1:length(slices)){
+				if (pct[i] < 3){
+					pyvar('i', i-1)
+					pyrun("ax.text(pct[int(i[0])] + 5, y[int(i[0])], str(pct[int(i[0])]) + '%', ha='center', va='center')")
+				}else{
+					pyvar('i', i-1)
+					pyrun("ax.text(pct[int(i[0])],y[int(i[0])], str(pct[int(i[0])]) + '%', ha='center', va='center')")
+				}
+			}
 		}
 	}
 	pyshow()
@@ -793,21 +838,27 @@ poster1 <- function(...){
 		pyvar("dates", date); pyvar("y", t(unlist(snsr_sky[1]))); pyvar("col", snsr_color[1])
 		pyrun("dates_list = [datetime.strptime(str(date), '%Y-%m-%d') for date in dates]")
 		pyrun("ax1.scatter(dates_list, y, c=col, label=name[0])")
+		pyrun('ax1.set_xlim([dates_list[0] - timedelta(days=7), dates_list[-1] + timedelta(days=7)])')
 		pyrun("ax1.xaxis.set_major_locator(mdates.MonthLocator(interval=1))")
 		pyrun("ax1.xaxis.set_major_formatter(mdates.DateFormatter('%b'))")
-        ylabel("Temperature [C]"); pytitle("Sky Temperature")
+        ylabel("Temperature [C]"); pytitle("Condition: Clear Sky \\n Sky Temperature")
         for(j in 2:length(snsr_sky)){
 			pyvar("y", t(unlist(snsr_sky[j]))); pyvar("col", snsr_color[j])
 			pyvar('name', unique(t(c(gsub("_", " ",snsr_name))))[j])
 			pyrun("ax1.scatter(dates_list, y, c=col, label=name[0])")
 		}
+        pyvar('label', c(gsub("_", " ",snsr_name)))
+        pyrun("leg = plt.legend(label, loc='upper left', borderaxespad=0, bbox_to_anchor=(0, 1))")
+		pyrun("leg.get_frame().set_edgecolor('k')")
+
 		pyrun("ax2 = fig.add_subplot(gs[0,1])")
 		date <- sapply(over_date, paste, collapse=",")
 		pyvar('name', unique(t(c(gsub("_", " ",snsr_name))))[1])
 		pyvar("dates", date); pyvar("y", t(unlist(snsr_skyo[1]))); pyvar("col", snsr_color[1])
 		pyrun("dates_list = [datetime.strptime(str(date), '%Y-%m-%d') for date in dates]")
 		pyrun("ax2.scatter(dates_list, y, c=col, label=name[0])")
-        pytitle("Sky Temperature")
+        pytitle("Condition: Overcast \\n Sky Temperature")
+		pyrun('ax2.set_xlim([dates_list[0] - timedelta(days=7), dates_list[-1] + timedelta(days=7)])')
 		pyrun("ax2.xaxis.set_major_locator(mdates.MonthLocator(interval=1))")
 		pyrun("ax2.xaxis.set_major_formatter(mdates.DateFormatter('%b'))")
         for(j in 2:length(snsr_skyo)){
@@ -821,6 +872,7 @@ poster1 <- function(...){
 		pyvar("dates", date); pyvar("y", t(unlist(snsr_gro[1]))); pyvar("col", snsr_color[1])
 		pyrun("dates_list = [datetime.strptime(str(date), '%Y-%m-%d') for date in dates]")
 		pyrun("ax3.scatter(dates_list, y, c=col, label=name[0])")
+		pyrun('ax3.set_xlim([dates_list[0] - timedelta(days=7), dates_list[-1] + timedelta(days=7)])')
 		pyrun("ax3.xaxis.set_major_locator(mdates.MonthLocator(interval=1))")
 		pyrun("ax3.xaxis.set_major_formatter(mdates.DateFormatter('%b'))")
         ylabel("Temperature [C]"); pytitle("Ground Temperature")
@@ -836,6 +888,7 @@ poster1 <- function(...){
 		pyrun("dates_list = [datetime.strptime(str(date), '%Y-%m-%d') for date in dates]")
 		pyrun("ax4.scatter(dates_list, y, c=col, label=name[0])")
         pytitle("Ground Temperature")
+		pyrun('ax4.set_xlim([dates_list[0] - timedelta(days=7), dates_list[-1] + timedelta(days=7)])')
 		pyrun("ax4.xaxis.set_major_locator(mdates.MonthLocator(interval=1))")
 		pyrun("ax4.xaxis.set_major_formatter(mdates.DateFormatter('%b'))")
         for(j in 2:length(snsr_groo)){
@@ -848,6 +901,7 @@ poster1 <- function(...){
 		pyvar('name', unique(t(c(gsub("_", " ",snsr_name))))[1])
 		pyvar("dates", date); pyvar("y", t(unlist(snsr_del[1]))); pyvar("col", snsr_color[1])
 		pyrun("dates_list = [datetime.strptime(str(date), '%Y-%m-%d') for date in dates]")
+		pyrun('ax5.set_xlim([dates_list[0] - timedelta(days=7), dates_list[-1] + timedelta(days=7)])')
 		pyrun("ax5.scatter(dates_list, y, c=col, label=name[0])")
 		pyrun("ax5.xaxis.set_major_locator(mdates.MonthLocator(interval=1))")
 		pyrun("ax5.xaxis.set_major_formatter(mdates.DateFormatter('%b'))")
@@ -864,6 +918,7 @@ poster1 <- function(...){
 		pyrun("dates_list = [datetime.strptime(str(date), '%Y-%m-%d') for date in dates]")
 		pyrun("ax6.scatter(dates_list, y, c=col, label=name[0])")
         pytitle("Change in Temperature")
+		pyrun('ax6.set_xlim([dates_list[0] - timedelta(days=7), dates_list[-1] + timedelta(days=7)])')
 		pyrun("ax6.xaxis.set_major_locator(mdates.MonthLocator(interval=1))")
 		pyrun("ax6.xaxis.set_major_formatter(mdates.DateFormatter('%b'))")
         for(j in 2:length(snsr_delo)){
@@ -962,7 +1017,9 @@ poster2 <- function(...){
 				pyvar('col', pw_color[j]); pyvar('x', as.numeric(unlist(snsr_sky_calc)))
 				pyrun('ax1.scatter(x,  y, c=col, marker="o", label=label[0])')
 			}
-			pyrun("ax1.legend(loc='upper left')")
+			pyrun("leg = ax1.legend(loc='upper left', borderaxespad=0, bbox_to_anchor=(0, 1))")
+			pyrun("leg.get_frame().set_edgecolor('k')")
+
 			pyrun("ax2 = fig.add_subplot(gs[0,1])")
 			colscheme <- distinctColorPalette(length(loc_avg), runTsne=FALSE, altCol=TRUE)
 			pyvar('x', as.numeric(unlist(snsr_sky_calc))); pyvar('y', t(unlist(loc_avg[1])));
@@ -974,7 +1031,9 @@ poster2 <- function(...){
 				pyvar('name', unique(pw_place)[j])
 				pyrun("plt.scatter(x, y, c=col, marker='o', label=name[0])")
 			}
-			pyrun("plt.legend(loc='upper left')")
+			pyrun("leg = plt.legend(loc='upper left', borderaxespad=0, bbox_to_anchor=(0, 1))")
+			pyrun("leg.get_frame().set_edgecolor('k')")
+
 			pyrun("ax3 = fig.add_subplot(gs[1,:])")
 			exp_reg <- exp_regression(as.numeric(unlist(snsr_sky_calc)), avg)
 			pyscatter(exp_reg$x,exp_reg$y, c="blueviolet", marker="o")
@@ -986,7 +1045,8 @@ poster2 <- function(...){
 			pyplot(exp_reg$newx, exp(exp_reg$predint[ ,2]), c="purple", linestyle="--")
 			pyvar("label", sprintf("%.2fe$^{%.3fx}$",
 						exp(coef(exp_reg$model)[1]),coef(exp_reg$model)[2]))
-			pyrun("plt.legend((label[0], 'Prediction', 'Confidence'))")
+			pyrun("leg = plt.legend((label[0], 'Prediction', 'Confidence'), loc='upper left', borderaxespad=0, bbox_to_anchor=(0, 1))")
+			pyrun("leg.get_frame().set_edgecolor('k')")
 
 		}
 }
@@ -1071,6 +1131,7 @@ instr 	<- function(...,overcast=args$overcast){
 			pyvar("dates", date); pyvar("y", t(unlist(sky_range[1]))); pyvar("col", snsr_color[count[1]])
 			pyrun("dates_list = [datetime.strptime(str(date), '%Y-%m-%d') for date in dates]")
 			pyrun("ax[0].scatter(dates_list, y, c=col)")
+			pyrun('ax[0].set_xlim([dates_list[0] - timedelta(days=7), dates_list[-1] + timedelta(days=7)])')
 			ylabel("Sky Temperature [C]")
 			if (length(sky_range) > 1){
 				for(j in 2:length(sky_range)){
@@ -1078,6 +1139,9 @@ instr 	<- function(...,overcast=args$overcast){
 					pyvar("col", snsr_color[count[j]])
 					pyrun("ax[0].scatter(dates_list, y, c=col)")
 				}
+				pyvar('label', c(gsub("_", " ",snsr_name[count])))
+				pyrun("leg = ax[0].legend(label, loc='upper left', borderaxespad=0, bbox_to_anchor=(0, 1))")
+				pyrun("leg.get_frame().set_edgecolor('k')")
 			}
 			pyvar("gro_title", gro_title);pyrun("ax[1].set_title(gro_title[0])")
 			date <- sapply(date, paste, collapse=",")
@@ -1085,6 +1149,7 @@ instr 	<- function(...,overcast=args$overcast){
 			pyrun("ax[1].scatter(dates_list, y, c=col)")
 			xlabel("Date"); pyrun("ax[1].set_ylabel('Temperature [C]')")
 			pyrun("dates_list = [datetime.strptime(str(date), '%Y-%m-%d') for date in dates]")
+			pyrun('ax[1].set_xlim([dates_list[0] - timedelta(days=7), dates_list[-1] + timedelta(days=7)])')
 			pyrun("ax[1].xaxis.set_major_formatter(mdates.DateFormatter('%b'))")
 			if (length(gro_range) > 1){
 				for(j in 2:length(gro_range)){
@@ -1092,9 +1157,6 @@ instr 	<- function(...,overcast=args$overcast){
 					pyvar("col", snsr_color[count[j]])
 					pyrun("ax[1].scatter(dates_list, y, c=col)")
 				}
-				pyvar('label', c(gsub("_", " ",snsr_name[count])))
-				pyrun("plt.legend(label, loc='upper left')")
-
 			}
 		}
 	}
@@ -1153,8 +1215,9 @@ if(args$set == "i"){
 		sname <- sprintf("~/Downloads/sensor_overcast_%s.pdf", gsub("/", "_", recent)) # File name of saved pdf
 	}
 # Plots available with this option
-	cat(green("[1]"), "Sky Temperature Time Series for all sensors\n")
-	cat(green("[2]"), "Ground Temperature Time Series for all sensors\n")
+	for(i in 1:length(unique(snsr_tag))){
+		cat(green(sprintf("[%s]", i)), sprintf("Sky-Ground Time Series: %s\n", gsub("_", " ",unique(snsr_tag)[i])))
+	}
 	if (args$save){
 # Saves plots
 		save(c(instr(overcast=args$overcast)), sname)
@@ -1201,7 +1264,6 @@ if(args$set == "i"){
 	cat(green("[2]"), "Correlation between Locational Mean PW and Temperature\n")
 	cat(green("[3]"), "Total Mean PW and Temperature\n")
 	cat(green("[4]"), "Residual of the Mean PW and Temperature Model\n")
-	cat(red("[5]"), "Pac-Man Residual of the Mean PW and Temperature Model\n")
 # Shows plots
 	show(plots1, plots2, plots3, plots4, overcast=args$overcast)
 # Saves plots
@@ -1212,8 +1274,9 @@ if(args$set == "i"){
 	}
 }else if(args$set == "c"){
 # Plots available with this option
-	cat(green("[1]"), "Overcast Condition Percentage (Bar)\n")
-	cat(green("[2]"), "Overcast Condition Percentage (Pie)\n")
+	for (i in 1:length(snsr_name)){
+		cat(green(sprintf("[%s]", i)), sprintf("Overcast Condition Percentage: %s\n", gsub("_", " ",snsr_name[i])))
+	}
 # Saves plots
 	if (args$save){
 		sname 	<- sprintf("~/Downloads/charts_%s.pdf", gsub("/", "_", recent))
@@ -1227,8 +1290,7 @@ if(args$poster){
 # Plots available with this option
 	cat(green("[1]"), "Main\n")
 	cat(green("[2]"), "Plots Galore\n")
-	cat(green("[3]"), "Overcast Condition Percentage\n")
-	cat(red("[4]"), "Pac-Man Residual for Total Mean PW and Temperature\n")
+	#cat(green("[3]"), "Overcast Condition Percentage\n")
 # Shows plots
 	show(poster1, poster2, overcast=NA)
 # Saves plots
@@ -1240,9 +1302,10 @@ if(args$poster){
 }
 if(args$dev){
 # Plots available with this option
-	cat(red("[1]"), "Analytical Solution\n")
+	#cat(red("[1]"), "Analytical Solution\n")
+	cat(red("[1]"), "Pac-Man Residual of the Mean PW and Temperature Model\n")
 # Shows plots
-	show(dev1, overcast=NA)
+	show(plots5, overcast=NA)
 # Saves plots
 	if(args$save){
 		sname <- sprintf("~/Downloads/dev_%s.pdf", gsub("/", "_", recent))
