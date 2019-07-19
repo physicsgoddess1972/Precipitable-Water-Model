@@ -1288,8 +1288,8 @@ if(args$set == "i"){
 }
 if(args$poster){
 # Plots available with this option
-	cat(green("[1]"), "Main\n")
-	cat(green("[2]"), "Plots Galore\n")
+	cat(green("[1]"), "Sky-Ground-Delta Temperature Time Series\n")
+	cat(green("[2]"), "Analytical Plots\n")
 	#cat(green("[3]"), "Overcast Condition Percentage\n")
 # Shows plots
 	show(poster1, poster2, overcast=NA)
