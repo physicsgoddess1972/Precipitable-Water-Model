@@ -624,6 +624,7 @@ plots4 	<- function(..., overcast=args$overcast){
 	}else{
 		exp_reg <- exp_regression(as.numeric(unlist(snsr_sky_calc)), avg)
 		title 	<- "Residual of the Mean PW and Temperature Model \n Condition: Clear Sky"
+		title_py 	<- "Residual of the Mean PW and Temperature Model \\n Condition: Clear Sky"
 	}
 	if (args$save){
 		plot(exp_reg$x, resid(exp_reg$model), col=c("royalblue"), pch=16,
@@ -631,10 +632,11 @@ plots4 	<- function(..., overcast=args$overcast){
 	}else{
 		pyrun("fig = plt.figure()"); pyrun("ax = fig.add_subplot(111)")
 		pyrun("plt.subplots_adjust(left=0.09)")
-		pyrun("box = ax.get_position()"); pyvar('title_py', title_py)
+		pyrun("box = ax.get_position()")
 		pyrun("ax.set_position([box.x0, box.y0, box.width * 1.05, box.height])")
 		pyscatter(exp_reg$x, resid(exp_reg$model), c="royalblue", marker="o")
-		xlabel("Zenith Sky Temperature [C]"); ylabel(sprintf("$\\sigma$")); pytitle(gsub("\n", "\\n",title))
+		print(toString(gsub("\n", "\n", title)))
+		xlabel("Zenith Sky Temperature [C]"); ylabel(sprintf("$\\sigma$")); pytitle(gsub("\n", "\\n", title))
 	}
 }
 ## Overcast Condition Percentage (bar)
