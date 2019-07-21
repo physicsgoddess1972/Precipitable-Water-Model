@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 ## System Requirements
-sudo apt-get install r-base libv8-dev libcurl4-openssl-dev python-dev python-matplotlib libxml2-dev libssl-dev
+sudo apt-get install r-base libv8-dev libcurl4-openssl-dev python-dev python-matplotlib libxml2-dev libssl-dev python-seaborn
 
 ## R Package Requirements
 sudo su - -c "R -e \"install.packages('crayon', repos='https://cran.rstudio.com/')\""
