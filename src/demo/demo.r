@@ -84,9 +84,9 @@ quit_it <- function(){
 }
 
 ## Imports data from master_data.csv
-fname       <- read.table(file="../data/master_data.csv", sep=",", header=TRUE, strip.white=TRUE)
+fname       <- read.table(file="../../data/master_data.csv", sep=",", header=TRUE, strip.white=TRUE)
 ## Imports sensor information from instruments.txt
-sensor 		<- suppressWarnings(read.csv(file="../data/instruments.txt", sep=","))
+sensor 		<- suppressWarnings(read.csv(file="../../data/instruments.txt", sep=","))
 ## Pulls most recent data stamp for the purpose of adding date stamps to file names when plots are saved
 recent 		<- t(fname[1])[length(t(fname[1]))]
 
@@ -275,7 +275,9 @@ show 		<- function(..., overcast){
 	for (i in args){
 		i("show", overcast)
 	}
-	pyshow()
+	pyrun("plt.show(block=False)")
+	cat(bold(yellow("Slam enter to continue:\n>> ")))
+	x <- readLines(con="stdin", 1); pyrun("plt.close('all')")
 }
 ## A general function that will save plots
 save 			<- function(func, name){
@@ -733,7 +735,6 @@ charts1 	<- function(...){
 			}
 		}
 	}
-	pyshow()
 }
 
 ## Main plots for poster
@@ -1211,8 +1212,8 @@ if(args$data){
 		data 		<- data.frame(list(date=c(norm$x),avg_temp=c(norm$y1), avg_pw=c(norm$y2), cond=c(norm$c)))
 		colnames(data) <- c("date", "avg_temp", "avg_pw", "condition")
 # Writes the data to a csv
-		write.csv(data, file="../data/ml_data.csv", row.names=FALSE)
-		cat(green(sprintf("Data sent to ../data/ml_data.csv\n")))
+		write.csv(data, file="./ml_data.csv", row.names=FALSE)
+		cat(green(sprintf("Data sent to ./data/ml_data.csv\n")))
 	}else{
 		if (args$overcast){
 	# Pulls the data
@@ -1227,8 +1228,8 @@ if(args$data){
 			data 		<- data.frame(list(date=c(norm$x), avg_temp=c(norm$y1), avg_pw=c(norm$y2)))
 			colnames(data) <- c("date", "avg_temp", "avg_pw")
 	# Writes the data to a csv
-			write.csv(data, file="../data/data_overcast.csv", row.names=FALSE)
-			cat(green(sprintf("Data sent to ../data/data_overcast.csv\n")))
+			write.csv(data, file="./data_overcast.csv", row.names=FALSE)
+			cat(green(sprintf("Data sent to ./data_overcast.csv\n")))
 		}else{
 	# Pulls the data
 			avg_temp	<- as.numeric(unlist(snsr_sky_calc))
@@ -1242,8 +1243,8 @@ if(args$data){
 			data 		<- data.frame(list(date=c(norm$x),avg_temp=c(norm$y1), avg_pw=c(norm$y2)))
 			colnames(data) <- c("date", "avg_temp", "avg_pw")
 	# Writes the data to a csv
-			write.csv(data, file="../data/data.csv", row.names=FALSE)
-			cat(green(sprintf("Data sent to ../data/data.csv\n")))
+			write.csv(data, file="./data.csv", row.names=FALSE)
+			cat(green(sprintf("Data sent to ./data.csv\n")))
 
 		}
 	}
@@ -1269,7 +1270,11 @@ if(args$set == "i"){
 		cat(green(sprintf("Plot set downloaded to %s\n", sname)))
 	}else{
 # Shows plots
-		instr(overcast=args$overcast); pyshow()
+		instr(overcast=args$overcast)
+		pyrun("plt.show(block=False)")
+		cat(bold(yellow("Slam enter to continue:\n>> ")))
+		x <- readLines(con="stdin", 1); pyrun("plt.close('all')")
+
 	}
 }else if(args$set == "t"){
 	if (args$overcast){
@@ -1332,6 +1337,10 @@ if(args$set == "i"){
 		cat(green(sprintf("Plot set downloaded to %s\n", sname)))
 	}else{
 		charts1()
+		pyrun("plt.show(block=False)")
+		cat(bold(yellow("Slam enter to continue:\n>> ")))
+		x <- readLines(con="stdin", 1); pyrun("plt.close('all')")
+
 	}
 }
 if(args$poster){

@@ -1,47 +1,50 @@
-suppressPackageStartupMessages(library(caret))
-suppressPackageStartupMessages(library(keras))
-suppressPackageStartupMessages(library(fastDummies))
 suppressPackageStartupMessages(library(tidyverse))
-suppressPackageStartupMessages(library(crayon))
+library(keras)
+library(fastDummies)
+suppressPackageStartupMessages(library(caret))
+df <- read.csv('../../data/ml_data.csv')
 
-filename    <- "../data/ml_data.csv"
-dataset     <- read.csv(filename, header=TRUE)
-colnames(dataset) <- c("Date", "avg_temp", "avg_pw", "condition")
+index <- createDataPartition(df$condition, p=0.8, list=FALSE)
 
-validation_index <- createDataPartition(dataset$condition, p=0.80, list=FALSE)
-validation <- dataset[-validation_index, ]
-dataset     <- dataset[validation_index, ]
-#dim(dataset)
-sapply(dataset, class)
-#head(dataset)
-#levels(dataset$condition)
+df.training     <- df[index, 2:4]
+df.test         <- df[-index, 2:4]
 
-percent <- prop.table(table(dataset$condition)) * 100
-cbind(freq=table(dataset$condition), percentage=percent)
+X_train <- df.training %>%
+    select(-condition) %>%
+    scale()
+Y_train <- to_categorical(df.training$condition)
 
-#summary(dataset)
-continue_input 	<- function(){
-	cat(bold(yellow("Slam Enter to Continue:\n>> ")))
-	x <- readLines(con="stdin", 1)
-}
+X_test <- df.test %>%
+    select(-condition) %>%
+    scale()
+Y_test <- to_categorical(df.test$condition)
 
-X11(type="cairo", width=6, height=6, pointsize=12)
-x <- dataset[,2:3]
-y <- dataset[, 2]
+model <- keras_model_sequential()
+model %>%
+    layer_dense(units = 512, activation = 'relu', input_shape = ncol(X_train)) %>%
+    layer_dropout(rate = 0.2) %>%
+    layer_dense(units = 128, activation = 'relu') %>%
+    layer_dropout(rate = 0.4) %>%
+    layer_dense(units = 64, activation = 'relu') %>%
+    layer_dropout(rate = 0.4) %>%
+    layer_dense(units = 32, activation = 'relu') %>%
+    layer_dropout(rate = 0.2) %>%
+    layer_dense(units = 3, activation = 'sigmoid')
 
-par(mfrow=c(1,2))
-    for(i in 2:3){
-        boxplot(dataset[,i], main=names(dataset)[i])
-    }
-continue_input()
+history <- model %>% compile(
+    loss = 'binary_crossentropy',
+    optimizer = 'adam',
+    metrics = c('accuracy')
+)
+fitter <- model %>% fit(
+    X_train, Y_train,
+    epochs = 500,
+    batch_size = 10,
+    validation_split = 0.2
+)
+model %>% evaluate(X_test, Y_test)
+plot(fitter, main="Model Loss", xlab = "epoch", ylab="loss", col="orange", type="l")
 
-control <- trainControl(method='cv', number=10)
-metric  <- "accuracy"
+predictions <- model %>% predict_classes(X_test)
 
-set.seed(7)
-fit.lda <- train(condition~., data=dataset, method="lda",
-    metric=metric, trControl=control)
-results <- resamples(fit.lda)
-X11(type="cairo", width=6, height=6, pointsize=12)
-dotplot(results)
-continue_input()
+table(factor(predictions, levels=min(df.test$condition):max(df.test$condition)), factor(df.test$condition, levels=min(df.test$condition):max(df.test$condition)))
