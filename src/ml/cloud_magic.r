@@ -1,47 +1,63 @@
-suppressPackageStartupMessages(library(caret))
-suppressPackageStartupMessages(library(keras))
-suppressPackageStartupMessages(library(fastDummies))
 suppressPackageStartupMessages(library(tidyverse))
+library(keras)
+library(fastDummies)
+suppressPackageStartupMessages(library(caret))
 suppressPackageStartupMessages(library(crayon))
+df <- read.csv('../../data/ml_data.csv')
 
-filename    <- "../data/ml_data.csv"
-dataset     <- read.csv(filename, header=TRUE)
-colnames(dataset) <- c("Date", "avg_temp", "avg_pw", "condition")
+testrun <- function(btchsz, eph){
+    index <- createDataPartition(df$condition, p=0.8, list=FALSE)
 
-validation_index <- createDataPartition(dataset$condition, p=0.80, list=FALSE)
-validation <- dataset[-validation_index, ]
-dataset     <- dataset[validation_index, ]
-#dim(dataset)
-sapply(dataset, class)
-#head(dataset)
-#levels(dataset$condition)
+    df.train     <- df[index, ]
+    df.test      <- df[-index, ]
 
-percent <- prop.table(table(dataset$condition)) * 100
-cbind(freq=table(dataset$condition), percentage=percent)
+    X_train <- df.train[, 2:4] %>%
+        select(-condition) %>%
+        scale()
+    Y_train <- to_categorical(df.train$condition)
 
-#summary(dataset)
-continue_input 	<- function(){
-	cat(bold(yellow("Slam Enter to Continue:\n>> ")))
-	x <- readLines(con="stdin", 1)
+    X_test <- df.test[, 2:4] %>%
+        select(-condition) %>%
+        scale()
+    Y_test <- to_categorical(df.test$condition)
+        model <- keras_model_sequential()
+        model %>%
+            layer_dense(units = 256, activation = 'relu', input_shape = ncol(X_train)) %>%
+            layer_dropout(rate = 0.5) %>%
+            layer_dense(units = 128, activation = 'relu') %>%
+            layer_dropout(rate = 0.3) %>%
+            layer_dense(units = 3, activation = 'sigmoid')
+
+        history <- model %>% compile(
+            loss = 'categorical_crossentropy',
+            optimizer = 'adam',
+            metrics = c('accuracy')
+        )
+        fitter <- model %>% fit(
+            X_train, Y_train,
+            epochs = eph,
+            batch_size = btchsz,
+            validation_split = 0.2
+        )
+        model %>% evaluate(X_test, Y_test)
+        pdf(paste("./output/testrun_batch_", btchsz, ".pdf", sep=""))
+        print(plot(fitter))
+        date <- list(df.test[, 1]); predictions <- model %>% predict_classes(X_test)
+        pred_bool <- list()
+        for(a in 1:length(predictions)){
+            if(predictions[a] == df.test$condition[a]){
+                pred_bool <- append(pred_bool, TRUE)
+            }else{
+                pred_bool <- append(pred_bool, FALSE)
+            }
+        }
+        data <- data.frame(list(x=date, y=predictions, y1=df.test$condition, y2=unlist(pred_bool)))
+        colnames(data) <- c("date", "predicted", "truth", "bool")
+        #conf_mat <- table(factor(predictions, levels=min(df.test$condition):max(df.test$condition)), factor(df.test$condition, levels=min(df.test$condition):max(df.test$condition)))
+        write.csv(data, paste("./output/predict_btchsz_", btchsz, ".txt", sep=""))
 }
-
-X11(type="cairo", width=6, height=6, pointsize=12)
-x <- dataset[,2:3]
-y <- dataset[, 2]
-
-par(mfrow=c(1,2))
-    for(i in 2:3){
-        boxplot(dataset[,i], main=names(dataset)[i])
-    }
-continue_input()
-
-control <- trainControl(method='cv', number=10)
-metric  <- "accuracy"
-
-set.seed(7)
-fit.lda <- train(condition~., data=dataset, method="lda",
-    metric=metric, trControl=control)
-results <- resamples(fit.lda)
-X11(type="cairo", width=6, height=6, pointsize=12)
-dotplot(results)
-continue_input()
+for (i in 14:20){
+    cat(yellow(paste(">>>> Batch Size = ", i, " <<<<\n")))
+    testrun(i, 50)
+    invisible(graphics.off())
+}
