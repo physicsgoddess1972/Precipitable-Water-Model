@@ -6,7 +6,7 @@
 ####
 
 ## Necessary Libraries for the script to run, for installation run install.sh
-library(argparse); library(crayon); library(randomcoloR); library(Rpyplot)#; library(plotrix)
+library(argparse); library(crayon); library(randomcoloR); library(Rpyplot)
 ## Python imports for plotting mechanism
 pyrun("from datetime import datetime, timedelta")
 pyrun("import matplotlib.dates as mdates")
@@ -48,8 +48,7 @@ parser$add_argument("-1st", "--first_time", action="store_true", default=FALSE,
 	help="Notes for first time users")
 parser$add_argument("-i", "--instrument", action="store_true", default=FALSE,
 	help="Prints out sensor data stored in instruments.txt")
-parser$add_argument("-ml", action="store_true",
-	help="Outs a datafile to use with the neural network.")
+parser$add_argument("-ml", action="store_true")
 args <- parser$parse_args()
 
 ## Command Prompt "Start of Program" and 1st time user stuff
@@ -85,9 +84,9 @@ quit_it <- function(){
 }
 
 ## Imports data from master_data.csv
-fname       <- read.table(file="../data/master_data.csv", sep=",", header=TRUE, strip.white=TRUE)
+fname       <- read.table(file="../../data/master_data.csv", sep=",", header=TRUE, strip.white=TRUE)
 ## Imports sensor information from instruments.txt
-sensor 		<- suppressWarnings(read.csv(file="../data/instruments.txt", sep=","))
+sensor 		<- suppressWarnings(read.csv(file="../../data/instruments.txt", sep=","))
 ## Pulls most recent data stamp for the purpose of adding date stamps to file names when plots are saved
 recent 		<- t(fname[1])[length(t(fname[1]))]
 
@@ -276,8 +275,9 @@ show 		<- function(..., overcast){
 	for (i in args){
 		i("show", overcast)
 	}
-	pyrun("try: plt.show()
-except AttributeError: print('\\n>>>> Plots were closed pre-maturely <<<<')")
+	pyrun("plt.show(block=False)")
+	cat(bold(yellow("Slam enter to continue:\n>> ")))
+	x <- readLines(con="stdin", 1); pyrun("plt.close('all')")
 }
 ## A general function that will save plots
 save 			<- function(func, name){
@@ -682,58 +682,6 @@ plots4 	<- function(..., overcast=args$overcast){
 		xlabel("Zenith Sky Temperature [C]"); ylabel(sprintf("$\\sigma$"))
 	}
 }
-## Pacman Residual Plot
-plots5 	<- function(..., overcast=args$overcast){
-    if(overcast){
-        exp_reg 	<- exp_regression(as.numeric(unlist(snsr_sky_calco)), avgo)
-        title 		<- "Pac-Man Residual of the Mean PW and Temperature Model\nCondition: Overcast"
-    }else{
-        exp_reg 	<- exp_regression(as.numeric(unlist(snsr_sky_calc)), avg)
-        title 		<- "Pac-Man Residual of the Mean PW and Temperature Model\nCondition: Clear Sky"
-    }
-	# residual quantities from the regression model
-	residual 	<- abs(resid(exp_reg$model))
-	# sequence used for angular position
-	t 			<- seq(40, 320, len=length(residual))
-	# Maximum radial distance
-	rmax 		<- max((residual), na.rm=TRUE)
-	# 6 equal divisions
-	divs 		<- seq(round(min(residual)), round(max(residual)), len=6)
-	if(args$save){
-		# Plots the residual against an angular position
-		polar.plot(0, rp.type="s",labels="",
-		radial.lim=c(0, round(rmax, 0)),show.grid=TRUE, show.grid.labels=FALSE,
-		main= title, show.radial.grid=FALSE, grid.col="black")
-
-		# Color Scheme for the rings
-		color1 <- "Yellow"; color2 <- "White"
-		draw.circle(0, 0, radius=divs[6], col=color1)
-		draw.circle(0, 0, radius=divs[5], col=color2)
-		draw.circle(0, 0, radius=divs[4], col=color1)
-		draw.circle(0, 0, radius=divs[3], col=color2)
-		draw.circle(0, 0, radius=divs[2], col=color1)
-
-		polar.plot(residual, t, rp.type="s",point.col="blue",point.symbols=16, add=TRUE)
-
-		text(divs[2] - 0.08, 0, labels=bquote(.(divs[2])*sigma))
-		text(divs[3] - 0.1, 0,  labels=bquote(.(divs[3])*sigma))
-		text(divs[4] - 0.1, 0,  labels=bquote(.(divs[4])*sigma))
-		text(divs[5] - 0.1, 0,  labels=bquote(.(divs[5])*sigma))
-		text(divs[6] - 0.1, 0,  labels=bquote(.(divs[6])*sigma))
-
-		polar.plot(c(0, round(rmax, 0)), c(min(t) - 10, min(t) - 10), lwd=1, rp.type="p",line.col="black", add=TRUE)
-		polar.plot(c(0, round(rmax, 0)), c(max(t) + 10, max(t) + 10), lwd=1, rp.type="p",line.col="black", add=TRUE)
-	}else{
-		pyrun("ax = plt.subplot(111, projection='polar')")
-		pyvar("range", residual); pyvar("angle", t); pyvar("divs", divs)
-		pyrun("ax.scatter(angle, range)")
-		pyrun("ax.set_rticks(divs[1:])")
-		pyrun("ax.set_xticklabels([])")
-		pyrun("ax.grid(b=True, axis='y', color='yellow')")
-		pyrun("ax.grid(b=False, axis='x')")
-	}
-}
-
 ## Overcast Condition Percentage (bar)
 charts1 	<- function(...){
 	for (count in 1:length(snsr_name)){
@@ -787,7 +735,6 @@ charts1 	<- function(...){
 			}
 		}
 	}
-	pyshow()
 }
 
 ## Main plots for poster
@@ -1265,8 +1212,8 @@ if(args$data){
 		data 		<- data.frame(list(date=c(norm$x),avg_temp=c(norm$y1), avg_pw=c(norm$y2), cond=c(norm$c)))
 		colnames(data) <- c("date", "avg_temp", "avg_pw", "condition")
 # Writes the data to a csv
-		write.csv(data, file="../data/ml_data.csv", row.names=FALSE)
-		cat(green(sprintf("Data sent to ../data/ml_data.csv\n")))
+		write.csv(data, file="./ml_data.csv", row.names=FALSE)
+		cat(green(sprintf("Data sent to ./data/ml_data.csv\n")))
 	}else{
 		if (args$overcast){
 	# Pulls the data
@@ -1281,8 +1228,8 @@ if(args$data){
 			data 		<- data.frame(list(date=c(norm$x), avg_temp=c(norm$y1), avg_pw=c(norm$y2)))
 			colnames(data) <- c("date", "avg_temp", "avg_pw")
 	# Writes the data to a csv
-			write.csv(data, file="../data/data_overcast.csv", row.names=FALSE)
-			cat(green(sprintf("Data sent to ../data/data_overcast.csv\n")))
+			write.csv(data, file="./data_overcast.csv", row.names=FALSE)
+			cat(green(sprintf("Data sent to ./data_overcast.csv\n")))
 		}else{
 	# Pulls the data
 			avg_temp	<- as.numeric(unlist(snsr_sky_calc))
@@ -1296,8 +1243,8 @@ if(args$data){
 			data 		<- data.frame(list(date=c(norm$x),avg_temp=c(norm$y1), avg_pw=c(norm$y2)))
 			colnames(data) <- c("date", "avg_temp", "avg_pw")
 	# Writes the data to a csv
-			write.csv(data, file="../data/data.csv", row.names=FALSE)
-			cat(green(sprintf("Data sent to ../data/data.csv\n")))
+			write.csv(data, file="./data.csv", row.names=FALSE)
+			cat(green(sprintf("Data sent to ./data.csv\n")))
 
 		}
 	}
@@ -1323,7 +1270,11 @@ if(args$set == "i"){
 		cat(green(sprintf("Plot set downloaded to %s\n", sname)))
 	}else{
 # Shows plots
-		instr(overcast=args$overcast); pyshow()
+		instr(overcast=args$overcast)
+		pyrun("plt.show(block=False)")
+		cat(bold(yellow("Slam enter to continue:\n>> ")))
+		x <- readLines(con="stdin", 1); pyrun("plt.close('all')")
+
 	}
 }else if(args$set == "t"){
 	if (args$overcast){
@@ -1386,6 +1337,10 @@ if(args$set == "i"){
 		cat(green(sprintf("Plot set downloaded to %s\n", sname)))
 	}else{
 		charts1()
+		pyrun("plt.show(block=False)")
+		cat(bold(yellow("Slam enter to continue:\n>> ")))
+		x <- readLines(con="stdin", 1); pyrun("plt.close('all')")
+
 	}
 }
 if(args$poster){
