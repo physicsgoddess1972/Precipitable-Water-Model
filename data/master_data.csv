@@ -1,4 +1,4 @@
-Date,Conditions,RH,PW ABQ_12Z,PW ABQ_00Z,PW EPZ_12Z,PW EPZ_00Z,Vicki time,NWS time,NWS temp,1610 TE (Sky),FLIRi3 (Sky),AMES 1 (Sky),AMES 2 (Sky),1610 TE (Ground),FLIRi3 (Ground),AMES 1 (Ground),AMES 2 (Ground),comments
+Date,conditions,RH,PW ABQ_12Z,PW ABQ_00Z,PW EPZ_12Z,PW EPZ_00Z,Vicki time,NWS time,NWS temp,1610 TE (Sky),FLIRi3 (Sky),AMES 1 (Sky),AMES 2 (Sky),1610 TE (Ground),FLIRi3 (Ground),AMES 1 (Ground),AMES 2 (Ground),comments
 1/22/2019,overcast,40,5.93,6.15,8.14,6.17,10:38,10:15,5,-13.3,-13.2,NaN,NaN,7.2,5.3,NaN,NaN,Overcast so NaN to exclude data
 1/23/2019,clear sky,23,2.89,4.86,4.37,4.81,13:38,13:15,7,NaN,NaN,NaN,NaN,17,13.7,NaN,NaN,
 1/24/2019,clear sky,34,4.73,2.95,4.76,3.15,10:38,10:35,6,NaN,NaN,NaN,NaN,11.2,7.2,NaN,NaN,
@@ -84,7 +84,7 @@ Date,Conditions,RH,PW ABQ_12Z,PW ABQ_00Z,PW EPZ_12Z,PW EPZ_00Z,Vicki time,NWS ti
 4/14/2019,clear sky,,5.46,5.24,1.42,6.32,11:15,,,NaN,NaN,-31.7,NaN,28,27.7,29.2,NaN,
 4/15/2019,clear sky,,4.28,4.54,7.02,6.45,13:15,,,NaN,NaN,-15.5,NaN,41.2,40.9,43.9,NaN,
 4/16/2019,clear sky,,9.56,8.34,10.37,8.82,9:13,,,NaN,NaN,-28.2,NaN,22.5,23.1,23.7,NaN,
-4/17/2019,overcast,,15.66,4.83,13.87,14.83,10:52,,,3.4,2.9,2.7,NaN,16.6,15.6,15.2,NaN,it was raining when measurements were taken
+4/17/2019,overcast,,15.66,4.83,13.87,14.83,10:52,,,3.4,2.9,2.7,NaN,16.6,15.6,15.2,NaN,it was raining when measurements were taken 
 4/18/2019,clear sky,,8.94,7.03,13.38,8.52,9:22,,,NaN,NaN,-28.6,NaN,17.4,16.5,17.5,NaN,
 4/19/2019,clear sky,,7.11,6.73,7.26,6.22,10:30,,,NaN,NaN,-27.5,NaN,27.2,27.8,28.8,NaN,measurements taken by Sooraj Bhatia as Vicki doing pilgrimage to Chimayo
 4/20/2019,clear sky,,6.26,8.14,7.2,9.72,16:26,,,NaN,NaN,-18.8,NaN,40.5,40.5,43.2,NaN,later measurements due to heat stroke
@@ -184,6 +184,9 @@ Date,Conditions,RH,PW ABQ_12Z,PW ABQ_00Z,PW EPZ_12Z,PW EPZ_00Z,Vicki time,NWS ti
 7/23/2019,clear sky,50,29.07,26.72,41.21,32.35,10:03,9:55,24.72,NaN,-18.5,18.9,19.3,39.7,40,41.5,41.3,
 7/24/2019,clear sky,18,27.35,23.8,29.56,26.62,15:39,15:35,33.39,NaN,-25.6,-3.3,-1.9,52.5,52.7,54.9,54.8,
 7/25/2019,clear sky,30,25.69,26.8,NaN,20.17,10:20,10:15,27.89,NaN,-23.9,-2.9,-1.6,41.9,41.2,44.2,44.4,talked with Frank at the EPZ NWS office about 12Z reading anomaly
-7/26/2019,overcast,,30.21,27.3,20.51,25.92,,,,-10.5,-10.2,6.8,8.1,39.3,41.9,41.2,43.3,
-7/27/2019,clear sky,,29.86,25.71,29.06,27.13,,,,NaN,-22.5,-4.6,-3.1,36.4,37.1,38.3,38.7,
-7/28/2019,overcast,,28.7,NaN,33.48,NaN,,,,4.2,-6,4.4,3.7,36.4,37.5,37.2,37.1,
+7/26/2019,overcast,,30.21,27.3,20.51,25.92,10:23,,,-10.5,-10.2,6.8,8.1,39.3,41.9,41.2,43.3,
+7/27/2019,clear sky,,29.86,25.71,29.06,27.13,9:29,,,NaN,-22.5,-4.6,-3.1,36.4,37.1,38.3,38.7,
+7/28/2019,overcast,,28.7,18.43,33.48,29.64,9:34,,,4.2,-6,4.4,3.7,36.4,37.5,37.2,37.1,
+7/29/2019,clear sky,,24.58,19.08,32.37,31.61,10:19,,,NaN,-22.6,-2,-1.9,41.2,41.8,43.7,43.6,
+7/30/2019,clear sky,,22.7,22.36,33.7,25.93,10:39,,,NaN,-22.3,-2.4,-3,41.5,43.6,44.5,44.3,
+7/31/2019,clear sky,,21.88,NaN,33.14,NaN,10:53,,,NaN,-25.5,-1.5,-1.6,43.4,43.6,46.5,46.7,
