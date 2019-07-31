@@ -6,7 +6,7 @@
 ####
 
 ## Necessary Libraries for the script to run, for installation run install.sh
-library(argparse); library(crayon); library(randomcoloR); library(Rpyplot); library(plotrix)
+library(argparse); library(crayon); library(randomcoloR); library(Rpyplot)#; library(plotrix)
 ## Python imports for plotting mechanism
 pyrun("from datetime import datetime, timedelta")
 pyrun("import matplotlib.dates as mdates")
