@@ -1109,7 +1109,58 @@ poster2 <- function(...){
 
 		}
 }
+### Instrumentation Barplots
+poster3 <- function(...){
+	for (i in 1:length(sensor[,5])){
+		if(sensor[i,5] == FALSE){
+			snsr_sky[[i]] <- NULL; snsr_skyo[[i]] <- NULL
+			snsr_gro[[i]] <- NULL; snsr_groo[[i]] <- NULL
+			snsr_del[[i]] <- NULL; snsr_delo[[i]] <- NULL
+			snsr_name[[i]] <- NULL
+		}
+	}
+	if(args$save){
+		title 	<- c("Clear Sky","Overcast", "Clear Sky NaN", "Overcast NaN")
+		color 	<- c("paleturquoise", "plum", "deepskyblue", "magenta")
+#		mtext("Condition Distribution by Sensor",side=3, line=1, outer=TRUE)
+		if(length(snsr_name) <= 3){
+			par(mar=c(2, 0, 4, 1), xpd=TRUE)
+			layout(matrix(c(4,1,2,3), 2, 2, byrow=TRUE))
 
+			for(a in 1:length(snsr_name)){
+				norm	<- length(na.omit(unlist(snsr_sky[a])))
+				over	<- length(na.omit(unlist(snsr_skyo[a])))
+
+				norm_na <- length(unlist(snsr_sky[a])) - norm
+				over_na <- length(unlist(snsr_skyo[a])) - over
+
+				slices 	<- matrix(c(norm, over, norm_na, over_na), nrow=4, byrow=TRUE)
+				pct 	<- round(rev(slices)/sum(rev(slices))*100, 1)
+
+				bar <- barplot(rev(slices), col=rev(color),
+				horiz=TRUE, las=1,xlab="Samples", axes=FALSE, main=sprintf("%s", gsub("_", " ",snsr_name[a])))
+				axis(side = 1, at = slices, labels=TRUE, las=1, cex.axis=0.9)
+				for (i in 1:length(slices)){
+					if (pct[i] == 0){
+						text(pct[i] + 7, bar[i], labels=sprintf('%s %%', as.character(pct[i])))
+					}else if(pct[i] < 3){
+						text(pct[i] + 12, bar[i], labels=sprintf('%s %%', as.character(pct[i])))
+					}else if(pct[i] < 10){
+						text(pct[i] + 17, bar[i], labels=sprintf('%s %%', as.character(pct[i])))
+					}else{
+						text(pct[i], bar[i], labels=sprintf('%s %%', as.character(pct[i])))
+					}
+				}
+			}
+		par(oma=c(5, 5, 5, 5), mar=c(5,3,5,5), xpd=NA)
+		title("Condition Distribution by Sensor", line=3)
+		legend(5, 5,legend = title, fill=color)
+
+		}
+	}else{
+
+	}
+}
 ## Plots ground and sky temperature measurements for each individual sensor
 instr 	<- function(...,overcast=args$overcast){
 	if (args$save){
@@ -1397,7 +1448,7 @@ if(args$poster){
 # Saves plots
 	if(args$save){
 		sname <- sprintf("~/Downloads/poster_%s.pdf", gsub("/", "_", recent))
-		save(c(poster1(),poster2()), sname)
+		save(c(poster1(),poster2(), poster3()), sname)
 		cat(green(sprintf("Plot set downloaded to %s\n", sname)))
 	}
 }
