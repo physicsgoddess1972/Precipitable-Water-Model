@@ -3,9 +3,26 @@ library(keras)
 library(fastDummies)
 suppressPackageStartupMessages(library(caret))
 suppressPackageStartupMessages(library(crayon))
+library(argparse)
+
+parser <- ArgumentParser(formatter_class='argparse.RawTextHelpFormatter')
+parser$add_argument("-r", "--run", type="integer",
+	help="Number of time to run.")
+parser$add_argument("-l", "--loc", type="character")
+parser$add_argument("-e", "--eph", type="integer")
+parser$add_argument("-b", "--bhsz", type="integer")
+args <- parser$parse_args()
+
 df <- read.csv('../../data/ml_data.csv')
 
-testrun <- function(btchsz, eph){
+## Custom Colors for cmd line features
+red 		<- make_style("red1")
+orange 		<- make_style("orange")
+yellow 		<- make_style("gold2")
+green 		<- make_style("lawngreen")
+cloudblue 	<- make_style("lightskyblue")
+
+testrun <- function(btchsz, eph, run_indx, loc){
     index <- createDataPartition(df$condition, p=0.8, list=FALSE)
 
     df.train     <- df[index, ]
@@ -22,26 +39,32 @@ testrun <- function(btchsz, eph){
     Y_test <- to_categorical(df.test$condition)
         model <- keras_model_sequential()
         model %>%
-            layer_dense(units = 256, activation = 'relu', input_shape = ncol(X_train)) %>%
-            layer_dropout(rate = 0.5) %>%
-            layer_dense(units = 128, activation = 'relu') %>%
+            layer_dense(units = 32, activation = 'relu', input_shape = ncol(X_train)) %>%
+            layer_dropout(rate = 0.8) %>%
+            layer_dense(units = 32, activation = 'relu') %>%
+            layer_dropout(rate = 0.6) %>%
+            layer_dense(units = 32, activation= 'relu') %>%
             layer_dropout(rate = 0.3) %>%
             layer_dense(units = 3, activation = 'sigmoid')
 
         history <- model %>% compile(
             loss = 'categorical_crossentropy',
             optimizer = 'adam',
-            metrics = c('accuracy')
+            metrics = c('accuracy'),
         )
         fitter <- model %>% fit(
             X_train, Y_train,
             epochs = eph,
             batch_size = btchsz,
-            validation_split = 0.2
+            verbose=1,
+            validation_split = 0.2,
+            callbacks = callback_tensorboard(log_dir = paste("./model/logs_", loc, "/run_", run_indx, sep=""))
         )
-        model %>% evaluate(X_test, Y_test)
-        pdf(paste("./output/testrun_batch_", btchsz, ".pdf", sep=""))
-        print(plot(fitter))
+        score <- model %>% evaluate(X_test, Y_test)
+
+        # pdf(paste("./output/testrun_", loc, "_", run_indx, ".pdf", sep=""))
+        # print(plot(fitter))
+
         date <- list(df.test[, 1]); predictions <- model %>% predict_classes(X_test)
         pred_bool <- list()
         for(a in 1:length(predictions)){
@@ -54,10 +77,24 @@ testrun <- function(btchsz, eph){
         data <- data.frame(list(x=date, y=predictions, y1=df.test$condition, y2=unlist(pred_bool)))
         colnames(data) <- c("date", "predicted", "truth", "bool")
         #conf_mat <- table(factor(predictions, levels=min(df.test$condition):max(df.test$condition)), factor(df.test$condition, levels=min(df.test$condition):max(df.test$condition)))
-        write.csv(data, paste("./output/predict_btchsz_", btchsz, ".txt", sep=""))
+        write.csv(data, paste("./output/predict_", loc, "_", run_indx, ".txt", sep=""))
+
+
+        cat(bold(cloudblue(paste(rep("---", 10, collapse="")))), "\n")
+        cat(bold(cloudblue("\t\t Results \n")))
+        cat(bold(cloudblue(paste(rep("---", 10, collapse="")))), "\n")
+        if(score$loss < 0.5){
+            cat(green(bold('Testing Loss:\t\t', round(score$loss, 3), "\n")))
+        }else{
+            cat(red(bold('Testing Loss:\t\t', round(score$loss, 3), "\n")))
+        }
+        if(score$acc > 0.5){
+            cat(green(bold('Testing Accuracy:\t', round(score$acc*100, 1), "%\n")))
+        }else{
+            cat(red(bold('Testing Accuracy:\t', round(score$acc*100, 1), "%\n")))
+        }
 }
-for (i in 14:20){
-    cat(yellow(paste(">>>> Batch Size = ", i, " <<<<\n")))
-    testrun(i, 50)
-    invisible(graphics.off())
-}
+cat(yellow(paste(">>>> Configuration ", args$run, " <<<<\n")))
+#    tensorboard("logs", host="127.0.0.1", port="4023", purge_orphaned_data = TRUE, action=c("start"))
+testrun(args$bhsz, args$eph, args$run, args$loc)
+#continue_tb()
