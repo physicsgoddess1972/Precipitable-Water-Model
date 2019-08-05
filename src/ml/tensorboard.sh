@@ -28,5 +28,5 @@ for ((i = 1 ; i < ${c_flag}+1 ; i++ )); do
 done
 
 if [[ ${t_flag} ]]; then
-    tensorboard --logdir ./model/ --port ${p_flag:=42069}
+    tensorboard --logdir ./model/ --port ${p_flag:=12345}
 fi
