@@ -111,7 +111,7 @@ for(i in 1:length(sensor[, 1])){
 	snsr_color 		<- append(snsr_color, toString(sensor[i, 3]))
 }
 ## Pulls individual PW measurement labels
-pw_name 	<- col_pwpl  <-  list()
+pw_name 	<- col_pwpl  <-	col_pwtm <- list()
 for (j in col_pw){
 	name 	<- gsub("PW", "", colnames(fname)[j])
 	name 	<- trimws(gsub("[[:punct:]]", " ", name), which="l")
@@ -119,9 +119,15 @@ for (j in col_pw){
 }
 # Pull general location tag from the label
 pw_place 	<- gsub("_.*$", "", gsub(" ", "_", pw_name))
+# Pulls general time tag from label
+pw_time 	<- gsub("*..._", "", gsub(" ", "_", pw_name))
 # Pulls the column numbers that have the general location tag
 for (j in unique(pw_place)){
 	col_pwpl <- append(col_pwpl, list(grep(j, pw_place)))
+}
+# Pulls the column numbers that have the general time tag
+for (j in unique(pw_time)){
+	col_pwtm <- append(col_pwtm, list(grep(j, pw_time)))
 }
 # Assigns a color for each label
 pw_color <- distinctColorPalette(length(pw_name), runTsne=TRUE, altCol=TRUE)
@@ -183,12 +189,11 @@ overcast_filter <- function(){
 }
 ## Pushes returned values to the variable overcast
 overcast 	<- overcast_filter()
-
 ### Clear Sky Data
 ## Pulls date from filter function
 clear_date  <- overcast$clear_date	# Date
 ## Initialize empty lists
-snsr_del 	<- snsr_sky <- snsr_gro <- pw_loc <- loc_avg <- snsr_sky_calc <- list()
+snsr_del 	<- snsr_sky <- snsr_gro <- pw_loc <- loc_avg <- snsr_sky_calc <- tmp_avg <- list()
 ## Adds PW measurements for clear sky to list
 for (l in 1:length(pw_name)){
 	pw_loc[[ paste("pw_loc", l, sep="")]]	 <- as.numeric(unlist(overcast[grep("clear_pw", names(overcast), fixed=TRUE)[1]+l-1]))
@@ -212,16 +217,23 @@ for (d in 1:(length(unlist(snsr_sky))/length(snsr_sky))){
 	snsr_sky_calc[[ paste("snsr_sky_calc",d,sep="") ]] <- mean(snsr_sky_calc[[ paste("snsr_sky_calc",d,sep="") ]])
 }
 ## Takes locational average of the precipitable water measurements
-# Also has a useless warning that was suppressed
 for (p in 1:length(col_pwpl)){
+	tmp <- unlist(col_pwpl[p])
 	for (q in col_pwpl[p]){
-		list_len <- length(unlist(overcast[grep("clear_pw", names(overcast), fixed=TRUE)[1]])) + 1
-		full_len <- as.numeric((list_len) * 2 - 2)
-		loc_avg[[ paste("loc_avg",p,sep="") ]] <- suppressWarnings(
-		(as.numeric(unlist(overcast[grep("clear_pw", names(overcast), fixed=TRUE)[q]]))[1:list_len] +
-		as.numeric(unlist(overcast[grep("clear_pw", names(overcast), fixed=TRUE)[q]]))[list_len:full_len])/length(col_pwpl))
-		loc_avg[[ paste("loc_avg",p,sep="") ]] <- loc_avg[[ paste("loc_avg",p,sep="") ]][1:as.numeric(list_len - 1)]
+		loc_avg[[ paste("loc_avg",p,sep="") ]] <-
+			array(overcast[grep("clear_pw", names(overcast), fixed=TRUE)][q])
 	}
+	tmp <- loc_avg[p]
+	loc_avg[[ paste("loc_avg",p,sep="") ]] <- Reduce("+", tmp[[ 1 ]])/length(col_pwpl)
+}
+for (p in 1:length(col_pwtm)){
+	tmp <- unlist(col_pwtm[p])
+	for (q in col_pwtm[p]){
+		tmp_avg[[ paste("tmp_avg",p,sep="") ]] <-
+			array(overcast[grep("clear_pw", names(overcast), fixed=TRUE)][q])
+	}
+	tmp <- tmp_avg[p]
+	tmp_avg[[ paste("tmp_avg",p,sep="") ]] <- Reduce("+", tmp[[ 1 ]])/length(col_pwtm)
 }
 ## Takes super average of the precipitable water measurements
 avg 		<-  Reduce("+", pw_loc)/length(pw_loc)
@@ -230,7 +242,7 @@ avg 		<-  Reduce("+", pw_loc)/length(pw_loc)
 ## Pulls date from filter function (overcast)
 over_date  	<- overcast$over_date
 # Initialize empty lists
-snsr_delo  	<- snsr_skyo <- snsr_groo <- pw_loco <- loc_avgo <- snsr_sky_calco <- list()
+snsr_delo  	<- snsr_skyo <- snsr_groo <- pw_loco <- loc_avgo <- snsr_sky_calco <- tmp_avgo <- list()
 ## Adds PW measurements for overcast to list
 for (l in 1:length(pw_name)){
 	pw_loco[[ paste("pw_loco", l, sep="")]] 	<- as.numeric(unlist(overcast[grep("over_pw", names(overcast), fixed=TRUE)[1]+l-1]))
@@ -254,20 +266,27 @@ for (d in 1:(length(unlist(snsr_skyo))/length(snsr_skyo))){
 	snsr_sky_calco[[ paste("snsr_sky_calco",d,sep="") ]] <- mean(snsr_sky_calco[[ paste("snsr_sky_calco",d,sep="") ]])
 }
 ## Takes locational average of the precipitable water measurements
-# Also has a useless warning that was suppressed
 for (p in 1:length(col_pwpl)){
+	tmp <- unlist(col_pwpl[p])
 	for (q in col_pwpl[p]){
-		list_len <- length(unlist(overcast[grep("over_pw", names(overcast), fixed=TRUE)[1]])) + 1
-		full_len <- as.numeric((list_len) * 2 - 2)
-		loc_avgo[[ paste("loc_avgo",p,sep="") ]] <- suppressWarnings(
-		(as.numeric(unlist(overcast[grep("over_pw", names(overcast), fixed=TRUE)[q]]))[1:list_len] +
-		as.numeric(unlist(overcast[grep("over_pw", names(overcast), fixed=TRUE)[q]]))[list_len:full_len])/length(col_pwpl))
-		loc_avgo[[ paste("loc_avgo",p,sep="") ]] <- loc_avgo[[ paste("loc_avgo",p,sep="") ]][1:as.numeric(list_len - 1)]
+		loc_avgo[[ paste("loc_avgo",p,sep="") ]] <-
+			array(overcast[grep("over_pw", names(overcast), fixed=TRUE)][q])
 	}
+	tmp <- loc_avgo[p]
+	loc_avgo[[ paste("loc_avgo",p,sep="") ]] <- Reduce("+", tmp[[ 1 ]])/length(col_pwpl)
 }
+for (p in 1:length(col_pwtm)){
+	tmp <- unlist(col_pwtm[p])
+	for (q in col_pwtm[p]){
+		tmp_avgo[[ paste("tmp_avgo",p,sep="") ]] <-
+			array(overcast[grep("over_pw", names(overcast), fixed=TRUE)][q])
+	}
+	tmp <- tmp_avgo[p]
+	tmp_avgo[[ paste("tmp_avgo",p,sep="") ]] <- Reduce("+", tmp[[ 1 ]])/length(col_pwtm)
+}
+
 ## Takes super average of the precipitable water measurements
 avgo 		<-  Reduce("+", pw_loco)/length(pw_loco)
-
 ## A function that will produce popups through the matplotlib framework
 show 		<- function(..., overcast){
 # Pulls the input arguments
@@ -548,14 +567,46 @@ main6 	<- function(legend, overcast=args$overcast){
 		for(j in 2:length(range)){
 			points(date, t(unlist(range[j])), pch=16, col=pw_color[j])
 		}
-		legend("topright", inset=c(-0.21, 0), legend=c(pw_name), col=pw_color, pch=c(16,16, 16))
+		legend("topright", inset=c(-0.21, 0), legend=c(unique(pw_place)), col=pw_color, pch=c(16,16, 16))
 	}else{
 		py_time_series(date,range, title, pw_color, unlist(unique(pw_place)), TRUE)
 		ylabel("Precipitable Water [mm]")
 	}
 }
-## Mean PW Time Series
+## Temporal Mean PW Time Series
 main7 	<- function(legend, overcast=args$overcast){
+	# Margin Configuration
+ 	par(mar=c(5.1, 5.1, 5.1, 5.3), xpd=TRUE)
+# Limits of the x-direction
+	xmin <- min(clear_date, na.rm=TRUE)
+	xmax <- max(clear_date, na.rm=TRUE)
+	if(overcast){
+		ymax		<- max(as.numeric(unlist(tmp_avgo)), na.rm=TRUE)
+		ymin		<- min(as.numeric(unlist(tmp_avgo)), na.rm=TRUE)
+		range 		<- tmp_avgo
+		title 		<- "Temporal Average PW Time Series \n Condition: Overcast"
+		date 		<- over_date
+	}else{
+		ymax		<- max(as.numeric(unlist(tmp_avg)), na.rm=TRUE)
+		ymin		<- min(as.numeric(unlist(tmp_avg)), na.rm=TRUE)
+		range 		<- tmp_avg
+		title 		<- "Temporal Average PW Time Series \n Condition: Clear Sky"
+		date 		<- clear_date
+	}
+	if (args$save){
+		plot(date,  t(unlist(range[1])), xlab="Date", ylab="PW [mm]",
+			 xlim=c(xmin, xmax), ylim=c(ymin, ymax), main=title, pch=16, col=pw_color[1])
+		for(j in 2:length(range)){
+			points(date, t(unlist(range[j])), pch=16, col=pw_color[j])
+		}
+		legend("topright", inset=c(-0.21, 0), legend=c(unique(pw_time)), col=pw_color, pch=c(16,16, 16))
+	}else{
+		py_time_series(date,range, title, pw_color, unlist(unique(pw_time)), TRUE)
+		ylabel("Precipitable Water [mm]")
+	}
+}
+## Mean PW Time Series
+main8 	<- function(legend, overcast=args$overcast){
 		# Margin Configuration
  	par(mar=c(5.1, 5.1, 5.1, 5.3), xpd=TRUE)
 # Limits of the x-direction
@@ -575,11 +626,8 @@ main7 	<- function(legend, overcast=args$overcast){
 		date 		<- clear_date
 	}
 	if (args$save){
-		plot(date,  t(unlist(range[1])), xlab="Date", ylab="PW [mm]",
-			 xlim=c(xmin, xmax), ylim=c(ymin, ymax), main=title, pch=16, col=pw_color[1])
-		for(j in 2:length(range)){
-			points(date, t(unlist(range[j])), pch=16, col=pw_color[j])
-		}
+		plot(date,  t(unlist(range)), xlab="Date", ylab="PW [mm]",
+			 xlim=c(xmin, xmax), ylim=c(ymin, ymax), main=title, pch=16, col="blue")
 	}else{
 # Initialize the plotting environment
 		pyrun("fig = plt.figure()"); pyrun("ax = fig.add_subplot(111)")
@@ -603,6 +651,7 @@ main7 	<- function(legend, overcast=args$overcast){
 		ylabel("Precipitable Water [mm]")
 	}
 }
+
 
 ## Individual Location plots
 plots1 	<- function(..., overcast=args$overcast){
@@ -1480,12 +1529,12 @@ if(args$set == "i"){
 	cat(green("[4]"), "Precipitable Water Time Series\n")
 	cat(green("[5]"), "Mean Sky Temperature and PW Time Series\n")
 # Shows plots
-	show(main1, main2, main3, main4, main5, main6, main7, overcast=args$overcast)
+	show(main1, main2, main3, main4, main5, main6, main7, main8, overcast=args$overcast)
 # Saves plots
 	if (args$save){
 		save(c(main1("save", overcast=args$overcast),main2("save", overcast=args$overcast),
 		main3("save", overcast=args$overcast), main4("save", overcast=args$overcast), main5("save", overcast=args$overcast),
-		main6("save", overcast=args$overcast), main7("save", overcast=args$overcast)), sname)
+		main6("save", overcast=args$overcast), main7("save", overcast=args$overcast), main8("save", overcast=args$overcast)), sname)
 		cat(green(sprintf("Plot set downloaded to %s\n", sname)))
 	}
 }else if(args$set == "a"){
