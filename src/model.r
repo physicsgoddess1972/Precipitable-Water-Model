@@ -575,11 +575,8 @@ main7 	<- function(legend, overcast=args$overcast){
 		date 		<- clear_date
 	}
 	if (args$save){
-		plot(date,  t(unlist(range[1])), xlab="Date", ylab="PW [mm]",
-			 xlim=c(xmin, xmax), ylim=c(ymin, ymax), main=title, pch=16, col=pw_color[1])
-		for(j in 2:length(range)){
-			points(date, t(unlist(range[j])), pch=16, col=pw_color[j])
-		}
+		plot(date,  t(unlist(range)), xlab="Date", ylab="PW [mm]",
+			 xlim=c(xmin, xmax), ylim=c(ymin, ymax), main=title, pch=16, col="blue")
 	}else{
 # Initialize the plotting environment
 		pyrun("fig = plt.figure()"); pyrun("ax = fig.add_subplot(111)")
