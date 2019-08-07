@@ -882,16 +882,20 @@ charts1 	<- function(...){
 			title 	<- c("Clear Sky","Overcast", "Clear Sky NaN", "Overcast NaN")
 			pct 	<- round(rev(slices)/sum(rev(slices))*100, 1)
 
-			color 	<- c("paleturquoise", "plum", "deepskyblue", "magenta")
+			color 	<- c("#A7D6FC", "#FCA7A7", "#C8A7FC", "#FCDEA7")
 
 		if (args$save){
 			par(mar=c(7.1, 7.1, 7.1, 1.3), xpd=TRUE)
 			bar <- barplot(rev(slices), names.arg=rev(title), col=rev(color),
 			horiz=TRUE, las=1,xlab="Samples", axes=FALSE, main=sprintf("Overcast Condition Percentage: %s", gsub("_", " ",snsr_name[count])))
-			axis(side = 1, at = slices, labels=TRUE, las=1)
+			axis(side = 1, labels=TRUE, las=1)
 			for (i in 1:length(slices)){
-				if (pct[i] < 3){
+				if (pct[i] == 0){
 					text(pct[i] + 7, bar[i], labels=sprintf('%s %%', as.character(pct[i])))
+				}else if(pct[i] < 3){
+					text(pct[i] + 12, bar[i], labels=sprintf('%s %%', as.character(pct[i])))
+				}else if(pct[i] < 7){
+					text(pct[i] + 17, bar[i], labels=sprintf('%s %%', as.character(pct[i])))
 				}else{
 					text(pct[i], bar[i], labels=sprintf('%s %%', as.character(pct[i])))
 				}
@@ -1256,9 +1260,15 @@ poster3 <- function(...){
 	}
 	if(args$save){
 		title 	<- c("Clear Sky","Overcast", "Clear Sky NaN", "Overcast NaN")
-		color 	<- c("paleturquoise", "plum", "deepskyblue", "magenta")
+		color 	<- c("#A7D6FC", "#FCA7A7", "#C8A7FC", "#FCDEA7")
 #		mtext("Condition Distribution by Sensor",side=3, line=1, outer=TRUE)
 		if(length(snsr_name) <= 3){
+			tmp_var = 1
+		}else{
+			tmp_var = 1 + length(snsr_name)/3
+		}
+		print(tmp_var)
+		for(test in 1:tmp_var){
 			par(mar=c(2, 0, 4, 1), xpd=TRUE)
 			layout(matrix(c(4,1,2,3), 2, 2, byrow=TRUE))
 
@@ -1274,7 +1284,7 @@ poster3 <- function(...){
 
 				bar <- barplot(rev(slices), col=rev(color),
 				horiz=TRUE, las=1,xlab="Samples", axes=FALSE, main=sprintf("%s", gsub("_", " ",snsr_name[a])))
-				axis(side = 1, at = slices, labels=TRUE, las=1, cex.axis=0.9)
+				axis(side = 1, labels=TRUE, las=1, cex.axis=0.9)
 				for (i in 1:length(slices)){
 					if (pct[i] == 0){
 						text(pct[i] + 7, bar[i], labels=sprintf('%s %%', as.character(pct[i])))
@@ -1290,10 +1300,7 @@ poster3 <- function(...){
 		par(oma=c(5, 5, 5, 5), mar=c(5,3,5,5), xpd=NA)
 		title("Condition Distribution by Sensor", line=3)
 		legend(5, 5,legend = title, fill=color)
-
 		}
-	}else{
-
 	}
 }
 ## Plots ground and sky temperature measurements for each individual sensor
