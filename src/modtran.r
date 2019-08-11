@@ -1,5 +1,5 @@
 ## Imports data from master_data.csv
-fname       <- read.table(file="../data/modtran.csv", sep=",", header=TRUE, strip.white=TRUE)
+fname       <- read.table(file="../data/modtran/modtran.csv", sep=",", header=TRUE, strip.white=TRUE)
 rad <- function(data){
     intensity <- data * pi * 10^4
     return(intensity)
