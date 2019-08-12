@@ -12,8 +12,12 @@ while getopts ":c:p:l:e:b:tix" opt; do
     esac
 done
 if [[ ${i_flag} ]]; then
-    sudo pip install tensorflow=1.4.1
-#    sudo su - -c "R -e \"install.packages('keras', repos='https://cran.rstudio.com/')\""
+    sudo pip install tensorflow==1.4.1
+    sudo pip install keras==2.3.1
+    sudo su - -c "R -e \"install.packages('tidyverse', repos='https://cran.rstudio.com/')\""
+    sudo su - -c "R -e \"install.packages('caret', repos='https://cran.rstudio.com/')\""
+    sudo su - -c "R -e \"install.packages('fastDummies', repos='https://cran.rstudio.com/')\""
+    sudo su - -c "R -e \"install.packages('keras', version='2.3.1', repos='https://cran.rstudio.com/')\""
 fi
 if [[ ! -d "./model/logs_${l_flag}/" ]]; then
     mkdir ./model/logs_${l_flag}/

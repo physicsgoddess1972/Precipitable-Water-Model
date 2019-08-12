@@ -13,7 +13,7 @@ parser$add_argument("-e", "--eph", type="integer")
 parser$add_argument("-b", "--bhsz", type="integer")
 args <- parser$parse_args()
 
-df <- read.csv('../../data/ml_data.csv')
+df <- read.csv('../../data/ml/ml_data.csv')
 
 ## Custom Colors for cmd line features
 red 		<- make_style("red1")
