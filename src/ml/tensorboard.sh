@@ -13,7 +13,7 @@ while getopts ":c:p:l:e:b:tixh" opt; do
     esac
 done
 if [[ ${h_flag} ]]; then
-    echo "usage: tensorboard.sh [-h] [-c NUM] [-l LOC] [-e NUM] [-b NUM] [-t] [-i] [-x] [-p PORT]"
+    echo "usage: tensorboard.sh [-htix] [-c NUM] [-l LOC] [-e NUM] [-b NUM] [-p PORT]"
     echo ""
     echo "arguments:"
     echo "   -h         show this help message and exit"
