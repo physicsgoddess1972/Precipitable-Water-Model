@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-while getopts ":c:p:l:e:b:tix" opt; do
+while getopts ":c:p:l:e:b:tixh" opt; do
     case "${opt}" in
         c) c_flag="${OPTARG}";;
         p) p_flag="${OPTARG}";;
@@ -9,8 +9,23 @@ while getopts ":c:p:l:e:b:tix" opt; do
         t) t_flag="true";;
         i) i_flag="true";;
         x) x_flag="true";;
+        h) h_flag="true";;
     esac
 done
+if [[ ${h_flag} ]]; then
+    echo "usage: tensorboard.sh [-h] [-c NUM] [-l LOC] [-e NUM] [-b NUM] [-t] [-i] [-x] [-p PORT]"
+    echo ""
+    echo "arguments:"
+    echo "   -h         show this help message and exit"
+    echo "   -c NUM     number of configurations"
+    echo "   -l LOC     designation for run"
+    echo "   -e NUM     number of epochs"
+    echo "   -b NUM     batch size"
+    echo "   -t         initialize tensorboard"
+    echo "   -i         install requirements"
+    echo "   -x         clear output and log files"
+    echo "   -p PORT    port number for tensorboard"
+fi
 if [[ ${i_flag} ]]; then
     sudo pip install tensorflow==1.4.1
     sudo pip install keras==2.1.3
@@ -25,9 +40,17 @@ if [[ ! -d "./model/logs_${l_flag}/" ]]; then
 fi
 
 if [[ ${x_flag} ]]; then
-    rm -r ./model/*
+    if [[ ./model/* ]]; then
+        echo ./model/
+        rm -r ./model/*
+        echo -e "\e[92mLog files have been successfully removed\e[0m"
+    fi
+    if [[ ./output/* ]]; then
+        echo ./output/*
+        rm ./output/*
+        echo -e "\e[92mOutput files have been successfully removed\e[0m"
+    fi
 fi
-
 for ((i = 1 ; i < ${c_flag}+1 ; i++ )); do
     Rscript cloud_magic.r -r $i -l "${l_flag}" -e "${e_flag:=100}" -b "${b_flag:=10}"
 done
