@@ -8,15 +8,6 @@ while getopts "omah" opt; do
     esac
 done
 
-if [[ ${h_flag} ]]; then
-    echo "usage: run.sh [-hoam]"
-    echo ""
-    echo "arguments:"
-    echo "   -h         show this help message and exit"
-    echo "   -o         save overcast plots"
-    echo "   -a         save all plots"
-    echo "   -m         save modtran plots"
-fi
 if [[ ${o_flag} ]]; then
     echo -e "\e[96m ~~~~ Overcast ~~~~\e[0m"
     Rscript model.r --set t -o --save &> /dev/null & Rscript model.r --set a -o --save &> /dev/null
@@ -50,6 +41,14 @@ elif [[ ${a_flag} ]]; then
     echo -e "\e[92m[Clear Sky] Charts saved to ~/Downloads/\e[0m"
     Rscript modtran.r
     echo -e "\e[92mModtran Plot saved to ~/Downloads/\e[0m"
+elif [[ ${h_flag} ]]; then
+    echo "usage: run.sh [-hoam]"
+    echo ""
+    echo "arguments:"
+    echo "   -h         show this help message and exit"
+    echo "   -o         save overcast plots"
+    echo "   -a         save all plots"
+    echo "   -m         save modtran plots"
 else
     echo -e "\e[96m ~~~~ Clear Sky ~~~~\e[0m"
     Rscript model.r --set t --save &> /dev/null & Rscript model.r --set a --save &> /dev/null
