@@ -2,11 +2,11 @@
 ## Title: 	Precipitable Water Model
 ## Author: 	Spencer Riley / Vicki Kelsey
 ## Documentation Page: https://git.io/fjVHo
-## To get a list of arguments run Rscript model.r --help
+## To get a list of arguments run [Rscript model.r --help]
 ####
 
 ## Necessary Libraries for the script to run, for installation run install.sh
-library(argparse); library(crayon); library(randomcoloR); library(Rpyplot)#; library(plotrix)
+library(argparse); library(crayon); library(randomcoloR);
 
 ## Custom Colors for cmd line features
 red 		<- make_style("red1")
