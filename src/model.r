@@ -1084,9 +1084,6 @@ if(args$set == "i"){
 # Saves plots
 		save(c(instr(overcast=args$overcast)), sname)
 		cat(green(sprintf("Plot set downloaded to %s\n", sname)))
-	}else{
-# Shows plots
-		instr(overcast=args$overcast); pyshow()
 	}
 }else if(args$set == "t"){
 	if (args$overcast){
@@ -1105,8 +1102,6 @@ if(args$set == "i"){
 	cat(green("[3]"), "Change in Temperature between Sky and Ground Time Series\n")
 	cat(green("[4]"), "Precipitable Water Time Series\n")
 	cat(green("[5]"), "Mean Sky Temperature and PW Time Series\n")
-# Shows plots
-	show(main1, main2, main3, main4, main5, main6, main7, main8, overcast=args$overcast)
 # Saves plots
 	if (args$save){
 		save(c(main1("save", overcast=args$overcast),main2("save", overcast=args$overcast),
@@ -1130,8 +1125,6 @@ if(args$set == "i"){
 	cat(green("[2]"), "Correlation between Locational Mean PW and Temperature\n")
 	cat(green("[3]"), "Total Mean PW and Temperature\n")
 	cat(green("[4]"), "Residual of the Mean PW and Temperature Model\n")
-# Shows plots
-	show(plots1, plots2, plots3, plots4, overcast=args$overcast)
 # Saves plots
 	if (args$save){
 		save(c(plots1(overcast=args$overcast), plots2(overcast=args$overcast),
@@ -1148,16 +1141,12 @@ if(args$set == "i"){
 		sname 	<- sprintf("~/Downloads/charts_%s.pdf", gsub("/", "_", recent))
 		save(c(charts1()), sname)
 		cat(green(sprintf("Plot set downloaded to %s\n", sname)))
-	}else{
-		charts1()
 	}
 }
 if(args$poster){
 # Plots available with this option
 	cat(green("[1]"), "Sky-Ground-Delta Temperature Time Series\n")
 	cat(green("[2]"), "Analytical Plots\n")
-# Shows plots
-	show(poster1, poster2, overcast=NA)
 # Saves plots
 	if(args$save){
 		sname <- sprintf("~/Downloads/poster_%s.pdf", gsub("/", "_", recent))
@@ -1168,8 +1157,6 @@ if(args$poster){
 if(args$dev){
 # Plots available with this option
 	cat(red("[1]"), "Pac-Man Residual of the Mean PW and Temperature Model\n")
-# Shows plots
-	show(plots5, overcast=NA)
 # Saves plots
 	if(args$save){
 		sname <- sprintf("~/Downloads/dev_%s.pdf", gsub("/", "_", recent))
