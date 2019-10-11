@@ -6,7 +6,8 @@
 ####
 
 ## Necessary Libraries for the script to run, for installation run install.sh
-library(argparse); library(crayon); library(randomcoloR); library(Rpyplot)#; library(plotrix)
+library(argparse); library(crayon); library(randomcoloR); #library(Rpyplot);
+library(plotrix)
 
 ## Custom Colors for cmd line features
 red 		<- make_style("red1")
@@ -535,7 +536,6 @@ main8 	<- function(legend, overcast=args$overcast){
 		 xlim=c(xmin, xmax), ylim=c(ymin, ymax), main=title, pch=16, col="blue")
 }
 
-
 ## Individual Location plots
 plots1 	<- function(..., overcast=args$overcast){
 	if(overcast){
@@ -650,7 +650,7 @@ plots5 	<- function(..., overcast=args$overcast){
 	# Maximum radial distance
 	rmax 		<- max((residual), na.rm=TRUE)
 	# 6 equal divisions
-	divs 		<- seq(round(min(residual)), round(max(residual)), len=6)
+	divs 		<- seq(round(min(residual)), round(max(residual),0), len=6)
 	# Plots the residual against an angular position
 	polar.plot(0, rp.type="s",labels="",
 	radial.lim=c(0, round(rmax, 0)),show.grid=TRUE, show.grid.labels=FALSE,
@@ -880,6 +880,7 @@ poster2 <- function(...){
 		exp(coef(exp_reg$model)[1]),coef(exp_reg$model)[2], exp_reg$R2)), "Prediction", "Confidence"))
 # Layout configuration for preceding plots
 		layout(matrix(c(1), 2, 2, byrow=TRUE))
+	}
 }
 ### Instrumentation Barplots
 poster3 <- function(...){
@@ -932,9 +933,9 @@ poster3 <- function(...){
 		par(oma=c(5, 5, 5, 5), mar=c(5,3,5,5), xpd=NA)
 		title("Condition Distribution by Sensor", line=3)
 		legend(5, 5,legend = title, fill=color)
-		}
 	}
 }
+
 ## Plots ground and sky temperature measurements for each individual sensor
 instr 	<- function(...,overcast=args$overcast){
 # X axis limits
@@ -1168,12 +1169,10 @@ if(args$poster){
 if(args$dev){
 # Plots available with this option
 	cat(red("[1]"), "Pac-Man Residual of the Mean PW and Temperature Model\n")
-# Shows plots
-	show(plots5, overcast=NA)
 # Saves plots
 	if(args$save){
 		sname <- sprintf("~/Downloads/dev_%s.pdf", gsub("/", "_", recent))
-		save(dev1(), sname)
+		save(plots5(), sname)
 		cat(green(sprintf("Plot set downloaded to %s\n", sname)))
 	}
 }
