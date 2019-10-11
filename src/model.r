@@ -2,12 +2,16 @@
 ## Title: 	Precipitable Water Model
 ## Author: 	Spencer Riley / Vicki Kelsey
 ## Documentation Page: https://git.io/fjVHo
-## To get a list of arguments run Rscript model.r --help
+## To get a list of arguments run [Rscript model.r --help]
 ####
 
 ## Necessary Libraries for the script to run, for installation run install.sh
+<<<<<<< HEAD
 library(argparse); library(crayon); library(randomcoloR); #library(Rpyplot);
 library(plotrix)
+=======
+library(argparse); library(crayon); library(randomcoloR);
+>>>>>>> 2fdde68461ed9c65abd728af9f290a38d44c763c
 
 ## Custom Colors for cmd line features
 red 		<- make_style("red1")
@@ -1085,9 +1089,6 @@ if(args$set == "i"){
 # Saves plots
 		save(c(instr(overcast=args$overcast)), sname)
 		cat(green(sprintf("Plot set downloaded to %s\n", sname)))
-	}else{
-# Shows plots
-		instr(overcast=args$overcast); pyshow()
 	}
 }else if(args$set == "t"){
 	if (args$overcast){
@@ -1106,8 +1107,6 @@ if(args$set == "i"){
 	cat(green("[3]"), "Change in Temperature between Sky and Ground Time Series\n")
 	cat(green("[4]"), "Precipitable Water Time Series\n")
 	cat(green("[5]"), "Mean Sky Temperature and PW Time Series\n")
-# Shows plots
-	show(main1, main2, main3, main4, main5, main6, main7, main8, overcast=args$overcast)
 # Saves plots
 	if (args$save){
 		save(c(main1("save", overcast=args$overcast),main2("save", overcast=args$overcast),
@@ -1131,8 +1130,6 @@ if(args$set == "i"){
 	cat(green("[2]"), "Correlation between Locational Mean PW and Temperature\n")
 	cat(green("[3]"), "Total Mean PW and Temperature\n")
 	cat(green("[4]"), "Residual of the Mean PW and Temperature Model\n")
-# Shows plots
-	show(plots1, plots2, plots3, plots4, overcast=args$overcast)
 # Saves plots
 	if (args$save){
 		save(c(plots1(overcast=args$overcast), plots2(overcast=args$overcast),
@@ -1149,16 +1146,12 @@ if(args$set == "i"){
 		sname 	<- sprintf("~/Downloads/charts_%s.pdf", gsub("/", "_", recent))
 		save(c(charts1()), sname)
 		cat(green(sprintf("Plot set downloaded to %s\n", sname)))
-	}else{
-		charts1()
 	}
 }
 if(args$poster){
 # Plots available with this option
 	cat(green("[1]"), "Sky-Ground-Delta Temperature Time Series\n")
 	cat(green("[2]"), "Analytical Plots\n")
-# Shows plots
-	show(poster1, poster2, overcast=NA)
 # Saves plots
 	if(args$save){
 		sname <- sprintf("~/Downloads/poster_%s.pdf", gsub("/", "_", recent))
