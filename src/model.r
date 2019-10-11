@@ -6,7 +6,7 @@
 ####
 
 ## Necessary Libraries for the script to run, for installation run install.sh
-library(argparse); library(crayon); library(randomcoloR);
+library(argparse); library(crayon); library(randomcoloR)
 
 ## Custom Colors for cmd line features
 red 		<- make_style("red1")
