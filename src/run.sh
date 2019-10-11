@@ -41,7 +41,7 @@ if [[ ${o_flag} ]]; then
 	Rscript model.r --set c --save &> /dev/null & Rscript model.r --set i -o --save &> /dev/null
 	echo -e "\e[92m[Overcast] Charts saved to ~/Downloads/\e[0m"
 	echo -e "\e[92m[Overcast] Individual Sensor plots saved to ~/Downloads/\e[0m"
-	Rscript model.r --poster -o --save &> /dev/null
+	Rscript model.r --poster --save &> /dev/null
 	echo -e "\e[92m[Overcast] Poster plots saved to ~/Downloads/\e[0m"
 fi
 ## Modtran Flag
@@ -56,18 +56,15 @@ if [[ ${a_flag} ]]; then
 	Rscript model.r --set t -o --save &> /dev/null & Rscript model.r --set a -o --save &> /dev/null
 	echo -e "\e[92m[Overcast] Time Series plots saved to ~/Downloads/\e[0m"
 	echo -e "\e[92m[Overcast] Analytical plots saved to ~/Downloads/\e[0m"
-	Rscript model.r --set c --save &> /dev/null & Rscript model.r --set i -o --save &> /dev/null
-	echo -e "\e[92m[Overcast] Charts saved to ~/Downloads/\e[0m"
-	echo -e "\e[92m[Overcast] Individual Sensor plots haved to ~/Downloads/\e[0m"
-	Rscript model.r --poster -o --save &> /dev/null & Rscript model.r --poster --save &> /dev/null
-	echo -e "\e[92m[Overcast] Poster plots saved to ~/Downloads/\e[0m"
-	echo -e "\e[92m[Clear Sky] Poster plots saved to ~/Downloads/\e[0m"
-	Rscript model.r --set t --save &> /dev/null & Rscript model.r --set a --save &> /dev/null
+	Rscript model.r --set i -o --save &> /dev/null & Rscript model.r --set t --save &> /dev/null
+	echo -e "\e[92m[Overcast] Individual Sensor plots saved to ~/Downloads/\e[0m"
 	echo -e "\e[92m[Clear Sky] Time Series plots saved to ~/Downloads/\e[0m"
+	Rscript model.r --set a --save &> /dev/null & Rscript model.r --set i --save &> /dev/null
 	echo -e "\e[92m[Clear Sky] Analytical plots saved to ~/Downloads/\e[0m"
-	Rscript model.r --set i --save &> /dev/null & Rscript model.r --set c --save &> /dev/null
-	echo -e "\e[92m[Clear Sky] Individual Sensor plots haved to ~/Downloads/\e[0m"
-	echo -e "\e[92m[Clear Sky] Charts saved to ~/Downloads/\e[0m"
+	echo -e "\e[92m[Clear Sky] Individual Sensor plots saved to ~/Downloads/\e[0m"
+	Rscript model.r --poster --save &> /dev/null & Rscript model.r --set c --save &> /dev/null
+	echo -e "\e[92m[All] Poster plots saved to ~/Downloads/\e[0m"
+	echo -e "\e[92m[All] Charts saved to ~/Downloads/\e[0m"
 	Rscript modtran.r
 	echo -e "\e[92mModtran Plot saved to ~/Downloads/\e[0m"
 fi
