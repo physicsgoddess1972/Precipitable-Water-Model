@@ -19,7 +19,7 @@ cloudblue 	<- make_style("lightskyblue")
 
 ## Used for argument parsing run Rscript model.r --help
 parser <- ArgumentParser(formatter_class='argparse.RawTextHelpFormatter')
-parser$add_argument("--save", action="store_true", default=FALSE,
+parser$add_argument("--save", action="store_true", default=TRUE,
 	help="Saves plots")
 parser$add_argument("--set", type="character", default=FALSE,
 	help="Select plot sets: \\n\ [t]ime series\\n\ [a]nalytics\\n\ [c]harts\\n\ [i]ndividual sensors")
@@ -274,17 +274,7 @@ for (p in 1:length(col_pwtm)){
 
 ## Takes super average of the precipitable water measurements
 avgo 		<-  Reduce("+", pw_loco)/length(pw_loco)
-## A function that will produce popups through the matplotlib framework
-show 		<- function(..., overcast){
-# Pulls the input arguments
-	args <- list(...)
-# Creates a new plotting window for each variable in args
-	for (i in args){
-		i("show", overcast)
-	}
-	pyrun("try: plt.show()
-except AttributeError: print('\\n>>>> Plots were closed pre-maturely <<<<')")
-}
+
 ## A general function that will save plots
 save 			<- function(func, name){
 	pdf(name);func;invisible(graphics.off())
@@ -1082,11 +1072,9 @@ if(args$set == "i"){
 	for(i in 1:length(unique(snsr_tag))){
 		cat(green(sprintf("[%s]", i)), sprintf("Sky-Ground Time Series: %s\n", gsub("_", " ",unique(snsr_tag)[i])))
 	}
-	if (args$save){
 # Saves plots
-		save(c(instr(overcast=args$overcast)), sname)
-		cat(green(sprintf("Plot set downloaded to %s\n", sname)))
-	}
+	save(c(instr(overcast=args$overcast)), sname)
+	cat(green(sprintf("Plot set downloaded to %s\n", sname)))
 }else if(args$set == "t"){
 	if (args$overcast){
 # Overcast Condition
@@ -1103,14 +1091,15 @@ if(args$set == "i"){
 	cat(green("[2]"), "Ground Temperature Time Series\n")
 	cat(green("[3]"), "Change in Temperature between Sky and Ground Time Series\n")
 	cat(green("[4]"), "Precipitable Water Time Series\n")
-	cat(green("[5]"), "Mean Sky Temperature and PW Time Series\n")
+	cat(green("[5]"), "Sky Temperature - Precipitable Water Time Series\n")
+	cat(green("[6]"), "Temporal Mean Precipitable Water Time Series\n")
+	cat(green("[7]"), "Locational Mean Precipitable Water Time Series\n")
+	cat(green("[8]"), "Mean Precipitable Water Time Series\n")
 # Saves plots
-	if (args$save){
-		save(c(main1("save", overcast=args$overcast),main2("save", overcast=args$overcast),
-		main3("save", overcast=args$overcast), main4("save", overcast=args$overcast), main5("save", overcast=args$overcast),
-		main6("save", overcast=args$overcast), main7("save", overcast=args$overcast), main8("save", overcast=args$overcast)), sname)
-		cat(green(sprintf("Plot set downloaded to %s\n", sname)))
-	}
+	save(c(main1("save", overcast=args$overcast),main2("save", overcast=args$overcast),
+	main3("save", overcast=args$overcast), main4("save", overcast=args$overcast), main5("save", overcast=args$overcast),
+	main6("save", overcast=args$overcast), main7("save", overcast=args$overcast), main8("save", overcast=args$overcast)), sname)
+	cat(green(sprintf("Plot set downloaded to %s\n", sname)))
 }else if(args$set == "a"){
 	if(args$overcast){
 # Overcast condition
@@ -1128,43 +1117,35 @@ if(args$set == "i"){
 	cat(green("[3]"), "Total Mean PW and Temperature\n")
 	cat(green("[4]"), "Residual of the Mean PW and Temperature Model\n")
 # Saves plots
-	if (args$save){
-		save(c(plots1(overcast=args$overcast), plots2(overcast=args$overcast),
-			plots3(overcast=args$overcast), plots4(overcast=args$overcast)), sname)
-		cat(green(sprintf("Plot set downloaded to %s\n", sname)))
-	}
+	save(c(plots1(overcast=args$overcast), plots2(overcast=args$overcast),
+		plots3(overcast=args$overcast), plots4(overcast=args$overcast)), sname)
+	cat(green(sprintf("Plot set downloaded to %s\n", sname)))
 }else if(args$set == "c"){
 # Plots available with this option
 	for (i in 1:length(snsr_name)){
 		cat(green(sprintf("[%s]", i)), sprintf("Overcast Condition Percentage: %s\n", gsub("_", " ",snsr_name[i])))
 	}
 # Saves plots
-	if (args$save){
-		sname 	<- sprintf("~/Downloads/charts_%s.pdf", gsub("/", "_", recent))
-		save(c(charts1()), sname)
-		cat(green(sprintf("Plot set downloaded to %s\n", sname)))
-	}
+	sname 	<- sprintf("~/Downloads/charts_%s.pdf", gsub("/", "_", recent))
+	save(c(charts1()), sname)
+	cat(green(sprintf("Plot set downloaded to %s\n", sname)))
 }
 if(args$poster){
 # Plots available with this option
 	cat(green("[1]"), "Sky-Ground-Delta Temperature Time Series\n")
 	cat(green("[2]"), "Analytical Plots\n")
 # Saves plots
-	if(args$save){
-		sname <- sprintf("~/Downloads/poster_%s.pdf", gsub("/", "_", recent))
-		save(c(poster1(),poster2(), poster3()), sname)
-		cat(green(sprintf("Plot set downloaded to %s\n", sname)))
-	}
+	sname <- sprintf("~/Downloads/poster_%s.pdf", gsub("/", "_", recent))
+	save(c(poster1(),poster2(), poster3()), sname)
+	cat(green(sprintf("Plot set downloaded to %s\n", sname)))
 }
 if(args$dev){
 # Plots available with this option
 	cat(red("[1]"), "Pac-Man Residual of the Mean PW and Temperature Model\n")
 # Saves plots
-	if(args$save){
-		sname <- sprintf("~/Downloads/dev_%s.pdf", gsub("/", "_", recent))
-		save(plots5(), sname)
-		cat(green(sprintf("Plot set downloaded to %s\n", sname)))
-	}
+	sname <- sprintf("~/Downloads/dev_%s.pdf", gsub("/", "_", recent))
+	save(plots5(), sname)
+	cat(green(sprintf("Plot set downloaded to %s\n", sname)))
 }
 ## Ends the script
 quit_it()
