@@ -36,7 +36,7 @@ testrun <- function(btchsz, eph, run_indx, loc, activ_indx, optim_indx){
         select(-condition) %>%
         scale()
     Y_train <- to_categorical(df.train$condition)
-
+    print(ncol(X_train))
     X_test <- df.test[, 2:4] %>%
         select(-condition) %>%
         scale()

@@ -433,15 +433,15 @@ main4	<- function(legend, overcast=args$overcast){
 ## Sky Temperature - PW Time Series
 main5 	<- function(legend, overcast=args$overcast){
 	if(overcast){
-		date 	<- over_date; pyvar("date", sapply(date, paste, collapse=","))
-		range1 	<- as.numeric(unlist(snsr_sky_calco)); pyvar("range1", range1)
-		range2 	<- avgo; pyvar("range2", range2)
-		title 	<- sprintf("Mean Sky Temperature and PW Time Series \n Condition: Overcast"); pyvar("title", title)
+		date 	<- over_date
+		range1 	<- as.numeric(unlist(snsr_sky_calco))
+		range2 	<- avgo
+		title 	<- sprintf("Mean Sky Temperature and PW Time Series \n Condition: Overcast");
 	}else{
-		date 	<- clear_date; pyvar("date",  sapply(date, paste, collapse=","))
-		range1 	<- as.numeric(unlist(snsr_sky_calc)); pyvar("range1", range1)
-		range2 	<- avg; pyvar("range2", range2)
-		title 	<- sprintf("Mean Sky Temperature and PW Time Series \n Condition: Clear Sky"); pyvar("title", title)
+		date 	<- clear_date
+		range1 	<- as.numeric(unlist(snsr_sky_calc))
+		range2 	<- avg
+		title 	<- sprintf("Mean Sky Temperature and PW Time Series \n Condition: Clear Sky")
 	}
 	plot(date, range1, ylab=NA, xlab="Date", col="red", pch=16, main=title)
 	axis(side = 2); mtext(side = 2, line=3, "Temperature [C]", col="red")
@@ -582,8 +582,38 @@ plots2 	<- function(..., overcast=args$overcast){
 	}
 	legend("topleft", legend=unique(pw_place), col=colscheme, pch=c(16))
 }
-## Super Average Plot with Exponential Fit
+## Temporal Average Plots
 plots3 	<- function(..., overcast=args$overcast){
+	if(overcast){
+		xmax 	<- max(as.numeric(unlist(snsr_sky_calco)), na.rm=TRUE)
+		xmin 	<- min(as.numeric(unlist(snsr_sky_calco)), na.rm=TRUE)
+		ymax	<- max(as.numeric(unlist(tmp_avgo)), na.rm=TRUE)
+		ymin	<- min(as.numeric(unlist(tmp_avgo)), na.rm=TRUE)
+		x 		<- as.numeric(unlist(snsr_sky_calco))
+		range 	<- tmp_avgo
+		title 	<- "Correlation between Temporal Mean PW and Temperature \n Condition: Overcast"
+	}else{
+		xmax 	<- max(as.numeric(unlist(snsr_sky_calc)), na.rm=TRUE)
+		xmin 	<- min(as.numeric(unlist(snsr_sky_calc)), na.rm=TRUE)
+		ymax	<- max(as.numeric(unlist(tmp_avg)), na.rm=TRUE)
+		ymin	<- min(as.numeric(unlist(tmp_avg)), na.rm=TRUE)
+		x 		<- as.numeric(unlist(snsr_sky_calc))
+		range 	<- tmp_avg
+		title 	<- "Correlation between Temporal Mean PW and Temperature \n Condition: Clear Sky"
+	}
+	colscheme <- distinctColorPalette(length(range), runTsne=FALSE, altCol=TRUE)
+
+	plot(x,  t(unlist(range[1])), xlab="Zenith Sky Temperature [C]", ylab="PW [mm]",
+	xlim=c(xmin, xmax), ylim=c(ymin, ymax), main=title, pch=16, col=colscheme[1])
+
+	for(j in 2:length(range)){
+		points(x, t(unlist(range[j])), pch=16, col=colscheme[j])
+	}
+	legend("topleft", legend=unique(pw_time), col=colscheme, pch=c(16))
+}
+
+## Super Average Plot with Exponential Fit
+plots4 	<- function(..., overcast=args$overcast){
 	if(overcast){
 		exp_reg <- exp_regression(as.numeric(unlist(snsr_sky_calco)), avgo)
 		ymax 	<- max(exp_reg$y, na.rm=TRUE)
@@ -613,7 +643,7 @@ plots3 	<- function(..., overcast=args$overcast){
 		exp(coef(exp_reg$model)[1]),coef(exp_reg$model)[2], exp_reg$R2)), "Prediction", "Confidence"))
 }
 ## Residual Plot
-plots4 	<- function(..., overcast=args$overcast){
+plots5 	<- function(..., overcast=args$overcast){
 	if(overcast){
 		exp_reg <- exp_regression(as.numeric(unlist(snsr_sky_calco)), avgo)
 		title 	<- "Residual of the Mean PW and Temperature Model \n Condition: Overcast"
@@ -626,7 +656,7 @@ plots4 	<- function(..., overcast=args$overcast){
 		xlab="Zenith Sky Temperature [C]", ylab=expression(sigma), main=title)
 }
 ## Pacman Residual Plot
-plots5 	<- function(..., overcast=args$overcast){
+plots6 	<- function(..., overcast=args$overcast){
     if(overcast){
         exp_reg 	<- exp_regression(as.numeric(unlist(snsr_sky_calco)), avgo)
         title 		<- "Pac-Man Residual of the Mean PW and Temperature Model\nCondition: Overcast"
@@ -807,25 +837,27 @@ poster2 <- function(...){
 		par(mar=c(3,3, 3, 1), oma=c(1,1.5,0,0), xpd=FALSE)
 		layout(matrix(c(1,2,3,3), 2, 2, byrow=TRUE))
 ## Individual Location PW Temperature Correlation
-		xmax 	<- max(as.numeric(unlist(snsr_sky)), na.rm=TRUE)
-		xmin 	<- min(as.numeric(unlist(snsr_sky)), na.rm=TRUE)
-		ymax	<- max(as.numeric(unlist(pw_loc)), na.rm=TRUE)
-		ymin	<- min(as.numeric(unlist(pw_loc)), na.rm=TRUE)
-		x 		<- snsr_sky[[ paste("snsr_sky",3,sep="") ]]
-		range 	<- pw_loc
+		xmax 	<- max(as.numeric(unlist(snsr_sky_calc)), na.rm=TRUE)
+		xmin 	<- min(as.numeric(unlist(snsr_sky_calc)), na.rm=TRUE)
+		x 		<- as.numeric(unlist(snsr_sky_calc))
 
-		plot(x,  t(unlist(range[1])), col=pw_color[1], las=1, pch=16,
-			xlim=c(xmin, xmax), ylim=c(ymin, ymax), xlab=NA, ylab=NA, main=NA)
+		ymax	<- max(as.numeric(unlist(tmp_avg)), na.rm=TRUE)
+		ymin	<- min(as.numeric(unlist(tmp_avg)), na.rm=TRUE)
+		range 	<- tmp_avg
 
-		title("PW vs Temp",line=0.5)
+		title 	<- "Temporal Mean PW and Temp"
 		mtext("PW [mm]", side=2, line=2.25, cex=0.65)
 		mtext("Zenith Sky Temperature [C]", side=1, line=2.25, cex=0.65)
 
-		for(j in 2:length(range)){
-			points(x, t(unlist(range[j])), pch=16, col=pw_color[j])
-		}
+		colscheme <- distinctColorPalette(length(range), runTsne=FALSE, altCol=TRUE)
 
-		legend("topleft", legend=pw_name,col=pw_color, pch=16)
+		plot(x, t(unlist(range[1])), xlab="Zenith Sky Temperature [C]", ylab="PW [mm]",
+		xlim=c(xmin, xmax), ylim=c(ymin, ymax), main=title, pch=16, col=colscheme[1])
+
+		for(j in 2:length(range)){
+			points(x, t(unlist(range[j])), pch=16, col=colscheme[j])
+		}
+		legend("topleft", legend=unique(pw_time), col=colscheme, pch=c(16))
 
 ## Locational Average Pw Temperature Correlation
 		ymax	<- max(as.numeric(unlist(loc_avg)), na.rm=TRUE)
@@ -1114,11 +1146,12 @@ if(args$set == "i"){
 # Plots available with this option
 	cat(green("[1]"), "Correlation between PW and Temperature\n")
 	cat(green("[2]"), "Correlation between Locational Mean PW and Temperature\n")
-	cat(green("[3]"), "Total Mean PW and Temperature\n")
-	cat(green("[4]"), "Residual of the Mean PW and Temperature Model\n")
+	cat(green("[3]"), "Correlation between Temporal Mean PW and Temperature\n")
+	cat(green("[4]"), "Total Mean PW and Temperature\n")
+	cat(green("[5]"), "Residual of the Mean PW and Temperature Model\n")
 # Saves plots
 	save(c(plots1(overcast=args$overcast), plots2(overcast=args$overcast),
-		plots3(overcast=args$overcast), plots4(overcast=args$overcast)), sname)
+		plots3(overcast=args$overcast), plots4(overcast=args$overcast),plots5(overcast=args$overcast)), sname)
 	cat(green(sprintf("Plot set downloaded to %s\n", sname)))
 }else if(args$set == "c"){
 # Plots available with this option
