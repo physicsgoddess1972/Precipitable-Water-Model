@@ -56,6 +56,7 @@ modtran_plot <- function(xran, fname,offset, leg) {
     points(avg0, avg2, pch=16, col=color[2])
     points(avg0, avg3, pch=16, col=color[3])
 
+    print(temp_planck_curve(avg0, avg1))
     points(avg0, Reduce("+", planck_curve(xran, 240))/length(planck_curve(xran, 240)), pch=16, col=color[4])
     points(avg0, Reduce("+", planck_curve(xran, 280))/length(planck_curve(xran, 280)), pch=16, col=color[5])
 
@@ -74,7 +75,7 @@ modtran_plot1 <- function(fname){
     main="Altitude and Water Pressure Correlation")
 }
 pdf("~/Downloads/modtran.pdf")
-modtran_plot(c(7,10), fname1, c(12.75,15,11.25), c("Water Vapor Scale = 1","Water Vapor Scale = 2","Water Vapor Scale = 0.5"))
+modtran_plot(c(7,10), fname1, c(11.25,12.75,14), c("TPW = 11.4 mm", "TPW = 22.7 mm","TPW = 45.4 mm"))
 modtran_plot(c(7,10), fname2, c(11.5, 12.75, 14), c("-5 K Offset", "0 K Offset", "+5 K Offset"))
 #it addmodtran_plot1(fname3)
 graphics.off()
