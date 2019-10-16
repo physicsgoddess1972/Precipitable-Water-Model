@@ -16,7 +16,7 @@
 	This experiment used three infrared sensors:
 	<ol>
 		<li>AMES</li>
-		<li>FLi3R</li>
+		<li>FLIR i3</li>
 		<li>1610 TE</li>
 	</ol>
 	The purpose of these sensors is to measure the thermal energy of a
@@ -100,7 +100,7 @@ optional arguments:
 </code>
 </pre>
 
-<div class="collapsible">
+<div class="collapsible_1">
 <div class="panel">
 <h3> 'Time Series' Set Contents </h3>
 <pre lang="bash">
@@ -114,10 +114,15 @@ optional arguments:
 	<li> Ground Temperature Time Series </li>
 	<li> Change in Temperature Time Series </li>
     <li> Precipitable Water Time Series </li>
+    <li> Sky Temperature - Precipitable Water Time Series </li>
+    <li> Temporal Mean Precipitable Water Time Series </li>
+    <li> Locational Mean Precipitable Water Time Series </li>
+    <li> Mean Precipitable Water Time Series </li>
+   
 </ol>
 </div></div>
 
-<div class="collapsible">
+<div class="collapsible_1">
 <div class="panel">
 <h3> 'Analytics' Set Contents </h3>
 <pre lang="bash">
@@ -132,11 +137,10 @@ optional arguments:
 	<li> Locational Average PW and Temperature </li>
 	<li> Total Mean PW and Temperature </li>
 	<li> Residual for Total Mean PW and Temperature</li>
-	<li> Pac-Man Residual for Total Mean PW and Temperature </li>
 </ol>
 </div></div>
 
-<div class="collapsible">
+<div class="collapsible_1">
 <div class="panel">
 <h3> 'Charts' Set Contents </h3>
 
@@ -151,7 +155,7 @@ optional arguments:
 </ol>
 </div></div>
 
-<div class="collapsible">
+<div class="collapsible_1">
 <div class="panel">
 <h3> 'Individual Sensors' Set Contents </h3>
 
@@ -168,7 +172,7 @@ optional arguments:
 </div></div>
 
 <div id="step">
-<div class="collapsible">
+<div class="collapsible_1">
 <div class="panel">
 <h3> Step-by-Step usage (Linux)</h3>
 <table class="usage">
