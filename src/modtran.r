@@ -1,7 +1,8 @@
 ## Imports data from master_data.csv
-fname       <- read.table(file="../data/modtran/modtran.csv", sep=",", header=TRUE, strip.white=TRUE)
-
-modtran_plot <- function(xran){
+fname1       <- read.table(file="../data/modtran/radiance/modtran.csv", sep=",", header=TRUE, strip.white=TRUE)
+fname2       <- read.table(file="../data/modtran/temp_offset/modtran.csv", sep=",", header=TRUE, strip.white=TRUE)
+fname3       <- read.table(file="../data/modtran/modtran_wps1.csv", sep=",", header=TRUE, strip.white=TRUE)
+modtran_plot <- function(xran, fname,offset, leg) {
     rad <- function(data){
         intensity <- data * pi * 10^4
         return(intensity)
@@ -51,23 +52,30 @@ modtran_plot <- function(xran){
     curve(planck_curve(x, temp_planck_curve(avg0, avg2)), add=TRUE)
     curve(planck_curve(x, temp_planck_curve(avg0, avg3)), add=TRUE)
 
-
-    sprintf("Water Vapor Scale == 1; %s", temp_planck_curve(avg0, avg1))
-    print(temp_planck_curve(avg0, avg2))
-    print(temp_planck_curve(avg0, avg3))
-
     points(avg0, avg1, pch=16, col=color[1])
     points(avg0, avg2, pch=16, col=color[2])
     points(avg0, avg3, pch=16, col=color[3])
 
+    print(temp_planck_curve(avg0, avg1))
     points(avg0, Reduce("+", planck_curve(xran, 240))/length(planck_curve(xran, 240)), pch=16, col=color[4])
     points(avg0, Reduce("+", planck_curve(xran, 280))/length(planck_curve(xran, 280)), pch=16, col=color[5])
 
-    legend("topright", col=color, pch=c(16,16),
-        legend=c( "Water Vapor Scale = 1","Water Vapor Scale = 2","Water Vapor Scale = 0.5","T = 240 K", "T = 280 K"))
+    text(8.8, 21.5, label="T = 280 K", col=color[5], srt=10)
+    text(7.5, 5.85, label="T = 240 K", col=color[4], srt=10)
+
+    text(9.5,offset[1], label=paste("T = ", round(temp_planck_curve(avg0, avg1), 2), "K"), srt=5, cex=0.75)
+    text(9.5,offset[2], label=paste("T = ", round(temp_planck_curve(avg0, avg2), 2), "K"), srt=5, cex=0.75)
+    text(9.5,offset[3], label=paste("T = ", round(temp_planck_curve(avg0, avg3),2), "K"), srt=5, cex=0.75)
+
+    legend("topright", col=color, pch=c(16,16), legend=leg)
+}
+
+modtran_plot1 <- function(fname){
+    plot(fname[,5], fname[,2], xlab="Water Pressure (mbar)", ylab="Altitude (km)",
+    main="Altitude and Water Pressure Correlation")
 }
 pdf("~/Downloads/modtran.pdf")
-#modtran_plot(c(5,25))
-
-modtran_plot(c(7, 10))
+modtran_plot(c(7,10), fname1, c(11.25,12.75,14), c("TPW = 11.4 mm", "TPW = 22.7 mm","TPW = 45.4 mm"))
+modtran_plot(c(7,10), fname2, c(11.5, 12.75, 14), c("-5 K Offset", "0 K Offset", "+5 K Offset"))
+#it addmodtran_plot1(fname3)
 graphics.off()

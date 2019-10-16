@@ -1,16 +1,17 @@
 suppressPackageStartupMessages(library(tidyverse))
-library(keras)
-library(fastDummies)
 suppressPackageStartupMessages(library(caret))
 suppressPackageStartupMessages(library(crayon))
+library(fastDummies)
 library(argparse)
+library(keras)
 
 parser <- ArgumentParser(formatter_class='argparse.RawTextHelpFormatter')
-parser$add_argument("-r", "--run", type="integer",
-	help="Number of time to run.")
-parser$add_argument("-l", "--loc", type="character")
-parser$add_argument("-e", "--eph", type="integer")
-parser$add_argument("-b", "--bhsz", type="integer")
+parser$add_argument("-r", type="integer")
+parser$add_argument("-l", type="character")
+parser$add_argument("-e", type="integer")
+parser$add_argument("-b", type="integer")
+parser$add_argument("-a", type="integer")
+parser$add_argument("-o", type="integer")
 args <- parser$parse_args()
 
 df <- read.csv('../../data/ml/ml_data.csv')
@@ -22,7 +23,10 @@ yellow 		<- make_style("gold2")
 green 		<- make_style("lawngreen")
 cloudblue 	<- make_style("lightskyblue")
 
-testrun <- function(btchsz, eph, run_indx, loc){
+activ = list("relu")
+optim = list("adam")
+
+testrun <- function(btchsz, eph, run_indx, loc, activ_indx, optim_indx){
     index <- createDataPartition(df$condition, p=0.8, list=FALSE)
 
     df.train     <- df[index, ]
@@ -32,24 +36,24 @@ testrun <- function(btchsz, eph, run_indx, loc){
         select(-condition) %>%
         scale()
     Y_train <- to_categorical(df.train$condition)
-
+    print(ncol(X_train))
     X_test <- df.test[, 2:4] %>%
         select(-condition) %>%
         scale()
     Y_test <- to_categorical(df.test$condition)
         model <- keras_model_sequential()
         model %>%
-            layer_dense(units = 32, activation = 'relu', input_shape = ncol(X_train)) %>%
+            layer_dense(units = 32, activation = activ[activ_indx], input_shape = ncol(X_train)) %>%
             layer_dropout(rate = 0.8) %>%
-            layer_dense(units = 32, activation = 'relu') %>%
+            layer_dense(units = 32, activation = activ[activ_indx]) %>%
             layer_dropout(rate = 0.6) %>%
-            layer_dense(units = 32, activation= 'relu') %>%
+            layer_dense(units = 32, activation = activ[activ_indx]) %>%
             layer_dropout(rate = 0.3) %>%
             layer_dense(units = 3, activation = 'sigmoid')
 
         history <- model %>% compile(
             loss = 'categorical_crossentropy',
-            optimizer = 'adam',
+            optimizer = optim[optim_indx],
             metrics = c('accuracy'),
         )
         fitter <- model %>% fit(
