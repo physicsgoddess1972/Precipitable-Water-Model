@@ -8,7 +8,7 @@ modtran_plot <- function(xran){
     }
     color = c("#00BCD7", "#FF9A00", "#66FF33", "#D90000", "#8F00C9")
     plot(fname[,1], rad(fname[,2]), type='n', xlab=NA, ylab=NA,
-    main="MODTRAN Plot", xlim=xran, ylim=c(0, 30))
+    main="Wavelength and Intensity Correlation", xlim=xran, ylim=c(0, 30))
     lines(fname[,1], rad(fname[,2]), cex=0.6, col=color[1])
     lines(fname[,1], rad(fname[,3]), cex=0.6, col=color[2])
     lines(fname[,1], rad(fname[,4]), cex=0.6, col=color[3])
