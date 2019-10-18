@@ -77,5 +77,4 @@ modtran_plot1 <- function(fname){
 pdf("~/Downloads/modtran.pdf")
 modtran_plot(c(7,10), fname1, c(11.25,12.75,14), c("TPW = 11.4 mm", "TPW = 22.7 mm","TPW = 45.4 mm"))
 modtran_plot(c(7,10), fname2, c(11.5, 12.75, 14), c("-5 K Offset", "0 K Offset", "+5 K Offset"))
-#it addmodtran_plot1(fname3)
 graphics.off()
