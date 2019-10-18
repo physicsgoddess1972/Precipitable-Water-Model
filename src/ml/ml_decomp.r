@@ -30,9 +30,15 @@ X_test <- df.test[, 2:4] %>%
 Y_test <- to_categorical(df.test$condition)
 model <- keras_model_sequential()
 model %>%
-        layer_dense(units = 64, activation = "relu", input_shape = ncol(X_train)) %>%
+        layer_dense(units = 16, activation = "relu", input_shape = ncol(X_train)) %>%
         layer_dropout(rate = 0.8) %>%
-        layer_dense(units = 32, activation = "relu") %>%
+        layer_dense(units = 16, activation = "relu") %>%
+        layer_dropout(rate = 0.6) %>%
+        layer_dense(units = 16, activation = "relu") %>%
+        layer_dropout(rate = 0.6) %>%
+        layer_dense(units = 16, activation = "relu") %>%
+        layer_dropout(rate = 0.6) %>%
+        layer_dense(units = 16, activation = "relu") %>%
         layer_dropout(rate = 0.6) %>%
         layer_dense(units = 16, activation = "relu") %>%
         layer_dropout(rate = 0.3) %>%
