@@ -56,14 +56,10 @@ modtran_plot <- function(xran, fname,offset, leg) {
     points(avg0, avg2, pch=16, col=color[2])
     points(avg0, avg3, pch=16, col=color[3])
 
-    print(temp_planck_curve(avg0, avg1))
     points(avg0, Reduce("+", planck_curve(xran, 240))/length(planck_curve(xran, 240)), pch=16, col=color[4])
     points(avg0, Reduce("+", planck_curve(xran, 280))/length(planck_curve(xran, 280)), pch=16, col=color[5])
 
-    text(8.8, 21.5, label="T = 280 K", col=color[5], srt=10)
-    text(7.5, 5.85, label="T = 240 K", col=color[4], srt=10)
-
-    text(9.5,offset[1], label=paste("T = ", round(temp_planck_curve(avg0, avg1), 2), "K"), srt=5, cex=0.75)
+    text(8.8, 21.5, label="T = 280 K", col=color[5], srt=10)ve(avg0, avg1), 2), "K"), srt=5, cex=0.75)
     text(9.5,offset[2], label=paste("T = ", round(temp_planck_curve(avg0, avg2), 2), "K"), srt=5, cex=0.75)
     text(9.5,offset[3], label=paste("T = ", round(temp_planck_curve(avg0, avg3),2), "K"), srt=5, cex=0.75)
 
@@ -77,5 +73,4 @@ modtran_plot1 <- function(fname){
 pdf("~/Downloads/modtran.pdf")
 modtran_plot(c(7,10), fname1, c(11.25,12.75,14), c("TPW = 11.4 mm", "TPW = 22.7 mm","TPW = 45.4 mm"))
 modtran_plot(c(7,10), fname2, c(11.5, 12.75, 14), c("-5 K Offset", "0 K Offset", "+5 K Offset"))
-#it addmodtran_plot1(fname3)
 graphics.off()
