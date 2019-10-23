@@ -562,7 +562,7 @@ plots2 	<- function(..., overcast=args$overcast){
 		ymin	<- min(as.numeric(unlist(loc_avgo)), na.rm=TRUE)
 		x 		<- as.numeric(unlist(snsr_sky_calco))
 		range 	<- loc_avgo
-		title 	<- "Correlation between Locational Mean PW and Temperature \n Condition: Overcast"
+		title 	<- "Correlation between Temporal Mean PW and Temperature \n Condition: Overcast"
 	}else{
 		xmax 	<- max(as.numeric(unlist(snsr_sky_calc)), na.rm=TRUE)
 		xmin 	<- min(as.numeric(unlist(snsr_sky_calc)), na.rm=TRUE)
@@ -570,7 +570,7 @@ plots2 	<- function(..., overcast=args$overcast){
 		ymin	<- min(as.numeric(unlist(loc_avg)), na.rm=TRUE)
 		x 		<- as.numeric(unlist(snsr_sky_calc))
 		range 	<- loc_avg
-		title 	<- "Correlation between Locational Mean PW and Temperature \n Condition: Clear Sky"
+		title 	<- "Correlation between Temporal Mean PW and Temperature \n Condition: Clear Sky"
 	}
 	colscheme <- distinctColorPalette(length(range), runTsne=FALSE, altCol=TRUE)
 
@@ -591,7 +591,7 @@ plots3 	<- function(..., overcast=args$overcast){
 		ymin	<- min(as.numeric(unlist(tmp_avgo)), na.rm=TRUE)
 		x 		<- as.numeric(unlist(snsr_sky_calco))
 		range 	<- tmp_avgo
-		title 	<- "Correlation between Temporal Mean PW and Temperature \n Condition: Overcast"
+		title 	<- "Correlation between Locational Mean PW and Temperature \n Condition: Overcast"
 	}else{
 		xmax 	<- max(as.numeric(unlist(snsr_sky_calc)), na.rm=TRUE)
 		xmin 	<- min(as.numeric(unlist(snsr_sky_calc)), na.rm=TRUE)
@@ -599,7 +599,7 @@ plots3 	<- function(..., overcast=args$overcast){
 		ymin	<- min(as.numeric(unlist(tmp_avg)), na.rm=TRUE)
 		x 		<- as.numeric(unlist(snsr_sky_calc))
 		range 	<- tmp_avg
-		title 	<- "Correlation between Temporal Mean PW and Temperature \n Condition: Clear Sky"
+		title 	<- "Correlation between Locational Mean PW and Temperature \n Condition: Clear Sky"
 	}
 	colscheme <- distinctColorPalette(length(range), runTsne=FALSE, altCol=TRUE)
 
@@ -845,14 +845,15 @@ poster2 <- function(...){
 		ymin	<- min(as.numeric(unlist(tmp_avg)), na.rm=TRUE)
 		range 	<- tmp_avg
 
-		title 	<- "Temporal Mean PW and Temp"
-		mtext("PW [mm]", side=2, line=2.25, cex=0.65)
-		mtext("Zenith Sky Temperature [C]", side=1, line=2.25, cex=0.65)
-
 		colscheme <- distinctColorPalette(length(range), runTsne=FALSE, altCol=TRUE)
 
-		plot(x, t(unlist(range[1])), xlab="Zenith Sky Temperature [C]", ylab="PW [mm]",
-		xlim=c(xmin, xmax), ylim=c(ymin, ymax), main=title, pch=16, col=colscheme[1])
+		plot(x, t(unlist(range[1])), xlab=NA, ylab=NA,
+		xlim=c(xmin, xmax), ylim=c(ymin, ymax), main=NA, pch=16, col=colscheme[1])
+
+		title("Locational Mean PW and Temp",line=0.5)
+
+		mtext("PW [mm]", side=2, line=2.25, cex=0.65)
+		mtext("Zenith Sky Temperature [C]", side=1, line=2.25, cex=0.65)
 
 		for(j in 2:length(range)){
 			points(x, t(unlist(range[j])), pch=16, col=colscheme[j])
@@ -867,7 +868,7 @@ poster2 <- function(...){
 		plot(x,  t(unlist(range[1])), xlab=NA, ylab=NA, xlim=c(xmin, xmax),
 			ylim=c(ymin, ymax), main=NA, pch=16, col="gold2")
 
-		title("Locational Mean PW and Temp",line=0.5)
+		title("Temporal Mean PW and Temp",line=0.5)
 		mtext("Zenith Sky Temperature [C]", side=1, line=2.25, cex=0.65)
 
 		for(j in 2:length(range)){
@@ -944,12 +945,12 @@ poster3 <- function(...){
 				for (i in 1:length(slices)){
 					if (pct[i] == 0){
 						text(pct[i] + 7, bar[i], labels=sprintf('%s %%', as.character(pct[i])))
-					}else if(pct[i] < 3){
-						text(pct[i] + 12, bar[i], labels=sprintf('%s %%', as.character(pct[i])))
+					}else if(pct[i] < 5){
+						text(pct[i] + 25, bar[i], labels=sprintf('%s %%', as.character(pct[i])))
 					}else if(pct[i] < 10){
 						text(pct[i] + 17, bar[i], labels=sprintf('%s %%', as.character(pct[i])))
 					}else{
-						text(pct[i], bar[i], labels=sprintf('%s %%', as.character(pct[i])))
+						text(pct[i] + 10, bar[i], labels=sprintf('%s %%', as.character(pct[i])))
 					}
 				}
 			}
@@ -1167,6 +1168,7 @@ if(args$poster){
 # Plots available with this option
 	cat(green("[1]"), "Sky-Ground-Delta Temperature Time Series\n")
 	cat(green("[2]"), "Analytical Plots\n")
+	cat(green("[3]"), "Condiiton Distrbuion by Sensor")
 # Saves plots
 	sname <- sprintf("~/Downloads/poster_%s.pdf", gsub("/", "_", recent))
 	save(c(poster1(),poster2(), poster3()), sname)
