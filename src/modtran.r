@@ -59,7 +59,7 @@ modtran_plot <- function(xran, fname,offset, leg) {
     points(avg0, Reduce("+", planck_curve(xran, 240))/length(planck_curve(xran, 240)), pch=16, col=color[4])
     points(avg0, Reduce("+", planck_curve(xran, 280))/length(planck_curve(xran, 280)), pch=16, col=color[5])
 
-    text(8.8, 21.5, label="T = 280 K", col=color[5], srt=10)ve(avg0, avg1), 2), "K"), srt=5, cex=0.75)
+    text(8.8, 21.5, label="T = 280 K", col=color[5], srt=10)
     text(9.5,offset[2], label=paste("T = ", round(temp_planck_curve(avg0, avg2), 2), "K"), srt=5, cex=0.75)
     text(9.5,offset[3], label=paste("T = ", round(temp_planck_curve(avg0, avg3),2), "K"), srt=5, cex=0.75)
 
