@@ -5,19 +5,39 @@
 		<h2>Introduction</h2>
 </div>
 <div class="panel">
+    <h3>What is Precipitable Water?</h3>
+    Precipitable water is the amount of condensed water vapor to be found in a vertical column of air, with a base of 1 meter-squared, that 
+    extends from the surface of the Earth to the top of the atmosphere. 
+    <br><br>
+    <img src="./assets/img/tpw_image5.png" width=450px height=300px style="display: block; margin-left: auto; margin-right: auto"></img>
+    <br>
+    <i><b>Figure 1:</b> Schematic illustrating the concept of precipitable water. The left column contains air and water vapour, 
+        the right column contains dry air and condensed water vapour on the bottom of the column <a href="#references">[1]</a>.
+    </i>
+    <br><br>
+    Precipitable water is important because:
+    <ul>
+        <li> Energy is transferred from the surface to the atmosphere via water vapor, and is released as latent heat. Precipitable water helps
+     us determine the amount of energy in the atmosphere. </li>
+        <li> Weather forecasting models can use precipitable water data to determine the likelihood of storms, hail, and other major meteorological 
+        events. </li> 
+        <li> The relationship between air temperature and the amount of water vapor is linear. Therefore, precipitable water measurements can be
+        used to determine temperature increases at higher altitudes.
+    </ul>
 	<h3>Goal</h3>
 	The goal of this project is to determine the correlation between
-	zenith sky temperature and the precipitable water. This experiment
-	is based off of a similar study conducted by Mims et al. The primary
-	difference between the two endeavors is the methodology and data 
-	source, for instance our method is more rigorous and more 
-	accessable.(?...?).
+	zenith sky temperature and precipitable water. This experiment
+	is based off of a similar study conducted by Mims et al [2]. 
+	We endeavor to develop a methodology and data 
+	source that is more rigorous, more accessible, and more easily repeatable across a variety of climate zones.
 	<h3>Intstrumentation</h3>
-	This experiment used three infrared sensors:
+    <img src="./assets/img/thermometers.jpg" width=450px height=300px style="display: block; margin-left: auto; margin-right: auto"></img>
+    <br>    
+	This experiment used three infrared sensors <i>(from left to right)</i>:
 	<ol>
-		<li>AMES</li>
-		<li>FLIR i3</li>
 		<li>1610 TE</li>
+		<li>FLIR i3</li>
+		<li>AMES</li>
 	</ol>
 	The purpose of these sensors is to measure the thermal energy of a
 	given area in the atmosphere. The area is determined by the Distance to
@@ -31,6 +51,22 @@
 	regarding the different columns of the <code>instruments.txt</code> will
 	be discussed in the Data Format section of this documentation page.
 </div></div>
+<div id="methods">
+<div class="collapsible">
+<div class="collapsible-header">
+	<h2>Methodology</h2>
+</div>
+<div class="panel">
+<div class="data-format">
+    <h3>Setting Guidelines</h3>
+    <ol>
+        <li>Determine the Scope of the project </li>
+        <li>
+        <li>
+        <li>
+        <li> 
+    </ol>
+</div></div></div></div>
 
 <div id="data">
 <div class="collapsible">
@@ -253,7 +289,14 @@ The future development of this project with regards to the data collection inclu
 </div>
 <div class="panel">
     <ul>
-        <li><a href="" target="_blank">Wyoming Sounding Data</a></li>
+        <li><a href="http://weather.uwyo.edu/upperair/sounding.html" target="_blank">Wyoming Sounding Data</a></li>
     </ul>
 </div></div></div>
 
+<div id="references">
+<div class="collapsible">
+<div class="collapsible-header">
+    <h2>References</h2>
+</div>
+<div class="panel">
+</div></div></div>
