@@ -747,12 +747,12 @@ poster1 <- function(...){
 		xmin = min(clear_date, na.rm=TRUE)
 		xmax = max(clear_date, na.rm=TRUE)
 # Sky Temperature Time series
-		ymax 		<- max(as.numeric(unlist(snsr_sky)),na.rm=TRUE)
-		ymin 		<- min(as.numeric(unlist(snsr_sky)),na.rm=TRUE)
+		ymax 		<- max(c(as.numeric(unlist(snsr_skyo)),as.numeric(unlist(snsr_sky))), na.rm=TRUE)
+		ymin 		<- min(c(as.numeric(unlist(snsr_skyo)),as.numeric(unlist(snsr_sky))), na.rm=TRUE)
 		range_index <- snsr_sky
 
 		plot(clear_date, t(unlist(range_index[1])), xlab=NA, ylab=NA, main=NA, pch=16,
-			xlim=c(xmin, xmax), ylim=c(ymin, ymax), col=c(snsr_color[1]))
+			xlim=c(xmin, xmax), ylim=c(ymin, ymax), col=c(snsr_color[1]), las=1)
 
 		title("Sky Temperature",line=0.5)
 		mtext("Temperature [C]", side=2, line=2.5, cex=0.65)
@@ -764,8 +764,6 @@ poster1 <- function(...){
 		legend("topleft", legend=c(gsub("_", " ", snsr_name)),col=snsr_color, pch=16)
 
 # Sky Temperature Time Series (overcast)
-		ymax 		<- max(as.numeric(unlist(snsr_skyo)), na.rm=TRUE)
-		ymin 		<- min(as.numeric(unlist(snsr_skyo)), na.rm=TRUE)
 		range_index <- snsr_skyo
 
 		plot(over_date,t(unlist(range_index[1])), ylab=NA,
@@ -777,12 +775,12 @@ poster1 <- function(...){
 			points(over_date, t(unlist(range_index[j])), pch=16, col=snsr_color[j])
 		}
 # Ground Temperature Time Series
-		ymax  		<- max(as.numeric(unlist(snsr_gro)),na.rm=TRUE)
-		ymin  		<- min(as.numeric(unlist(snsr_gro)),na.rm=TRUE)
+		ymax  		<- max(c(as.numeric(unlist(snsr_gro)),as.numeric(unlist(snsr_groo))),na.rm=TRUE)
+		ymin  		<- min(c(as.numeric(unlist(snsr_gro)),as.numeric(unlist(snsr_groo))),na.rm=TRUE)
 		range_index <- snsr_gro
 
 		plot(clear_date, t(unlist(range_index[1])), xlab=NA, ylab=NA, main=NA, pch=16,
-			xlim=c(xmin, xmax), ylim=c(ymin, ymax), col=snsr_color[1])
+			xlim=c(xmin, xmax), ylim=c(ymin, ymax), col=snsr_color[1], las=1)
 		title("Ground Temperature", line=0.5)
 		mtext("Temperature [C]", side=2, line=2.5, cex=0.65)
 
@@ -790,37 +788,33 @@ poster1 <- function(...){
 			points(clear_date,t(unlist(range_index[j])), pch=16, col=snsr_color[j])
 		}
 # Ground Temperature Time Series (overcast)
-		ymax  		<- max(as.numeric(unlist(snsr_groo)),na.rm=TRUE)
-		ymin  		<- min(as.numeric(unlist(snsr_groo)),na.rm=TRUE)
 		range_index <- snsr_groo
 		plot(over_date, t(unlist(range_index[1])), xlab=NA, ylab=NA, main=NA, pch=16,
-			xlim=c(xmin, xmax), ylim=c(ymin, ymax), col=snsr_color[1])
+			xlim=c(xmin, xmax), ylim=c(ymin, ymax), col=snsr_color[1], las=1)
 		title("Ground Temperature", line=0.5)
 		for(j in 2:length(range_index)){
 			points(over_date,t(unlist(range_index[j])), pch=16, col=snsr_color[j])
 		}
-# Change in Temperature Time Series
-		ymax 		<- max(as.numeric(unlist(snsr_del)), na.rm=TRUE)
-		ymin 		<- min(as.numeric(unlist(snsr_del)), na.rm=TRUE)
+# Difference in Temperature Time Series
+		ymax 		<- max(c(as.numeric(unlist(snsr_del)),as.numeric(unlist(snsr_delo))), na.rm=TRUE)
+		ymin 		<- min(c(as.numeric(unlist(snsr_del)),as.numeric(unlist(snsr_delo))), na.rm=TRUE)
 		range_index <- snsr_del
 
 		plot(clear_date, t(unlist(range_index[1])), xlab=NA, ylab=NA,main=NA, pch=16,
-			  xlim=c(xmin, xmax), ylim=c(ymin, ymax),col=snsr_color[1])
-		title("Change in Temperature", line=0.5)
+			  xlim=c(xmin, xmax), ylim=c(ymin, ymax),col=snsr_color[1], las=1)
+		title("Difference in Temperature", line=0.5)
 		mtext("Temperature [C]", side=2, line=2.5, cex=0.65)
 
 		for(j in 2:length(range_index)){
 			points(clear_date, t(unlist(range_index[j])), pch=16, col=snsr_color[j])
 		}
-# Change in Temperature Time Series (overcast)
-		ymax 		<- max(as.numeric(unlist(snsr_delo)), na.rm=TRUE)
-		ymin 		<- min(as.numeric(unlist(snsr_delo)), na.rm=TRUE)
+# Difference in Temperature Time Series (overcast)
 		range_index <- snsr_delo
 
 		plot(over_date, t(unlist(range_index[1])), xlab=NA, ylab=NA,main=NA, pch=16,
-			 xlim=c(xmin, xmax), ylim=c(ymin, ymax),col=snsr_color[1])
+			 xlim=c(xmin, xmax), ylim=c(ymin, ymax),col=snsr_color[1], las=1)
 
-		title("Change in Temperature", line=0.5)
+		title("Difference in Temperature", line=0.5)
 
 		for(j in 2:length(range_index)){
 			points(over_date,t(unlist(range_index[j])), pch=16, col=snsr_color[j])
@@ -924,7 +918,6 @@ poster3 <- function(...){
 		}else{
 			tmp_var = 1 + length(snsr_name)/3
 		}
-		print(tmp_var)
 		for(test in 1:tmp_var){
 			par(mar=c(2, 0, 4, 1), xpd=TRUE)
 			layout(matrix(c(4,1,2,3), 2, 2, byrow=TRUE))
@@ -1168,7 +1161,7 @@ if(args$poster){
 # Plots available with this option
 	cat(green("[1]"), "Sky-Ground-Delta Temperature Time Series\n")
 	cat(green("[2]"), "Analytical Plots\n")
-	cat(green("[3]"), "Condiiton Distrbuion by Sensor")
+	cat(orange("[3]"), "Condiiton Distrbuion by Sensor\n")
 # Saves plots
 	sname <- sprintf("~/Downloads/poster_%s.pdf", gsub("/", "_", recent))
 	save(c(poster1(),poster2(), poster3()), sname)
@@ -1179,7 +1172,7 @@ if(args$dev){
 	cat(red("[1]"), "Pac-Man Residual of the Mean PW and Temperature Model\n")
 # Saves plots
 	sname <- sprintf("~/Downloads/dev_%s.pdf", gsub("/", "_", recent))
-	save(plots5(), sname)
+	save(plots6(), sname)
 	cat(green(sprintf("Plot set downloaded to %s\n", sname)))
 }
 ## Ends the script
