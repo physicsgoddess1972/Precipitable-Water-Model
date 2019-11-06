@@ -29,9 +29,6 @@ modtran_plot <- function(xran, fname,offset, leg) {
         T   = 1/t
         return(T)
     }
-    curve(planck_curve(x, 240), col=color[4], add=TRUE)
-    curve(planck_curve(x, 280),col=color[5], add=TRUE)
-
     avg_3 <- avg_1 <- avg_2 <- avg_0 <- list()
     for(i in 1:length(fname[,1])){
         if(fname[i,1] >= xran[1]){
@@ -56,16 +53,10 @@ modtran_plot <- function(xran, fname,offset, leg) {
     points(avg0, avg2, pch=16, col=color[2])
     points(avg0, avg3, pch=16, col=color[3])
 
-    points(avg0, Reduce("+", planck_curve(xran, 240))/length(planck_curve(xran, 240)), pch=16, col=color[4])
-    points(avg0, Reduce("+", planck_curve(xran, 280))/length(planck_curve(xran, 280)), pch=16, col=color[5])
-
-    text(8.8, 21.5, label="T = 280 K", col=color[5], srt=10)
-    text(7.5, 5.85, label="T = 240 K", col=color[4], srt=10)
-
     text(9.5,offset[1], label=paste("T = ", round(temp_planck_curve(avg0, avg1), 2), "K"), srt=5, cex=0.75)
     text(9.5,offset[2], label=paste("T = ", round(temp_planck_curve(avg0, avg2), 2), "K"), srt=5, cex=0.75)
     text(9.5,offset[3], label=paste("T = ", round(temp_planck_curve(avg0, avg3),2), "K"), srt=5, cex=0.75)
-
+    print()
     legend("topright", col=color, pch=c(16,16), legend=leg)
 }
 
