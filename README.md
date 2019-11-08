@@ -9,7 +9,7 @@
     Precipitable water is the amount of condensed water vapor to be found in a vertical column of air, with a base of 1 meter-squared, that 
     extends from the surface of the Earth to the top of the atmosphere. 
     <br><br>
-    <img src="./docs/assets/img/tpw_image5.png" width=80% height=50% style="display: block; margin-left: auto; margin-right: auto"></img>
+    <img src="./assets/img/tpw_image5.png" width=80% height=50% style="display: block; margin-left: auto; margin-right: auto"></img>
     <br>
     <i><b>Figure 1:</b> Schematic illustrating the concept of precipitable water. The left column contains air and water vapour, 
         the right column contains dry air and condensed water vapour on the bottom of the column <a href="#references">[1]</a>.
@@ -31,7 +31,7 @@
 	We endeavor to develop a methodology and data 
 	source that is more rigorous, more accessible, and more easily repeatable across a variety of climate zones.
 	<h3>Intstrumentation</h3>
-    <img src="./docs/assets/img/thermometers.jpg" width=80% height=50% style="display: block; margin-left: auto; margin-right: auto"></img>
+    <img src="./assets/img/thermometers.jpg" width=80% height=50% style="display: block; margin-left: auto; margin-right: auto"></img>
     <br>    
 	This experiment used three infrared sensors <i>(from left to right)</i>:
 	<ol>
