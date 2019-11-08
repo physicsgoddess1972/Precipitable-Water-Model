@@ -10,8 +10,6 @@ span,
 applet,
 object,
 iframe,
-h1,
-h2,
 h3,
 h4,
 h5,
@@ -70,7 +68,13 @@ td {
 	font-size: 100%;
 	vertical-align: baseline;
 }
-
+h4,h5,h6 {
+	color: inherit;
+	font-weight: 500;
+	line-height: 1.2;
+	margin-bottom: .5em;
+	margin-top: 0
+}
 ol,
 ul {
 	list-style: none;
@@ -243,36 +247,13 @@ a:hover {
 	letter-spacing: 1px;
 	font-size: 1.5em;
 }
-.content h3 {
-	font-size: 1.2em;
-}
 
-
-@media (max-width: 768px) {
-	.content h1,
-	.content h2,
-	.content .big-heading,
-	body.big-h3 .content h3 {
-		padding-top: 40px;
-	}
-	.content h1:before,
-	.content h2:before,
-	.content .big-heading:before,
-	body.big-h3 .content h3:before {
-		background: #dfe2e7;
-		left: -40px;
-		top: -20px;
-		width: 120%;
-	}
-}
 .content h4,
 .content h5,
 .content .small-heading,
 body:not(.big-h3) .content h3 {
 	border-bottom: solid 1px #018abd;
 	color: #000;
-	padding-top: 30px;
-	padding-bottom: 10px;
 }
 body:not(.big-h3) .content h3 {
 	font-size: 0.9em;
@@ -288,24 +269,10 @@ body:not(.big-h3) .content h3 {
 .content h1:first-child:before {
 	display: none;
 }
-@media (max-width: 768px) {
-	.content h4,
-	.content h5,
-	.content .small-heading,
-	body:not(.big-h3) .content h3 {
-		padding-top: 20px;
-	}
-}
 @media (max-width: 480px) {
 	.content {
 		padding: 20px;
 		padding-top: 40px;
-	}
-	.content h4,
-	.content h5,
-	.content .small-heading,
-	body:not(.big-h3) .content h3 {
-		padding-top: 10px;
 	}
 }
 
@@ -435,9 +402,6 @@ body.no-literate .content pre > code:hover::-webkit-scrollbar-thumb {
 	body:not(.no-literate) .content > p,
 	body:not(.no-literate) .content > ul,
 	body:not(.no-literate) .content > ol,
-	body:not(.no-literate) .content > h1,
-	body:not(.no-literate) .content > h2,
-	body:not(.no-literate) .content > h3,
 	body:not(.no-literate) .content > h4,
 	body:not(.no-literate) .content > h5,
 	body:not(.no-literate) .content > h6,
@@ -447,8 +411,6 @@ body.no-literate .content pre > code:hover::-webkit-scrollbar-thumb {
 		-moz-box-sizing: border-box;
 		box-sizing: border-box;
 	}
-	body:not(.no-literate) .content > h1,
-	body:not(.no-literate) .content > h2,
 	body:not(.no-literate) .content > h3 {
 		width: 100%;
 		-webkit-font-smoothing: antialiased;
@@ -503,8 +465,6 @@ body.no-literate .content pre > code:hover::-webkit-scrollbar-thumb {
 		left: -40px;
 		top: -20px;
 		width: 100%;
-		padding-left: 0;
-		padding-right: 0;
 	}
 	body:not(.no-literate) .content code {
 		font-family: "Source Code Pro", monospace;
@@ -641,7 +601,13 @@ a.big.button:hover:visited {
 	border-top: 1px solid #ddd;
 	border-right: 1px solid #ddd;
 	border-left: 1px solid #ddd;
-	margin: .5rem 0 1rem 0
+	margin: .5rem 0 0.5rem 0
+}
+
+@media only screen and (max-width: 800px){
+	.collapsible {
+		width: 110%;
+	}
 }
 
 .collapsible_1 {
@@ -768,11 +734,11 @@ a.big.button:hover:visited {
 }
 
 #guidelines .panel .guide{
-	padding-bottom: 19rem
+	padding-bottom: 21rem
 }
 
 #give-data .panel .give-data{
-	padding-bottom: 35rem
+	padding-bottom: 37rem
 }
 
 @media only screen and (max-width: 900px){
