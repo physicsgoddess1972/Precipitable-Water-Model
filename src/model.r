@@ -386,13 +386,13 @@ main3 	<- function(legend, overcast=args$overcast){
 		ymax 		<- max(as.numeric(unlist(snsr_delo)), na.rm=TRUE)
 		ymin 		<- min(as.numeric(unlist(snsr_delo)), na.rm=TRUE)
 		range 		<- snsr_delo
-		title 		<- sprintf("Changes Between Ground-Sky Temperature Time Series \n Condition: Overcast")
+		title 		<- sprintf("Difference Between Ground-Sky Temperature Time Series \n Condition: Overcast")
 		date 		<- over_date
 	}else{
 		ymax 		<- max(as.numeric(unlist(snsr_del)), na.rm=TRUE)
 		ymin 		<- min(as.numeric(unlist(snsr_del)), na.rm=TRUE)
 		range 		<- snsr_del
-		title 		<- sprintf("Changes Between Ground-Sky Temperature Time Series \n Condition: Clear Sky")
+		title 		<- sprintf("Difference Between Ground-Sky Temperature Time Series \n Condition: Clear Sky")
 		date 		<- clear_date
 	}
 	plot(date, t(unlist(range[1])), xlab="Date", ylab="Temperature [C]",
@@ -414,16 +414,16 @@ main4	<- function(legend, overcast=args$overcast){
 		ymax		<- max(as.numeric(unlist(pw_loco)), na.rm=TRUE)
 		ymin		<- min(as.numeric(unlist(pw_loco)), na.rm=TRUE)
 		range 		<- pw_loco
-		title 		<- "Precipitable Water Time Series \n Condition: Overcast"
+		title 		<- "Total Precipitable Water Time Series \n Condition: Overcast"
 		date 		<- over_date
 	}else{
 		ymax		<- max(as.numeric(unlist(pw_loc)), na.rm=TRUE)
 		ymin		<- min(as.numeric(unlist(pw_loc)), na.rm=TRUE)
 		range 		<- pw_loc
-		title 		<- "Precipitable Water Time Series \n Condition: Clear Sky"
+		title 		<- "Total Precipitable Water Time Series \n Condition: Clear Sky"
 		date 		<- clear_date
 	}
-	plot(date,  t(unlist(range[1])), xlab="Date", ylab="PW [mm]",
+	plot(date,  t(unlist(range[1])), xlab="Date", ylab="TPW [mm]",
 		 xlim=c(xmin, xmax), ylim=c(ymin, ymax), main=title, pch=16, col=pw_color[1])
 	for(j in 2:length(range)){
 		points(date, t(unlist(range[j])), pch=16, col=pw_color[j])
@@ -436,18 +436,18 @@ main5 	<- function(legend, overcast=args$overcast){
 		date 	<- over_date
 		range1 	<- as.numeric(unlist(snsr_sky_calco))
 		range2 	<- avgo
-		title 	<- sprintf("Mean Sky Temperature and PW Time Series \n Condition: Overcast");
+		title 	<- sprintf("Mean Sky Temperature and TPW Time Series \n Condition: Overcast");
 	}else{
 		date 	<- clear_date
 		range1 	<- as.numeric(unlist(snsr_sky_calc))
 		range2 	<- avg
-		title 	<- sprintf("Mean Sky Temperature and PW Time Series \n Condition: Clear Sky")
+		title 	<- sprintf("Mean Sky Temperature and TPW Time Series \n Condition: Clear Sky")
 	}
 	plot(date, range1, ylab=NA, xlab="Date", col="red", pch=16, main=title)
 	axis(side = 2); mtext(side = 2, line=3, "Temperature [C]", col="red")
 	par(new = T)
 	plot(date, range2, ylab=NA, axes=F, xlab=NA, col="blue", pch=16)
-	axis(side = 4); mtext(side = 4, line=3, "PW [mm]", col="blue")
+	axis(side = 4); mtext(side = 4, line=3, "TPW [mm]", col="blue")
 }
 ## Locational Mean PW Time Series
 main6 	<- function(legend, overcast=args$overcast){
@@ -460,16 +460,16 @@ main6 	<- function(legend, overcast=args$overcast){
 		ymax		<- max(as.numeric(unlist(loc_avgo)), na.rm=TRUE)
 		ymin		<- min(as.numeric(unlist(loc_avgo)), na.rm=TRUE)
 		range 		<- loc_avgo
-		title 		<- "Locational Average PW Time Series \n Condition: Overcast"
+		title 		<- "Locational Average TPW Time Series \n Condition: Overcast"
 		date 		<- over_date
 	}else{
 		ymax		<- max(as.numeric(unlist(loc_avg)), na.rm=TRUE)
 		ymin		<- min(as.numeric(unlist(loc_avg)), na.rm=TRUE)
 		range 		<- loc_avg
-		title 		<- "Locational Average PW Time Series \n Condition: Clear Sky"
+		title 		<- "Locational Average TPW Time Series \n Condition: Clear Sky"
 		date 		<- clear_date
 	}
-	plot(date,  t(unlist(range[1])), xlab="Date", ylab="PW [mm]",
+	plot(date,  t(unlist(range[1])), xlab="Date", ylab="TPW [mm]",
 		 xlim=c(xmin, xmax), ylim=c(ymin, ymax), main=title, pch=16, col=pw_color[1])
 	for(j in 2:length(range)){
 		points(date, t(unlist(range[j])), pch=16, col=pw_color[j])
@@ -487,16 +487,16 @@ main7 	<- function(legend, overcast=args$overcast){
 		ymax		<- max(as.numeric(unlist(tmp_avgo)), na.rm=TRUE)
 		ymin		<- min(as.numeric(unlist(tmp_avgo)), na.rm=TRUE)
 		range 		<- tmp_avgo
-		title 		<- "Temporal Average PW Time Series \n Condition: Overcast"
+		title 		<- "Temporal Average TPW Time Series \n Condition: Overcast"
 		date 		<- over_date
 	}else{
 		ymax		<- max(as.numeric(unlist(tmp_avg)), na.rm=TRUE)
 		ymin		<- min(as.numeric(unlist(tmp_avg)), na.rm=TRUE)
 		range 		<- tmp_avg
-		title 		<- "Temporal Average PW Time Series \n Condition: Clear Sky"
+		title 		<- "Temporal Average TPW Time Series \n Condition: Clear Sky"
 		date 		<- clear_date
 	}
-	plot(date,  t(unlist(range[1])), xlab="Date", ylab="PW [mm]",
+	plot(date,  t(unlist(range[1])), xlab="Date", ylab="TPW [mm]",
 		 xlim=c(xmin, xmax), ylim=c(ymin, ymax), main=title, pch=16, col=pw_color[1])
 	for(j in 2:length(range)){
 		points(date, t(unlist(range[j])), pch=16, col=pw_color[j])
@@ -514,16 +514,16 @@ main8 	<- function(legend, overcast=args$overcast){
 		ymax		<- max(as.numeric(unlist(avgo)), na.rm=TRUE)
 		ymin		<- min(as.numeric(unlist(avgo)), na.rm=TRUE)
 		range 		<- avgo
-		title 		<- "Mean PW Time Series \n Condition: Overcast"
+		title 		<- "Mean TPW Time Series \n Condition: Overcast"
 		date 		<- over_date
 	}else{
 		ymax		<- max(as.numeric(unlist(avg)), na.rm=TRUE)
 		ymin		<- min(as.numeric(unlist(avg)), na.rm=TRUE)
 		range 		<- avg
-		title 		<- "Mean PW Time Series \n Condition: Clear Sky"
+		title 		<- "Mean TPW Time Series \n Condition: Clear Sky"
 		date 		<- clear_date
 	}
-	plot(date,  t(unlist(range)), xlab="Date", ylab="PW [mm]",
+	plot(date,  t(unlist(range)), xlab="Date", ylab="TPW [mm]",
 		 xlim=c(xmin, xmax), ylim=c(ymin, ymax), main=title, pch=16, col="blue")
 }
 
@@ -536,7 +536,7 @@ plots1 	<- function(..., overcast=args$overcast){
 		ymin	<- min(as.numeric(unlist(pw_loco)), na.rm=TRUE)
 		x 		<- as.numeric(unlist(snsr_sky_calco))
 		range 	<- pw_loco
-		title 	<- "Correlation between PW and Temperature \n Condition: Overcast"
+		title 	<- "Correlation between TPW and Temperature \n Condition: Overcast"
 	}else{
 		xmax 	<- max(as.numeric(unlist(snsr_sky)), na.rm=TRUE)
 		xmin 	<- min(as.numeric(unlist(snsr_sky)), na.rm=TRUE)
@@ -544,9 +544,9 @@ plots1 	<- function(..., overcast=args$overcast){
 		ymin	<- min(as.numeric(unlist(pw_loc)), na.rm=TRUE)
 		x 		<- as.numeric(unlist(snsr_sky_calc))
 		range 	<- pw_loc
-		title	<- "Correlation between PW and Temperature \n Condition: Clear Sky"
+		title	<- "Correlation between TPW and Temperature \n Condition: Clear Sky"
 	}
-	plot(x,  t(unlist(range[1])), xlab="Zenith Sky Temperature [C]", ylab="PW [mm]",
+	plot(x,  t(unlist(range[1])), xlab="Zenith Sky Temperature [C]", ylab="TPW [mm]",
 	xlim=c(xmin, xmax), ylim=c(ymin, ymax), main=title, pch=16, col=pw_color[1])
 	for(j in 2:length(range)){
 		points(x, t(unlist(range[j])), pch=16, col=pw_color[j])
@@ -562,7 +562,7 @@ plots2 	<- function(..., overcast=args$overcast){
 		ymin	<- min(as.numeric(unlist(loc_avgo)), na.rm=TRUE)
 		x 		<- as.numeric(unlist(snsr_sky_calco))
 		range 	<- loc_avgo
-		title 	<- "Correlation between Temporal Mean PW and Temperature \n Condition: Overcast"
+		title 	<- "Correlation between Temporal Mean TPW and Temperature \n Condition: Overcast"
 	}else{
 		xmax 	<- max(as.numeric(unlist(snsr_sky_calc)), na.rm=TRUE)
 		xmin 	<- min(as.numeric(unlist(snsr_sky_calc)), na.rm=TRUE)
@@ -570,11 +570,11 @@ plots2 	<- function(..., overcast=args$overcast){
 		ymin	<- min(as.numeric(unlist(loc_avg)), na.rm=TRUE)
 		x 		<- as.numeric(unlist(snsr_sky_calc))
 		range 	<- loc_avg
-		title 	<- "Correlation between Temporal Mean PW and Temperature \n Condition: Clear Sky"
+		title 	<- "Correlation between Temporal Mean TPW and Temperature \n Condition: Clear Sky"
 	}
 	colscheme <- distinctColorPalette(length(range), runTsne=FALSE, altCol=TRUE)
 
-	plot(x,  t(unlist(range[1])), xlab="Zenith Sky Temperature [C]", ylab="PW [mm]",
+	plot(x,  t(unlist(range[1])), xlab="Zenith Sky Temperature [C]", ylab="TPW [mm]",
 	xlim=c(xmin, xmax), ylim=c(ymin, ymax), main=title, pch=16, col=colscheme[1])
 
 	for(j in 2:length(range)){
@@ -591,7 +591,7 @@ plots3 	<- function(..., overcast=args$overcast){
 		ymin	<- min(as.numeric(unlist(tmp_avgo)), na.rm=TRUE)
 		x 		<- as.numeric(unlist(snsr_sky_calco))
 		range 	<- tmp_avgo
-		title 	<- "Correlation between Locational Mean PW and Temperature \n Condition: Overcast"
+		title 	<- "Correlation between Locational Mean TPW and Temperature \n Condition: Overcast"
 	}else{
 		xmax 	<- max(as.numeric(unlist(snsr_sky_calc)), na.rm=TRUE)
 		xmin 	<- min(as.numeric(unlist(snsr_sky_calc)), na.rm=TRUE)
@@ -599,11 +599,11 @@ plots3 	<- function(..., overcast=args$overcast){
 		ymin	<- min(as.numeric(unlist(tmp_avg)), na.rm=TRUE)
 		x 		<- as.numeric(unlist(snsr_sky_calc))
 		range 	<- tmp_avg
-		title 	<- "Correlation between Locational Mean PW and Temperature \n Condition: Clear Sky"
+		title 	<- "Correlation between Locational Mean TPW and Temperature \n Condition: Clear Sky"
 	}
 	colscheme <- distinctColorPalette(length(range), runTsne=FALSE, altCol=TRUE)
 
-	plot(x,  t(unlist(range[1])), xlab="Zenith Sky Temperature [C]", ylab="PW [mm]",
+	plot(x,  t(unlist(range[1])), xlab="Zenith Sky Temperature [C]", ylab="TPW [mm]",
 	xlim=c(xmin, xmax), ylim=c(ymin, ymax), main=title, pch=16, col=colscheme[1])
 
 	for(j in 2:length(range)){
@@ -618,17 +618,17 @@ plots4 	<- function(..., overcast=args$overcast){
 		exp_reg <- exp_regression(as.numeric(unlist(snsr_sky_calco)), avgo)
 		ymax 	<- max(exp_reg$y, na.rm=TRUE)
 		ymin 	<- min(exp_reg$y, na.rm=TRUE)
-		title 	<- "Correlation between Mean PW and Temperature \n Condition: Overcast"
+		title 	<- "Correlation between Mean TPW and Temperature \n Condition: Overcast"
 	}else{
 		exp_reg <- exp_regression(as.numeric(unlist(snsr_sky_calc)), avg)
 		ymax 	<- max(exp_reg$y, na.rm=TRUE)
 		ymin 	<- min(exp_reg$y, na.rm=TRUE)
-		title 	<- "Correlation between Mean PW and Temperature \n Condition: Clear Sky"
+		title 	<- "Correlation between Mean TPW and Temperature \n Condition: Clear Sky"
 	}
 # Non-linear model (exponential)
 		plot(exp_reg$x,exp_reg$y, col=c("blueviolet"), pch=16,
 		xlim=c(exp_reg$xmin, exp_reg$xmax), ylim=c(ymin, ymax),
-		xlab="Zenith Sky Temperature [C]", ylab="PW [mm]", main=title)
+		xlab="Zenith Sky Temperature [C]", ylab="TPW [mm]", main=title)
 # Best Fit
 		curve(exp(coef(exp_reg$model)[1] + coef(exp_reg$model)[2]*x), col="Red", add=TRUE)
 # Confidence Interval
@@ -646,10 +646,10 @@ plots4 	<- function(..., overcast=args$overcast){
 plots5 	<- function(..., overcast=args$overcast){
 	if(overcast){
 		exp_reg <- exp_regression(as.numeric(unlist(snsr_sky_calco)), avgo)
-		title 	<- "Residual of the Mean PW and Temperature Model \n Condition: Overcast"
+		title 	<- "Residual of the Mean TPW and Temperature Model \n Condition: Overcast"
 	}else{
 		exp_reg <- exp_regression(as.numeric(unlist(snsr_sky_calc)), avg)
-		title 	<- "Residual of the Mean PW and Temperature Model \n Condition: Clear Sky"
+		title 	<- "Residual of the Mean TPW and Temperature Model \n Condition: Clear Sky"
 	}
 	plot(exp_reg$x, resid(exp_reg$model), col=c("royalblue"), pch=16,
 	ylim=c(min(resid(exp_reg$model)), max(resid(exp_reg$model))),
@@ -659,10 +659,10 @@ plots5 	<- function(..., overcast=args$overcast){
 plots6 	<- function(..., overcast=args$overcast){
     if(overcast){
         exp_reg 	<- exp_regression(as.numeric(unlist(snsr_sky_calco)), avgo)
-        title 		<- "Pac-Man Residual of the Mean PW and Temperature Model\nCondition: Overcast"
+        title 		<- "Pac-Man Residual of the Mean TPW and Temperature Model\nCondition: Overcast"
     }else{
         exp_reg 	<- exp_regression(as.numeric(unlist(snsr_sky_calc)), avg)
-        title 		<- "Pac-Man Residual of the Mean PW and Temperature Model\nCondition: Clear Sky"
+        title 		<- "Pac-Man Residual of the Mean TPW and Temperature Model\nCondition: Clear Sky"
     }
 	# residual quantities from the regression model
 	residual 	<- abs(resid(exp_reg$model))
@@ -830,7 +830,7 @@ poster2 <- function(...){
 ## Layout/Margin Configuration
 		par(mar=c(3,3, 3, 1), oma=c(1,1.5,0,0), xpd=FALSE)
 		layout(matrix(c(1,2,3,3), 2, 2, byrow=TRUE))
-## Individual Location PW Temperature Correlation
+## Locational Averagen PW Temperature Correlation
 		xmax 	<- max(as.numeric(unlist(snsr_sky_calc)), na.rm=TRUE)
 		xmin 	<- min(as.numeric(unlist(snsr_sky_calc)), na.rm=TRUE)
 		x 		<- as.numeric(unlist(snsr_sky_calc))
@@ -844,9 +844,9 @@ poster2 <- function(...){
 		plot(x, t(unlist(range[1])), xlab=NA, ylab=NA,
 		xlim=c(xmin, xmax), ylim=c(ymin, ymax), main=NA, pch=16, col=colscheme[1])
 
-		title("Locational Mean PW and Temp",line=0.5)
+		title("Locational Mean TPW and Temp",line=0.5)
 
-		mtext("PW [mm]", side=2, line=2.25, cex=0.65)
+		mtext("TPW [mm]", side=2, line=2.25, cex=0.65)
 		mtext("Zenith Sky Temperature [C]", side=1, line=2.25, cex=0.65)
 
 		for(j in 2:length(range)){
@@ -854,7 +854,7 @@ poster2 <- function(...){
 		}
 		legend("topleft", legend=unique(pw_time), col=colscheme, pch=c(16))
 
-## Locational Average Pw Temperature Correlation
+## Temporal Average Pw Temperature Correlation
 		ymax	<- max(as.numeric(unlist(loc_avg)), na.rm=TRUE)
 		ymin	<- min(as.numeric(unlist(loc_avg)), na.rm=TRUE)
 		range 	<- loc_avg
@@ -862,7 +862,7 @@ poster2 <- function(...){
 		plot(x,  t(unlist(range[1])), xlab=NA, ylab=NA, xlim=c(xmin, xmax),
 			ylim=c(ymin, ymax), main=NA, pch=16, col="gold2")
 
-		title("Temporal Mean PW and Temp",line=0.5)
+		title("Temporal Mean TPW and Temp",line=0.5)
 		mtext("Zenith Sky Temperature [C]", side=1, line=2.25, cex=0.65)
 
 		for(j in 2:length(range)){
@@ -878,11 +878,14 @@ poster2 <- function(...){
 		ymin = min(exp_reg$y, na.rm=TRUE)
 # Non-linear model (exponential)
 		plot(exp_reg$x,exp_reg$y, col=c("blueviolet"), pch=16,
-		xlim=c(exp_reg$xmin, exp_reg$xmax), ylim=c(ymin, ymax),
+		xlim=c(exp_reg$xmin, exp_reg$xmax), ylim=c(ymin, max(ymax, 50)),
 		xlab=NA, ylab=NA, main=NA)
+        points(247.46-273.15, 11.4, col=c("#00BCD7"), pch=16)
+        points(252.77-273.15, 22.7, col=c("#FF9A00"), pch=16)
+        points(256.86-273.15, 45.4, col=c("#66FF33"), pch=16)
 
-		title("Mean PW vs Temp",line=0.5)
-		mtext("PW [mm]", side=2, line=2.25, cex=0.65)
+		title("Mean TPW vs Temp",line=0.5)
+		mtext("TPW [mm]", side=2, line=2.25, cex=0.65)
 		mtext("Zenith Sky Temperature [C]", side=1, line=2.25, cex=0.65)
 # Best Fit
 		curve(exp(coef(exp_reg$model)[1] + coef(exp_reg$model)[2]*x), col="Red", add=TRUE)

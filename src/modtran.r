@@ -55,8 +55,7 @@ modtran_plot <- function(xran, fname,offset, leg) {
 
     text(9.5,offset[1], label=paste("T = ", round(temp_planck_curve(avg0, avg1), 2), "K"), srt=5, cex=0.75)
     text(9.5,offset[2], label=paste("T = ", round(temp_planck_curve(avg0, avg2), 2), "K"), srt=5, cex=0.75)
-    text(9.5,offset[3], label=paste("T = ", round(temp_planck_curve(avg0, avg3),2), "K"), srt=5, cex=0.75)
-    print()
+    text(9.5,offset[3], label=paste("T = ", round(temp_planck_curve(avg0, avg3), 2), "K"), srt=5, cex=0.75)
     legend("topright", col=color, pch=c(16,16), legend=leg)
 }
 
