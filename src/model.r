@@ -1146,9 +1146,10 @@ if(args$set == "i"){
 	cat(green("[3]"), "Correlation between Temporal Mean PW and Temperature\n")
 	cat(green("[4]"), "Total Mean PW and Temperature\n")
 	cat(green("[5]"), "Residual of the Mean PW and Temperature Model\n")
+	cat(yellow("[6]"), "Pac-Man Residual of the Mean PW and Temperature Model\n")
 # Saves plots
 	save(c(plots1(overcast=args$overcast), plots2(overcast=args$overcast),
-		plots3(overcast=args$overcast), plots4(overcast=args$overcast),plots5(overcast=args$overcast)), sname)
+		plots3(overcast=args$overcast), plots4(overcast=args$overcast),plots5(overcast=args$overcast),plots6(overcast=args$overcast)), sname)
 	cat(green(sprintf("Plot set downloaded to %s\n", sname)))
 }else if(args$set == "c"){
 # Plots available with this option
@@ -1171,12 +1172,7 @@ if(args$poster){
 	cat(green(sprintf("Plot set downloaded to %s\n", sname)))
 }
 if(args$dev){
-# Plots available with this option
-	cat(red("[1]"), "Pac-Man Residual of the Mean PW and Temperature Model\n")
-# Saves plots
-	sname <- sprintf("~/Downloads/dev_%s.pdf", gsub("/", "_", recent))
-	save(plots6(), sname)
-	cat(green(sprintf("Plot set downloaded to %s\n", sname)))
+	cat("No Plots in this set\n")
 }
 ## Ends the script
 quit_it()
