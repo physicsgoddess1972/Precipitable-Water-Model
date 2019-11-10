@@ -1,5 +1,4 @@
 <a id="top"></a>
-
 <div id="guidelines">
 <div class="collapsible" >
 <div class="collapsible-header">
