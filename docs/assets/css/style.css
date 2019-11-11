@@ -707,8 +707,29 @@ a.big.button:hover:visited {
 
 }
 
+#methods .collapsible .panel {
+	padding-bottom: 30rem;
+}
+
 #step .collapsible_1 .panel{
 	padding-bottom: 30rem;
+}
+
+@media only screen and (max-width: 636px){
+	#methods .collapsible .panel {
+		padding-bottom: 34rem;
+	}
+}
+@media only screen and (max-width: 380px){
+	#methods .collapsible .panel {
+		padding-bottom: 40rem;
+	}
+}
+
+@media only screen and (max-width: 324px){
+	#methods .collapsible .panel {
+		padding-bottom: 42rem;
+	}
 }
 
 @media only screen and (max-width: 924px){
@@ -716,6 +737,7 @@ a.big.button:hover:visited {
 		padding-bottom: 30rem;
 	}
 }
+
 @media only screen and (max-width: 825px){
 	#step .collapsible_1 .panel{
 		padding-bottom: 32rem;
@@ -1098,4 +1120,3 @@ table {
 	font-size: 14px;
 	display: block
 }
-
