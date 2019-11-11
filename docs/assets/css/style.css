@@ -707,6 +707,10 @@ a.big.button:hover:visited {
 
 }
 
+#methods .collapsible .panel {
+	padding-bottom: 30rem;
+}
+
 #step .collapsible_1 .panel{
 	padding-bottom: 30rem;
 }
@@ -715,7 +719,11 @@ a.big.button:hover:visited {
 	#step .collapsible_1 .panel{
 		padding-bottom: 30rem;
 	}
+	#methods .collapsible .panel {
+		padding-bottom: 30rem;
+	}
 }
+
 @media only screen and (max-width: 825px){
 	#step .collapsible_1 .panel{
 		padding-bottom: 32rem;
@@ -1098,4 +1106,3 @@ table {
 	font-size: 14px;
 	display: block
 }
-
