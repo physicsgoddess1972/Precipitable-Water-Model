@@ -715,11 +715,25 @@ a.big.button:hover:visited {
 	padding-bottom: 30rem;
 }
 
+@media only screen and (max-width: 636px){
+	#methods .collapsible .panel {
+		padding-bottom: 34rem;
+	}
+}
+@media only screen and (max-width: 380px){
+	#methods .collapsible .panel {
+		padding-bottom: 40rem;
+	}
+}
+
+@media only screen and (max-width: 324px){
+	#methods .collapsible .panel {
+		padding-bottom: 42rem;
+	}
+}
+
 @media only screen and (max-width: 924px){
 	#step .collapsible_1 .panel{
-		padding-bottom: 30rem;
-	}
-	#methods .collapsible .panel {
 		padding-bottom: 30rem;
 	}
 }
