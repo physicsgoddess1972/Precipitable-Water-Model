@@ -109,7 +109,7 @@
 <tbody>
 <tr style="border: 0px;">
 	<td><span class="numbered">1</span></td>
-	<td>In the Linux terminal run the command <code>bash setup.sh</code></td>
+	<td>In the Linux terminal run the command <code>bash setup.sh -a</code></td>
 </tr>
 <tr>
 	<td><span class="numbered">2</span></td>
