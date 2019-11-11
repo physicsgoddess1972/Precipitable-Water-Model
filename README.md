@@ -59,13 +59,54 @@
 <div class="panel">
 <div class="data-format">
     <h3>Setting Guidelines</h3>
-    <ol>
-        <li>Determine the Scope of the project </li>
-        <li>
-        <li>
-        <li>
-        <li> 
-    </ol>
+<table class="usage">
+<tbody>
+<tr style="border: 0px;">
+	<td>
+		<span class="numbered">1</span>
+	</td>
+	<td>
+        Determine the scope of the project and reporting timeline
+	</td>
+</tr>
+<tr>
+	<td>
+		<span class="numbered">2</span>
+	</td>
+	<td>
+    Find the closest 2 or 3 PW measurement sites for your area
+	</td>
+</tr>
+<tr>
+	<td>
+		<span class="numbered">3</span>
+	</td>
+	<td>
+		Update <code>instruments.txt</code>with the appropriate
+		sensor information. 
+	</td>
+</tr>
+<tr>
+	<td>
+		<span class="numbered">4</span>
+	</td>
+	<td>
+		Update <code>master_data.csv</code> with your collected
+		data following the format earlier defined in 
+		<a href="#data">Data Format</a>. </li>
+	</td>
+</tr>
+<tr style="border: 0px;">
+	<td>
+		<span class="numbered">5</span>
+	</td>
+	<td>
+		To view the plots see the above subsections for 
+		the appropriate command line arguments. </li>
+	</td>
+</tr>
+</tbody>
+</table>
 </div></div></div></div>
 
 <div id="data">
@@ -298,5 +339,5 @@ The future development of this project with regards to the data collection inclu
 <div class="collapsible-header">
     <h2>References</h2>
 </div>
-<div class="panel">
+<div class="panel"></div>
 </div></div></div>
