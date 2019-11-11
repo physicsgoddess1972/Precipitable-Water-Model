@@ -160,27 +160,32 @@ Here are some examples of valid datasets:
 			<td><code>MM/DD/YYYY</code></td>
 		</tr>
 		<tr>
+			<td><b>Condition</b></td>
+			<td>Condition</td>
+			<td>clear sky / overcast</td>
+		</tr>
+		<tr>
 			<td><b>Precipitable Water</b></td>
 			<td>PW_AAA_NNZ</td>
 			<td>Number</td>
 		</tr>
 		<tr>
 			<td><b>Temperature</b></td>
-			<td>Sensor Name<superscript>*</superscript></td>
+			<td>Sensor Name<sup>\*</sup></td>
 			<td>Number</td>
 		</tr>
 	</tbody>
 </table>
-<superscript>*</superscript>This should be consistent with what the sensor is labeled as in <code>instruments.txt</code>
+<sup>\*</sup>This should be consistent with what the sensor is labeled as in <code>instruments.txt</code>
 <h3>Format of <code>instruments.txt</code></h3>
 The purpose of this file is to get all of the information on the sensors organized in one place. This file has a total
 of six columns. Each row corresponds to a infrared thermometer used to collect data.
 <br>
-The first column is used for designating the Sensor. For example, if the sensor is the FLIR i3, then 
+The first column is used for designating the Sensor. For example, if the sensor is the FLIR i3, then
 
 </div></div></div></div>
 
-<div id="require">
+<!-- <div id="require">
 <div class="collapsible">
 <div class="collapsible-header">
 	<h2>Requirements</h2>
@@ -195,7 +200,7 @@ requirements.
 <inp>$</inp> bash setup.sh
 </code>
 </pre>
-</div></div></div>
+</div></div></div> -->
 
 <div id="overview">
 <div class="collapsible">
@@ -274,6 +279,7 @@ optional arguments:
 	<li> Locational Average PW and Temperature </li>
 	<li> Total Mean PW and Temperature </li>
 	<li> Residual for Total Mean PW and Temperature</li>
+	<li> Pac-Man Residual</li>
 </ol>
 </div></div>
 
@@ -326,7 +332,7 @@ If you would like to contribute to this project, visit our <a href="./contrib.ht
 <h2>Next Steps</h2>
 </div>
 <div class="panel">
-The future development of this project with regards to the data collection include
+The future development of this project with regards to the data collection include a machine learning approach to determining weather condition <i>(Clear sky/Overcast)</i>. We are also in the process of developing a method of automating the temperature measurement process using an Arduino-Raspberry Pi network.
 </div></div></div>
 
 <div id="resource">
@@ -346,4 +352,7 @@ The future development of this project with regards to the data collection inclu
     <h2>References</h2>
 </div>
 <div class="panel">
+[1] Mária, P. (n.d.). Product Tutorial on TPW Content Products.
+<br /><br />
+[2] Forrest M. Mims, Lin Hardtung Chambers, and David R. Brooks.  Measuring total column water vapor by pointing an infrared thermometer at the sky.<i>Bulletin of the American Meteorological Society</i>, 92(10):1311-1320, 2011.
 </div></div></div></div>
