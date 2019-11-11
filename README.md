@@ -27,7 +27,7 @@
 	<h3>Goal</h3>
 	The goal of this project is to determine the correlation between
 	zenith sky temperature and precipitable water. This experiment
-	is based off of a similar study conducted by Mims et al [2].
+	is based off of a similar study conducted by Mims et al <a href="#references">[2]</a>.
 	We endeavor to develop a methodology and data
 	source that is more rigorous, more accessible, and more easily repeatable across a variety of climate zones.
 	<h3>Intstrumentation</h3>
@@ -141,11 +141,15 @@
 Using pattern identification, the data format is flexible with few strict requirements.
 Here are some examples of valid datasets:
 <br />
-<a>Dataset 1</a>
+<a href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/master/data/example/example1.csv" target="_blank">Dataset 1</a>
 <br />
-<a>Dataset 2</a>
+<a href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/master/data/example/example2.csv" target="_blank">Dataset 2</a>
 <br />
-<a>Dataset 3</a>
+<a href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/master/data/example/example1.csv" target="_blank">Dataset 3</a>
+<br /><br />
+It should be noted that the columns do not have to be in any set order, with one small caveat, the model pulls the data from columns with headers containing specific words or phrases. The caveat is with regards to Ground and Sky temperature readings. The temperature measurements must go in consecutive order by sensor as determined by <code>instruments.txt</code>.
+<br /><br />
+For example, if the order of the sensors in <code>instruments.txt</code> is 1610 TE, FLIR i3, and then AMES 1. Then the order of the ground and sky temperature measurements in the dataset should be: 1610 TE, FLIR i3, and then AMES 1. <i>(As seen in Dataset 2)</i>
 <h3>Column Headers for Dataset</h3>
 <table>
 	<tbody>
@@ -166,12 +170,17 @@ Here are some examples of valid datasets:
 		</tr>
 		<tr>
 			<td><b>Precipitable Water</b></td>
-			<td>PW_AAA_NNZ</td>
+			<td>PW AAA_NNZ</td>
 			<td>Number</td>
 		</tr>
 		<tr>
-			<td><b>Temperature</b></td>
-			<td>Sensor Name<sup>\*</sup></td>
+			<td><b>Sky Temperature</b></td>
+			<td>Sensor Name<sup>\*</sup> (Sky)</td>
+			<td>Number</td>
+		</tr>
+		<tr>
+			<td><b>Ground Temperature</b></td>
+			<td>Sensor Name<sup>\*</sup> (Ground)</td>
 			<td>Number</td>
 		</tr>
 	</tbody>
@@ -182,7 +191,7 @@ The purpose of this file is to get all of the information on the sensors organiz
 of six columns. Each row corresponds to a infrared thermometer used to collect data.
 <br>
 The first column is used for designating the Sensor. For example, if the sensor is the FLIR i3, then
-
+(?...?).
 </div></div></div></div>
 
 <!-- <div id="require">
