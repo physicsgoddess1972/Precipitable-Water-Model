@@ -17,8 +17,10 @@ wget https://github.com/physicsgoddess1972/Precipitable-Water-Model/archive/mast
 unzip master.zip
 ### Clear Data Files
 echo -e "\e[96m ~~~~ Clearing Directories and Files ~~~~\e[0m"
-cd ./Precipitable-Water-Model-master
-rm -r ./rmdata/ ./docs/ ./src/archive/ ./src/demo/
+rm -r ./Precipitable-Water-Model-master/data/
+rm -r ./Precipitable-Water-Model-master/docs/
+rm -r ./Precipitable-Water-Model-master/src/archive/
+rm -r ././Precipitable-Water-Model-master/src/demo/
 mkdir ./Precipitable-Water-Model-master/data/
 ### Done
 echo -e "\e[96m ~~~~ Setup Complete ~~~~\e[0m"
