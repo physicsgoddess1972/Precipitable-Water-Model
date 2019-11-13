@@ -428,7 +428,7 @@ main4	<- function(legend, overcast=args$overcast){
 	for(j in 2:length(range)){
 		points(date, t(unlist(range[j])), pch=16, col=pw_color[j])
 	}
-	legend("topright", inset=c(-0.21, 0), legend=c(pw_name), col=pw_color, pch=c(16,16, 16))
+	legend("topright", inset=c(-0.205, 0), legend=c(pw_name), col=pw_color, pch=c(16,16, 16), cex=0.95)
 }
 ## Sky Temperature - PW Time Series
 main5 	<- function(legend, overcast=args$overcast){
@@ -449,7 +449,7 @@ main5 	<- function(legend, overcast=args$overcast){
 	plot(date, range2, ylab=NA, axes=F, xlab=NA, col="blue", pch=16)
 	axis(side = 4); mtext(side = 4, line=3, "TPW [mm]", col="blue")
 }
-## Locational Mean PW Time Series
+## Temporal Mean PW Time Series
 main6 	<- function(legend, overcast=args$overcast){
 	# Margin Configuration
  	par(mar=c(5.1, 5.1, 5.1, 5.3), xpd=TRUE)
@@ -460,13 +460,13 @@ main6 	<- function(legend, overcast=args$overcast){
 		ymax		<- max(as.numeric(unlist(loc_avgo)), na.rm=TRUE)
 		ymin		<- min(as.numeric(unlist(loc_avgo)), na.rm=TRUE)
 		range 		<- loc_avgo
-		title 		<- "Locational Average TPW Time Series \n Condition: Overcast"
+		title 		<- "Temporal Average TPW Time Series \n Condition: Overcast"
 		date 		<- over_date
 	}else{
 		ymax		<- max(as.numeric(unlist(loc_avg)), na.rm=TRUE)
 		ymin		<- min(as.numeric(unlist(loc_avg)), na.rm=TRUE)
 		range 		<- loc_avg
-		title 		<- "Locational Average TPW Time Series \n Condition: Clear Sky"
+		title 		<- "Temporal Average TPW Time Series \n Condition: Clear Sky"
 		date 		<- clear_date
 	}
 	plot(date,  t(unlist(range[1])), xlab="Date", ylab="TPW [mm]",
@@ -474,9 +474,9 @@ main6 	<- function(legend, overcast=args$overcast){
 	for(j in 2:length(range)){
 		points(date, t(unlist(range[j])), pch=16, col=pw_color[j])
 	}
-	legend("topright", inset=c(-0.21, 0), legend=c(unique(pw_place)), col=pw_color, pch=c(16,16, 16))
+	legend("topright", inset=c(-0.153, 0), legend=c(unique(pw_place)), col=pw_color, pch=c(16,16, 16))
 }
-## Temporal Mean PW Time Series
+## Locational Mean PW Time Series
 main7 	<- function(legend, overcast=args$overcast){
 	# Margin Configuration
  	par(mar=c(5.1, 5.1, 5.1, 5.3), xpd=TRUE)
@@ -487,13 +487,13 @@ main7 	<- function(legend, overcast=args$overcast){
 		ymax		<- max(as.numeric(unlist(tmp_avgo)), na.rm=TRUE)
 		ymin		<- min(as.numeric(unlist(tmp_avgo)), na.rm=TRUE)
 		range 		<- tmp_avgo
-		title 		<- "Temporal Average TPW Time Series \n Condition: Overcast"
+		title 		<- "Locational Average TPW Time Series \n Condition: Overcast"
 		date 		<- over_date
 	}else{
 		ymax		<- max(as.numeric(unlist(tmp_avg)), na.rm=TRUE)
 		ymin		<- min(as.numeric(unlist(tmp_avg)), na.rm=TRUE)
 		range 		<- tmp_avg
-		title 		<- "Temporal Average TPW Time Series \n Condition: Clear Sky"
+		title 		<- "Locational Average TPW Time Series \n Condition: Clear Sky"
 		date 		<- clear_date
 	}
 	plot(date,  t(unlist(range[1])), xlab="Date", ylab="TPW [mm]",
@@ -501,7 +501,7 @@ main7 	<- function(legend, overcast=args$overcast){
 	for(j in 2:length(range)){
 		points(date, t(unlist(range[j])), pch=16, col=pw_color[j])
 	}
-	legend("topright", inset=c(-0.21, 0), legend=c(unique(pw_time)), col=pw_color, pch=c(16,16, 16))
+	legend("topright", inset=c(-0.14, 0), legend=c(unique(pw_time)), col=pw_color, pch=c(16,16, 16))
 }
 ## Mean PW Time Series
 main8 	<- function(legend, overcast=args$overcast){
@@ -529,6 +529,7 @@ main8 	<- function(legend, overcast=args$overcast){
 
 ## Individual Location plots
 plots1 	<- function(..., overcast=args$overcast){
+	par(mar=c(5.1, 5.1, 5.1, 5.3), xpd=TRUE)
 	if(overcast){
 		xmax 	<- max(as.numeric(unlist(snsr_skyo)), na.rm=TRUE)
 		xmin 	<- min(as.numeric(unlist(snsr_skyo)), na.rm=TRUE)
@@ -551,10 +552,11 @@ plots1 	<- function(..., overcast=args$overcast){
 	for(j in 2:length(range)){
 		points(x, t(unlist(range[j])), pch=16, col=pw_color[j])
 	}
-	legend("topleft", legend=c(pw_name), col=pw_color, pch=c(16,16))
+	legend("topright", inset=c(-0.205, 0), legend=c(pw_name), col=pw_color, pch=c(16,16, 16), cex=0.95)
 }
 ## Locational Average Plots
 plots2 	<- function(..., overcast=args$overcast){
+	par(mar=c(5.1, 5.1, 5.1, 5.3), xpd=TRUE)
 	if(overcast){
 		xmax 	<- max(as.numeric(unlist(snsr_sky_calco)), na.rm=TRUE)
 		xmin 	<- min(as.numeric(unlist(snsr_sky_calco)), na.rm=TRUE)
@@ -580,10 +582,12 @@ plots2 	<- function(..., overcast=args$overcast){
 	for(j in 2:length(range)){
 		points(x, t(unlist(range[j])), pch=16, col=colscheme[j])
 	}
-	legend("topleft", legend=unique(pw_place), col=colscheme, pch=c(16))
+	legend("topright", inset=c(-0.153, 0), legend=c(unique(pw_place)), col=colscheme, pch=c(16,16, 16))
 }
 ## Temporal Average Plots
 plots3 	<- function(..., overcast=args$overcast){
+	par(mar=c(5.1, 5.1, 5.1, 5.3), xpd=TRUE)
+
 	if(overcast){
 		xmax 	<- max(as.numeric(unlist(snsr_sky_calco)), na.rm=TRUE)
 		xmin 	<- min(as.numeric(unlist(snsr_sky_calco)), na.rm=TRUE)
@@ -609,11 +613,12 @@ plots3 	<- function(..., overcast=args$overcast){
 	for(j in 2:length(range)){
 		points(x, t(unlist(range[j])), pch=16, col=colscheme[j])
 	}
-	legend("topleft", legend=unique(pw_time), col=colscheme, pch=c(16))
+	legend("topright", inset=c(-0.14, 0), legend=c(unique(pw_time)), col=colscheme, pch=c(16,16, 16))
 }
 
 ## Super Average Plot with Exponential Fit
 plots4 	<- function(..., overcast=args$overcast){
+	par(mar=c(5.1, 4.1, 4.1, 2.1),xpd=FALSE)
 	if(overcast){
 		exp_reg <- exp_regression(as.numeric(unlist(snsr_sky_calco)), avgo)
 		ymax 	<- max(exp_reg$y, na.rm=TRUE)
@@ -722,7 +727,7 @@ charts1 	<- function(...){
 				}else if(pct[i] < 3){
 					text(pct[i] + 12, bar[i], labels=sprintf('%s %%', as.character(pct[i])))
 				}else if(pct[i] < 7){
-					text(pct[i] + 17, bar[i], labels=sprintf('%s %%', as.character(pct[i])))
+					text(pct[i] + 20, bar[i], labels=sprintf('%s %%', as.character(pct[i])))
 				}else{
 					text(pct[i], bar[i], labels=sprintf('%s %%', as.character(pct[i])))
 				}
@@ -941,7 +946,7 @@ poster3 <- function(...){
 				for (i in 1:length(slices)){
 					if (pct[i] == 0){
 						text(pct[i] + 7, bar[i], labels=sprintf('%s %%', as.character(pct[i])))
-					}else if(pct[i] < 5){
+					}else if(pct[i] < 6){
 						text(pct[i] + 25, bar[i], labels=sprintf('%s %%', as.character(pct[i])))
 					}else if(pct[i] < 10){
 						text(pct[i] + 17, bar[i], labels=sprintf('%s %%', as.character(pct[i])))
