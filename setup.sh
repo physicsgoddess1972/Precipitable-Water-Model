@@ -16,7 +16,14 @@ while getopts "aighx" opt; do
 		x) x_flag="true";;
 	esac
 done
+### Introduction
+echo -e "\e[96m ~~~~ Setup Starting ~~~~\e[0m"
 ## Help Flag
+if [[ ${a_flag} ]]; then
+  i_flag="true"
+  g_flag="true"
+  x_flag="true"
+fi
 if [[ ${h_flag} ]]; then
 	echo "usage: setup.sh [-hcoma]"
 	echo ""
@@ -26,15 +33,7 @@ if [[ ${h_flag} ]]; then
 	echo "   -i         run installation procedure"
 	echo "   -g         run repo download procedure"
 	echo "   -x         run clear data procedure"
-fi
-if [[ ${a_flag} ]]; then
-  i_flag="true"
-  g_flag="true"
-  x_flag="true"
-fi
-### Introduction
-echo -e "\e[96m ~~~~ Setup Starting ~~~~\e[0m"
-if [[ ${i_flag} ]]; then
+elif [[ ${i_flag} ]]; then
 ## Install Packages
   echo -e "\e[96m ~~~~ Installing Packages ~~~~\e[0m"
 # System Requirements
@@ -45,14 +44,12 @@ if [[ ${i_flag} ]]; then
   sudo su - -c "R -e \"install.packages('devtools', repos='https://cran.rstudio.com/', dependencies=TRUE)\""
   sudo su - -c "R -e \"devtools::install_version('plotrix', version='3.5', repos='https://cran.rstudio.com/')\""
   sudo su - -c "R -e \"devtools::install_github('ronammar/randomcoloR')\""
-fi
-if [[ ${g_flag} ]]; then
+elif [[ ${g_flag} ]]; then
 ### Download and Unzip Repository
   echo -e "\e[96m ~~~~ Downloading Repository ~~~~\e[0m"
   wget https://github.com/physicsgoddess1972/Precipitable-Water-Model/archive/master.zip
   unzip master.zip
-fi
-if [[ ${x_flag} ]]; then
+elif [[ ${x_flag} ]]; then
 ### Clear Data Files
   echo -e "\e[96m ~~~~ Clearing Directories and Files ~~~~\e[0m"
   rm -r ./Precipitable-Water-Model-master/data/
@@ -62,6 +59,8 @@ if [[ ${x_flag} ]]; then
   mkdir ./Precipitable-Water-Model-master/data/ml
   mkdir ./Precipitable-Water-Model-master/data/
   echo "Sensor,Error [C],Color Code,D to S,Poster,Temp Range [C]" > ./Precipitable-Water-Model-master/data/instruments.txt
+else
+	echo -e "\nInvalid option. For all options run \nbash setup.sh -h\n"
 fi
 ### Done
 echo -e "\e[96m ~~~~ Setup Complete ~~~~\e[0m"
