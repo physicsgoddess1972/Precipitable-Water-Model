@@ -20,11 +20,29 @@ done
 echo -e "\e[96m ~~~~ Setup Starting ~~~~\e[0m"
 ## Help Flag
 if [[ ${a_flag} ]]; then
-  i_flag="true"
-  g_flag="true"
-  x_flag="true"
-fi
-if [[ ${h_flag} ]]; then
+## Install Packages
+  echo -e "\e[96m ~~~~ Installing Packages ~~~~\e[0m"
+# System Requirements
+  sudo apt-get install r-base libv8-dev libcurl4-openssl-dev libxml2-dev libssl-dev unzip
+## R Package Requirements
+  sudo su - -c "R -e \"install.packages('crayon', repos='https://cran.rstudio.com/')\""
+  sudo su - -c "R -e \"install.packages('argparse', repos='https://cran.rstudio.com/')\""
+  sudo su - -c "R -e \"install.packages('devtools', repos='https://cran.rstudio.com/', dependencies=TRUE)\""
+  sudo su - -c "R -e \"devtools::install_version('plotrix', version='3.5', repos='https://cran.rstudio.com/')\""
+  sudo su - -c "R -e \"devtools::install_github('ronammar/randomcoloR')\""
+### Download and Unzip Repository
+  echo -e "\e[96m ~~~~ Downloading Repository ~~~~\e[0m"
+  wget https://github.com/physicsgoddess1972/Precipitable-Water-Model/archive/master.zip
+  unzip master.zip
+### Clear Data Files
+  echo -e "\e[96m ~~~~ Clearing Directories and Files ~~~~\e[0m"
+  rm -r ./Precipitable-Water-Model-master/data/
+  rm -r ./Precipitable-Water-Model-master/docs/
+  rm -r ./Precipitable-Water-Model-master/src/archive/
+  rm ./Precipitable-Water-Model-master/*.md
+  mkdir ./Precipitable-Water-Model-master/data/ ./Precipitable-Water-Model-master/data/ml
+  echo "Sensor,Error [C],Color Code,D to S,Poster,Temp Range [C]" > ./Precipitable-Water-Model-master/data/instruments.txt
+elif [[ ${h_flag} ]]; then
 	echo "usage: setup.sh [-hcoma]"
 	echo ""
 	echo "arguments:"
@@ -56,8 +74,7 @@ elif [[ ${x_flag} ]]; then
   rm -r ./Precipitable-Water-Model-master/docs/
   rm -r ./Precipitable-Water-Model-master/src/archive/
   rm ./Precipitable-Water-Model-master/*.md
-  mkdir ./Precipitable-Water-Model-master/data/ml
-  mkdir ./Precipitable-Water-Model-master/data/
+  mkdir ./Precipitable-Water-Model-master/data/ ./Precipitable-Water-Model-master/data/ml
   echo "Sensor,Error [C],Color Code,D to S,Poster,Temp Range [C]" > ./Precipitable-Water-Model-master/data/instruments.txt
 else
 	echo -e "\nInvalid option. For all options run \nbash setup.sh -h\n"
