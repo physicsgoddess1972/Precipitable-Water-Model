@@ -291,4 +291,18 @@ Date,Conditions,RH,PW ABQ_12Z,PW ABQ_00Z,PW EPZ_12Z,PW EPZ_00Z,Vicki time,NWS ti
 11/7/2019,overcast,,15.06,11.94,21.18,17.41,10:48,,,-10.5,-14.1,-6,-5.6,16.2,14.2,14.7,15.2,
 11/8/2019,overcast,,8.21,4.54,13.96,11.38,10:08,,,-5.6,-6.9,-1,0.6,13.4,10.7,11.1,11.8,
 11/9/2019,clear sky,,4.11,2.2,19.96,20.12,16:04,,,NaN,NaN,-23,-21.5,16.2,14.8,15.6,16,
-11/10/2019,clear sky,,8.93,NaN,21.18,NaN,12:28,,,NaN,NaN,-25.3,-24.6,22.5,22.2,22.7,22.8,
+11/10/2019,clear sky,,8.93,8.24,21.18,22.42,12:28,,,NaN,NaN,-25.3,-24.6,22.5,22.2,22.7,22.8,
+11/11/2019,clear sky,,5.54,7.72,24.23,21.05,10:05,,,NaN,NaN,-24.4,-24.6,17.8,17.2,17.3,17.8,
+11/12/2019,clear sky,,5.56,4.37,14.18,10.51,11:25,,,NaN,-40,-38.9,-36.4,17.4,17,17.4,18.4,readings taken by Brandon Phelps for training to cover during PhysCon conference
+11/13/2019,clear sky,,6.38,7.2,12.43,8.31,10:00,,,NaN,NaN,-37.8,-33.5,12.2,NaN,11.2,13.6,"readings taken by Brandon Phelps and Chris Baca as Vicki was at PhysCon, they forgot to open FLiR lens cover"
+11/14/2019,clear sky,,6.55,5.82,9.05,7.23,11:00,,,NaN,NaN,-33.4,-30.6,22.5,NaN,23.2,24.1,"readings taken by Brandon Phelps and Chris Baca as Vicki was at PhysCon, they forgot to open FLiR lens cover"
+11/15/2019,clear sky,,8.29,7.99,7.25,7.81,10:00,,,NaN,NaN,-29.9,-28.4,15.2,NaN,14.5,14.6,"readings taken by Brandon Phelps and Chris Baca as Vicki was at PhysCon, they forgot to open FLiR lens cover"
+11/16/2019,clear sky,,7.92,7.86,8.4,9.63,10:50,,,NaN,-32.8,-30,-20.9,16.6,16.8,15.5,17.4,readings taken by Brandon Phelps and Chris Baca as Vicki was at PhysCon
+11/17/2019,clear sky,,3.76,5.59,9.1,6.98,10:58,,,NaN,NaN,-35.7,-33.8,18.3,17.4,18,18.8,readings taken by Brandon Phelps and Chris Baca as Vicki was at PhysCon
+11/18/2019,clear sky,,7.57,6.45,6.91,7.24,12:27,,,NaN,NaN,-28.5,-27.4,23.5,22.4,24.3,24.3,
+11/19/2019,clear sky,,7.09,7.12,9.99,21.02,14:54,,,NaN,NaN,-21.7,-19.9,21,20.6,21.2,21.6,
+11/20/2019,overcast,,21.23,15.42,25.15,14.06,10:30,,,1,0.2,3.8,4.6,15.2,12.8,13.4,14.6,very windy and sprinkling during measurement
+11/21/2019,overcast,,14.89,9.5,13.33,17.81,12:22,,,-19.7,-16.2,-15,-14.7,10.8,10.2,9.5,9.8,
+11/22/2019,clear sky,,9.86,7.81,11.47,10.48,10:19,,,NaN,NaN,-34,-33.5,13.9,12.5,12.9,12.8,
+11/23/2019,clear sky,,7.17,5.38,6.85,8.19,16:49,,,NaN,NaN,-30.9,-29.7,10.4,8.9,9,9.6,
+11/24/2019,clear sky,,5.35,NaN,8.94,NaN,9:40,,,NaN,NaN,-24.8,-25,7.8,7.1,6.9,6.8,
