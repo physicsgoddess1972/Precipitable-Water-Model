@@ -44,12 +44,6 @@ if [[ ${o_flag} ]]; then
 	Rscript model.r --poster --save &> /dev/null
 	echo -e "\e[92m[Overcast] Poster plots saved to ~/Downloads/\e[0m"
 fi
-## Modtran Flag
-if [[ ${m_flag} ]]; then
-	echo -e "\e[96m ~~~~ Modtran Plots ~~~~\e[0m"
-	Rscript modtran.r
-	echo -e "\e[92mModtran Plot saved to ~/Downloads/\e[0m"
-fi
 ## All Flag
 if [[ ${a_flag} ]]; then
 	echo -e "\e[96m ~~~~ All Plots ~~~~\e[0m"
@@ -65,8 +59,6 @@ if [[ ${a_flag} ]]; then
 	Rscript model.r --poster --save &> /dev/null & Rscript model.r --set c --save &> /dev/null
 	echo -e "\e[92m[All] Poster plots saved to ~/Downloads/\e[0m"
 	echo -e "\e[92m[All] Charts saved to ~/Downloads/\e[0m"
-	Rscript modtran.r
-	echo -e "\e[92mModtran Plot saved to ~/Downloads/\e[0m"
 fi
 ## Default Flag (Clear Sky)
 if (( ${c_flag} == 1 )); then
