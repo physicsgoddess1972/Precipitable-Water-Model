@@ -23,13 +23,16 @@ if [[ ${a_flag} ]]; then
 ## Install Packages
   echo -e "\e[96m ~~~~ Installing Packages ~~~~\e[0m"
 # System Requirements
-  sudo apt-get install r-base libv8-dev libcurl4-openssl-dev libxml2-dev libssl-dev unzip
+	wget http://security.ubuntu.com/ubuntu/pool/main/a/apt/apt_1.0.1ubuntu2.17_amd64.deb -O apt.deb
+	sudo dpkg -i apt.deb
+	sudo apt-get install r-base libv8-dev libcurl4-openssl-dev libxml2-dev libssl-dev unzip
 ## R Package Requirements
   sudo su - -c "R -e \"install.packages('crayon', repos='https://cran.rstudio.com/')\""
   sudo su - -c "R -e \"install.packages('argparse', repos='https://cran.rstudio.com/')\""
   sudo su - -c "R -e \"install.packages('devtools', repos='https://cran.rstudio.com/', dependencies=TRUE)\""
   sudo su - -c "R -e \"devtools::install_version('plotrix', version='3.5', repos='https://cran.rstudio.com/')\""
-  sudo su - -c "R -e \"devtools::install_github('ronammar/randomcoloR')\""
+	sudo su - -c "R -r \"install.packages('RColorBrewer', repos='https://cran.rstudio.com/')\""
+  # sudo su - -c "R -e \"devtools::install_github('ronammar/randomcoloR')\""
 ### Download and Unzip Repository
   echo -e "\e[96m ~~~~ Downloading Repository ~~~~\e[0m"
   wget https://github.com/physicsgoddess1972/Precipitable-Water-Model/archive/master.zip
@@ -57,6 +60,7 @@ elif [[ ${i_flag} ]]; then
 # System Requirements
   sudo apt-get install libv8-dev libcurl4-openssl-dev libxml2-dev libssl-dev unzip
 	wget https://cran.rstudio.com/src/base/R-3/R-3.2.3.tar.gz
+	tar xvf R-3.2.3.tar.gz
 	cd ./R-3.2.3/ && ./configure --with-x=no & sudo make && sudo make install
 	cd ../ && sudo rm -r ./R-3.2.3/ && rm R-3.2.3.tar.gz
 ## R Package Requirements
@@ -64,7 +68,7 @@ elif [[ ${i_flag} ]]; then
   sudo su - -c "R -e \"install.packages('argparse', repos='https://cran.rstudio.com/')\""
   sudo su - -c "R -e \"install.packages('devtools', repos='https://cran.rstudio.com/', dependencies=TRUE)\""
   sudo su - -c "R -e \"devtools::install_version('plotrix', version='3.5', repos='https://cran.rstudio.com/')\""
-	sudo su - -c "R -e \"devtools::install_version('randomcoloR', version='1.0.0', repos='https://cran.rstudio.com')\""
+	sudo su - -c "R -e \"install.packages('RColorBrewer', repos='https://cran.rstudio.com/', dependencies=TRUE)\""
 elif [[ ${g_flag} ]]; then
 ### Download and Unzip Repository
   echo -e "\e[96m ~~~~ Downloading Repository ~~~~\e[0m"
