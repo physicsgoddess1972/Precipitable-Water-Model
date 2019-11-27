@@ -55,7 +55,10 @@ elif [[ ${i_flag} ]]; then
 ## Install Packages
   echo -e "\e[96m ~~~~ Installing Packages ~~~~\e[0m"
 # System Requirements
-  sudo apt-get install r-base libv8-dev libcurl4-openssl-dev libxml2-dev libssl-dev unzip
+  sudo apt-get install libv8-dev libcurl4-openssl-dev libxml2-dev libssl-dev unzip
+  wget https://cran.rstudio.com/src/base/R-3/R-3.2.3.tar.gz
+  tar xvf R-3.2.3.tar.gz
+  cd ./R-3.2.3 && ./configure --with-x=no && make && make install
 ## R Package Requirements
   sudo su - -c "R -e \"install.packages('crayon', repos='https://cran.rstudio.com/')\""
   sudo su - -c "R -e \"install.packages('argparse', repos='https://cran.rstudio.com/')\""
