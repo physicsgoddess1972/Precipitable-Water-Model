@@ -6,9 +6,8 @@
 ####
 
 ## Necessary Libraries for the script to run, for installation run install.sh
-library(argparse); library(crayon); library(randomcoloR); #library(Rpyplot);
-library(plotrix)
-
+library(argparse); library(crayon); library(RColorBrewer); library(plotrix)
+#library(randomcoloR); #library(Rpyplot);
 
 ## Custom Colors for cmd line features
 red 		<- make_style("red1")
@@ -117,7 +116,13 @@ for (j in unique(pw_time)){
 	col_pwtm <- append(col_pwtm, list(grep(j, pw_time)))
 }
 # Assigns a color for each label
-pw_color <- distinctColorPalette(length(pw_name), runTsne=TRUE, altCol=TRUE)
+#pw_color <- distinctColorPalette(length(pw_name), runTsne=TRUE, altCol=TRUE)
+pw_color <- brewer.pal(length(pw_name),"Set1")
+
+colscheme <- function(range){
+	col <- brewer.pal(length(range)+1, "Set1")
+	return(col)
+}
 ## Pull general location tag from the label
 snsr_tag 	<- gsub("*_.", "", snsr_name)
 ## Pulls the column numbers that have the general location tag
@@ -574,15 +579,14 @@ plots2 	<- function(..., overcast=args$overcast){
 		range 	<- loc_avg
 		title 	<- "Correlation between Temporal Mean TPW and Temperature \n Condition: Clear Sky"
 	}
-	colscheme <- distinctColorPalette(length(range), runTsne=FALSE, altCol=TRUE)
 
 	plot(x,  t(unlist(range[1])), xlab="Zenith Sky Temperature [C]", ylab="TPW [mm]",
-	xlim=c(xmin, xmax), ylim=c(ymin, ymax), main=title, pch=16, col=colscheme[1])
+	xlim=c(xmin, xmax), ylim=c(ymin, ymax), main=title, pch=16, col=colscheme(range)[1])
 
 	for(j in 2:length(range)){
-		points(x, t(unlist(range[j])), pch=16, col=colscheme[j])
+		points(x, t(unlist(range[j])), pch=16, col=colscheme(range)[j])
 	}
-	legend("topright", inset=c(-0.153, 0), legend=c(unique(pw_place)), col=colscheme, pch=c(16,16, 16))
+	legend("topright", inset=c(-0.153, 0), legend=c(unique(pw_place)), col=colscheme(range), pch=c(16,16, 16))
 }
 ## Temporal Average Plots
 plots3 	<- function(..., overcast=args$overcast){
@@ -605,15 +609,14 @@ plots3 	<- function(..., overcast=args$overcast){
 		range 	<- tmp_avg
 		title 	<- "Correlation between Locational Mean TPW and Temperature \n Condition: Clear Sky"
 	}
-	colscheme <- distinctColorPalette(length(range), runTsne=FALSE, altCol=TRUE)
 
 	plot(x,  t(unlist(range[1])), xlab="Zenith Sky Temperature [C]", ylab="TPW [mm]",
-	xlim=c(xmin, xmax), ylim=c(ymin, ymax), main=title, pch=16, col=colscheme[1])
+	xlim=c(xmin, xmax), ylim=c(ymin, ymax), main=title, pch=16, col=colscheme(range)[1])
 
 	for(j in 2:length(range)){
-		points(x, t(unlist(range[j])), pch=16, col=colscheme[j])
+		points(x, t(unlist(range[j])), pch=16, col=colscheme(range)[j])
 	}
-	legend("topright", inset=c(-0.14, 0), legend=c(unique(pw_time)), col=colscheme, pch=c(16,16, 16))
+	legend("topright", inset=c(-0.14, 0), legend=c(unique(pw_time)), col=colscheme(range), pch=c(16,16, 16))
 }
 
 ## Super Average Plot with Exponential Fit
@@ -844,10 +847,8 @@ poster2 <- function(...){
 		ymin	<- min(as.numeric(unlist(tmp_avg)), na.rm=TRUE)
 		range 	<- tmp_avg
 
-		colscheme <- distinctColorPalette(length(range), runTsne=FALSE, altCol=TRUE)
-
 		plot(x, t(unlist(range[1])), xlab=NA, ylab=NA,
-		xlim=c(xmin, xmax), ylim=c(ymin, ymax), main=NA, pch=16, col=colscheme[1])
+		xlim=c(xmin, xmax), ylim=c(ymin, ymax), main=NA, pch=16, col=colscheme(range)[1])
 
 		title("Locational Mean TPW and Temp",line=0.5)
 
@@ -855,9 +856,9 @@ poster2 <- function(...){
 		mtext("Zenith Sky Temperature [C]", side=1, line=2.25, cex=0.65)
 
 		for(j in 2:length(range)){
-			points(x, t(unlist(range[j])), pch=16, col=colscheme[j])
+			points(x, t(unlist(range[j])), pch=16, col=colscheme(range)[j])
 		}
-		legend("topleft", legend=unique(pw_time), col=colscheme, pch=c(16))
+		legend("topleft", legend=unique(pw_time), col=colscheme(range), pch=c(16))
 
 ## Temporal Average Pw Temperature Correlation
 		ymax	<- max(as.numeric(unlist(loc_avg)), na.rm=TRUE)
@@ -865,16 +866,15 @@ poster2 <- function(...){
 		range 	<- loc_avg
 
 		plot(x,  t(unlist(range[1])), xlab=NA, ylab=NA, xlim=c(xmin, xmax),
-			ylim=c(ymin, ymax), main=NA, pch=16, col="gold2")
+			ylim=c(ymin, ymax), main=NA, pch=16, col=colscheme(range)[1])
 
 		title("Temporal Mean TPW and Temp",line=0.5)
 		mtext("Zenith Sky Temperature [C]", side=1, line=2.25, cex=0.65)
 
 		for(j in 2:length(range)){
-			points(x, t(unlist(range[j])), pch=16, col="dodgerblue")
+			points(x, t(unlist(range[j])), pch=16, col=colscheme(range)[j])
 		}
-		legend("topleft", legend=unique(pw_place),
-			col=c("gold2", "dodgerblue"), pch=16)
+		legend("topleft", legend=unique(pw_place), col=colscheme(range), pch=16)
 
 ## Total Mean PW Temperature Correlation with exponential regression
 		exp_reg <- exp_regression(as.numeric(unlist(snsr_sky_calc)), avg)
