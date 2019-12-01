@@ -308,4 +308,8 @@ Date,Conditions,RH,PW ABQ_12Z,PW ABQ_00Z,PW EPZ_12Z,PW EPZ_00Z,Vicki time,NWS ti
 11/24/2019,clear sky,,5.35,4.75,8.94,6.54,9:40,,,NaN,NaN,-24.8,-25,7.8,7.1,6.9,6.8,
 11/25/2019,clear sky,,3.62,5.41,13.56,15.59,10:05,,,NaN,NaN,-35.5,-34.7,7.8,7.6,6.8,7.3,
 11/26/2019,clear sky,,5.36,3.33,10.19,7.16,14:01,,,NaN,NaN,NaN,-49.9,14.8,14,14.6,14.7,
-11/27/2019,overcast,,4.65,NaN,8.43,NaN,10:41,,,-4.7,-4.1,-4.3,-3.9,3.5,3.5,2.2,3.5,
+11/27/2019,overcast,,4.65,10.12,8.43,23.54,10:41,,,-4.7,-4.1,-4.3,-3.9,3.5,3.5,2.2,3.5,
+11/28/2019,overcast,,14.09,12.37,22.09,21.3,15:12,,,0.4,-2.7,-2.2,-2.4,1.6,-1.4,-1.5,1,snowed
+11/29/2019,overcast,,15.5,7.82,17.98,16.4,14:46,,,NaN,NaN,-3.4,-2.6,10.4,8.1,7.5,8.5,"cloud cover moving too fast that first half of the readings were in clear sky and second half in overcast.  Could not do readings fast enough to get all of the same kind in additional attempts, so kept the first readings"
+11/30/2019,clear sky,,4.32,3.83,10.89,6.69,12:20,,,NaN,NaN,-39.4,-36.1,13.4,10.5,12.3,13.2,very windy
+12/1/2019,clear sky,,6.03,NaN,5.15,NaN,12:20,,,NaN,NaN,-39.4,-36.1,13.4,10.5,12.3,13.2,very windy
