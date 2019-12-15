@@ -25,7 +25,11 @@ if [[ ${a_flag} ]]; then
 # System Requirements
 	wget http://security.ubuntu.com/ubuntu/pool/main/a/apt/apt_1.0.1ubuntu2.17_amd64.deb -O apt.deb
 	sudo dpkg -i apt.deb
-	sudo apt-get install r-base libv8-dev libcurl4-openssl-dev libxml2-dev libssl-dev unzip
+	sudo apt-get install libv8-dev libcurl4-openssl-dev libxml2-dev libssl-dev unzip
+	# wget https://cran.rstudio.com/src/base/R-3/R-3.2.3.tar.gz
+	# tar -zxf ./R-3.2.3.tar.gz
+	# cd ./R-3.2.3/ && ./configure --with-x=no & sudo make && sudo make install
+	# cd ../ && sudo rm -r ./R-3.2.3/ && rm R-3.2.3.tar.gz
 ## R Package Requirements
   sudo su - -c "R -e \"install.packages('crayon', repos='https://cran.rstudio.com/')\""
   sudo su - -c "R -e \"install.packages('argparse', repos='https://cran.rstudio.com/')\""
@@ -59,10 +63,10 @@ elif [[ ${i_flag} ]]; then
   echo -e "\e[96m ~~~~ Installing Packages ~~~~\e[0m"
 # System Requirements
   sudo apt-get install libv8-dev libcurl4-openssl-dev libxml2-dev libssl-dev unzip
-	wget https://cran.rstudio.com/src/base/R-3/R-3.2.3.tar.gz
-	tar xvf R-3.2.3.tar.gz
-	cd ./R-3.2.3/ && ./configure --with-x=no & sudo make && sudo make install
-	cd ../ && sudo rm -r ./R-3.2.3/ && rm R-3.2.3.tar.gz
+	# wget https://cran.rstudio.com/src/base/R-3/R-3.2.3.tar.gz
+	# tar xvf R-3.2.3.tar.gz
+	# cd ./R-3.2.3/ && ./configure --with-x=no & sudo make && sudo make install
+	# cd ../ && sudo rm -r ./R-3.2.3/ && rm R-3.2.3.tar.gz
 ## R Package Requirements
   sudo su - -c "R -e \"install.packages('crayon', repos='https://cran.rstudio.com/')\""
   sudo su - -c "R -e \"install.packages('argparse', repos='https://cran.rstudio.com/')\""

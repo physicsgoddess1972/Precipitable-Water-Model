@@ -33,8 +33,8 @@ if [[ ${h_flag} ]]; then
     echo "   -p PORT    port number for tensorboard"
 elif [[ ${i_flag} ]]; then
     echo -e "\e[92m~~~ Installation Starting ~~~\e[0m"
-    sudo pip install tensorflow==1.4.1
-    sudo pip install keras==2.1.3
+    sudo pip3 install tensorflow==1.4.1
+    sudo pip3 install keras==2.1.3
     sudo su - -c "R -e \"install.packages('tidyverse', repos='https://cran.rstudio.com/')\""
     sudo su - -c "R -e \"install.packages('caret', repos='https://cran.rstudio.com/')\""
     sudo su - -c "R -e \"install.packages('fastDummies', repos='https://cran.rstudio.com/')\""
@@ -74,5 +74,3 @@ fi
 for ((i = 1 ; i < ${c_flag}+1 ; i++ )); do
     Rscript cloud_magic.r -r $i -l "${l_flag}" -e "${e_flag:=100}" -b "${b_flag:=10}" -o "${o_flag}" -a "${a_flag}"
 done
-
-
