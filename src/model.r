@@ -659,6 +659,7 @@ plots5 	<- function(..., overcast=args$overcast){
 		exp_reg <- exp_regression(as.numeric(unlist(snsr_sky_calc)), avg)
 		title 	<- "Residual of the Mean TPW and Temperature Model \n Condition: Clear Sky"
 	}
+	print(sd(exp_reg$y))
 	plot(exp_reg$x, resid(exp_reg$model), col=c("royalblue"), pch=16,
 	ylim=c(min(resid(exp_reg$model)), max(resid(exp_reg$model))),
 		xlab="Zenith Sky Temperature [C]", ylab=expression(sigma), main=title)
