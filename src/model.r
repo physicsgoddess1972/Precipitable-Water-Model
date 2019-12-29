@@ -1019,7 +1019,7 @@ if(args$instrument){
 }
 if(args$data){
 	if(args$ml){
-		ml_pw <- ml_pw_avg <- ml_temp <- ml_temp_avg <- list()
+		ml_pw <- ml_pw_avg <- ml_temp <- ml_temp_avg <- ml_rh <- list()
 		## Average PW
 		for(a in 1:length(col_pw)){
 			ml_pw[[ paste("ml_pw", a, sep="") ]] <- as.numeric(unlist(fname[col_pw[a]]))
@@ -1044,16 +1044,20 @@ if(args$data){
 		for(a in 1:(length(unlist(ml_temp))/length(ml_temp))){
 			ml_temp_avg[[ paste("ml_temp_avg", a, sep="") ]] <- mean(ml_temp_avg[[ paste("ml_temp_avg", a, sep="") ]])
 		}
-
+		## Relative Humidity
+		for(a in 1:length(col_rh)){
+			ml_rh[[ paste("ml_rh", a, sep="") ]] <- as.numeric(unlist(fname[col_rh[a]]))
+		}
 # Pulls the data
 		avg_temp	<- as.numeric(unlist(ml_temp_avg))
 		avg_pw 		<- as.numeric(unlist(ml_pw_avg))
+		avg_rh 		<- as.numeric(unlist(ml_rh))
 		date 		<- as.Date(fname[ ,col_date], "%m/%d/%Y")
 		cond 		<- fname[,col_con]
 # Pulls the data
-		norm  		<- na.omit(data.frame(list(x=date, y1=avg_temp, y2=avg_pw, c=cond)))
-		data 		<- data.frame(list(date=c(norm$x),avg_temp=c(norm$y1), avg_pw=c(norm$y2), cond=c(norm$c)))
-		colnames(data) <- c("date", "avg_temp", "avg_pw", "condition")
+		norm  		<- na.omit(data.frame(list(x=date, y1=avg_temp, y2=avg_pw, y3=avg_rh, c=cond)))
+		data 		<- data.frame(list(date=c(norm$x),avg_temp=c(norm$y1), avg_pw=c(norm$y2), avg_rh=c(norm$y3), cond=c(norm$c)))
+		colnames(data) <- c("date", "avg_temp", "avg_pw", "avg_rh", "condition")
 # Writes the data to a csv
 		write.csv(data, file="../data/ml_data.csv", row.names=FALSE)
 		cat(green(sprintf("Data sent to ../data/ml_data.csv\n")))
