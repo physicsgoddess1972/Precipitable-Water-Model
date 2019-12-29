@@ -646,9 +646,13 @@ plots4 	<- function(..., overcast=args$overcast){
 		lines(exp_reg$newx, exp(exp_reg$predint[ ,3]), col="magenta", lty="dashed")
 		lines(exp_reg$newx, exp(exp_reg$predint[ ,2]), col="magenta", lty="dashed")
 
+		points(247.46-273.15, 11.4, col=c("#00BCD7"), pch=16)
+		points(252.77-273.15, 22.7, col=c("#FF9A00"), pch=16)
+		points(256.86-273.15, 45.4, col=c("#66FF33"), pch=16)
+
 		legend("topleft",col=c("Red", "Magenta", "Blue"), pch=c("-", '--', "--"),
 		legend=c(parse(text=sprintf("%.2f*e^{%.3f*x}*\t\t(R^2 == %.3f)",
-		exp(coef(exp_reg$model)[1]),coef(exp_reg$model)[2], exp_reg$R2)), "Prediction", "Confidence"))
+		exp(coef(exp_reg$model)[1]),coef(exp_reg$model)[2], exp_reg$R2)), "Prediction Interval", "Confidence Interval"))
 }
 ## Residual Plot
 plots5 	<- function(..., overcast=args$overcast){
@@ -659,7 +663,6 @@ plots5 	<- function(..., overcast=args$overcast){
 		exp_reg <- exp_regression(as.numeric(unlist(snsr_sky_calc)), avg)
 		title 	<- "Residual of the Mean TPW and Temperature Model \n Condition: Clear Sky"
 	}
-	print(sigma(exp_reg$model))
 	plot(exp_reg$x, resid(exp_reg$model), col=c("royalblue"), pch=16,
 	ylim=c(min(resid(exp_reg$model)), max(resid(exp_reg$model))),
 		xlab="Zenith Sky Temperature [C]", ylab=expression(sigma), main=title)
@@ -886,9 +889,9 @@ poster2 <- function(...){
 		plot(exp_reg$x,exp_reg$y, col=c("blueviolet"), pch=16,
 		xlim=c(exp_reg$xmin, exp_reg$xmax), ylim=c(ymin, max(ymax, 50)),
 		xlab=NA, ylab=NA, main=NA)
-        points(247.46-273.15, 11.4, col=c("#00BCD7"), pch=16)
-        points(252.77-273.15, 22.7, col=c("#FF9A00"), pch=16)
-        points(256.86-273.15, 45.4, col=c("#66FF33"), pch=16)
+		points(247.46-273.15, 11.4, col=c("#00BCD7"), pch=16)
+		points(252.77-273.15, 22.7, col=c("#FF9A00"), pch=16)
+		points(256.86-273.15, 45.4, col=c("#66FF33"), pch=16)
 
 		title("Mean TPW vs Temp",line=0.5)
 		mtext("TPW [mm]", side=2, line=2.25, cex=0.65)
@@ -904,7 +907,7 @@ poster2 <- function(...){
 
 		legend("topleft",col=c("Red", "Magenta", "Blue"), pch=c("-", '--', "--"),
 		legend=c(parse(text=sprintf("%.2f*e^{%.3f*x}*\t\t(R^2 == %.3f)",
-		exp(coef(exp_reg$model)[1]),coef(exp_reg$model)[2], exp_reg$R2)), "Prediction", "Confidence"))
+		exp(coef(exp_reg$model)[1]),coef(exp_reg$model)[2], exp_reg$R2)), "Prediction Interval", "Confidence Interval"))
 # Layout configuration for preceding plots
 		layout(matrix(c(1), 2, 2, byrow=TRUE))
 	}
