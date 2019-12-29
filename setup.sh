@@ -25,13 +25,18 @@ if [[ ${a_flag} ]]; then
 # System Requirements
 	wget http://security.ubuntu.com/ubuntu/pool/main/a/apt/apt_1.0.1ubuntu2.17_amd64.deb -O apt.deb
 	sudo dpkg -i apt.deb
-	sudo apt-get install r-base libv8-dev libcurl4-openssl-dev libxml2-dev libssl-dev unzip
+	sudo apt-get install gfortran libbz2-dev libv8-dev libcurl4-openssl-dev libxml2-dev libssl-dev unzip
+	sudo apt-get install zlib1g-dev libpcre3-dev liblzma-dev`
+	wget https://cran.rstudio.com/src/base/R-3/R-3.6.1.tar.gz
+	tar -zxf ./R-3.6.1.tar.gz
+	cd ./R-3.6.1/ && ./configure --with-readline=no --with-x=no & sudo make && sudo make install
+	cd ../ && sudo rm -r ./R-3.6.1/ && rm R-3.6.1.tar.gz
 ## R Package Requirements
     sudo su - -c "R -e \"install.packages('crayon', repos='https://cran.rstudio.com/')\""
     sudo su - -c "R -e \"install.packages('argparse', repos='https://cran.rstudio.com/')\""
     sudo su - -c "R -e \"install.packages('devtools', repos='https://cran.rstudio.com/', dependencies=TRUE)\""
     sudo su - -c "R -e \"devtools::install_version('plotrix', version='3.5', repos='https://cran.rstudio.com/')\""
-    sudo su - -c "R -r \"install.packages('RColorBrewer', repos='https://cran.rstudio.com/')\""
+    sudo su - -c "R -e \"install.packages('RColorBrewer', repos='https://cran.rstudio.com/')\""
   # sudo su - -c "R -e \"devtools::install_github('ronammar/randomcoloR')\""
 ### Download and Unzip Repository
     echo -e "\e[96m ~~~~ Downloading Repository ~~~~\e[0m"
