@@ -1,18 +1,17 @@
+import cvxopt
 from csv import *
 from numpy import *
-from sklearn import *
-import cvxopt
-from sklearn.model_selection import train_test_split
-from matplotlib import pyplot as plt
-from sklearn import svm
-from sklearn.metrics import confusion_matrix, classification_report
-import seaborn as sns
 import pandas as pd
+from seaborn import *
+from sklearn import *
+from sklearn import svm
+from matplotlib import pyplot as plt
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import confusion_matrix, classification_report
 
-## Data Preproccessing
 raw_data = []
 raw_label = []
-with open("./ml_data.csv") as csvfile:
+with open("../../../data/ml/ml_data.csv") as csvfile:
     reader = reader(csvfile, delimiter=",")
     next(reader, None)
     for row in reader:
@@ -24,24 +23,18 @@ y[y == 1] = -1
 y[y == 2] = 1
 y = ones(len(X)) * y
 
-## Training-Testing Data Partition
 X_train, X_test, y_train, y_test = train_test_split(X, y, train_size=0.7, random_state=0)
 
-
-fig, (ax1,ax2,ax3) = plt.subplots(1,3)
-plt.subplots_adjust(left=0.09, right=0.96, wspace=0.25)
-ax1.set_title("Full Dataset ")
-ax1.scatter(X[:, 0], X[:, 1], X[:,2], c=y, cmap='coolwarm')
-ax1.set_ylabel(r"TPW [mm]")
-ax1.set_xlabel(r"Temperature [$^o$C]")
-ax2.scatter(X_train[:, 0], X_train[:, 1], X_train[:,2], c=y_train, cmap='coolwarm')
-ax2.set_title("Training Dataset")
-ax2.set_xlabel(r"Temperature [$^o$C]")
-ax3.scatter(X_test[:, 0], X_test[:, 1], X_test[:,2], c=y_test, cmap='coolwarm')
-ax3.set_title("Testing Dataset")
-ax3.set_xlabel(r"Temperature [$^o$C]")
-plt.ylim(min(X[:,1]), max(X[:,1]))
-plt.xlim(min(X[:,0]), max(X[:,0]))
+plt.subplot(2,1,1)
+plt.subplots_adjust(hspace=0.35)
+plt.title("Full Dataset Temperature vs TPW")
+plt.scatter(X[:, 0], X[:, 1], X[:,2], c=y, cmap='coolwarm')
+plt.ylabel(r"TPW [mm]")
+plt.subplot(2,1,2)
+plt.scatter(X_train[:, 0], X_train[:, 1], X_train[:,2], c=y_train, cmap='coolwarm')
+plt.title("Training Dataset Temperature vs TPW")
+plt.xlabel(r"Temperature [$^o$C]")
+plt.ylabel(r"TPW [mm]")
 
 svc = svm.SVC(kernel='linear', degree=5, C=1).fit(X_train, y_train)
 
@@ -85,7 +78,11 @@ y_pred = svc.predict(X_test)
 con_mat = array(confusion_matrix(y_test, y_pred))
 confusion = pd.DataFrame(con_mat, index=['clear sky', 'overcast'],
                     columns=['predicted clear', 'predicted clouds'])
-sns.heatmap(confusion, annot=True, fmt='d', cmap='plasma')
-plt.title("Confusion Matrix for Classical SVM")
+heatmap(confusion, annot=True, fmt='d', cmap='plasma', cbar=False,
+        robust=True, square=True)
+plt.suptitle('Confusion Matrix for Classical SVM', fontsize=16)
+plt.title("Testing Accuracy: {}%".format(round(sum(diagonal(con_mat))/(sum(con_mat)) * 100, 2)))
+
+
 
 plt.show()
