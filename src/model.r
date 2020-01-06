@@ -624,12 +624,12 @@ plots4 	<- function(..., overcast=args$overcast){
 	par(mar=c(5.1, 4.1, 4.1, 2.1),xpd=FALSE)
 	if(overcast){
 		exp_reg <- exp_regression(as.numeric(unlist(snsr_sky_calco)), avgo)
-		ymax 	<- max(exp_reg$y, na.rm=TRUE)
+		ymax 	<- max(exp_reg$y, 45.4, na.rm=TRUE)
 		ymin 	<- min(exp_reg$y, na.rm=TRUE)
 		title 	<- "Correlation between Mean TPW and Temperature \n Condition: Overcast"
 	}else{
 		exp_reg <- exp_regression(as.numeric(unlist(snsr_sky_calc)), avg)
-		ymax 	<- max(exp_reg$y, na.rm=TRUE)
+		ymax 	<- max(exp_reg$y, 45.4, na.rm=TRUE)
 		ymin 	<- min(exp_reg$y, na.rm=TRUE)
 		title 	<- "Correlation between Mean TPW and Temperature \n Condition: Clear Sky"
 	}
@@ -647,7 +647,7 @@ plots4 	<- function(..., overcast=args$overcast){
 		lines(exp_reg$newx, exp(exp_reg$predint[ ,2]), col="magenta", lty="dashed")
 
 		points(247.46-273.15, 11.4, col=c("#00BCD7"), pch=16)
-		points(252.77-273.15, 22.7, col=c("#FF9A00"), pch=16)
+		points(252.77-273.15, 22.8, col=c("#FF9A00"), pch=16)
 		points(256.86-273.15, 45.4, col=c("#66FF33"), pch=16)
 
 		legend("topleft",col=c("Red", "Magenta", "Blue"), pch=c("-", '--', "--"),
@@ -951,7 +951,7 @@ poster3 <- function(...){
 					if (pct[i] == 0){
 						text(pct[i] + 7, bar[i], labels=sprintf('%s %%', as.character(pct[i])))
 					}else if(pct[i] < 6){
-						text(pct[i] + 25, bar[i], labels=sprintf('%s %%', as.character(pct[i])))
+						text(pct[i] + 30, bar[i], labels=sprintf('%s %%', as.character(pct[i])))
 					}else if(pct[i] < 10){
 						text(pct[i] + 17, bar[i], labels=sprintf('%s %%', as.character(pct[i])))
 					}else{
