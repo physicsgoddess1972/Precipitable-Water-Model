@@ -21,6 +21,7 @@ while getopts "omahc" opt; do
         c) c_flag=1;;
 	esac
 done
+python3 pw_wyimport.py
 ## Help Flag
 if [[ ${h_flag} ]]; then
 	echo "usage: run.sh [-hcoma]"
