@@ -52,8 +52,12 @@ with file as csvfile:
         date.append(dt(int(year), int(month), int(day), hour=0))
 today = dt.today().date()
 dt_rng = [date[-1].date() + datetime.timedelta(days=x) for x in range(abs(date[-1].date() - today).days)][1:]
+<<<<<<< HEAD
 dt_rng.append(today)
 
+=======
+print(dt_rng)
+>>>>>>> a90510057b5a9993180e9c6b44f17a7984381cd6
 data_abq = []
 for i in range(len(dt_rng)):
     pw12 = wyoming.WyomingUpperAir.request_data(dt.combine(dt_rng[i], datetime.time(12, 0)), station[0])['pw'][0]
