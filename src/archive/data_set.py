@@ -1,10 +1,11 @@
 from numpy import *
 
-# fname1 = "../../data/modtran/radiance/modtran1.csv"
-# fname2 = "../../data/modtran/radiance/modtran2.csv"
-# fname3 = "../../data/modtran/radiance/modtran3.csv"
-# fname4 = "../../data/modtran/radiance/modtran4.csv"
-# sname = "../../data/modtran/radiance/modtran.csv"
+fname1 = "../../data/modtran/radiance/modtran1.csv"
+fname2 = "../../data/modtran/radiance/modtran2.csv"
+fname3 = "../../data/modtran/radiance/modtran3.csv"
+fname4 = "../../data/modtran/radiance/modtran4.csv"
+fname5 = "../../data/modtran/radiance/modtran5.csv"
+sname = "../../data/modtran/radiance/modtran.csv"
 
 # fname4 = "../../data/modtran/temp_offset/modtran-5.csv"
 # #fname5 = "../../data/modtran/temp_offset/modtran-2.csv"
@@ -13,23 +14,24 @@ from numpy import *
 # fname6 = "../../data/modtran/temp_offset/modtran+5.csv"
 # sname1 = "../../data/modtran/temp_offset/modtran.csv"
 
-fname1 = "../../data/modtran/ir_band/flir_low.csv"
-fname2 = "../../data/modtran/ir_band/flir_high.csv"
-fname3 = "../../data/modtran/ir_band/ames_low.csv"
-fname4 = "../../data/modtran/ir_band/ames_high.csv"
-
-
-sname = "../../data/modtran/ir_band/modtran.csv"
+# fname1 = "../../data/modtran/ir_band/flir_low.csv"
+# fname2 = "../../data/modtran/ir_band/flir_high.csv"
+# fname3 = "../../data/modtran/ir_band/ames_low.csv"
+# fname4 = "../../data/modtran/ir_band/ames_high.csv"
+# sname = "../../data/modtran/ir_band/modtran.csv"
 
 wl  = loadtxt(fname1, delimiter=",", unpack=True, skiprows=3)[1]
 rd1 = loadtxt(fname1, delimiter=",", unpack=True, skiprows=3)[3]
 rd2 = loadtxt(fname2, delimiter=",", unpack=True, skiprows=3)[3]
 rd3 = loadtxt(fname3, delimiter=",", unpack=True, skiprows=3)[3]
 rd4 = loadtxt(fname4, delimiter=",", unpack=True, skiprows=3)[3]
+rd5 = loadtxt(fname5, delimiter=",", unpack=True, skiprows=3)[3]
 f = open(sname, "w")
-f.write("wavelength, Radiance (FLiR Low), Radiance (FLiR High), Radiance (AMES Low), Radiance (AMES High)\n")
+f.write("wavelength,Radiance (WVS 0.25),Radiance (WVS 0.5),Radiance (WVS 1.0),Radiance (WVS 1.5),Radiance (WVS 2.0)")
 for i in range(0, len(wl)):
     f.write(str(wl[i]))
+    f.write(",")
+    f.write(str(rd5[i]))
     f.write(",")
     f.write(str(rd1[i]))
     f.write(",")
