@@ -226,7 +226,6 @@ for (p in 1:length(col_pwtm)){
 
 ## Takes super average of the precipitable water measurements
 avgo 		<-  Reduce("+", pw_loco)/length(pw_loco)
-
 lin_regression <- function(x,y){
 	nans <- c(grep("NaN", y)); nans <- append(nans, grep("NaN", x))
 	x <- x[-(nans)]; y <- y[-(nans)]
@@ -241,6 +240,41 @@ lin_regression <- function(x,y){
 									"xmax"=xmax, "model"=model, "rmsd"=rmsd)
 }
 
+for (i in seq(from = 1,to = length(snsr_sky$snsr_sky3))) {
+	if (clear_date[i] == "2019-03-24"){
+		snsr_sky$snsr_sky4[i] <- NaN;
+		snsr_sky$snsr_sky3[i] <- NaN;
+		snsr_sky$snsr_sky2[i] <- NaN;
+
+		snsr_gro$snsr_gro4[i] <- NaN;
+		snsr_gro$snsr_gro3[i] <- NaN;
+		snsr_gro$snsr_gro2[i] <- NaN;
+	}else if (clear_date[i] == "2019-07-23"){
+		snsr_sky$snsr_sky4[i] <- NaN;
+		snsr_sky$snsr_sky3[i] <- NaN;
+		snsr_sky$snsr_sky2[i] <- NaN;
+
+		snsr_gro$snsr_gro4[i] <- NaN;
+		snsr_gro$snsr_gro3[i] <- NaN;
+		snsr_gro$snsr_gro2[i] <- NaN;
+	}else if (clear_date[i] == "2019-11-16"){
+		snsr_sky$snsr_sky4[i] <- NaN;
+		snsr_sky$snsr_sky3[i] <- NaN;
+		snsr_sky$snsr_sky2[i] <- NaN;
+
+		snsr_gro$snsr_gro4[i] <- NaN;
+		snsr_gro$snsr_gro3[i] <- NaN;
+		snsr_gro$snsr_gro2[i] <- NaN;
+	}else if (clear_date[i] == "2020-01-2"){
+		snsr_sky$snsr_sky4[i] <- NaN;
+		snsr_sky$snsr_sky3[i] <- NaN;
+		snsr_sky$snsr_sky2[i] <- NaN;
+
+		snsr_gro$snsr_gro4[i] <- NaN;
+		snsr_gro$snsr_gro3[i] <- NaN;
+		snsr_gro$snsr_gro2[i] <- NaN;
+	}
+}
 figure1 <- function(x,y1,y2, lim, title){
     par(mar=c(4,4,2,1), oma = c(1, 1, 2, 1), xpd=FALSE)
 		layout(matrix(c(1,2), 1, 2, byrow=TRUE))
