@@ -646,9 +646,9 @@ plots4 	<- function(..., overcast=args$overcast){
 		lines(exp_reg$newx, exp(exp_reg$predint[ ,3]), col="magenta", lty="dashed")
 		lines(exp_reg$newx, exp(exp_reg$predint[ ,2]), col="magenta", lty="dashed")
 
-		points(247.46-273.15, 11.4, col=c("#00BCD7"), pch=16)
-		points(252.77-273.15, 22.8, col=c("#FF9A00"), pch=16)
-		points(256.86-273.15, 45.4, col=c("#66FF33"), pch=16)
+		points(242.85-273.15, 5.7, col=c("#00BCD7"), pch=16)
+		points(252.77-273.15, 11.4, col=c("#FF9A00"), pch=16)
+		points(260.55-273.15, 22.7, col=c("#66FF33"), pch=16)
 
 		legend("topleft",col=c("Red", "Magenta", "Blue"), pch=c("-", '--', "--"),
 		legend=c(parse(text=sprintf("%.2f*e^{%.3f*x}*\t\t(R^2 == %.3f)",
@@ -889,9 +889,10 @@ poster2 <- function(...){
 		plot(exp_reg$x,exp_reg$y, col=c("blueviolet"), pch=16,
 		xlim=c(exp_reg$xmin, exp_reg$xmax), ylim=c(ymin, max(ymax, 50)),
 		xlab=NA, ylab=NA, main=NA)
-		points(247.46-273.15, 11.4, col=c("#00BCD7"), pch=16)
-		points(252.77-273.15, 22.7, col=c("#FF9A00"), pch=16)
-		points(256.86-273.15, 45.4, col=c("#66FF33"), pch=16)
+
+		points(242.85-273.15, 5.7, col=c("#00BCD7"), pch=16)
+		points(252.77-273.15, 11.4, col=c("#FF9A00"), pch=16)
+		points(260.55-273.15, 22.7, col=c("#66FF33"), pch=16)
 
 		title("Mean TPW vs Temp",line=0.5)
 		mtext("TPW [mm]", side=2, line=2.25, cex=0.65)

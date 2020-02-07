@@ -17,14 +17,6 @@ yellow 		<- make_style("gold2")
 green 		<- make_style("lawngreen")
 cloudblue 	<- make_style("lightskyblue")
 
-## Command Prompt "End of Program"
-quit_it <- function(){
-# There is an empty pdf file that is generated for some reason, and this removes it.
-	if(file.exists("Rplots.pdf")){file.remove("Rplots.pdf")}
-# End of program
-	cat(bold(cyan("\n\t\t>>>>>>> Program Complete <<<<<<<\n"))); quit()
-}
-
 ## Imports data from master_data.csv
 fname       <- read.table(file="../data/master_data.csv", sep=",", header=TRUE, strip.white=TRUE)
 ## Imports sensor information from instruments.txt
@@ -234,7 +226,6 @@ for (p in 1:length(col_pwtm)){
 
 ## Takes super average of the precipitable water measurements
 avgo 		<-  Reduce("+", pw_loco)/length(pw_loco)
-
 lin_regression <- function(x,y){
 	nans <- c(grep("NaN", y)); nans <- append(nans, grep("NaN", x))
 	x <- x[-(nans)]; y <- y[-(nans)]
@@ -244,23 +235,79 @@ lin_regression <- function(x,y){
 
 	start <- list(a=coef(model.0)[1], b=coef(model.0)[2])
 	model <- nls(y~a+b*x, data=data.frame(x=x, y=y), start=start)
-	rmsd <- rmse(y, (coef(model)[1] + coef(model)[2]*x))
-	print(rmsd)
+	rmsd 	<- rmse(y, coef(model)[1] + coef(model)[2]*x)
+
 	output <- list("x"=x, "y"=y, "model.0"=model.0, "xmin"=xmin,
 									"xmax"=xmax, "model"=model, "rmsd"=rmsd)
 }
 
-figure1 <- function(x,y1,y2, lim){
-    par(mar=c(5.1, 5.1, 5.1, 5.3), xpd=FALSE)
+for (i in seq(from = 1,to = length(snsr_sky$snsr_sky3))) {
+	if (clear_date[i] == "2019-03-24"){
+		snsr_sky$snsr_sky4[i] <- NaN;
+		snsr_sky$snsr_sky3[i] <- NaN;
+		snsr_sky$snsr_sky2[i] <- NaN;
+
+		snsr_gro$snsr_gro4[i] <- NaN;
+		snsr_gro$snsr_gro3[i] <- NaN;
+		snsr_gro$snsr_gro2[i] <- NaN;
+	}else if (clear_date[i] == "2019-07-23"){
+		snsr_sky$snsr_sky4[i] <- NaN;
+		snsr_sky$snsr_sky3[i] <- NaN;
+		snsr_sky$snsr_sky2[i] <- NaN;
+
+		snsr_gro$snsr_gro4[i] <- NaN;
+		snsr_gro$snsr_gro3[i] <- NaN;
+		snsr_gro$snsr_gro2[i] <- NaN;
+	}else if (clear_date[i] == "2019-11-16"){
+		snsr_sky$snsr_sky4[i] <- NaN;
+		snsr_sky$snsr_sky3[i] <- NaN;
+		snsr_sky$snsr_sky2[i] <- NaN;
+
+		snsr_gro$snsr_gro4[i] <- NaN;
+		snsr_gro$snsr_gro3[i] <- NaN;
+		snsr_gro$snsr_gro2[i] <- NaN;
+	}else if (clear_date[i] == "2020-01-2"){
+		snsr_sky$snsr_sky4[i] <- NaN;
+		snsr_sky$snsr_sky3[i] <- NaN;
+		snsr_sky$snsr_sky2[i] <- NaN;
+
+		snsr_gro$snsr_gro4[i] <- NaN;
+		snsr_gro$snsr_gro3[i] <- NaN;
+		snsr_gro$snsr_gro2[i] <- NaN;
+	}
+}
+figure1 <- function(x,y1,y2, lim, title){
+    par(mar=c(4,4,2,1), oma = c(1, 1, 2, 1), xpd=FALSE)
+		layout(matrix(c(1,2), 1, 2, byrow=TRUE))
 		lin_reg1 <- lin_regression(as.numeric(x), as.numeric(y1))
 		lin_reg2 <- lin_regression(as.numeric(x), as.numeric(y2))
+		rng = seq(min(lim), max(lim), by=10)
     plot(x, y1, ylab=NA, xlab="AMES 1 Temperature [C]", col="blue",
-					pch=16, main="Precision and Accuracy of AMES 1", xlim=lim, ylim=lim)
-		abline(0,1, pch=c("--"))
-		abline(v=0, col="gray")
-		abline(h=0, col="gray")
+					pch=16, main=NA, xlim=lim, ylim=lim, xaxt="n")
+		abline(0,1, pch=c("--")); abline(v=0, col="gray"); abline(h=0, col="gray")
 		curve(coef(lin_reg1$model)[1] + coef(lin_reg1$model)[2]*x, add=TRUE, col="red")
+		mtext("FLiR Temperature [C]", side=2, line=2.5, cex=1)
+		if (coef(lin_reg1$model)[1] > 0){
+			equ1 = parse(text=sprintf("y == %.2f * x + %.2f", coef(lin_reg1$model)[2], coef(lin_reg1$model)[1]))
+		} else if (coef(lin_reg1$model)[1] < 0){
+			equ1 = parse(text=sprintf("y == %.2f * x*%.2f", coef(lin_reg1$model)[2], coef(lin_reg1$model)[1]))
+		}
+		if (coef(lin_reg2$model)[1] > 0){
+			equ2 = parse(text=sprintf("y == %.2f * x + %.2f", coef(lin_reg2$model)[2], coef(lin_reg2$model)[1]))
+		} else if (coef(lin_reg2$model)[1] < 0){
+			equ2 = parse(text=sprintf("y == %.2f * x*%.2f", coef(lin_reg2$model)[2], coef(lin_reg2$model)[1]))
+		}
+
+		legend("topleft", col=c("Red",NA), pch=c("-",""),
+							legend=c(equ1,
+	 	 					parse(text=sprintf("RMSE == %.2f", lin_reg1$rmsd))))
+		axis(1, at=rng,label=rng)
+
+		plot(x, y2, ylab=NA, xlab="AMES 1 Temperature [C]",
+					col="#D001FA", pch=16, ylim=lim, xaxt="n")
+		abline(0,1, pch=c("--")); abline(v=0, col="gray"); abline(h=0, col="gray")
 		curve(coef(lin_reg2$model)[1] + coef(lin_reg2$model)[2]*x, add=TRUE, col="#2BFA01")
+<<<<<<< HEAD
 		axis(side = 2); mtext(side = 2, line=3, "FLiR Temperature [C]", col="blue")
     par(new = T)
     plot(x, y2, ylab=NA, axes=F,
@@ -270,8 +317,15 @@ figure1 <- function(x,y1,y2, lim){
 	 															parse(text=sprintf("RMSE == %.2f", lin_reg1$rmsd)),
 		 														parse(text=sprintf("y == %.2f * x + %.2f", coef(lin_reg2$model)[2], coef(lin_reg2$model)[1])),
 																parse(text=sprintf("RMSE == %.2f", lin_reg2$rmsd))))
+=======
+		mtext("AMES 2 Temperature [C]", side=2, line=2.5, cex=1)
+		legend("topleft", col=c("#2BFA01",NA), pch=c("-",""),
+						legend=c(equ2,
+						parse(text=sprintf("RMSE == %.2f", lin_reg2$rmsd))))
+		axis(1, at=rng, label=rng)
+		mtext(title, outer = TRUE, cex = 1.5)
+>>>>>>> c03a6f07eb43ec4b27097c2ad3bb172d203bdc89
 }
 
-
-figure1(snsr_sky$snsr_sky3, snsr_sky$snsr_sky2, snsr_sky$snsr_sky4, c(-60,30))
-figure1(snsr_gro$snsr_gro3, snsr_gro$snsr_gro2, snsr_gro$snsr_gro4, c(0, 60))
+figure1(snsr_sky$snsr_sky3, snsr_sky$snsr_sky2, snsr_sky$snsr_sky4, c(-60,30), "Air Temperature")
+figure1(snsr_gro$snsr_gro3, snsr_gro$snsr_gro2, snsr_gro$snsr_gro4, c(0, 60), "Ground Temperature")
