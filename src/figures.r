@@ -239,13 +239,14 @@ lin_regression <- function(x,y){
 	nans <- c(grep("NaN", y)); nans <- append(nans, grep("NaN", x))
 	x <- x[-(nans)]; y <- y[-(nans)]
 	xmax <- max(x, na.rm=TRUE); xmin <- min(x, na.rm=TRUE)
-	newx <- seq(xmin, xmax, length.out=length(x))
+
 	model.0 <- lm(y~x, data=data.frame(x,y))
+
 	start <- list(a=coef(model.0)[1], b=coef(model.0)[2])
 	model <- nls(y~a+b*x, data=data.frame(x=x, y=y), start=start)
 	rmsd <- rmse(y, (coef(model)[1] + coef(model)[2]*x))
 	print(rmsd)
-	output <- list("x"=x, "y"=y, "newx"=newx, "model.0"=model.0, "xmin"=xmin,
+	output <- list("x"=x, "y"=y, "model.0"=model.0, "xmin"=xmin,
 									"xmax"=xmax, "model"=model, "rmsd"=rmsd)
 }
 
@@ -265,7 +266,7 @@ figure1 <- function(x,y1,y2, lim){
     plot(x, y2, ylab=NA, axes=F,
 					xlab=NA, col="#D001FA", pch=16, ylim=lim)
     axis(side = 4); mtext(side = 4, line=3, "AMES 2 Temperature [C]", col="#D001FA")
-		legend("topleft", col=c("Red",NA, "#2BFA01",NA), pch=c("-","","-",""), legend=c(parse(text=sprintf("y == %.2f * x*%.2f", coef(lin_reg1$model)[2], coef(lin_reg1$model)[1])),
+		legend("topleft", col=c("Red",NA, "#2BFA01",NA), pch=c("-","","-",""), legend=c(parse(text=sprintf("y == %.2f * x+%.2f", coef(lin_reg1$model)[2], coef(lin_reg1$model)[1])),
 	 															parse(text=sprintf("RMSE == %.2f", lin_reg1$rmsd)),
 		 														parse(text=sprintf("y == %.2f * x + %.2f", coef(lin_reg2$model)[2], coef(lin_reg2$model)[1])),
 																parse(text=sprintf("RMSE == %.2f", lin_reg2$rmsd))))
