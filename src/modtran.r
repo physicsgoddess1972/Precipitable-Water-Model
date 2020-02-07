@@ -1,7 +1,8 @@
 ## Imports data from master_data.csv
 fname1       <- read.table(file="../data/modtran/radiance/modtran.csv", sep=",", header=TRUE, strip.white=TRUE)
-fname2       <- read.table(file="../data/modtran/temp_offset/modtran.csv", sep=",", header=TRUE, strip.white=TRUE)
+fname2       <- read.table(file="../data/modtran/temp_offset_wvs1/modtran.csv", sep=",", header=TRUE, strip.white=TRUE)
 fname3       <- read.table(file="../data/modtran/modtran_wps1.csv", sep=",", header=TRUE, strip.white=TRUE)
+fname4       <- read.table(file="../data/modtran/temp_offset_wsv_half/modtran.csv", sep=",", header=TRUE, strip.white=TRUE)
 modtran_plot <- function(xran, fname,offset, leg) {
     rad <- function(data){
         intensity <- data * pi * 10^4
@@ -11,9 +12,9 @@ modtran_plot <- function(xran, fname,offset, leg) {
     plot(fname[,1], rad(fname[,2]), type='n', xlab=NA, ylab=NA,
     main="Wavelength and Intensity Correlation", xlim=xran, ylim=c(0, 30))
 
-    lines(fname[,1], rad(fname[,5]), cex=0.6, col=color[1])
-    lines(fname[,1], rad(fname[,2]), cex=0.6, col=color[2])
-    lines(fname[,1], rad(fname[,3]), cex=0.6, col=color[3])
+    lines(fname[,1], rad(fname[,2]), cex=0.6, col=color[1])
+    lines(fname[,1], rad(fname[,3]), cex=0.6, col=color[2])
+    lines(fname[,1], rad(fname[,4]), cex=0.6, col=color[3])
 
     mtext(bquote("Intensity (W/"*m^2*mu*m*")"), side=2, line=2)
     mtext(bquote("Wavelength ("*mu*m*")"), side=1, line=3)
@@ -69,5 +70,7 @@ modtran_plot1 <- function(fname){
 pdf("~/Downloads/modtran.pdf")
 modtran_plot(c(7,10), fname1, c(10,12.74,15),
   c("TPW = 5.7 mm","TPW = 11.4 mm", "TPW = 22.7 mm"))
-# modtran_plot(c(7,10), fname2, c(11.5, 12.75, 14), c("-5 K Offset", "0 K Offset", "+5 K Offset"))
+modtran_plot(c(7,10), fname2, c(11.5, 12.75, 14), c("-5 K Offset", "0 K Offset", "+5 K Offset"))
+modtran_plot(c(7,10), fname4, c(10, 11.25, 12.5), c("-5 K Offset", "0 K Offset", "+5 K Offset"))
+
 graphics.off()
