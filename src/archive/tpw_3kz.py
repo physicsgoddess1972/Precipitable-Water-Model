@@ -5,25 +5,51 @@ from siphon.simplewebservice import wyoming
 from numpy import *
 from metpy.calc import *
 from metpy.units import units
+from xarray import *
+import matplotlib.pyplot as plt
 
-dt_rng = [dte.today() - datetime.timedelta(days=x) for x in range(0,2)]
+dt_rng  = array([dte.today() - datetime.timedelta(days=x) for x in range(0,365)])
 station = ["ABQ", "EPZ"]
-P  = []
-DP = []
-T  = []
+T       = []
+pw      = []
 for i in range(0, len(dt_rng)):
+    z_12 = dt.combine(dt_rng[i], datetime.time(12, 0))
+    z_00 = dt_rng[i]
     try:
-        P.append(wyoming.WyomingUpperAir.request_data(dt_rng[i], station[0])['pressure'])
-        DP.append(wyoming.WyomingUpperAir.request_data(dt_rng[i], station[0])['dewpoint'])
-        T.append(wyoming.WyomingUpperAir.request_data(dt_rng[i], station[0])['temperature'])
+        p_00_abq    = array(wyoming.WyomingUpperAir.request_data(z_00, station[0])['pressure']) * units.hPa
+        dp_00_abq   = array(wyoming.WyomingUpperAir.request_data(z_00, station[0])['dewpoint']) * units.degC
+        pw_00_abq   = precipitable_water(dp_00_abq,p_00_abq, top=(600 + 0.001) * units.hPa)
+        T_00_abq    = array(wyoming.WyomingUpperAir.request_data(z_00, station[0])['temperature'][12])
+
+        p_12_abq    = array(wyoming.WyomingUpperAir.request_data(z_12, station[0])['pressure']) * units.hPa
+        dp_12_abq   = array(wyoming.WyomingUpperAir.request_data(z_12, station[0])['dewpoint']) * units.degC
+        pw_12_abq   = precipitable_water(dp_12_abq,p_12_abq, top=(600 + 0.001) * units.hPa)
+        T_12_abq    = array(wyoming.WyomingUpperAir.request_data(z_12, station[0])['temperature'][12])
+
+        p_00_epz    = array(wyoming.WyomingUpperAir.request_data(z_00, station[1])['pressure']) * units.hPa
+        dp_00_epz   = array(wyoming.WyomingUpperAir.request_data(z_00, station[1])['dewpoint']) * units.degC
+        pw_00_epz   = precipitable_water(dp_00_epz,p_00_epz, top=(600 + 0.001) * units.hPa)
+        T_00_epz    = array(wyoming.WyomingUpperAir.request_data(z_00, station[1])['temperature'][12])
+
+        p_12_epz    = array(wyoming.WyomingUpperAir.request_data(z_12, station[1])['pressure']) * units.hPa
+        dp_12_epz   = array(wyoming.WyomingUpperAir.request_data(z_12, station[1])['dewpoint']) * units.degC
+        pw_12_epz   = precipitable_water(dp_12_epz,p_12_epz, top=(600 + 0.001) * units.hPa)
+        T_12_epz    = array(wyoming.WyomingUpperAir.request_data(z_12, station[1])['temperature'][12])
+
+        pw_abq  = DataArray(array(pw_00_abq,pw_12_abq)).mean()
+        pw_epz  = DataArray(array(pw_00_epz,pw_12_epz)).mean()
+        pw_avg  = mean(array(pw_abq,pw_epz))
+        pw.append(pw_avg)
+
+        T_abq   = mean(array([T_00_abq, T_12_abq]))
+        T_epz   = mean(array([T_00_epz, T_12_epz]))
+        T_avg   = mean(array([T_abq, T_epz]))
+        T.append(T_avg)
     except ValueError:
         continue
-P       = array(P) * units.hPa
-DP      = array(DP) * units.degC
-
-pw = []
-for i in range(0, len(P)):
-    pw.append(precipitable_water(DP[i],P[i], bottom=850 * units.hPa, top=600 * units.hPa))
-
+plt.title(r"Comparison of TPW and T$_{3k}$")
 plt.scatter(T, pw)
+plt.xlabel(r"Temperature at $\sim$3 km [$^{\circ}$C]")
+plt.ylabel("Precipitable water [mm]")
+# plt.xlim(min(T), max(T))
 plt.show()
