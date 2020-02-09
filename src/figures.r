@@ -226,13 +226,13 @@ for (p in 1:length(col_pwtm)){
 
 ## Takes super average of the precipitable water measurements
 avgo 		<-  Reduce("+", pw_loco)/length(pw_loco)
-
 lin_regression <- function(x,y){
 	nans <- c(grep("NaN", y)); nans <- append(nans, grep("NaN", x))
 	x <- x[-(nans)]; y <- y[-(nans)]
 	xmax <- max(x, na.rm=TRUE); xmin <- min(x, na.rm=TRUE)
 
 	model.0 <- lm(y~x, data=data.frame(x,y))
+
 	start <- list(a=coef(model.0)[1], b=coef(model.0)[2])
 	model <- nls(y~a+b*x, data=data.frame(x=x, y=y), start=start)
 	rmsd 	<- rmse(y, coef(model)[1] + coef(model)[2]*x)
@@ -241,6 +241,41 @@ lin_regression <- function(x,y){
 									"xmax"=xmax, "model"=model, "rmsd"=rmsd)
 }
 
+for (i in seq(from = 1,to = length(snsr_sky$snsr_sky3))) {
+	if (clear_date[i] == "2019-03-24"){
+		snsr_sky$snsr_sky4[i] <- NaN;
+		snsr_sky$snsr_sky3[i] <- NaN;
+		snsr_sky$snsr_sky2[i] <- NaN;
+
+		snsr_gro$snsr_gro4[i] <- NaN;
+		snsr_gro$snsr_gro3[i] <- NaN;
+		snsr_gro$snsr_gro2[i] <- NaN;
+	}else if (clear_date[i] == "2019-07-23"){
+		snsr_sky$snsr_sky4[i] <- NaN;
+		snsr_sky$snsr_sky3[i] <- NaN;
+		snsr_sky$snsr_sky2[i] <- NaN;
+
+		snsr_gro$snsr_gro4[i] <- NaN;
+		snsr_gro$snsr_gro3[i] <- NaN;
+		snsr_gro$snsr_gro2[i] <- NaN;
+	}else if (clear_date[i] == "2019-11-16"){
+		snsr_sky$snsr_sky4[i] <- NaN;
+		snsr_sky$snsr_sky3[i] <- NaN;
+		snsr_sky$snsr_sky2[i] <- NaN;
+
+		snsr_gro$snsr_gro4[i] <- NaN;
+		snsr_gro$snsr_gro3[i] <- NaN;
+		snsr_gro$snsr_gro2[i] <- NaN;
+	}else if (clear_date[i] == "2020-01-2"){
+		snsr_sky$snsr_sky4[i] <- NaN;
+		snsr_sky$snsr_sky3[i] <- NaN;
+		snsr_sky$snsr_sky2[i] <- NaN;
+
+		snsr_gro$snsr_gro4[i] <- NaN;
+		snsr_gro$snsr_gro3[i] <- NaN;
+		snsr_gro$snsr_gro2[i] <- NaN;
+	}
+}
 figure1 <- function(x,y1,y2, lim, title){
     par(mar=c(4,4,2,1), oma = c(1, 1, 2, 1), xpd=FALSE)
 		layout(matrix(c(1,2), 1, 2, byrow=TRUE))
@@ -272,12 +307,24 @@ figure1 <- function(x,y1,y2, lim, title){
 					col="#D001FA", pch=16, ylim=lim, xaxt="n")
 		abline(0,1, pch=c("--")); abline(v=0, col="gray"); abline(h=0, col="gray")
 		curve(coef(lin_reg2$model)[1] + coef(lin_reg2$model)[2]*x, add=TRUE, col="#2BFA01")
+<<<<<<< HEAD
+		axis(side = 2); mtext(side = 2, line=3, "FLiR Temperature [C]", col="blue")
+    par(new = T)
+    plot(x, y2, ylab=NA, axes=F,
+					xlab=NA, col="#D001FA", pch=16, ylim=lim)
+    axis(side = 4); mtext(side = 4, line=3, "AMES 2 Temperature [C]", col="#D001FA")
+		legend("topleft", col=c("Red",NA, "#2BFA01",NA), pch=c("-","","-",""), legend=c(parse(text=sprintf("y == %.2f * x+%.2f", coef(lin_reg1$model)[2], coef(lin_reg1$model)[1])),
+	 															parse(text=sprintf("RMSE == %.2f", lin_reg1$rmsd)),
+		 														parse(text=sprintf("y == %.2f * x + %.2f", coef(lin_reg2$model)[2], coef(lin_reg2$model)[1])),
+																parse(text=sprintf("RMSE == %.2f", lin_reg2$rmsd))))
+=======
 		mtext("AMES 2 Temperature [C]", side=2, line=2.5, cex=1)
 		legend("topleft", col=c("#2BFA01",NA), pch=c("-",""),
 						legend=c(equ2,
 						parse(text=sprintf("RMSE == %.2f", lin_reg2$rmsd))))
 		axis(1, at=rng, label=rng)
 		mtext(title, outer = TRUE, cex = 1.5)
+>>>>>>> c03a6f07eb43ec4b27097c2ad3bb172d203bdc89
 }
 
 figure1(snsr_sky$snsr_sky3, snsr_sky$snsr_sky2, snsr_sky$snsr_sky4, c(-60,30), "Air Temperature")

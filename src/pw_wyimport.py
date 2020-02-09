@@ -8,6 +8,14 @@ from datetime import datetime as dt
 sys.path.append("../../siphon/siphon/simplewebservice")
 import wyoming
 
+
+import os
+import requests
+
+REQUESTS_MAX_RETRIES = int(os.getenv("REQUESTS_MAX_RETRIES", 4))
+adapter = requests.adapters.HTTPAdapter(max_retries=REQUESTS_MAX_RETRIES)
+
+
 station = ['ABQ', 'EPZ']
 hour    = [00, 12]
 
