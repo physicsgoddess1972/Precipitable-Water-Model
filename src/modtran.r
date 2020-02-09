@@ -1,18 +1,21 @@
 ## Imports data from master_data.csv
 fname1       <- read.table(file="../data/modtran/radiance/modtran.csv", sep=",", header=TRUE, strip.white=TRUE)
-fname2       <- read.table(file="../data/modtran/temp_offset/modtran.csv", sep=",", header=TRUE, strip.white=TRUE)
+fname2       <- read.table(file="../data/modtran/temp_offset_wvs1/modtran.csv", sep=",", header=TRUE, strip.white=TRUE)
 fname3       <- read.table(file="../data/modtran/modtran_wps1.csv", sep=",", header=TRUE, strip.white=TRUE)
+fname4       <- read.table(file="../data/modtran/temp_offset_wsv_half/modtran.csv", sep=",", header=TRUE, strip.white=TRUE)
 modtran_plot <- function(xran, fname,offset, leg) {
     rad <- function(data){
         intensity <- data * pi * 10^4
         return(intensity)
     }
-    color = c("#00BCD7", "#FF9A00", "#66FF33", "#D90000", "#8F00C9")
+    color = c("#00BCD7", "#FF9A00", "#66FF33", "#D90000", "#8F00C9", "#FF3383")
     plot(fname[,1], rad(fname[,2]), type='n', xlab=NA, ylab=NA,
     main="Wavelength and Intensity Correlation", xlim=xran, ylim=c(0, 30))
+
     lines(fname[,1], rad(fname[,2]), cex=0.6, col=color[1])
     lines(fname[,1], rad(fname[,3]), cex=0.6, col=color[2])
     lines(fname[,1], rad(fname[,4]), cex=0.6, col=color[3])
+
     mtext(bquote("Intensity (W/"*m^2*mu*m*")"), side=2, line=2)
     mtext(bquote("Wavelength ("*mu*m*")"), side=1, line=3)
 
@@ -29,7 +32,7 @@ modtran_plot <- function(xran, fname,offset, leg) {
         T   = 1/t
         return(T)
     }
-    avg_3 <- avg_1 <- avg_2 <- avg_0 <- list()
+    avg_4 <- avg_3 <- avg_1 <- avg_2 <- avg_0 <- list()
     for(i in 1:length(fname[,1])){
         if(fname[i,1] >= xran[1]){
             if(fname[i,1] <= xran[2]){
@@ -56,6 +59,7 @@ modtran_plot <- function(xran, fname,offset, leg) {
     text(9.5,offset[1], label=paste("T = ", round(temp_planck_curve(avg0, avg1), 2), "K"), srt=5, cex=0.75)
     text(9.5,offset[2], label=paste("T = ", round(temp_planck_curve(avg0, avg2), 2), "K"), srt=5, cex=0.75)
     text(9.5,offset[3], label=paste("T = ", round(temp_planck_curve(avg0, avg3), 2), "K"), srt=5, cex=0.75)
+
     legend("topright", col=color, pch=c(16,16), legend=leg)
 }
 
@@ -64,6 +68,9 @@ modtran_plot1 <- function(fname){
     main="Altitude and Water Pressure Correlation")
 }
 pdf("~/Downloads/modtran.pdf")
-modtran_plot(c(7,10), fname1, c(11.25,12.75,14), c("TPW = 11.4 mm", "TPW = 22.7 mm","TPW = 45.4 mm"))
+modtran_plot(c(7,10), fname1, c(10,12.74,15),
+  c("TPW = 5.7 mm","TPW = 11.4 mm", "TPW = 22.7 mm"))
 modtran_plot(c(7,10), fname2, c(11.5, 12.75, 14), c("-5 K Offset", "0 K Offset", "+5 K Offset"))
+modtran_plot(c(7,10), fname4, c(10, 11.25, 12.5), c("-5 K Offset", "0 K Offset", "+5 K Offset"))
+
 graphics.off()
