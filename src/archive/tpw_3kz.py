@@ -49,6 +49,10 @@ for i in range(0, len(dt_rng)):
         continue
 plt.title(r"Comparison of TPW and T$_{3k}$")
 plt.scatter(T, pw)
+plt.plot(T, poly1d(polyfit(T,pw,1))(T), '--k')
+dy = poly1d(polyfit(T,pw,1))(T)[1] - poly1d(polyfit(T,pw,1))(T)[0]
+dx = T[1] - T[0]
+print("Slope of best-fit: {:.2f}".format(dy/dx))
 plt.xlabel(r"Temperature at $\sim$3 km [$^{\circ}$C]")
 plt.ylabel("Precipitable water [mm]")
 # plt.xlim(min(T), max(T))
