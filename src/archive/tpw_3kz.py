@@ -8,7 +8,6 @@ from metpy.units import units
 from xarray import *
 import matplotlib.pyplot as plt
 
-
 import os
 import backoff
 import requests
@@ -26,7 +25,7 @@ retry_timeout = backoff.on_exception(
 
 @retry_timeout
 def script():
-    dt_rng  = array([dte.today() - datetime.timedelta(days=x) for x in range(1,365)])
+    dt_rng  = array([dte.today() - datetime.timedelta(days=x) for x in range(0,365)])
     station = ["ABQ", "EPZ"]
     T       = []
     pw      = []
@@ -67,8 +66,11 @@ def script():
             continue
     plt.title(r"Comparison of TPW and T$_{3k}$")
     plt.scatter(T, pw)
+    plt.plot(T, poly1d(polyfit(T,pw,1))(T), '--k')
+    dy = poly1d(polyfit(T,pw,1))(T)[1] - poly1d(polyfit(T,pw,1))(T)[0]
+    dx = T[1] - T[0]
+    print("Slope of best-fit: {:.2f}".format(dy/dx))
     plt.xlabel(r"Temperature at $\sim$3 km [$^{\circ}$C]")
     plt.ylabel("Precipitable water [mm]")
-
 script()
 plt.show()
