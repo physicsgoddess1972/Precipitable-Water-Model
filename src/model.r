@@ -344,7 +344,7 @@ main1 	<- function(legend, overcast=args$overcast){
 		title 		<- sprintf("Sky Temperature Time Series \n Condition: Clear Sky")
 	}
 	plot(date, t(unlist(range[1])), xlab="Date", ylab="Temperature [C]",
-		main=title, pch=16, xlim=c(xmin, xmax), ylim=c(ymin, ymax), col=snsr_color[1])
+		main=title, pch=16, ylim=c(ymin, ymax), col=snsr_color[1])
 
 	for(j in 2:length(range)){
 		points(date, t(unlist(range[j])), pch=16, col=snsr_color[j])

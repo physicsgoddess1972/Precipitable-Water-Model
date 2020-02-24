@@ -1,5 +1,4 @@
 Sensor,Error [C],Color Code,D to S,Poster,Temp Range [C]
-1610 TE,2.5,#FA5301,12:1,TRUE,-20 ~ 537
 FLIR i3,NA,#01A8FA,NA,TRUE,NA
 AMES_1,7,#2BFA01,12:1,TRUE,-50 ~ 550
 AMES_2,7,#D001FA,12:1,FALSE,-50 ~ 550
