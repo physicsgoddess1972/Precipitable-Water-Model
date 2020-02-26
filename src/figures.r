@@ -226,11 +226,13 @@ for (p in 1:length(col_pwtm)){
 
 ## Takes super average of the precipitable water measurements
 avgo 		<-  Reduce("+", pw_loco)/length(pw_loco)
+
 lin_regression <- function(x,y){
 	nans <- c(grep("NaN", y)); nans <- append(nans, grep("NaN", x))
 	x <- x[-(nans)]; y <- y[-(nans)]
 	xmax <- max(x, na.rm=TRUE); xmin <- min(x, na.rm=TRUE)
-
+	# print(length(x))
+	# print(length(y))
 	model.0 <- lm(y~x, data=data.frame(x,y))
 
 	start <- list(a=coef(model.0)[1], b=coef(model.0)[2])
@@ -276,17 +278,21 @@ for (i in seq(from = 1,to = length(snsr_sky$snsr_sky3))) {
 		snsr_gro$snsr_gro2[i] <- NaN;
 	}
 }
-figure1 <- function(x,y1,y2, lim, title){
-    par(mar=c(4,4,2,1), oma = c(1, 1, 2, 1), xpd=FALSE)
-		layout(matrix(c(1,2), 1, 2, byrow=TRUE))
+
+figure1 <- function(x,y1,y2, x1,y3,y4, lim_s,lim_g, title_s,title_g){
+    par(mar=c(5,5,0,0), oma = c(0, 0, 3, 3), xpd=FALSE)
+		layout(matrix(c(1,2,3,4), 2, 2, byrow=TRUE))
+
 		lin_reg1 <- lin_regression(as.numeric(x), as.numeric(y1))
 		lin_reg2 <- lin_regression(as.numeric(x), as.numeric(y2))
-		rng = seq(min(lim), max(lim), by=10)
+		rng_s = seq(min(lim_s), max(lim_s), by=10)
+
     plot(x, y1, ylab=NA, xlab="AMES 1 Temperature [C]", col="blue",
-					pch=16, main=NA, xlim=lim, ylim=lim, xaxt="n")
+					pch=16, main=NA, xlim=lim_s, ylim=lim_s, xaxt="n")
 		abline(0,1, pch=c("--")); abline(v=0, col="gray"); abline(h=0, col="gray")
 		curve(coef(lin_reg1$model)[1] + coef(lin_reg1$model)[2]*x, add=TRUE, col="red")
 		mtext("FLiR Temperature [C]", side=2, line=2.5, cex=1)
+
 		if (coef(lin_reg1$model)[1] > 0){
 			equ1 = parse(text=sprintf("y == %.2f * x + %.2f", coef(lin_reg1$model)[2], coef(lin_reg1$model)[1]))
 		} else if (coef(lin_reg1$model)[1] < 0){
@@ -301,31 +307,133 @@ figure1 <- function(x,y1,y2, lim, title){
 		legend("topleft", col=c("Red",NA), pch=c("-",""),
 							legend=c(equ1,
 	 	 					parse(text=sprintf("RMSE == %.2f", lin_reg1$rmsd))))
-		axis(1, at=rng,label=rng)
+		axis(1, at=rng_s,label=rng_s)
 
 		plot(x, y2, ylab=NA, xlab="AMES 1 Temperature [C]",
-					col="#D001FA", pch=16, ylim=lim, xaxt="n")
+					col="#D001FA", pch=16, ylim=lim_s, xaxt="n")
 		abline(0,1, pch=c("--")); abline(v=0, col="gray"); abline(h=0, col="gray")
 		curve(coef(lin_reg2$model)[1] + coef(lin_reg2$model)[2]*x, add=TRUE, col="#2BFA01")
-<<<<<<< HEAD
-		axis(side = 2); mtext(side = 2, line=3, "FLiR Temperature [C]", col="blue")
     par(new = T)
     plot(x, y2, ylab=NA, axes=F,
-					xlab=NA, col="#D001FA", pch=16, ylim=lim)
-    axis(side = 4); mtext(side = 4, line=3, "AMES 2 Temperature [C]", col="#D001FA")
-		legend("topleft", col=c("Red",NA, "#2BFA01",NA), pch=c("-","","-",""), legend=c(parse(text=sprintf("y == %.2f * x+%.2f", coef(lin_reg1$model)[2], coef(lin_reg1$model)[1])),
-	 															parse(text=sprintf("RMSE == %.2f", lin_reg1$rmsd)),
-		 														parse(text=sprintf("y == %.2f * x + %.2f", coef(lin_reg2$model)[2], coef(lin_reg2$model)[1])),
-																parse(text=sprintf("RMSE == %.2f", lin_reg2$rmsd))))
-=======
+					xlab=NA, col="#D001FA", pch=16, ylim=lim_s)
 		mtext("AMES 2 Temperature [C]", side=2, line=2.5, cex=1)
 		legend("topleft", col=c("#2BFA01",NA), pch=c("-",""),
 						legend=c(equ2,
 						parse(text=sprintf("RMSE == %.2f", lin_reg2$rmsd))))
-		axis(1, at=rng, label=rng)
-		mtext(title, outer = TRUE, cex = 1.5)
->>>>>>> c03a6f07eb43ec4b27097c2ad3bb172d203bdc89
+		axis(1, at=rng_s, label=rng_s)
+
+		lin_reg3 <- lin_regression(as.numeric(x1), as.numeric(y3))
+		lin_reg4 <- lin_regression(as.numeric(x1), as.numeric(y4))
+
+		rng_g = seq(min(lim_g), max(lim_g), by=10)
+		plot(x1, y3, ylab=NA, xlab="AMES 1 Temperature [C]", col="blue",
+					pch=16, main=NA, xlim=lim_g, ylim=lim_g, xaxt="n")
+		abline(0,1, pch=c("--")); abline(v=0, col="gray"); abline(h=0, col="gray")
+		curve(coef(lin_reg3$model)[1] + coef(lin_reg4$model)[2]*x, add=TRUE, col="red")
+		mtext("FLiR Temperature [C]", side=2, line=2.5, cex=1)
+		if (coef(lin_reg3$model)[1] > 0){
+			equ1 = parse(text=sprintf("y == %.2f * x + %.2f", coef(lin_reg3$model)[2], coef(lin_reg3$model)[1]))
+		} else if (coef(lin_reg3$model)[1] < 0){
+			equ1 = parse(text=sprintf("y == %.2f * x*%.2f", coef(lin_reg3$model)[2], coef(lin_reg3$model)[1]))
+		}
+		if (coef(lin_reg4$model)[1] > 0){
+			equ2 = parse(text=sprintf("y == %.2f * x + %.2f", coef(lin_reg4$model)[2], coef(lin_reg4$model)[1]))
+		} else if (coef(lin_reg4$model)[1] < 0){
+			equ2 = parse(text=sprintf("y == %.2f * x*%.2f", coef(lin_reg4$model)[2], coef(lin_reg4$model)[1]))
+		}
+
+		legend("topleft", col=c("Red",NA), pch=c("-",""),
+							legend=c(equ1,
+							parse(text=sprintf("RMSE == %.2f", lin_reg3$rmsd))))
+		axis(1, at=rng_g,label=rng_g)
+
+		plot(x1, y3, ylab=NA, xlab="AMES 1 Temperature [C]",
+					col="#D001FA", pch=16, ylim=lim_g, xaxt="n")
+		abline(0,1, pch=c("--")); abline(v=0, col="gray"); abline(h=0, col="gray")
+		curve(coef(lin_reg4$model)[1] + coef(lin_reg4$model)[2]*x, add=TRUE, col="#2BFA01")
+		par(new = T)
+		plot(x1, y4, ylab=NA, axes=F,
+					xlab=NA, col="#D001FA", pch=16, ylim=lim_g)
+		mtext("AMES 2 Temperature [C]", side=2, line=2.5, cex=1)
+		legend("topleft", col=c("#2BFA01",NA), pch=c("-",""),
+						legend=c(equ2,
+						parse(text=sprintf("RMSE == %.2f", lin_reg4$rmsd))))
+		axis(1, at=rng_g, label=rng_g)
 }
 
-figure1(snsr_sky$snsr_sky3, snsr_sky$snsr_sky2, snsr_sky$snsr_sky4, c(-60,30), "Air Temperature")
-figure1(snsr_gro$snsr_gro3, snsr_gro$snsr_gro2, snsr_gro$snsr_gro4, c(0, 60), "Ground Temperature")
+figure2 <- function(x,x1,y1,y2, lim_s){
+	par(mar=c(5,5,0,0), oma = c(0, 0, 3, 3), xpd=FALSE)
+	layout(matrix(c(1,2,1,2), 2, 2, byrow=TRUE))
+
+	lin_reg1 <- lin_regression(as.numeric(x), as.numeric(y1))
+	lin_reg2 <- lin_regression(as.numeric(x), as.numeric(y2))
+	rng_s = seq(min(lim_s), max(lim_s), by=10)
+
+	plot(x, y1, ylab=NA, xlab="ABQ Precipitable Water 12Z [mm]", col="blue",
+				pch=16, main=NA, xaxt="n")
+	abline(0,1, pch=c("--")); abline(v=0, col="gray"); abline(h=0, col="gray")
+	curve(coef(lin_reg1$model)[1] + coef(lin_reg1$model)[2]*x, add=TRUE, col="red")
+	mtext("EPZ Precipitable Water 12Z [mm]", side=2, line=2.5, cex=1)
+
+	if (coef(lin_reg1$model)[1] > 0){
+		equ1 = parse(text=sprintf("y == %.2f * x + %.2f", coef(lin_reg1$model)[2], coef(lin_reg1$model)[1]))
+	} else if (coef(lin_reg1$model)[1] < 0){
+		equ1 = parse(text=sprintf("y == %.2f * x*%.2f", coef(lin_reg1$model)[2], coef(lin_reg1$model)[1]))
+	}
+	if (coef(lin_reg2$model)[1] > 0){
+		equ2 = parse(text=sprintf("y == %.2f * x + %.2f", coef(lin_reg2$model)[2], coef(lin_reg2$model)[1]))
+	} else if (coef(lin_reg2$model)[1] < 0){
+		equ2 = parse(text=sprintf("y == %.2f * x*%.2f", coef(lin_reg2$model)[2], coef(lin_reg2$model)[1]))
+	}
+
+	legend("topleft", col=c("Red",NA), pch=c("-",""),
+						legend=c(equ1,
+						parse(text=sprintf("RMSE == %.2f", lin_reg1$rmsd))))
+	axis(1, at=rng_s,label=rng_s)
+
+	plot(x, y2, ylab=NA, xlab="ABQ Precipitable Water 00Z [mm]",
+				col="#D001FA", pch=16, xaxt="n")
+	abline(0,1, pch=c("--")); abline(v=0, col="gray"); abline(h=0, col="gray")
+	curve(coef(lin_reg2$model)[1] + coef(lin_reg2$model)[2]*x, add=TRUE, col="#2BFA01")
+	par(new = T)
+	plot(x, y2, ylab=NA, axes=F,
+				xlab=NA, col="#D001FA", pch=16)
+	mtext("EPZ Precipitable Water 00Z [mm]", side=2, line=2.5, cex=1)
+	legend("topleft", col=c("#2BFA01",NA), pch=c("-",""),
+					legend=c(equ2,
+					parse(text=sprintf("RMSE == %.2f", lin_reg2$rmsd))))
+	axis(1, at=rng_s, label=rng_s)
+}
+
+figure3 <- function(x, y, lim_s){
+		par(mar=c(5,5,0,0), oma = c(0, 0, 3, 3), xpd=FALSE)
+		layout(matrix(c(1,1,1,1), 1, 1, byrow=TRUE))
+
+		lin_reg1 <- lin_regression(as.numeric(x), as.numeric(y))
+		rng_s = seq(min(lim_s), max(lim_s), by=10)
+
+		plot(x, y, ylab=NA, xlab="ABQ Precipitable Water [mm]", col="blue",
+					pch=16, main=NA, xaxt="n")
+		abline(0,1, pch=c("--")); abline(v=0, col="gray"); abline(h=0, col="gray")
+		curve(coef(lin_reg1$model)[1] + coef(lin_reg1$model)[2]*x, add=TRUE, col="red")
+		mtext("EPZ Precipitable Water [mm]", side=2, line=2.5, cex=1)
+
+		if (coef(lin_reg1$model)[1] > 0){
+			equ1 = parse(text=sprintf("y == %.2f * x + %.2f", coef(lin_reg1$model)[2], coef(lin_reg1$model)[1]))
+		} else if (coef(lin_reg1$model)[1] < 0){
+			equ1 = parse(text=sprintf("y == %.2f * x*%.2f", coef(lin_reg1$model)[2], coef(lin_reg1$model)[1]))
+		}
+
+		legend("topleft", col=c("Red",NA), pch=c("-",""),
+							legend=c(equ1,
+							parse(text=sprintf("RMSE == %.2f", lin_reg1$rmsd))))
+		axis(1, at=rng_s,label=rng_s)
+}
+
+figure1(snsr_sky$snsr_sky2, snsr_sky$snsr_sky1, snsr_sky$snsr_sky3,
+				snsr_gro$snsr_gro2, snsr_gro$snsr_gro1, snsr_gro$snsr_gro3,
+				c(-60,30),c(0, 60), "Air Temperature", "Ground Temperature")
+figure2(pw_loc$pw_loc1, pw_loc$pw_loc3,
+				pw_loc$pw_loc2, pw_loc$pw_loc4, c(0,60))
+
+figure3(loc_avg$loc_avg1, loc_avg$loc_avg2, c(0,60))
