@@ -343,8 +343,9 @@ main1 	<- function(legend, overcast=args$overcast){
 		date 		<- clear_date
 		title 		<- sprintf("Sky Temperature Time Series \n Condition: Clear Sky")
 	}
-	plot(date, t(unlist(range[1])), xlab="Date", ylab="Temperature [C]",
+	plot(date, t(unlist(range[1])), xlab="Date", ylab="Temperature [C]", xaxt='n',
 		main=title, pch=16, ylim=c(ymin, ymax), col=snsr_color[1])
+		axis(1, at=seq(from=xmin, to=xmax, length.out=5), labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%b %Y"))
 
 	for(j in 2:length(range)){
 		points(date, t(unlist(range[j])), pch=16, col=snsr_color[j])
@@ -371,9 +372,10 @@ main2 	<- function(legend, overcast=args$overcast){
 		date 		<- clear_date
 	}
 	# Legend configuration
-	plot(date, t(unlist(range[1])), xlab="Date", ylab="Temperature [C]",
+	plot(date, t(unlist(range[1])), xlab="Date", ylab="Temperature [C]", xaxt='n',
 		 main=title, pch=16,
 		xlim=c(xmin, xmax), ylim=c(ymin, ymax), col=snsr_color[1])
+		axis(1, at=seq(from=xmin, to=xmax, length.out=5), labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%b %Y"))
 
 	for(j in 2:length(range)){
 		points(date, t(unlist(range[j])), pch=16, col=snsr_color[j])
@@ -400,8 +402,9 @@ main3 	<- function(legend, overcast=args$overcast){
 		title 		<- sprintf("Difference Between Ground-Sky Temperature Time Series \n Condition: Clear Sky")
 		date 		<- clear_date
 	}
-	plot(date, t(unlist(range[1])), xlab="Date", ylab="Temperature [C]",
+	plot(date, t(unlist(range[1])), xlab="Date", ylab="Temperature [C]", xaxt='n',
 	main=title, pch=16, xlim=c(xmin, xmax), ylim=c(ymin, ymax), col=snsr_color[1])
+	axis(1, at=seq(from=xmin, to=xmax, length.out=5), labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%b %Y"))
 
 	for(j in 2:length(range)){
 		points(date, t(unlist(range[j])), pch=16, col=snsr_color[j])
@@ -428,8 +431,10 @@ main4	<- function(legend, overcast=args$overcast){
 		title 		<- "Total Precipitable Water Time Series \n Condition: Clear Sky"
 		date 		<- clear_date
 	}
-	plot(date,  t(unlist(range[1])), xlab="Date", ylab="TPW [mm]",
+	plot(date,  t(unlist(range[1])), xlab="Date", ylab="TPW [mm]", xaxt='n',
 		 xlim=c(xmin, xmax), ylim=c(ymin, ymax), main=title, pch=16, col=pw_color[1])
+	 axis(1, at=seq(from=xmin, to=xmax, length.out=5), labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%b %Y"))
+
 	for(j in 2:length(range)){
 		points(date, t(unlist(range[j])), pch=16, col=pw_color[j])
 	}
@@ -448,7 +453,10 @@ main5 	<- function(legend, overcast=args$overcast){
 		range2 	<- avg
 		title 	<- sprintf("Mean Sky Temperature and TPW Time Series \n Condition: Clear Sky")
 	}
-	plot(date, range1, ylab=NA, xlab="Date", col="red", pch=16, main=title)
+	xmin = min(date); xmax= max(date)
+	plot(date, range1, ylab=NA, xlab="Date", col="red", pch=16, main=title, xaxt='n')
+
+	axis(1, at=seq(from=xmin, to=xmax, length.out=5), labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%b %Y"))
 	axis(side = 2); mtext(side = 2, line=3, "Temperature [C]", col="red")
 	par(new = T)
 	plot(date, range2, ylab=NA, axes=F, xlab=NA, col="blue", pch=16)
@@ -474,8 +482,10 @@ main6 	<- function(legend, overcast=args$overcast){
 		title 		<- "Temporal Average TPW Time Series \n Condition: Clear Sky"
 		date 		<- clear_date
 	}
-	plot(date,  t(unlist(range[1])), xlab="Date", ylab="TPW [mm]",
+	plot(date,  t(unlist(range[1])), xlab="Date", ylab="TPW [mm]", xaxt='n',
 		 xlim=c(xmin, xmax), ylim=c(ymin, ymax), main=title, pch=16, col=pw_color[1])
+	 axis(1, at=seq(from=xmin, to=xmax, length.out=5), labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%b %Y"))
+
 	for(j in 2:length(range)){
 		points(date, t(unlist(range[j])), pch=16, col=pw_color[j])
 	}
@@ -501,8 +511,10 @@ main7 	<- function(legend, overcast=args$overcast){
 		title 		<- "Locational Average TPW Time Series \n Condition: Clear Sky"
 		date 		<- clear_date
 	}
-	plot(date,  t(unlist(range[1])), xlab="Date", ylab="TPW [mm]",
+	plot(date,  t(unlist(range[1])), xlab="Date", ylab="TPW [mm]", xaxt='n',
 		 xlim=c(xmin, xmax), ylim=c(ymin, ymax), main=title, pch=16, col=pw_color[1])
+  axis(1, at=seq(from=xmin, to=xmax, length.out=5), labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%b %Y"))
+
 	for(j in 2:length(range)){
 		points(date, t(unlist(range[j])), pch=16, col=pw_color[j])
 	}
@@ -528,8 +540,10 @@ main8 	<- function(legend, overcast=args$overcast){
 		title 		<- "Mean TPW Time Series \n Condition: Clear Sky"
 		date 		<- clear_date
 	}
-	plot(date,  t(unlist(range)), xlab="Date", ylab="TPW [mm]",
+	plot(date,  t(unlist(range)), xlab="Date", ylab="TPW [mm]", xaxt='n',
 		 xlim=c(xmin, xmax), ylim=c(ymin, ymax), main=title, pch=16, col="blue")
+	axis(1, at=seq(from=xmin, to=xmax, length.out=5), labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%b %Y"))
+
 }
 
 ## Individual Location plots
