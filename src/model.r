@@ -965,8 +965,8 @@ poster3 <- function(...){
 				for (i in 1:length(slices)){
 					if (pct[i] == 0){
 						text(pct[i] + 7, bar[i], labels=sprintf('%s %%', as.character(pct[i])))
-					}else if(pct[i] < 6){
-						text(pct[i] + 30, bar[i], labels=sprintf('%s %%', as.character(pct[i])))
+					}else if(pct[i] < 6.5){
+						text(pct[i] + 40, bar[i], labels=sprintf('%s %%', as.character(pct[i])))
 					}else if(pct[i] < 10){
 						text(pct[i] + 17, bar[i], labels=sprintf('%s %%', as.character(pct[i])))
 					}else{
