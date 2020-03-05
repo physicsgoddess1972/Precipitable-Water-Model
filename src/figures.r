@@ -243,39 +243,62 @@ lin_regression <- function(x,y){
 									"xmax"=xmax, "model"=model, "rmsd"=rmsd)
 }
 
+exp_regression 	<- function(x,y){
+# Finds and removes NaNed values from the dataset
+	nans <- c(grep("NaN", y)); nans <- append(nans, grep("NaN", x))
+	x <- x[-(nans)]; y <- y[-(nans)]
+# creates a uniform sequence of numbers that fit within the limits of x
+	xmin 	<- min(x, na.rm=TRUE)
+	xmax 	<- max(x, na.rm=TRUE)
+	newx 	<- seq(xmin, xmax, length.out=length(x))
+# Non-linear model (exponential)
+	model.0 <- lm(log(y, base=exp(1))~x, data=data.frame(x,log(y, base=exp(1))))
+	start 	<- list(a=coef(model.0)[1], b=coef(model.0)[2])
+	model 	<- nls(y~a+b*x, data=data.frame(x=x, y=log(y, base=exp(1))), start=start)
+# Intervals (confidence/prediction)
+	confint <- predict(model.0, newdata=data.frame(x=newx), interval='confidence')
+	predint <- predict(model.0, newdata=data.frame(x=newx), interval='prediction')
+# Coefficient of determination
+	rsq		<- summary(model.0)$r.squared
+# Function outputs
+	output 	<- list("x"=x, "y"=y, "newx"=newx, "model.0"=model.0, "xmin"=xmin, "xmax"=xmax,
+					"model"=model, "confint"=confint, "predint"=predint, "R2"=rsq)
+	return (output)
+}
+
 for (i in seq(from = 1,to = length(snsr_sky$snsr_sky3))) {
 	if (clear_date[i] == "2019-03-24"){
-		snsr_sky$snsr_sky4[i] <- NaN;
 		snsr_sky$snsr_sky3[i] <- NaN;
 		snsr_sky$snsr_sky2[i] <- NaN;
+		snsr_sky$snsr_sky1[i] <- NaN;
 
-		snsr_gro$snsr_gro4[i] <- NaN;
 		snsr_gro$snsr_gro3[i] <- NaN;
 		snsr_gro$snsr_gro2[i] <- NaN;
+		snsr_gro$snsr_gro1[i] <- NaN;
 	}else if (clear_date[i] == "2019-07-23"){
-		snsr_sky$snsr_sky4[i] <- NaN;
 		snsr_sky$snsr_sky3[i] <- NaN;
 		snsr_sky$snsr_sky2[i] <- NaN;
+		snsr_sky$snsr_sky1[i] <- NaN;
 
-		snsr_gro$snsr_gro4[i] <- NaN;
 		snsr_gro$snsr_gro3[i] <- NaN;
 		snsr_gro$snsr_gro2[i] <- NaN;
+		snsr_gro$snsr_gro1[i] <- NaN;
 	}else if (clear_date[i] == "2019-11-16"){
-		snsr_sky$snsr_sky4[i] <- NaN;
 		snsr_sky$snsr_sky3[i] <- NaN;
 		snsr_sky$snsr_sky2[i] <- NaN;
+		snsr_sky$snsr_sky1[i] <- NaN;
 
-		snsr_gro$snsr_gro4[i] <- NaN;
 		snsr_gro$snsr_gro3[i] <- NaN;
 		snsr_gro$snsr_gro2[i] <- NaN;
+		snsr_gro$snsr_gro1[i] <- NaN;
 	}else if (clear_date[i] == "2020-01-2"){
-		snsr_sky$snsr_sky4[i] <- NaN;
 		snsr_sky$snsr_sky3[i] <- NaN;
 		snsr_sky$snsr_sky2[i] <- NaN;
+		snsr_sky$snsr_sky1[i] <- NaN;
 
-		snsr_gro$snsr_gro4[i] <- NaN;
 		snsr_gro$snsr_gro3[i] <- NaN;
 		snsr_gro$snsr_gro2[i] <- NaN;
+		snsr_gro$snsr_gro1[i] <- NaN;
 	}
 }
 
@@ -285,13 +308,15 @@ figure1 <- function(x,y1,y2, x1,y3,y4, lim_s,lim_g, title_s,title_g){
 
 		lin_reg1 <- lin_regression(as.numeric(x), as.numeric(y1))
 		lin_reg2 <- lin_regression(as.numeric(x), as.numeric(y2))
-		rng_s = seq(min(lim_s), max(lim_s), by=10)
 
     plot(x, y1, ylab=NA, xlab="AMES 1 Temperature [C]", col="blue",
-					pch=16, main=NA, xlim=lim_s, ylim=lim_s, xaxt="n")
+					pch=16, main=NA, xlim=c(-60,10), ylim=c(-60,20))
+
 		abline(0,1, pch=c("--")); abline(v=0, col="gray"); abline(h=0, col="gray")
 		curve(coef(lin_reg1$model)[1] + coef(lin_reg1$model)[2]*x, add=TRUE, col="red")
 		mtext("FLiR Temperature [C]", side=2, line=2.5, cex=1)
+
+		mtext("Instrument Comparison", cex=1, outer=TRUE, side=3, at=0.55, padj=-1)
 
 		if (coef(lin_reg1$model)[1] > 0){
 			equ1 = parse(text=sprintf("y == %.2f * x + %.2f", coef(lin_reg1$model)[2], coef(lin_reg1$model)[1]))
@@ -307,30 +332,26 @@ figure1 <- function(x,y1,y2, x1,y3,y4, lim_s,lim_g, title_s,title_g){
 		legend("topleft", col=c("Red",NA), pch=c("-",""),
 							legend=c(equ1,
 	 	 					parse(text=sprintf("RMSE == %.2f", lin_reg1$rmsd))))
-		axis(1, at=rng_s,label=rng_s)
 
 		plot(x, y2, ylab=NA, xlab="AMES 1 Temperature [C]",
-					col="#D001FA", pch=16, ylim=lim_s, xaxt="n")
+					col="#D001FA", pch=16, ylim=c(-60,20), xlim=c(-60,10))
+
 		abline(0,1, pch=c("--")); abline(v=0, col="gray"); abline(h=0, col="gray")
 		curve(coef(lin_reg2$model)[1] + coef(lin_reg2$model)[2]*x, add=TRUE, col="#2BFA01")
-    par(new = T)
-    plot(x, y2, ylab=NA, axes=F,
-					xlab=NA, col="#D001FA", pch=16, ylim=lim_s)
 		mtext("AMES 2 Temperature [C]", side=2, line=2.5, cex=1)
 		legend("topleft", col=c("#2BFA01",NA), pch=c("-",""),
 						legend=c(equ2,
 						parse(text=sprintf("RMSE == %.2f", lin_reg2$rmsd))))
-		axis(1, at=rng_s, label=rng_s)
 
 		lin_reg3 <- lin_regression(as.numeric(x1), as.numeric(y3))
 		lin_reg4 <- lin_regression(as.numeric(x1), as.numeric(y4))
 
-		rng_g = seq(min(lim_g), max(lim_g), by=10)
 		plot(x1, y3, ylab=NA, xlab="AMES 1 Temperature [C]", col="blue",
-					pch=16, main=NA, xlim=lim_g, ylim=lim_g, xaxt="n")
+					pch=16, main=NA, xlim=c(0,60), ylim=c(0,60))
 		abline(0,1, pch=c("--")); abline(v=0, col="gray"); abline(h=0, col="gray")
 		curve(coef(lin_reg3$model)[1] + coef(lin_reg4$model)[2]*x, add=TRUE, col="red")
 		mtext("FLiR Temperature [C]", side=2, line=2.5, cex=1)
+
 		if (coef(lin_reg3$model)[1] > 0){
 			equ1 = parse(text=sprintf("y == %.2f * x + %.2f", coef(lin_reg3$model)[2], coef(lin_reg3$model)[1]))
 		} else if (coef(lin_reg3$model)[1] < 0){
@@ -345,35 +366,32 @@ figure1 <- function(x,y1,y2, x1,y3,y4, lim_s,lim_g, title_s,title_g){
 		legend("topleft", col=c("Red",NA), pch=c("-",""),
 							legend=c(equ1,
 							parse(text=sprintf("RMSE == %.2f", lin_reg3$rmsd))))
-		axis(1, at=rng_g,label=rng_g)
 
-		plot(x1, y3, ylab=NA, xlab="AMES 1 Temperature [C]",
-					col="#D001FA", pch=16, ylim=lim_g, xaxt="n")
+		plot(x1, y4, ylab=NA, xlab="AMES 1 Temperature [C]",
+					col="#D001FA", pch=16, ylim=c(0,60),xlim=c(0,60))
 		abline(0,1, pch=c("--")); abline(v=0, col="gray"); abline(h=0, col="gray")
 		curve(coef(lin_reg4$model)[1] + coef(lin_reg4$model)[2]*x, add=TRUE, col="#2BFA01")
-		par(new = T)
-		plot(x1, y4, ylab=NA, axes=F,
-					xlab=NA, col="#D001FA", pch=16, ylim=lim_g)
 		mtext("AMES 2 Temperature [C]", side=2, line=2.5, cex=1)
 		legend("topleft", col=c("#2BFA01",NA), pch=c("-",""),
 						legend=c(equ2,
 						parse(text=sprintf("RMSE == %.2f", lin_reg4$rmsd))))
-		axis(1, at=rng_g, label=rng_g)
 }
 
-figure2 <- function(x,x1,y1,y2, lim_s){
+figure2 <- function(x,x1,y1,y2){
 	par(mar=c(5,5,0,0), oma = c(0, 0, 3, 3), xpd=FALSE)
 	layout(matrix(c(1,2,1,2), 2, 2, byrow=TRUE))
 
 	lin_reg1 <- lin_regression(as.numeric(x), as.numeric(y1))
-	lin_reg2 <- lin_regression(as.numeric(x), as.numeric(y2))
-	rng_s = seq(min(lim_s), max(lim_s), by=10)
+	lin_reg2 <- lin_regression(as.numeric(x1), as.numeric(y2))
 
 	plot(x, y1, ylab=NA, xlab="ABQ Precipitable Water 12Z [mm]", col="blue",
-				pch=16, main=NA, xaxt="n")
-	abline(0,1, pch=c("--")); abline(v=0, col="gray"); abline(h=0, col="gray")
+				pch=16, ylim=c(0,40), xlim=c(0,40))
+
+	abline(0,1, pch=c("--"))
 	curve(coef(lin_reg1$model)[1] + coef(lin_reg1$model)[2]*x, add=TRUE, col="red")
 	mtext("EPZ Precipitable Water 12Z [mm]", side=2, line=2.5, cex=1)
+
+	mtext("Precipitable Water Measurement Site Comparison by Time", cex=1, side=3, outer=TRUE, at=0.55, padj=-1)
 
 	if (coef(lin_reg1$model)[1] > 0){
 		equ1 = parse(text=sprintf("y == %.2f * x + %.2f", coef(lin_reg1$model)[2], coef(lin_reg1$model)[1]))
@@ -389,20 +407,16 @@ figure2 <- function(x,x1,y1,y2, lim_s){
 	legend("topleft", col=c("Red",NA), pch=c("-",""),
 						legend=c(equ1,
 						parse(text=sprintf("RMSE == %.2f", lin_reg1$rmsd))))
-	axis(1, at=rng_s,label=rng_s)
 
-	plot(x, y2, ylab=NA, xlab="ABQ Precipitable Water 00Z [mm]",
-				col="#D001FA", pch=16, xaxt="n")
-	abline(0,1, pch=c("--")); abline(v=0, col="gray"); abline(h=0, col="gray")
+	plot(x1, y2, ylab=NA, xlab="ABQ Precipitable Water 00Z [mm]",
+				col="#D001FA", pch=16, ylim=c(0, 40), xlim=c(0,40))
+	abline(0,1, pch=c("--"))
 	curve(coef(lin_reg2$model)[1] + coef(lin_reg2$model)[2]*x, add=TRUE, col="#2BFA01")
-	par(new = T)
-	plot(x, y2, ylab=NA, axes=F,
-				xlab=NA, col="#D001FA", pch=16)
+
 	mtext("EPZ Precipitable Water 00Z [mm]", side=2, line=2.5, cex=1)
 	legend("topleft", col=c("#2BFA01",NA), pch=c("-",""),
 					legend=c(equ2,
 					parse(text=sprintf("RMSE == %.2f", lin_reg2$rmsd))))
-	axis(1, at=rng_s, label=rng_s)
 }
 
 figure3 <- function(x, y, lim_s){
@@ -410,10 +424,10 @@ figure3 <- function(x, y, lim_s){
 		layout(matrix(c(1,1,1,1), 1, 1, byrow=TRUE))
 
 		lin_reg1 <- lin_regression(as.numeric(x), as.numeric(y))
-		rng_s = seq(min(lim_s), max(lim_s), by=10)
 
 		plot(x, y, ylab=NA, xlab="ABQ Precipitable Water [mm]", col="blue",
-					pch=16, main=NA, xaxt="n")
+					pch=16, main=NA, xlim=c(0, 40), ylim=c(0,40))
+		mtext("Precipitable Water Measurement Site Time Average Comparison", cex=1, outer=TRUE, at=0.6, padj=-1)
 		abline(0,1, pch=c("--")); abline(v=0, col="gray"); abline(h=0, col="gray")
 		curve(coef(lin_reg1$model)[1] + coef(lin_reg1$model)[2]*x, add=TRUE, col="red")
 		mtext("EPZ Precipitable Water [mm]", side=2, line=2.5, cex=1)
@@ -426,14 +440,141 @@ figure3 <- function(x, y, lim_s){
 
 		legend("topleft", col=c("Red",NA), pch=c("-",""),
 							legend=c(equ1,
-							parse(text=sprintf("RMSE == %.2f", lin_reg1$rmsd))))
-		axis(1, at=rng_s,label=rng_s)
+							parse(text=sprintf("RMSE == %.2f", lin_reg1$rmsd))))}
+
+figure4 	<- function(){
+		par(mar=c(4,4,0,0), oma = c(0.5, 0.5, 3, 5), xpd=FALSE)
+		layout(matrix(c(1,1,1,1), 1, 1, byrow=TRUE))
+		date 	<- clear_date
+		range1 	<- as.numeric(unlist(snsr_sky_calc))
+		range2 	<- avg
+		title 	<- sprintf("Mean Sky Temperature and TPW Time Series")
+
+		xmin = min(date); xmax= max(date)
+		plot(date, range1, ylab=NA, xlab=NA, col="red", pch=16, main=NA, xaxt='n')
+		mtext(title, cex=1, outer=TRUE, at=0.6, padj=-1)
+
+		axis(1, at=seq(from=xmin, to=xmax, length.out=5), labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%b %Y"))
+		axis(side = 2); mtext(side = 2, line=3, "Temperature [C]", col="red")
+		par(new = T)
+		plot(date, range2, ylab=NA, axes=F, xlab=NA, col="blue", pch=16)
+		axis(side = 4); mtext(side = 4, line=3, "TPW [mm]", col="blue")
 }
 
+### Instrumentation Barplots
+figure5 <- function(...){
+	par(oma = c(3, 3, 3,3), xpd=FALSE)
+	layout(matrix(c(1,2,3,4), 2, 2, byrow=TRUE))
+
+	for (i in 1:length(sensor[,5])){
+		if(sensor[i,5] == FALSE){
+			snsr_sky[[i]] <- NULL; snsr_skyo[[i]] <- NULL
+			snsr_gro[[i]] <- NULL; snsr_groo[[i]] <- NULL
+			snsr_del[[i]] <- NULL; snsr_delo[[i]] <- NULL
+			snsr_name[[i]] <- NULL
+		}
+	}
+		title 	<- c("Clear Sky","Overcast", "Clear Sky NaN", "Overcast NaN")
+		color 	<- c("#A7D6FC", "#FCA7A7", "#C8A7FC", "#FCDEA7")
+#		mtext("Condition Distribution by Sensor",side=3, line=1, outer=TRUE)
+		if(length(snsr_name) <= 3){
+			tmp_var = 1
+		}else{
+			tmp_var = 1 + length(snsr_name)/3
+		}
+		for(test in 1:tmp_var){
+			par(mar=c(1, 0, 4,3), xpd=TRUE)
+			layout(matrix(c(4,1,2,3), 2, 2, byrow=TRUE))
+
+			for(a in 1:length(snsr_name)){
+					norm	<- length(na.omit(unlist(snsr_sky[a])))
+					over	<- length(na.omit(unlist(snsr_skyo[a])))
+
+					norm_na <- length(unlist(snsr_sky[a])) - norm
+					over_na <- length(unlist(snsr_skyo[a])) - over
+
+					slices 	<- matrix(c(norm, over, norm_na, over_na), nrow=4, byrow=TRUE)
+					pct 	<- round(rev(slices)/sum(rev(slices))*100, 1)
+
+					bar <- barplot(rev(slices), col=rev(color),
+					horiz=TRUE, las=1,xlab=NA, axes=FALSE, xlim=c(0,300),
+					main=sprintf("%s", gsub("_", " ",snsr_name[a])))
+					axis(side = 1, labels=TRUE, las=1, cex.axis=0.9)
+
+					mtext("N", side=1, line=1, at=325)
+
+					for (i in 1:length(slices)){
+						text(175, bar[i], labels=sprintf('%s %%', as.character(pct[i])))
+
+						# if (pct[i] == 0){
+						# 	text(pct[i] + 7, bar[i], labels=sprintf('%s %%', as.character(pct[i])))
+						# }else if(pct[i] < 6.5){
+						# 	text(pct[i] + 40, bar[i], labels=sprintf('%s %%', as.character(pct[i])))
+						# }else if(pct[i] < 10){
+						# 	text(pct[i] + 17, bar[i], labels=sprintf('%s %%', as.character(pct[i])))
+						# }else{
+						# 	text(pct[i] + 10, bar[i], labels=sprintf('%s %%', as.character(pct[i])))
+						# }
+					}
+				}
+			par(oma=c(4, 4, 4,4), mar=c(5,4,5,5), xpd=NA)
+			title("Condition Distribution by Sensor", line=3)
+			legend(5, 5,legend = title, fill=color)
+	}
+}
+
+## Super Average Plot with Exponential Fit
+figure6 	<- function(...){
+	par(mar=c(5,5,0,0), oma = c(0, 0, 3, 3), xpd=FALSE)
+	layout(matrix(c(1,1,1,1), 1, 1, byrow=TRUE))
+
+	exp_reg <- exp_regression(as.numeric(unlist(snsr_sky_calc)), avg)
+	ymax 		<- max(exp_reg$y, 45.4, na.rm=TRUE)
+	ymin 		<- min(exp_reg$y, na.rm=TRUE)
+	title 	<- "Correlation between Mean TPW and Temperature"
+# Non-linear model (exponential)
+	plot(exp_reg$x,exp_reg$y, col=c("blueviolet"), pch=16,
+	xlim=c(exp_reg$xmin, exp_reg$xmax), ylim=c(ymin, ymax),
+	xlab="Zenith Sky Temperature [C]", ylab="TPW [mm]", main=NA)
+	mtext(title, cex=1, outer=TRUE, at=0.6, padj=-1)
+# Best Fit
+	curve(exp(coef(exp_reg$model)[1] + coef(exp_reg$model)[2]*x), col="Red", add=TRUE)
+# Confidence Interval
+	lines(exp_reg$newx, exp(exp_reg$confint[ ,3]), col="blue", lty="dashed")
+	lines(exp_reg$newx, exp(exp_reg$confint[ ,2]), col="blue", lty="dashed")
+# Prediction Interval
+	lines(exp_reg$newx, exp(exp_reg$predint[ ,3]), col="magenta", lty="dashed")
+	lines(exp_reg$newx, exp(exp_reg$predint[ ,2]), col="magenta", lty="dashed")
+
+	points(242.85-273.15, 5.7, col=c("#00BCD7"), pch=16)
+	points(252.77-273.15, 11.4, col=c("#FF9A00"), pch=16)
+	points(260.55-273.15, 22.7, col=c("#66FF33"), pch=16)
+
+	legend("topleft",col=c("Red", "Magenta", "Blue"), pch=c("-", '--', "--"),
+	legend=c(parse(text=sprintf("%.2f*e^{%.3f*x}*\t\t(R^2 == %.3f)",
+	exp(coef(exp_reg$model)[1]),coef(exp_reg$model)[2], exp_reg$R2)), "Prediction Interval", "Confidence Interval"))
+}
+## Residual Plot
+figure7 	<- function(...){
+	par(mar=c(5,5,0,0), oma = c(0, 0, 3, 3), xpd=FALSE)
+	layout(matrix(c(1,1,1,1), 1, 1, byrow=TRUE))
+	exp_reg <- exp_regression(as.numeric(unlist(snsr_sky_calc)), avg)
+	title 	<- "Residual of the Mean TPW and Temperature Model"
+
+	plot(exp_reg$x, resid(exp_reg$model), col=c("royalblue"), pch=16,
+	ylim=c(-1,1), xlim=c(-60, 10),
+		xlab="Zenith Sky Temperature [C]", ylab=expression(sigma), main=NA)
+	mtext(title, cex=1, outer=TRUE, at=0.6, padj=-1)
+	abline(h=0, col="gray")
+}
 figure1(snsr_sky$snsr_sky2, snsr_sky$snsr_sky1, snsr_sky$snsr_sky3,
 				snsr_gro$snsr_gro2, snsr_gro$snsr_gro1, snsr_gro$snsr_gro3,
 				c(-60,30),c(0, 60), "Air Temperature", "Ground Temperature")
-figure2(pw_loc$pw_loc1, pw_loc$pw_loc3,
-				pw_loc$pw_loc2, pw_loc$pw_loc4, c(0,60))
+figure2(pw_loc$pw_loc1, pw_loc$pw_loc2,
+				pw_loc$pw_loc3, pw_loc$pw_loc4)
 
 figure3(loc_avg$loc_avg1, loc_avg$loc_avg2, c(0,60))
+figure4()
+figure5()
+figure6()
+figure7()
