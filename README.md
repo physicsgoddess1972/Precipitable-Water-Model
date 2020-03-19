@@ -31,7 +31,7 @@
 	We endeavor to develop a methodology and data
 	source that is more rigorous, more accessible, and more easily repeatable across a variety of climate zones.
 	<h3>Intstrumentation</h3>
-    <img src="./assets/img/thermometers.jpg" width=80% height=50% style="display: block; margin-left: auto; margin-right: auto"></img>
+    <img src="https://i.ibb.co/s2qTzgy/thermometers.jpg" width=80% height=50% style="display: block; margin-left: auto; margin-right: auto"></img>
     <br>
 	This experiment used three infrared sensors <i>(from left to right)</i>:
 	<ol>
