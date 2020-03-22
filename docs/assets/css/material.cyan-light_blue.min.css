@@ -4506,9 +4506,18 @@ fieldset[disabled] .mdl-checkbox .mdl-checkbox__ripple-container .mdl-ripple, .m
     font-weight: 400;
     line-height: 24px;
     letter-spacing: 0;
-    opacity: .87
+    opacity: .7
 }
-
+.mdl-navigation__link--current {
+    color: #000;
+    text-decoration: none;
+    margin: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0;
+    opacity: .9
+}
 .mdl-navigation__link .material-icons {
     vertical-align: middle
 }
@@ -4644,6 +4653,9 @@ fieldset[disabled] .mdl-checkbox .mdl-checkbox__ripple-container .mdl-ripple, .m
     .mdl-layout__drawer .mdl-navigation .mdl-navigation__link {
         padding: 0px 40px;
     }
+    .mdl-layout__drawer .mdl-navigation .mdl-navigation__link-current {
+        padding: 0px 40px;
+    }
 }
 
 
@@ -4653,6 +4665,12 @@ fieldset[disabled] .mdl-checkbox .mdl-checkbox__ripple-container .mdl-ripple, .m
 
 .mdl-layout__drawer .mdl-navigation .mdl-navigation__link--current {
     background-color: #e0e0e0;
+    display: block;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    padding: 1px 40px;
+    margin: 0;
     color: #000
 }
 
