@@ -93,6 +93,22 @@ html, body {
   color: rgba(255, 255, 255, 0.56);
   font-weight: 500;
 }
+
+.demo-layout .demo-navigation .mdl-navigation__link--current {
+    display: -webkit-flex !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-weight: 500;
+    background-color: #00BCD4;
+    color: #000;
+}
+
 .demo-layout .demo-navigation .mdl-navigation__link:hover {
   background-color: #00BCD4;
   color: #37474F;
@@ -102,7 +118,11 @@ html, body {
   color: rgba(255, 255, 255, 0.56);
   margin-right: 32px;
 }
-
+.demo-navigation .mdl-navigation__link--current .material-icons {
+    font-size: 24px;
+    color: rgba(255, 255, 255, 0.56);
+    margin-right: 32px;
+}
 .demo-content {
   max-width: 1080px;
 }
