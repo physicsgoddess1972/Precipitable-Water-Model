@@ -1119,11 +1119,11 @@ if(args$set == "i"){
 	if (args$overcast){
 # Overcast Condition
 		cat(magenta("Condition:"), "Overcast\n")
-		sname <- sprintf("~/Downloads/sensor_overcast_%s.pdf", gsub("/", "_", recent)) # File name of saved pdf
+		sname <- sprintf("../data/results//sensor_overcast_%s.pdf", gsub("/", "_", recent)) # File name of saved pdf
 	}else{
 # Clear Sky condition
 		cat(magenta("Condition:"), "Clear Sky\n")
-		sname <- sprintf("~/Downloads/sensor_%s.pdf", gsub("/", "_", recent)) # File name of saved pdf
+		sname <- sprintf("../data/results//sensor_%s.pdf", gsub("/", "_", recent)) # File name of saved pdf
 	}
 # Plots available with this option
 	for(i in 1:length(unique(snsr_tag))){
@@ -1136,11 +1136,11 @@ if(args$set == "i"){
 	if (args$overcast){
 # Overcast Condition
 		cat(magenta("Condition:"), "Overcast\n")
-		sname <- sprintf("~/Downloads/time_series_overcast_%s.pdf", gsub("/", "_", recent)) # File name of saved pdf
+		sname <- sprintf("../data/results//time_series_overcast_%s.pdf", gsub("/", "_", recent)) # File name of saved pdf
 	}else{
 # Clear Sky condition
 		cat(magenta("Condition:"), "Clear Sky\n")
-		sname <- sprintf("~/Downloads/time_series_%s.pdf", gsub("/", "_", recent)) # File name of saved pdf
+		sname <- sprintf("../data/results//time_series_%s.pdf", gsub("/", "_", recent)) # File name of saved pdf
 
 	}
 # Plots available with this option
@@ -1161,11 +1161,11 @@ if(args$set == "i"){
 	if(args$overcast){
 # Overcast condition
 		cat(magenta("Condition:"), "Overcast\n")
-		sname <- sprintf("~/Downloads/analytics_overcast_%s.pdf", gsub("/", "_", recent)) # File name of saved pdf
+		sname <- sprintf("../data/results//analytics_overcast_%s.pdf", gsub("/", "_", recent)) # File name of saved pdf
 	}else{
 # Clear Sky condition
 		cat(magenta("Condition:"), "Clear Sky\n")
-		sname <- sprintf("~/Downloads/analytics_%s.pdf", gsub("/", "_", recent)) # File name of saved pdf
+		sname <- sprintf("../data/results//analytics_%s.pdf", gsub("/", "_", recent)) # File name of saved pdf
 
 	}
 # Plots available with this option
@@ -1185,7 +1185,7 @@ if(args$set == "i"){
 		cat(green(sprintf("[%s]", i)), sprintf("Overcast Condition Percentage: %s\n", gsub("_", " ",snsr_name[i])))
 	}
 # Saves plots
-	sname 	<- sprintf("~/Downloads/charts_%s.pdf", gsub("/", "_", recent))
+	sname 	<- sprintf("../data/results//charts_%s.pdf", gsub("/", "_", recent))
 	save(c(charts1()), sname)
 	cat(green(sprintf("Plot set downloaded to %s\n", sname)))
 }
@@ -1195,7 +1195,7 @@ if(args$poster){
 	cat(green("[2]"), "Analytical Plots\n")
 	cat(orange("[3]"), "Condiiton Distrbuion by Sensor\n")
 # Saves plots
-	sname <- sprintf("~/Downloads/poster_%s.pdf", gsub("/", "_", recent))
+	sname <- sprintf("../data/results//poster_%s.pdf", gsub("/", "_", recent))
 	save(c(poster1(),poster2(), poster3()), sname)
 	cat(green(sprintf("Plot set downloaded to %s\n", sname)))
 }

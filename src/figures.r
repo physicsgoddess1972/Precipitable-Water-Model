@@ -239,7 +239,9 @@ lin_regression <- function(x,y){
 	model <- nls(y~a+b*x, data=data.frame(x=x, y=y), start=start)
 	rmsd 	<- rmse(y, coef(model)[1] + coef(model)[2]*x)
 
-	output <- list("x"=x, "y"=y, "model.0"=model.0, "xmin"=xmin,
+	rsq		<- summary(model.0)$r.squared
+
+	output <- list("x"=x, "y"=y, "model.0"=model.0, "xmin"=xmin, "rsq"=rsq,
 									"xmax"=xmax, "model"=model, "rmsd"=rmsd)
 }
 
@@ -294,6 +296,7 @@ for (i in seq(from = 1,to = length(snsr_sky$snsr_sky3))) {
 	}else if (clear_date[i] == "2020-01-2"){
 		snsr_sky$snsr_sky3[i] <- NaN;
 		snsr_sky$snsr_sky2[i] <- NaN;
+
 		snsr_sky$snsr_sky1[i] <- NaN;
 
 		snsr_gro$snsr_gro3[i] <- NaN;
@@ -331,7 +334,8 @@ figure1 <- function(x,y1,y2, x1,y3,y4, lim_s,lim_g, title_s,title_g){
 
 		legend("topleft", col=c("Red",NA), pch=c("-",""),
 							legend=c(equ1,
-	 	 					parse(text=sprintf("RMSE == %.2f", lin_reg1$rmsd))))
+	 	 					parse(text=sprintf("RMSE == %.2f", lin_reg1$rmsd)),
+						sprintf("R^2 == %.3f", lin_reg1$rsq)))
 
 		plot(x, y2, ylab=NA, xlab="AMES 1 Temperature [C]",
 					col="#D001FA", pch=16, ylim=c(-60,20), xlim=c(-60,10))
@@ -341,7 +345,8 @@ figure1 <- function(x,y1,y2, x1,y3,y4, lim_s,lim_g, title_s,title_g){
 		mtext("AMES 2 Temperature [C]", side=2, line=2.5, cex=1)
 		legend("topleft", col=c("#2BFA01",NA), pch=c("-",""),
 						legend=c(equ2,
-						parse(text=sprintf("RMSE == %.2f", lin_reg2$rmsd))))
+						parse(text=sprintf("RMSE == %.2f", lin_reg2$rmsd)),
+					sprintf("R^2 == %.3f", lin_reg2$rsq)))
 
 		lin_reg3 <- lin_regression(as.numeric(x1), as.numeric(y3))
 		lin_reg4 <- lin_regression(as.numeric(x1), as.numeric(y4))
@@ -365,7 +370,8 @@ figure1 <- function(x,y1,y2, x1,y3,y4, lim_s,lim_g, title_s,title_g){
 
 		legend("topleft", col=c("Red",NA), pch=c("-",""),
 							legend=c(equ1,
-							parse(text=sprintf("RMSE == %.2f", lin_reg3$rmsd))))
+							parse(text=sprintf("RMSE == %.2f", lin_reg3$rmsd)),
+						sprintf("R^2 == %.3f", lin_reg3$rsq)))
 
 		plot(x1, y4, ylab=NA, xlab="AMES 1 Temperature [C]",
 					col="#D001FA", pch=16, ylim=c(0,60),xlim=c(0,60))
@@ -374,7 +380,8 @@ figure1 <- function(x,y1,y2, x1,y3,y4, lim_s,lim_g, title_s,title_g){
 		mtext("AMES 2 Temperature [C]", side=2, line=2.5, cex=1)
 		legend("topleft", col=c("#2BFA01",NA), pch=c("-",""),
 						legend=c(equ2,
-						parse(text=sprintf("RMSE == %.2f", lin_reg4$rmsd))))
+						parse(text=sprintf("RMSE == %.2f", lin_reg4$rmsd)),
+					sprintf("R^2 == %.3f", lin_reg4$rsq)))
 }
 
 figure2 <- function(x,x1,y1,y2){
@@ -406,7 +413,8 @@ figure2 <- function(x,x1,y1,y2){
 
 	legend("topleft", col=c("Red",NA), pch=c("-",""),
 						legend=c(equ1,
-						parse(text=sprintf("RMSE == %.2f", lin_reg1$rmsd))))
+						parse(text=sprintf("RMSE == %.2f", lin_reg1$rmsd)),
+					sprintf("R^2 == %.3f", lin_reg1$rsq)))
 
 	plot(x1, y2, ylab=NA, xlab="ABQ Precipitable Water 00Z [mm]",
 				col="#D001FA", pch=16, ylim=c(0, 40), xlim=c(0,40))
@@ -416,7 +424,8 @@ figure2 <- function(x,x1,y1,y2){
 	mtext("EPZ Precipitable Water 00Z [mm]", side=2, line=2.5, cex=1)
 	legend("topleft", col=c("#2BFA01",NA), pch=c("-",""),
 					legend=c(equ2,
-					parse(text=sprintf("RMSE == %.2f", lin_reg2$rmsd))))
+					parse(text=sprintf("RMSE == %.2f", lin_reg2$rmsd)),
+				sprintf("R^2 == %.3f", lin_reg2$rsq)))
 }
 
 figure3 <- function(x, y, lim_s){
