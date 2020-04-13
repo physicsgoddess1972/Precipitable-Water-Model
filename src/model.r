@@ -1213,7 +1213,7 @@ if(args$poster){
 	cat(green("[2]"), "Analytical Plots\n")
 	cat(orange("[3]"), "Condiiton Distrbuion by Sensor\n")
 # Saves plots
-	sname <- sprintf("~/Downloads/poster_%s.pdf", gsub("/", "_", recent))
+	sname <- sprintf("../data/results//poster_%s.pdf", gsub("/", "_", recent))
 	save(c(poster1(),poster2(), poster3()), sname)
 	cat(green(sprintf("Plot set downloaded to %s\n", sname)))
 }
