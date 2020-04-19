@@ -243,6 +243,7 @@ lin_regression <- function(x,y){
 
 	output <- list("x"=x, "y"=y, "model.0"=model.0, "xmin"=xmin, "rsq"=rsq,
 									"xmax"=xmax, "model"=model, "rmsd"=rmsd)
+	return(output)
 }
 
 exp_regression 	<- function(x,y){
