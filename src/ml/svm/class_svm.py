@@ -67,6 +67,7 @@ plt.xlim(x_min, x_max)
 plt.title("Testing Dataset Temperature vs TPW")
 plt.xlabel(r"Temperature [$^o$C]")
 plt.ylabel(r"TPW [mm]")
+plt.savefig("./results.png")
 
 handles, labels = plt.gca().get_legend_handles_labels()
 by_label = dict(zip(labels, handles))
@@ -82,7 +83,7 @@ heatmap(confusion, annot=True, fmt='d', cmap='plasma', cbar=False,
         robust=True, square=True)
 plt.suptitle('Confusion Matrix for Classical SVM', fontsize=16)
 plt.title("Testing Accuracy: {}%".format(round(sum(diagonal(con_mat))/(sum(con_mat)) * 100, 2)))
-
+plt.savefig("./con_mat.png")
 
 
 plt.show()
