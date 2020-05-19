@@ -5,16 +5,14 @@ from numpy import *
 from datetime import date as dte
 from datetime import datetime as dt
 
-sys.path.append("../../siphon/siphon/simplewebservice")
+sys.path.append("../../siphon-master/siphon/simplewebservice")
 import wyoming
-
 
 import os
 import requests
 
 REQUESTS_MAX_RETRIES = int(os.getenv("REQUESTS_MAX_RETRIES", 4))
 adapter = requests.adapters.HTTPAdapter(max_retries=REQUESTS_MAX_RETRIES)
-
 
 station = ['ABQ', 'EPZ']
 hour    = [00, 12]
@@ -63,26 +61,27 @@ dt_rng = [date[-1].date() + datetime.timedelta(days=x) for x in range(abs(date[-
 
 data_abq = []
 for i in range(len(dt_rng)):
-	try:
-		pw12 = wyoming.WyomingUpperAir.request_data(dt.combine(dt_rng[i], datetime.time(12, 0)), station[0])['pw'][0]
-	except ValueError:
-		pw12 = "NaN"
-	try:
-		pw00 = wyoming.WyomingUpperAir.request_data(dt_rng[i] + datetime.timedelta(days=1), station[0])['pw'][0]
-	except ValueError:
-		pw00 = "NaN"
-	data_abq.append([station[0], [dt_rng[i], pw12, pw00]])
+    try:
+        pw12 = wyoming.WyomingUpperAir.request_data(dt.combine(dt_rng[i], datetime.time(12, 0)), station[0])['pw'][0]
+    except ValueError:
+        pw12 = "NaN"
+    try:
+        pw00 = wyoming.WyomingUpperAir.request_data(dt_rng[i] + datetime.timedelta(days=1), station[0])['pw'][0]
+    except ValueError:
+        pw00 = "NaN"
+    data_abq.append([station[0], [dt_rng[i], pw12, pw00]])
+
 data_epz = []
 for i in range(len(dt_rng)):
-	try:
-		pw12 = wyoming.WyomingUpperAir.request_data(dt.combine(dt_rng[i], datetime.time(12, 0)), station[1])['pw'][0]
-	except ValueError:
-		pw12 = "NaN"
-	try:
-		pw00 = wyoming.WyomingUpperAir.request_data(dt_rng[i] + datetime.timedelta(days=1), station[1])['pw'][0]
-	except ValueError:
-		pw00 = "NaN"
-	data_epz.append([station[1], [dt_rng[i], pw12, pw00]])
+    try:
+        pw12 = wyoming.WyomingUpperAir.request_data(dt.combine(dt_rng[i], datetime.time(12, 0)), station[1])['pw'][0]
+    except ValueError:
+        pw12 = "NaN"
+    try:
+        pw00 = wyoming.WyomingUpperAir.request_data(dt_rng[i] + datetime.timedelta(days=1), station[1])['pw'][0]
+    except ValueError:
+        pw00 = "NaN"
+    data_epz.append([station[1], [dt_rng[i], pw12, pw00]])
 
 neat = []
 for i in range(1,len(dt_rng) + 1):
