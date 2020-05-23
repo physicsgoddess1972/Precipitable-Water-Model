@@ -237,14 +237,7 @@ lin_regression <- function(x,y){
 
 	start <- list(a=coef(model.0)[1], b=coef(model.0)[2])
 	model <- nls(y~a+b*x, data=data.frame(x=x, y=y), start=start)
-<<<<<<< HEAD
 	rmsd 	<- rmse(y, coef(model)[1] + coef(model)[2]*x)
-	rsq		<- summary(model.0)$r.squared
-
-	output <- list("x"=x, "y"=y, "model.0"=model.0, "xmin"=xmin,
-									"xmax"=xmax, "model"=model, "rmsd"=rmsd, "rsq"=rsq)
-=======
-	rmsd 	<- rmse(y, coef(model)[1] + coef(model)[2]*x)	
 	rsq		<- summary(model.0)$r.squared
 
 	output <- list("x"=x, "y"=y, "model.0"=model.0, "xmin"=xmin, "rsq"=rsq,"xmax"=xmax, "model"=model, "rmsd"=rmsd)
@@ -272,7 +265,6 @@ exp_regression 	<- function(x,y){
 	output 	<- list("x"=x, "y"=y, "newx"=newx, "model.0"=model.0, "xmin"=xmin, "xmax"=xmax,
 					"model"=model, "confint"=confint, "predint"=predint, "R2"=rsq)
 	return (output)
->>>>>>> 2f3c2494b59c96efd548c7b5b1cb8f4bab309089
 }
 
 for (i in seq(from = 1,to = length(snsr_sky$snsr_sky3))) {
@@ -341,37 +333,12 @@ figure1 <- function(x,y1,y2, x1,y3,y4, lim_s,lim_g, title_s,title_g){
 
 		legend("topleft", col=c("Red",NA), pch=c("-",""),
 							legend=c(equ1,
-<<<<<<< HEAD
-	 	 					parse(text=sprintf("RMSE == %.2f", lin_reg1$rmsd)), sprintf("%.3f", lin_reg1$rsq)))
-		axis(1, at=rng,label=rng)
-
-=======
 	 	 					parse(text=sprintf("RMSE == %.2f", lin_reg1$rmsd)),sprintf("%.3f", lin_reg1$rsq)))
->>>>>>> 2f3c2494b59c96efd548c7b5b1cb8f4bab309089
 		plot(x, y2, ylab=NA, xlab="AMES 1 Temperature [C]",
 					col="#D001FA", pch=16, ylim=c(-60,20), xlim=c(-60,10))
 
 		abline(0,1, pch=c("--")); abline(v=0, col="gray"); abline(h=0, col="gray")
 		curve(coef(lin_reg2$model)[1] + coef(lin_reg2$model)[2]*x, add=TRUE, col="#2BFA01")
-<<<<<<< HEAD
-# <<<<<<< HEAD
-# 		axis(side = 2); mtext(side = 2, line=3, "FLiR Temperature [C]", col="blue")
-#     par(new = T)
-#     plot(x, y2, ylab=NA, axes=F,
-# 					xlab=NA, col="#D001FA", pch=16, ylim=lim)
-#     axis(side = 4); mtext(side = 4, line=3, "AMES 2 Temperature [C]", col="#D001FA")
-# 		legend("topleft", col=c("Red",NA, "#2BFA01",NA), pch=c("-","","-",""), legend=c(parse(text=sprintf("y == %.2f * x+%.2f", coef(lin_reg1$model)[2], coef(lin_reg1$model)[1])),
-# 	 															parse(text=sprintf("RMSE == %.2f", lin_reg1$rmsd)),
-# 		 														parse(text=sprintf("y == %.2f * x + %.2f", coef(lin_reg2$model)[2], coef(lin_reg2$model)[1])),
-# 																parse(text=sprintf("RMSE == %.2f", lin_reg2$rmsd))))
-# =======
-		mtext("AMES 2 Temperature [C]", side=2, line=2.5, cex=1)
-		legend("topleft", col=c("#2BFA01",NA), pch=c("-",""),
-						legend=c(equ2,
-						parse(text=sprintf("RMSE == %.2f", lin_reg2$rmsd)), sprintf("%.3f", lin_reg2$rsq)))
-		axis(1, at=rng, label=rng)
-		mtext(title, outer = TRUE, cex = 1.5)
-=======
 		mtext("AMES 2 Temperature [C]", side=2, line=2.5, cex=1)
 		legend("topleft", col=c("#2BFA01",NA), pch=c("-",""),
 						legend=c(equ2,
@@ -590,7 +557,6 @@ figure6 	<- function(...){
 	legend("topleft",col=c("Red", "Magenta", "Blue"), pch=c("-", '--', "--"),
 	legend=c(parse(text=sprintf("%.2f*e^{%.3f*x}*\t\t(R^2 == %.3f)",
 	exp(coef(exp_reg$model)[1]),coef(exp_reg$model)[2], exp_reg$R2)), "Prediction Interval", "Confidence Interval"))
->>>>>>> 2f3c2494b59c96efd548c7b5b1cb8f4bab309089
 }
 ## Residual Plot
 figure7 	<- function(...){
