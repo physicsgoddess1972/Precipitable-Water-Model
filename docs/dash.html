@@ -46,7 +46,7 @@
 	  </header>
 	  <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
 		<nav class="demo-navigation mdl-navigation mdl-color--blue-grey-900">
-		  <a class="mdl-navigation__link" href="./dash.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">dashboard</i>Home</a>
+		  <a class="mdl-navigation__link--current" href="./dash.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">dashboard</i>Home</a>
 		  <a class="mdl-navigation__link" href="./index.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">chrome_reader_mode</i>Documentation</a>
 		  <a class="mdl-navigation__link" href="./contrib.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i>Contribute</a>
 		  <a class="mdl-navigation__link" href="./code.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">code</i>R Features</a>
@@ -211,13 +211,13 @@
 		});
 	</script>
 	<script>
-		var fnamec = '../data/results/charts_10_9_2019.pdf'
-		var fnameto = '../data/results/time_series_overcast_10_9_2019.pdf'
-		var fnameao = '../data/results/analytics_overcast_10_9_2019.pdf'
-		var fnamet = '../data/results/time_series_10_9_2019.pdf'
-		var fnamea = '../data/results/analytics_10_9_2019.pdf'
-		var fnamei = '../data/results/sensor_10_9_2019.pdf'
-		var fnameio = '../data/results/sensor_overcast_10_9_2019.pdf'
+		var fnamec = 'https://github.com/physicsgoddess1972/Precipitable-Water-Model/raw/master/data/results/charts.pdf';
+		var fnameto = 'https://github.com/physicsgoddess1972/Precipitable-Water-Model/raw/master/data/results/time_series_overcast.pdf';
+		var fnameao = 'https://github.com/physicsgoddess1972/Precipitable-Water-Model/raw/master/data/results/analytics_overcast.pdf';
+		var fnamet = 'https://github.com/physicsgoddess1972/Precipitable-Water-Model/raw/master/data/results/time_series.pdf';
+		var fnamea = 'https://github.com/physicsgoddess1972/Precipitable-Water-Model/raw/master/data/results/analytics.pdf';
+		var fnamei = 'https://github.com/physicsgoddess1972/Precipitable-Water-Model/raw/master/data/results/sensor.pdf';
+		var fnameio = 'https://github.com/physicsgoddess1972/Precipitable-Water-Model/raw/master/data/results/sensor_overcast.pdf';
 
 		$('a#charts').attr({target: '_blank', href  : fnamec });
 		$('a#timeo').attr({target: '_blank', href  : fnameto });

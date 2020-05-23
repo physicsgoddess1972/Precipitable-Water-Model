@@ -343,8 +343,9 @@ main1 	<- function(legend, overcast=args$overcast){
 		date 		<- clear_date
 		title 		<- sprintf("Sky Temperature Time Series \n Condition: Clear Sky")
 	}
-	plot(date, t(unlist(range[1])), xlab="Date", ylab="Temperature [C]",
-		main=title, pch=16, xlim=c(xmin, xmax), ylim=c(ymin, ymax), col=snsr_color[1])
+	plot(date, t(unlist(range[1])), xlab="Date", ylab="Temperature [C]", xaxt='n',
+		main=title, pch=16, ylim=c(ymin, ymax), col=snsr_color[1])
+		axis(1, at=seq(from=xmin, to=xmax, length.out=5), labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%b %Y"))
 
 	for(j in 2:length(range)){
 		points(date, t(unlist(range[j])), pch=16, col=snsr_color[j])
@@ -371,9 +372,10 @@ main2 	<- function(legend, overcast=args$overcast){
 		date 		<- clear_date
 	}
 	# Legend configuration
-	plot(date, t(unlist(range[1])), xlab="Date", ylab="Temperature [C]",
+	plot(date, t(unlist(range[1])), xlab="Date", ylab="Temperature [C]", xaxt='n',
 		 main=title, pch=16,
 		xlim=c(xmin, xmax), ylim=c(ymin, ymax), col=snsr_color[1])
+		axis(1, at=seq(from=xmin, to=xmax, length.out=5), labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%b %Y"))
 
 	for(j in 2:length(range)){
 		points(date, t(unlist(range[j])), pch=16, col=snsr_color[j])
@@ -400,8 +402,9 @@ main3 	<- function(legend, overcast=args$overcast){
 		title 		<- sprintf("Difference Between Ground-Sky Temperature Time Series \n Condition: Clear Sky")
 		date 		<- clear_date
 	}
-	plot(date, t(unlist(range[1])), xlab="Date", ylab="Temperature [C]",
+	plot(date, t(unlist(range[1])), xlab="Date", ylab="Temperature [C]", xaxt='n',
 	main=title, pch=16, xlim=c(xmin, xmax), ylim=c(ymin, ymax), col=snsr_color[1])
+	axis(1, at=seq(from=xmin, to=xmax, length.out=5), labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%b %Y"))
 
 	for(j in 2:length(range)){
 		points(date, t(unlist(range[j])), pch=16, col=snsr_color[j])
@@ -428,8 +431,10 @@ main4	<- function(legend, overcast=args$overcast){
 		title 		<- "Total Precipitable Water Time Series \n Condition: Clear Sky"
 		date 		<- clear_date
 	}
-	plot(date,  t(unlist(range[1])), xlab="Date", ylab="TPW [mm]",
+	plot(date,  t(unlist(range[1])), xlab="Date", ylab="TPW [mm]", xaxt='n',
 		 xlim=c(xmin, xmax), ylim=c(ymin, ymax), main=title, pch=16, col=pw_color[1])
+	 axis(1, at=seq(from=xmin, to=xmax, length.out=5), labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%b %Y"))
+
 	for(j in 2:length(range)){
 		points(date, t(unlist(range[j])), pch=16, col=pw_color[j])
 	}
@@ -448,7 +453,10 @@ main5 	<- function(legend, overcast=args$overcast){
 		range2 	<- avg
 		title 	<- sprintf("Mean Sky Temperature and TPW Time Series \n Condition: Clear Sky")
 	}
-	plot(date, range1, ylab=NA, xlab="Date", col="red", pch=16, main=title)
+	xmin = min(date); xmax= max(date)
+	plot(date, range1, ylab=NA, xlab="Date", col="red", pch=16, main=title, xaxt='n')
+
+	axis(1, at=seq(from=xmin, to=xmax, length.out=5), labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%b %Y"))
 	axis(side = 2); mtext(side = 2, line=3, "Temperature [C]", col="red")
 	par(new = T)
 	plot(date, range2, ylab=NA, axes=F, xlab=NA, col="blue", pch=16)
@@ -474,8 +482,10 @@ main6 	<- function(legend, overcast=args$overcast){
 		title 		<- "Temporal Average TPW Time Series \n Condition: Clear Sky"
 		date 		<- clear_date
 	}
-	plot(date,  t(unlist(range[1])), xlab="Date", ylab="TPW [mm]",
+	plot(date,  t(unlist(range[1])), xlab="Date", ylab="TPW [mm]", xaxt='n',
 		 xlim=c(xmin, xmax), ylim=c(ymin, ymax), main=title, pch=16, col=pw_color[1])
+	 axis(1, at=seq(from=xmin, to=xmax, length.out=5), labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%b %Y"))
+
 	for(j in 2:length(range)){
 		points(date, t(unlist(range[j])), pch=16, col=pw_color[j])
 	}
@@ -501,8 +511,10 @@ main7 	<- function(legend, overcast=args$overcast){
 		title 		<- "Locational Average TPW Time Series \n Condition: Clear Sky"
 		date 		<- clear_date
 	}
-	plot(date,  t(unlist(range[1])), xlab="Date", ylab="TPW [mm]",
+	plot(date,  t(unlist(range[1])), xlab="Date", ylab="TPW [mm]", xaxt='n',
 		 xlim=c(xmin, xmax), ylim=c(ymin, ymax), main=title, pch=16, col=pw_color[1])
+  axis(1, at=seq(from=xmin, to=xmax, length.out=5), labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%b %Y"))
+
 	for(j in 2:length(range)){
 		points(date, t(unlist(range[j])), pch=16, col=pw_color[j])
 	}
@@ -528,8 +540,10 @@ main8 	<- function(legend, overcast=args$overcast){
 		title 		<- "Mean TPW Time Series \n Condition: Clear Sky"
 		date 		<- clear_date
 	}
-	plot(date,  t(unlist(range)), xlab="Date", ylab="TPW [mm]",
+	plot(date,  t(unlist(range)), xlab="Date", ylab="TPW [mm]", xaxt='n',
 		 xlim=c(xmin, xmax), ylim=c(ymin, ymax), main=title, pch=16, col="blue")
+	axis(1, at=seq(from=xmin, to=xmax, length.out=5), labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%b %Y"))
+
 }
 
 ## Individual Location plots
@@ -951,8 +965,8 @@ poster3 <- function(...){
 				for (i in 1:length(slices)){
 					if (pct[i] == 0){
 						text(pct[i] + 7, bar[i], labels=sprintf('%s %%', as.character(pct[i])))
-					}else if(pct[i] < 6){
-						text(pct[i] + 30, bar[i], labels=sprintf('%s %%', as.character(pct[i])))
+					}else if(pct[i] < 6.5){
+						text(pct[i] + 40, bar[i], labels=sprintf('%s %%', as.character(pct[i])))
 					}else if(pct[i] < 10){
 						text(pct[i] + 17, bar[i], labels=sprintf('%s %%', as.character(pct[i])))
 					}else{
@@ -1106,10 +1120,13 @@ if(args$set == "i"){
 # Overcast Condition
 		cat(magenta("Condition:"), "Overcast\n")
 		sname <- sprintf("~/Downloads/sensor_overcast_%s.pdf", gsub("/", "_", recent)) # File name of saved pdf
+		sname_pub <- sprintf("../data/results/sensor_overcast.pdf") # File name of saved pdf
 	}else{
 # Clear Sky condition
 		cat(magenta("Condition:"), "Clear Sky\n")
 		sname <- sprintf("~/Downloads/sensor_%s.pdf", gsub("/", "_", recent)) # File name of saved pdf
+		sname_pub <- sprintf("../data/results/sensor.pdf") # File name of saved pdf
+
 	}
 # Plots available with this option
 	for(i in 1:length(unique(snsr_tag))){
@@ -1117,16 +1134,20 @@ if(args$set == "i"){
 	}
 # Saves plots
 	save(c(instr(overcast=args$overcast)), sname)
+	save(c(instr(overcast=args$overcast)), sname_pub)
+
 	cat(green(sprintf("Plot set downloaded to %s\n", sname)))
 }else if(args$set == "t"){
 	if (args$overcast){
 # Overcast Condition
 		cat(magenta("Condition:"), "Overcast\n")
 		sname <- sprintf("~/Downloads/time_series_overcast_%s.pdf", gsub("/", "_", recent)) # File name of saved pdf
+		sname_pub <- sprintf("../data/results/time_series_overcast.pdf") # File name of saved pdf
 	}else{
 # Clear Sky condition
 		cat(magenta("Condition:"), "Clear Sky\n")
 		sname <- sprintf("~/Downloads/time_series_%s.pdf", gsub("/", "_", recent)) # File name of saved pdf
+		sname_pub <- sprintf("../data/results/time_series.pdf") # File name of saved pdf
 
 	}
 # Plots available with this option
@@ -1142,16 +1163,21 @@ if(args$set == "i"){
 	save(c(main1("save", overcast=args$overcast),main2("save", overcast=args$overcast),
 	main3("save", overcast=args$overcast), main4("save", overcast=args$overcast), main5("save", overcast=args$overcast),
 	main6("save", overcast=args$overcast), main7("save", overcast=args$overcast), main8("save", overcast=args$overcast)), sname)
+	save(c(main1("save", overcast=args$overcast),main2("save", overcast=args$overcast),
+	main3("save", overcast=args$overcast), main4("save", overcast=args$overcast), main5("save", overcast=args$overcast),
+	main6("save", overcast=args$overcast), main7("save", overcast=args$overcast), main8("save", overcast=args$overcast)), sname_pub)
 	cat(green(sprintf("Plot set downloaded to %s\n", sname)))
 }else if(args$set == "a"){
 	if(args$overcast){
 # Overcast condition
 		cat(magenta("Condition:"), "Overcast\n")
 		sname <- sprintf("~/Downloads/analytics_overcast_%s.pdf", gsub("/", "_", recent)) # File name of saved pdf
+		sname_pub <- sprintf("../data/results/analytics_overcast.pdf") # File name of saved pdf
 	}else{
 # Clear Sky condition
 		cat(magenta("Condition:"), "Clear Sky\n")
 		sname <- sprintf("~/Downloads/analytics_%s.pdf", gsub("/", "_", recent)) # File name of saved pdf
+		sname_pub <- sprintf("../data/results/analytics.pdf") # File name of saved pdf
 
 	}
 # Plots available with this option
@@ -1163,7 +1189,11 @@ if(args$set == "i"){
 	cat(yellow("[6]"), "Pac-Man Residual of the Mean PW and Temperature Model\n")
 # Saves plots
 	save(c(plots1(overcast=args$overcast), plots2(overcast=args$overcast),
-		plots3(overcast=args$overcast), plots4(overcast=args$overcast),plots5(overcast=args$overcast),plots6(overcast=args$overcast)), sname)
+		plots3(overcast=args$overcast), plots4(overcast=args$overcast),
+		plots5(overcast=args$overcast),plots6(overcast=args$overcast)), sname)
+	save(c(plots1(overcast=args$overcast), plots2(overcast=args$overcast),
+		plots3(overcast=args$overcast), plots4(overcast=args$overcast),
+		plots5(overcast=args$overcast),plots6(overcast=args$overcast)), sname_pub)
 	cat(green(sprintf("Plot set downloaded to %s\n", sname)))
 }else if(args$set == "c"){
 # Plots available with this option
@@ -1172,7 +1202,9 @@ if(args$set == "i"){
 	}
 # Saves plots
 	sname 	<- sprintf("~/Downloads/charts_%s.pdf", gsub("/", "_", recent))
+	sname_pub 	<- sprintf("../data/results/charts.pdf")
 	save(c(charts1()), sname)
+	save(c(charts1()), sname_pub)
 	cat(green(sprintf("Plot set downloaded to %s\n", sname)))
 }
 if(args$poster){
@@ -1181,7 +1213,7 @@ if(args$poster){
 	cat(green("[2]"), "Analytical Plots\n")
 	cat(orange("[3]"), "Condiiton Distrbuion by Sensor\n")
 # Saves plots
-	sname <- sprintf("~/Downloads/poster_%s.pdf", gsub("/", "_", recent))
+	sname <- sprintf("../data/results//poster_%s.pdf", gsub("/", "_", recent))
 	save(c(poster1(),poster2(), poster3()), sname)
 	cat(green(sprintf("Plot set downloaded to %s\n", sname)))
 }
