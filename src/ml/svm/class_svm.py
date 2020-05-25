@@ -240,6 +240,7 @@ class svm_evaluation:
         plt.ylabel("Matt Coeff")
         plt.ylim(0.5,1)
         ax4.xaxis.set_major_locator(plt.FixedLocator(tr_size))
+        plt.tight_layout()
 
 if __name__ == '__main__':
     tr_list = [0.5, 0.6, 0.7, 0.8, 0.9]
@@ -265,7 +266,6 @@ if __name__ == '__main__':
         good_pre_lst.append(good_pre)
         bad_pre_lst.append(bad_pre)
 
-    print(good_acc_lst)
     D.other_plots([good_acc_lst, bad_acc_lst], tr_list)
     plt.show()
         # D.plots(good, "max_acc")
