@@ -1,16 +1,19 @@
-import cvxopt,os,time
 from csv import *
 from numpy import *
 import pandas as pd
 import random as rd
 from seaborn import *
+import cvxopt,os,time
+
+from matplotlib import pyplot as plt
+import matplotlib.gridspec as gridspec
+
 from sklearn import *
 from sklearn import svm
-from matplotlib import pyplot as plt
 from sklearn.model_selection import train_test_split, cross_val_score
 from sklearn.metrics import confusion_matrix, classification_report, \
                             precision_score, jaccard_score, matthews_corrcoef
-import matplotlib.gridspec as gridspec
+
 from rich import print
 from rich.panel import Panel
 from rich.progress import track
@@ -25,11 +28,16 @@ from rich.progress import (
     TaskID,
 )
 
+progress = Progress(TextColumn("[bold blue]{task.fields[filename]}", justify="right"),
+                    BarColumn(bar_width=None),
+                    "[progress.percentage]{task.percentage:>3.1f}%",
+                    TimeRemainingColumn())
+
+
 raw_data    = []
 raw_label   = []
 
 ## Data import
-
 with open("../../../data/ml/ml_data.csv") as csvfile:
     reader = reader(csvfile, delimiter=",")
     next(reader, None)
@@ -46,6 +54,7 @@ y[y == 1] = -1
 y[y == 2] = 1
 y = ones(len(X)) * y
 
+# Analysis Class
 class svm_analysis:
 ## Initalization function to retrieve accuracy
     def __init__(self):
@@ -151,6 +160,8 @@ class svm_analysis:
 
             plt.savefig("./output/{}/con_mat_{}.png".format(int(tr_size * 100), suff))
             plt.close()
+
+# Evaluation Class
 class svm_evaluation:
     def __init__(self):
         self.result = []
@@ -160,7 +171,7 @@ class svm_evaluation:
         C.pan_data(tr_size, rand_ste, True, suff)
         C.test_plot(tr_size,rand_ste, True, suff)
         C.confusion(tr_size,rand_ste, True, suff)
-
+## Model Evaluation for N random states
     def eval(self, tr_size, N):
         task_id1 = progress.add_task("download", filename="Random State Evaluation")
         acc_set = []
@@ -175,26 +186,26 @@ class svm_evaluation:
             jac_set.append(C.result[0][2])
             mat_set.append(C.result[0][3])
             progress.update(task_id1, advance=100./N,refresh=True)
-        progress.log("\t[hot_pink2]Average Accuracy: {:.2f}%".format(average(acc_set)))
-        progress.log("\t[hot_pink2]Average Precision: {:.2f}".format(average(pre_set)))
-        progress.log("\t[hot_pink2]Average Matthews Coefficient: {:.2f}".format(average(mat_set)))
-        progress.log("\t[hot_pink2]Average Jaccard Score: {:.2f}".format(average(jac_set)))
+        progress.log("\t[deep_sky_blue2]Average Accuracy: {:.2f}%".format(average(acc_set)))
+        progress.log("\t[deep_sky_blue2]Average Precision: {:.2f}".format(average(pre_set)))
+        progress.log("\t[deep_sky_blue2]Average Matthews Coefficient: {:.2f}".format(average(mat_set)))
+        progress.log("\t[deep_sky_blue2]Average Jaccard Score: {:.2f}".format(average(jac_set)))
 
         gs = gridspec.GridSpec(2, 2)
         fig = plt.figure()
-        ax = fig.add_subplot(gs[0, 0]) # row 0, col 0
+        ax = fig.add_subplot(gs[0, 0])
         ax.scatter(arange(0,N), mat_set, c=jac_set, cmap='winter')
         ax.set_ylabel("Matthew Coefficient")
         ax.set_xlabel("Random State")
         ax.set_ylim(0.5, 1.00+0.01)
         ax.set_xlim(0-1, N)
 
-        ax = fig.add_subplot(gs[0, 1], sharey=ax, sharex=ax) # row 0, col 1
+        ax = fig.add_subplot(gs[0, 1], sharey=ax, sharex=ax)
         ax.scatter(arange(0,N), pre_set, c=jac_set, cmap='winter')
         ax.set_ylabel("Precision")
         ax.set_xlabel("Random State")
 
-        ax = fig.add_subplot(gs[1, :], sharex=ax) # row 1, span all columns
+        ax = fig.add_subplot(gs[1, :], sharex=ax)
         ax.scatter(arange(0,N), acc_set, c=jac_set, cmap='winter')
         ax.set_ylabel("Accuracy [%]")
         ax.set_xlabel("Random State")
@@ -208,30 +219,23 @@ class svm_evaluation:
         plt.close()
 
 if __name__ == '__main__':
-    progress = Progress(TextColumn("[bold blue]{task.fields[filename]}", justify="right"),
-                        BarColumn(bar_width=None),
-                        "[progress.percentage]{task.percentage:>3.1f}%",
-                        TimeRemainingColumn())
-
-    progress.log("[bold blue]Script Started")
-
+    progress.log("[bold white]Script Started")
     task_id = progress.add_task("download", filename="Support Vector Machine Analysis")
-    tr_list = [0.7]
 
+    tr_list = [0.6, 0.7, 0.8]
     for i in range(0,len(tr_list)):
-        progress.log("[bold green]Training Division {}".format(tr_list[i]))
+        progress.log("[bold deep_pink1]Training Division {}".format(tr_list[i]))
         progress.log("\t[yellow]Starting Model Evaluation")
 
         try:
             os.mkdir("./output/{}/".format(int(tr_list[i] * 10)))
-            progress.log("\t[orange1]Directory Generated")
+            progress.log("\t[yellow]Directory Generated")
         except FileExistsError:
-            progress.log("\t[orange1]Directory Already Exists")
+            progress.log("\t[yellow]Directory Already Exists")
             pass
 
-        svm_evaluation().eval(tr_list[i], 100)
+        svm_evaluation().eval(tr_list[i], 10)
 
         progress.update(task_id, advance=100./(len(tr_list)),refresh=True)
-
-        progress.log("[bold green]Model Evaluation Complete")
-    progress.log("[bold blue]Script Complete")
+        progress.log("[bold deep_pink1]Model Evaluation Complete")
+    progress.log("[bold white]Script Complete")
