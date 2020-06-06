@@ -1,4 +1,4 @@
-import cvxopt,os
+import cvxopt,os,time
 from csv import *
 from numpy import *
 import pandas as pd
@@ -10,11 +10,26 @@ from matplotlib import pyplot as plt
 from sklearn.model_selection import train_test_split, cross_val_score
 from sklearn.metrics import confusion_matrix, classification_report, \
                             precision_score, jaccard_score, matthews_corrcoef
+import matplotlib.gridspec as gridspec
+from rich import print
+from rich.panel import Panel
+from rich.progress import track
+
+from rich.progress import (
+    BarColumn,
+    DownloadColumn,
+    TextColumn,
+    TransferSpeedColumn,
+    TimeRemainingColumn,
+    Progress,
+    TaskID,
+)
 
 raw_data    = []
 raw_label   = []
 
 ## Data import
+
 with open("../../../data/ml/ml_data.csv") as csvfile:
     reader = reader(csvfile, delimiter=",")
     next(reader, None)
@@ -125,6 +140,7 @@ class svm_analysis:
         matt_corr   = round(matthews_corrcoef(y_test, y_pred),2)
         mean_acc    = round(scores.mean(),2)
         cv_std      = round(scores.std() * 2,2)
+
         self.result.append([acc, precision, jaccard, matt_corr, mean_acc, cv_std])
         if plot == True:
             plt.figure(3)
@@ -138,40 +154,6 @@ class svm_analysis:
 class svm_evaluation:
     def __init__(self):
         self.result = []
-## Evaluation of model across a sequence of random states
-    def eval(self, N, tr_size):
-        acc_set = []
-        rdst    = []
-        pre_set = []
-        for i in range(0, N):
-            C       = svm_analysis()
-            C.confusion(tr_size, i, False, None)
-            #print(C.result[0])
-            acc_set.append(C.result[0][0])
-            rdst.append(i)
-            pre_set.append(C.result[0][1])
-        plt.figure(4)
-        plt.scatter(rdst, acc_set, color='cadetblue')
-        plt.xlabel("Random State")
-        plt.ylabel("Testing Accuracy")
-        plt.title("Evaluation of model with variant random states. N = {}".format(int(N)))
-
-        plt.savefig("./output/{}/rand_ste_eval.png".format(int(tr_size * 100)))
-        plt.close()
-
-        max_acc_idx     = acc_set.index(max(acc_set))
-        min_acc_idx     = acc_set.index(min(acc_set))
-
-        max_pre_idx     = pre_set.index(max(pre_set))
-        min_pre_idx     = pre_set.index(min(pre_set))
-
-        good_acc_ste    = rdst[max_acc_idx]
-        bad_acc_ste     = rdst[min_acc_idx]
-
-        good_pre_ste    = rdst[max_pre_idx]
-        bad_pre_ste     = rdst[min_pre_idx]
-
-        return good_acc_ste, bad_acc_ste, good_pre_ste, bad_pre_ste
 ## Function plots all plots
     def plots(self,rand_ste, suff):
         C = svm_analysis()
@@ -179,97 +161,77 @@ class svm_evaluation:
         C.test_plot(tr_size,rand_ste, True, suff)
         C.confusion(tr_size,rand_ste, True, suff)
 
-    def other_plots(self,rand_ste, tr_size):
-        idn = rand_ste[0]
-        inv = rand_ste[1]
-        idn_acc = []
-        idn_pre = []
-        idn_jac = []
-        idn_mat = []
-        inv_acc = []
-        inv_pre = []
-        inv_jac = []
-        inv_mat = []
-        for i in range(0, len(tr_size)):
+    def eval(self, tr_size, N):
+        task_id1 = progress.add_task("download", filename="Random State Evaluation")
+        acc_set = []
+        pre_set = []
+        mat_set = []
+        jac_set = []
+        for i in range(0, N):
             C       = svm_analysis()
-            C.confusion(tr_size[i], idn[i], False, None)
-            idn_met = C.result
+            C.confusion(tr_size, i, False, None)
+            acc_set.append(C.result[0][0])
+            pre_set.append(C.result[0][1])
+            jac_set.append(C.result[0][2])
+            mat_set.append(C.result[0][3])
+            progress.update(task_id1, advance=100./N,refresh=True)
+        progress.log("\t[hot_pink2]Average Accuracy: {:.2f}%".format(average(acc_set)))
+        progress.log("\t[hot_pink2]Average Precision: {:.2f}".format(average(pre_set)))
+        progress.log("\t[hot_pink2]Average Matthews Coefficient: {:.2f}".format(average(mat_set)))
+        progress.log("\t[hot_pink2]Average Jaccard Score: {:.2f}".format(average(jac_set)))
 
-            X       = svm_analysis()
-            X.confusion(tr_size[i], inv[i], False, None)
-            inv_met = X.result
-            print(idn_met)
-            idn_acc.append(idn_met[0][0])
-            idn_pre.append(idn_met[0][1])
-            idn_jac.append(idn_met[0][2])
-            idn_mat.append(idn_met[0][3])
+        gs = gridspec.GridSpec(2, 2)
+        fig = plt.figure()
+        ax = fig.add_subplot(gs[0, 0]) # row 0, col 0
+        ax.scatter(arange(0,N), mat_set, c=jac_set, cmap='winter')
+        ax.set_ylabel("Matthew Coefficient")
+        ax.set_xlabel("Random State")
+        ax.set_ylim(0.5, 1.00+0.01)
+        ax.set_xlim(0-1, N)
 
-            inv_acc.append(inv_met[0][0])
-            inv_pre.append(inv_met[0][1])
-            inv_jac.append(inv_met[0][2])
-            inv_mat.append(inv_met[0][3])
-# Model A and A^-1
-        plt.figure(5)
-        ax1 = plt.subplot(4,1,1)
-        plt.subplots_adjust(hspace=0.14, right=1, top=1)
-#        ax1.yaxis.set_major_locator(plt.NullLocator())
-        ax1.xaxis.set_major_formatter(plt.NullFormatter())
-#        ax1.xaxis.set_major_locator(plt.MaxNLocator(3))
-        ax1.xaxis.set_major_locator(plt.FixedLocator(tr_size))
-        plt.scatter(tr_size, idn_acc, color="mediumblue", label="Model A")
-        plt.scatter(tr_size, inv_acc, color="red", label=r"Model A$^{-1}$")
-        plt.ylabel("Acc [%]")
-        plt.legend()
+        ax = fig.add_subplot(gs[0, 1], sharey=ax, sharex=ax) # row 0, col 1
+        ax.scatter(arange(0,N), pre_set, c=jac_set, cmap='winter')
+        ax.set_ylabel("Precision")
+        ax.set_xlabel("Random State")
 
-        ax2 = plt.subplot(4, 1, 2, sharex=ax1)
-        plt.scatter(tr_size, idn_pre, color="mediumblue")
-        plt.scatter(tr_size, inv_pre, color="red")
-        plt.ylabel("Prec")
-        plt.ylim(0.5, 1)
+        ax = fig.add_subplot(gs[1, :], sharex=ax) # row 1, span all columns
+        ax.scatter(arange(0,N), acc_set, c=jac_set, cmap='winter')
+        ax.set_ylabel("Accuracy [%]")
+        ax.set_xlabel("Random State")
+        norm = mpl.colors.Normalize(vmin=min(jac_set),vmax=max(jac_set))
+        sm = plt.cm.ScalarMappable(cmap=plt.get_cmap('winter',len(jac_set)), norm=norm)
+        sm.set_array([])
+        fig.colorbar(sm,ax=ax).set_label('Jaccard Score')
 
-        ax3 = plt.subplot(4, 1, 3, sharex=ax1)
-        plt.scatter(tr_size, idn_jac, color="mediumblue")
-        plt.scatter(tr_size, inv_jac, color="red")
-        plt.ylabel("Jacc Scr")
-        plt.ylim(0.5,1)
-
-        ax4 = plt.subplot(4, 1, 4)
-        plt.scatter(tr_size, idn_mat, color="mediumblue")
-        plt.scatter(tr_size, inv_mat, color="red")
-        plt.xlabel("Training Size")
-        plt.ylabel("Matt Coeff")
-        plt.ylim(0.5,1)
-        ax4.xaxis.set_major_locator(plt.FixedLocator(tr_size))
         plt.tight_layout()
+        plt.savefig("./output/{}/super_eval_{}.pdf".format(int(tr_size*100), N))
+        plt.close()
 
 if __name__ == '__main__':
-    tr_list = [0.5, 0.6, 0.7, 0.8, 0.9]
+    progress = Progress(TextColumn("[bold blue]{task.fields[filename]}", justify="right"),
+                        BarColumn(bar_width=None),
+                        "[progress.percentage]{task.percentage:>3.1f}%",
+                        TimeRemainingColumn())
 
-    good_acc_lst    = []
-    bad_acc_lst     = []
-    good_pre_lst    = []
-    bad_pre_lst     = []
+    progress.log("[bold blue]Script Started")
 
-    for i in tr_list:
-## Training set relative size [0 to 1]
-        tr_size = i
-        path = "./output/{}/".format(int(tr_size * 100))
+    task_id = progress.add_task("download", filename="Support Vector Machine Analysis")
+    tr_list = [0.7]
+
+    for i in range(0,len(tr_list)):
+        progress.log("[bold green]Training Division {}".format(tr_list[i]))
+        progress.log("\t[yellow]Starting Model Evaluation")
+
         try:
-            os.mkdir(path)
+            os.mkdir("./output/{}/".format(int(tr_list[i] * 10)))
+            progress.log("\t[orange1]Directory Generated")
         except FileExistsError:
+            progress.log("\t[orange1]Directory Already Exists")
             pass
-        D = svm_evaluation()
-        good_acc,bad_acc,good_pre,bad_pre = D.eval(100, tr_size)
 
-        good_acc_lst.append(good_acc)
-        bad_acc_lst.append(bad_acc)
-        good_pre_lst.append(good_pre)
-        bad_pre_lst.append(bad_pre)
+        svm_evaluation().eval(tr_list[i], 100)
 
-    D.other_plots([good_acc_lst, bad_acc_lst], tr_list)
-    plt.show()
-        # D.plots(good, "max_acc")
-        # # print(C.result)
-        #
-        # D.plots(bad, "min_acc")
-        # print(C.result)
+        progress.update(task_id, advance=100./(len(tr_list)),refresh=True)
+
+        progress.log("[bold green]Model Evaluation Complete")
+    progress.log("[bold blue]Script Complete")
