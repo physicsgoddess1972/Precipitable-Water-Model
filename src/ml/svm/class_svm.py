@@ -32,7 +32,7 @@ progress = Progress(TextColumn("[bold blue]{task.fields[filename]}", justify="ri
                     BarColumn(bar_width=None),
                     "[progress.percentage]{task.percentage:>3.1f}%",
                     TimeRemainingColumn())
-
+#progress.log("[white]Welcome to the SVM Analysis Module")
 
 raw_data    = []
 raw_label   = []
@@ -219,6 +219,8 @@ class svm_evaluation:
         plt.close()
 
 if __name__ == '__main__':
+    progress.print(Panel("[bold deep_sky_blue2]Good Morning\nWelcome to the Classical SVM Analysis Module of the Precipitable Water Model. For more information about the model and the purpose of this tool, please visit the [link=https://git.io/fj5Xr]documentation page[/link]"))
+
     progress.log("[bold white]Script Started")
     task_id = progress.add_task("download", filename="Support Vector Machine Analysis")
 
