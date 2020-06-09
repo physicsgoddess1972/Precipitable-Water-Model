@@ -345,7 +345,8 @@ main1 	<- function(legend, overcast=args$overcast){
 	}
 	plot(date, t(unlist(range[1])), xlab="Date", ylab="Temperature [C]", xaxt='n',
 		main=title, pch=16, ylim=c(ymin, ymax), col=snsr_color[1])
-		axis(1, at=seq(from=xmin, to=xmax, length.out=5), labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%b %Y"))
+		axis(1, at=seq(from=xmin, to=xmax, length.out=5),
+		labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%b %Y"))
 
 	for(j in 2:length(range)){
 		points(date, t(unlist(range[j])), pch=16, col=snsr_color[j])
@@ -777,8 +778,10 @@ poster1 <- function(...){
 		ymin 		<- min(c(as.numeric(unlist(snsr_skyo)),as.numeric(unlist(snsr_sky))), na.rm=TRUE)
 		range_index <- snsr_sky
 
-		plot(clear_date, t(unlist(range_index[1])), xlab=NA, ylab=NA, main=NA, pch=16,
+		plot(clear_date, t(unlist(range_index[1])), xlab=NA, ylab=NA, main=NA, pch=16,xaxt='n',
 			xlim=c(xmin, xmax), ylim=c(ymin, ymax), col=c(snsr_color[1]), las=1)
+		axis(1, at=seq(from=xmin, to=xmax, length.out=5),
+			labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%b %Y"))
 
 		title("Sky Temperature",line=0.5)
 		mtext("Temperature [C]", side=2, line=2.5, cex=0.65)
@@ -793,8 +796,10 @@ poster1 <- function(...){
 		range_index <- snsr_skyo
 
 		plot(over_date,t(unlist(range_index[1])), ylab=NA,
-			main=NA, pch=16, las=1, col=snsr_color[1],
+			main=NA, pch=16, las=1, col=snsr_color[1],xaxt='n',
 			xlim=c(xmin, xmax), ylim=c(ymin, ymax))
+		axis(1, at=seq(from=xmin, to=xmax, length.out=5),
+			labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%b %Y"))
 
 		title("Sky Temperature", line=0.5)
 		for(j in 2:length(range_index)){
@@ -805,8 +810,11 @@ poster1 <- function(...){
 		ymin  		<- min(c(as.numeric(unlist(snsr_gro)),as.numeric(unlist(snsr_groo))),na.rm=TRUE)
 		range_index <- snsr_gro
 
-		plot(clear_date, t(unlist(range_index[1])), xlab=NA, ylab=NA, main=NA, pch=16,
+		plot(clear_date, t(unlist(range_index[1])), xlab=NA, ylab=NA, main=NA, pch=16,xaxt='n',
 			xlim=c(xmin, xmax), ylim=c(ymin, ymax), col=snsr_color[1], las=1)
+		axis(1, at=seq(from=xmin, to=xmax, length.out=5),
+			labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%b %Y"))
+
 		title("Ground Temperature", line=0.5)
 		mtext("Temperature [C]", side=2, line=2.5, cex=0.65)
 
@@ -815,8 +823,11 @@ poster1 <- function(...){
 		}
 # Ground Temperature Time Series (overcast)
 		range_index <- snsr_groo
-		plot(over_date, t(unlist(range_index[1])), xlab=NA, ylab=NA, main=NA, pch=16,
+		plot(over_date, t(unlist(range_index[1])), xlab=NA, ylab=NA, main=NA, pch=16,xaxt='n',
 			xlim=c(xmin, xmax), ylim=c(ymin, ymax), col=snsr_color[1], las=1)
+		axis(1, at=seq(from=xmin, to=xmax, length.out=5),
+			labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%b %Y"))
+
 		title("Ground Temperature", line=0.5)
 		for(j in 2:length(range_index)){
 			points(over_date,t(unlist(range_index[j])), pch=16, col=snsr_color[j])
@@ -826,8 +837,11 @@ poster1 <- function(...){
 		ymin 		<- min(c(as.numeric(unlist(snsr_del)),as.numeric(unlist(snsr_delo))), na.rm=TRUE)
 		range_index <- snsr_del
 
-		plot(clear_date, t(unlist(range_index[1])), xlab=NA, ylab=NA,main=NA, pch=16,
+		plot(clear_date, t(unlist(range_index[1])), xlab=NA, ylab=NA,main=NA, pch=16,xaxt='n',
 			  xlim=c(xmin, xmax), ylim=c(ymin, ymax),col=snsr_color[1], las=1)
+		axis(1, at=seq(from=xmin, to=xmax, length.out=5),
+			labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%b %Y"))
+
 		title("Difference in Temperature", line=0.5)
 		mtext("Temperature [C]", side=2, line=2.5, cex=0.65)
 
@@ -837,8 +851,10 @@ poster1 <- function(...){
 # Difference in Temperature Time Series (overcast)
 		range_index <- snsr_delo
 
-		plot(over_date, t(unlist(range_index[1])), xlab=NA, ylab=NA,main=NA, pch=16,
+		plot(over_date, t(unlist(range_index[1])), xlab=NA, ylab=NA,main=NA, pch=16,xaxt='n',
 			 xlim=c(xmin, xmax), ylim=c(ymin, ymax),col=snsr_color[1], las=1)
+	 axis(1, at=seq(from=xmin, to=xmax, length.out=5),
+			 labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%b %Y"))
 
 		title("Difference in Temperature", line=0.5)
 
@@ -1077,8 +1093,8 @@ if(args$data){
 		data 		<- data.frame(list(date=c(norm$x),avg_temp=c(norm$y1), avg_pw=c(norm$y2), avg_rh=c(norm$y3), cond=c(norm$c)))
 		colnames(data) <- c("date", "avg_temp", "avg_pw", "avg_rh", "condition")
 # Writes the data to a csv
-		write.csv(data, file="../data/ml_data.csv", row.names=FALSE)
-		cat(green(sprintf("Data sent to ../data/ml_data.csv\n")))
+		write.csv(data, file="../data/ml/ml_data.csv", row.names=FALSE)
+		cat(green(sprintf("Data sent to ../data/ml/ml_data.csv\n")))
 	}else{
 		if (args$overcast){
 	# Pulls the data
@@ -1120,12 +1136,12 @@ if(args$set == "i"){
 # Overcast Condition
 		cat(magenta("Condition:"), "Overcast\n")
 		sname <- sprintf("~/Downloads/sensor_overcast_%s.pdf", gsub("/", "_", recent)) # File name of saved pdf
-		sname_pub <- sprintf("../data/results/sensor_overcast.pdf") # File name of saved pdf
+		sname_pub <- sprintf("../figs/results/sensor_overcast.pdf") # File name of saved pdf
 	}else{
 # Clear Sky condition
 		cat(magenta("Condition:"), "Clear Sky\n")
 		sname <- sprintf("~/Downloads/sensor_%s.pdf", gsub("/", "_", recent)) # File name of saved pdf
-		sname_pub <- sprintf("../data/results/sensor.pdf") # File name of saved pdf
+		sname_pub <- sprintf("../figs/results/sensor.pdf") # File name of saved pdf
 
 	}
 # Plots available with this option
@@ -1142,12 +1158,12 @@ if(args$set == "i"){
 # Overcast Condition
 		cat(magenta("Condition:"), "Overcast\n")
 		sname <- sprintf("~/Downloads/time_series_overcast_%s.pdf", gsub("/", "_", recent)) # File name of saved pdf
-		sname_pub <- sprintf("../data/results/time_series_overcast.pdf") # File name of saved pdf
+		sname_pub <- sprintf("../figs/results/time_series_overcast.pdf") # File name of saved pdf
 	}else{
 # Clear Sky condition
 		cat(magenta("Condition:"), "Clear Sky\n")
 		sname <- sprintf("~/Downloads/time_series_%s.pdf", gsub("/", "_", recent)) # File name of saved pdf
-		sname_pub <- sprintf("../data/results/time_series.pdf") # File name of saved pdf
+		sname_pub <- sprintf("../figs/results/time_series.pdf") # File name of saved pdf
 
 	}
 # Plots available with this option
@@ -1172,12 +1188,12 @@ if(args$set == "i"){
 # Overcast condition
 		cat(magenta("Condition:"), "Overcast\n")
 		sname <- sprintf("~/Downloads/analytics_overcast_%s.pdf", gsub("/", "_", recent)) # File name of saved pdf
-		sname_pub <- sprintf("../data/results/analytics_overcast.pdf") # File name of saved pdf
+		sname_pub <- sprintf("../figs/results/analytics_overcast.pdf") # File name of saved pdf
 	}else{
 # Clear Sky condition
 		cat(magenta("Condition:"), "Clear Sky\n")
 		sname <- sprintf("~/Downloads/analytics_%s.pdf", gsub("/", "_", recent)) # File name of saved pdf
-		sname_pub <- sprintf("../data/results/analytics.pdf") # File name of saved pdf
+		sname_pub <- sprintf("../figs/results/analytics.pdf") # File name of saved pdf
 
 	}
 # Plots available with this option
@@ -1202,7 +1218,7 @@ if(args$set == "i"){
 	}
 # Saves plots
 	sname 	<- sprintf("~/Downloads/charts_%s.pdf", gsub("/", "_", recent))
-	sname_pub 	<- sprintf("../data/results/charts.pdf")
+	sname_pub 	<- sprintf("../figs/results/charts.pdf")
 	save(c(charts1()), sname)
 	save(c(charts1()), sname_pub)
 	cat(green(sprintf("Plot set downloaded to %s\n", sname)))
@@ -1213,8 +1229,11 @@ if(args$poster){
 	cat(green("[2]"), "Analytical Plots\n")
 	cat(orange("[3]"), "Condiiton Distrbuion by Sensor\n")
 # Saves plots
-	sname <- sprintf("../data/results//poster_%s.pdf", gsub("/", "_", recent))
+	sname <- sprintf("~/Downloads/poster_%s.pdf", gsub("/", "_", recent))
+	sname_pub 	<- sprintf("../figs/results/poster.pdf")
 	save(c(poster1(),poster2(), poster3()), sname)
+	save(c(poster1(),poster2(), poster3()), sname_pub)
+
 	cat(green(sprintf("Plot set downloaded to %s\n", sname)))
 }
 if(args$dev){
