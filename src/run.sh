@@ -8,7 +8,7 @@
 #!/usr/bin/env bash
 ## Flags
 c_flag=1
-while getopts "omahc" opt; do
+while getopts "omahcs" opt; do
 	case "${opt}" in
 		o) o_flag="true";
 		    c_flag=0;;
@@ -16,6 +16,8 @@ while getopts "omahc" opt; do
 		    c_flag=0;;
 		a) a_flag="true";
 		    c_flag=0;;
+		s) s_flag="true";
+				c_flag=0;;
 		h) h_flag="true";
 		    c_flag=0;;
         c) c_flag=1;;
@@ -60,6 +62,9 @@ if [[ ${a_flag} ]]; then
 	Rscript model.r --poster --save &> /dev/null & Rscript model.r --set c --save &> /dev/null
 	echo -e "\e[92m[All] Poster plots saved to ../data/results/\e[0m"
 	echo -e "\e[92m[All] Charts saved to ../data/results/\e[0m"
+	Rscript model.r --data -ml &> /dev/null
+	echo -e "\e[92mMachine Learning Data saved\e[0m"
+	sudo python3 ./ml/svm/class_svm.py -dfile "../data/ml/ml_data.csv"
 fi
 ## Default Flag (Clear Sky)
 if (( ${c_flag} == 1 )); then
@@ -73,6 +78,10 @@ if (( ${c_flag} == 1 )); then
 	Rscript model.r --poster --save &> /dev/null
 	echo -e "\e[92m[Clear Sky] Poster plots saved to ../data/results/\e[0m"
 fi
-
+if [[ ${s_flag} ]]; then
+	Rscript model.r --data -ml &> /dev/null
+	echo -e "\e[92mMachine Learning Data saved\e[0m"
+	sudo python3 ./ml/svm/class_svm.py -dfile "../data/ml/ml_data.csv"
+fi
 ## Closing
 echo -e "\e[96m ~~~~ Complete ~~~~\e[0m"
