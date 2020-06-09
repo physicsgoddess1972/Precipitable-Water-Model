@@ -33,24 +33,16 @@ progress = Progress(TextColumn("[bold blue]{task.fields[filename]}", justify="ri
                     BarColumn(bar_width=None),
                     "[progress.percentage]{task.percentage:>3.1f}%",
                     TimeRemainingColumn())
-<<<<<<< HEAD
 
 
 import argparse
 
 parser = argparse.ArgumentParser(description="Classical Support Vector Machine Module")
 parser.add_argument("-tr", type=list, help="values of training size divisions\n\t[Default: 0.7]", default=[0.7])
-parser.add_argument("-N", type=int, help="Number of random states\n\t[Default: 100]", default=100)
+parser.add_argument("-N", type=int, help="Number of random states\n\t[Default: 100]", default=100, dest="N")
 parser.add_argument("-dfile", type=str, help="file path of data", dest="dfile")
 
 args = parser.parse_args()
-=======
-# import argparse
-#
-# parser = argparse.ArgumentParser(description="Classical Support Vector Machine Module")
-# parser.add_argument("-tr", type=list, help="values of training size divisions\n\t[Default: 0.7]", default=[0.7])
-# parser.add_argument("-N", type=int, help="Number of random states\n\t[Default: 100]", default=100)
->>>>>>> 8ee3bef24e893d2143516c0677d7a697d7a8f71b
 
 raw_data    = []
 raw_label   = []
@@ -277,7 +269,7 @@ if __name__ == '__main__':
             pass
 
         D = svm_evaluation()
-        D.eval(tr_list[i], 1000)
+        D.eval(tr_list[i], args.N)
         D.plots(tr_list[i], D.result[0][0], "avg_fscr")
         D.plots(tr_list[i], D.result[0][1], "avg_acc")
 
