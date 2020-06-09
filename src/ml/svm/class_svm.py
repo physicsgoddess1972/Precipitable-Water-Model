@@ -34,17 +34,20 @@ progress = Progress(TextColumn("[bold blue]{task.fields[filename]}", justify="ri
                     TimeRemainingColumn())
 
 
-# import argparse
-#
-# parser = argparse.ArgumentParser(description="Classical Support Vector Machine Module")
-# parser.add_argument("-tr", type=list, help="values of training size divisions\n\t[Default: 0.7]", default=[0.7])
-# parser.add_argument("-N", type=int, help="Number of random states\n\t[Default: 100]", default=100)
+import argparse
+
+parser = argparse.ArgumentParser(description="Classical Support Vector Machine Module")
+parser.add_argument("-tr", type=list, help="values of training size divisions\n\t[Default: 0.7]", default=[0.7])
+parser.add_argument("-N", type=int, help="Number of random states\n\t[Default: 100]", default=100)
+parser.add_argument("-dfile", type=str, help="file path of data", dest="dfile")
+
+args = parser.parse_args()
 
 raw_data    = []
 raw_label   = []
 
 ## Data import
-with open("../../../data/ml/ml_data.csv") as csvfile:
+with open(args.dfile) as csvfile:
     reader = reader(csvfile, delimiter=",")
     next(reader, None)
     for row in reader:
