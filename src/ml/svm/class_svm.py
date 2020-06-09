@@ -14,9 +14,10 @@ from sklearn.model_selection import train_test_split, cross_val_score
 from sklearn.metrics import confusion_matrix, classification_report, \
                             precision_score, jaccard_score, matthews_corrcoef, f1_score
 
-from rich import print
+from rich import print, box
 from rich.panel import Panel
 from rich.progress import track
+from rich.table import Table
 
 from rich.progress import (
     BarColumn,
@@ -32,8 +33,6 @@ progress = Progress(TextColumn("[bold blue]{task.fields[filename]}", justify="ri
                     BarColumn(bar_width=None),
                     "[progress.percentage]{task.percentage:>3.1f}%",
                     TimeRemainingColumn())
-#progress.log("[white]Welcome to the SVM Analysis Module")
-
 # import argparse
 #
 # parser = argparse.ArgumentParser(description="Classical Support Vector Machine Module")
@@ -166,7 +165,7 @@ class svm_analysis:
         self.result.append([acc, precision, jaccard, matt_corr, fscore, mean_acc, cv_std])
         if plot == True:
             plt.figure(3)
-            heatmap(confusion, annot=True, fmt='d', cmap='plasma', cbar=False,
+            heatmap(confusion, annot=True, fmt='d', cmap='cool', cbar=False,
                     robust=True, square=True)
             plt.suptitle('Confusion Matrix for Classical SVM', fontsize=16)
             plt.title("Testing Accuracy: {}%".format(acc))
@@ -184,6 +183,18 @@ class svm_evaluation:
         C.pan_data(tr_size, rand_ste, True, suff)
         C.test_plot(tr_size,rand_ste, True, suff)
         C.confusion(tr_size,rand_ste, True, suff)
+
+    def eval_table(self, acc, pre, matt, jacc, f1s):
+        table = Table(show_header=False, box=None, padding=(0,1,0,0))
+        table.add_column(width=50, justify="left", style="green", no_wrap=True)
+        table.add_column(width=50, justify="left", style="green", no_wrap=True)
+        table.add_row("\t\tAverage Accuracy",   "{:.5f}".format(average(acc)/100.))
+        table.add_row("\t\tAverage Precision",  "{:.5f}".format(average(pre)))
+        table.add_row("\t\t[blue]Average Matthews Coefficient", "[blue]{:.5f}".format(average(matt)))
+        table.add_row("\t\t[blue]Average Jaccard Score", "[blue]{:.5f}".format(average(jacc)))
+        table.add_row("\t\t[medium_orchid]Average F1 Score", "[medium_orchid]{:.5f}".format(average(f1s)))
+        progress.log(table)
+
 ## Model Evaluation for N random states
     def eval(self, tr_size, N):
         task_id1 = progress.add_task("download", filename="Random State Evaluation")
@@ -198,22 +209,17 @@ class svm_evaluation:
             results[3].append(C.result[0][3])
             results[4].append(C.result[0][4])
             progress.update(task_id1, advance=100./N,refresh=True)
-
-        progress.log("\t[deep_sky_blue2]Average Accuracy: {:.2f}%".format(average(results[0])))
-        progress.log("\t[deep_sky_blue2]Average Precision: {:.2f}".format(average(results[1])))
-        progress.log("\t[deep_sky_blue2]Average Matthews Coefficient: {:.2f}".format(average(results[2])))
-        progress.log("\t[deep_sky_blue2]Average Jaccard Score: {:.2f}".format(average(results[3])))
         avg_fscr, avg_fscr_ste = svm_analysis().closest(results[4], average(results[4]))
         avg_acc, avg_acc_ste = svm_analysis().closest(results[0], average(results[0]))
-
         self.result.append([avg_fscr_ste, avg_acc_ste])
-        # progress.log("\t[red]Min and Max F1 Score {:.3f} {:.3f}".format(min(results[4]), max(results[4])))
-        progress.log("\t[red]Average F1 Score and State: {:.5f} {}".format(avg_fscr, avg_fscr_ste))
+
+        svm_evaluation().eval_table(results[0], results[1], results[2], results[3], avg_fscr)
 
         gs = gridspec.GridSpec(2, 2)
         fig = plt.figure()
         ax = fig.add_subplot(gs[0, 0])
         ax.scatter(arange(0,N), results[2], c=results[3], cmap='winter')
+        ax.axhline(average(results[2]), c="black", linestyle="--")
         ax.set_ylabel("Matthew Coefficient")
         ax.set_xlabel("Random State")
         ax.set_ylim(0.5, 1.00+0.01)
@@ -221,11 +227,13 @@ class svm_evaluation:
 
         ax = fig.add_subplot(gs[0, 1], sharey=ax, sharex=ax)
         ax.scatter(arange(0,N), results[1], c=results[3], cmap='winter')
+        ax.axhline(average(results[1]), c="black", linestyle="--")
         ax.set_ylabel("Precision")
         ax.set_xlabel("Random State")
 
         ax = fig.add_subplot(gs[1, :], sharex=ax)
         ax.scatter(arange(0,N), results[0], c=results[3], cmap='winter')
+        ax.axhline(average(results[0]), c="black", linestyle="--")
         ax.set_ylabel("Accuracy [%]")
         ax.set_xlabel("Random State")
         norm = mpl.colors.Normalize(vmin=min(results[3]),vmax=max(results[3]))
@@ -245,21 +253,21 @@ if __name__ == '__main__':
 
     tr_list = [0.6, 0.7, 0.8]
     for i in range(0,len(tr_list)):
-        progress.log("[bold deep_pink1]Training Division {}".format(tr_list[i]))
-        progress.log("\t[yellow]Starting Model Evaluation")
+        progress.log("\t[bold red]Training Division {}".format(tr_list[i]))
+        progress.log("\t\t[orange3]Starting Model Evaluation")
 
         try:
             os.makedirs("./output/{}/".format(int(tr_list[i] * 100)))
-            progress.log("\t[yellow]Directory Generated")
+            progress.log("\t\t[yellow]Directory Generated")
         except FileExistsError:
-            progress.log("\t[yellow]Directory Already Exists")
+            progress.log("\t\t[yellow]Directory Already Exists")
             pass
 
         D = svm_evaluation()
-        D.eval(tr_list[i], 100)
+        D.eval(tr_list[i], 1000)
         D.plots(tr_list[i], D.result[0][0], "avg_fscr")
         D.plots(tr_list[i], D.result[0][1], "avg_acc")
 
         progress.update(task_id, advance=100./(len(tr_list)),refresh=True)
-        progress.log("[bold deep_pink1]Model Evaluation Complete")
+        progress.log("\t[bold red]Model Evaluation Complete")
     progress.log("[bold white]Script Complete")
