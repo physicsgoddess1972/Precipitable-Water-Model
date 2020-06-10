@@ -26,7 +26,7 @@ if [[ ${a_flag} ]]; then
 	wget http://security.ubuntu.com/ubuntu/pool/main/a/apt/apt_1.0.1ubuntu2.17_amd64.deb -O apt.deb
 	sudo dpkg -i apt.deb
 	sudo apt-get install gfortran libbz2-dev libv8-dev libcurl4-openssl-dev libxml2-dev libssl-dev unzip
-	sudo apt-get install zlib1g-dev libpcre3-dev liblzma-dev #rustc libmagick++-dev libfreetype6-dev
+	sudo apt-get install zlib1g-dev libpcre3-dev liblzma-dev 
 	wget https://cran.rstudio.com/src/base/R-3/R-3.6.1.tar.gz
 	tar -zxf ./R-3.6.1.tar.gz
 	cd ./R-3.6.1/ && ./configure --with-readline=no --with-x=no && sudo make && sudo make install

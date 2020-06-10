@@ -15,7 +15,6 @@ ch="\e[92mCharts saved to ../figs/results/\e[0m"
 po="\e[92mPoster plots saved to ../figs/results/\e[0m"
 
 ## Flags
-echo $3
 while getopts "oahcs" opt; do
 	case "${opt}" in
 		c)
