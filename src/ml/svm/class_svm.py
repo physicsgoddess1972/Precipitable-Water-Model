@@ -94,7 +94,7 @@ class svm_analysis:
             plt.xlabel(r"Temperature [$^o$C]")
             plt.ylabel(r"TPW [mm]")
 
-            plt.savefig(str(args.dfile) + "{}/all_data_{}.png".format(int(tr_size * 100), suff))
+            plt.savefig("../figs/ml/{}/all_data_{}.png".format(int(tr_size * 100), suff))
             plt.close()
 
 ## Plot of Testing Data with support vectors and decision boundary
@@ -141,7 +141,7 @@ class svm_analysis:
             by_label = dict(zip(labels, handles))
             plt.legend(by_label.values(), by_label.keys())
 
-            plt.savefig(str(args.dfile) + "{}/results_{}.png".format(int(tr_size * 100), suff))
+            plt.savefig("../figs/ml/{}/results_{}.png".format(int(tr_size * 100), suff))
             plt.close()
 
 ## Confusion matrix
@@ -175,7 +175,7 @@ class svm_analysis:
             plt.suptitle('Confusion Matrix for Classical SVM', fontsize=16)
             plt.title("Testing Accuracy: {}%".format(acc))
 
-            plt.savefig(str(args.dfile) + "{}/con_mat_{}.png".format(int(tr_size * 100), suff))
+            plt.savefig("../figs/ml/{}/con_mat_{}.png".format(int(tr_size * 100), suff))
             plt.close()
 
 # Evaluation Class
@@ -247,7 +247,7 @@ class svm_evaluation:
         fig.colorbar(sm,ax=ax).set_label('Jaccard Score')
 
         plt.tight_layout()
-        plt.savefig(str(args.dfile) + "{}/super_eval_{}.pdf".format(int(tr_size*100), N))
+        plt.savefig("../figs/ml/{}/super_eval_{}.pdf".format(int(tr_size*100), N))
         plt.close()
 
 if __name__ == '__main__':
@@ -262,7 +262,7 @@ if __name__ == '__main__':
         progress.log("\t\t[orange3]Starting Model Evaluation")
 
         try:
-            os.makedirs(str(args.dfile) + "{}/".format(int(tr_list[i] * 100)))
+            os.makedirs("../figs/ml/{}/".format(int(tr_list[i] * 100)))
             progress.log("\t\t[yellow]Directory Generated")
         except FileExistsError:
             progress.log("\t\t[yellow]Directory Already Exists")
