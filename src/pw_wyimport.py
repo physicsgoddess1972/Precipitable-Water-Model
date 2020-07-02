@@ -5,8 +5,8 @@ from numpy import *
 from datetime import date as dte
 from datetime import datetime as dt
 
-sys.path.append("../../siphon-master/siphon/simplewebservice")
-import wyoming
+from siphon.simplewebservice import wyoming
+from metpy.calc import precipitable_water
 
 import os
 import requests
@@ -62,11 +62,16 @@ def impt(end_date):
     data_abq = []
     for i in range(len(dt_rng)):
         try:
-            pw12 = wyoming.WyomingUpperAir.request_data(dt.combine(dt_rng[i], datetime.time(12, 0)), station[0])['pw'][0]
+            dewpt_12 = wyoming.WyomingUpperAir.request_data(dt.combine(dt_rng[i], datetime.time(12, 0)), station[0])['dewpoint']
+            pres_12  = wyoming.WyomingUpperAir.request_data(dt.combine(dt_rng[i], datetime.time(12, 0)), station[0])['pressure']
+            pw12 = round(precipitable_water(dewpt_12, pres_12), 2)
         except ValueError:
             pw12 = "NaN"
         try:
-            pw00 = wyoming.WyomingUpperAir.request_data(dt_rng[i] + datetime.timedelta(days=1), station[0])['pw'][0]
+            dewpt_00 = wyoming.WyomingUpperAir.request_data(dt_rng[i] + datetime.timedelta(days=1), station[0])['dewpoint']
+            pres_00  = wyoming.WyomingUpperAir.request_data(dt_rng[i] + datetime.timedelta(days=1), station[0])['pressure']
+            pw00 = round(precipitable_water(dewpt_00, pres_00), 2)
+
         except ValueError:
             pw00 = "NaN"
         data_abq.append([station[0], [dt_rng[i], pw12, pw00]])
@@ -74,11 +79,17 @@ def impt(end_date):
     data_epz = []
     for i in range(len(dt_rng)):
         try:
-            pw12 = wyoming.WyomingUpperAir.request_data(dt.combine(dt_rng[i], datetime.time(12, 0)), station[1])['pw'][0]
+            dewpt_12 = wyoming.WyomingUpperAir.request_data(dt.combine(dt_rng[i], datetime.time(12, 0)), station[1])['dewpoint']
+            pres_12  = wyoming.WyomingUpperAir.request_data(dt.combine(dt_rng[i], datetime.time(12, 0)), station[1])['pressure']
+            pw12 = round(precipitable_water(dewpt_12, pres_12), 2)
+
         except ValueError:
             pw12 = "NaN"
         try:
-            pw00 = wyoming.WyomingUpperAir.request_data(dt_rng[i] + datetime.timedelta(days=1), station[1])['pw'][0]
+            dewpt_00 = wyoming.WyomingUpperAir.request_data(dt_rng[i] + datetime.timedelta(days=1), station[1])['dewpoint']
+            pres_00  = wyoming.WyomingUpperAir.request_data(dt_rng[i] + datetime.timedelta(days=1), station[1])['pressure']
+            pw00 = round(precipitable_water(dewpt_00, pres_00), 2)
+
         except ValueError:
             pw00 = "NaN"
         data_epz.append([station[1], [dt_rng[i], pw12, pw00]])
