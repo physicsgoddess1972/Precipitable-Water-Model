@@ -12,11 +12,12 @@ from sklearn import *
 from sklearn import svm
 from sklearn.model_selection import train_test_split, cross_val_score
 from sklearn.metrics import confusion_matrix, classification_report, \
-                            precision_score, jaccard_score, matthews_corrcoef
+                            precision_score, jaccard_score, matthews_corrcoef, f1_score
 
-from rich import print
+from rich import print, box
 from rich.panel import Panel
 from rich.progress import track
+from rich.table import Table
 
 from rich.progress import (
     BarColumn,
@@ -34,11 +35,20 @@ progress = Progress(TextColumn("[bold blue]{task.fields[filename]}", justify="ri
                     TimeRemainingColumn())
 
 
+import argparse
+
+parser = argparse.ArgumentParser(description="Classical Support Vector Machine Module")
+parser.add_argument("-tr", type=list, help="values of training size divisions\n\t[Default: 0.7]", default=[0.7])
+parser.add_argument("-N", type=int, help="Number of random states\n\t[Default: 100]", default=100, dest="N")
+parser.add_argument("-dfile", type=str, help="file path of data", dest="dfile")
+
+args = parser.parse_args()
+
 raw_data    = []
 raw_label   = []
 
 ## Data import
-with open("../../../data/ml/ml_data.csv") as csvfile:
+with open(str(args.dfile) + "ml_data.csv") as csvfile:
     reader = reader(csvfile, delimiter=",")
     next(reader, None)
     for row in reader:
@@ -59,6 +69,12 @@ class svm_analysis:
 ## Initalization function to retrieve accuracy
     def __init__(self):
         self.result = []
+
+    def closest(self, n, K):
+        n = array(n)
+        idx = (abs(n - K)).argmin()
+        return n[idx], idx
+
 ## Plot of all data and the Training Set
     def pan_data(self, tr_size, rand_ste, plot, suff):
         X_train, X_test, y_train, y_test = train_test_split(X, y,
@@ -78,7 +94,7 @@ class svm_analysis:
             plt.xlabel(r"Temperature [$^o$C]")
             plt.ylabel(r"TPW [mm]")
 
-            plt.savefig("./output/{}/all_data_{}.png".format(int(tr_size * 100), suff))
+            plt.savefig("../figs/ml/{}/all_data_{}.png".format(int(tr_size * 100), suff))
             plt.close()
 
 ## Plot of Testing Data with support vectors and decision boundary
@@ -125,7 +141,7 @@ class svm_analysis:
             by_label = dict(zip(labels, handles))
             plt.legend(by_label.values(), by_label.keys())
 
-            plt.savefig("./output/{}/results_{}.png".format(int(tr_size * 100), suff))
+            plt.savefig("../figs/ml/{}/results_{}.png".format(int(tr_size * 100), suff))
             plt.close()
 
 ## Confusion matrix
@@ -147,18 +163,19 @@ class svm_analysis:
         precision   = round(precision_score(y_test, y_pred),2)
         jaccard     = round(jaccard_score(y_test, y_pred),2)
         matt_corr   = round(matthews_corrcoef(y_test, y_pred),2)
+        fscore      = f1_score(y_test, y_pred, average='binary')
         mean_acc    = round(scores.mean(),2)
         cv_std      = round(scores.std() * 2,2)
 
-        self.result.append([acc, precision, jaccard, matt_corr, mean_acc, cv_std])
+        self.result.append([acc, precision, jaccard, matt_corr, fscore, mean_acc, cv_std])
         if plot == True:
             plt.figure(3)
-            heatmap(confusion, annot=True, fmt='d', cmap='plasma', cbar=False,
+            heatmap(confusion, annot=True, fmt='d', cmap='cool', cbar=False,
                     robust=True, square=True)
             plt.suptitle('Confusion Matrix for Classical SVM', fontsize=16)
             plt.title("Testing Accuracy: {}%".format(acc))
 
-            plt.savefig("./output/{}/con_mat_{}.png".format(int(tr_size * 100), suff))
+            plt.savefig("../figs/ml/{}/con_mat_{}.png".format(int(tr_size * 100), suff))
             plt.close()
 
 # Evaluation Class
@@ -166,76 +183,96 @@ class svm_evaluation:
     def __init__(self):
         self.result = []
 ## Function plots all plots
-    def plots(self,rand_ste, suff):
+    def plots(self,tr_size, rand_ste, suff):
         C = svm_analysis()
         C.pan_data(tr_size, rand_ste, True, suff)
         C.test_plot(tr_size,rand_ste, True, suff)
         C.confusion(tr_size,rand_ste, True, suff)
+
+    def eval_table(self, acc, pre, matt, jacc, f1s):
+        table = Table(show_header=False, box=None, padding=(0,1,0,0))
+        table.add_column(width=50, justify="left", style="green", no_wrap=True)
+        table.add_column(width=50, justify="left", style="green", no_wrap=True)
+        table.add_row("\t\tAverage Accuracy",   "{:.5f}".format(average(acc)/100.))
+        table.add_row("\t\tAverage Precision",  "{:.5f}".format(average(pre)))
+        table.add_row("\t\t[blue]Average Matthews Coefficient", "[blue]{:.5f}".format(average(matt)))
+        table.add_row("\t\t[blue]Average Jaccard Score", "[blue]{:.5f}".format(average(jacc)))
+        table.add_row("\t\t[medium_orchid]Average F1 Score", "[medium_orchid]{:.5f}".format(average(f1s)))
+        progress.log(table)
+
 ## Model Evaluation for N random states
     def eval(self, tr_size, N):
         task_id1 = progress.add_task("download", filename="Random State Evaluation")
-        acc_set = []
-        pre_set = []
-        mat_set = []
-        jac_set = []
+
+        results = [[] for _ in range(5)]
         for i in range(0, N):
             C       = svm_analysis()
             C.confusion(tr_size, i, False, None)
-            acc_set.append(C.result[0][0])
-            pre_set.append(C.result[0][1])
-            jac_set.append(C.result[0][2])
-            mat_set.append(C.result[0][3])
+            results[0].append(C.result[0][0])
+            results[1].append(C.result[0][1])
+            results[2].append(C.result[0][2])
+            results[3].append(C.result[0][3])
+            results[4].append(C.result[0][4])
             progress.update(task_id1, advance=100./N,refresh=True)
-        progress.log("\t[deep_sky_blue2]Average Accuracy: {:.2f}%".format(average(acc_set)))
-        progress.log("\t[deep_sky_blue2]Average Precision: {:.2f}".format(average(pre_set)))
-        progress.log("\t[deep_sky_blue2]Average Matthews Coefficient: {:.2f}".format(average(mat_set)))
-        progress.log("\t[deep_sky_blue2]Average Jaccard Score: {:.2f}".format(average(jac_set)))
+        avg_fscr, avg_fscr_ste = svm_analysis().closest(results[4], average(results[4]))
+        avg_acc, avg_acc_ste = svm_analysis().closest(results[0], average(results[0]))
+        self.result.append([avg_fscr_ste, avg_acc_ste])
+
+        svm_evaluation().eval_table(results[0], results[1], results[2], results[3], avg_fscr)
 
         gs = gridspec.GridSpec(2, 2)
         fig = plt.figure()
         ax = fig.add_subplot(gs[0, 0])
-        ax.scatter(arange(0,N), mat_set, c=jac_set, cmap='winter')
+        ax.scatter(arange(0,N), results[2], c=results[3], cmap='winter')
+        ax.axhline(average(results[2]), c="black", linestyle="--")
         ax.set_ylabel("Matthew Coefficient")
         ax.set_xlabel("Random State")
         ax.set_ylim(0.5, 1.00+0.01)
         ax.set_xlim(0-1, N)
 
         ax = fig.add_subplot(gs[0, 1], sharey=ax, sharex=ax)
-        ax.scatter(arange(0,N), pre_set, c=jac_set, cmap='winter')
+        ax.scatter(arange(0,N), results[1], c=results[3], cmap='winter')
+        ax.axhline(average(results[1]), c="black", linestyle="--")
         ax.set_ylabel("Precision")
         ax.set_xlabel("Random State")
 
         ax = fig.add_subplot(gs[1, :], sharex=ax)
-        ax.scatter(arange(0,N), acc_set, c=jac_set, cmap='winter')
+        ax.scatter(arange(0,N), results[0], c=results[3], cmap='winter')
+        ax.axhline(average(results[0]), c="black", linestyle="--")
         ax.set_ylabel("Accuracy [%]")
         ax.set_xlabel("Random State")
-        norm = mpl.colors.Normalize(vmin=min(jac_set),vmax=max(jac_set))
-        sm = plt.cm.ScalarMappable(cmap=plt.get_cmap('winter',len(jac_set)), norm=norm)
+        norm = mpl.colors.Normalize(vmin=min(results[3]),vmax=max(results[3]))
+        sm = plt.cm.ScalarMappable(cmap=plt.get_cmap('winter',len(results[3])), norm=norm)
         sm.set_array([])
         fig.colorbar(sm,ax=ax).set_label('Jaccard Score')
 
         plt.tight_layout()
-        plt.savefig("./output/{}/super_eval_{}.pdf".format(int(tr_size*100), N))
+        plt.savefig("../figs/ml/{}/super_eval_{}.pdf".format(int(tr_size*100), N))
         plt.close()
 
 if __name__ == '__main__':
+    progress.print(Panel("[bold deep_sky_blue2]Good Morning\nWelcome to the Classical SVM Analysis Module of the Precipitable Water Model. For more information about the model and the purpose of this tool, please visit the [link=https://git.io/fj5Xr]documentation page[/link]"))
+
     progress.log("[bold white]Script Started")
     task_id = progress.add_task("download", filename="Support Vector Machine Analysis")
 
     tr_list = [0.6, 0.7, 0.8]
     for i in range(0,len(tr_list)):
-        progress.log("[bold deep_pink1]Training Division {}".format(tr_list[i]))
-        progress.log("\t[yellow]Starting Model Evaluation")
+        progress.log("\t[bold red]Training Division {}".format(tr_list[i]))
+        progress.log("\t\t[orange3]Starting Model Evaluation")
 
         try:
-            os.mkdir("./output/{}/".format(int(tr_list[i] * 10)))
-            progress.log("\t[yellow]Directory Generated")
+            os.makedirs("../figs/ml/{}/".format(int(tr_list[i] * 100)))
+            progress.log("\t\t[yellow]Directory Generated")
         except FileExistsError:
-            progress.log("\t[yellow]Directory Already Exists")
+            progress.log("\t\t[yellow]Directory Already Exists")
             pass
 
-        svm_evaluation().eval(tr_list[i], 10)
+        D = svm_evaluation()
+        D.eval(tr_list[i], args.N)
+        D.plots(tr_list[i], D.result[0][0], "avg_fscr")
+        D.plots(tr_list[i], D.result[0][1], "avg_acc")
 
         progress.update(task_id, advance=100./(len(tr_list)),refresh=True)
-        progress.log("[bold deep_pink1]Model Evaluation Complete")
+        progress.log("\t[bold red]Model Evaluation Complete")
     progress.log("[bold white]Script Complete")
