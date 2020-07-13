@@ -52,7 +52,7 @@ with open(str(args.dfile) + "ml_data.csv") as csvfile:
     reader = reader(csvfile, delimiter=",")
     next(reader, None)
     for row in reader:
-        raw_data.append(list((float(row[1]),float(row[2]),float(row[3]))))
+        raw_data.append(list((float(row[1]),log(float(row[2])),float(row[3]))))
         raw_label.append(int(row[-1]))
 
 ## Shoving data and labels into an array
