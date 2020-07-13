@@ -1,31 +1,95 @@
+####
+## Title: 	Precipitable Water Extraction
+## Author: 	Spencer Riley / Vicki Kelsey
+## Documentation Page: https://git.io/fjVHo
+####
+import os
 import csv
 import sys
+import requests
 import datetime
+import time
 from numpy import *
 from datetime import date as dte
 from datetime import datetime as dt
-
-from siphon.simplewebservice import wyoming
+import pandas as pd
+from metpy.units import units
 from metpy.calc import precipitable_water
+from metpy.future import precipitable_water
+sys.path.append("./archive")
+from mesowest import MesoWest, WyomingUpperAir
 
-import os
-import requests
+from rich import print, box
+from rich.panel import Panel
+from rich.progress import track
+from rich.table import Table
 
-REQUESTS_MAX_RETRIES = int(os.getenv("REQUESTS_MAX_RETRIES", 4))
+from rich.progress import (
+    BarColumn,
+    DownloadColumn,
+    TextColumn,
+    TransferSpeedColumn,
+    TimeRemainingColumn,
+    Progress,
+    TaskID,
+)
+
+progress = Progress(TextColumn("[bold blue]{task.fields[filename]}", justify="right"),
+                    BarColumn(bar_width=None),
+                    "[progress.percentage]{task.percentage:>3.1f}%",
+                    TimeRemainingColumn())
+
+## Timeout Retry
+REQUESTS_MAX_RETRIES = int(os.getenv("REQUESTS_MAX_RETRIES", 10))
 adapter = requests.adapters.HTTPAdapter(max_retries=REQUESTS_MAX_RETRIES)
 
+## Stations used
 station = ['ABQ', 'EPZ']
+## Hours to pull
 hour    = [00, 12]
 
+## Data file used for model input
 fname   = '../data/master_data.csv'
+## Data file used for user input
 wname   = '../data/cool_data.csv'
 
-filew   = open(wname, "r")
-file    = open(fname, "r")
-reader  = csv.reader(file, delimiter=',')
-readw   = csv.reader(filew, delimiter=",")
+def closest(lst, K, d):
+    lst = asarray(lst)
+    list = []
+    tmp2 = dt.combine(d, K)
+    for i in range(len(lst)):
+        list.append(abs(dt.combine(d, lst[i]) - tmp2))
+    idx = asarray(list).argmin()
+    return lst[idx]
 
-def impt(end_date):
+def wyoming_import(end_date, station):
+    try:
+        df_12    = WyomingUpperAir.request_data(dt.combine(end_date, datetime.time(12, 0)), station[0])
+        pw12     = df_12.pw[0]
+    except ValueError:
+        pw12 = "NaN"
+    try:
+        df_00   = WyomingUpperAir.request_data(end_date + datetime.timedelta(days=1), station[0])
+        pw00    = df_00.pw[0]
+    except ValueError:
+        pw00 = "NaN"
+
+    data_abq = [station[0], [end_date, pw12, pw00]]
+
+    try:
+        df_12   = WyomingUpperAir.request_data(dt.combine(end_date, datetime.time(12, 0)), station[1])
+        pw12    = df_12.pw[0]
+    except ValueError:
+        pw12 = "NaN"
+    try:
+        df_00   = WyomingUpperAir.request_data(end_date + datetime.timedelta(days=1), station[1])
+        pw00    = df_00.pw[0]
+    except ValueError:
+        pw00 = "NaN"
+    data_epz = [station[1], [end_date, pw12, pw00]]
+    return data_abq, data_epz
+
+def impt(end_date, idx):
     cool_data = []
     with filew as csvfile:
         next(csv.reader(csvfile, delimiter=","))
@@ -48,77 +112,60 @@ def impt(end_date):
             nws_time, nws_temp, te_sky, flir_sky, ames1_sky,
             ames2_sky, te_gro, flir_gro, ames1_gro, ames2_gro,
             comments])
-
-    date    = []
-    with file as csvfile:
-        next(csv.reader(csvfile, delimiter=","))
-        for row in reader:
-            day     = row[0].split('/')[1]
-            month   = row[0].split('/')[0]
-            year    = row[0].split('/')[2]
-            date.append(dt(int(year), int(month), int(day), hour=0))
-    dt_rng = [date[-1].date() + datetime.timedelta(days=x) for x in range(abs(date[-1].date() - end_date.date()).days)][1:]
-
-    data_abq = []
-    for i in range(len(dt_rng)):
+    i = 0
+    ex = "requests.exception.HTTPError"
+    while ex == "requests.exception.HTTPError":
         try:
-            dewpt_12 = wyoming.WyomingUpperAir.request_data(dt.combine(dt_rng[i], datetime.time(12, 0)), station[0])['dewpoint']
-            pres_12  = wyoming.WyomingUpperAir.request_data(dt.combine(dt_rng[i], datetime.time(12, 0)), station[0])['pressure']
-            pw12 = round(precipitable_water(dewpt_12, pres_12), 2)
-        except ValueError:
-            pw12 = "NaN"
-        try:
-            dewpt_00 = wyoming.WyomingUpperAir.request_data(dt_rng[i] + datetime.timedelta(days=1), station[0])['dewpoint']
-            pres_00  = wyoming.WyomingUpperAir.request_data(dt_rng[i] + datetime.timedelta(days=1), station[0])['pressure']
-            pw00 = round(precipitable_water(dewpt_00, pres_00), 2)
-
-        except ValueError:
-            pw00 = "NaN"
-        data_abq.append([station[0], [dt_rng[i], pw12, pw00]])
-
-    data_epz = []
-    for i in range(len(dt_rng)):
-        try:
-            dewpt_12 = wyoming.WyomingUpperAir.request_data(dt.combine(dt_rng[i], datetime.time(12, 0)), station[1])['dewpoint']
-            pres_12  = wyoming.WyomingUpperAir.request_data(dt.combine(dt_rng[i], datetime.time(12, 0)), station[1])['pressure']
-            pw12 = round(precipitable_water(dewpt_12, pres_12), 2)
-
-        except ValueError:
-            pw12 = "NaN"
-        try:
-            dewpt_00 = wyoming.WyomingUpperAir.request_data(dt_rng[i] + datetime.timedelta(days=1), station[1])['dewpoint']
-            pres_00  = wyoming.WyomingUpperAir.request_data(dt_rng[i] + datetime.timedelta(days=1), station[1])['pressure']
-            pw00 = round(precipitable_water(dewpt_00, pres_00), 2)
-
-        except ValueError:
-            pw00 = "NaN"
-        data_epz.append([station[1], [dt_rng[i], pw12, pw00]])
+            data_abq, data_epz = wyoming_import(end_date, station)
+            ex = None
+        except requests.exceptions.HTTPError as exception:
+            time.sleep(60)
+            data_abq, data_epz = wyoming_import(end_date, station)
+            ex = str(exception)
+            i =+ 1
+    ind = idx + 1
+    df_mw = MesoWest.request_data(end_date + datetime.timedelta(days=1), "KONM")
+    in_time = pd.to_datetime(cool_data[ind][2][0]).time()
+    df_tm = df_mw.loc[(df_mw['Time'] == closest(df_mw['Time'], in_time, end_date))]
+    data_mesowest = [df_tm['RH'].values.tolist()[0],
+                          df_tm['Time'].values.tolist()[0],
+                          round(df_tm['Temp'].values.tolist()[0], 2)]
 
     neat = []
-    for i in range(1,len(dt_rng) + 1):
-        neat.append(cool_data[-i])
+    for i in range(idx, ind+1):
+        neat.append(cool_data[i])
     neat = neat[::-1]
 
-    file_a = open(fname, "a")
-    with file_a as csvfile:
-        for i in range(len(dt_rng)):
-            csvfile.write(str(dt_rng[i].strftime("%-m/%-d/%Y")) + ","
-            + str(neat[i][0][0]) + ","
-            + str(neat[i][1][0]) + ","
-            + str(data_abq[i][1][1]) + ","
-            + str(data_abq[i][1][2]) + ","
-            + str(data_epz[i][1][1]) + ","
-            + str(data_epz[i][1][2]) + ","
-            + str(neat[i][2][0]) + ","
-            + str(neat[i][3][0]) + ","
-            + str(neat[i][4][0]) + ","
-            + str(neat[i][5][0]) + ","
-            + str(neat[i][6][0]) + ","
-            + str(neat[i][7][0]) + ","
-            + str(neat[i][8][0]) + ","
-            + str(neat[i][9][0]) + ","
-            + str(neat[i][10][0]) + ","
-            + str(neat[i][11][0]) + ","
-            + str(neat[i][12][0]) + ",\n")
+    with open(fname, "a") as csvfile:
+        csvfile.write(str(end_date.strftime("%-m/%-d/%Y")) + ","
+        + str(neat[0][0][0]) + ","
+        + str(data_mesowest[0]) + ","
+        + str(data_abq[1][1]) + ","
+        + str(data_abq[1][2]) + ","
+        + str(data_epz[1][1]) + ","
+        + str(data_epz[1][2]) + ","
+        + str(neat[0][2][0]) + ","
+        + str(data_mesowest[1].strftime("%H:%M")) + ","
+        + str(data_mesowest[2]) + ","
+        + str(neat[0][5][0]) + ","
+        + str(neat[0][6][0]) + ","
+        + str(neat[0][7][0]) + ","
+        + str(neat[0][8][0]) + ","
+        + str(neat[0][9][0]) + ","
+        + str(neat[0][10][0]) + ","
+        + str(neat[0][11][0]) + ","
+        + str(neat[0][12][0]) + ",\n")
 
-impt(dt.strptime(str(loadtxt(wname, delimiter=",", dtype=str, usecols=(0))[-1]), "%m/%d/%Y"))
+full_len = len(loadtxt(wname, delimiter=",", dtype=str, usecols=(0))) - 1
+last     = list(loadtxt(wname, delimiter=",", dtype=str, usecols=(0))).index(str(loadtxt(fname, delimiter=",", dtype=str, usecols=(0))[-1]))
+
+task_id = progress.add_task("download", filename="Data Import")
+for i in range(last, full_len - 1):
+    filew   = open(wname, "r")
+    file    = open(fname, "r")
+
+    readf  = csv.reader(file, delimiter=',')
+    readw   = csv.reader(filew, delimiter=",")
+    date = dt.strptime(str(loadtxt(wname, delimiter=",", dtype=str, usecols=(0))[i+1]), "%m/%d/%Y")
+    impt(date , i)
+    progress.update(task_id, advance=(100./((full_len - 1) - last)),refresh=True)
