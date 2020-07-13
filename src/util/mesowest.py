@@ -150,6 +150,7 @@ class WyomingUpperAir(HTTPEndPoint):
         return resp.text
 
 class MesoWest(HTTPEndPoint):
+    """Download and parse data from the University of Utah's MesoWest archive."""
     def __init__(self):
         """Set up endpoint."""
         super(MesoWest, self).__init__('https://mesowest.utah.edu/cgi-bin/droman/meso_table_mesowest.cgi')
@@ -161,40 +162,64 @@ class MesoWest(HTTPEndPoint):
         return df
 
     def _get_data(self, time, site_id):
+        r"""Download and parse upper air observations from an online archive.
+
+        Parameters
+        ----------
+        time : datetime
+            The date and time of the desired observation.
+
+        site_id : str
+            The four letter MesoWest identifier of the station for which data should be
+            downloaded.
+            https://mesowest.utah.edu/cgi-bin/droman/meso_station.cgi?area=1
+
+        Returns
+        -------
+            :class:`pandas.DataFrame` containing the data
+
+        """
         raw_data = self._get_data_raw(time, site_id)
         soup = BeautifulSoup(raw_data, 'html.parser')
+        z = 0
+        a = 0
+        while (soup.find_all('small')[z].contents != ['\n\t\t\tTime(MDT)\n\t\t']):
+            z += 1
+        while (soup.find_all('small')[a].contents != ['\n\t\t\tVisibility\n\t\t']):
+            a += 1
+        names = [x.strip('\n\t\t') for i in range(z, a+1, 2) for x in soup.find_all('small')[i].contents]
         soup_super_lst = []
         for j in range(0, len(soup.find_all("tr"))):
             soup_tmp = soup.find_all("tr")[j].find_all('td')
             soup_lst = []
             for i in soup_tmp:
-                soup_tmp1 = list(i)[0].strip('\n\t\t')
-                try:
-                    soup_lst.append(float(soup_tmp1))
-                except:
-                    soup_lst.append(soup_tmp1)
+                soup_lst.append(list(i)[0].strip('\n\t\t'))
             soup_super_lst.append(soup_lst)
-        col_names = ['Time', 'Temp', 'Dewpoint', 'WBT', 'RH']#, 'Wind Speed', 'Wind Direction', 'Pressure', 'Sea Level Pressure', 'Altimeter', '1500m Pressure', 'Condition', 'Visibility']
-        df_i = pd.DataFrame(soup_super_lst)
-        df_i = df_i[[0,1,2,3,4]].reset_index(drop=True)
-        df = df_i.dropna(how='any', axis=0)
-        df.columns = col_names
-        df.Time = pd.to_datetime(df['Time']).apply(lambda x: x.time())
-        try:
-            df.Temp = (df.Temp - 32.) * (5./9.)
-        except TypeError:
-            df.Temp = np.nan
-        try:
-            df.Dewpoint = (df.Dewpoint - 32.) * (5./9.)
-        except TypeError:
-            df.Dewpoint = np.nan
-        try:
-            df.WBT = (df.WBT - 32.) * (5./9.)
-        except TypeError:
-            df.WBT = np.nan
+        df = pd.DataFrame(soup_super_lst).replace(r'^\s*$', np.nan, regex=True).dropna(thresh=5, axis=1).dropna(thresh=5, axis=0)
+        del names[8]
+        df.columns = names
+        df['Time(MDT)']   = pd.to_datetime(df['Time(MDT)']).apply(lambda x: x.time())
+        df['Temperature'] = round((df['Temperature'].astype(float) - 32.) * (5./9.),2)
+        df['Dew']         = round((df['Dew'].astype(float) - 32.) * (5./9.),2)
+        df['Wet Bulb'] = round((df['Wet Bulb'].astype(float) - 32.) * (5./9.),2)
         return df
 
     def _get_data_raw(self, time, site_id):
+        """Download data from the University of Utah's MesoWest archive.
+
+        Parameters
+        ----------
+        time : datetime
+            Date and time for which data should be downloaded
+        site_id : str
+            Site id for which data should be downloaded
+            https://mesowest.utah.edu/cgi-bin/droman/meso_station.cgi?area=1
+
+        Returns
+        -------
+        text of the server response
+
+        """
         path = ('?stn={stid}'
                 '&unit=0&time=LOCAL'
                 '&day1={time:%d}&month1={time:%m}&year1={time:%Y}&hour1={time:%H}'

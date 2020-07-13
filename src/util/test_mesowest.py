@@ -20,15 +20,16 @@ def closest(lst, K, d):
     idx = asarray(list).argmin()
     return lst[idx]
 
-test_date = dt.datetime(2020, 7, 3)
 
-def test_mesowest():
+def test_mesowest(test_date):
     ## Add 1 to day
     df = MesoWest.request_data(test_date, 'KONM')
     in_time = pd.to_datetime("10:19:00").time()
-    df_tm = df.loc[(df['Time'] == closest(df['Time'], in_time, test_date))]
-    print(df_tm)
-test_mesowest()
+    df_tm = df.loc[(df['Time(MDT)'] == closest(df['Time(MDT)'], in_time, test_date))]
+    print(df_tm.to_string())
+date = dt.datetime(2020, 7, 1)
+for i in range(0, 12):
+    test_mesowest(date - dt.timedelta(days=i))
 
 def test_wyoming():
     df = WyomingUpperAir.request_data(test_date, 'ABQ')
