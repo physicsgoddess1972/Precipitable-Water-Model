@@ -16,7 +16,7 @@ import pandas as pd
 from metpy.units import units
 from metpy.calc import precipitable_water
 from metpy.future import precipitable_water
-sys.path.append("./archive")
+sys.path.append("./util")
 from mesowest import MesoWest, WyomingUpperAir
 
 from rich import print, box
@@ -49,9 +49,9 @@ station = ['ABQ', 'EPZ']
 hour    = [00, 12]
 
 ## Data file used for model input
-fname   = '../data/master_data.csv'
+fname   = '../../data/master_data.csv'
 ## Data file used for user input
-wname   = '../data/cool_data.csv'
+wname   = '../../data/cool_data.csv'
 
 def closest(lst, K, d):
     lst = asarray(lst)
