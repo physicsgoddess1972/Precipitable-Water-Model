@@ -133,8 +133,8 @@ for (j in unique(snsr_tag)){
 ## Filters out data with overcast condition
 overcast_filter <- function(){
 # Initializes the lists to store values
-	date_clear	<- snsr_sky		<- snsr_gro		<- pw_loc	<- list()
-	date_over	<- snsr_skyo	<- snsr_groo	<- pw_loco	<- list()
+	date_clear	<- snsr_sky		<- snsr_gro		<- pw_loc <- rh	<- list()
+	date_over	<- snsr_skyo	<- snsr_groo	<- pw_loco <- rho <- list()
 # Divides the data based on condition (Overcast/Clear Skies)
 	for (j in 1:length(t(fname[col_con]))){
 		if (!"overcast" %in% fname[j,col_con]){
@@ -146,6 +146,7 @@ overcast_filter <- function(){
 				snsr_gro[[ paste("snsr_gro",k,sep="") ]] 	<- append(x=snsr_gro[[ paste("snsr_gro",k,sep="") ]], values=fname[j, k+col_gro[1]-1])
 				snsr_sky[[ paste("snsr_sky",k,sep="") ]] 	<- append(x=snsr_sky[[ paste("snsr_sky",k,sep="") ]], values=fname[j, k+col_sky[1]-1])
 			}
+			rh <- append(x=rh, value=fname[j, col_rh[1]])
 		}else{
 			date_over   <- append(date_over, as.Date(fname[j, as.numeric(col_date)], "%m/%d/%Y"))
 			for (l in 1:length(pw_name)){
@@ -155,10 +156,11 @@ overcast_filter <- function(){
 				snsr_groo[[ paste("snsr_groo",k,sep="") ]] 	<- append(x=snsr_groo[[ paste("snsr_groo",k,sep="") ]], values=fname[j, k+col_gro[1]-1])
 				snsr_skyo[[ paste("snsr_skyo",k,sep="") ]] 	<- append(x=snsr_skyo[[ paste("snsr_skyo",k,sep="") ]], values=fname[j, k+col_sky[1]-1])
 			}
+			rho <- append(x=rho, value=fname[j, col_rh[1]])
 		}
 	}
 # Adds divided data into list to output from function
-	output1 <- list(clear_date=date_clear, over_date=date_over)
+	output1 <- list(clear_date=date_clear, over_date=date_over, rh=rh, rho=rho)
 	for(k in 1:length(snsr_name)){
 		output1 <- append(x=output1, values=list("clear_gro"=snsr_gro[[ paste("snsr_gro",k,sep="") ]]))
 	}
@@ -184,6 +186,8 @@ overcast 	<- overcast_filter()
 ### Clear Sky Data
 ## Pulls date from filter function
 clear_date  <- overcast$clear_date	# Date
+## Pulls relative humidity from filter function
+clear_rh <- as.numeric(overcast$rh)
 ## Initialize empty lists
 snsr_del 	<- snsr_sky <- snsr_gro <- pw_loc <- loc_avg <- snsr_sky_calc <- tmp_avg <- list()
 ## Adds PW measurements for clear sky to list
@@ -233,6 +237,8 @@ avg 		<-  Reduce("+", pw_loc)/length(pw_loc)
 ### Overcast Data
 ## Pulls date from filter function (overcast)
 over_date  	<- overcast$over_date
+## Pulls relative humidity from filter function
+over_rh <- as.numeric(overcast$rho)
 # Initialize empty lists
 snsr_delo  	<- snsr_skyo <- snsr_groo <- pw_loco <- loc_avgo <- snsr_sky_calco <- tmp_avgo <- list()
 ## Adds PW measurements for overcast to list
@@ -545,6 +551,52 @@ main8 	<- function(legend, overcast=args$overcast){
 		 xlim=c(xmin, xmax), ylim=c(ymin, ymax), main=title, pch=16, col="blue")
 	axis(1, at=seq(from=xmin, to=xmax, length.out=5), labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%b %Y"))
 
+}
+## PW - RH Time Series
+main9 	<- function(legend, overcast=args$overcast){
+	if(overcast){
+		date 		<- over_date
+		range1 	<- avgo
+		range2  <- over_rh
+		title 	<- sprintf("Mean TPW and RH Time Series \n Condition: Overcast");
+	}else{
+		date 		<- clear_date
+		range1 	<- avg
+		range2 	<- clear_rh
+		title 	<- sprintf("Mean TPW and RH Time Series \n Condition: Clear Sky")
+	}
+	xmin = min(date); xmax= max(date)
+	plot(date, range1, ylab=NA, xlab="Date", col="blue", main=title, xaxt='n', pch=16)
+	axis(side = 2); mtext(side = 2, line=3, "TPW [mm]", col="blue")
+
+	axis(1, at=seq(from=xmin, to=xmax, length.out=5), labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%b %Y"))
+
+	par(new = T)
+	plot(date, range2, ylab=NA, axes=F, xlab=NA, col="green3", pch=16)
+	axis(side = 4); mtext(side=4, line=3, "RH [%]", col="green3")
+}
+## Sky Temperature - RH Time Series
+main10 	<- function(legend, overcast=args$overcast){
+	if(overcast){
+		date 		<- over_date
+		range1 	<- as.numeric(unlist(snsr_sky_calco))
+		range2  <- over_rh
+		title 	<- sprintf("Mean Sky Temperature and RH Time Series \n Condition: Overcast");
+	}else{
+		date 		<- clear_date
+		range1 	<- as.numeric(unlist(snsr_sky_calc))
+		range2 	<- clear_rh
+		title 	<- sprintf("Mean Sky Temperature and RH Time Series \n Condition: Clear Sky")
+	}
+	xmin = min(date); xmax= max(date)
+	plot(date, range1, ylab=NA, xlab="Date", col="red", main=title, xaxt='n', pch=16)
+	axis(side = 2); mtext(side = 2, line=3, "Temperature [C]", col="red")
+
+	axis(1, at=seq(from=xmin, to=xmax, length.out=5), labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%b %Y"))
+
+	par(new = T)
+	plot(date, range2, ylab=NA, axes=F, xlab=NA, col="green3", pch=16)
+	axis(side = 4); mtext(side=4, line=3, "RH [%]", col="green3")
 }
 
 ## Individual Location plots
@@ -1175,13 +1227,17 @@ if(args$set == "i"){
 	cat(green("[6]"), "Temporal Mean Precipitable Water Time Series\n")
 	cat(green("[7]"), "Locational Mean Precipitable Water Time Series\n")
 	cat(green("[8]"), "Mean Precipitable Water Time Series\n")
+	cat(green("[9]"), "Precipitable Water - RH Time Series\n")
+	cat(green("[10]"), "Sky Temperature - RH Time Series\n")
 # Saves plots
 	save(c(main1("save", overcast=args$overcast),main2("save", overcast=args$overcast),
 	main3("save", overcast=args$overcast), main4("save", overcast=args$overcast), main5("save", overcast=args$overcast),
-	main6("save", overcast=args$overcast), main7("save", overcast=args$overcast), main8("save", overcast=args$overcast)), sname)
+	main6("save", overcast=args$overcast), main7("save", overcast=args$overcast), main8("save", overcast=args$overcast),
+	main9("save", overcast=args$overcast), main10("save", overcast=args$overcast)), sname)
 	save(c(main1("save", overcast=args$overcast),main2("save", overcast=args$overcast),
 	main3("save", overcast=args$overcast), main4("save", overcast=args$overcast), main5("save", overcast=args$overcast),
-	main6("save", overcast=args$overcast), main7("save", overcast=args$overcast), main8("save", overcast=args$overcast)), sname_pub)
+	main6("save", overcast=args$overcast), main7("save", overcast=args$overcast), main8("save", overcast=args$overcast),
+	main9("save", overcast=args$overcast), main10("save", overcast=args$overcast)), sname_pub)
 	cat(green(sprintf("Plot set downloaded to %s\n", sname)))
 }else if(args$set == "a"){
 	if(args$overcast){
