@@ -40,7 +40,7 @@ import argparse
 parser = argparse.ArgumentParser(description="Classical Support Vector Machine Module")
 parser.add_argument("-tr", type=list, help="values of training size divisions\n\t[Default: 0.7]", default=[0.7])
 parser.add_argument("-N", type=int, help="Number of random states\n\t[Default: 100]", default=100, dest="N")
-parser.add_argument("-dfile", type=str, help="file path of data", dest="dfile")
+parser.add_argument("-dfile", type=str, help="file path of data", dest="dfile", default="../../../data/ml/")
 
 args = parser.parse_args()
 
@@ -251,6 +251,8 @@ class svm_evaluation:
         plt.close()
 
 if __name__ == '__main__':
+    df = pd.read_csv("https://raw.githubusercontent.com/physicsgoddess1972/Precipitable-Water-Model/master/data/ml/ml_data.csv")
+    print(df)
     progress.print(Panel("[bold deep_sky_blue2]Good Morning\nWelcome to the Classical SVM Analysis Module of the Precipitable Water Model. For more information about the model and the purpose of this tool, please visit the [link=https://git.io/fj5Xr]documentation page[/link]"))
 
     progress.log("[bold white]Script Started")

@@ -5,7 +5,11 @@ from numpy import *
 from datetime import date as dte
 from datetime import datetime as dt
 
+<<<<<<< HEAD
 sys.path.append("../../siphon-master/siphon-master/simplewebservice")
+=======
+sys.path.append("../../siphon/siphon/simplewebservice")
+>>>>>>> 4106fa7333bfd38ee1dfcaef1c093f0daa72fd67
 import wyoming
 
 import os
