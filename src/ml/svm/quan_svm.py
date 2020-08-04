@@ -16,9 +16,14 @@ import logging
 from qiskit.aqua import set_qiskit_aqua_logging
 set_qiskit_aqua_logging(logging.DEBUG)
 
+
+tkn = str(loadtxt("./ibmq.token", dtype=str, unpack=True))
+
 q_mach = 'ibmq_16_melbourne'
 q_simu = 'ibmq_qasm_simulator'
 
+# IBMQ.delete_account()
+IBMQ.save_account(tkn)
 provider = IBMQ.load_account()
 print("Credintials Loaded")
 
@@ -58,51 +63,61 @@ y = array(raw_label)
 y[y == 1] = -1
 y[y == 2] = 1
 y = ones(len(X)) * y
-## Trainging-Testing Data Partition
-X_train, X_test, y_train, y_test = train_test_split(X, y,
-                                        train_size=0.7,
-                                        random_state=1)
-train_dataset   = {"clear_sky" : X_train[y_train==1],
-                    "overcast" : X_train[y_train==-1]}
-test_dataset    = {"clear_sky" : X_test[y_test==1],
-                    "overcast" : X_test[y_test==-1]}
-## Quantum Shit
-feature_map = SecondOrderExpansion(2, depth=3, entanglement='linear')
-qu_instance = QuantumInstance(backend,
-                  circuit_caching=False,
-                  shots=512,
-                  noise_model=noise_model,
-                  basis_gates=basis_gates,
-                  coupling_map=coupling_map,
-                  seed_transpiler=10598,
-                  seed_simulator=10598,
-                  skip_qobj_deepcopy=True,
-                  skip_qobj_validation=False)
-## Runs the bitch
-result =  QSVM(feature_map,
-                train_dataset,
-                test_dataset).run(qu_instance)
-## Kernel Matrix for training and testing (Not a fucking clue what it means)
-fig, (ax1,ax2) = plt.subplots(1,2)
-kernel_matplot_train = ax1.imshow(asmatrix(result['kernel_matrix_training']),
-                                    interpolation='nearest',
-                                    origin='upper',
-                                    cmap='plasma')
-ax1.set_title("Training Kernel Matrix")
-kernel_matplot_test = ax2.imshow(asmatrix(result['kernel_matrix_testing']),
-                                    interpolation='nearest',
-                                    origin='upper',
-                                    cmap='plasma')
-ax2.set_title("Testing Kernel Matrix")
-n = 1
-plt.savefig('kernel_matrix_{}.png'.format(n))
-print(result)
-# y_pred = result['predicted_classes']
-# con_mat = array(confusion_matrix(y_test, y_pred))
-# confusion = DataFrame(con_mat, index=['clear sky', 'overcast'],
-#                     columns=['predicted clear', 'predicted clouds'])
-# heatmap(confusion, annot=True, fmt='d', cmap='plasma')
 
-## Prints Shit
-## Prints accuracy of model
-print("The accuracy of the model is {:.2f}%".format(result['testing_accuracy'] * 100))
+
+class quantum_svm:
+    def run(rand_ste):
+## Trainging-Testing Data Partition
+        X_train, X_test, y_train, y_test = train_test_split(X, y,
+                                            train_size=0.7,
+                                            random_state=rand_ste)
+        train_dataset   = {"clear_sky" : X_train[y_train==1],
+                            "overcast" : X_train[y_train==-1]}
+        test_dataset    = {"clear_sky" : X_test[y_test==1],
+                            "overcast" : X_test[y_test==-1]}
+## Quantum Shit
+        feature_map = SecondOrderExpansion(2, depth=3, entanglement='linear')
+        qu_instance = QuantumInstance(backend,
+                          circuit_caching=False,
+                          shots=2,
+                          noise_model=noise_model,
+                          basis_gates=basis_gates,
+                          coupling_map=coupling_map,
+                          seed_transpiler=10598,
+                          seed_simulator=10598,
+                          skip_qobj_deepcopy=True,
+                          skip_qobj_validation=False)
+        ## Runs the bitch
+        result =  QSVM(feature_map,
+                        train_dataset,
+                        test_dataset).run(qu_instance)
+        return result, y_test
+    def analysis(result, y_test, rand_ste):
+        ## Kernel Matrix for training and testing (Not a fucking clue what it means)
+        plt.figure(1)
+        fig, (ax1,ax2) = plt.subplots(1,2)
+        kernel_matplot_train = ax1.imshow(asmatrix(result['kernel_matrix_training']),
+                                            interpolation='nearest',
+                                            origin='upper',
+                                            cmap='plasma')
+        ax1.set_title("Training Kernel Matrix")
+        kernel_matplot_test = ax2.imshow(asmatrix(result['kernel_matrix_testing']),
+                                            interpolation='nearest',
+                                            origin='upper',
+                                            cmap='plasma')
+        ax2.set_title("Testing Kernel Matrix")
+        plt.savefig('../../../figs/ml/qsvm/kernel_matrix_{}.png'.format(rand_ste))
+
+        #
+        # plt.figure(2)
+        # y_pred = result['predicted_classes']
+        # con_mat = array(confusion_matrix(y_test, y_pred))
+        # confusion = DataFrame(con_mat, index=['clear sky', 'overcast'],
+        #                     columns=['predicted clear', 'predicted clouds'])
+        # heatmap(confusion, annot=True, fmt='d', cmap='plasma')
+        # plt.savefig("../../../figs/ml/qsvm/con_mat_{}.png".format(rand_ste))
+if __name__ == '__main__':
+    rand_ste = 1
+    result, y_test = quantum_svm.run(rand_ste)
+    quantum_svm.analysis(result, y_test, rand_ste)
+    print("The accuracy of the model is {:.2f}%".format(result['testing_accuracy'] * 100))
