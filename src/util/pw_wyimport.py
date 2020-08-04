@@ -7,22 +7,23 @@ import os
 import csv
 import sys
 import requests
-import datetime
-import time
 from numpy import *
+import pandas as pd
+
+import time
+import datetime
 from datetime import date as dte
 from datetime import datetime as dt
-import pandas as pd
+
 from metpy.units import units
-from metpy.calc import precipitable_water
-from metpy.future import precipitable_water
-sys.path.append("./archive")
-from mesowest import MesoWest, WyomingUpperAir
+from siphon.simplewebservice.wyoming import WyomingUpperAir
+
+from mesowest import MesoWest
 
 from rich import print, box
 from rich.panel import Panel
-from rich.progress import track
 from rich.table import Table
+from rich.progress import track
 
 from rich.progress import (
     BarColumn,
@@ -49,9 +50,9 @@ station = ['ABQ', 'EPZ']
 hour    = [00, 12]
 
 ## Data file used for model input
-fname   = '../data/master_data.csv'
+fname   = '../../data/master_data.csv'
 ## Data file used for user input
-wname   = '../data/cool_data.csv'
+wname   = '../../data/cool_data.csv'
 
 def closest(lst, K, d):
     lst = asarray(lst)
@@ -94,23 +95,20 @@ def impt(end_date, idx):
     with filew as csvfile:
         next(csv.reader(csvfile, delimiter=","))
         for row in readw:
-            condition   = row[1].split('/')
-            rh          = row[2].split('/')
-            vicki_time  = row[7].split('/')
-            nws_time    = row[8].split('/')
-            nws_temp    = row[9].split('/')
-            te_sky      = row[10].split('/')
-            flir_sky    = row[11].split('/')
-            ames1_sky   = row[12].split('/')
-            ames2_sky   = row[13].split('/')
-            te_gro      = row[14].split('/')
-            flir_gro    = row[15].split('/')
-            ames1_gro   = row[16].split('/')
-            ames2_gro   = row[17].split('/')
-            comments    = row[18].split('/')
-            cool_data.append([condition, rh, vicki_time,
-            nws_time, nws_temp, te_sky, flir_sky, ames1_sky,
-            ames2_sky, te_gro, flir_gro, ames1_gro, ames2_gro,
+            vicki_time  = row[1].split('/')
+            condition   = row[2].split('/')
+            te_sky      = row[3].split('/')
+            flir_sky    = row[4].split('/')
+            ames1_sky   = row[5].split('/')
+            ames2_sky   = row[6].split('/')
+            te_gro      = row[7].split('/')
+            flir_gro    = row[8].split('/')
+            ames1_gro   = row[9].split('/')
+            ames2_gro   = row[10].split('/')
+            comments    = row[11].split('/')
+            cool_data.append([vicki_time, condition,
+            te_sky, flir_sky, ames1_sky, ames2_sky, te_gro,
+            flir_gro, ames1_gro, ames2_gro,
             comments])
     i = 0
     ex = "requests.exception.HTTPError"
@@ -123,38 +121,46 @@ def impt(end_date, idx):
             data_abq, data_epz = wyoming_import(end_date, station)
             ex = str(exception)
             i =+ 1
-    ind = idx + 1
-    df_mw = MesoWest.request_data(end_date + datetime.timedelta(days=1), "KONM")
-    in_time = pd.to_datetime(cool_data[ind][2][0]).time()
-    df_tm = df_mw.loc[(df_mw['Time'] == closest(df_mw['Time'], in_time, end_date))]
-    data_mesowest = [df_tm['RH'].values.tolist()[0],
-                          df_tm['Time'].values.tolist()[0],
-                          round(df_tm['Temp'].values.tolist()[0], 2)]
 
     neat = []
-    for i in range(idx, ind+1):
+    for i in range(idx, idx + 1):
         neat.append(cool_data[i])
     neat = neat[::-1]
+
+    df_mw = MesoWest.request_data(end_date + datetime.timedelta(days=1), "KONM")
+    in_time = pd.to_datetime(neat[0][0][0]).time()
+    if df_mw.columns[0] == 'time(mdt)':
+        df_tm = df_mw.loc[(df_mw['time(mdt)'] == closest(df_mw['time(mdt)'], in_time, end_date))]
+        thyme   = df_tm['time(mdt)'].values[0]
+    elif df_mw.columns[0] == 'time(mst)':
+        df_tm = df_mw.loc[(df_mw['time(mst)'] == closest(df_mw['time(mst)'], in_time, end_date))]
+        thyme   = df_tm['time(mst)'].values[0]
+
+    rh      = df_tm['relative_humidity'].values[0]
+    temp    = round((float(df_tm['temperature'].values[0]) * units.degF).to(units.degC).magnitude, 2)
+
+    data_mesowest = [rh, thyme, temp]
 
     with open(fname, "a") as csvfile:
         csvfile.write(str(end_date.strftime("%-m/%-d/%Y")) + ","
         + str(neat[0][0][0]) + ","
+        + str(data_mesowest[1].strftime("%H:%M")) + ","
+        + str(neat[0][1][0]) + ","
         + str(data_mesowest[0]) + ","
+        + str(data_mesowest[2]) + ","
         + str(data_abq[1][1]) + ","
         + str(data_abq[1][2]) + ","
         + str(data_epz[1][1]) + ","
         + str(data_epz[1][2]) + ","
         + str(neat[0][2][0]) + ","
-        + str(data_mesowest[1].strftime("%H:%M")) + ","
-        + str(data_mesowest[2]) + ","
+        + str(neat[0][3][0]) + ","
+        + str(neat[0][4][0]) + ","
         + str(neat[0][5][0]) + ","
         + str(neat[0][6][0]) + ","
         + str(neat[0][7][0]) + ","
         + str(neat[0][8][0]) + ","
         + str(neat[0][9][0]) + ","
-        + str(neat[0][10][0]) + ","
-        + str(neat[0][11][0]) + ","
-        + str(neat[0][12][0]) + ",\n")
+        + str(neat[0][10][0]) + "\n")
 
 full_len = len(loadtxt(wname, delimiter=",", dtype=str, usecols=(0))) - 1
 last     = list(loadtxt(wname, delimiter=",", dtype=str, usecols=(0))).index(str(loadtxt(fname, delimiter=",", dtype=str, usecols=(0))[-1]))

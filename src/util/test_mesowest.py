@@ -1,37 +1,33 @@
 # Copyright (c) 2017 Siphon Contributors.
 # Distributed under the terms of the BSD 3-Clause License.
 # SPDX-License-Identifier: BSD-3-Clause
-"""Test Wyoming upper air dataset access."""
+"""Test University of Utah's MesoWest dataset access."""
 
-from numpy import *
-import sys
-import datetime as dt
-import time
-from mesowest import MesoWest, WyomingUpperAir
-import pandas as pd
+from datetime import datetime
 
-def closest(lst, K, d):
-    lst = asarray(lst)
-    list = []
-    tmp2 = dt.datetime.combine(d, K)
-    for i in range(len(lst)):
-        tmp1 = dt.datetime.combine(d, lst[i])
-        list.append(abs(tmp1 - tmp2))
-    idx = asarray(list).argmin()
-    return lst[idx]
+from numpy.testing import assert_almost_equal
+import pytest
+
+from mesowest import MesoWest
+from siphon.testing import get_recorder
 
 
-def test_mesowest(test_date):
-    ## Add 1 to day
-    df = MesoWest.request_data(test_date, 'KONM')
-    in_time = pd.to_datetime("10:19:00").time()
-    df_tm = df.loc[(df['Time(MDT)'] == closest(df['Time(MDT)'], in_time, test_date))]
-    print(df_tm.to_string())
-date = dt.datetime(2020, 7, 1)
-for i in range(0, 12):
-    test_mesowest(date - dt.timedelta(days=i))
+recorder = get_recorder(__file__)
 
-def test_wyoming():
-    df = WyomingUpperAir.request_data(test_date, 'ABQ')
-    print(df.pw)
-# test_wyoming()
+@recorder.use_cassette('mesowest_data')
+def test_mesowest():
+    """Test that we are properly parsing data from the MesoWest archive."""
+    df = MesoWest.request_data(datetime(2020, 7, 13), 'KONM')
+
+    assert(df['time(mdt)'][0] == datetime(2020, 7, 13, 23, 55, 00).time())
+
+    assert_almost_equal(df['temperature'][5],88.0,2)
+    assert_almost_equal(df['dew_point'][5], 33.6, 2)
+    assert_almost_equal(df['wet_bulb_temperature'][5], 57.3, 2)
+    assert_almost_equal(df['relative_humidity'][5], 14.0, 2)
+    assert_almost_equal(df['wind_speed'][5], 0, 2)
+    assert_almost_equal(df['pressure'][5], 25.18, 2)
+    assert_almost_equal(df['sea_level_pressure'][5], 29.6, 2)
+    assert_almost_equal(df['altimeter'][5], 30.05, 2)
+    assert_almost_equal(df['1500_m_pressure'][5], 25.07, 2)
+    assert_almost_equal(df['visibility'][5], 10.0, 2)
