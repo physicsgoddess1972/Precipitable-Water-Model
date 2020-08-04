@@ -5,6 +5,8 @@
     <h2>Introduction to Support Vector Machines</h2>
 </div>
 <div class="panel">
+The model developed for this project is a Lagrangian Support Vector Machine,
+
 
 </div>
 </div>
