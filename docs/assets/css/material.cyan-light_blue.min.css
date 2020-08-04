@@ -4498,6 +4498,14 @@ fieldset[disabled] .mdl-checkbox .mdl-checkbox__ripple-container .mdl-ripple, .m
     box-sizing: border-box
 }
 
+nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
+	display: block;
+	font-size: 24px;
+	height: 56px;
+	line-height: 56px
+}
+
+
 .mdl-navigation__link {
     color: #424242;
     text-decoration: none;
@@ -4509,7 +4517,7 @@ fieldset[disabled] .mdl-checkbox .mdl-checkbox__ripple-container .mdl-ripple, .m
     opacity: .7
 }
 .mdl-navigation__link--current {
-    color: #000;
+    color: #007F8F;
     text-decoration: none;
     margin: 0;
     font-size: 14px;
@@ -4534,7 +4542,7 @@ fieldset[disabled] .mdl-checkbox .mdl-checkbox__ripple-container .mdl-ripple, .m
     overflow-y: auto;
     overflow-x: hidden;
     position: relative;
-    -webkit-overflow-scrolling: touch
+    -webkit-overflow-scrolling: touch;
 }
 
 .mdl-layout.is-small-screen .mdl-layout--large-screen-only {
