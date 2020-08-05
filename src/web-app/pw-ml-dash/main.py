@@ -28,16 +28,6 @@ import datetime
 import itertools
 from datetime import datetime as dt
 
-# Setup the app
-# chart_studio.tools.set_credentials_file(username="PharaohCola13", api_key="KVlHiC7kYMz9goNLg2ZV")
-#
-# server = Flask(__name__)
-# server.secret_key = os.environ.get('secret_key', str(randint(0, 1000000)))
-#
-# @server.route('/name')
-# def name():
-#     return render_template('mach_learn.html')
-
 layout="""
 <!doctype html>
 <!--suppress ALL -->
@@ -71,16 +61,16 @@ layout="""
 	</header>
 	<div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
 		<nav class="demo-navigation mdl-navigation mdl-color--blue-grey-900">
-			<a class="mdl-navigation__link" href="./dash.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">dashboard</i>Home</a>
-			<a class="mdl-navigation__link" href="./index.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">chrome_reader_mode</i>Documentation</a>
-			<a class="mdl-navigation__link" href="./contrib.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i>Contribute</a>
-			<a class="mdl-navigation__link" href="./code.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">code</i>R Features</a>
+			<a class="mdl-navigation__link" href="https://physicsgoddess1972.github.io/Precipitable-Water-Model/dash.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">dashboard</i>Home</a>
+			<a class="mdl-navigation__link" href="https://physicsgoddess1972.github.io/Precipitable-Water-Model/"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">chrome_reader_mode</i>Documentation</a>
+			<a class="mdl-navigation__link" href="https://physicsgoddess1972.github.io/Precipitable-Water-Model/contrib.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i>Contribute</a>
+			<a class="mdl-navigation__link" href="https://physicsgoddess1972.github.io/Precipitable-Water-Model/code.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">code</i>R Features</a>
 			<a class="mdl-navigation__link" onclick="$('#maintainers').modal('open');"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">face</i>The Maintainers</a>
 			<hr>
 			<a class="mdl-navigation__link" href="https://github.com/physicsgoddess1972/Precipitable-Water-Model"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i>View on Github</a>
 			<a class="mdl-navigation__link" href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/archive/master.zip"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">cloud_download</i>Download the Repo</a>
 			<a class="mdl-navigation__link" href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/issues"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">bug_report</i>Bug Report</a>
-			<a class="mdl-navigation__link" href="./changelog.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">new_releases</i>Changelog</a>
+			<a class="mdl-navigation__link" href="https://physicsgoddess1972.github.io/Precipitable-Water-Model/changelog.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">new_releases</i>Changelog</a>
 
 		</nav>
 	</div>
