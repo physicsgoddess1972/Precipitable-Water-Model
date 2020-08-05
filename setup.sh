@@ -25,18 +25,22 @@ if [[ ${a_flag} ]]; then
 # System Requirements
 	sudo apt-get install gfortran libbz2-dev libv8-dev libcurl4-openssl-dev libxml2-dev libssl-dev unzip
 	sudo apt-get install zlib1g-dev libpcre3-dev liblzma-dev
+<<<<<<< HEAD
 	sudo pip3 install numpy pandas metpy requests rich sklearn seaborn cvxopt
 	sudo pip3 install git+https://github.com/Unidata/siphon.git
+=======
+>>>>>>> f719c96eaed3fc1dc35f35e91e93d85b8694e4c9
 	wget https://cran.rstudio.com/src/base/R-3/R-3.6.1.tar.gz
 	tar -zxf ./R-3.6.1.tar.gz
 	cd ./R-3.6.1/ && ./configure --with-readline=no --with-x=no && sudo make && sudo make install
 	cd ../ && sudo rm -r ./R-3.6.1/ && rm R-3.6.1.tar.gz
 ## R Package Requirements
-    sudo su - -c "R -e \"install.packages('crayon', repos='https://cran.rstudio.com/', dependencies=TRUE)\""
-    sudo su - -c "R -e \"install.packages('argparse', repos='https://cran.rstudio.com/')\""
-    sudo su - -c "R -e \"install.packages('devtools', repos='https://cran.rstudio.com/', dependencies=TRUE)\""
-    sudo su - -c "R -e \"devtools::install_version('plotrix', version='3.5', repos='https://cran.rstudio.com/')\""
-    sudo su - -c "R -e \"install.packages('RColorBrewer', repos='https://cran.rstudio.com/')\""
+  sudo su - -c "R -e \"install.packages('crayon', repos='https://cran.rstudio.com/', dependencies=TRUE)\""
+  sudo su - -c "R -e \"install.packages('argparse', repos='https://cran.rstudio.com/')\""
+  sudo su - -c "R -e \"install.packages('devtools', repos='https://cran.rstudio.com/', dependencies=TRUE)\""
+  sudo su - -c "R -e \"devtools::install_version('plotrix', version='3.5', repos='https://cran.rstudio.com/')\""
+  sudo su - -c "R -e \"install.packages('RColorBrewer', repos='https://cran.rstudio.com/')\""
+	sudo su - -c "R -e \"devtools::install_github('PharaohCola13/pacres')\""
 elif [[ ${h_flag} ]]; then
 	echo "usage: setup.sh [-hcoma]"
 	echo ""
@@ -65,6 +69,8 @@ elif [[ ${i_flag} ]]; then
   sudo su - -c "R -e \"install.packages('devtools', repos='https://cran.rstudio.com/', dependencies=TRUE)\""
   sudo su - -c "R -e \"devtools::install_version('plotrix', version='3.5', repos='https://cran.rstudio.com/')\""
 	sudo su - -c "R -e \"install.packages('RColorBrewer', repos='https://cran.rstudio.com/', dependencies=TRUE)\""
+	sudo su - -c "R -e \"devtools::install_github('PharaohCola13/pacres')\""
+
 elif [[ ${g_flag} ]]; then
 ### Download and Unzip Repository
   echo -e "\e[96m ~~~~ Downloading Repository ~~~~\e[0m"
