@@ -252,7 +252,6 @@ class svm_evaluation:
 
 if __name__ == '__main__':
     df = pd.read_csv("https://raw.githubusercontent.com/physicsgoddess1972/Precipitable-Water-Model/master/data/ml/ml_data.csv")
-    print(df)
     progress.print(Panel("[bold deep_sky_blue2]Good Morning\nWelcome to the Classical SVM Analysis Module of the Precipitable Water Model. For more information about the model and the purpose of this tool, please visit the [link=https://git.io/fj5Xr]documentation page[/link]"))
 
     progress.log("[bold white]Script Started")
