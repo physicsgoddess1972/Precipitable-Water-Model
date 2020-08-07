@@ -733,6 +733,7 @@ plots5 	<- function(..., overcast=args$overcast){
 	plot(exp_reg$x, resid(exp_reg$model), col=c("royalblue"), pch=16,
 	ylim=c(min(resid(exp_reg$model)), max(resid(exp_reg$model))),
 		xlab="Zenith Sky Temperature [C]", ylab=expression(sigma), main=title)
+	abline(h=0, col="gray")
 }
 ## Pacman Residual Plot
 plots6 	<- function(..., overcast=args$overcast){
