@@ -745,7 +745,7 @@ plots6 	<- function(..., overcast=args$overcast){
 				y <- avg
         title 		<- "Pac-Man Residual of the Mean TPW and Temperature Model\nCondition: Clear Sky"
     }
-		pacres(x, log(y, base=exp(1)), title, "Yellow", "White")
+		pacres(x, log(y, base=exp(1)), title, "\u00B0C", "Zenith Sky Temperature", "Yellow", "White")
 }
 
 ## Overcast Condition Percentage (bar)
