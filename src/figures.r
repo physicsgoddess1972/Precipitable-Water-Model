@@ -18,7 +18,7 @@ green 		<- make_style("lawngreen")
 cloudblue 	<- make_style("lightskyblue")
 
 ## Imports data from master_data.csv
-fname       <- read.table(file="../data/master_data.csv", sep=",", header=TRUE, strip.white=TRUE)
+fname       <- read.table(file="../data/master_data_archive.csv", sep=",", header=TRUE, strip.white=TRUE)
 ## Imports sensor information from instruments.txt
 sensor 		<- suppressWarnings(read.csv(file="../data/instruments.txt", sep=","))
 ## Pulls most recent data stamp for the purpose of adding date stamps to file names when plots are saved
