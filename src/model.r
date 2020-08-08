@@ -8,7 +8,7 @@
 ## Necessary Libraries for the script to run, for installation run install.sh
 library(argparse); library(crayon); library(RColorBrewer); library(plotrix)
 #library(randomcoloR); #library(Rpyplot);
-library(pacres)
+library(pacviz)
 ## Custom Colors for cmd line features
 red 		<- make_style("red1")
 orange 		<- make_style("orange")
@@ -746,7 +746,7 @@ plots6 	<- function(..., overcast=args$overcast){
 				y <- avg
         title 		<- "Pac-Man Residual of the Mean TPW and Temperature Model\nCondition: Clear Sky"
     }
-		pacres(x, log(y, base=exp(1)), title, "\u00B0C", "Zenith Sky Temperature", "Yellow", "White")
+		pacviz(x, log(y, base=exp(1)), title, "\u00B0C", "Zenith Sky Temperature", "Yellow", "White")
 }
 
 ## Overcast Condition Percentage (bar)
