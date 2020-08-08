@@ -28,7 +28,7 @@ while getopts "ighx" opt; do
 	  sudo su - -c "R -e \"install.packages('devtools', repos='https://cran.rstudio.com/', dependencies=TRUE)\""
 	  sudo su - -c "R -e \"devtools::install_version('plotrix', version='3.5', repos='https://cran.rstudio.com/')\""
 	  sudo su - -c "R -e \"install.packages('RColorBrewer', repos='https://cran.rstudio.com/')\""
-		sudo su - -c "R -e \"devtools::install_github('PharaohCola13/pacres')\""
+		sudo su - -c "R -e \"devtools::install_github('PharaohCola13/pacviz')\""
 		;;
 	h)
 		echo "usage: setup.sh [-higx]"
