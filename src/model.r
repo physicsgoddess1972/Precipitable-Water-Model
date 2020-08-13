@@ -8,7 +8,7 @@
 ## Necessary Libraries for the script to run, for installation run install.sh
 library(argparse); library(crayon); library(RColorBrewer); library(plotrix)
 #library(randomcoloR); #library(Rpyplot);
-library(pacres)
+library(pacviz)
 ## Custom Colors for cmd line features
 red 		<- make_style("red1")
 orange 		<- make_style("orange")
@@ -738,14 +738,18 @@ plots5 	<- function(..., overcast=args$overcast){
 plots6 	<- function(..., overcast=args$overcast){
     if(overcast){
 				x <- as.numeric(unlist(snsr_sky_calco))
-				y <- avgo
+				y <- log(avgo, base=exp(1))
         title 		<- "Pac-Man Residual of the Mean TPW and Temperature Model\nCondition: Overcast"
 		}else{
 				x <- as.numeric(unlist(snsr_sky_calc))
-				y <- avg
+				y <- log(avg, base=exp(1))
         title 		<- "Pac-Man Residual of the Mean TPW and Temperature Model\nCondition: Clear Sky"
     }
-		pacres(x, log(y, base=exp(1)), title, "Yellow", "White")
+		# Finds and removes NaNed values from the dataset
+		nans <- c(grep("NaN", y)); nans <- append(nans, grep("NaN", x))
+		x <- x[-(nans)]; y <- y[-(nans)]
+
+		pacviz(x,y, title,"\u00B0C", "Zenith Sky Temperature")
 }
 
 ## Overcast Condition Percentage (bar)
