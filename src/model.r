@@ -749,11 +749,7 @@ plots6 	<- function(..., overcast=args$overcast){
 		nans <- c(grep("NaN", y)); nans <- append(nans, grep("NaN", x))
 		x <- x[-(nans)]; y <- y[-(nans)]
 
-<<<<<<< HEAD
 		pacviz(x,y, title,"\u00B0C", "Zenith Sky Temperature")
-=======
-		pacviz(x, log(y, base=exp(1)), title, "\u00B0C", "Zenith Sky Temperature", "Yellow", "White")
->>>>>>> 3dcc99c7055fa9fa2005ba25ae66c51710cbd610
 }
 
 ## Overcast Condition Percentage (bar)
