@@ -782,11 +782,11 @@ plots6 	<- function(..., overcast=args$overcast){
 plots7 	<- function(..., overcast=args$overcast){
     if(overcast){
 				x <- as.numeric(unlist(snsr_sky_calco))
-				y <- avgo
+				y <- log(avgo, base=exp(1))
         title 		<- "Pac-Man Residual of the Mean TPW and Temperature Model\nCondition: Overcast"
 		}else{
 				x <- as.numeric(unlist(snsr_sky_calc))
-				y <- avg
+				y <- log(avg, base=exp(1))
         title 		<- "Pac-Man Residual of the Mean TPW and Temperature Model\nCondition: Clear Sky"
     }
 		# Finds and removes NaNed values from the dataset
@@ -794,6 +794,10 @@ plots7 	<- function(..., overcast=args$overcast){
 		x <- x[-(nans)]; y <- y[-(nans)]
 		pac.resid(x, log(y, base=exp(1)), title, c("Zenith Sky Temperature", "degC"))
 
+<<<<<<< HEAD
+=======
+		pacviz(x,y, title,"\u00B0C", "Zenith Sky Temperature")
+>>>>>>> 8f6cf507f6385a21c0ddaed8eb965ad99fa4dcee
 }
 
 ## Overcast Condition Percentage (bar)
