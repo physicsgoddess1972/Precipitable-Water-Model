@@ -18,7 +18,7 @@ green 		<- make_style("lawngreen")
 cloudblue 	<- make_style("lightskyblue")
 
 ## Imports data from master_data.csv
-fname       <- read.table(file="../data/master_data.csv", sep=",", header=TRUE, strip.white=TRUE)
+fname       <- read.table(file="../data/master_data_archive.csv", sep=",", header=TRUE, strip.white=TRUE)
 ## Imports sensor information from instruments.txt
 sensor 		<- suppressWarnings(read.csv(file="../data/instruments.txt", sep=","))
 ## Pulls most recent data stamp for the purpose of adding date stamps to file names when plots are saved
@@ -458,7 +458,7 @@ figure4 	<- function(){
 		plot(date, range1, ylab=NA, xlab=NA, col="red", pch=16, main=NA, xaxt='n')
 		mtext(title, cex=1, outer=TRUE, at=0.6, padj=-1)
 
-		axis(1, at=seq(from=xmin, to=xmax, length.out=5), labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%b %Y"))
+		axis(1, at=seq(from=xmin, to=xmax, length.out=5), labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%d %b %Y"))
 		axis(side = 2); mtext(side = 2, line=3, "Temperature [C]", col="red")
 		par(new = T)
 		plot(date, range2, ylab=NA, axes=F, xlab=NA, col="blue", pch=16)
@@ -509,16 +509,6 @@ figure5 <- function(...){
 
 					for (i in 1:length(slices)){
 						text(175, bar[i], labels=sprintf('%s %%', as.character(pct[i])))
-
-						# if (pct[i] == 0){
-						# 	text(pct[i] + 7, bar[i], labels=sprintf('%s %%', as.character(pct[i])))
-						# }else if(pct[i] < 6.5){
-						# 	text(pct[i] + 40, bar[i], labels=sprintf('%s %%', as.character(pct[i])))
-						# }else if(pct[i] < 10){
-						# 	text(pct[i] + 17, bar[i], labels=sprintf('%s %%', as.character(pct[i])))
-						# }else{
-						# 	text(pct[i] + 10, bar[i], labels=sprintf('%s %%', as.character(pct[i])))
-						# }
 					}
 				}
 			par(oma=c(4, 4, 4,4), mar=c(5,4,5,5), xpd=NA)
