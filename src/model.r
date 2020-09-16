@@ -8,7 +8,7 @@
 ## Necessary Libraries for the script to run, for installation run install.sh
 library(argparse); library(crayon); library(RColorBrewer); library(plotrix)
 #library(randomcoloR); #library(Rpyplot);
-
+library(pacviz)
 ## Custom Colors for cmd line features
 red 		<- make_style("red1")
 orange 		<- make_style("orange")
@@ -352,7 +352,7 @@ main1 	<- function(legend, overcast=args$overcast){
 	plot(date, t(unlist(range[1])), xlab="Date", ylab="Temperature [C]", xaxt='n',
 		main=title, pch=16, ylim=c(ymin, ymax), col=snsr_color[1])
 		axis(1, at=seq(from=xmin, to=xmax, length.out=5),
-		labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%b %Y"))
+		labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%d %b %Y"))
 
 	for(j in 2:length(range)){
 		points(date, t(unlist(range[j])), pch=16, col=snsr_color[j])
@@ -382,7 +382,7 @@ main2 	<- function(legend, overcast=args$overcast){
 	plot(date, t(unlist(range[1])), xlab="Date", ylab="Temperature [C]", xaxt='n',
 		 main=title, pch=16,
 		xlim=c(xmin, xmax), ylim=c(ymin, ymax), col=snsr_color[1])
-		axis(1, at=seq(from=xmin, to=xmax, length.out=5), labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%b %Y"))
+		axis(1, at=seq(from=xmin, to=xmax, length.out=5), labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%d %b %Y"))
 
 	for(j in 2:length(range)){
 		points(date, t(unlist(range[j])), pch=16, col=snsr_color[j])
@@ -411,7 +411,7 @@ main3 	<- function(legend, overcast=args$overcast){
 	}
 	plot(date, t(unlist(range[1])), xlab="Date", ylab="Temperature [C]", xaxt='n',
 	main=title, pch=16, xlim=c(xmin, xmax), ylim=c(ymin, ymax), col=snsr_color[1])
-	axis(1, at=seq(from=xmin, to=xmax, length.out=5), labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%b %Y"))
+	axis(1, at=seq(from=xmin, to=xmax, length.out=5), labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%d %b %Y"))
 
 	for(j in 2:length(range)){
 		points(date, t(unlist(range[j])), pch=16, col=snsr_color[j])
@@ -440,7 +440,7 @@ main4	<- function(legend, overcast=args$overcast){
 	}
 	plot(date,  t(unlist(range[1])), xlab="Date", ylab="TPW [mm]", xaxt='n',
 		 xlim=c(xmin, xmax), ylim=c(ymin, ymax), main=title, pch=16, col=pw_color[1])
-	 axis(1, at=seq(from=xmin, to=xmax, length.out=5), labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%b %Y"))
+	 axis(1, at=seq(from=xmin, to=xmax, length.out=5), labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%d %b %Y"))
 
 	for(j in 2:length(range)){
 		points(date, t(unlist(range[j])), pch=16, col=pw_color[j])
@@ -463,7 +463,7 @@ main5 	<- function(legend, overcast=args$overcast){
 	xmin = min(date); xmax= max(date)
 	plot(date, range1, ylab=NA, xlab="Date", col="red", pch=16, main=title, xaxt='n')
 
-	axis(1, at=seq(from=xmin, to=xmax, length.out=5), labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%b %Y"))
+	axis(1, at=seq(from=xmin, to=xmax, length.out=5), labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%d %b %Y"))
 	axis(side = 2); mtext(side = 2, line=3, "Temperature [C]", col="red")
 	par(new = T)
 	plot(date, range2, ylab=NA, axes=F, xlab=NA, col="blue", pch=16)
@@ -491,7 +491,7 @@ main6 	<- function(legend, overcast=args$overcast){
 	}
 	plot(date,  t(unlist(range[1])), xlab="Date", ylab="TPW [mm]", xaxt='n',
 		 xlim=c(xmin, xmax), ylim=c(ymin, ymax), main=title, pch=16, col=pw_color[1])
-	 axis(1, at=seq(from=xmin, to=xmax, length.out=5), labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%b %Y"))
+	 axis(1, at=seq(from=xmin, to=xmax, length.out=5), labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%d %b %Y"))
 
 	for(j in 2:length(range)){
 		points(date, t(unlist(range[j])), pch=16, col=pw_color[j])
@@ -520,7 +520,7 @@ main7 	<- function(legend, overcast=args$overcast){
 	}
 	plot(date,  t(unlist(range[1])), xlab="Date", ylab="TPW [mm]", xaxt='n',
 		 xlim=c(xmin, xmax), ylim=c(ymin, ymax), main=title, pch=16, col=pw_color[1])
-  axis(1, at=seq(from=xmin, to=xmax, length.out=5), labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%b %Y"))
+  axis(1, at=seq(from=xmin, to=xmax, length.out=5), labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%d %b %Y"))
 
 	for(j in 2:length(range)){
 		points(date, t(unlist(range[j])), pch=16, col=pw_color[j])
@@ -549,8 +549,7 @@ main8 	<- function(legend, overcast=args$overcast){
 	}
 	plot(date,  t(unlist(range)), xlab="Date", ylab="TPW [mm]", xaxt='n',
 		 xlim=c(xmin, xmax), ylim=c(ymin, ymax), main=title, pch=16, col="blue")
-	axis(1, at=seq(from=xmin, to=xmax, length.out=5), labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%b %Y"))
-
+	axis(1, at=seq(from=xmin, to=xmax, length.out=5), labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%d %b %Y"))
 }
 ## PW - RH Time Series
 main9 	<- function(legend, overcast=args$overcast){
@@ -569,7 +568,7 @@ main9 	<- function(legend, overcast=args$overcast){
 	plot(date, range1, ylab=NA, xlab="Date", col="blue", main=title, xaxt='n', pch=16)
 	axis(side = 2); mtext(side = 2, line=3, "TPW [mm]", col="blue")
 
-	axis(1, at=seq(from=xmin, to=xmax, length.out=5), labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%b %Y"))
+	axis(1, at=seq(from=xmin, to=xmax, length.out=5), labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%d %b %Y"))
 
 	par(new = T)
 	plot(date, range2, ylab=NA, axes=F, xlab=NA, col="green3", pch=16)
@@ -592,7 +591,7 @@ main10 	<- function(legend, overcast=args$overcast){
 	plot(date, range1, ylab=NA, xlab="Date", col="red", main=title, xaxt='n', pch=16)
 	axis(side = 2); mtext(side = 2, line=3, "Temperature [C]", col="red")
 
-	axis(1, at=seq(from=xmin, to=xmax, length.out=5), labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%b %Y"))
+	axis(1, at=seq(from=xmin, to=xmax, length.out=5), labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%d %b %Y"))
 
 	par(new = T)
 	plot(date, range2, ylab=NA, axes=F, xlab=NA, col="green3", pch=16)
@@ -733,47 +732,24 @@ plots5 	<- function(..., overcast=args$overcast){
 	plot(exp_reg$x, resid(exp_reg$model), col=c("royalblue"), pch=16,
 	ylim=c(min(resid(exp_reg$model)), max(resid(exp_reg$model))),
 		xlab="Zenith Sky Temperature [C]", ylab=expression(sigma), main=title)
+	abline(h=0, col="gray")
 }
 ## Pacman Residual Plot
 plots6 	<- function(..., overcast=args$overcast){
     if(overcast){
-        exp_reg 	<- exp_regression(as.numeric(unlist(snsr_sky_calco)), avgo)
+				x <- as.numeric(unlist(snsr_sky_calco))
+				y <- log(avgo, base=exp(1))
         title 		<- "Pac-Man Residual of the Mean TPW and Temperature Model\nCondition: Overcast"
-    }else{
-        exp_reg 	<- exp_regression(as.numeric(unlist(snsr_sky_calc)), avg)
+		}else{
+				x <- as.numeric(unlist(snsr_sky_calc))
+				y <- log(avg, base=exp(1))
         title 		<- "Pac-Man Residual of the Mean TPW and Temperature Model\nCondition: Clear Sky"
     }
-	# residual quantities from the regression model
-	residual 	<- abs(resid(exp_reg$model))
-	# sequence used for angular position
-	t 			<- seq(40, 320, len=length(residual))
-	# Maximum radial distance
-	rmax 		<- max((residual), na.rm=TRUE)
-	# 6 equal divisions
-	divs 		<- seq(round(min(residual)), round(max(residual),0), len=6)
-	# Plots the residual against an angular position
-	polar.plot(0, rp.type="s",labels="",
-	radial.lim=c(0, round(rmax, 0)),show.grid=TRUE, show.grid.labels=FALSE,
-	main= title, show.radial.grid=FALSE, grid.col="black")
+		# Finds and removes NaNed values from the dataset
+		nans <- c(grep("NaN", y)); nans <- append(nans, grep("NaN", x))
+		x <- x[-(nans)]; y <- y[-(nans)]
 
-	# Color Scheme for the rings
-	color1 <- "Yellow"; color2 <- "White"
-	draw.circle(0, 0, radius=divs[6], col=color1)
-	draw.circle(0, 0, radius=divs[5], col=color2)
-	draw.circle(0, 0, radius=divs[4], col=color1)
-	draw.circle(0, 0, radius=divs[3], col=color2)
-	draw.circle(0, 0, radius=divs[2], col=color1)
-
-	polar.plot(residual, t, rp.type="s",point.col="blue",point.symbols=16, add=TRUE)
-
-	text(divs[2] - 0.08, 0, labels=bquote(.(divs[2])*sigma))
-	text(divs[3] - 0.1, 0,  labels=bquote(.(divs[3])*sigma))
-	text(divs[4] - 0.1, 0,  labels=bquote(.(divs[4])*sigma))
-	text(divs[5] - 0.1, 0,  labels=bquote(.(divs[5])*sigma))
-	text(divs[6] - 0.1, 0,  labels=bquote(.(divs[6])*sigma))
-
-	polar.plot(c(0, round(rmax, 0)), c(min(t) - 10, min(t) - 10), lwd=1, rp.type="p",line.col="black", add=TRUE)
-	polar.plot(c(0, round(rmax, 0)), c(max(t) + 10, max(t) + 10), lwd=1, rp.type="p",line.col="black", add=TRUE)
+		pacviz(x,y, title,"\u00B0C", "Zenith Sky Temperature")
 }
 
 ## Overcast Condition Percentage (bar)
@@ -833,7 +809,7 @@ poster1 <- function(...){
 		plot(clear_date, t(unlist(range_index[1])), xlab=NA, ylab=NA, main=NA, pch=16,xaxt='n',
 			xlim=c(xmin, xmax), ylim=c(ymin, ymax), col=c(snsr_color[1]), las=1)
 		axis(1, at=seq(from=xmin, to=xmax, length.out=5),
-			labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%b %Y"))
+			labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%d %b %Y"))
 
 		title("Sky Temperature",line=0.5)
 		mtext("Temperature [C]", side=2, line=2.5, cex=0.65)
@@ -851,7 +827,7 @@ poster1 <- function(...){
 			main=NA, pch=16, las=1, col=snsr_color[1],xaxt='n',
 			xlim=c(xmin, xmax), ylim=c(ymin, ymax))
 		axis(1, at=seq(from=xmin, to=xmax, length.out=5),
-			labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%b %Y"))
+			labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%d %b %Y"))
 
 		title("Sky Temperature", line=0.5)
 		for(j in 2:length(range_index)){
@@ -865,7 +841,7 @@ poster1 <- function(...){
 		plot(clear_date, t(unlist(range_index[1])), xlab=NA, ylab=NA, main=NA, pch=16,xaxt='n',
 			xlim=c(xmin, xmax), ylim=c(ymin, ymax), col=snsr_color[1], las=1)
 		axis(1, at=seq(from=xmin, to=xmax, length.out=5),
-			labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%b %Y"))
+			labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%d %b %Y"))
 
 		title("Ground Temperature", line=0.5)
 		mtext("Temperature [C]", side=2, line=2.5, cex=0.65)
@@ -878,7 +854,7 @@ poster1 <- function(...){
 		plot(over_date, t(unlist(range_index[1])), xlab=NA, ylab=NA, main=NA, pch=16,xaxt='n',
 			xlim=c(xmin, xmax), ylim=c(ymin, ymax), col=snsr_color[1], las=1)
 		axis(1, at=seq(from=xmin, to=xmax, length.out=5),
-			labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%b %Y"))
+			labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%d %b %Y"))
 
 		title("Ground Temperature", line=0.5)
 		for(j in 2:length(range_index)){
@@ -892,7 +868,7 @@ poster1 <- function(...){
 		plot(clear_date, t(unlist(range_index[1])), xlab=NA, ylab=NA,main=NA, pch=16,xaxt='n',
 			  xlim=c(xmin, xmax), ylim=c(ymin, ymax),col=snsr_color[1], las=1)
 		axis(1, at=seq(from=xmin, to=xmax, length.out=5),
-			labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%b %Y"))
+			labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%d %b %Y"))
 
 		title("Difference in Temperature", line=0.5)
 		mtext("Temperature [C]", side=2, line=2.5, cex=0.65)
@@ -906,7 +882,7 @@ poster1 <- function(...){
 		plot(over_date, t(unlist(range_index[1])), xlab=NA, ylab=NA,main=NA, pch=16,xaxt='n',
 			 xlim=c(xmin, xmax), ylim=c(ymin, ymax),col=snsr_color[1], las=1)
 	 axis(1, at=seq(from=xmin, to=xmax, length.out=5),
-			 labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%b %Y"))
+			 labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%d %b %Y"))
 
 		title("Difference in Temperature", line=0.5)
 
