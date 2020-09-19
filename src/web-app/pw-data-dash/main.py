@@ -228,7 +228,7 @@ app.layout = html.Div(children=[
                                   'padding-top': 10,
                                   'padding-left': 10}),
                 dcc.Dropdown(id='timedata',
-                             options=[{'label': i, 'value': i} for i in df.columns[4:18]],
+                             options=[{'label': i.replace("_", " "), 'value': i} for i in df.columns[4:18]],
                              value=df.columns[4],
                              style={'padding-left': 10, 'width': 250}),
                  ], style={'display': 'flex', 'margin-top': 20}),
@@ -248,27 +248,26 @@ app.layout = html.Div(children=[
                                   'padding-top': 15,
                                   'margin-right': 10}),
                 dcc.Dropdown(id='analydata1',
-                             options=[{'label': i, 'value': i} for i in df.columns[4:18]],
+                             options=[{'label': i.replace("_", " "), 'value': i} for i in df.columns[4:18]],
                              value=df.columns[4], style={'width': 250, 'margin-right': 50}),
                 html.Label("Y axis: ",
                            style={"color": "#000",
                                   'padding-top': 15,'margin-right': 10}),
                 dcc.Dropdown(id='analydata2',
-                             options=[{'label': i, 'value': i} for i in df.columns[4:18]],
+                             options=[{'label': i.replace("_", " "), 'value': i} for i in df.columns[4:18]],
                              value=df.columns[5], style={'width': 250}),
                      ], style={'display': 'flex', 'margin-top': 10}),
             dcc.Graph(id='scatter-analy')
 
         ]),
-        dcc.Tab(label="Charts", children=[
-            dcc.Dropdown(id='chart-data',
-                         options=[{'label': i, 'value': i} for i in ['Ground Temperature', 'Sky Temperature', 'Delta Temperature']],
-                         value="Ground Temperature"),
-            dcc.Graph(id='chart')
-        ])
+        # dcc.Tab(label="Charts", children=[
+        #     dcc.Dropdown(id='chart-data',
+        #                  options=[{'label': i, 'value': i} for i in ['Ground Temperature', 'Sky Temperature', 'Delta Temperature']],
+        #                  value="Ground Temperature"),
+        #     dcc.Graph(id='chart')
+        # ])
     ])
 ])
-
 @app.callback(
     dash.dependencies.Output('scatter-time', 'figure'),
     [dash.dependencies.Input('timedata', 'value'),
@@ -282,16 +281,27 @@ def time_scatter_plot(timedata, start, end):
     s = getIndexes(df, start_date)[0][0]
     e = getIndexes(df, end_date)[0][0]
 
+    dates = linspace(s, e, 5, dtype=int)
+    dlabel = [df.Date[i] for i in dates]
+    print(dates)
+    print(dlabel)
+
     data = [{
         'x': df.Date[s:e],
         'y': df[timedata][s:e],
         'mode': 'markers',
         'marker': {'color': '#0897FF'},
-        'name': timedata,
     }]
+
     return {'data': data,
-            'layout': {'xaxis': {'nticks': 5,
-                                 'title': 'Date'}}
+            'layout': {'xaxis': {'tickvals': dates,
+                                 'ticktext': dlabel,
+                                 'tickfont': {'size': 10, 'color': 'black'},
+                                 'title': "Date"},
+                       'yaxis': {'title': timedata,
+                                 'tickfont': {'size': 10, 'color': 'black'}},
+                       'title': "Time Series of {}".format(timedata),
+                     }
             }
 @app.callback(
     dash.dependencies.Output('heat-time', 'figure'),
@@ -300,41 +310,39 @@ def time_scatter_plot(timedata, start, end):
      dash.dependencies.Input('daterng', 'end_date')]
 )
 def time_heat_map(timedata, start, end):
-
     s = getIndexes(df, dt.strptime(start, "%Y-%m-%d").strftime('%-m/%-d/%Y'))[0][0]
     e = getIndexes(df, dt.strptime(end, "%Y-%m-%d").strftime('%-m/%-d/%Y'))[0][0]
 
     delta = pd.to_datetime(df.Date[e]) - pd.to_datetime(df.Date[s])
 
     dates_in_year = [pd.to_datetime(df.Date[s]) + datetime.timedelta(i) for i in range(delta.days+1)]
-    yr = unique([x.year for x in dates_in_year])
-    thing = [[int(x.strftime("%U"))+(52 * list(yr).index(x.year))] for x in dates_in_year]
-
 
     data = [go.Heatmap(
-                     x=list(itertools.chain(*thing)),
-                     y=[i.strftime('%w') for i in dates_in_year],
+                     x=list(range(0,len(dates_in_year))),
+                     y=ones(len(dates_in_year)),
                      z=df[timedata][s:e],
                      colorscale='Jet',
                      text=df.Date[s:e],
                      # hoverinfo=['text'],
-                     hovertemplate='Z: %{z:.2f}'
+                     # hovertemplate='Z: %{z:.2f}'
                      )]
+    dates = linspace(s, e, 5, dtype=int)
 
     return {'data': data,
             'layout': {'height': 500,
-                       'xaxis': {'showline': False,
-                                 'showgrid': False,
-                                 'zeroline': False,
-                                 'visible': False},
-                       'yaxis': {'dtick': 1,
-                                 'tickvals': [0,1,2,3,4,5,6,7],
-                                 'ticktext': ['Sun', 'Mon', "Tues", "Wend", 'Thurs', 'Fri', 'Sat','Sun'],
-                                 'autorange': True,
+                       'xaxis': {'tickvals': dates,
+                                 'ticktext': [df.Date[i] for i in dates],
+                                 'tickfont': {'size': 10, 'color': 'black'},
+                                 'title': "Date",
                                  'showline': False,
                                  'showgrid': False,
                                  'zeroline': False},
-                       'title': "Time Series Heatmap"}}
+                       'yaxis': {'tickvals': False,
+                                 'showline': False,
+                                 'showgrid': False,
+                                 'zeroline': False,
+                                 'visible': False},
+                       'title': "Time Series Heatmap of {}".format(timedata)}}
 @app.callback(
     dash.dependencies.Output('scatter-analy', 'figure'),
     [dash.dependencies.Input('analydata1', 'value'),
@@ -355,8 +363,26 @@ def analy_scatter_plot(analydata1, analydata2, start, end):
         'mode': 'markers',
         'marker': {'color': '#0897FF'},
     }]
-    return {'data': data}
-
+    return {'data': data,
+            'layout': {'xaxis': {'tickfont': {'size': 10, 'color': 'black'},
+                                 'title': analydata1},
+                       'yaxis': {'title': analydata2,
+                                 'tickfont': {'size': 10, 'color': 'black'}},
+                        'title': "Comparison between {} and {}".format(analydata1, analydata2)}
+            }
+# def charts():
+#     start_date  = dt.strptime(start, "%Y-%m-%d").strftime('%-m/%-d/%Y')
+#     end_date    = dt.strptime(end, "%Y-%m-%d").strftime('%-m/%-d/%Y')
+#
+#     s = getIndexes(df, start_date)[0][0]
+#     e = getIndexes(df, end_date)[0][0]
+#
+#     data = [{
+#         'x': df[analydata1][s:e],
+#         'y': df[analydata2][s:e],
+#         'mode': 'markers',
+#         'marker': {'color': '#0897FF'},
+#     }]
 # Run the Dash app
 if __name__ == '__main__':
     app.server.run(host='0.0.0.0', port=8080, threaded=True, debug=True)

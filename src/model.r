@@ -8,7 +8,7 @@
 ## Necessary Libraries for the script to run, for installation run install.sh
 library(argparse); library(crayon); library(RColorBrewer); library(plotrix)
 #library(randomcoloR); #library(Rpyplot);
-library(pacviz);library(basicTrendline); library(investr)
+suppressPackageStartupMessages(library(pacviz))#;library(basicTrendline); library(investr)
 ## Custom Colors for cmd line features
 red 		<- make_style("red1")
 orange 		<- make_style("orange")
@@ -71,7 +71,7 @@ quit_it <- function(){
 }
 
 ## Imports data from master_data.csv
-fname       <- read.table(file="../data/master_data_archive.csv", sep=",", header=TRUE, strip.white=TRUE)
+fname       <- read.table(file="../data/master_data.csv", sep=",", header=TRUE, strip.white=TRUE)
 ## Imports sensor information from instruments.txt
 sensor 		<- suppressWarnings(read.csv(file="../data/instruments.txt", sep=","))
 ## Pulls most recent data stamp for the purpose of adding date stamps to file names when plots are saved
@@ -305,7 +305,7 @@ legend_plot		<- function(filter, show){
 	}
 }
 ## Function includes all of the stuff to generate the exponential regression model with intervals
-exp_regression 	<- function(x,y, param=2){
+exp_regression 	<- function(x,y){
 # Finds and removes NaNed values from the dataset
 	nans <- c(grep("NaN", y)); nans <- append(nans, grep("NaN", x))
 	x <- x[-(nans)]; y <- y[-(nans)]
@@ -316,19 +316,13 @@ exp_regression 	<- function(x,y, param=2){
 # Non-linear model (exponential)
 	## Initial values are in fact the converged values
 	model.0 <- lm(log(y, base=exp(1))~x, data=data.frame(x=x, y=y))
-	r2		<- summary(model.0)$r.squared
-	if (identical(param, 2)){
-			start 	<- list(a=coef(model.0)[1], b=coef(model.0)[2])
-			model 	<- nls(y~exp(a+x*b), data=data.frame(x=x, y=y), start=start)
-		}else if (identical(param, 3)){
-			getInitial(y~SSexp3P(x,a,b,c), data = data.frame(x=x, y=y))
-			model 	<- nls(y~SSexp3P(x,a,b,c), data=data.frame(x=x, y=y))
-		}
+	start 	<- list(a=coef(model.0)[1], b=coef(model.0)[2])
+	model 	<- nls(log(y, base=exp(1))~a+x*b, data=data.frame(x=x, y=y), start=start)
 # Intervals (confidence/prediction)
-
-	confint <- predFit(model, newdata=data.frame(x=newx), interval='confidence')
-	predint <- predFit(model, newdata=data.frame(x=newx), interval='prediction')
+	confint <- predict(model.0, newdata=data.frame(x=newx), interval='confidence')
+	predint <- predict(model.0, newdata=data.frame(x=newx), interval='prediction')
 # Coefficient of determination
+	r2		<- summary(model.0)$r.squared
 # Function outputs
 	output 	<- list("x"=x, "y"=y, "newx"=newx, "xmin"=xmin, "xmax"=xmax, "model.0"=model.0,
 					"model"=model, "confint"=confint, "predint"=predint, "R2"=r2)
@@ -705,19 +699,20 @@ plots4 	<- function(..., overcast=args$overcast){
 		ymin 	<- min(exp_reg$y, na.rm=TRUE)
 		title 	<- "Correlation between Mean TPW and Temperature \n Condition: Clear Sky"
 	}
-	# trendline(x=exp_reg$x, y=exp_reg$y, model = "exp2P")
-# Non-linear model (exponential)
+	# Non-linear model (exponential)
 	plot(exp_reg$x,exp_reg$y, col=c("blueviolet"), pch=16,
 	xlim=c(exp_reg$xmin, exp_reg$xmax), ylim=c(ymin, ymax),
 	xlab="Zenith Sky Temperature [C]", ylab="TPW [mm]", main=title)
-# Best Fit
-	curve(exp(coef(exp_reg$model)[1]+coef(exp_reg$model)[2]*x), col="Red", add=TRUE)
-# Confidence Interval
-	lines(exp_reg$newx, exp_reg$confint[ ,3], col="blue", lty="dashed")
-	lines(exp_reg$newx, exp_reg$confint[ ,2], col="blue", lty="dashed")
-# Prediction Interval
-	lines(exp_reg$newx, exp_reg$predint[ ,3], col="magenta", lty="dashed")
-	lines(exp_reg$newx, exp_reg$predint[ ,2], col="magenta", lty="dashed")
+	# Best Fit
+	curve(exp(coef(exp_reg$model)[1]+(coef(exp_reg$model)[2]*x)), col="Red", add=TRUE)
+	curve((33.33*exp(x/29.851)) - 0.141, col="Blue", add=TRUE)
+	curve((30.55*exp(x/28.725)) - 0.263, col="Green", add=TRUE)
+	# Confidence Interval
+	lines(exp_reg$newx, exp(exp_reg$confint[ ,3]), col="blue", lty="dashed")
+	lines(exp_reg$newx, exp(exp_reg$confint[ ,2]), col="blue", lty="dashed")
+	# Prediction Interval
+	lines(exp_reg$newx, exp(exp_reg$predint[ ,3]), col="magenta", lty="dashed")
+	lines(exp_reg$newx, exp(exp_reg$predint[ ,2]), col="magenta", lty="dashed")
 
 	points(242.85-273.15, 5.7, col=c("#00BCD7"), pch=16)
 	points(252.77-273.15, 11.4, col=c("#FF9A00"), pch=16)
@@ -728,43 +723,8 @@ plots4 	<- function(..., overcast=args$overcast){
 	exp(coef(exp_reg$model)[1]),coef(exp_reg$model)[2], exp_reg$R2)), "Prediction Interval", "Confidence Interval"))
 }
 
-plots5 	<- function(..., overcast=args$overcast){
-	par(mar=c(5.1, 4.1, 4.1, 2.1),xpd=FALSE)
-	print("Test")
-	if(overcast){
-		exp_reg <- exp_regression(as.numeric(unlist(snsr_sky_calco)), avgo, 3)
-		ymax 	<- max(exp_reg$y, 45.4, na.rm=TRUE)
-		ymin 	<- min(exp_reg$y, na.rm=TRUE)
-		title 	<- "Correlation between Mean TPW and Temperature \n Condition: Overcast"
-	}else{
-		exp_reg <- exp_regression(as.numeric(unlist(snsr_sky_calc)), avg, 3)
-		ymax 	<- max(exp_reg$y, 45.4, na.rm=TRUE)
-		ymin 	<- min(exp_reg$y, na.rm=TRUE)
-		title 	<- "Correlation between Mean TPW and Temperature \n Condition: Clear Sky"
-	}
-# Non-linear model (exponential)
-	plot(exp_reg$x,exp_reg$y, col=c("blueviolet"), pch=16,
-	xlim=c(exp_reg$xmin, exp_reg$xmax), ylim=c(ymin, ymax),
-	xlab="Zenith Sky Temperature [C]", ylab="TPW [mm]", main=title)
-# Best Fit
-	curve(coef(exp_reg$model)[1] * exp(coef(exp_reg$model)[2]*x) + coef(exp_reg$model)[3], col="Red", add=TRUE)
-# Confidence Interval
-	lines(exp_reg$newx, exp_reg$confint[ ,3], col="blue", lty="dashed")
-	lines(exp_reg$newx, exp_reg$confint[ ,2], col="blue", lty="dashed")
-# Prediction Interval
-	lines(exp_reg$newx, exp_reg$predint[ ,3], col="magenta", lty="dashed")
-	lines(exp_reg$newx, exp_reg$predint[ ,2], col="magenta", lty="dashed")
-
-	points(242.85-273.15, 5.7, col=c("#00BCD7"), pch=16)
-	points(252.77-273.15, 11.4, col=c("#FF9A00"), pch=16)
-	points(260.55-273.15, 22.7, col=c("#66FF33"), pch=16)
-
-	legend("topleft",col=c("Red", "Magenta", "Blue"), pch=c("-", '--', "--"),
-	legend=c(parse(text=sprintf("%.2f*e^{%.3f*x}%.3f*\t\t(R^2 == %.3f)",
-	coef(exp_reg$model)[1],coef(exp_reg$model)[2], coef(exp_reg$model)[3], exp_reg$R2)), "Prediction Interval", "Confidence Interval"))
-}
 ## Residual Plot
-plots6 	<- function(..., overcast=args$overcast){
+plots5 	<- function(..., overcast=args$overcast){
 	if(overcast){
 		exp_reg <- exp_regression(as.numeric(unlist(snsr_sky_calco)), avgo,2)
 		title 	<- "Residual of the Mean TPW and Temperature Model \n Condition: Overcast"
@@ -779,7 +739,7 @@ plots6 	<- function(..., overcast=args$overcast){
 }
 
 ## Pacman Residual Plot
-plots7 	<- function(..., overcast=args$overcast){
+plots6 	<- function(..., overcast=args$overcast){
     if(overcast){
 				x <- as.numeric(unlist(snsr_sky_calco))
 				y <- log(avgo, base=exp(1))
@@ -792,12 +752,7 @@ plots7 	<- function(..., overcast=args$overcast){
 		# Finds and removes NaNed values from the dataset
 		nans <- c(grep("NaN", y)); nans <- append(nans, grep("NaN", x))
 		x <- x[-(nans)]; y <- y[-(nans)]
-		pac.resid(x, log(y, base=exp(1)), title, c("Zenith Sky Temperature", "degC"))
-
-<<<<<<< HEAD
-=======
-		pacviz(x,y, title,"\u00B0C", "Zenith Sky Temperature")
->>>>>>> 8f6cf507f6385a21c0ddaed8eb965ad99fa4dcee
+		pac.resid(x, y, title, c("Zenith Sky Temperature", "degC"))
 }
 
 ## Overcast Condition Percentage (bar)
@@ -1286,10 +1241,10 @@ if(args$set == "i"){
 # Saves plots
 	save(c(plots1(overcast=args$overcast), plots2(overcast=args$overcast),
 		plots3(overcast=args$overcast), plots4(overcast=args$overcast),
-		plots5(overcast=args$overcast),plots6(overcast=args$overcast),plots7(overcast=args$overcast)), sname)
+		plots5(overcast=args$overcast),plots6(overcast=args$overcast)), sname)
 	save(c(plots1(overcast=args$overcast), plots2(overcast=args$overcast),
 		plots3(overcast=args$overcast), plots4(overcast=args$overcast),
-		plots5(overcast=args$overcast),plots6(overcast=args$overcast),plots7(overcast=args$overcast)), sname_pub)
+		plots5(overcast=args$overcast),plots6(overcast=args$overcast)), sname_pub)
 	cat(green(sprintf("Plot set downloaded to %s\n", sname)))
 }else if(args$set == "c"){
 # Plots available with this option

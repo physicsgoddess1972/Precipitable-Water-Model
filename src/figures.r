@@ -253,9 +253,11 @@ exp_regression 	<- function(x,y){
 	xmax 	<- max(x, na.rm=TRUE)
 	newx 	<- seq(xmin, xmax, length.out=length(x))
 	# Non-linear model (exponential)
-	model.0 <- lm(log(y, base=exp(1))~x, data=data.frame(x,log(y, base=exp(1))))
+	model.0 <- lm(log(y, base=exp(1))~x, data=data.frame(x,y))
+
 	start 	<- list(a=coef(model.0)[1], b=coef(model.0)[2])
-	model 	<- nls(y~a+b*x, data=data.frame(x=x, y=log(y, base=exp(1))), start=start)
+	model 	<- nls(log(y, base=exp(1))~a+x*b, data=data.frame(x=x, y=y), start=start)
+
 	# Intervals (confidence/prediction)
 	confint <- predict(model.0, newdata=data.frame(x=newx), interval='confidence')
 	predint <- predict(model.0, newdata=data.frame(x=newx), interval='prediction')
@@ -479,7 +481,7 @@ figure5 <- function(...){
 	}
 		title 	<- c("Clear Sky","Overcast", "Clear Sky NaN", "Overcast NaN")
 		color 	<- c("#A7D6FC", "#FCA7A7", "#C8A7FC", "#FCDEA7")
-#		mtext("Condition Distribution by Sensor",side=3, line=1, outer=TRUE)
+	#		mtext("Condition Distribution by Sensor",side=3, line=1, outer=TRUE)
 		if(length(snsr_name) <= 3){
 			tmp_var = 1
 		}else{
@@ -531,7 +533,7 @@ figure6 	<- function(...){
 	xlab="Zenith Sky Temperature [C]", ylab="TPW [mm]", main=NA)
 	mtext(title, cex=1, outer=TRUE, at=0.6, padj=-1)
 # Best Fit
-	curve(exp(coef(exp_reg$model)[1] + coef(exp_reg$model)[2]*x), col="Red", add=TRUE)
+	curve(exp(coef(exp_reg$model)[1]+coef(exp_reg$model)[2]*x), col="Red", add=TRUE)
 # Confidence Interval
 	lines(exp_reg$newx, exp(exp_reg$confint[ ,3]), col="blue", lty="dashed")
 	lines(exp_reg$newx, exp(exp_reg$confint[ ,2]), col="blue", lty="dashed")
