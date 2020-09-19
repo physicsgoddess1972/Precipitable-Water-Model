@@ -30,8 +30,8 @@ def test_mesowest(test_date):
     df = MesoWest.request_data(test_date, 'KONM')
     print(test_date)
 
-date = dt.datetime(2020, 7, 1)
-for i in range(0, 300):
+date = dt.datetime(2020, 8, 21)
+for i in range(0, 1):
     test_mesowest(date - dt.timedelta(days=i))
 # test_mesowest(dt.datetime(2020, 6,6))
 
