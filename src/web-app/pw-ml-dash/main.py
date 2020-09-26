@@ -34,9 +34,8 @@ layout="""
 <html>
 <head>
 	<title>Precipitable Water Model</title>
-	<link rel="icon" href="./assets/icon.png">
+    <link rel="shortcut icon" type="image/png" href="./assets/icon.png">
 
-    {%favicon%}
     <script src="./assets/jquery.min.js"></script>
 	<script src='./assets/legacy.js'></script>
 	<script src='./assets/script.js'></script>

@@ -15,11 +15,7 @@ import chart_studio.plotly as py
 import plotly.graph_objects as go
 import plotly.figure_factory as ff
 
-from sklearn import *
-from sklearn import svm
-from sklearn.model_selection import train_test_split, cross_val_score
-from sklearn.metrics import confusion_matrix, classification_report, \
-                            precision_score, jaccard_score, matthews_corrcoef, f1_score
+from flask import Flask, send_from_directory
 
 import pandas as pd
 from numpy import *
@@ -34,8 +30,8 @@ layout="""
 <head>
 	<title>Precipitable Water Model</title>
 	<link rel="icon" href="./assets/icon.png">
+    <link rel="shortcut icon" type="image/png" href="./assets/icon.png">
 
-    {%favicon%}
     <script src="./assets/jquery.min.js"></script>
 	<script src='./assets/legacy.js'></script>
 	<script src='./assets/script.js'></script>
@@ -281,26 +277,27 @@ def time_scatter_plot(timedata, start, end):
     s = getIndexes(df, start_date)[0][0]
     e = getIndexes(df, end_date)[0][0]
 
-    dates = linspace(s, e, 5, dtype=int)
-    dlabel = [df.Date[i] for i in dates]
-    print(dates)
-    print(dlabel)
+    hovertext = list()
+    for yi, xi in zip(df[timedata][s:e],df.Date[s:e]):
+        hovertext.append('{}: {}<br />Date: {}'.format(timedata.replace("_", " "), yi, xi))
+
 
     data = [{
         'x': df.Date[s:e],
         'y': df[timedata][s:e],
         'mode': 'markers',
         'marker': {'color': '#0897FF'},
+         'text':hovertext,
+         'hoverinfo':'text',
     }]
 
     return {'data': data,
-            'layout': {'xaxis': {'tickvals': dates,
-                                 'ticktext': dlabel,
+            'layout': {'xaxis': {'nticks': 5,
                                  'tickfont': {'size': 10, 'color': 'black'},
                                  'title': "Date"},
-                       'yaxis': {'title': timedata,
+                       'yaxis': {'title': timedata.replace("_", " "),
                                  'tickfont': {'size': 10, 'color': 'black'}},
-                       'title': "Time Series of {}".format(timedata),
+                       'title': "Time Series of {}".format(timedata.replace("_", " ")),
                      }
             }
 @app.callback(
@@ -314,24 +311,26 @@ def time_heat_map(timedata, start, end):
     e = getIndexes(df, dt.strptime(end, "%Y-%m-%d").strftime('%-m/%-d/%Y'))[0][0]
 
     delta = pd.to_datetime(df.Date[e]) - pd.to_datetime(df.Date[s])
-
     dates_in_year = [pd.to_datetime(df.Date[s]) + datetime.timedelta(i) for i in range(delta.days+1)]
 
+    hovertext = list()
+    for yi, xi in zip(df[timedata][s:e],df.Date[s:e]):
+        hovertext.append('{}: {}<br />Date: {}'.format(timedata.replace("_", " "), yi, xi))
+
     data = [go.Heatmap(
-                     x=list(range(0,len(dates_in_year))),
+                     x=df.Date[s:e],
                      y=ones(len(dates_in_year)),
                      z=df[timedata][s:e],
                      colorscale='Jet',
-                     text=df.Date[s:e],
-                     # hoverinfo=['text'],
-                     # hovertemplate='Z: %{z:.2f}'
+                     text=hovertext,
+                     hoverinfo='text',
                      )]
-    dates = linspace(s, e, 5, dtype=int)
 
     return {'data': data,
             'layout': {'height': 500,
-                       'xaxis': {'tickvals': dates,
-                                 'ticktext': [df.Date[i] for i in dates],
+                       'width': 700,
+                       'margin': {'l':30, 'r':0, 't':100, 'b':50},
+                       'xaxis': {'nticks': 5,
                                  'tickfont': {'size': 10, 'color': 'black'},
                                  'title': "Date",
                                  'showline': False,
@@ -357,18 +356,24 @@ def analy_scatter_plot(analydata1, analydata2, start, end):
     s = getIndexes(df, start_date)[0][0]
     e = getIndexes(df, end_date)[0][0]
 
+    hovertext = list()
+    for yi, xi,zi in zip(df[analydata1][s:e],df[analydata2][s:e],df.Date[s:e]):
+        hovertext.append('{}: {}<br />{}: {}<br />Date: {}'.format(analydata1.replace("_", " "), yi, analydata2.replace("_", " "), xi, zi))
+
     data = [{
         'x': df[analydata1][s:e],
         'y': df[analydata2][s:e],
         'mode': 'markers',
         'marker': {'color': '#0897FF'},
+        'text':hovertext,
+        'hoverinfo':'text',
     }]
     return {'data': data,
             'layout': {'xaxis': {'tickfont': {'size': 10, 'color': 'black'},
-                                 'title': analydata1},
-                       'yaxis': {'title': analydata2,
+                                 'title': analydata1.replace("_", " ")},
+                       'yaxis': {'title': analydata2.replace("_", " "),
                                  'tickfont': {'size': 10, 'color': 'black'}},
-                        'title': "Comparison between {} and {}".format(analydata1, analydata2)}
+                        'title': "Comparison between {} and {}".format(analydata1.replace("_", " "), analydata2.replace("_", " "))}
             }
 # def charts():
 #     start_date  = dt.strptime(start, "%Y-%m-%d").strftime('%-m/%-d/%Y')
