@@ -561,3 +561,59 @@ Date,Vicki time,Conditions,1610 TE (Sky),FLIRi3 (Sky),AMES 1 (Sky),AMES 2 (Sky),
 8/3/2020,10:30,clear sky,NaN,-27.9,-75,-4.6,31.1,32.5,33.6,34,due to Corona virus quarantine measurement site moved to Vickis driveway
 8/4/2020,17:12,overcast,-17.6,-24.3,2.1,3.2,50.6,51.5,52.6,52.2,due to Corona virus quarantine measurement site moved to Vickis driveway
 8/5/2020,17:01,clear sky,NaN,-26.8,-4,-25,50,50.2,51.4,52.3,due to Corona virus quarantine measurement site moved to Vickis driveway
+8/6/2020,10:39,clear sky,NaN,-29.8,-3.9,-3,37.2,36.1,38.8,39,due to Corona virus quarantine measurement site moved to Vickis driveway
+8/7/2020,13:58,overcast,5.9,2.6,16,16.4,45.5,46.9,46.8,46.5,due to Corona virus quarantine measurement site moved to Vickis driveway
+8/8/2020,16:03,overcast,-8,4.2,15.2,12.9,58.2,58,59.3,58.8,due to Corona virus quarantine measurement site moved to Vickis driveway
+8/9/2020,16:32,overcast,NaN,-30.3,-4.1,-2.2,49.2,50.6,51.9,52.1,due to Corona virus quarantine measurement site moved to Vickis driveway
+8/10/2020,10:52,clear sky,NaN,-34.8,-7.8,-5.4,40.1,40.7,42.2,42.4,due to Corona virus quarantine measurement site moved to Vickis driveway
+8/11/2020,11:20,clear sky,NaN,-36.9,-10.1,-7.9,42.6,45.4,46.2,46.4,due to Corona virus quarantine measurement site moved to Vickis driveway
+8/12/2020,16:41,overcast,5.5,2.2,11.6,12.7,47,48.8,48.8,48.2,due to Corona virus quarantine measurement site moved to Vickis driveway
+8/13/2020,10:33,clear sky,NaN,-31.4,-5.2,-3.5,35.9,35.6,36.6,37.2,due to Corona virus quarantine measurement site moved to Vickis driveway
+8/14/2020,10:29,clear sky,NaN,-29.9,-7.5,-6,38.4,38.7,38.6,39.8,due to Corona virus quarantine measurement site moved to Vickis driveway
+8/15/2020,17:00,overcast,11.2,6.2,14.5,15,39.6,39.1,39,39.5,due to Corona virus quarantine measurement site moved to Vickis driveway
+8/16/2020,10:05,clear sky,NaN,-31.2,-8.9,-6.8,32.7,32.4,34.5,35.4,Vicki's last set of manual measurements before moving to South Dakota taken in her driveway
+8/17/2020,11:53,clear sky,NaN,-22.4,-3.3,-4,44.8,44.7,47.7,46.6,Fernandos first manual measurments taken in Alta apartments on Tech campus
+8/18/2020,11:50,clear sky,NaN,-30.4,-6.3,-5.7,40.8,42.9,43.4,42.6,
+8/19/2020,17:23,clear sky,NaN,-26.8,-2.5,-0.3,46.5,47.5,48.5,48.3,Hazy outside evening measurments measurments taken due to classes  
+8/20/2020,11:53,overcast,NaN,-26.8,-4.1,-0.9,40.3,43.1,42.4,44.2,
+8/21/2020,20:00,clear sky,NaN,-28.5,-5.2,-3.5,39.1,39.3,39.1,39.2,
+8/22/2020,17:17,clear sky,NaN,-27.1,-1.9,-0.7,48.5,47.5,49.8,49.2,
+8/23/2020,15:39,clear sky,NaN,-28.2,-3.6,0.4,52.7,54.2,54.9,56.6,
+8/24/2020,10:51,clear sky,NaN,-26.1,-3.3,-0.9,35.1,34,35.7,36,
+8/25/2020,12:15,clear sky,NaN,-26.1,0.7,4.4,42.7,41.9,45.1,46,
+8/26/2020,10:45,clear sky,NaN,-27.3,-3.7,-0.8,36.7,34.5,36.3,36,
+8/27/2020,17:24,overcast,-8,-5.4,7.5,8.5,44.8,47.6,46,45.4,
+8/28/2020,13:27,clear sky,NaN,-32.3,-6.2,-5.8,40.8,42.7,43.5,42.6,
+8/29/2020,16:47,overcast,NaN,5.6,-3.6,-0.3,50.2,50.1,51.1,51.7,
+8/30/2020,14:55,overcast,-8.6,5.7,6.1,3.9,50.6,52.7,53.5,53.4,
+8/31/2020,16:41,overcast,9.7,9.2,23.3,25.4,43,43.4,43.7,43.1,
+9/1/2020,14:43,overcast,NaN,-35.4,-15.1,-13,21,20.8,21.3,21.9,
+9/2/2020,10:47,clear sky,NaN,-36.2,-12.8,-10.8,33.1,38.2,34.5,34,Started talking measurements at workman once again 
+9/3/2020,10:45,clear sky,NaN,-30.7,-8.4,-7.8,36.4,36.1,38.2,38.3,
+9/4/2020,11:03,clear sky,NaN,-30.9,-6.4,-5.3,41.5,40.6,44.1,44.8,
+9/5/2020,10:30,clear sky,NaN,-30.9,-7.1,-6.5,36.8,36.5,38.6,39.3,
+9/6/2020,11:30,clear sky,NaN,-29.1,-5.4,-3.2,41.5,42.8,44.1,45.9,
+9/7/2020,11:20,clear sky,NaN,-28.4,-6.4,-5.4,37.6,36.5,38.3,39.2,
+9/8/2020,10:31,overcast,-17.3,-10.8,1.5,3.5,28,29.6,30.9,31,
+9/9/2020,11:36,overcast,3,1.4,2.6,3.9,15.4,14.2,13.8,14.7,"Rainy day today, New Mexico experiencing a cold snap for a few days"
+9/10/2020,11:46,overcast,1.5,-0.8,1.7,2.4,16.2,14.6,14.1,14.6,
+9/11/2020,11:29,clear sky,NaN,-27.4,-5.6,-4.3,36.4,36.7,39.1,31.2,
+9/12/2020,10:34,clear sky,NaN,-30.6,-7.2,-6.4,36.4,36.1,38.2,35.4,
+9/13/2020,17:35,clear sky,NaN,-34.6,-10.3,-9.6,37.1,36.5,38.4,37.6,
+9/14/2020,10:45,clear sky,NaN,-35.6,-12.4,-10.6,36.3,36.7,38.7,37.9,
+9/15/2020,17:59,clear sky,NaN,-40,-15.6,-11.4,37.3,40.5,39.3,37.9,
+9/16/2020,17:10,clear sky,NaN,-40,-12.3,-8.1,38.9,38.8,40.1,41.3,
+9/17/2020,11:13,clear sky,NaN,-34.3,-13,-11.6,27.2,26.5,28.6,29,
+9/18/2020,15:14,clear sky,NaN,-36.5,-11.4,-10.8,32.2,32.4,34.7,34.6,
+9/19/2020,10:45,clear sky,NaN,-36.6,-12.3,-11.5,34.7,35.4,36.7,37.6,
+9/20/2020,10:36,clear sky,NaN,-40,-12.9,-12.3,36.4,33.6,24.8,35.1,
+9/21/2020,10:47,clear sky,NaN,-35.3,-11.4,-10.3,36.3,35.2,36.4,36.7,
+9/22/2020,17:31,clear sky,NaN,-38.5,-13.6,-11.4,35.1,35.4,37.1,37.3,
+9/23/2020,10:04,clear sky,NaN,-39.1,-15.1,-13.9,37.6,37.8,38.2,39.1,
+9/24/2020,15:54,clear sky,NaN,-40,-12.9,-12.4,39.7,40.6,40.5,40.4,
+9/25/2020,10:28,clear sky,NaN,-40,-21.4,-19,32.5,32.9,33.2,33.2,
+9/26/2020,11:15,clear sky,NaN,-38.6,-13.9,-12,31.9,32,34,35.3,
+9/27/2020,10:45,clear sky,NaN,-36.2,-12.8,-10.8,33.1,38.2,34.5,34,
+9/28/2020,10:50,clear sky,NaN,-35.8,-11.5,-10.9,36.3,36.5,38.3,38.2,
+9/29/2020,11:37,clear sky,NaN,-36.7,-13.9,-15.5,34.3,35.2,36,34.4,
+9/30/2020,11:29,clear sky,NaN,-36.3,-14.9,-13.8,35.5,35.7,35.5,36.2,
