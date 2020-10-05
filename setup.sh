@@ -9,7 +9,7 @@
 ### Introduction
 echo -e "\e[96m ~~~~ Setup Starting ~~~~\e[0m"
 ## Flag
-while getopts "ighx" opt; do
+while getopts "ighxca" opt; do
 	case "${opt}" in
 ## Install Packages
 	i)
@@ -30,31 +30,38 @@ while getopts "ighx" opt; do
 	  sudo su - -c "R -e \"install.packages('RColorBrewer', repos='https://cran.rstudio.com/')\""
 		sudo su - -c "R -e \"devtools::install_github('PharaohCola13/pacviz')\""
 		;;
+	c)
+## Configure database import sites
+		echo "https://mesowest.utah.edu/cgi-bin/droman/meso_station.cgi?area=1"
+		echo -n "Please input the appropriate MesoWest site identifier: "
+		read mesowest
+		echo "http://weather.uwyo.edu/upperair/sounding.html"
+		echo -n "Please input the appropriate University of Wyoming site identifier: "
+		read wyoming
+
+		echo -e "MesoWest: $mesowest\nWyoming: $wyoming" >> ./data/config.txt
+		;;
 	h)
 		echo "usage: setup.sh [-higx]"
 		echo ""
 		echo "arguments:"
 		echo "   -h         show this help message and exit"
 		echo "   -i         run installation procedure"
-		echo "   -g         run repo download procedure"
 		echo "   -x         run clear data procedure"
-		;;
-### Download and Unzip Repository
-	g)
-	  echo -e "\e[96m ~~~~ Downloading Repository ~~~~\e[0m"
-	  wget https://github.com/physicsgoddess1972/Precipitable-Water-Model/archive/master.zip
-	  unzip master.zip
 		;;
 	x)
 ### Clear Data Files
 	  echo -e "\e[96m ~~~~ Clearing Directories and Files ~~~~\e[0m"
-	  rm -r ./Precipitable-Water-Model-master/data/
-	  rm -r ./Precipitable-Water-Model-master/docs/
-	  rm -r ./Precipitable-Water-Model-master/src/archive/
-	  rm ./Precipitable-Water-Model-master/*.md
-	  mkdir ./Precipitable-Water-Model-master/data/ ./Precipitable-Water-Model-master/data/ml
-	  echo "Sensor,Error [C],Color Code,D to S,Poster,Temp Range [C]" > ./Precipitable-Water-Model-master/data/instruments.txt
-		;;
+	  rm -r ./data/ ./docs/
+	  rm -r ./src/archive/ ./src/web-app/
+	  rm ./*.md
+	  mkdir ./data/ ./data/ml
+	  echo "Sensor,Error [C],Color Code,D to S,Poster,Temp Range [C]" > ./data/instruments.txt;;
+	a)
+		bash ./setup.sh -i
+		bash ./setup.sh -x
+		bash ./setup.sh -t
+	;;
 	esac
 done
 ### Done
