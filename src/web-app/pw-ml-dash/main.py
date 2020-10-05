@@ -41,9 +41,6 @@ layout="""
 	<script src='./assets/script.js'></script>
 	<script src="./assets/materialize.min.js"></script>
 
-    <link rel='stylesheet' href='./assets/material.cyan-light_blue.min.css'>
-    <link rel='stylesheet' href='./assets/style.css'>
-    <link rel='stylesheet' href='./assets/materialize.min.css'>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap">
@@ -60,16 +57,16 @@ layout="""
 	</header>
 	<div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
 		<nav class="demo-navigation mdl-navigation mdl-color--blue-grey-900">
-			<a class="mdl-navigation__link" href="https://physicsgoddess1972.github.io/Precipitable-Water-Model/dash.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">dashboard</i>Home</a>
-			<a class="mdl-navigation__link" href="https://physicsgoddess1972.github.io/Precipitable-Water-Model/"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">chrome_reader_mode</i>Documentation</a>
-			<a class="mdl-navigation__link" href="https://physicsgoddess1972.github.io/Precipitable-Water-Model/contrib.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i>Contribute</a>
-			<a class="mdl-navigation__link" href="https://physicsgoddess1972.github.io/Precipitable-Water-Model/code.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">code</i>R Features</a>
-			<a class="mdl-navigation__link" onclick="$('#maintainers').modal('open');"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">face</i>The Maintainers</a>
+			<a class="mdl-navigation__link" href="https://physicsgoddess1972.github.io/Precipitable-Water-Model/dash.html"><i class="material-icons" role="presentation">dashboard</i>Home</a>
+			<a class="mdl-navigation__link" href="https://physicsgoddess1972.github.io/Precipitable-Water-Model/"><i class="material-icons" role="presentation">chrome_reader_mode</i>Documentation</a>
+			<a class="mdl-navigation__link" href="https://physicsgoddess1972.github.io/Precipitable-Water-Model/contrib.html"><i class="material-icons" role="presentation">people</i>Contribute</a>
+			<a class="mdl-navigation__link" href="https://physicsgoddess1972.github.io/Precipitable-Water-Model/code.html"><i class="material-icons" role="presentation">code</i>R Features</a>
+			<a class="mdl-navigation__link" onclick="$('#maintainers').modal('open');"><i class="material-icons" role="presentation">face</i>The Maintainers</a>
 			<hr>
-			<a class="mdl-navigation__link" href="https://github.com/physicsgoddess1972/Precipitable-Water-Model"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i>View on Github</a>
-			<a class="mdl-navigation__link" href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/archive/master.zip"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">cloud_download</i>Download the Repo</a>
-			<a class="mdl-navigation__link" href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/issues"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">bug_report</i>Bug Report</a>
-			<a class="mdl-navigation__link" href="https://physicsgoddess1972.github.io/Precipitable-Water-Model/changelog.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">new_releases</i>Changelog</a>
+			<a class="mdl-navigation__link" href="https://github.com/physicsgoddess1972/Precipitable-Water-Model"><i class="material-icons"><i class="fab fa-github big-icon"></i></i> View on Github</a>
+			<a class="mdl-navigation__link" href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/archive/master.zip"><i class="material-icons" role="presentation">cloud_download</i>Download the Repo</a>
+			<a class="mdl-navigation__link" href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/issues"><i class="material-icons" role="presentation">bug_report</i>Bug Report</a>
+			<a class="mdl-navigation__link" href="https://physicsgoddess1972.github.io/Precipitable-Water-Model/changelog.html"><i class="material-icons" role="presentation">new_releases</i>Changelog</a>
 
 		</nav>
 	</div>
@@ -86,7 +83,7 @@ layout="""
 					</tr>
 					<tr>
 						<td><i class="material-icons">public</i></td>
-						<td><a target="_blank" href="http://pharaohcola13.github.io">pharaohcola13.github.io</a></td>
+						<td><a target="_blank" href="https://spencerriley.me">spencerriley.me</a></td>
 						<td><i class="material-icons">public</i></td>
 						<td><a target="_blank" href="http://physicsgoddess1972.github.io">physicsgoddess1972.github.io</a></td>
 					</tr>
@@ -94,7 +91,7 @@ layout="""
 						<td><i class="material-icons">alternate_email</i></td>
 						<td>spencer.riley@student.nmt.edu</td>
 						<td><i class="material-icons">alternate_email</i></td>
-						<td>vicki.kelsey@student.nmt.edu</td>
+						<td>vicki.kelsey@mines.sdsmt.edu</td>
 					</tr>
 				</table>
 			</div>
@@ -127,7 +124,7 @@ layout="""
 					</tr>
 					<tr>
 						<td><i class="material-icons">public</i></td>
-						<td><a target="_blank" href="http://pharaohcola13.github.io">pharaohcola13.github.io</a></td>
+						<td><a target="_blank" href="https://spencerriley.me">spencerriley.me</a></td>
 						<td><i class="material-icons">public</i></td>
 						<td><a target="_blank" href="http://physicsgoddess1972.github.io">physicsgoddess1972.github.io</a></td>
 					</tr>
@@ -135,7 +132,7 @@ layout="""
 						<td><i class="material-icons">alternate_email</i></td>
 						<td>spencer.riley@student.nmt.edu</td>
 						<td><i class="material-icons">alternate_email</i></td>
-						<td>vicki.kelsey@student.nmt.edu</td>
+						<td>vicki.kelsey@mines.sdsmt.edu</td>
 					</tr>
 				</table>
 			</div>
@@ -162,7 +159,7 @@ layout="""
 				</svg>
 				<span class="bottom-nav__label">Back to Top</span>
 			</a>
-			<a class="bottom-nav__action" href="https://pw-ml-dash.uc.r.appspot.com/">
+			<a class="bottom-nav__action--current" href="https://pw-ml-dash.uc.r.appspot.com/">
 				<i class="bottom-nav__icon material-icons" role="presentation" style="margin-bottom: -10px; margin-top: -18px">memory</i>
 				<span class="bottom-nav__label">Machine Learning</span>
 			</a>
@@ -387,66 +384,66 @@ app.layout = html.Div(children=[
      dash.dependencies.Input('checkopt', 'value'),
      dash.dependencies.Input('trainsize', 'value')])
 def display_graph(dataset, randstate, checkopt, trainsize):
-    df_0, df_1, df_2, df_3, axes_rng, title = analysis(randstate, dataset, checkopt, trainsize)
-    data = [{
-        'x': df_0[0][dataset],
-        'y': df_0[1][dataset],
-        'mode': 'markers',
-        'marker': {'color': df_0[2][dataset].map({-1: 'rgb(0,0,255)', 1: 'rgb(255,0,0)'})},
-        'name': '',
-        'text': df[df.columns[0]],
-        'hovertemplate': "Date: %{text}<br>Temperature: %{x:.2f} C <br>TPW: %{y:.2f} mm",
-    }]
-    if checkopt == ["SV"]:
-        data.append({'x': df_1[0]["SV1"],
-                     'y': df_1[1]["SV1"],
-                     'mode': 'lines',
-                     'marker': {'color': "rgb(0,0,0)"},
-                     'name': "Support Vector"})
-        data.append({'x': df_2[0]["SV2"],
-                     'y': df_2[1]["SV2"],
-                     'mode': 'lines',
-                     'marker': {'color': "rgb(0,0,0)"},
-                     'name': "Support Vector"})
-    elif checkopt == ["DB"]:
-        data.append({'x': df_3[0]["DB"],
-                     'y': df_3[1]["DB"],
-                     'mode': 'lines',
-                     'marker': {'color': "rgb(202, 8, 205)"},
-                     'name': "Decision Hyperplane"})
-    elif checkopt == ["DB", "SV"] or checkopt == ["SV", "DB"]:
-        data.append({'x': df_1[0]["SV1"],
-                     'y': df_1[1]["SV1"],
-                     'mode': 'lines',
-                     'marker': {'color': "rgb(0,0,0)"},
-                     'name': "Support Vector"})
-        data.append({'x': df_2[0]["SV2"],
-                     'y': df_2[1]["SV2"],
-                     'mode': 'lines',
-                     'marker': {'color': "rgb(0,0,0)"},
-                     'name': "Support Vector"})
-        data.append({'x': df_3[0]["DB"],
-                     'y': df_3[1]["DB"],
-                     'mode': 'lines',
-                     'marker': {'color': "rgb(202, 8, 205)"},
-                     'name': "Decision Hyperplane"})
+	df_0, df_1, df_2, df_3, axes_rng, title = analysis(randstate, dataset, checkopt, trainsize)
+	hovertext = "Date: %{text}<br>Temperature: %{x:.2f} C <br>TPW: %{y:.2f} mm"
+	data = [{
+		'x': df_0[0][dataset],
+		'y': df_0[1][dataset],
+		'mode': 'markers',
+		'marker': {'color': df_0[2][dataset].map({-1: 'rgb(0,0,255)', 1: 'rgb(255,0,0)'})},
+		'text': hovertext,
+		'hoverinfo':'text',
+	}]
+	if checkopt == ["SV"]:
+	    data.append({'x': df_1[0]["SV1"],
+	                 'y': df_1[1]["SV1"],
+	                 'mode': 'lines',
+	                 'marker': {'color': "rgb(0,0,0)"},
+	                 'name': "Support Vector"})
+	    data.append({'x': df_2[0]["SV2"],
+	                 'y': df_2[1]["SV2"],
+	                 'mode': 'lines',
+	                 'marker': {'color': "rgb(0,0,0)"},
+	                 'name': "Support Vector"})
+	elif checkopt == ["DB"]:
+	    data.append({'x': df_3[0]["DB"],
+	                 'y': df_3[1]["DB"],
+	                 'mode': 'lines',
+	                 'marker': {'color': "rgb(202, 8, 205)"},
+	                 'name': "Decision Hyperplane"})
+	elif checkopt == ["DB", "SV"] or checkopt == ["SV", "DB"]:
+	    data.append({'x': df_1[0]["SV1"],
+	                 'y': df_1[1]["SV1"],
+	                 'mode': 'lines',
+	                 'marker': {'color': "rgb(0,0,0)"},
+	                 'name': "Support Vector"})
+	    data.append({'x': df_2[0]["SV2"],
+	                 'y': df_2[1]["SV2"],
+	                 'mode': 'lines',
+	                 'marker': {'color': "rgb(0,0,0)"},
+	                 'name': "Support Vector"})
+	    data.append({'x': df_3[0]["DB"],
+	                 'y': df_3[1]["DB"],
+	                 'mode': 'lines',
+	                 'marker': {'color': "rgb(202, 8, 205)"},
+	                 'name': "Decision Hyperplane"})
 
-    return {'data': data,
-            'layout': {'uirevision': "{}{}".format(randstate,trainsize),
-                       'title': title,
-                       'showlegend': False,
-                       'xaxis': {'title': 'Temperature [C]',
-                                 'range': axes_rng[0:2],
-                                 'color': 'rgb(0,0,0)',
-                                 'showgrid': True,
-                                 'gridwidth': 1,
-                                 'gridcolor': 'Black'},
-                       'yaxis': {'title': "TPW [mm]",
-                                 'color': 'rgb(0,0,0)',
-                                 'range': axes_rng[2:4],
-                                 'showgrid': True,
-                                 'gridwidth': 1,
-                                 'gridcolor': 'Black'}}}
+	return {'data': data,
+	        'layout': {'uirevision': "{}{}".format(randstate,trainsize),
+	                   'title': title,
+	                   'showlegend': False,
+	                   'xaxis': {'title': 'Temperature [C]',
+	                             'range': axes_rng[0:2],
+	                             'color': 'rgb(0,0,0)',
+	                             'showgrid': False,
+	                             'gridwidth': 1,
+	                             'gridcolor': 'Black'},
+	                   'yaxis': {'title': "TPW [mm]",
+	                             'color': 'rgb(0,0,0)',
+	                             'range': axes_rng[2:4],
+	                             'showgrid': False,
+	                             'gridwidth': 1,
+	                             'gridcolor': 'Black'}}}
 
 @app.callback(
     dash.dependencies.Output('conmat', 'figure'),

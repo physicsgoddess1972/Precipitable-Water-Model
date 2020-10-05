@@ -4655,7 +4655,7 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
     flex-shrink: 0;
     padding: 1px 40px;
     margin: 0;
-    color: #757575
+    color: #FFF
 }
 @media screen and (max-width: 1024px) {
     .mdl-layout__drawer .mdl-navigation .mdl-navigation__link {
@@ -4672,14 +4672,13 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
 }
 
 .mdl-layout__drawer .mdl-navigation .mdl-navigation__link--current {
-    background-color: #e0e0e0;
     display: block;
     -webkit-flex-shrink: 0;
     -ms-flex-negative: 0;
     flex-shrink: 0;
     padding: 1px 40px;
     margin: 0;
-    color: #000
+    color: #333
 }
 
 @media screen and (min-width: 1025px) {

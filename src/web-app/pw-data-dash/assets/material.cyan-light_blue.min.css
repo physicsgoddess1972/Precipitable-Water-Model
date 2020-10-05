@@ -4498,9 +4498,18 @@ fieldset[disabled] .mdl-checkbox .mdl-checkbox__ripple-container .mdl-ripple, .m
     box-sizing: border-box
 }
 
+nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
+	display: block;
+	font-size: 24px;
+	height: 56px;
+	line-height: 56px
+}
+
+
 .mdl-navigation__link {
     color: #424242;
     text-decoration: none;
+		font-family: 'Roboto', 'Helvetica', sans-serif;
     margin: 0;
     font-size: 14px;
     font-weight: 400;
@@ -4509,7 +4518,7 @@ fieldset[disabled] .mdl-checkbox .mdl-checkbox__ripple-container .mdl-ripple, .m
     opacity: .7
 }
 .mdl-navigation__link--current {
-    color: #000;
+    color: #007F8F;
     text-decoration: none;
     margin: 0;
     font-size: 14px;
@@ -4534,7 +4543,7 @@ fieldset[disabled] .mdl-checkbox .mdl-checkbox__ripple-container .mdl-ripple, .m
     overflow-y: auto;
     overflow-x: hidden;
     position: relative;
-    -webkit-overflow-scrolling: touch
+    -webkit-overflow-scrolling: touch;
 }
 
 .mdl-layout.is-small-screen .mdl-layout--large-screen-only {
@@ -4647,7 +4656,7 @@ fieldset[disabled] .mdl-checkbox .mdl-checkbox__ripple-container .mdl-ripple, .m
     flex-shrink: 0;
     padding: 1px 40px;
     margin: 0;
-    color: #757575
+    color: #FFF
 }
 @media screen and (max-width: 1024px) {
     .mdl-layout__drawer .mdl-navigation .mdl-navigation__link {
@@ -4658,20 +4667,14 @@ fieldset[disabled] .mdl-checkbox .mdl-checkbox__ripple-container .mdl-ripple, .m
     }
 }
 
-
-.mdl-layout__drawer .mdl-navigation .mdl-navigation__link:hover {
-    background-color: #e0e0e0
-}
-
 .mdl-layout__drawer .mdl-navigation .mdl-navigation__link--current {
-    background-color: #e0e0e0;
     display: block;
     -webkit-flex-shrink: 0;
     -ms-flex-negative: 0;
     flex-shrink: 0;
     padding: 1px 40px;
     margin: 0;
-    color: #000
+    color: #333
 }
 
 @media screen and (min-width: 1025px) {

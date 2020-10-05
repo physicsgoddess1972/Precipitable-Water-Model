@@ -7,7 +7,7 @@
 
 #!/usr/bin/env bash
 cd ./util/
-python3 pw_wyimport.py
+python3 data_import.py
 cd ../
 
 ts="\e[92mTime Series plots saved to ../figs/results/\e[0m"
