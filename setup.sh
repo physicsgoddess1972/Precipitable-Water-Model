@@ -48,6 +48,8 @@ while getopts "ighxca" opt; do
 		echo "   -h         show this help message and exit"
 		echo "   -i         run installation procedure"
 		echo "   -x         run clear data procedure"
+		echo "   -c         run site id configuration procedure"
+		echo "   -a         run all setup procedures"
 		;;
 	x)
 ### Clear Data Files
@@ -60,7 +62,7 @@ while getopts "ighxca" opt; do
 	a)
 		bash ./setup.sh -i
 		bash ./setup.sh -x
-		bash ./setup.sh -t
+		bash ./setup.sh -c
 	;;
 	esac
 done
