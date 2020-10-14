@@ -21,7 +21,7 @@ while getopts "ighxca" opt; do
 		sudo pip3 install git+https://github.com/Unidata/siphon.git
 		curl -O https://cran.rstudio.com/src/base/R-3/R-3.6.1.tar.gz
 		tar -zxf ./R-3.6.1.tar.gz
-		cd ./R-3.6.1/ && ./configure --with-readline=no --with-x=no && sudo make && sudo make install
+		cd ./R-3.6.1/ && ./configure --with-readline=no --with-x=yes --with-cairo=yes && sudo make && sudo make install
 		cd ../ && sudo rm -r ./R-3.6.1/ && rm R-3.6.1.tar.gz
 ## R Package Requirements
 	  sudo su - -c "R -e \"install.packages('crayon', repos='https://cran.rstudio.com/', dependencies=TRUE)\""
