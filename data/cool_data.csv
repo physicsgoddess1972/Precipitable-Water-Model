@@ -84,7 +84,7 @@ Date,Vicki time,Conditions,1610 TE (Sky),FLIRi3 (Sky),AMES 1 (Sky),AMES 2 (Sky),
 4/14/2019,11:15,clear sky,NaN,NaN,-31.7,NaN,28,27.7,29.2,NaN,
 4/15/2019,13:15,clear sky,NaN,NaN,-15.5,NaN,41.2,40.9,43.9,NaN,
 4/16/2019,9:13,clear sky,NaN,NaN,-28.2,NaN,22.5,23.1,23.7,NaN,
-4/17/2019,10:52,overcast,3.4,2.9,2.7,NaN,16.6,15.6,15.2,NaN,it was raining when measurements were taken 
+4/17/2019,10:52,overcast,3.4,2.9,2.7,NaN,16.6,15.6,15.2,NaN,it was raining when measurements were taken
 4/18/2019,9:22,clear sky,NaN,NaN,-28.6,NaN,17.4,16.5,17.5,NaN,
 4/19/2019,10:30,clear sky,NaN,NaN,-27.5,NaN,27.2,27.8,28.8,NaN,measurements taken by Sooraj Bhatia as Vicki doing pilgrimage to Chimayo
 4/20/2019,16:26,clear sky,NaN,NaN,-18.8,NaN,40.5,40.5,43.2,NaN,later measurements due to heat stroke
@@ -223,7 +223,7 @@ Date,Vicki time,Conditions,1610 TE (Sky),FLIRi3 (Sky),AMES 1 (Sky),AMES 2 (Sky),
 8/31/2019,19:24,overcast,0.4,-2.2,11.5,11.6,35.9,36.2,37.5,37.4,
 9/1/2019,11:00,clear sky,NaN,-27.9,-3.2,-3.7,41.6,41.7,44.7,43.9,
 9/2/2019,19:33,clear sky,NaN,-28.2,-6.1,-5,33.9,34.2,34.7,35.2,
-9/3/2019,10:10,clear sky,NaN,-30.7,-8.4,-7.8,36.4,36.1,38.2,38.3,ABQ 9/4 00Z has no reading listed 
+9/3/2019,10:10,clear sky,NaN,-30.7,-8.4,-7.8,36.4,36.1,38.2,38.3,ABQ 9/4 00Z has no reading listed
 9/4/2019,11:03,clear sky,NaN,-30.9,-6.4,-5.3,41.5,40.6,44.1,44.8,
 9/5/2019,10:30,clear sky,NaN,-30.9,-7.1,-6.5,36.8,36.5,38.6,39.3,
 9/6/2019,10:10,clear sky,NaN,-33.8,-8.9,-7.8,34.7,34.5,37.1,37.4,
@@ -595,7 +595,7 @@ Date,Vicki time,Conditions,1610 TE (Sky),FLIRi3 (Sky),AMES 1 (Sky),AMES 2 (Sky),
 9/6/2020,11:30,clear sky,NaN,-29.1,-5.4,-3.2,41.5,42.8,44.1,45.9,
 9/7/2020,11:20,clear sky,NaN,-28.4,-6.4,-5.4,37.6,36.5,38.3,39.2,
 9/8/2020,10:31,overcast,-17.3,-10.8,1.5,3.5,28,29.6,30.9,31,
-9/9/2020,11:36,overcast,3,1.4,2.6,3.9,15.4,14.2,13.8,14.7,"Rainy day today, New Mexico experiencing a cold snap for a few days"
+9/9/2020,11:36,overcast,3,1.4,2.6,3.9,15.4,14.2,13.8,14.7,"Rainy day today New Mexico experiencing a cold snap for a few days"
 9/10/2020,11:46,overcast,1.5,-0.8,1.7,2.4,16.2,14.6,14.1,14.6,
 9/11/2020,11:29,clear sky,NaN,-27.4,-5.6,-4.3,36.4,36.7,39.1,31.2,
 9/12/2020,10:34,clear sky,NaN,-30.6,-7.2,-6.4,36.4,36.1,38.2,35.4,
@@ -617,3 +617,4 @@ Date,Vicki time,Conditions,1610 TE (Sky),FLIRi3 (Sky),AMES 1 (Sky),AMES 2 (Sky),
 9/28/2020,10:50,clear sky,NaN,-35.8,-11.5,-10.9,36.3,36.5,38.3,38.2,
 9/29/2020,11:37,clear sky,NaN,-36.7,-13.9,-15.5,34.3,35.2,36,34.4,
 9/30/2020,11:29,clear sky,NaN,-36.3,-14.9,-13.8,35.5,35.7,35.5,36.2,
+

@@ -245,23 +245,25 @@ lin_regression <- function(x,y){
 }
 
 exp_regression 	<- function(x,y){
-# Finds and removes NaNed values from the dataset
+	# Finds and removes NaNed values from the dataset
 	nans <- c(grep("NaN", y)); nans <- append(nans, grep("NaN", x))
 	x <- x[-(nans)]; y <- y[-(nans)]
-# creates a uniform sequence of numbers that fit within the limits of x
+	# creates a uniform sequence of numbers that fit within the limits of x
 	xmin 	<- min(x, na.rm=TRUE)
 	xmax 	<- max(x, na.rm=TRUE)
 	newx 	<- seq(xmin, xmax, length.out=length(x))
-# Non-linear model (exponential)
-	model.0 <- lm(log(y, base=exp(1))~x, data=data.frame(x,log(y, base=exp(1))))
+	# Non-linear model (exponential)
+	model.0 <- lm(log(y, base=exp(1))~x, data=data.frame(x,y))
+
 	start 	<- list(a=coef(model.0)[1], b=coef(model.0)[2])
-	model 	<- nls(y~a+b*x, data=data.frame(x=x, y=log(y, base=exp(1))), start=start)
-# Intervals (confidence/prediction)
+	model 	<- nls(log(y, base=exp(1))~a+x*b, data=data.frame(x=x, y=y), start=start)
+
+	# Intervals (confidence/prediction)
 	confint <- predict(model.0, newdata=data.frame(x=newx), interval='confidence')
 	predint <- predict(model.0, newdata=data.frame(x=newx), interval='prediction')
-# Coefficient of determination
+	# Coefficient of determination
 	rsq		<- summary(model.0)$r.squared
-# Function outputs
+	# Function outputs
 	output 	<- list("x"=x, "y"=y, "newx"=newx, "model.0"=model.0, "xmin"=xmin, "xmax"=xmax,
 					"model"=model, "confint"=confint, "predint"=predint, "R2"=rsq)
 	return (output)
@@ -311,7 +313,7 @@ figure1 <- function(x,y1,y2, x1,y3,y4, lim_s,lim_g, title_s,title_g){
 		lin_reg1 <- lin_regression(as.numeric(x), as.numeric(y1))
 		lin_reg2 <- lin_regression(as.numeric(x), as.numeric(y2))
 
-    plot(x, y1, ylab=NA, xlab="AMES 1 Temperature [C]", col="blue",
+    plot(x, y1, ylab=NA, xlab="AMES 1 Temperature [C]", col="black",
 					pch=16, main=NA, xlim=c(-60,10), ylim=c(-60,20))
 
 		abline(0,1, pch=c("--")); abline(v=0, col="gray"); abline(h=0, col="gray")
@@ -331,23 +333,23 @@ figure1 <- function(x,y1,y2, x1,y3,y4, lim_s,lim_g, title_s,title_g){
 			equ2 = parse(text=sprintf("y == %.2f * x*%.2f", coef(lin_reg2$model)[2], coef(lin_reg2$model)[1]))
 		}
 
-		legend("topleft", col=c("Red",NA), pch=c("-",""),
+		legend("topleft", col=c("Red",NA), pch=c("-","",""), bg="white",
 							legend=c(equ1,
-	 	 					parse(text=sprintf("RMSE == %.2f", lin_reg1$rmsd)),sprintf("%.3f", lin_reg1$rsq)))
+	 	 					parse(text=sprintf("RMSE == %.2f", lin_reg1$rmsd)),parse(text=sprintf("R^2 == %.3f", lin_reg1$rsq))))
 		plot(x, y2, ylab=NA, xlab="AMES 1 Temperature [C]",
-					col="#D001FA", pch=16, ylim=c(-60,20), xlim=c(-60,10))
+					col="black", pch=16, ylim=c(-60,20), xlim=c(-60,10))
 
 		abline(0,1, pch=c("--")); abline(v=0, col="gray"); abline(h=0, col="gray")
-		curve(coef(lin_reg2$model)[1] + coef(lin_reg2$model)[2]*x, add=TRUE, col="#2BFA01")
+		curve(coef(lin_reg2$model)[1] + coef(lin_reg2$model)[2]*x, add=TRUE, col="red")
 		mtext("AMES 2 Temperature [C]", side=2, line=2.5, cex=1)
-		legend("topleft", col=c("#2BFA01",NA), pch=c("-",""),
+		legend("topleft", col=c("red",NA), pch=c("-","",""), bg="white",
 						legend=c(equ2,
-						parse(text=sprintf("RMSE == %.2f", lin_reg2$rmsd)), sprintf("%.3f",lin_reg2$rsq)))
+						parse(text=sprintf("RMSE == %.2f", lin_reg2$rmsd)), parse(text=sprintf("R^2 == %.3f",lin_reg2$rsq))))
 
 		lin_reg3 <- lin_regression(as.numeric(x1), as.numeric(y3))
 		lin_reg4 <- lin_regression(as.numeric(x1), as.numeric(y4))
 
-		plot(x1, y3, ylab=NA, xlab="AMES 1 Temperature [C]", col="blue",
+		plot(x1, y3, ylab=NA, xlab="AMES 1 Temperature [C]", col="black",
 					pch=16, main=NA, xlim=c(0,60), ylim=c(0,60))
 		abline(0,1, pch=c("--")); abline(v=0, col="gray"); abline(h=0, col="gray")
 		curve(coef(lin_reg3$model)[1] + coef(lin_reg4$model)[2]*x, add=TRUE, col="red")
@@ -364,19 +366,18 @@ figure1 <- function(x,y1,y2, x1,y3,y4, lim_s,lim_g, title_s,title_g){
 			equ2 = parse(text=sprintf("y == %.2f * x*%.2f", coef(lin_reg4$model)[2], coef(lin_reg4$model)[1]))
 		}
 
-		legend("topleft", col=c("Red",NA), pch=c("-",""),
+		legend("topleft", col=c("Red",NA), pch=c("-","", ""), bg="white",
 							legend=c(equ1,
-							parse(text=sprintf("RMSE == %.2f", lin_reg3$rmsd)), sprintf("%.3f", lin_reg3$rsq)))
+							parse(text=sprintf("RMSE == %.2f", lin_reg3$rmsd)), parse(text=sprintf("R^2 == %.3f", lin_reg3$rsq))))
 
 		plot(x1, y4, ylab=NA, xlab="AMES 1 Temperature [C]",
-					col="#D001FA", pch=16, ylim=c(0,60),xlim=c(0,60))
+					col="black", pch=16, ylim=c(0,60),xlim=c(0,60))
 		abline(0,1, pch=c("--")); abline(v=0, col="gray"); abline(h=0, col="gray")
-		curve(coef(lin_reg4$model)[1] + coef(lin_reg4$model)[2]*x, add=TRUE, col="#2BFA01")
+		curve(coef(lin_reg4$model)[1] + coef(lin_reg4$model)[2]*x, add=TRUE, col="red")
 		mtext("AMES 2 Temperature [C]", side=2, line=2.5, cex=1)
-		legend("topleft", col=c("#2BFA01",NA), pch=c("-",""),
+		legend("topleft", col=c("red",NA), pch=c("-","",""), bg="white",
 						legend=c(equ2,
-						parse(text=sprintf("RMSE == %.2f", lin_reg4$rmsd)), sprintf("%.3f", lin_reg4$rsq)))
-
+						parse(text=sprintf("RMSE == %.2f", lin_reg4$rmsd)), parse(text=sprintf("R^2 == %.3f", lin_reg4$rsq))))
 }
 
 figure2 <- function(x,x1,y1,y2){
@@ -386,7 +387,7 @@ figure2 <- function(x,x1,y1,y2){
 	lin_reg1 <- lin_regression(as.numeric(x), as.numeric(y1))
 	lin_reg2 <- lin_regression(as.numeric(x1), as.numeric(y2))
 
-	plot(x, y1, ylab=NA, xlab="ABQ Precipitable Water 12Z [mm]", col="blue",
+	plot(x, y1, ylab=NA, xlab="ABQ Precipitable Water 12Z [mm]", col="black",
 				pch=16, ylim=c(0,40), xlim=c(0,40))
 
 	abline(0,1, pch=c("--"))
@@ -406,21 +407,19 @@ figure2 <- function(x,x1,y1,y2){
 		equ2 = parse(text=sprintf("y == %.2f * x*%.2f", coef(lin_reg2$model)[2], coef(lin_reg2$model)[1]))
 	}
 
-	legend("topleft", col=c("Red",NA), pch=c("-",""),
+	legend("bottomright", col=c("red",NA), pch=c("-","",""),
 						legend=c(equ1,
-						parse(text=sprintf("RMSE == %.2f", lin_reg1$rmsd)),
-					sprintf("R^2 == %.3f", lin_reg1$rsq)))
+							parse(text=sprintf("(RMSE == %.2f)*\t\t\t(R^2 == %.3f)", lin_reg1$rmsd, lin_reg1$rsq))))
 
 	plot(x1, y2, ylab=NA, xlab="ABQ Precipitable Water 00Z [mm]",
-				col="#D001FA", pch=16, ylim=c(0, 40), xlim=c(0,40))
+				col="black", pch=16, ylim=c(0, 40), xlim=c(0,40))
 	abline(0,1, pch=c("--"))
-	curve(coef(lin_reg2$model)[1] + coef(lin_reg2$model)[2]*x, add=TRUE, col="#2BFA01")
+	curve(coef(lin_reg2$model)[1] + coef(lin_reg2$model)[2]*x, add=TRUE, col="red")
 
 	mtext("EPZ Precipitable Water 00Z [mm]", side=2, line=2.5, cex=1)
-	legend("topleft", col=c("#2BFA01",NA), pch=c("-",""),
+	legend("bottomright", col=c("red",NA), pch=c("-",""),
 					legend=c(equ2,
-					parse(text=sprintf("RMSE == %.2f", lin_reg2$rmsd)),
-				sprintf("R^2 == %.3f", lin_reg2$rsq)))
+ 									 parse(text=sprintf("(RMSE == %.2f)*\t\t\t(R^2 == %.3f)", lin_reg2$rmsd, lin_reg2$rsq))))
 }
 
 figure3 <- function(x, y, lim_s){
@@ -429,7 +428,7 @@ figure3 <- function(x, y, lim_s){
 
 		lin_reg1 <- lin_regression(as.numeric(x), as.numeric(y))
 
-		plot(x, y, ylab=NA, xlab="ABQ Precipitable Water [mm]", col="blue",
+		plot(x, y, ylab=NA, xlab="ABQ Precipitable Water [mm]", col="black",
 					pch=16, main=NA, xlim=c(0, 40), ylim=c(0,40))
 		mtext("Precipitable Water Measurement Site Time Average Comparison", cex=1, outer=TRUE, at=0.6, padj=-1)
 		abline(0,1, pch=c("--")); abline(v=0, col="gray"); abline(h=0, col="gray")
@@ -442,9 +441,11 @@ figure3 <- function(x, y, lim_s){
 			equ1 = parse(text=sprintf("y == %.2f * x*%.2f", coef(lin_reg1$model)[2], coef(lin_reg1$model)[1]))
 		}
 
-		legend("topleft", col=c("Red",NA), pch=c("-",""),
+		legend("topleft", col=c("Red",NA), pch=c("-","",""), bg="white",
 							legend=c(equ1,
-							parse(text=sprintf("RMSE == %.2f", lin_reg1$rmsd))))}
+							parse(text=sprintf("RMSE == %.2f", lin_reg1$rmsd)),
+							parse(text=sprintf("R^2 == %.2f", lin_reg1$rsq))))
+}
 
 figure4 	<- function(){
 		par(mar=c(4,4,0,0), oma = c(0.5, 0.5, 3, 5), xpd=FALSE)
@@ -461,8 +462,8 @@ figure4 	<- function(){
 		axis(1, at=seq(from=xmin, to=xmax, length.out=5), labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%d %b %Y"))
 		axis(side = 2); mtext(side = 2, line=3, "Temperature [C]", col="red")
 		par(new = T)
-		plot(date, range2, ylab=NA, axes=F, xlab=NA, col="blue", pch=16)
-		axis(side = 4); mtext(side = 4, line=3, "TPW [mm]", col="blue")
+		plot(date, range2, ylab=NA, axes=F, xlab=NA, col="black", pch=16)
+		axis(side = 4); mtext(side = 4, line=3, "TPW [mm]", col="black")
 }
 
 ### Instrumentation Barplots
@@ -480,14 +481,14 @@ figure5 <- function(...){
 	}
 		title 	<- c("Clear Sky","Overcast", "Clear Sky NaN", "Overcast NaN")
 		color 	<- c("#A7D6FC", "#FCA7A7", "#C8A7FC", "#FCDEA7")
-#		mtext("Condition Distribution by Sensor",side=3, line=1, outer=TRUE)
+	#		mtext("Condition Distribution by Sensor",side=3, line=1, outer=TRUE)
 		if(length(snsr_name) <= 3){
 			tmp_var = 1
 		}else{
 			tmp_var = 1 + length(snsr_name)/3
 		}
 		for(test in 1:tmp_var){
-			par(mar=c(1, 0, 4,3), xpd=TRUE)
+			par(mar=c(1, 0, 4,4), xpd=TRUE)
 			layout(matrix(c(4,1,2,3), 2, 2, byrow=TRUE))
 
 			for(a in 1:length(snsr_name)){
@@ -527,12 +528,12 @@ figure6 	<- function(...){
 	ymin 		<- min(exp_reg$y, na.rm=TRUE)
 	title 	<- "Correlation between Mean TPW and Temperature"
 # Non-linear model (exponential)
-	plot(exp_reg$x,exp_reg$y, col=c("blueviolet"), pch=16,
+	plot(exp_reg$x,exp_reg$y, col=c("black"), pch=16,
 	xlim=c(exp_reg$xmin, exp_reg$xmax), ylim=c(ymin, ymax),
 	xlab="Zenith Sky Temperature [C]", ylab="TPW [mm]", main=NA)
 	mtext(title, cex=1, outer=TRUE, at=0.6, padj=-1)
 # Best Fit
-	curve(exp(coef(exp_reg$model)[1] + coef(exp_reg$model)[2]*x), col="Red", add=TRUE)
+	curve(exp(coef(exp_reg$model)[1]+coef(exp_reg$model)[2]*x), col="Red", add=TRUE)
 # Confidence Interval
 	lines(exp_reg$newx, exp(exp_reg$confint[ ,3]), col="blue", lty="dashed")
 	lines(exp_reg$newx, exp(exp_reg$confint[ ,2]), col="blue", lty="dashed")
@@ -555,9 +556,9 @@ figure7 	<- function(...){
 	exp_reg <- exp_regression(as.numeric(unlist(snsr_sky_calc)), avg)
 	title 	<- "Residual of the Mean TPW and Temperature Model"
 
-	plot(exp_reg$x, resid(exp_reg$model), col=c("royalblue"), pch=16,
+	plot(exp_reg$x, resid(exp_reg$model), col=c("black"), pch=16,
 	ylim=c(-1,1), xlim=c(-60, 10),
-		xlab="Zenith Sky Temperature [C]", ylab=expression(sigma), main=NA)
+		xlab="Zenith Sky Temperature [C]", ylab=bquote(.("Residual Values [")*sigma*.("]")), main=NA)
 	mtext(title, cex=1, outer=TRUE, at=0.6, padj=-1)
 	abline(h=0, col="gray")
 }
