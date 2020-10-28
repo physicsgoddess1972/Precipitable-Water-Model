@@ -22,7 +22,8 @@ modtran_plot <- function(xran,fname,offset, leg, xran1, fname1, offset1, leg1) {
         intensity <- data * pi * 10^4
         return(intensity)
     }
-    color = c("#00BCD7", "#FF9A00", "#66FF33", "#D90000", "#8F00C9", "#FF3383")
+
+    color = c("#0055D788", "#FF880088", "#AB2E8788", "#D90000", "#8F00C9", "#FF3383")
 
     par(mar=c(5,5,0,0), oma = c(0, 0, 3, 3), xpd=FALSE)
     layout(matrix(c(1,2,1,2), 2, 2, byrow=TRUE))
@@ -30,9 +31,9 @@ modtran_plot <- function(xran,fname,offset, leg, xran1, fname1, offset1, leg1) {
     plot(fname[,1], rad(fname[,2]), type='n', xlab=NA, ylab=NA,
     main=NA, xlim=xran, ylim=c(0, 30))
 
-    lines(fname[,1], rad(fname[,2]), cex=0.6, col=color[1])
-    lines(fname[,1], rad(fname[,3]), cex=0.6, col=color[2])
-    lines(fname[,1], rad(fname[,4]), cex=0.6, col=color[3])
+    lines(fname[,1], rad(fname[,2]), col=color[1], cex=0.6, lty=1)
+    lines(fname[,1], rad(fname[,3]), col=color[2], cex=0.6, lty=1)
+    lines(fname[,1], rad(fname[,4]), col=color[3], cex=0.6, lty=1)
 
     mtext(bquote("Intensity (W/"*m^2*mu*m*")"), side=2, line=2)
     mtext(bquote("Wavelength ("*mu*m*")"), side=1, line=3)
@@ -57,15 +58,21 @@ modtran_plot <- function(xran,fname,offset, leg, xran1, fname1, offset1, leg1) {
     curve(planck_curve(x, temp_planck_curve(avg0, avg2)), add=TRUE)
     curve(planck_curve(x, temp_planck_curve(avg0, avg3)), add=TRUE)
 
-    points(avg0, avg1, pch=16, col=color[1])
-    points(avg0, avg2, pch=16, col=color[2])
-    points(avg0, avg3, pch=16, col=color[3])
+    print(list(avg0, avg1))
+    print(list(avg0, avg2))
+    print(list(avg0, avg3))
+    points(avg0, avg1, pch=16, col=substr(color[1], start=1, stop=7))
+    points(avg0, avg2, pch=16, col=substr(color[2], start=1, stop=7))
+    points(avg0, avg3, pch=16, col=substr(color[3], start=1, stop=7))
 
-    text(9.5,offset[1], label=paste("T = ", round(temp_planck_curve(avg0, avg1), 2), "K"), srt=5, cex=0.75)
-    text(9.5,offset[2], label=paste("T = ", round(temp_planck_curve(avg0, avg2), 2), "K"), srt=5, cex=0.75)
-    text(9.5,offset[3], label=paste("T = ", round(temp_planck_curve(avg0, avg3), 2), "K"), srt=5, cex=0.75)
+    text(9.5,offset[1], label=paste("T = ", round(temp_planck_curve(avg0, avg1), 2), "K"), srt=15, cex=0.75)
+    text(9.5,offset[2], label=paste("T = ", round(temp_planck_curve(avg0, avg2), 2), "K"), srt=15, cex=0.75)
+    text(9.5,offset[3], label=paste("T = ", round(temp_planck_curve(avg0, avg3), 2), "K"), srt=15, cex=0.75)
 
-    legend("topright", col=color, pch=c(16,16), legend=leg)
+    legend("topright", col=c(substr(color[1], start=1, stop=7),
+                             substr(color[2], start=1, stop=7),
+                             substr(color[3], start=1, stop=7)), lty=c(0,0,0), pch=c(16,16,16), legend=c("                             ","                     ","                     "), bty="n")
+    legend("topright", col=c(color[1], color[2], color[3]), lty=c(1,1,1), pch=c("","",""), legend=leg)
 
     plot(fname1[,1], rad(fname1[,2]), type='n', xlab=NA, ylab=NA,
     main=NA, xlim=xran, ylim=c(0, 30))
@@ -97,15 +104,18 @@ modtran_plot <- function(xran,fname,offset, leg, xran1, fname1, offset1, leg1) {
     curve(planck_curve(x, temp_planck_curve(avg0, avg2)), add=TRUE)
     curve(planck_curve(x, temp_planck_curve(avg0, avg3)), add=TRUE)
 
-    points(avg0, avg1, pch=16, col=color[1])
-    points(avg0, avg2, pch=16, col=color[2])
-    points(avg0, avg3, pch=16, col=color[3])
+    points(avg0, avg1, pch=16, col=substr(color[1], start=1, stop=7))
+    points(avg0, avg2, pch=16, col=substr(color[2], start=1, stop=7))
+    points(avg0, avg3, pch=16, col=substr(color[3], start=1, stop=7))
 
-    text(9.5,offset1[1], label=paste("T = ", round(temp_planck_curve(avg0, avg1), 2), "K"), srt=5, cex=0.75)
-    text(9.5,offset1[2], label=paste("T = ", round(temp_planck_curve(avg0, avg2), 2), "K"), srt=5, cex=0.75)
-    text(9.5,offset1[3], label=paste("T = ", round(temp_planck_curve(avg0, avg3), 2), "K"), srt=5, cex=0.75)
+    text(9.5,offset1[1], label=paste("T = ", round(temp_planck_curve(avg0, avg1), 2), "K"), srt=18, cex=0.75)
+    text(9.5,offset1[2], label=paste("T = ", round(temp_planck_curve(avg0, avg2), 2), "K"), srt=18, cex=0.75)
+    text(9.5,offset1[3], label=paste("T = ", round(temp_planck_curve(avg0, avg3), 2), "K"), srt=18, cex=0.75)
 
-    legend("topright", col=color, pch=c(16,16), legend=leg1)
+    legend("topright", col=c(substr(color[1], start=1, stop=7),
+                             substr(color[2], start=1, stop=7),
+                             substr(color[3], start=1, stop=7)), lty=c(0,0,0), pch=c(16,16,16), legend=c("                     ","                     ","                     "), bty="n")
+    legend("topright", col=c(color[1], color[2], color[3]), lty=c(1,1,1), pch=c("","",""), legend=leg1)
 }
 
 modtran_plot1 <- function(fname){

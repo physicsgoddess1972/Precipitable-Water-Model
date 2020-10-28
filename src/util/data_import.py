@@ -44,21 +44,28 @@ progress = Progress(TextColumn("[bold blue]{task.fields[filename]}", justify="ri
 REQUESTS_MAX_RETRIES = int(os.getenv("REQUESTS_MAX_RETRIES", 10))
 adapter = requests.adapters.HTTPAdapter(max_retries=REQUESTS_MAX_RETRIES)
 
-config  = "../../data/config.txt"
-instr   = "../../data/instruments.txt"
+## Imports Wyoming and MesoWest Site IDs
+config  = "../../data/import.conf"
+cnfg = loadtxt(config, dtype=str, delimiter=":")
+
+## Imports Sensor information
+instr   = "../../data/instruments.conf"
+intr = loadtxt(instr, dtype=str, delimiter=",", unpack=True)[0]
+
 ## Data file used for model input
 fname   = '../../data/master_data.csv'
+
 ## Data file used for user input
 wname   = '../../data/cool_data.csv'
 
-cnfg = loadtxt(config, dtype=str, delimiter=":")
-intr = loadtxt(instr, dtype=str, delimiter=",", unpack=True)[0]
 ## Stations used
 wy_station = cnfg[1][1].split(",")
 mw_station = cnfg[0][1].split(",")
+
 ## Hours to pull
 hour    = [00, 12]
 
+## Retrives column index for sensors
 headr   = pd.read_csv(wname, delimiter=",").columns
 indx    = [[], []]
 for i in range(len(headr)):
@@ -67,19 +74,7 @@ for i in range(len(headr)):
     elif "Ground" in headr[i] or "Standard" in headr[i]:
         indx[1].append(i)
 
-full_instr = [x.strip(" (Sky)") for x in headr[indx[0]].to_list()]
-actv_instr = [x.replace("_", " ") for x in intr[1:]]
-disb_instr = list(set(full_instr) - set(actv_instr))
-for i in range(len(disb_instr)):
-    full_instr.remove(str(disb_instr[i]))
-
-disb_indx = [[], []]
-for i in range(len(indx[0])):
-    for j in range(len(disb_instr)):
-        if disb_instr[j] in headr[indx[0][i]]:
-            disb_indx[0].append(i)
-        if disb_instr[j] in headr[indx[1][i]]:
-            disb_indx[1].append(i)
+## A function that computes the closest value
 def closest(lst, K, d):
     lst = asarray(lst)
     list = []
@@ -89,14 +84,7 @@ def closest(lst, K, d):
     idx = asarray(list).argmin()
     return lst[idx]
 
-def replace_first_line(src_filename, replacement_line):
-    f = open(src_filename)
-    first_line, remainder = f.readline(), f.read()
-    t = open(src_filename,"w")
-    t.write(str(replacement_line) + "\n")
-    t.write(str(remainder))
-    t.close()
-
+## Imports Wyoming Data for specified site and date
 def wyoming_import(end_date, station):
     try:
         df_12    = WyomingUpperAir.request_data(dt.combine(end_date, datetime.time(12, 0)), station)
@@ -181,15 +169,9 @@ def impt(end_date, idx):
 		d["PW " + str(wy_station[i]).strip(" ") + "_" + "12Z"] = wy_data[i][1][1]
 		d["PW " + str(wy_station[i]).strip(" ") + "_" + "00Z"] = wy_data[i][1][2]
 	for i in range(len(sky)):
-	    if i in disb_indx[0]:
-	        d[str(disb_instr[disb_indx[0].index(i)]) + " (S_no)"] = neat[0][2][i]
-	    else:
-	        d[str(headr[indx[0]][i])] = neat[0][2][i]
+		d[str(headr[indx[0]][i])] = neat[0][2][i]
 	for i in range(len(gro)):
-	    if i in disb_indx[1]:
-	        d[str(disb_instr[disb_indx[1].index(i)]) + " (G_no)"] = neat[0][3][i]
-	    else:
-	        d[str(headr[indx[1]][i])] = neat[0][3][i]
+		d[str(headr[indx[1]][i])] = neat[0][3][i]
 	d["comments"] = str(neat[0][4][0])
 
 	out = pd.DataFrame(d)

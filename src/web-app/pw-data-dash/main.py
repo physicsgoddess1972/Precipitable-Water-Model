@@ -24,11 +24,6 @@ from numpy import *
 import datetime
 import itertools
 from datetime import datetime as dt
-#    <link rel='stylesheet' href='./assets/material.cyan-light_blue.min.css'>
-#    <link rel='stylesheet' href='./assets/style.css'>
-#    <link rel='stylesheet' href='./assets/materialize.min.css'>
-#    <link rel='stylesheet' href='./assets/dash.css'>
-
 
 layout="""
 <!doctype html>
@@ -190,12 +185,15 @@ app = dash.Dash(__name__, assets_folder='assets',
 server = app.server
 df = pd.read_csv("https://raw.githubusercontent.com/physicsgoddess1972/Precipitable-Water-Model/master/data/master_data.csv")
 
-def parse_data(contents, filename):
-	try:
-		content_type, content_string = contents.split(',')
-		decoded = base64.b64decode(content_string)
-		df = pd.read_csv(io.StringIO(decoded.decode('utf-8')))
-	except AttributeError:
+def parse_data(contents, filename, clear):
+	if clear == 0:
+		try:
+			content_type, content_string = contents.split(',')
+			decoded = base64.b64decode(content_string)
+			df = pd.read_csv(io.StringIO(decoded.decode('utf-8')))
+		except AttributeError:
+			df = pd.read_csv("https://raw.githubusercontent.com/physicsgoddess1972/Precipitable-Water-Model/master/data/master_data.csv")
+	elif clear > 0:
 		df = pd.read_csv("https://raw.githubusercontent.com/physicsgoddess1972/Precipitable-Water-Model/master/data/master_data.csv")
 	return df
 
@@ -219,14 +217,27 @@ def layout():
 	return html.Div(children=[
 	    		html.Div(children=[
 					html.Div(children=[
-						dcc.Upload(
-							id='upload-data',
-							children=[html.Button("add", className="bottom-nav__icon material-icons",
-															style={'display': 'block', 'width': '100%', 'height': '100%', 'background-color': '#FFF', 'border-color': '#DDD','border-width': '2px'})],
+						html.Div(children=[
+							dcc.Upload(
+								id='upload-data',
+								children=[html.Button("add",
+									className="bottom-nav__icon material-icons",
+									style={'display': 'block', 'width': '40px', 'height': '100%', 'background-color': '#FFF', 'border-color': '#DDD','border-width': '2px','margin-left': '14px', 'margin-right': '8px'})],
+							),
+							html.Label("Upload", style={'color': 'black', 'padding-left': '0px', 'textAlign': 'left'})
+							], style={'display': 'flex'}),
+						html.Div([
+							html.Button("clear",
+								id='clear',
+								className="bottom-nav__icon material-icons",
+								n_clicks=0,
+								style={'display': 'block', 'height': '100%', 'width': '40px', 'background-color': '#FFF', 'border-color': '#DDD','border-width': '2px', 'margin-left': '13px','margin-right': '10px'}
+							),
+							html.Label("Clear", style={'color': 'black', 'textAlign': 'left'})
+							], style={'display': 'flex'}),
+						],
+						style={'margin-right': '19em'}
 						),
-						html.Button("clear", id='clear', className="bottom-nav__icon material-icons",
-														style={'display': 'block', 'height': '50%', 'width': '100%', 'background-color': '#FFF', 'border-color': '#DDD','border-width': '2px'})],
-						style={'margin-left': '15px', 'margin-right': '20em'}),
 			        dcc.DatePickerRange(
 			            id='daterng',
 						style={'textAlign': 'right'}
@@ -279,18 +290,20 @@ app.layout = layout()
     [dash.dependencies.Output('timedata', 'value'),
 	 dash.dependencies.Output('timedata', 'options'),
 	 dash.dependencies.Output('analydata1', 'value'),
- 	 dash.dependencies.Output('analydata1', 'options'),
-	 dash.dependencies.Output('analydata2', 'value'),
- 	 dash.dependencies.Output('analydata2', 'options')],
+	 dash.dependencies.Output('analydata1', 'options'),
+  	 dash.dependencies.Output('analydata2', 'options'),
+	 dash.dependencies.Output('analydata2', 'value')],
 	[dash.dependencies.Input('upload-data', 'contents'),
-	 dash.dependencies.Input('upload-data', 'filename')])
-def update_dropdown(data, fname):
-	df = parse_data(data, fname)
-	options=[{'label': i.replace("_", " "), 'value': i} for i in df.columns[4:18]]
-	value=df.columns[4]
+	 dash.dependencies.Input('upload-data', 'filename'),
+	 dash.dependencies.Input('clear', 'n_clicks')])
+def update_dropdown(data, fname, clear):
+	df = parse_data(data, fname, clear)
+	opt = df.columns[4:18]
 
-	return value, options, value, options, value, options,
+	options	= [{'label': i.replace("_", " "), 'value': i} for i in opt]
+	value	= opt[0]
 
+	return value, options, value, options, options, value
 @app.callback(
     [dash.dependencies.Output('daterng', 'min_date_allowed'),
 	 dash.dependencies.Output('daterng', 'max_date_allowed'),
@@ -298,10 +311,11 @@ def update_dropdown(data, fname):
 	 dash.dependencies.Output('daterng', 'end_date'),
 	 dash.dependencies.Output('daterng', 'with_portal')],
 	[dash.dependencies.Input('upload-data', 'contents'),
-	 dash.dependencies.Input('upload-data', 'filename')]
+	 dash.dependencies.Input('upload-data', 'filename'),
+	 dash.dependencies.Input('clear', 'n_clicks')]
 )
-def update_timerng(data, fname):
-	df = parse_data(data, fname)
+def update_timerng(data, fname, clear):
+	df = parse_data(data, fname, clear)
 	thing = [dt.strptime(df.Date[0], "%m/%d/%Y"),
 		 dt.strptime(df.Date[len(df)-1], "%m/%d/%Y"),
 		 dt.strptime(df.Date[0], "%m/%d/%Y").date(),
@@ -315,10 +329,11 @@ def update_timerng(data, fname):
      dash.dependencies.Input('daterng', 'start_date'),
      dash.dependencies.Input('daterng', 'end_date'),
 	 dash.dependencies.Input('upload-data', 'contents'),
-	 dash.dependencies.Input('upload-data', 'filename')]
+	 dash.dependencies.Input('upload-data', 'filename'),
+	 dash.dependencies.Input('clear', 'n_clicks')]
 )
-def time_scatter_plot(timedata, start, end, data, fname):
-	df = parse_data(data, fname)
+def time_scatter_plot(timedata, start, end, data, fname, clear):
+	df = parse_data(data, fname, clear)
 	start_date  = dt.strptime(start, "%Y-%m-%d").strftime('%-m/%-d/%Y')
 	end_date    = dt.strptime(end, "%Y-%m-%d").strftime('%-m/%-d/%Y')
 
@@ -353,10 +368,11 @@ def time_scatter_plot(timedata, start, end, data, fname):
      dash.dependencies.Input('daterng', 'start_date'),
      dash.dependencies.Input('daterng', 'end_date'),
  	 dash.dependencies.Input('upload-data', 'contents'),
- 	 dash.dependencies.Input('upload-data', 'filename')]
+ 	 dash.dependencies.Input('upload-data', 'filename'),
+	 dash.dependencies.Input('clear', 'n_clicks')]
 )
-def time_heat_map(timedata, start, end, data, fname):
-	df = parse_data(data, fname)
+def time_heat_map(timedata, start, end, data, fname, clear):
+	df = parse_data(data, fname, clear)
 	s = getIndexes(df, dt.strptime(start, "%Y-%m-%d").strftime('%-m/%-d/%Y'))[0][0]
 	e = getIndexes(df, dt.strptime(end, "%Y-%m-%d").strftime('%-m/%-d/%Y'))[0][0]
 
@@ -399,10 +415,11 @@ def time_heat_map(timedata, start, end, data, fname):
      dash.dependencies.Input('daterng', 'start_date'),
      dash.dependencies.Input('daterng', 'end_date'),
   	 dash.dependencies.Input('upload-data', 'contents'),
-  	 dash.dependencies.Input('upload-data', 'filename')]
+  	 dash.dependencies.Input('upload-data', 'filename'),
+	 dash.dependencies.Input('clear', 'n_clicks')]
 )
-def analy_scatter_plot(analydata1, analydata2, start, end, data, fname):
-	df = parse_data(data, fname)
+def analy_scatter_plot(analydata1, analydata2, start, end, data, fname, clear):
+	df = parse_data(data, fname, clear)
 	start_date  = dt.strptime(start, "%Y-%m-%d").strftime('%-m/%-d/%Y')
 	end_date    = dt.strptime(end, "%Y-%m-%d").strftime('%-m/%-d/%Y')
 
