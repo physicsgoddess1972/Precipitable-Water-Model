@@ -1,4 +1,4 @@
-Date,Condition,Time,KONM_Time,KONM_RH,KONM_Temp,PW ABQ_12Z,PW ABQ_00Z,PW EPZ_12Z,PW EPZ_00Z,1610 TE (S_no),FLIR i3 (Sky),AMES 1 (Sky),AMES 2 (Sky),1610 TE (G_no),FLIR i3 (Ground),AMES 1 (Ground),AMES 2 (Ground),comments
+Date,Condition,Time,KONM_Time,KONM_RH,KONM_Temp (Ground),PW ABQ_12Z,PW ABQ_00Z,PW EPZ_12Z,PW EPZ_00Z,1610 TE (Sky),FLIR i3 (Sky),AMES 1 (Sky),AMES 2 (Sky),1610 TE (Ground),FLIR i3 (Ground),AMES 1 (Ground),AMES 2 (Ground),comments
 1/22/2019,overcast,10:38,10:35,41,5.72,5.93,6.15,8.14,6.17,-13.3,-13.2,NaN,NaN,7.2,5.3,NaN,NaN,Overcast so NaN to exclude data
 1/23/2019,clear sky,13:38,13:35,22,7.11,2.89,4.86,4.37,4.81,NaN,NaN,NaN,NaN,17,13.7,NaN,NaN,
 1/24/2019,clear sky,10:38,10:35,33,5.5,4.73,2.95,4.76,3.15,NaN,NaN,NaN,NaN,11.2,7.2,NaN,NaN,
@@ -571,7 +571,7 @@ Date,Condition,Time,KONM_Time,KONM_RH,KONM_Temp,PW ABQ_12Z,PW ABQ_00Z,PW EPZ_12Z
 8/13/2020,clear sky,10:33,10:35,21,30.89,20.25,16.63,26.65,24.85,NaN,-31.4,-5.2,-3.5,35.9,35.6,36.6,37.2,due to Corona virus quarantine measurement site moved to Vickis driveway
 8/14/2020,clear sky,10:29,10:35,23,30.28,19.61,18.9,28.98,20.57,NaN,-29.9,-7.5,-6,38.4,38.7,38.6,39.8,due to Corona virus quarantine measurement site moved to Vickis driveway
 8/15/2020,overcast,17:00,16:55,13,35.0,21.08,19.35,26.12,20.87,11.2,6.2,14.5,15,39.6,39.1,39,39.5,due to Corona virus quarantine measurement site moved to Vickis driveway
-8/16/2020,clear sky,10:05,10:15,29,27.11,19.27,21.03,25.03,25.18,NaN,-31.2,-8.9,-6.8,32.7,32.4,34.5,35.4,Vicki's last set of manual measurements before moving to South Dakota taken in her driveway
+8/16/2020,clear sky,10:05,10:15,29,27.11,19.27,21.03,25.03,25.18,NaN,-31.2,-8.9,-6.8,32.7,32.4,34.5,35.4,Vickis last set of manual measurements before moving to South Dakota taken in her driveway
 8/17/2020,clear sky,11:53,11:55,27,29.39,23.88,15.28,25.96,26.15,NaN,-22.4,-3.3,-4,44.8,44.7,47.7,46.6,Fernandos first manual measurments taken in Alta apartments on Tech campus
 8/18/2020,clear sky,11:50,11:55,24,29.72,20.42,18.98,21.12,20.78,NaN,-30.4,-6.3,-5.7,40.8,42.9,43.4,42.6,
 8/19/2020,clear sky,17:23,17:15,13,36.0,19.94,18.75,20.57,20.39,NaN,-26.8,-2.5,-0.3,46.5,47.5,48.5,48.3,Hazy outside evening measurments measurments taken due to cl
