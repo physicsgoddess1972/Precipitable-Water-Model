@@ -5,6 +5,8 @@ from random import randint
 import flask
 from flask import Flask, render_template
 
+import base64, io
+
 import dash
 #from dash.dependencies import Input, Output
 import dash_core_components as dcc
@@ -15,17 +17,18 @@ import chart_studio.plotly as py
 import plotly.graph_objects as go
 import plotly.figure_factory as ff
 
-from sklearn import *
-from sklearn import svm
-from sklearn.model_selection import train_test_split, cross_val_score
-from sklearn.metrics import confusion_matrix, classification_report, \
-                            precision_score, jaccard_score, matthews_corrcoef, f1_score
+from flask import Flask, send_from_directory
 
 import pandas as pd
 from numpy import *
 import datetime
 import itertools
 from datetime import datetime as dt
+#    <link rel='stylesheet' href='./assets/material.cyan-light_blue.min.css'>
+#    <link rel='stylesheet' href='./assets/style.css'>
+#    <link rel='stylesheet' href='./assets/materialize.min.css'>
+#    <link rel='stylesheet' href='./assets/dash.css'>
+
 
 layout="""
 <!doctype html>
@@ -34,20 +37,15 @@ layout="""
 <head>
 	<title>Precipitable Water Model</title>
 	<link rel="icon" href="./assets/icon.png">
+    <link rel="shortcut icon" type="image/png" href="./assets/icon.png">
 
-    {%favicon%}
     <script src="./assets/jquery.min.js"></script>
 	<script src='./assets/legacy.js'></script>
 	<script src='./assets/script.js'></script>
 	<script src="./assets/materialize.min.js"></script>
-
-    <link rel='stylesheet' href='./assets/material.cyan-light_blue.min.css'>
-    <link rel='stylesheet' href='./assets/style.css'>
-    <link rel='stylesheet' href='./assets/materialize.min.css'>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap">
-    <link rel='stylesheet' href='./assets/dash.css'>
     {%css%}
 </head>
 <body role='flatdoc'>
@@ -60,16 +58,16 @@ layout="""
 	</header>
 	<div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
 		<nav class="demo-navigation mdl-navigation mdl-color--blue-grey-900">
-			<a class="mdl-navigation__link" href="https://physicsgoddess1972.github.io/Precipitable-Water-Model/dash.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">dashboard</i>Home</a>
-			<a class="mdl-navigation__link" href="https://physicsgoddess1972.github.io/Precipitable-Water-Model/"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">chrome_reader_mode</i>Documentation</a>
-			<a class="mdl-navigation__link" href="https://physicsgoddess1972.github.io/Precipitable-Water-Model/contrib.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i>Contribute</a>
-			<a class="mdl-navigation__link" href="https://physicsgoddess1972.github.io/Precipitable-Water-Model/code.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">code</i>R Features</a>
-			<a class="mdl-navigation__link" onclick="$('#maintainers').modal('open');"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">face</i>The Maintainers</a>
+			<a class="mdl-navigation__link" href="https://physicsgoddess1972.github.io/Precipitable-Water-Model/dash.html"><i class="material-icons" role="presentation">dashboard</i>Home</a>
+			<a class="mdl-navigation__link" href="https://physicsgoddess1972.github.io/Precipitable-Water-Model/"><i class="material-icons" role="presentation">chrome_reader_mode</i>Documentation</a>
+			<a class="mdl-navigation__link" href="https://physicsgoddess1972.github.io/Precipitable-Water-Model/contrib.html"><i class="material-icons" role="presentation">people</i>Contribute</a>
+			<a class="mdl-navigation__link" href="https://physicsgoddess1972.github.io/Precipitable-Water-Model/code.html"><i class="material-icons" role="presentation">code</i>R Features</a>
+			<a class="mdl-navigation__link" onclick="$('#maintainers').modal('open');"><i class="material-icons" role="presentation">face</i>The Maintainers</a>
 			<hr>
-			<a class="mdl-navigation__link" href="https://github.com/physicsgoddess1972/Precipitable-Water-Model"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i>View on Github</a>
-			<a class="mdl-navigation__link" href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/archive/master.zip"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">cloud_download</i>Download the Repo</a>
-			<a class="mdl-navigation__link" href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/issues"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">bug_report</i>Bug Report</a>
-			<a class="mdl-navigation__link" href="https://physicsgoddess1972.github.io/Precipitable-Water-Model/changelog.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">new_releases</i>Changelog</a>
+			<a class="mdl-navigation__link" href="https://github.com/physicsgoddess1972/Precipitable-Water-Model"><i class="material-icons"><i class="fab fa-github big-icon"></i></i> View on Github</a>
+			<a class="mdl-navigation__link" href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/archive/master.zip"><i class="material-icons" role="presentation">cloud_download</i>Download the Repo</a>
+			<a class="mdl-navigation__link" href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/issues"><i class="material-icons" role="presentation">bug_report</i>Bug Report</a>
+			<a class="mdl-navigation__link" href="https://physicsgoddess1972.github.io/Precipitable-Water-Model/changelog.html"><i class="material-icons" role="presentation">new_releases</i>Changelog</a>
 
 		</nav>
 	</div>
@@ -86,7 +84,7 @@ layout="""
 					</tr>
 					<tr>
 						<td><i class="material-icons">public</i></td>
-						<td><a target="_blank" href="http://pharaohcola13.github.io">pharaohcola13.github.io</a></td>
+						<td><a target="_blank" href="https://spencerriley.me">spencerriley.me</a></td>
 						<td><i class="material-icons">public</i></td>
 						<td><a target="_blank" href="http://physicsgoddess1972.github.io">physicsgoddess1972.github.io</a></td>
 					</tr>
@@ -94,7 +92,7 @@ layout="""
 						<td><i class="material-icons">alternate_email</i></td>
 						<td>spencer.riley@student.nmt.edu</td>
 						<td><i class="material-icons">alternate_email</i></td>
-						<td>vicki.kelsey@student.nmt.edu</td>
+						<td>vicki.kelsey@mines.sdsmt.edu</td>
 					</tr>
 				</table>
 			</div>
@@ -127,7 +125,7 @@ layout="""
 					</tr>
 					<tr>
 						<td><i class="material-icons">public</i></td>
-						<td><a target="_blank" href="http://pharaohcola13.github.io">pharaohcola13.github.io</a></td>
+						<td><a target="_blank" href="https://spencerriley.me">spencerriley.me</a></td>
 						<td><i class="material-icons">public</i></td>
 						<td><a target="_blank" href="http://physicsgoddess1972.github.io">physicsgoddess1972.github.io</a></td>
 					</tr>
@@ -135,7 +133,7 @@ layout="""
 						<td><i class="material-icons">alternate_email</i></td>
 						<td>spencer.riley@student.nmt.edu</td>
 						<td><i class="material-icons">alternate_email</i></td>
-						<td>vicki.kelsey@student.nmt.edu</td>
+						<td>vicki.kelsey@mines.sdsmt.edu</td>
 					</tr>
 				</table>
 			</div>
@@ -166,7 +164,7 @@ layout="""
 				<i class="bottom-nav__icon material-icons" role="presentation" style="margin-bottom: -10px; margin-top: -18px">memory</i>
 				<span class="bottom-nav__label">Machine Learning</span>
 			</a>
-			<a class="bottom-nav__action" href="https://pw-data-dash.uc.r.appspot.com/">
+			<a class="bottom-nav__action--current" href="https://pw-data-dash.uc.r.appspot.com/">
 				<i class="bottom-nav__icon material-icons" role="presentation" style="margin-bottom: -10px; margin-top: -18px">insights</i>
 				<span class="bottom-nav__label">Data Dashboard</span>
 			</a>
@@ -190,8 +188,16 @@ app = dash.Dash(__name__, assets_folder='assets',
 			  index_string=layout, external_scripts=['https://code.getmdl.io/1.3.0/material.min.js'])
 
 server = app.server
-
 df = pd.read_csv("https://raw.githubusercontent.com/physicsgoddess1972/Precipitable-Water-Model/master/data/master_data.csv")
+
+def parse_data(contents, filename):
+	try:
+		content_type, content_string = contents.split(',')
+		decoded = base64.b64decode(content_string)
+		df = pd.read_csv(io.StringIO(decoded.decode('utf-8')))
+	except AttributeError:
+		df = pd.read_csv("https://raw.githubusercontent.com/physicsgoddess1972/Precipitable-Water-Model/master/data/master_data.csv")
+	return df
 
 def getIndexes(dfObj, value):
     ''' Get index positions of value in dataframe i.e. dfObj.'''
@@ -209,166 +215,218 @@ def getIndexes(dfObj, value):
     # Return a list of tuples indicating the positions of value in the dataframe
     return listOfPos
 
-app.layout = html.Div(children=[
-    html.Div(children=[
-        dcc.DatePickerRange(
-            id='daterng',
-            min_date_allowed=dt.strptime(df.Date[0], "%m/%d/%Y"),
-            max_date_allowed=dt.strptime(df.Date[len(df)-1], "%m/%d/%Y"),
-            start_date=dt.strptime(df.Date[0], "%m/%d/%Y").date(),
-            with_portal=True,
-            end_date=dt.strptime(df.Date[len(df)-1], "%m/%d/%Y").date()
-        )
-    ], style={'padding-bottom': 20, 'textAlign': 'center'}),
-    dcc.Tabs([
-        dcc.Tab(label="Time Series", children=[
-            html.Div([
-                html.Label("Y axis: ",
-                           style={"color": "#000",
-                                  'padding-top': 10,
-                                  'padding-left': 10}),
-                dcc.Dropdown(id='timedata',
-                             options=[{'label': i.replace("_", " "), 'value': i} for i in df.columns[4:18]],
-                             value=df.columns[4],
-                             style={'padding-left': 10, 'width': 250}),
-                 ], style={'display': 'flex', 'margin-top': 20}),
-            dcc.Tabs([
-                dcc.Tab(label="Scatter Plot", children=[
-                    dcc.Graph(id='scatter-time')
-                ]),
-                dcc.Tab(label="Heatmaps", children=[
-                    dcc.Graph(id='heat-time')
-                ])
-            ], style={'padding-top': 20})
-        ]),
-        dcc.Tab(label="Analytical", children=[
-            html.Div([
-                html.Label("X axis: ",
-                           style={"color": "#000",
-                                  'padding-top': 15,
-                                  'margin-right': 10}),
-                dcc.Dropdown(id='analydata1',
-                             options=[{'label': i.replace("_", " "), 'value': i} for i in df.columns[4:18]],
-                             value=df.columns[4], style={'width': 250, 'margin-right': 50}),
-                html.Label("Y axis: ",
-                           style={"color": "#000",
-                                  'padding-top': 15,'margin-right': 10}),
-                dcc.Dropdown(id='analydata2',
-                             options=[{'label': i.replace("_", " "), 'value': i} for i in df.columns[4:18]],
-                             value=df.columns[5], style={'width': 250}),
-                     ], style={'display': 'flex', 'margin-top': 10}),
-            dcc.Graph(id='scatter-analy')
+def layout():
+	return html.Div(children=[
+	    		html.Div(children=[
+					html.Div(children=[
+						dcc.Upload(
+							id='upload-data',
+							children=[html.Button("add", className="bottom-nav__icon material-icons",
+															style={'display': 'block', 'width': '100%', 'height': '100%', 'background-color': '#FFF', 'border-color': '#DDD','border-width': '2px'})],
+						),
+						html.Button("clear", id='clear', className="bottom-nav__icon material-icons",
+														style={'display': 'block', 'height': '50%', 'width': '100%', 'background-color': '#FFF', 'border-color': '#DDD','border-width': '2px'})],
+						style={'margin-left': '15px', 'margin-right': '20em'}),
+			        dcc.DatePickerRange(
+			            id='daterng',
+						style={'textAlign': 'right'}
+	        ),
+	    ], style={'padding-bottom': 20, 'display': 'flex'}),
+	    dcc.Tabs([
+	        dcc.Tab(label="Time Series", children=[
+	            html.Div([
+	                html.Label("Y axis: ",
+	                           style={"color": "#000",
+	                                  'padding-top': 10,
+	                                  'padding-left': 10}),
+	                dcc.Dropdown(id='timedata', style={'padding-left': 10, 'width': 250}),
+	                 ], style={'display': 'flex', 'margin-top': 20}),
+	            dcc.Tabs([
+	                dcc.Tab(label="Scatter Plot", children=[
+	                    dcc.Graph(id='scatter-time')
+	                ]),
+	                dcc.Tab(label="Heatmaps", children=[
+	                    dcc.Graph(id='heat-time')
+	                ])
+	            ], style={'padding-top': 20})
+	        ]),
+	        dcc.Tab(label="Analytical", children=[
+	            html.Div([
+	                html.Label("X axis: ",
+	                           style={"color": "#000",
+	                                  'padding-top': 15,
+	                                  'margin-right': 10}),
+	                dcc.Dropdown(id='analydata1', style={'width': 250, 'margin-right': 50}),
+	                html.Label("Y axis: ",
+	                           style={"color": "#000",
+	                                  'padding-top': 15,'margin-right': 10}),
+	                dcc.Dropdown(id='analydata2', style={'width': 250}),
+	                     ], style={'display': 'flex', 'margin-top': 10}),
+	            dcc.Graph(id='scatter-analy')
 
-        ]),
-        # dcc.Tab(label="Charts", children=[
-        #     dcc.Dropdown(id='chart-data',
-        #                  options=[{'label': i, 'value': i} for i in ['Ground Temperature', 'Sky Temperature', 'Delta Temperature']],
-        #                  value="Ground Temperature"),
-        #     dcc.Graph(id='chart')
-        # ])
-    ])
-])
+	        ]),
+	        # dcc.Tab(label="Charts", children=[
+	        #     dcc.Dropdown(id='chart-data',
+	        #                  options=[{'label': i, 'value': i} for i in ['Ground Temperature', 'Sky Temperature', 'Delta Temperature']],
+	        #                  value="Ground Temperature"),
+	        #     dcc.Graph(id='chart')
+	        # ])
+	    ])
+	])
+app.layout = layout()
+
+@app.callback(
+    [dash.dependencies.Output('timedata', 'value'),
+	 dash.dependencies.Output('timedata', 'options'),
+	 dash.dependencies.Output('analydata1', 'value'),
+ 	 dash.dependencies.Output('analydata1', 'options'),
+	 dash.dependencies.Output('analydata2', 'value'),
+ 	 dash.dependencies.Output('analydata2', 'options')],
+	[dash.dependencies.Input('upload-data', 'contents'),
+	 dash.dependencies.Input('upload-data', 'filename')])
+def update_dropdown(data, fname):
+	df = parse_data(data, fname)
+	options=[{'label': i.replace("_", " "), 'value': i} for i in df.columns[4:18]]
+	value=df.columns[4]
+
+	return value, options, value, options, value, options,
+
+@app.callback(
+    [dash.dependencies.Output('daterng', 'min_date_allowed'),
+	 dash.dependencies.Output('daterng', 'max_date_allowed'),
+	 dash.dependencies.Output('daterng', 'start_date'),
+	 dash.dependencies.Output('daterng', 'end_date'),
+	 dash.dependencies.Output('daterng', 'with_portal')],
+	[dash.dependencies.Input('upload-data', 'contents'),
+	 dash.dependencies.Input('upload-data', 'filename')]
+)
+def update_timerng(data, fname):
+	df = parse_data(data, fname)
+	thing = [dt.strptime(df.Date[0], "%m/%d/%Y"),
+		 dt.strptime(df.Date[len(df)-1], "%m/%d/%Y"),
+		 dt.strptime(df.Date[0], "%m/%d/%Y").date(),
+		 dt.strptime(df.Date[len(df)-1], "%m/%d/%Y").date(),
+		 True]
+	return thing[0], thing[1], thing[2], thing[3], thing[4]
+
 @app.callback(
     dash.dependencies.Output('scatter-time', 'figure'),
     [dash.dependencies.Input('timedata', 'value'),
      dash.dependencies.Input('daterng', 'start_date'),
-     dash.dependencies.Input('daterng', 'end_date')]
+     dash.dependencies.Input('daterng', 'end_date'),
+	 dash.dependencies.Input('upload-data', 'contents'),
+	 dash.dependencies.Input('upload-data', 'filename')]
 )
-def time_scatter_plot(timedata, start, end):
-    start_date  = dt.strptime(start, "%Y-%m-%d").strftime('%-m/%-d/%Y')
-    end_date    = dt.strptime(end, "%Y-%m-%d").strftime('%-m/%-d/%Y')
+def time_scatter_plot(timedata, start, end, data, fname):
+	df = parse_data(data, fname)
+	start_date  = dt.strptime(start, "%Y-%m-%d").strftime('%-m/%-d/%Y')
+	end_date    = dt.strptime(end, "%Y-%m-%d").strftime('%-m/%-d/%Y')
 
-    s = getIndexes(df, start_date)[0][0]
-    e = getIndexes(df, end_date)[0][0]
+	s = getIndexes(df, start_date)[0][0]
+	e = getIndexes(df, end_date)[0][0]
 
-    dates = linspace(s, e, 5, dtype=int)
-    dlabel = [df.Date[i] for i in dates]
-    print(dates)
-    print(dlabel)
+	hovertext = list()
+	for yi, xi in zip(df[timedata][s:e],df.Date[s:e]):
+	    hovertext.append('{}: {}<br />Date: {}'.format(timedata.replace("_", " "), yi, xi))
 
-    data = [{
-        'x': df.Date[s:e],
-        'y': df[timedata][s:e],
-        'mode': 'markers',
-        'marker': {'color': '#0897FF'},
-    }]
+	data = [{
+	    'x': df.Date[s:e],
+	    'y': df[timedata][s:e],
+	    'mode': 'markers',
+	    'marker': {'color': '#0897FF'},
+	     'text':hovertext,
+	     'hoverinfo':'text',
+	}]
 
-    return {'data': data,
-            'layout': {'xaxis': {'tickvals': dates,
-                                 'ticktext': dlabel,
-                                 'tickfont': {'size': 10, 'color': 'black'},
-                                 'title': "Date"},
-                       'yaxis': {'title': timedata,
-                                 'tickfont': {'size': 10, 'color': 'black'}},
-                       'title': "Time Series of {}".format(timedata),
-                     }
-            }
+	return {'data': data,
+	        'layout': {'xaxis': {'nticks': 5,
+	                             'tickfont': {'size': 10, 'color': 'black'},
+	                             'title': "Date"},
+	                   'yaxis': {'title': timedata.replace("_", " "),
+	                             'tickfont': {'size': 10, 'color': 'black'}},
+	                   'title': "Time Series of {}".format(timedata.replace("_", " ")),
+	                 }
+	        }
 @app.callback(
     dash.dependencies.Output('heat-time', 'figure'),
     [dash.dependencies.Input('timedata', 'value'),
      dash.dependencies.Input('daterng', 'start_date'),
-     dash.dependencies.Input('daterng', 'end_date')]
+     dash.dependencies.Input('daterng', 'end_date'),
+ 	 dash.dependencies.Input('upload-data', 'contents'),
+ 	 dash.dependencies.Input('upload-data', 'filename')]
 )
-def time_heat_map(timedata, start, end):
-    s = getIndexes(df, dt.strptime(start, "%Y-%m-%d").strftime('%-m/%-d/%Y'))[0][0]
-    e = getIndexes(df, dt.strptime(end, "%Y-%m-%d").strftime('%-m/%-d/%Y'))[0][0]
+def time_heat_map(timedata, start, end, data, fname):
+	df = parse_data(data, fname)
+	s = getIndexes(df, dt.strptime(start, "%Y-%m-%d").strftime('%-m/%-d/%Y'))[0][0]
+	e = getIndexes(df, dt.strptime(end, "%Y-%m-%d").strftime('%-m/%-d/%Y'))[0][0]
 
-    delta = pd.to_datetime(df.Date[e]) - pd.to_datetime(df.Date[s])
+	delta = pd.to_datetime(df.Date[e]) - pd.to_datetime(df.Date[s])
+	dates_in_year = [pd.to_datetime(df.Date[s]) + datetime.timedelta(i) for i in range(delta.days+1)]
 
-    dates_in_year = [pd.to_datetime(df.Date[s]) + datetime.timedelta(i) for i in range(delta.days+1)]
+	hovertext = list()
+	for yi, xi in zip(df[timedata][s:e],df.Date[s:e]):
+	    hovertext.append('{}: {}<br />Date: {}'.format(timedata.replace("_", " "), yi, xi))
 
-    data = [go.Heatmap(
-                     x=list(range(0,len(dates_in_year))),
-                     y=ones(len(dates_in_year)),
-                     z=df[timedata][s:e],
-                     colorscale='Jet',
-                     text=df.Date[s:e],
-                     # hoverinfo=['text'],
-                     # hovertemplate='Z: %{z:.2f}'
-                     )]
-    dates = linspace(s, e, 5, dtype=int)
+	data = [go.Heatmap(
+	                 x=df.Date[s:e],
+	                 y=ones(len(dates_in_year)),
+	                 z=df[timedata][s:e],
+	                 colorscale='Jet',
+	                 text=hovertext,
+	                 hoverinfo='text',
+	                 )]
 
-    return {'data': data,
-            'layout': {'height': 500,
-                       'xaxis': {'tickvals': dates,
-                                 'ticktext': [df.Date[i] for i in dates],
-                                 'tickfont': {'size': 10, 'color': 'black'},
-                                 'title': "Date",
-                                 'showline': False,
-                                 'showgrid': False,
-                                 'zeroline': False},
-                       'yaxis': {'tickvals': False,
-                                 'showline': False,
-                                 'showgrid': False,
-                                 'zeroline': False,
-                                 'visible': False},
-                       'title': "Time Series Heatmap of {}".format(timedata)}}
+	return {'data': data,
+	        'layout': {'height': 500,
+	                   'width': 700,
+	                   'margin': {'l':30, 'r':0, 't':100, 'b':50},
+	                   'xaxis': {'nticks': 5,
+	                             'tickfont': {'size': 10, 'color': 'black'},
+	                             'title': "Date",
+	                             'showline': False,
+	                             'showgrid': False,
+	                             'zeroline': False},
+	                   'yaxis': {'tickvals': False,
+	                             'showline': False,
+	                             'showgrid': False,
+	                             'zeroline': False,
+	                             'visible': False},
+	                   'title': "Time Series Heatmap of {}".format(timedata.replace("_", " "))}}
 @app.callback(
     dash.dependencies.Output('scatter-analy', 'figure'),
     [dash.dependencies.Input('analydata1', 'value'),
      dash.dependencies.Input('analydata2', 'value'),
      dash.dependencies.Input('daterng', 'start_date'),
-     dash.dependencies.Input('daterng', 'end_date')]
+     dash.dependencies.Input('daterng', 'end_date'),
+  	 dash.dependencies.Input('upload-data', 'contents'),
+  	 dash.dependencies.Input('upload-data', 'filename')]
 )
-def analy_scatter_plot(analydata1, analydata2, start, end):
-    start_date  = dt.strptime(start, "%Y-%m-%d").strftime('%-m/%-d/%Y')
-    end_date    = dt.strptime(end, "%Y-%m-%d").strftime('%-m/%-d/%Y')
+def analy_scatter_plot(analydata1, analydata2, start, end, data, fname):
+	df = parse_data(data, fname)
+	start_date  = dt.strptime(start, "%Y-%m-%d").strftime('%-m/%-d/%Y')
+	end_date    = dt.strptime(end, "%Y-%m-%d").strftime('%-m/%-d/%Y')
 
-    s = getIndexes(df, start_date)[0][0]
-    e = getIndexes(df, end_date)[0][0]
+	s = getIndexes(df, start_date)[0][0]
+	e = getIndexes(df, end_date)[0][0]
 
-    data = [{
-        'x': df[analydata1][s:e],
-        'y': df[analydata2][s:e],
-        'mode': 'markers',
-        'marker': {'color': '#0897FF'},
-    }]
-    return {'data': data,
-            'layout': {'xaxis': {'tickfont': {'size': 10, 'color': 'black'},
-                                 'title': analydata1},
-                       'yaxis': {'title': analydata2,
-                                 'tickfont': {'size': 10, 'color': 'black'}},
-                        'title': "Comparison between {} and {}".format(analydata1, analydata2)}
+	hovertext = list()
+	for yi, xi,zi in zip(df[analydata1][s:e],df[analydata2][s:e],df.Date[s:e]):
+	    hovertext.append('{}: {}<br />{}: {}<br />Date: {}'.format(analydata1.replace("_", " "), yi, analydata2.replace("_", " "), xi, zi))
+
+	data = [{
+	    'x': df[analydata1][s:e],
+	    'y': df[analydata2][s:e],
+	    'mode': 'markers',
+	    'marker': {'color': '#0897FF'},
+	    'text':hovertext,
+	    'hoverinfo':'text',
+	}]
+	return {'data': data,
+	        'layout': {'xaxis': {'tickfont': {'size': 10, 'color': 'black'},
+	                             'title': analydata1.replace("_", " ")},
+	                   'yaxis': {'title': analydata2.replace("_", " "),
+	                             'tickfont': {'size': 10, 'color': 'black'}},
+	                    'title': "Comparison between {} and {}".format(analydata1.replace("_", " "), analydata2.replace("_", " "))}
             }
 # def charts():
 #     start_date  = dt.strptime(start, "%Y-%m-%d").strftime('%-m/%-d/%Y')

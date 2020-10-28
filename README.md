@@ -164,14 +164,14 @@ For example, if the order of the sensors in <code>instruments.txt</code> is 1610
 			<td><code>MM/DD/YYYY</code></td>
 		</tr>
 		<tr>
+			<td><b>Time</b></td>
+			<td>Time</td>
+			<td><code>HH:MM</code></td>
+		</tr>
+		<tr>
 			<td><b>Condition</b></td>
 			<td>Condition</td>
 			<td>clear sky / overcast</td>
-		</tr>
-		<tr>
-			<td><b>Precipitable Water</b></td>
-			<td>PW AAA_NNZ</td>
-			<td>Number</td>
 		</tr>
 		<tr>
 			<td><b>Sky Temperature</b></td>
