@@ -113,7 +113,7 @@ class svm_analysis:
 
         xx, yy = meshgrid(arange(x_min, x_max, 0.2),
                             arange(y_min, y_max, 0.2))
-        print(svc.coef_)
+        #print(svc.coef_)
 # X-components of the support vectors and decision boundary
         db_x    = linspace(x_min, x_max)
 # X-component of the decision boundary
