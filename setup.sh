@@ -1,4 +1,4 @@
-####
+	####
 ## Title: 	setup.sh
 ## Author: 	Spencer Riley / Vicki Kelsey
 ## Documentation Page: https://git.io/fjVHo
@@ -15,14 +15,14 @@ while getopts "ighxca" opt; do
 	i)
 		echo -e "\e[96m ~~~~ Installing Packages ~~~~\e[0m"
 # System Requirements
-                sudo apt-get install gfortran libbz2-dev libv8-dev libcurl4-openssl-dev libxml2-dev libssl-d$
-                sudo apt-get install zlib1g-dev libpcre3-dev liblzma-dev python3-pip python3-dev g++
-                sudo pip3 install numpy pandas metpy requests rich sklearn seaborn cvxopt
-                sudo pip3 install git+https://github.com/Unidata/siphon.git
-                curl -O https://cran.rstudio.com/src/base/R-3/R-3.6.1.tar.gz
-                tar -zxf ./R-3.6.1.tar.gz
-                cd ./R-3.6.1/ && ./configure --with-readline=no --with-x=no --with-cairo=yes && sudo make &&$
-                cd ../ && sudo rm -r ./R-3.6.1/ && rm R-3.6.1.tar.gz
+		sudo apt-get install gfortran libbz2-dev libv8-dev libcurl4-openssl-dev libxml2-dev libssl-dev unzip
+		sudo apt-get install zlib1g-dev libpcre3-dev liblzma-dev python3-pip python3-dev g++
+		sudo pip3 install numpy pandas metpy requests rich sklearn seaborn cvxopt
+		sudo pip3 install git+https://github.com/Unidata/siphon.git
+		curl -O https://cran.rstudio.com/src/base/R-3/R-3.6.1.tar.gz
+		tar -zxf ./R-3.6.1.tar.gz
+		cd ./R-3.6.1/ && ./configure --with-readline=no --with-x=no --with-cairo=yes && sudo make && sudo make install
+		cd ../ && sudo rm -r ./R-3.6.1/ && rm R-3.6.1.tar.gz
 ## R Package Requirements
 	  sudo su - -c "R -e \"install.packages('crayon', repos='https://cran.rstudio.com/', dependencies=TRUE)\""
 	  sudo su - -c "R -e \"install.packages('argparse', repos='https://cran.rstudio.com/')\""
