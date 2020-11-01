@@ -178,9 +178,6 @@ def impt(end_date, idx):
 
 	if os.stat(fname).st_size == 0:
 	    out_data = out.to_csv(fname, index=False, header=True)
-	elif list(out.columns) != pd.read_csv(fname, delimiter=",").columns.to_list():
-	    replace_first_line(fname, ",".join([x.strip() for x in list(out.columns)]))
-	    out_data = out.to_csv(fname, index=False, mode="a", header=False)
 	else:
 	    out_data = out.to_csv(fname, index=False, mode="a", header=False)
 
