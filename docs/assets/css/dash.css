@@ -105,6 +105,11 @@ html, body {
     align-items: center;
     font-weight: 500;
     background-color: #00BCD4;
+
+}
+
+.top-nav {
+  border-radius: 0px;
 }
 
 .demo-layout .demo-navigation .mdl-navigation__link:hover {
