@@ -125,7 +125,7 @@ pw_place 	<- gsub("_.*$", "", gsub(" ", "_", pw_name))
 # Pulls general time tag from label
 pw_time 	<- gsub("*..._", "", gsub(" ", "_", pw_name))
 # Pulls the column numbers that have the general location tag
-for (j in unique(pw_place)){
+for (j in pw_place){
 	col_pwpl <- append(col_pwpl, list(grep(j, pw_place)))
 }
 # Pulls the column numbers that have the general time tag
@@ -288,7 +288,7 @@ for (i in 1:length(col_pwpl)){
 			array(overcast[grep("clear_pw", names(overcast), fixed=TRUE)][j])
 	}
 	tmp <- loc_avg[i]
-	loc_avg[[ paste("loc_avg",i,sep="") ]] <- Reduce("+", tmp[[ 1 ]])/length(col_pwpl)
+	loc_avg[[ paste("loc_avg",i,sep="") ]] <- Reduce("+", tmp[[1]])/length(col_pwpl)
 }
 for (i in 1:length(col_pwtm)){
 	tmp <- unlist(col_pwtm[i])
@@ -297,8 +297,9 @@ for (i in 1:length(col_pwtm)){
 			array(overcast[grep("clear_pw", names(overcast), fixed=TRUE)][j])
 	}
 	tmp <- tmp_avg[j]
-	tmp_avg[[ paste("tmp_avg",i,sep="") ]] <- Reduce("+", tmp[[ 1 ]])/length(col_pwtm)
+	tmp_avg[[ paste("tmp_avg",i,sep="") ]] <- Reduce("+", tmp[[1]])/length(col_pwtm)
 }
+print(tmp_avg)
 ## Takes super average of the precipitable water measurements
 avg 		<-  Reduce("+", pw_loc)/length(pw_loc)
 
@@ -351,6 +352,7 @@ for (i in 1:length(col_pwpl)){
 	tmp <- loc_avgo[i]
 	loc_avgo[[ paste("loc_avgo",i,sep="") ]] <- Reduce("+", tmp[[ 1 ]])/length(col_pwpl)
 }
+## Takes temporal average of the precipitable water measurements
 for (i in 1:length(col_pwtm)){
 	tmp <- unlist(col_pwtm[i])
 	for (j in col_pwtm[i]){
@@ -525,7 +527,7 @@ time3 	<- function(overcast=args$overcast){
 ## PW Time Series
 time4		<- function(overcast=args$overcast){
 	# Margin Configuration
-		par(mar=c(5.1, 5.1, 5.1, 5.3), xpd=TRUE)
+	par(mar=c(5.1, 5.1, 5.1, 5.3), xpd=TRUE)
 	# Limits of the x-direction
 	xmin <- min(clear_date, na.rm=TRUE)
 	xmax <- max(clear_date, na.rm=TRUE)
@@ -574,7 +576,7 @@ time5 	<- function(overcast=args$overcast){
 ## Temporal Mean PW Time Series
 time6 	<- function(overcast=args$overcast){
 	# Margin Configuration
-		par(mar=c(5.1, 5.1, 5.1, 5.3), xpd=TRUE)
+	par(mar=c(5.1, 5.1, 5.1, 5.3), xpd=TRUE)
 	# Limits of the x-direction
 	xmin <- min(clear_date, na.rm=TRUE)
 	xmax <- max(clear_date, na.rm=TRUE)
@@ -596,29 +598,31 @@ time6 	<- function(overcast=args$overcast){
 	 axis(1, at=seq(from=xmin, to=xmax, length.out=5), labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%d %b %Y"))
 
 	for(i in 2:length(range)){
+		print(i)
 		points(date, t(unlist(range[i])), pch=16, col=pw_color[i])
 	}
 	legend("topright", inset=c(-0.153, 0), legend=c(unique(pw_place)), col=pw_color, pch=c(16,16, 16))}
 ## Locational Mean PW Time Series
 time7 	<- function(overcast=args$overcast){
 	# Margin Configuration
-		par(mar=c(5.1, 5.1, 5.1, 5.3), xpd=TRUE)
+	par(mar=c(5.1, 5.1, 5.1, 5.3), xpd=TRUE)
 	# Limits of the x-direction
 	xmin <- min(clear_date, na.rm=TRUE)
 	xmax <- max(clear_date, na.rm=TRUE)
 	if(overcast){
 		ymax		<- max(as.numeric(unlist(tmp_avgo)), na.rm=TRUE)
 		ymin		<- min(as.numeric(unlist(tmp_avgo)), na.rm=TRUE)
-		range 		<- tmp_avgo
-		title 		<- "Locational Average TPW Time Series \n Condition: Overcast"
+		range 	<- tmp_avgo
+		title 	<- "Locational Average TPW Time Series \n Condition: Overcast"
 		date 		<- over_date
 	}else{
 		ymax		<- max(as.numeric(unlist(tmp_avg)), na.rm=TRUE)
 		ymin		<- min(as.numeric(unlist(tmp_avg)), na.rm=TRUE)
-		range 		<- tmp_avg
-		title 		<- "Locational Average TPW Time Series \n Condition: Clear Sky"
+		range 	<- tmp_avg
+		title 	<- "Locational Average TPW Time Series \n Condition: Clear Sky"
 		date 		<- clear_date
 	}
+	print(pw_color)
 	plot(date,  t(unlist(range[1])), xlab="Date", ylab="TPW [mm]", xaxt='n',
 		 xlim=c(xmin, xmax), ylim=c(ymin, ymax), main=title, pch=16, col=pw_color[1])
 	axis(1, at=seq(from=xmin, to=xmax, length.out=5), labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%d %b %Y"))
@@ -626,7 +630,8 @@ time7 	<- function(overcast=args$overcast){
 	for(i in 2:length(range)){
 		points(date, t(unlist(range[i])), pch=16, col=pw_color[i])
 	}
-	legend("topright", inset=c(-0.14, 0), legend=c(unique(pw_time)), col=pw_color, pch=c(16,16, 16))}
+	legend("topright", inset=c(-0.14, 0), legend=c(unique(pw_time)), col=pw_color, pch=c(16,16, 16))
+}
 ## Mean PW Time Series
 time8 	<- function(overcast=args$overcast){
 	# Margin Configuration
@@ -757,6 +762,7 @@ time10 	<- function(overcast=args$overcast){
 
 ## Individual Location plots
 plots1 	<- function(..., overcast=args$overcast){
+	print("1")
 	par(mar=c(5.1, 5.1, 5.1, 5.3), xpd=TRUE)
 	if(overcast){
 		xmax 	<- max(as.numeric(unlist(snsr_skyo)), na.rm=TRUE)
@@ -784,6 +790,7 @@ plots1 	<- function(..., overcast=args$overcast){
 }
 ## Locational Average Plots
 plots2 	<- function(..., overcast=args$overcast){
+	print("2")
 	par(mar=c(5.1, 5.1, 5.1, 5.3), xpd=TRUE)
 	if(overcast){
 		xmax 	<- max(as.numeric(unlist(snsr_sky_calco)), na.rm=TRUE)
@@ -802,7 +809,8 @@ plots2 	<- function(..., overcast=args$overcast){
 		range 	<- loc_avg
 		title 	<- "Correlation between Temporal Mean TPW and Temperature \n Condition: Clear Sky"
 	}
-
+	print(range)
+	print(length(x))
 	plot(x,  t(unlist(range[1])), xlab="Zenith Sky Temperature [C]", ylab="TPW [mm]",
 	xlim=c(xmin, xmax), ylim=c(ymin, ymax), main=title, pch=16, col=colscheme(range)[1])
 
@@ -813,6 +821,7 @@ plots2 	<- function(..., overcast=args$overcast){
 }
 ## Temporal Average Plots
 plots3 	<- function(..., overcast=args$overcast){
+	print("3")
 	par(mar=c(5.1, 5.1, 5.1, 5.3), xpd=TRUE)
 
 	if(overcast){
@@ -1239,6 +1248,7 @@ if(args$data){
 	if(args$ml){
 		ml_pw <- ml_pw_avg <- ml_temp <- ml_temp_avg <- ml_rh <- list()
 		## Average PW
+		print(col_pw)
 		for(a in 1:length(col_pw)){
 			ml_pw[[ paste("ml_pw", a, sep="") ]] <- as.numeric(unlist(fname[col_pw[a]]))
 		}
@@ -1274,6 +1284,7 @@ if(args$data){
 		cond 		<- fname[,col_con]
 	# Pulls the data
 		norm  		<- na.omit(data.frame(list(x=date, y1=avg_temp, y2=avg_pw, y3=avg_rh, c=cond)))
+		print(c(norm$c))
 		data 		<- data.frame(list(date=c(norm$x),avg_temp=c(norm$y1), avg_pw=c(norm$y2), avg_rh=c(norm$y3), cond=c(norm$c)))
 		colnames(data) <- c("date", "avg_temp", "avg_pw", "avg_rh", "condition")
 	# Writes the data to a csv

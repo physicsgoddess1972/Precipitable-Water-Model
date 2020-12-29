@@ -84,7 +84,7 @@ Date,Vicki time,Conditions,1610 TE (Sky),FLIRi3 (Sky),AMES 1 (Sky),AMES 2 (Sky),
 4/14/2019,11:15,clear sky,NaN,NaN,-31.7,NaN,NaN,28,27.7,29.2,NaN,NaN,
 4/15/2019,13:15,clear sky,NaN,NaN,-15.5,NaN,NaN,41.2,40.9,43.9,NaN,NaN,
 4/16/2019,9:13,clear sky,NaN,NaN,-28.2,NaN,NaN,22.5,23.1,23.7,NaN,NaN,
-4/17/2019,10:52,overcast,3.4,2.9,2.7,NaN,NaN,16.6,15.6,15.2,NaN,NaN,it was raining when measurements were taken 
+4/17/2019,10:52,overcast,3.4,2.9,2.7,NaN,NaN,16.6,15.6,15.2,NaN,NaN,it was raining when measurements were taken
 4/18/2019,9:22,clear sky,NaN,NaN,-28.6,NaN,NaN,17.4,16.5,17.5,NaN,NaN,
 4/19/2019,10:30,clear sky,NaN,NaN,-27.5,NaN,NaN,27.2,27.8,28.8,NaN,NaN,measurements taken by Sooraj Bhatia as Vicki doing pilgrimage to Chimayo
 4/20/2019,16:26,clear sky,NaN,NaN,-18.8,NaN,NaN,40.5,40.5,43.2,NaN,NaN,later measurements due to heat stroke
@@ -223,7 +223,7 @@ Date,Vicki time,Conditions,1610 TE (Sky),FLIRi3 (Sky),AMES 1 (Sky),AMES 2 (Sky),
 8/31/2019,19:24,overcast,0.4,-2.2,11.5,11.6,NaN,35.9,36.2,37.5,37.4,NaN,
 9/1/2019,11:00,clear sky,NaN,-27.9,-3.2,-3.7,NaN,41.6,41.7,44.7,43.9,NaN,
 9/2/2019,19:33,clear sky,NaN,-28.2,-6.1,-5,NaN,33.9,34.2,34.7,35.2,NaN,
-9/3/2019,10:10,clear sky,NaN,-30.7,-8.4,-7.8,NaN,36.4,36.1,38.2,38.3,NaN,ABQ 9/4 00Z has no reading listed 
+9/3/2019,10:10,clear sky,NaN,-30.7,-8.4,-7.8,NaN,36.4,36.1,38.2,38.3,NaN,ABQ 9/4 00Z has no reading listed
 9/4/2019,11:03,clear sky,NaN,-30.9,-6.4,-5.3,NaN,41.5,40.6,44.1,44.8,NaN,
 9/5/2019,10:30,clear sky,NaN,-30.9,-7.1,-6.5,NaN,36.8,36.5,38.6,39.3,NaN,
 9/6/2019,10:10,clear sky,NaN,-33.8,-8.9,-7.8,NaN,34.7,34.5,37.1,37.4,NaN,
@@ -574,7 +574,7 @@ Date,Vicki time,Conditions,1610 TE (Sky),FLIRi3 (Sky),AMES 1 (Sky),AMES 2 (Sky),
 8/16/2020,10:05,clear sky,NaN,-31.2,-8.9,-6.8,NaN,32.7,32.4,34.5,35.4,NaN,Vickis last set of manual measurements before moving to South Dakota taken in her driveway
 8/17/2020,11:53,clear sky,NaN,-22.4,-3.3,-4,NaN,44.8,44.7,47.7,46.6,NaN,Fernandos first manual measurments taken in Alta apartments on Tech campus
 8/18/2020,11:50,clear sky,NaN,-30.4,-6.3,-5.7,NaN,40.8,42.9,43.4,42.6,NaN,
-8/19/2020,17:23,clear sky,NaN,-26.8,-2.5,-0.3,NaN,46.5,47.5,48.5,48.3,NaN,Hazy outside evening measurments measurments taken due to classes  
+8/19/2020,17:23,clear sky,NaN,-26.8,-2.5,-0.3,NaN,46.5,47.5,48.5,48.3,NaN,Hazy outside evening measurments measurments taken due to classes
 8/20/2020,11:53,overcast,NaN,-26.8,-4.1,-0.9,NaN,40.3,43.1,42.4,44.2,NaN,
 8/21/2020,20:00,clear sky,NaN,-28.5,-5.2,-3.5,NaN,39.1,39.3,39.1,39.2,NaN,
 8/22/2020,17:17,clear sky,NaN,-27.1,-1.9,-0.7,NaN,48.5,47.5,49.8,49.2,NaN,
@@ -588,7 +588,7 @@ Date,Vicki time,Conditions,1610 TE (Sky),FLIRi3 (Sky),AMES 1 (Sky),AMES 2 (Sky),
 8/30/2020,14:55,overcast,-8.6,5.7,6.1,3.9,NaN,50.6,52.7,53.5,53.4,NaN,
 8/31/2020,16:41,overcast,9.7,9.2,23.3,25.4,NaN,43,43.4,43.7,43.1,NaN,
 9/1/2020,14:43,overcast,NaN,-35.4,-15.1,-13,NaN,21,20.8,21.3,21.9,NaN,
-9/2/2020,10:47,clear sky,NaN,-36.2,-12.8,-10.8,NaN,33.1,38.2,34.5,34,NaN,Started talking measurements at workman once again 
+9/2/2020,10:47,clear sky,NaN,-36.2,-12.8,-10.8,NaN,33.1,38.2,34.5,34,NaN,Started talking measurements at workman once again
 9/3/2020,10:45,clear sky,NaN,-30.7,-8.4,-7.8,NaN,36.4,36.1,38.2,38.3,NaN,
 9/4/2020,11:03,clear sky,NaN,-30.9,-6.4,-5.3,NaN,41.5,40.6,44.1,44.8,NaN,
 9/5/2020,10:30,clear sky,NaN,-30.9,-7.1,-6.5,NaN,36.8,36.5,38.6,39.3,NaN,
@@ -652,3 +652,49 @@ Date,Vicki time,Conditions,1610 TE (Sky),FLIRi3 (Sky),AMES 1 (Sky),AMES 2 (Sky),
 11/2/2020,15:46,clear sky,NaN,-40,-33.5,NaN,-31.6,22,21.4,26.2,NaN,26.4,
 11/3/2020,12:17,clear sky,NaN,-40,-24.4,NaN,-23.3,24.5,23.8,25.5,NaN,26.7,
 11/4/2020,16:25,clear sky,NaN,-40,-25.6,NaN,-23.9,17,16.3,16.9,NaN,17.1,
+11/5/2020,11:38,clear sky,NaN,-34.5,-30,NaN,-28.2,19.9,19.5,21.5,NaN,21.7,
+11/6/2020,11:02,clear sky,NaN,-34.5,-24.4,NaN,-24.6,17.8,17.2,17.3,NaN,17.4,
+11/7/2020,10:50,overcast,-10.5,-14.1,-6,NaN,-5.6,16.2,14.2,14.7,NaN,14.8,
+11/8/2020,10:18,overcast,-5.6,-6.9,-1,NaN,0.6,13.4,10.7,11.1,NaN,11.5,
+11/9/2020,16:04,clear sky,NaN,-36.8,-23,NaN,-21.5,16.2,14.8,15.6,NaN,15.8,
+11/10/2020,12:28,clear sky,NaN,-37.4,-25.3,NaN,-24.6,22.5,22.2,22.7,NaN,22.8,
+11/11/2020,10:45,overcast,-4.2,-4.9,-0.9,NaN,0.5,15.2,13.6,13.1,NaN,13.3,
+11/12/2020,15:39,overcast,NaN,-35.6,-21.6,NaN,-19.3,13,11.9,12.1,NaN,12.2,
+11/13/2020,10:45,clear sky,NaN,-33.7,-12.9,NaN,-13.5,12.2,14.3,11.2,NaN,13.6,
+11/14/2020,11:25,clear sky,NaN,-38.5,-18.2,NaN,-17.6,22.5,20.2,23.2,NaN,24.1,
+11/15/2020,10:30,clear sky,NaN,-36.6,-10.1,NaN,-11.4,15.2,17.8,14.5,NaN,14.6,
+11/16/2020,10:35,clear sky,NaN,-32.8,-17.4,NaN,-16.9,16.6,16.8,15.5,NaN,17.4,
+11/17/2020,10:58,clear sky,NaN,-34.5,-13.4,NaN,-12.8,18.3,17.4,18,NaN,18.8,
+11/18/2020,12:15,clear sky,NaN,-35.5,-15.2,NaN,-17.4,23.5,22.4,24.3,NaN,24.3,
+11/19/2020,12:54,clear sky,NaN,-36.3,-14.7,NaN,-13.9,21,20.6,21.2,NaN,21.6,
+11/20/2020,10:30,clear sky,NaN,-36.4,-13.9,NaN,-12.2,19.5,18.7,20.4,NaN,20.9,
+11/21/2020,15:32,overcast,-12.7,-11.2,-15,NaN,-14.5,10.7,10.3,9.6,NaN,10,
+11/22/2020,10:45,clear sky,NaN,35.4,-34,NaN,-35.5,15.9,14.5,14.9,NaN,14.8,
+11/23/2020,13:34,clear sky,NaN,-35.5,-31.9,NaN,-28.7,10.5,8.9,9.7,NaN,9.6,
+11/24/2020,12:40,clear sky,NaN,-38.7,-24.8,NaN,-25.7,7.8,7.1,6.9,NaN,6.8,
+11/25/2020,10:54,clear sky,NaN,-40,-35.5,NaN,-34.7,7.8,7.6,6.8,NaN,7.3,
+11/26/2020,11:15,overcast,-5.6,-6.7,-2.5,NaN,-1.6,8.5,7.4,6.6,NaN,7.5,
+11/27/2020,16:21,overcast,-4.9,-4.3,-4.2,NaN,-3.9,3.5,3.5,2.4,NaN,3.7,
+11/28/2020,12:45,clear sky,NaN,-33.5,-11.5,NaN,-12.3,12.5,13.5,12.6,NaN,12.4,
+11/29/2020,11:35,clear sky,NaN,-34.6,-12.6,NaN,-13.5,15.5,17.6,16.3,NaN,16.9,
+11/30/2020,11:45,clear sky,NaN,-35.6,-13.5,NaN,-14.6,13.2,11.9,12.4,NaN,13.3,
+12/1/2020,14:45,clear sky,NaN,-38.7,-12.6,NaN,-13.4,13.4,11.5,13.6,NaN,14.2,
+12/2/2020,9:46,overcast,-6.6,-8.2,-6.7,NaN,-9.3,4,3.1,0.9,NaN,-0.2,Snow
+12/3/2020,10:27,clear sky,NaN,NaN,-44,NaN,-47.3,7.4,6,7.6,NaN,6,
+12/4/2020,10:15,clear sky,NaN,NaN,-38.8,NaN,-44.4,8.8,6.5,9.9,NaN,6.7,
+12/5/2020,10:14,clear sky,NaN,NaN,-39.5,NaN,-40.2,10.8,9.2,10,NaN,10.7,
+12/6/2020,10:34,clear sky,NaN,NaN,-44.2,NaN,-39.8,12.4,11,10.9,NaN,13.6,
+12/7/2020,10:00,clear sky,NaN,NaN,-41,NaN,-43.6,8.5,7.3,8.9,NaN,7.1,
+12/8/2020,9:50,clear sky,naN,NaN,-39.5,naN,-40.7,8.7,8.2,11,NaN,8.7,
+12/9/2020,10:10,clear sky,NaN,NaN,-43.9,NaN,-44.1,10.2,9.4,8.9,NaN,9,
+12/10/2020,10:00,overcast,0,-0.3,-3.3,NaN,-1.6,3.5,2.7,0,NaN,2.3,
+12/11/2020,16:30,overcast,NaN,1,-36.5,NaN,-35,0.4,18.3,0.6,NaN,1.3,
+12/12/2020,16:30,overcast,NaN,NaN,-31.1,NaN,-31.3,4.2,4.5,4.3,NaN,4.7,
+12/13/2020,00:00,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,No Measurements taken
+12/14/2020,16:15,clear sky,NaN,NaN,-41.6,NaN,-41.5,-0.5,-1.8,-1.9,NaN,-2.8,
+12/15/2020,00:00,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,No Measurements taken
+12/16/2020,00:00,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,No Measurements taken
+12/17/2020,16:15,overcast,NaN,NaN,-25.5,NaN,-25.8,1,NaN,-0.3,NaN,0.1,FLIR i3 battery died
+12/18/2020,16:30,clear sky,NaN,NaN,-38.8,NaN,-38.5,0.4,NaN,-0.3,NaN,-1,FLIR i3 battery died
+12/19/2020,16:00,clear sky,NaN,NaN,-38.8,NaN,-38.1,6.4,NaN,5.6,NaN,4.2,FLIR i3 battery died
+12/20/2020,16:12,clear sky,NaN,NaN,-36.6,NaN,-37.4,8.5,8,7.2,NaN,6.9,
