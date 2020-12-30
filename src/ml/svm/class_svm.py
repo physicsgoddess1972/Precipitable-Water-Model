@@ -61,7 +61,7 @@ y = array(raw_label)
 
 ## Redefining data labels to be -1 or 1
 y[y == 1] = -1
-y[y == 2] = 1
+y[y == 3] = 1
 y = ones(len(X)) * y
 
 # Analysis Class
@@ -170,7 +170,7 @@ class svm_analysis:
         self.result.append([acc, precision, jaccard, matt_corr, fscore, mean_acc, cv_std])
         if plot == True:
             plt.figure(3)
-            heatmap(confusion, annot=True, fmt='d', cmap='cool', cbar=False,
+            heatmap(confusion, annot=True, fmt='d', cmap='coolwarm', cbar=False,
                     robust=True, square=True)
             plt.suptitle('Confusion Matrix for Classical SVM', fontsize=16)
             plt.title("Testing Accuracy: {}%".format(acc))
