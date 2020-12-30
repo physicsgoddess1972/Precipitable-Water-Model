@@ -63,13 +63,15 @@ class MesoWest(HTTPEndPoint):
         """
         raw_data = self._get_data_raw(date, site_id)
         soup = BeautifulSoup(raw_data, 'html.parser')
-        
         names = pd.DataFrame.from_records([[td.find_next(text=True).strip('\n\t\t') for td in tr.find_all('small')] for tr in soup.find_all('th')])[1].dropna(how='any', axis=0).reset_index(drop=True)
         df = pd.DataFrame.from_records([[td.find_next(text=True).strip("\n\t\t") for td in tr.find_all("td")] for tr in soup.find_all('tr')]).dropna(how='any', axis=0).reset_index(drop=True)
         df = df.replace(r'^\s*$', np.nan, regex=True).replace('N/A', np.inf)
 
-        df[0] = pd.to_datetime(df[0]).apply(lambda x: x.time())
-
+        df[0] = pd.to_datetime(df[0], errors='coerce')
+        try:
+            df[0] = df[0].apply(lambda x: x.time())
+        except ValueError as err:
+            df[0] = "NaT"
         name = []
         for i in range(1, len(df.columns)):
             if str(df[i].dtypes) == 'object':

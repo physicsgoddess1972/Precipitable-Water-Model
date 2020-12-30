@@ -16,7 +16,7 @@ while getopts "ighxca" opt; do
 		echo -e "\e[96m ~~~~ Installing Packages ~~~~\e[0m"
 # System Requirements
 		sudo apt-get install gfortran libbz2-dev libv8-dev libcurl4-openssl-dev libxml2-dev libssl-dev unzip
-		sudo apt-get install zlib1g-dev libpcre3-dev liblzma-dev python3-pip python3-dev g++
+		sudo apt-get install zlib1g-dev libpcre3-dev liblzma-dev python3-pip python3-dev g++ libgit2-dev
 		sudo pip3 install numpy pandas metpy requests rich sklearn seaborn cvxopt
 		sudo pip3 install git+https://github.com/Unidata/siphon.git
 		curl -O https://cran.rstudio.com/src/base/R-3/R-3.6.1.tar.gz
@@ -29,6 +29,7 @@ while getopts "ighxca" opt; do
 	  sudo su - -c "R -e \"install.packages('devtools', repos='https://cran.rstudio.com/', dependencies=TRUE)\""
 	  sudo su - -c "R -e \"devtools::install_version('plotrix', version='3.5', repos='https://cran.rstudio.com/')\""
 	  sudo su - -c "R -e \"install.packages('RColorBrewer', repos='https://cran.rstudio.com/')\""
+		sudo su - -c "R -e \"install.packages('Metrics', repos='https://cran.rstudio.com/')\""
 		sudo su - -c "R -e \"devtools::install_github('PharaohCola13/pacviz')\""
 		;;
 	c)

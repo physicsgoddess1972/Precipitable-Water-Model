@@ -274,8 +274,6 @@ lin_regression <- function(x,y){
 	nans <- c(grep("NaN", y)); nans <- append(nans, grep("NaN", x))
 	x <- x[-(nans)]; y <- y[-(nans)]
 	xmax <- max(x, na.rm=TRUE); xmin <- min(x, na.rm=TRUE)
-	# print(length(x))
-	# print(length(y))
 	model.0 <- lm(y~x, data=data.frame(x,y))
 
 	start <- list(a=coef(model.0)[1], b=coef(model.0)[2])
@@ -454,7 +452,7 @@ figure3 <- function(x, y, lim_s){
 figure4 	<- function(){
 		par(mar=c(4,4,0,0), oma = c(0.5, 0.5, 3, 5), xpd=FALSE)
 		layout(matrix(c(1,1,1,1), 1, 1, byrow=TRUE))
-		date 	<- clear_date
+		date 		<- clear_date
 		range1 	<- as.numeric(unlist(snsr_sky_calc))
 		range2 	<- avg
 		title 	<- sprintf("Mean Sky Temperature and TPW Time Series")
@@ -462,7 +460,11 @@ figure4 	<- function(){
 		xmin = min(date); xmax= max(date)
 		plot(date, range1, ylab=NA, xlab=NA, pch=16, main=NA, xaxt='n')
 		mtext(title, cex=1, outer=TRUE, at=0.6, padj=-1)
-		axis(1, at=seq(from=xmin, to=xmax, length.out=5), labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%d %b %Y"))
+
+		dates <- c("2019-02-01", "2019-06-01", "2019-10-01", "2020-02-01", "2020-06-01")
+		minor_dates <- c("2019-03-01", "2019-04-01", "2019-05-01", "2019-07-01", "2019-08-01", "2019-09-01", "2019-11-01", "2019-12-01", "2020-01-01", "2020-03-01", "2020-04-01", "2020-05-01", "2020-07-01")
+		axis(1, at=as.Date(dates), labels=format(as.Date(dates), "%b %Y"), tck=-0.03)
+		axis(1, at=as.Date(minor_dates), labels=c("","","","","","","","", "", "", "", "", ""))
 		axis(side = 2);
 		mtext(side = 2, line=3, "\\bu", family="HersheySans", xpd=TRUE, adj=0.35, padj=0.3, cex=3)
 		mtext(side = 2, line=3, "Temperature [C]", xpd=TRUE)
@@ -543,18 +545,41 @@ figure6 	<- function(...){
 # Confidence Interval
 	lines(exp_reg$newx, exp(exp_reg$confint[ ,3]), col="black", lty="dashed")
 	lines(exp_reg$newx, exp(exp_reg$confint[ ,2]), col="black", lty="dashed")
-# Prediction Interval
-	# lines(exp_reg$newx, exp(exp_reg$predint[ ,3]), col="magenta", lty="dashed")
-	# lines(exp_reg$newx, exp(exp_reg$predint[ ,2]), col="magenta", lty="dashed")
-	polygon(c(exp_reg$newx, rev(exp_reg$newx)), c(exp(exp_reg$predint[ ,3]), rev(exp(exp_reg$predint[ ,2]))),col=rgb(0.25, 0.25, 0.25,0.25), border = NA)
 
-	points(242.85-273.15, 5.7, col=c("#0166FF"), pch=16)
-	points(252.77-273.15, 11.4, col=c("#FF9924"), pch=16)
-	points(260.55-273.15, 22.7, col=c("#FF05B8"), pch=16)
+	polygon(c(exp_reg$newx, rev(exp_reg$newx)), c(exp(exp_reg$predint[ ,3]), rev(exp(exp_reg$predint[ ,2]))),col=rgb(0.25, 0.25, 0.25,0.25), border = NA)
 
 	legend("topleft",col=c("black", "black"), lty=c(1, 2),
 	legend=c(parse(text=sprintf("%.2f*e^{%.3f*x}*\t\t(R^2 == %.3f)",
 	exp(coef(exp_reg$model)[1]),coef(exp_reg$model)[2], exp_reg$R2)), "Confidence Interval"))
+}
+## Super Average Plot with Exponential Fit
+figure8 	<- function(...){
+	par(mar=c(5,5,0,0), oma = c(0, 0, 3, 3), xpd=FALSE)
+	layout(matrix(c(1,1,1,1), 1, 1, byrow=TRUE))
+	exp_reg <- exp_regression(as.numeric(unlist(snsr_sky_calc)), avg)
+	ymax 		<- max(exp_reg$y, 45.4, na.rm=TRUE)
+	ymin 		<- min(exp_reg$y, na.rm=TRUE)
+	title 	<- "Correlation between Mean TPW and Temperature"
+	newx	  <- seq(min(exp_reg$newx), 0, length.out=length(exp_reg$newx))
+# Non-linear model (exponential)
+	plot(NULL,NULL, col=c("black"), pch=1,
+	xlim=c(exp_reg$xmin, 0), ylim=c(ymin, ymax),
+	xlab="Zenith Sky Temperature [C]", ylab="TPW [mm]", main=NA)
+	mtext(title, cex=1, outer=TRUE, at=0.6, padj=-1)
+# Best Fit
+	curve(exp(coef(exp_reg$model)[1]+coef(exp_reg$model)[2]*x), col="black", add=TRUE)
+	curve(30.55 * exp(x/28.725) - 2.63, col="black", lty="dashed", add=TRUE)
+# Confidence Interval
+	# lines(exp_reg$newx, exp(exp_reg$confint[ ,3]), col="black", lty="dashed")
+	# lines(exp_reg$newx, exp(exp_reg$confint[ ,2]), col="black", lty="dashed")
+	# polygon(c(exp_reg$newx, rev(exp_reg$newx)), c(exp(exp_reg$predint[ ,3]), rev(exp(exp_reg$predint[ ,2]))),col=rgb(0.25, 0.25, 0.25,0.25), border = NA)
+
+	points((242.85-273.15) + (5.7-11.4)*1.05, 5.7, col=c("#0166FF"), pch=16, cex=1.5)
+	points((252.77-273.15), 11.4, col=c("#FF9924"), pch=16, cex=1.5)
+	points((260.55-273.15) + (22.7-11.4)*1.05, 22.7, col=c("#FF05B8"), pch=16, cex=1.5)
+
+	legend("topleft",col=c("black", "black"), lty=c(1, 2), legend=c(parse(text=sprintf("%.2f*e^{%.3f*x}",
+	exp(coef(exp_reg$model)[1]),coef(exp_reg$model)[2])), parse(text=sprintf("30.55*e^{0.035*x}-2.63"))))
 }
 ## Residual Plot
 figure7 	<- function(...){
@@ -580,7 +605,7 @@ figure4()
 figure5()
 figure6()
 figure7()
-
+figure8()
 # par(family="HersheySerif")
 # plot(seq(0, 5, 0.5), seq(0, 5, 0.5), xlab=NA, ylab=NA)
 # axis(side = 4)
