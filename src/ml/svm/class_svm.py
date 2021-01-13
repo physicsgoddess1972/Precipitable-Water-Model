@@ -53,7 +53,10 @@ with open(str(args.dfile) + "ml_data.csv") as csvfile:
     next(reader, None)
     for row in reader:
         raw_data.append(list((float(row[1]),log(float(row[2])),float(row[3]))))
-        raw_label.append(int(row[-1]))
+        if row[-1] == "overcast":
+            raw_label.append(1)
+        else:
+            raw_label.append(3)
 
 ## Shoving data and labels into an array
 X = array(raw_data)
@@ -202,7 +205,7 @@ class svm_evaluation:
 
 ## Model Evaluation for N random states
     def eval(self, tr_size, N):
-        task_id1 = progress.add_task("download", filename="Random State Evaluation")
+        task_id1 = progress.add_task("download", filename="Random State Evaluation ({})".format(tr_size))
 
         results = [[] for _ in range(5)]
         for i in range(0, N):
@@ -251,29 +254,30 @@ class svm_evaluation:
         plt.close()
 
 if __name__ == '__main__':
-    df = pd.read_csv("https://raw.githubusercontent.com/physicsgoddess1972/Precipitable-Water-Model/master/data/ml/ml_data.csv")
-    progress.print(Panel("[bold deep_sky_blue2]Good Morning\nWelcome to the Classical SVM Analysis Module of the Precipitable Water Model. For more information about the model and the purpose of this tool, please visit the [link=https://git.io/fj5Xr]documentation page[/link]"))
+    with progress:
+        df = pd.read_csv("https://raw.githubusercontent.com/physicsgoddess1972/Precipitable-Water-Model/master/data/ml/ml_data.csv")
+        progress.print(Panel("[bold deep_sky_blue2]Good Morning\nWelcome to the Classical SVM Analysis Module of the Precipitable Water Model. For more information about the model and the purpose of this tool, please visit the [link=https://git.io/fj5Xr]documentation page[/link]"))
 
-    progress.log("[bold white]Script Started")
-    task_id = progress.add_task("download", filename="Support Vector Machine Analysis")
+        progress.log("[bold white]Script Started")
+        task_id = progress.add_task("download", filename="Support Vector Machine Analysis")
 
-    tr_list = [0.6, 0.7, 0.8]
-    for i in range(0,len(tr_list)):
-        progress.log("\t[bold red]Training Division {}".format(tr_list[i]))
-        progress.log("\t\t[orange3]Starting Model Evaluation")
+        tr_list = [0.6, 0.7, 0.8]
+        for i in range(0,len(tr_list)):
+            progress.log("\t[bold red]Training Division {}".format(tr_list[i]))
+            progress.log("\t\t[orange3]Starting Model Evaluation")
 
-        try:
-            os.makedirs("../figs/ml/{}/".format(int(tr_list[i] * 100)))
-            progress.log("\t\t[yellow]Directory Generated")
-        except FileExistsError:
-            progress.log("\t\t[yellow]Directory Already Exists")
-            pass
+            try:
+                os.makedirs("../figs/ml/{}/".format(int(tr_list[i] * 100)))
+                progress.log("\t\t[yellow]Directory Generated")
+            except FileExistsError:
+                progress.log("\t\t[yellow]Directory Already Exists")
+                pass
 
-        D = svm_evaluation()
-        D.eval(tr_list[i], args.N)
-        D.plots(tr_list[i], D.result[0][0], "avg_fscr")
-        D.plots(tr_list[i], D.result[0][1], "avg_acc")
+            D = svm_evaluation()
+            D.eval(tr_list[i], args.N)
+            D.plots(tr_list[i], D.result[0][0], "avg_fscr")
+            D.plots(tr_list[i], D.result[0][1], "avg_acc")
 
-        progress.update(task_id, advance=100./(len(tr_list)),refresh=True)
-        progress.log("\t[bold red]Model Evaluation Complete")
-    progress.log("[bold white]Script Complete")
+            progress.update(task_id, advance=100./(len(tr_list)),refresh=True)
+            progress.log("\t[bold red]Model Evaluation Complete")
+        progress.log("[bold white]Script Complete")
