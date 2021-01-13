@@ -139,7 +139,7 @@ def impt(end_date, idx):
         i = 0
         wy_out = wyoming_import(end_date, j.strip(" "))
         while "Error" in wy_out[1]:
-            progress.console.log(i)
+            progress.console.log("[bold yellow] (001) Wyoming Sever Disconnected")
             time.sleep(100)
             wy_out = wyoming_import(end_date, j.strip(" "))
             i =+ 1
