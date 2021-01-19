@@ -34,6 +34,8 @@ col_pw 		<- grep("PW", colnames(fname))
 col_date 	<- grep("Date", colnames(fname))
 ## Pulls the column number of the Relative Humidity
 col_rh 		<- grep("RH", colnames(fname))
+## Pulls the column number of the non-measurement temperature
+col_temp 	<- grep("Temp", colnames(fname))
 ## Pulls the column number of the Condition
 col_con 	<- grep("Condition", colnames(fname))
 ## Pulls sensor labels and colors from instruments.txt
@@ -47,6 +49,17 @@ for(i in 1:length(sensor[, 1])){
 		snsr_gro_indx 		<- append(snsr_gro_indx, col_gro[i])
 	}
 }
+temp_name <- list()
+temp_gro_indx <- temp_sky_indx <- unlist(list())
+for (i in col_temp){
+		name 			<- gsub("Temp", "", colnames(fname)[i])
+		name 			<- trimws(gsub("[[:punct:]]", " ", name), which="l")
+		temp_name <- append(temp_name, name)
+
+		if (grepl("Ground", name)){temp_gro_indx <- append(temp_gro_indx, i)}
+		if (grepl("Sky", name)){temp_sky_indx <- append(temp_sky_indx, i)}
+}
+temp_place <- gsub("_.*$", "", gsub(" ", "_", temp_name))
 ## Pulls individual PW measurement labels
 pw_name 	<- col_pwpl  <-	col_pwtm <- list()
 for (j in col_pw){
@@ -81,15 +94,16 @@ col_snsr <- list()
 for (j in unique(snsr_tag)){
 	col_snsr <- append(col_snsr, list(grep(j, snsr_tag)))
 }
+
 ## Filters out data with overcast condition
 overcast_filter <- function(){
 	# Initializes the lists to store values
-	date_clear	<- snsr_sky		<- snsr_gro		<- pw_loc <- rh	<- temp_off 	<- list()
-	date_over	<- snsr_skyo	<- snsr_groo	<- pw_loco <- rho <- temp_offo 	<- list()
+	date_clear	<- snsr_sky		<- snsr_gro		<- pw_loc  <- rh	<- temp_gro_off 	<- list()
+	date_over		<- snsr_skyo	<- snsr_groo	<- pw_loco <- rho <- temp_sky_offo  <- list()
 	# Divides the data based on condition (Overcast/Clear Skies)
 	for (i in 1:length(t(fname[col_con]))){
 		if (!"overcast" %in% fname[i,col_con]){
-			date_clear  <- append(date_clear, as.Date(fname[i, as.numeric(col_date)], "%m/%d/%Y"))
+			date_clear  <- append(date_clear, lapply(fname[[i, as.numeric(col_date)]], as.Date, "%m/%d/%Y" ))
 			for (j in 1:length(pw_name)) {
 				pw_loc[[ paste("pw_loc", j, sep="")]] 		<- append(x=pw_loc[[ paste("pw_loc", j, sep="")]],  values=fname[i, col_pw[j]])
 			}
@@ -99,7 +113,7 @@ overcast_filter <- function(){
 			}
 			rh <- append(x=rh, value=fname[i, col_rh[1]])
 		}else{
-			date_over   <- append(date_over, as.Date(fname[i, as.numeric(col_date)], "%m/%d/%Y"))
+			date_over   <- append(date_over, lapply(fname[[i, as.numeric(col_date)]], as.Date, "%m/%d/%Y" ))
 			for (j in 1:length(pw_name)){
 				pw_loco[[ paste("pw_loco", j, sep="")]] 		<- append(x=pw_loco[[ paste("pw_loco", j, sep="")]],  values=fname[i, col_pw[j]])
 			}
@@ -131,91 +145,67 @@ overcast_filter <- function(){
 		output1 <- append(x=output1, values=list("over_pw"=pw_loco[[ paste("pw_loco", j, sep="")]]))
 	}
 	return(output1)
-	}
+}
 ## Pushes returned values to the variable overcast
 overcast 	<- overcast_filter()
+
 ### Clear Sky Data
 ## Pulls date from filter function
 clear_date  <- overcast$clear_date	# Date
+## Pulls relative humidity from filter function
+clear_rh <- as.numeric(overcast$rh)
 ## Initialize empty lists
-snsr_del 	<- snsr_sky <- snsr_gro <- pw_loc <- loc_avg <- snsr_sky_calc <- tmp_avg <- list()
-## Adds PW measurements for clear sky to list
-for (l in 1:length(pw_name)){
-	pw_loc[[ paste("pw_loc", l, sep="")]]	 <- as.numeric(unlist(overcast[grep("clear_pw", names(overcast), fixed=TRUE)[1]+l-1]))
-}
-## Adds Sky temperature, Ground temperature, and Change in temperature for each sensor to empty list
-for (k in 1:length(snsr_name)){
-	snsr_sky[[ paste("snsr_sky",k,sep="") ]] <- as.numeric(unlist(overcast[grep("clear_sky", names(overcast), fixed=TRUE)[1]+k-1]))
-	snsr_gro[[ paste("snsr_gro",k,sep="") ]] <- as.numeric(unlist(overcast[grep("clear_gro", names(overcast), fixed=TRUE)[1]+k-1]))
-	snsr_del[[ paste("snsr_del",k,sep="") ]] <- as.numeric(unlist(overcast[grep("clear_gro", names(overcast), fixed=TRUE)[1]+k-1])) - as.numeric(unlist(overcast[grep("clear_sky", names(overcast), fixed=TRUE)[1]+k-1]))
-}
-for (i in seq(from = 1,to = length(snsr_sky$snsr_sky3))) {
-	if (clear_date[i] == "2019-03-24"){
-		snsr_sky$snsr_sky3[i] <- NaN;
-		snsr_sky$snsr_sky2[i] <- NaN;
-		snsr_sky$snsr_sky1[i] <- NaN;
-
-		snsr_gro$snsr_gro3[i] <- NaN;
-		snsr_gro$snsr_gro2[i] <- NaN;
-		snsr_gro$snsr_gro1[i] <- NaN;
-	}else if (clear_date[i] == "2019-07-23"){
-		snsr_sky$snsr_sky3[i] <- NaN;
-		snsr_sky$snsr_sky2[i] <- NaN;
-		snsr_sky$snsr_sky1[i] <- NaN;
-
-		snsr_gro$snsr_gro3[i] <- NaN;
-		snsr_gro$snsr_gro2[i] <- NaN;
-		snsr_gro$snsr_gro1[i] <- NaN;
-	}else if (clear_date[i] == "2019-11-16"){
-		snsr_sky$snsr_sky3[i] <- NaN;
-		snsr_sky$snsr_sky2[i] <- NaN;
-		snsr_sky$snsr_sky1[i] <- NaN;
-
-		snsr_gro$snsr_gro3[i] <- NaN;
-		snsr_gro$snsr_gro2[i] <- NaN;
-		snsr_gro$snsr_gro1[i] <- NaN;
-	}else if (clear_date[i] == "2020-01-2"){
-		snsr_sky$snsr_sky3[i] <- NaN;
-		snsr_sky$snsr_sky2[i] <- NaN;
-
-		snsr_sky$snsr_sky1[i] <- NaN;
-
-		snsr_gro$snsr_gro3[i] <- NaN;
-		snsr_gro$snsr_gro2[i] <- NaN;
-		snsr_gro$snsr_gro1[i] <- NaN;
+snsr_del 	<- snsr_sky <- snsr_gro <- pw_loc <- loc_avg <- snsr_sky_calc <- tmp_avg <- temp_sky_off <- temp_gro_off <- list()
+if (!is.null(temp_gro_indx)){
+	for (i in 1:length(temp_gro_indx)){
+		temp_gro_off[[ paste("temp_gro_off", i, sep="") ]] <- as.numeric(unlist(overcast[grep("clear_temp_gro_off", names(overcast), fixed=TRUE)[1]+i-1]))
 	}
 }
-
+if (!is.null(temp_sky_indx)){
+	for (i in 1:length(temp_sky_indx)){
+		temp_sky_off[[ paste("temp_sky_off", i, sep="") ]] <- as.numeric(unlist(overcast[grep("clear_temp_sky_off", names(overcast), fixed=TRUE)[1]+i-1]))
+	}
+}
+## Adds PW measurements for clear sky to list
+for (i in 1:length(pw_name)){
+	pw_loc[[ paste("pw_loc", i, sep="")]]	 <- as.numeric(unlist(overcast[grep("clear_pw", names(overcast), fixed=TRUE)[1]+i-1]))
+}
+## Adds Sky temperature, Ground temperature, and Change in temperature for each sensor to empty list
+for (i in 1:length(snsr_name)){
+	snsr_gro[[ paste("snsr_gro",i,sep="") ]] <- as.numeric(unlist(overcast[grep("clear_gro", names(overcast), fixed=TRUE)[1]+i-1]))
+	snsr_sky[[ paste("snsr_sky",i,sep="") ]] <- as.numeric(unlist(overcast[grep("clear_sky", names(overcast), fixed=TRUE)[1]+i-1]))
+	snsr_del[[ paste("snsr_del",i,sep="") ]] <- as.numeric(unlist(overcast[grep("clear_gro", names(overcast), fixed=TRUE)[1]+i-1])) - as.numeric(unlist(overcast[grep("clear_sky", names(overcast), fixed=TRUE)[1]+i-1]))
+}
 ## Takes average of available sky temperature measurements
 # Removes all NaN values from daily lists
-for (a in snsr_sky){
-	for (b in 1:(length(unlist(snsr_sky))/length(snsr_sky))){
-		snsr_sky_calc[[ paste("snsr_sky_calc",b,sep="") ]] <-
-			append(x=snsr_sky_calc[[ paste("snsr_sky_calc", b, sep="")]], values=na.omit(c(a[b])))
+for (i in snsr_sky){
+	for (j in 1:(length(unlist(snsr_sky))/length(snsr_sky))){
+		snsr_sky_calc[[ paste("snsr_sky_calc",j,sep="") ]] <-
+			append(x=snsr_sky_calc[[ paste("snsr_sky_calc", j, sep="")]], values=na.omit(c(i[j])))
 	}
 }
 # Takes averages of each list
-for (d in 1:(length(unlist(snsr_sky))/length(snsr_sky))){
-	snsr_sky_calc[[ paste("snsr_sky_calc",d,sep="") ]] <- mean(snsr_sky_calc[[ paste("snsr_sky_calc",d,sep="") ]])
+for (i in 1:(length(unlist(snsr_sky))/length(snsr_sky))){
+	snsr_sky_calc[[ paste("snsr_sky_calc",i,sep="") ]] <- mean(snsr_sky_calc[[ paste("snsr_sky_calc",i,sep="") ]])
 }
 ## Takes locational average of the precipitable water measurements
-for (p in 1:length(col_pwpl)){
-	tmp <- unlist(col_pwpl[p])
-	for (q in col_pwpl[p]){
-		loc_avg[[ paste("loc_avg",p,sep="") ]] <-
-			array(overcast[grep("clear_pw", names(overcast), fixed=TRUE)][q])
+for (i in 1:length(col_pwpl)){
+	tmp <- unlist(col_pwpl[i])
+	for (j in col_pwpl[i]){
+		loc_avg[[ paste("loc_avg",i,sep="") ]] <-
+			array(overcast[grep("clear_pw", names(overcast), fixed=TRUE)][j])
 	}
-	tmp <- loc_avg[p]
-	loc_avg[[ paste("loc_avg",p,sep="") ]] <- Reduce("+", tmp[[ 1 ]])/length(col_pwpl)
+	tmp <- loc_avg[i]
+	loc_avg[[ paste("loc_avg",i,sep="") ]] <- Reduce("+", tmp[[1]])/length(col_pwpl)
 }
-for (p in 1:length(col_pwtm)){
-	tmp <- unlist(col_pwtm[p])
-	for (q in col_pwtm[p]){
-		tmp_avg[[ paste("tmp_avg",p,sep="") ]] <-
-			array(overcast[grep("clear_pw", names(overcast), fixed=TRUE)][q])
+for (i in 1:length(col_pwtm)){
+	tmp <- unlist(col_pwtm[i])
+	for (j in col_pwtm[i]){
+		tmp_avg[[ paste("tmp_avg",i,sep="") ]] <-
+			array(overcast[grep("clear_pw", names(overcast), fixed=TRUE)][j])
 	}
-	tmp <- tmp_avg[p]
-	tmp_avg[[ paste("tmp_avg",p,sep="") ]] <- Reduce("+", tmp[[ 1 ]])/length(col_pwtm)
+	tmp <- tmp_avg[i]
+	tmp_avg[[ paste("tmp_avg",i,sep="") ]] <- Reduce("+", tmp[[1]])/length(col_pwtm)
 }
 ## Takes super average of the precipitable water measurements
 avg 		<-  Reduce("+", pw_loc)/length(pw_loc)
@@ -223,52 +213,66 @@ avg 		<-  Reduce("+", pw_loc)/length(pw_loc)
 ### Overcast Data
 ## Pulls date from filter function (overcast)
 over_date  	<- overcast$over_date
+## Pulls relative humidity from filter function
+over_rh <- as.numeric(overcast$rho)
 # Initialize empty lists
-snsr_delo  	<- snsr_skyo <- snsr_groo <- pw_loco <- loc_avgo <- snsr_sky_calco <- tmp_avgo <- list()
+snsr_delo  	<- snsr_skyo <- snsr_groo <- pw_loco <- loc_avgo <- snsr_sky_calco <- tmp_avgo <- temp_gro_offo <- temp_sky_offo <- list()
+if (!is.null(temp_gro_indx)){
+	for (i in 1:length(temp_gro_indx)){
+		temp_gro_offo[[ paste("temp_gro_offo", i, sep="") ]] <- as.numeric(unlist(overcast[grep("clear_temp_gro_offo", names(overcast), fixed=TRUE)[1]+i-1]))
+	}
+}
+if (!is.null(temp_sky_indx)){
+	for (i in 1:length(temp_sky_indx)){
+		temp_sky_offo[[ paste("temp_sky_offo", i, sep="") ]] <- as.numeric(unlist(overcast[grep("clear_temp_sky_offo", names(overcast), fixed=TRUE)[1]+i-1]))
+	}
+}
 ## Adds PW measurements for overcast to list
-for (l in 1:length(pw_name)){
-	pw_loco[[ paste("pw_loco", l, sep="")]] 	<- as.numeric(unlist(overcast[grep("over_pw", names(overcast), fixed=TRUE)[1]+l-1]))
+for (i in 1:length(pw_name)){
+	pw_loco[[ paste("pw_loco", i, sep="")]] 	<- as.numeric(unlist(overcast[grep("over_pw", names(overcast), fixed=TRUE)[1]+i-1]))
 }
 ## Adds Sky temperature, Ground temperature, and Change in temperature for each sensor to empty list
-for (k in 1:length(snsr_name)){
-	snsr_skyo[[ paste("snsr_skyo",k,sep="") ]] <- as.numeric(unlist(overcast[grep("over_sky", names(overcast), fixed=TRUE)[1]+k-1]))
-	snsr_groo[[ paste("snsr_groo",k,sep="") ]] <- as.numeric(unlist(overcast[grep("over_gro", names(overcast), fixed=TRUE)[1]+k-1]))
-	snsr_delo[[ paste("snsr_delo",k,sep="") ]] <- as.numeric(unlist(overcast[grep("over_gro", names(overcast), fixed=TRUE)[1]+k-1])) - as.numeric(unlist(overcast[grep("over_sky", names(overcast), fixed=TRUE)[1]+k-1]))
+for (i in 1:length(snsr_name)){
+	snsr_skyo[[ paste("snsr_skyo",i,sep="") ]] <- as.numeric(unlist(overcast[grep("over_sky", names(overcast), fixed=TRUE)[1]+i-1]))
+	snsr_groo[[ paste("snsr_groo",i,sep="") ]] <- as.numeric(unlist(overcast[grep("over_gro", names(overcast), fixed=TRUE)[1]+i-1]))
+	snsr_delo[[ paste("snsr_delo",i,sep="") ]] <- as.numeric(unlist(overcast[grep("over_gro", names(overcast), fixed=TRUE)[1]+i-1])) - as.numeric(unlist(overcast[grep("over_sky", names(overcast), fixed=TRUE)[1]+i-1]))
 }
 ## Takes average of available sky temperature measurements
 # Removes all NaN values from daily lists
-for (a in snsr_skyo){
-	for (b in 1:(length(unlist(snsr_skyo))/length(snsr_skyo))){
-		snsr_sky_calco[[ paste("snsr_sky_calco",b,sep="") ]] <-
-			append(x=snsr_sky_calco[[ paste("snsr_sky_calco", b, sep="")]], values=na.omit(c(a[b])))
+for (i in snsr_skyo){
+	for (j in 1:(length(unlist(snsr_skyo))/length(snsr_skyo))){
+		snsr_sky_calco[[ paste("snsr_sky_calco",j,sep="") ]] <-
+			append(x=snsr_sky_calco[[ paste("snsr_sky_calco", j, sep="")]], values=na.omit(c(i[j])))
 	}
 }
 # Takes averages of each list
-for (d in 1:(length(unlist(snsr_skyo))/length(snsr_skyo))){
-	snsr_sky_calco[[ paste("snsr_sky_calco",d,sep="") ]] <- mean(snsr_sky_calco[[ paste("snsr_sky_calco",d,sep="") ]])
+for (i in 1:(length(unlist(snsr_skyo))/length(snsr_skyo))){
+	snsr_sky_calco[[ paste("snsr_sky_calco",i,sep="") ]] <- mean(snsr_sky_calco[[ paste("snsr_sky_calco",i,sep="") ]])
 }
 ## Takes locational average of the precipitable water measurements
-for (p in 1:length(col_pwpl)){
-	tmp <- unlist(col_pwpl[p])
-	for (q in col_pwpl[p]){
-		loc_avgo[[ paste("loc_avgo",p,sep="") ]] <-
-			array(overcast[grep("over_pw", names(overcast), fixed=TRUE)][q])
+for (i in 1:length(col_pwpl)){
+	tmp <- unlist(col_pwpl[i])
+	for (j in col_pwpl[i]){
+		loc_avgo[[ paste("loc_avgo",i,sep="") ]] <-
+			array(overcast[grep("over_pw", names(overcast), fixed=TRUE)][j])
 	}
-	tmp <- loc_avgo[p]
-	loc_avgo[[ paste("loc_avgo",p,sep="") ]] <- Reduce("+", tmp[[ 1 ]])/length(col_pwpl)
+	tmp <- loc_avgo[i]
+	loc_avgo[[ paste("loc_avgo",i,sep="") ]] <- Reduce("+", tmp[[ 1 ]])/length(col_pwpl)
 }
-for (p in 1:length(col_pwtm)){
-	tmp <- unlist(col_pwtm[p])
-	for (q in col_pwtm[p]){
-		tmp_avgo[[ paste("tmp_avgo",p,sep="") ]] <-
-			array(overcast[grep("over_pw", names(overcast), fixed=TRUE)][q])
+## Takes temporal average of the precipitable water measurements
+for (i in 1:length(col_pwtm)){
+	tmp <- unlist(col_pwtm[i])
+	for (j in col_pwtm[i]){
+		tmp_avgo[[ paste("tmp_avgo",i,sep="") ]] <-
+			array(overcast[grep("over_pw", names(overcast), fixed=TRUE)][j])
 	}
-	tmp <- tmp_avgo[p]
-	tmp_avgo[[ paste("tmp_avgo",p,sep="") ]] <- Reduce("+", tmp[[ 1 ]])/length(col_pwtm)
+	tmp <- tmp_avgo[i]
+	tmp_avgo[[ paste("tmp_avgo",i,sep="") ]] <- Reduce("+", tmp[[ 1 ]])/length(col_pwtm)
 }
 
 ## Takes super average of the precipitable water measurements
 avgo 		<-  Reduce("+", pw_loco)/length(pw_loco)
+
 
 lin_regression <- function(x,y){
 	nans <- c(grep("NaN", y)); nans <- append(nans, grep("NaN", x))
@@ -382,7 +386,6 @@ figure1 <- function(x,y1,y2, x1,y3,y4, lim_s,lim_g, title_s,title_g){
 						legend=c(equ2,
 						parse(text=sprintf("RMSE == %.2f", lin_reg4$rmsd)), parse(text=sprintf("R^2 == %.3f", lin_reg4$rsq))))
 }
-
 figure2 <- function(x,x1,y1,y2){
 	par(mar=c(5,4,0,0), oma = c(0, 0, 3, 1), xpd=FALSE)
 	layout(matrix(c(1,2,1,2), 2, 2, byrow=TRUE))
@@ -424,7 +427,6 @@ figure2 <- function(x,x1,y1,y2){
 					legend=c(equ2,
  									 parse(text=sprintf("(RMSE == %.2f)*\t\t\t(R^2 == %.3f)", lin_reg2$rmsd, lin_reg2$rsq))))
 }
-
 figure3 <- function(x, y, lim_s){
 		par(mar=c(5,5,0,0), oma = c(0, 0, 3, 3), xpd=FALSE)
 		layout(matrix(c(1,1,1,1), 1, 1, byrow=TRUE))
@@ -449,15 +451,15 @@ figure3 <- function(x, y, lim_s){
 							parse(text=sprintf("RMSE == %.2f", lin_reg1$rmsd)),
 							parse(text=sprintf("R^2 == %.2f", lin_reg1$rsq))))
 }
-figure4 	<- function(){
+figure4 <- function(){
 		par(mar=c(4,4,0,0), oma = c(0.5, 0.5, 3, 5), xpd=FALSE)
 		layout(matrix(c(1,1,1,1), 1, 1, byrow=TRUE))
+
 		date 		<- clear_date
 		range1 	<- as.numeric(unlist(snsr_sky_calc))
 		range2 	<- avg
 		title 	<- sprintf("Mean Sky Temperature and TPW Time Series")
 
-		xmin = min(date); xmax= max(date)
 		plot(date, range1, ylab=NA, xlab=NA, pch=16, main=NA, xaxt='n')
 		mtext(title, cex=1, outer=TRUE, at=0.6, padj=-1)
 
@@ -535,14 +537,14 @@ figure6 	<- function(...){
 	ymax 		<- max(exp_reg$y, 45.4, na.rm=TRUE)
 	ymin 		<- min(exp_reg$y, na.rm=TRUE)
 	title 	<- "Correlation between Mean TPW and Temperature"
-# Non-linear model (exponential)
+	# Non-linear model (exponential)
 	plot(exp_reg$x,exp_reg$y, col=c("black"), pch=1,
 	xlim=c(exp_reg$xmin, exp_reg$xmax), ylim=c(ymin, ymax),
 	xlab="Zenith Sky Temperature [C]", ylab="TPW [mm]", main=NA)
 	mtext(title, cex=1, outer=TRUE, at=0.6, padj=-1)
-# Best Fit
+	# Best Fit
 	curve(exp(coef(exp_reg$model)[1]+coef(exp_reg$model)[2]*x), col="black", add=TRUE)
-# Confidence Interval
+	# Confidence Interval
 	lines(exp_reg$newx, exp(exp_reg$confint[ ,3]), col="black", lty="dashed")
 	lines(exp_reg$newx, exp(exp_reg$confint[ ,2]), col="black", lty="dashed")
 
@@ -552,6 +554,7 @@ figure6 	<- function(...){
 	legend=c(parse(text=sprintf("%.2f*e^{%.3f*x}*\t\t(R^2 == %.3f)",
 	exp(coef(exp_reg$model)[1]),coef(exp_reg$model)[2], exp_reg$R2)), "Confidence Interval"))
 }
+
 ## Super Average Plot with Exponential Fit
 figure8 	<- function(...){
 	par(mar=c(5,5,0,0), oma = c(0, 0, 3, 3), xpd=FALSE)
@@ -561,15 +564,15 @@ figure8 	<- function(...){
 	ymin 		<- min(exp_reg$y, na.rm=TRUE)
 	title 	<- "Correlation between Mean TPW and Temperature"
 	newx	  <- seq(min(exp_reg$newx), 0, length.out=length(exp_reg$newx))
-# Non-linear model (exponential)
+	# Non-linear model (exponential)
 	plot(NULL,NULL, col=c("black"), pch=1,
 	xlim=c(exp_reg$xmin, 0), ylim=c(ymin, ymax),
 	xlab="Zenith Sky Temperature [C]", ylab="TPW [mm]", main=NA)
 	mtext(title, cex=1, outer=TRUE, at=0.6, padj=-1)
-# Best Fit
+	# Best Fit
 	curve(exp(coef(exp_reg$model)[1]+coef(exp_reg$model)[2]*x), col="black", add=TRUE)
 	curve(30.55 * exp(x/28.725) - 2.63, col="black", lty="dashed", add=TRUE)
-# Confidence Interval
+	# Confidence Interval
 	# lines(exp_reg$newx, exp(exp_reg$confint[ ,3]), col="black", lty="dashed")
 	# lines(exp_reg$newx, exp(exp_reg$confint[ ,2]), col="black", lty="dashed")
 	# polygon(c(exp_reg$newx, rev(exp_reg$newx)), c(exp(exp_reg$predint[ ,3]), rev(exp(exp_reg$predint[ ,2]))),col=rgb(0.25, 0.25, 0.25,0.25), border = NA)
@@ -601,6 +604,7 @@ figure1(snsr_sky$snsr_sky2, snsr_sky$snsr_sky1, snsr_sky$snsr_sky3,
 # figure2(pw_loc$pw_loc1, pw_loc$pw_loc2,pw_loc$pw_loc3, pw_loc$pw_loc4)
 
 figure3(loc_avg$loc_avg1, loc_avg$loc_avg2, c(0,60))
+
 figure4()
 figure5()
 figure6()

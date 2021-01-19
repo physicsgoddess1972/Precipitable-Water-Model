@@ -19,10 +19,10 @@ while getopts "ighxca" opt; do
 		sudo apt-get install zlib1g-dev libpcre3-dev liblzma-dev python3-pip python3-dev g++ libgit2-dev
 		sudo pip3 install numpy pandas metpy requests rich sklearn seaborn cvxopt
 		sudo pip3 install git+https://github.com/Unidata/siphon.git
-		curl -O https://cran.rstudio.com/src/base/R-3/R-3.6.1.tar.gz
-		tar -zxf ./R-3.6.1.tar.gz
-		cd ./R-3.6.1/ && ./configure --with-readline=no --with-x=no --with-cairo=yes && sudo make && sudo make install
-		cd ../ && sudo rm -r ./R-3.6.1/ && rm R-3.6.1.tar.gz
+		curl -O https://cran.rstudio.com/src/base/R-4/R-4.0.3.tar.gz
+		tar -zxf ./R-4.0.3.tar.gz
+		cd ./R-4.0.3/ && ./configure --with-readline=no --with-x=no --with-cairo=yes && sudo make && sudo make install
+		cd ../ && sudo rm -r ./R-4.0.3/ && rm R-4.0.3.tar.gz
 ## R Package Requirements
 	  sudo su - -c "R -e \"install.packages('crayon', repos='https://cran.rstudio.com/', dependencies=TRUE)\""
 	  sudo su - -c "R -e \"install.packages('argparse', repos='https://cran.rstudio.com/')\""
