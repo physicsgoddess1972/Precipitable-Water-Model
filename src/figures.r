@@ -572,17 +572,45 @@ figure8 	<- function(...){
 	# Best Fit
 	curve(exp(coef(exp_reg$model)[1]+coef(exp_reg$model)[2]*x), col="black", add=TRUE)
 	curve(30.55 * exp(x/28.725) - 2.63, col="black", lty="dashed", add=TRUE)
-	# Confidence Interval
-	# lines(exp_reg$newx, exp(exp_reg$confint[ ,3]), col="black", lty="dashed")
-	# lines(exp_reg$newx, exp(exp_reg$confint[ ,2]), col="black", lty="dashed")
-	# polygon(c(exp_reg$newx, rev(exp_reg$newx)), c(exp(exp_reg$predint[ ,3]), rev(exp(exp_reg$predint[ ,2]))),col=rgb(0.25, 0.25, 0.25,0.25), border = NA)
+
 
 	points((242.85-273.15) + (5.7-11.4)*1.05, 5.7, col=c("#0166FF"), pch=16, cex=1.5)
 	points((252.77-273.15), 11.4, col=c("#FF9924"), pch=16, cex=1.5)
 	points((260.55-273.15) + (22.7-11.4)*1.05, 22.7, col=c("#FF05B8"), pch=16, cex=1.5)
 
-	legend("topleft",col=c("black", "black"), lty=c(1, 2), legend=c(parse(text=sprintf("%.2f*e^{%.3f*x}",
-	exp(coef(exp_reg$model)[1]),coef(exp_reg$model)[2])), parse(text=sprintf("30.55*e^{0.035*x}-2.63"))))
+	leg <- legend("topleft",plot=FALSE, col=c("black", "black", "grey46"), lty=c(1, 2, 0),pch=c(NA,NA,NA), lwd=1, legend=c("This paper", "Mims et al. (2011)", "Derived from Equation (3)"))#, parse(text=sprintf("(30.55*e^{0.035*x}-2.63)")), sep=" ")))
+	legendg("topleft", col=list("black", "black", c("#FF05B8", "#FF9924","#0166FF" )), lty=c(1,2,0),lwd=1, pch=list(NA, NA, c(16,16,16)), legend=c("This paper", "Mims et al. (2011)", "Derived from Equation (3)"), merge=TRUE)
+
+	leftx <- leg$rect$left + 0.5
+	rightx <- (leg$rect$left + leg$rect$w) * 1
+	topy <- leg$rect$top
+	bottomy <- (leg$rect$top - leg$rect$h) * 1
+
+	legend(x = c(leftx, rightx), y = c(topy, bottomy), bty='n', col=c("black", "black", "grey46"), lty=c(1, 2, 0),pch=c(NA,NA,NA), lwd=1, legend=c("", "", ""))#, parse(text=sprintf("(30.55*e^{0.035*x}-2.63)")), sep=" ")))
+}
+figure8_1 	<- function(...){
+	par(mar=c(5,5,0,0), oma = c(0, 0, 3, 3), xpd=FALSE)
+	layout(matrix(c(1,1,1,1), 1, 1, byrow=TRUE))
+	exp_reg <- exp_regression(as.numeric(unlist(snsr_sky_calc)), avg)
+	ymax 		<- max(exp_reg$y, 45.4, na.rm=TRUE)
+	ymin 		<- min(exp_reg$y, na.rm=TRUE)
+	title 	<- "Correlation between Mean TPW and Temperature"
+	newx	  <- seq(min(exp_reg$newx), 0, length.out=length(exp_reg$newx))
+	# Non-linear model (exponential)
+	plot(NULL,NULL, col=c("black"), pch=1,
+	xlim=c(exp_reg$xmin, 0), ylim=c(ymin, ymax),
+	xlab="Zenith Sky Temperature [C]", ylab="TPW [mm]", main=NA)
+	mtext(title, cex=1, outer=TRUE, at=0.6, padj=-1)
+	# Best Fit
+	curve(exp(coef(exp_reg$model)[1]+coef(exp_reg$model)[2]*x), col="black", add=TRUE)
+	curve(30.55 * exp(x/28.725) - 2.63, col="black", lty="dashed", add=TRUE)
+
+
+	points((242.85-273.15) + (5.7-11.4)*1.05, 5.7, col=c("#0166FF"), pch=16, cex=1.5)
+	points((252.77-273.15), 11.4, col=c("#FF9924"), pch=16, cex=1.5)
+	points((260.55-273.15) + (22.7-11.4)*1.05, 22.7, col=c("#FF05B8"), pch=16, cex=1.5)
+
+	legend("topleft", col=c("black", "black", "grey46"), lty=c(1, 2, 0),pch=c(NA,NA,16), lwd=1, legend=c("This paper", "Mims et al. (2011)", "Derived from Equation (3)"))#, parse(text=sprintf("(30.55*e^{0.035*x}-2.63)")), sep=" ")))
 }
 ## Residual Plot
 figure7 	<- function(...){
@@ -598,18 +626,20 @@ figure7 	<- function(...){
 	abline(h=0, col="gray")
 }
 
-figure1(snsr_sky$snsr_sky2, snsr_sky$snsr_sky1, snsr_sky$snsr_sky3,
-				snsr_gro$snsr_gro2, snsr_gro$snsr_gro1, snsr_gro$snsr_gro3,
-				c(-60,30),c(0, 60), "Air Temperature", "Ground Temperature")
+# figure1(snsr_sky$snsr_sky2, snsr_sky$snsr_sky1, snsr_sky$snsr_sky3,
+# 				snsr_gro$snsr_gro2, snsr_gro$snsr_gro1, snsr_gro$snsr_gro3,
+# 				c(-60,30),c(0, 60), "Air Temperature", "Ground Temperature")
 # figure2(pw_loc$pw_loc1, pw_loc$pw_loc2,pw_loc$pw_loc3, pw_loc$pw_loc4)
 
-figure3(loc_avg$loc_avg1, loc_avg$loc_avg2, c(0,60))
-
-figure4()
-figure5()
-figure6()
-figure7()
+# figure3(loc_avg$loc_avg1, loc_avg$loc_avg2, c(0,60))
+#
+# figure4()
+# figure5()
+# figure6()
+# figure7()
 figure8()
+figure8_1()
+
 # par(family="HersheySerif")
 # plot(seq(0, 5, 0.5), seq(0, 5, 0.5), xlab=NA, ylab=NA)
 # axis(side = 4)
