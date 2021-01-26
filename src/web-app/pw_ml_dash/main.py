@@ -196,7 +196,7 @@ Y = array(df.condition)
 
 ## Redefining data labels to be -1 or 1
 Y[Y == 1] = -1
-Y[Y == 2] = 1
+Y[Y == 3] = 1
 Y = ones(len(X)) * Y
 
 def analysis(randstate, setting, checkopt, trainsize):
