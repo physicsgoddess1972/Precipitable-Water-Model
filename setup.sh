@@ -23,9 +23,9 @@ while getopts "ighxca" opt; do
 		curl -O https://cran.rstudio.com/src/base/R-${rvers:2:1}/${rvers}.tar.gz
 		sudo tar -zxf ./R-*.tar.gz -C /opt/
 		cd /opt/R-*/ && sudo ./configure --with-readline=no --with-x=no --with-cairo=yes && sudo make && sudo make install
-		sudo cp ./bin/R /bin/R && sudo cp ./bin/R /usr/bin/R && sudo cp ./bin/R /usr/local/bin/R
+		cd /opt/R-*/ && sudo cp ./bin/R /bin/R && sudo cp ./bin/R /usr/bin/R && sudo cp ./bin/R /usr/local/bin/R
 		sudo cp ./bin/Rscript /bin/Rscript && sudo cp ./bin/Rscript /usr/bin/Rscript && sudo cp ./bin/Rscript /usr/local/bin/Rscript
-		cd - && rm R-*.tar.gz
+		cd ../ && rm R-*.tar.gz
 
 ## R Package Requirements
 	  sudo R -e "install.packages('argparse', repos='https://cran.rstudio.com/')"
