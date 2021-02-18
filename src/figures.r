@@ -7,7 +7,7 @@
 
 ## Necessary Libraries for the script to run, for installation run install.sh
 library(argparse); library(crayon); library(RColorBrewer); library(plotrix)
-library(Metrics)
+library(Metrics); library(pacviz)
 #library(randomcoloR); #library(Rpyplot);
 
 ## Custom Colors for cmd line features
@@ -38,6 +38,7 @@ col_rh 		<- grep("RH", colnames(fname))
 col_temp 	<- grep("Temp", colnames(fname))
 ## Pulls the column number of the Condition
 col_con 	<- grep("Condition", colnames(fname))
+col_com 	<- grep("comments", colnames(fname))
 ## Pulls sensor labels and colors from instruments.txt
 snsr_name 	<- list(); snsr_color <- snsr_sky_indx <- snsr_gro_indx  	<- unlist(list())
 for(i in 1:length(sensor[, 1])){
@@ -100,6 +101,7 @@ overcast_filter <- function(){
 	# Initializes the lists to store values
 	date_clear	<- snsr_sky		<- snsr_gro		<- pw_loc  <- rh	<- temp_gro_off 	<- list()
 	date_over		<- snsr_skyo	<- snsr_groo	<- pw_loco <- rho <- temp_sky_offo  <- list()
+	com <- list()
 	# Divides the data based on condition (Overcast/Clear Skies)
 	for (i in 1:length(t(fname[col_con]))){
 		if (!"overcast" %in% fname[i,col_con]){
@@ -112,6 +114,7 @@ overcast_filter <- function(){
 				snsr_sky[[ paste("snsr_sky",j,sep="") ]] 	<- append(x=snsr_sky[[ paste("snsr_sky",j,sep="") ]], values=fname[i, snsr_sky_indx[j]])
 			}
 			rh <- append(x=rh, value=fname[i, col_rh[1]])
+			com <- append(x=com, value=fname[i, col_com[1]])
 		}else{
 			date_over   <- append(date_over, lapply(fname[[i, as.numeric(col_date)]], as.Date, "%m/%d/%Y" ))
 			for (j in 1:length(pw_name)){
@@ -125,7 +128,7 @@ overcast_filter <- function(){
 		}
 	}
 	# Adds divided data into list to output from function
-	output1 <- list(clear_date=date_clear, over_date=date_over, rh=rh, rho=rho)
+	output1 <- list(clear_date=date_clear, over_date=date_over, rh=rh, rho=rho, com=com)
 	for(j in 1:length(snsr_name)){
 		output1 <- append(x=output1, values=list("clear_gro"=snsr_gro[[ paste("snsr_gro",j,sep="") ]]))
 	}
@@ -149,9 +152,11 @@ overcast_filter <- function(){
 ## Pushes returned values to the variable overcast
 overcast 	<- overcast_filter()
 
+
 ### Clear Sky Data
 ## Pulls date from filter function
 clear_date  <- overcast$clear_date	# Date
+comments <- overcast$com
 ## Pulls relative humidity from filter function
 clear_rh <- as.numeric(overcast$rh)
 ## Initialize empty lists
@@ -166,6 +171,7 @@ if (!is.null(temp_sky_indx)){
 		temp_sky_off[[ paste("temp_sky_off", i, sep="") ]] <- as.numeric(unlist(overcast[grep("clear_temp_sky_off", names(overcast), fixed=TRUE)[1]+i-1]))
 	}
 }
+
 ## Adds PW measurements for clear sky to list
 for (i in 1:length(pw_name)){
 	pw_loc[[ paste("pw_loc", i, sep="")]]	 <- as.numeric(unlist(overcast[grep("clear_pw", names(overcast), fixed=TRUE)[1]+i-1]))
@@ -176,6 +182,19 @@ for (i in 1:length(snsr_name)){
 	snsr_sky[[ paste("snsr_sky",i,sep="") ]] <- as.numeric(unlist(overcast[grep("clear_sky", names(overcast), fixed=TRUE)[1]+i-1]))
 	snsr_del[[ paste("snsr_del",i,sep="") ]] <- as.numeric(unlist(overcast[grep("clear_gro", names(overcast), fixed=TRUE)[1]+i-1])) - as.numeric(unlist(overcast[grep("clear_sky", names(overcast), fixed=TRUE)[1]+i-1]))
 }
+
+for (i in seq(from = 1,to = length(clear_date))) {
+	if (grepl("This datapoint has been omitted from the final analysis; refer to documentation on how to handle this day", comments[i], fixed=TRUE)){
+		snsr_sky$snsr_sky3[i] <- NaN;
+		snsr_sky$snsr_sky2[i] <- NaN;
+		snsr_sky$snsr_sky1[i] <- NaN;
+
+		snsr_gro$snsr_gro3[i] <- NaN;
+		snsr_gro$snsr_gro2[i] <- NaN;
+		snsr_gro$snsr_gro1[i] <- NaN;
+	}
+}
+
 ## Takes average of available sky temperature measurements
 # Removes all NaN values from daily lists
 for (i in snsr_sky){
@@ -184,6 +203,8 @@ for (i in snsr_sky){
 			append(x=snsr_sky_calc[[ paste("snsr_sky_calc", j, sep="")]], values=na.omit(c(i[j])))
 	}
 }
+
+
 # Takes averages of each list
 for (i in 1:(length(unlist(snsr_sky))/length(snsr_sky))){
 	snsr_sky_calc[[ paste("snsr_sky_calc",i,sep="") ]] <- mean(snsr_sky_calc[[ paste("snsr_sky_calc",i,sep="") ]])
@@ -272,8 +293,6 @@ for (i in 1:length(col_pwtm)){
 
 ## Takes super average of the precipitable water measurements
 avgo 		<-  Reduce("+", pw_loco)/length(pw_loco)
-
-
 lin_regression <- function(x,y){
 	nans <- c(grep("NaN", y)); nans <- append(nans, grep("NaN", x))
 	x <- x[-(nans)]; y <- y[-(nans)]
@@ -313,6 +332,7 @@ exp_regression 	<- function(x,y){
 					"model"=model, "confint"=confint, "predint"=predint, "R2"=rsq)
 	return (output)
 }
+
 figure1 <- function(x,y1,y2, x1,y3,y4, lim_s,lim_g, title_s,title_g){
     par(mar=c(5,5,0,0), oma = c(0, 0, 3, 3), xpd=FALSE)
 		layout(matrix(c(1,2,3,4), 2, 2, byrow=TRUE))
@@ -490,6 +510,16 @@ figure5 <- function(...){
 			snsr_name[[i]] <- NULL
 		}
 	}
+	# for (i in seq(from = 1,to = length(clear_date))) {
+	# 	if (snsr_sky$snsr_sky3[i] == -999.0){
+	# 		print(snsr_sky$snsr_sky3[i])
+	# 		snsr_sky$snsr_sky3[i] <- 0;
+	# 	}
+	# }
+		# inf 	<- snsr_sky[is.finite(snsr_sky$snsr_sky3)]
+		# print(inf)
+		print(is.finite(snsr_sky$snsr_sky3))
+		#snsr_sky$snsr_sky3 <- snsr_sky$snsr_sky3[is.finite(rowSums(snsr_sky$snsr_sky3))]
 		title 	<- c("Clear Sky","Overcast", "Clear Sky NaN", "Overcast NaN")
 		color 	<- c("#FFFFFF", "#000000", "#D6D6D6", "#616161")
 	#		mtext("Condition Distribution by Sensor",side=3, line=1, outer=TRUE)
@@ -503,6 +533,7 @@ figure5 <- function(...){
 			layout(matrix(c(4,1,2,3), 2, 2, byrow=TRUE))
 
 			for(a in 1:length(snsr_name)){
+
 					norm	<- length(na.omit(unlist(snsr_sky[a])))
 					over	<- length(na.omit(unlist(snsr_skyo[a])))
 
@@ -513,14 +544,14 @@ figure5 <- function(...){
 					pct 	<- round(rev(slices)/sum(rev(slices))*100, 1)
 
 					bar <- barplot(rev(slices), col=rev(color),
-					horiz=TRUE, las=1,xlab=NA, axes=FALSE, xlim=c(0,300),
+					horiz=TRUE, las=1,xlab=NA, axes=FALSE, xlim=c(0,400),
 					main=sprintf("%s", gsub("_", " ",snsr_name[a])))
 					axis(side = 1, labels=TRUE, las=1, cex.axis=0.9)
 
-					mtext("N", side=1, line=1, at=325)
+					mtext("N", side=1, line=1, at=440)
 
 					for (i in 1:length(slices)){
-						text(175, bar[i], labels=sprintf('%s %%', as.character(pct[i])))
+						text(240, bar[i], labels=sprintf('%s %%', as.character(pct[i])))
 					}
 				}
 			par(oma=c(4, 4, 4,4), mar=c(5,4,5,5), xpd=NA)
@@ -612,6 +643,17 @@ figure8_1 	<- function(...){
 
 	legend("topleft", col=c("black", "black", "grey46"), lty=c(1, 2, 0),pch=c(NA,NA,16), lwd=1, legend=c("This paper", "Mims et al. (2011)", "Derived from Equation (3)"))#, parse(text=sprintf("(30.55*e^{0.035*x}-2.63)")), sep=" ")))
 }
+## Pacman Residual Plot
+figure9 	<- function(...){
+			x <- as.numeric(unlist(snsr_sky_calc))
+			y <- log(avg, base=exp(1))
+      title 		<- "Pac-Man Residual of the Mean TPW and Temperature Model\nCondition: Clear Sky"
+		# Finds and removes NaNed values from the dataset
+		nans <- c(grep("NaN", y)); nans <- append(nans, grep("NaN", x))
+		x <- x[-(nans)]; y <- y[-(nans)]
+		pac.resid(x, y, title, c("Zenith Sky Temperature", "degC"))
+}
+
 ## Residual Plot
 figure7 	<- function(...){
 	par(mar=c(5,5,0,0), oma = c(0, 0, 3, 3), xpd=FALSE)
@@ -632,13 +674,14 @@ figure7 	<- function(...){
 # figure2(pw_loc$pw_loc1, pw_loc$pw_loc2,pw_loc$pw_loc3, pw_loc$pw_loc4)
 
 # figure3(loc_avg$loc_avg1, loc_avg$loc_avg2, c(0,60))
-#
+
 # figure4()
-# figure5()
+figure5()
 # figure6()
 # figure7()
-figure8()
-figure8_1()
+# figure8()
+# figure9()
+# figure8_1()
 
 # par(family="HersheySerif")
 # plot(seq(0, 5, 0.5), seq(0, 5, 0.5), xlab=NA, ylab=NA)
