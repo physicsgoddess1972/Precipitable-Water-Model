@@ -7,7 +7,11 @@
 
 ## Necessary Libraries for the script to run, for installation run install.sh
 library(argparse); library(crayon); library(RColorBrewer); library(plotrix)
+<<<<<<< HEAD
 library(Metrics); library(Hmisc)
+=======
+library(Metrics); library(pacviz)
+>>>>>>> 75f9708e914d52d1b94d36a734daef7d0bbe3f91
 #library(randomcoloR); #library(Rpyplot);
 
 ## Custom Colors for cmd line features
@@ -152,6 +156,7 @@ overcast_filter <- function(){
 ## Pushes returned values to the variable overcast
 overcast 	<- overcast_filter()
 
+
 ### Clear Sky Data
 ## Pulls date from filter function
 clear_date  <- overcast$clear_date	# Date
@@ -170,6 +175,7 @@ if (!is.null(temp_sky_indx)){
 		temp_sky_off[[ paste("temp_sky_off", i, sep="") ]] <- as.numeric(unlist(overcast[grep("clear_temp_sky_off", names(overcast), fixed=TRUE)[1]+i-1]))
 	}
 }
+
 ## Adds PW measurements for clear sky to list
 for (i in 1:length(pw_name)){
 	pw_loc[[ paste("pw_loc", i, sep="")]]	 <- as.numeric(unlist(overcast[grep("clear_pw", names(overcast), fixed=TRUE)[1]+i-1]))
@@ -180,6 +186,7 @@ for (i in 1:length(snsr_name)){
 	snsr_sky[[ paste("snsr_sky",i,sep="") ]] <- as.numeric(unlist(overcast[grep("clear_sky", names(overcast), fixed=TRUE)[1]+i-1]))
 	snsr_del[[ paste("snsr_del",i,sep="") ]] <- as.numeric(unlist(overcast[grep("clear_gro", names(overcast), fixed=TRUE)[1]+i-1])) - as.numeric(unlist(overcast[grep("clear_sky", names(overcast), fixed=TRUE)[1]+i-1]))
 }
+<<<<<<< HEAD
 for (i in seq(from = 1,to = length(clear_date))) {
 	if (grepl("This datapoint has been omitted from the final analysis; refer to documentation on how to handle this day", comments[i], fixed=TRUE)){
 		snsr_sky$snsr_sky3[i] <- "-Inf";
@@ -192,6 +199,35 @@ for (i in seq(from = 1,to = length(clear_date))) {
 	}
 }
 
+=======
+
+for (i in seq(from = 1,to = length(clear_date))) {
+	if (grepl("This datapoint has been omitted from the final analysis; refer to documentation on how to handle this day", comments[i], fixed=TRUE)){
+		snsr_sky$snsr_sky3[i] <- NaN;
+		snsr_sky$snsr_sky2[i] <- NaN;
+		snsr_sky$snsr_sky1[i] <- NaN;
+
+		snsr_gro$snsr_gro3[i] <- NaN;
+		snsr_gro$snsr_gro2[i] <- NaN;
+		snsr_gro$snsr_gro1[i] <- NaN;
+	}
+}
+
+## Takes average of available sky temperature measurements
+# Removes all NaN values from daily lists
+for (i in snsr_sky){
+	for (j in 1:(length(unlist(snsr_sky))/length(snsr_sky))){
+		snsr_sky_calc[[ paste("snsr_sky_calc",j,sep="") ]] <-
+			append(x=snsr_sky_calc[[ paste("snsr_sky_calc", j, sep="")]], values=na.omit(c(i[j])))
+	}
+}
+
+
+# Takes averages of each list
+for (i in 1:(length(unlist(snsr_sky))/length(snsr_sky))){
+	snsr_sky_calc[[ paste("snsr_sky_calc",i,sep="") ]] <- mean(snsr_sky_calc[[ paste("snsr_sky_calc",i,sep="") ]])
+}
+>>>>>>> 75f9708e914d52d1b94d36a734daef7d0bbe3f91
 ## Takes locational average of the precipitable water measurements
 for (i in 1:length(col_pwpl)){
 	tmp <- unlist(col_pwpl[i])
@@ -276,8 +312,6 @@ for (i in 1:length(col_pwtm)){
 
 ## Takes super average of the precipitable water measurements
 avgo 		<-  Reduce("+", pw_loco)/length(pw_loco)
-
-
 lin_regression <- function(x,y){
 	nans <- c(grep("NaN", y)); nans <- append(nans, grep("NaN", x))
 	x <- x[-(nans)]; y <- y[-(nans)]
@@ -317,6 +351,7 @@ exp_regression 	<- function(x,y){
 					"model"=model, "confint"=confint, "predint"=predint, "R2"=rsq)
 	return (output)
 }
+<<<<<<< HEAD
 ### Instrumentation Barplots
 figure1 <- function(...){
 	par(oma = c(3, 3, 3,3), xpd=FALSE)
@@ -372,6 +407,10 @@ figure1 <- function(...){
 	}
 }
 figure2 <- function(x,y1,y2, x1,y3,y4, lim_s,lim_g, title_s,title_g){
+=======
+
+figure1 <- function(x,y1,y2, x1,y3,y4, lim_s,lim_g, title_s,title_g){
+>>>>>>> 75f9708e914d52d1b94d36a734daef7d0bbe3f91
     par(mar=c(5,5,0,0), oma = c(0, 0, 3, 3), xpd=FALSE)
 		layout(matrix(c(1,2,3,4), 2, 2, byrow=TRUE))
 		y1 <- replace(y1, y1 == "-Inf", NaN)
@@ -496,6 +535,73 @@ figure3 <- function(){
 		mtext(side = 4, line=3, "\\de", family="HersheySans", adj=0.38, padj=0.65, cex=3)
 		mtext(side = 4, line=3, "TPW [mm]")
 }
+<<<<<<< HEAD
+=======
+
+### Instrumentation Barplots
+figure5 <- function(...){
+	par(oma = c(3, 3, 3,3), xpd=FALSE)
+	layout(matrix(c(1,2,3,4), 2, 2, byrow=TRUE))
+
+	for (i in 1:length(sensor[,5])){
+		if(sensor[i,5] == FALSE){
+			snsr_sky[[i]] <- NULL; snsr_skyo[[i]] <- NULL
+			snsr_gro[[i]] <- NULL; snsr_groo[[i]] <- NULL
+			snsr_del[[i]] <- NULL; snsr_delo[[i]] <- NULL
+			snsr_name[[i]] <- NULL
+		}
+	}
+	# for (i in seq(from = 1,to = length(clear_date))) {
+	# 	if (snsr_sky$snsr_sky3[i] == -999.0){
+	# 		print(snsr_sky$snsr_sky3[i])
+	# 		snsr_sky$snsr_sky3[i] <- 0;
+	# 	}
+	# }
+		# inf 	<- snsr_sky[is.finite(snsr_sky$snsr_sky3)]
+		# print(inf)
+		print(is.finite(snsr_sky$snsr_sky3))
+		#snsr_sky$snsr_sky3 <- snsr_sky$snsr_sky3[is.finite(rowSums(snsr_sky$snsr_sky3))]
+		title 	<- c("Clear Sky","Overcast", "Clear Sky NaN", "Overcast NaN")
+		color 	<- c("#FFFFFF", "#000000", "#D6D6D6", "#616161")
+	#		mtext("Condition Distribution by Sensor",side=3, line=1, outer=TRUE)
+		if(length(snsr_name) <= 3){
+			tmp_var = 1
+		}else{
+			tmp_var = 1 + length(snsr_name)/3
+		}
+		for(test in 1:tmp_var){
+			par(mar=c(1, 0, 4,4), xpd=TRUE)
+			layout(matrix(c(4,1,2,3), 2, 2, byrow=TRUE))
+
+			for(a in 1:length(snsr_name)){
+
+					norm	<- length(na.omit(unlist(snsr_sky[a])))
+					over	<- length(na.omit(unlist(snsr_skyo[a])))
+
+					norm_na <- length(unlist(snsr_sky[a])) - norm
+					over_na <- length(unlist(snsr_skyo[a])) - over
+
+					slices 	<- matrix(c(norm, over, norm_na, over_na), nrow=4, byrow=TRUE)
+					pct 	<- round(rev(slices)/sum(rev(slices))*100, 1)
+
+					bar <- barplot(rev(slices), col=rev(color),
+					horiz=TRUE, las=1,xlab=NA, axes=FALSE, xlim=c(0,400),
+					main=sprintf("%s", gsub("_", " ",snsr_name[a])))
+					axis(side = 1, labels=TRUE, las=1, cex.axis=0.9)
+
+					mtext("N", side=1, line=1, at=440)
+
+					for (i in 1:length(slices)){
+						text(240, bar[i], labels=sprintf('%s %%', as.character(pct[i])))
+					}
+				}
+			par(oma=c(4, 4, 4,4), mar=c(5,4,5,5), xpd=NA)
+			title("Condition Distribution by Sensor", line=3)
+			legend(5, 5,legend = title, fill=color)
+	}
+}
+
+>>>>>>> 75f9708e914d52d1b94d36a734daef7d0bbe3f91
 ## Super Average Plot with Exponential Fit
 figure4 	<- function(...){
 	par(mar=c(5,5,0,0), oma = c(0, 0, 3, 3), xpd=FALSE)
@@ -616,14 +722,57 @@ figure2(snsr_sky$snsr_sky2, snsr_sky$snsr_sky1, snsr_sky$snsr_sky3,
 				snsr_gro$snsr_gro2, snsr_gro$snsr_gro1, snsr_gro$snsr_gro3,
 				c(-60,30),c(0, 60), "Air Temperature", "Ground Temperature")
 
+<<<<<<< HEAD
 figure3()
 figure4()
 figure5()
 figure6()
+=======
+	legend("topleft", col=c("black", "black", "grey46"), lty=c(1, 2, 0),pch=c(NA,NA,16), lwd=1, legend=c("This paper", "Mims et al. (2011)", "Derived from Equation (3)"))#, parse(text=sprintf("(30.55*e^{0.035*x}-2.63)")), sep=" ")))
+}
+## Pacman Residual Plot
+figure9 	<- function(...){
+			x <- as.numeric(unlist(snsr_sky_calc))
+			y <- log(avg, base=exp(1))
+      title 		<- "Pac-Man Residual of the Mean TPW and Temperature Model\nCondition: Clear Sky"
+		# Finds and removes NaNed values from the dataset
+		nans <- c(grep("NaN", y)); nans <- append(nans, grep("NaN", x))
+		x <- x[-(nans)]; y <- y[-(nans)]
+		pac.resid(x, y, title, c("Zenith Sky Temperature", "degC"))
+}
+
+## Residual Plot
+figure7 	<- function(...){
+	par(mar=c(5,5,0,0), oma = c(0, 0, 3, 3), xpd=FALSE)
+	layout(matrix(c(1,1,1,1), 1, 1, byrow=TRUE))
+	exp_reg <- exp_regression(as.numeric(unlist(snsr_sky_calc)), avg)
+	title 	<- "Residual of the Mean TPW and Temperature Model"
+
+	plot(exp_reg$x, resid(exp_reg$model), col=c("black"), pch=16,
+	ylim=c(-1,1), xlim=c(-60, 10),
+		xlab="Zenith Sky Temperature [C]", ylab=bquote(.("Residual Values [")*sigma*.("]")), main=NA)
+	mtext(title, cex=1, outer=TRUE, at=0.6, padj=-1)
+	abline(h=0, col="gray")
+}
+>>>>>>> 75f9708e914d52d1b94d36a734daef7d0bbe3f91
 
 # figure2(pw_loc$pw_loc1, pw_loc$pw_loc2,pw_loc$pw_loc3, pw_loc$pw_loc4)
+<<<<<<< HEAD
 #
 # figure3(loc_avg$loc_avg1, loc_avg$loc_avg2, c(0,60))
+=======
+
+# figure3(loc_avg$loc_avg1, loc_avg$loc_avg2, c(0,60))
+
+# figure4()
+figure5()
+# figure6()
+# figure7()
+# figure8()
+# figure9()
+# figure8_1()
+
+>>>>>>> 75f9708e914d52d1b94d36a734daef7d0bbe3f91
 # par(family="HersheySerif")
 # plot(seq(0, 5, 0.5), seq(0, 5, 0.5), xlab=NA, ylab=NA)
 # axis(side = 4)
