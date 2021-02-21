@@ -1336,7 +1336,7 @@ instr 	<- function(...,overcast=args$overcast){
 		mn_ticks <- ticks.at[-(seq(1, length(ticks.at), length.out=5))]
 
 		axis(1, at=mn_ticks, labels=rep("", length(mn_ticks)), tck=-0.015)
-		axis(1, at=mj_ticks, labels=format(mj_ticks, "%b %Y"), tck=-0.03)
+		axis(1, at=mj_ticks, labels=format(mj_ticks, "%b %y"), tck=-0.03)
 
 		if (length(sky_range) > 1){
 			for(j in 2:length(sky_range)){
@@ -1356,7 +1356,7 @@ instr 	<- function(...,overcast=args$overcast){
 		mn_ticks <- ticks.at[-(seq(1, length(ticks.at), length.out=5))]
 
 		axis(1, at=mn_ticks, labels=rep("", length(mn_ticks)), tck=-0.015)
-		axis(1, at=mj_ticks, labels=format(mj_ticks, "%b %Y"), tck=-0.03)
+		axis(1, at=mj_ticks, labels=format(mj_ticks, "%b %y"), tck=-0.03)
 
 		if (length(gro_range) > 1){
 			for(j in 2:length(gro_range)){
