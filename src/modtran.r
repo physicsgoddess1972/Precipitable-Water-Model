@@ -1,3 +1,4 @@
+library(Hmisc)
 ## Imports data from master_data.csv
 fname1       <- read.table(file="../data/modtran/radiance/modtran.csv", sep=",", header=TRUE, strip.white=TRUE)
 fname2       <- read.table(file="../data/modtran/temp_offset_wvs1/modtran.csv", sep=",", header=TRUE, strip.white=TRUE)
@@ -29,7 +30,8 @@ modtran_plot <- function(xran,fname,offset, leg, xran1, fname1, offset1, leg1) {
     layout(matrix(c(1,2,1,2), 2, 2, byrow=TRUE))
 
     plot(fname[,1], rad(fname[,2]), type='n', xlab=NA, ylab=NA,
-    main=NA, xlim=xran, ylim=c(0, 30))
+    main=NA, xlim=xran, ylim=c(0, 25))
+    minor.tick(nx=2, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
 
     lines(fname[,1], rad(fname[,2]), col=color[1], cex=0.6, lty=1)
     lines(fname[,1], rad(fname[,3]), col=color[2], cex=0.6, lty=1)
@@ -75,7 +77,8 @@ modtran_plot <- function(xran,fname,offset, leg, xran1, fname1, offset1, leg1) {
     legend("topright", col=c(color[1], color[2], color[3]), lty=c(1,1,1), pch=c("","",""), legend=leg)
 
     plot(fname1[,1], rad(fname1[,2]), type='n', xlab=NA, ylab=NA,
-    main=NA, xlim=xran, ylim=c(0, 30))
+    main=NA, xlim=xran, ylim=c(0, 25))
+    minor.tick(nx=2, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
 
     lines(fname1[,1], rad(fname1[,2]), cex=0.6, col=color[1])
     lines(fname1[,1], rad(fname1[,3]), cex=0.6, col=color[2])

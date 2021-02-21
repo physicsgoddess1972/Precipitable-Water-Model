@@ -33,12 +33,12 @@ while getopts "ighxca" opt; do
 	  sudo R -e "devtools::install_version('plotrix', version='3.5', repos='https://cran.rstudio.com/')"
 	  sudo R -e "install.packages('RColorBrewer', repos='https://cran.rstudio.com/')"
 		sudo R -e "install.packages('Metrics', repos='https://cran.rstudio.com/')"
-		sudo R -e "devtools::install_github('PharaohCola13/pacviz')"
+		sudo R -e "install.packages('pacviz', repos='https://cran.rstudio.com/')"
+		sudo R -e "install.packages('Hmisc', repos='https://cran.rstudio.com/')"
 		echo -e "\n\e[93mPlease check to make sure that your version is ${rvers}\e[39m"
 		R --version
 		Rscript --version
 		;;
-
 	c)
 ## Configure database import sites
 		echo "https://mesowest.utah.edu/cgi-bin/droman/meso_station.cgi?area=1"

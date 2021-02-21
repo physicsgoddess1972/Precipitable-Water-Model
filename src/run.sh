@@ -10,11 +10,14 @@ cd ./util/
 python3 data_import.py
 cd ../
 
-ts="\e[92mTime Series plots saved to ../figs/results/\e[0m"
-ap="\e[92mAnalytical plots saved to ../figs/results/\e[0m"
-in="\e[92mIndividual Sensor plots haved to ../figs/results/\e[0m"
-ch="\e[92mCharts saved to ../figs/results/\e[0m"
-po="\e[92mPoster plots saved to ../figs/results/\e[0m"
+N=100
+mlN="${3:-$N}"
+ts="\e[92mTime Series plots saved to figs/results/\e[0m"
+ap="\e[92mAnalytical plots saved to figs/results/\e[0m"
+in="\e[92mIndividual Sensor plots haved to figs/results/\e[0m"
+ch="\e[92mCharts saved to figs/results/\e[0m"
+po="\e[92mPoster plots saved to figs/results/\e[0m"
+pa="\e[92mPac-man plots saved to figs/results/\e[0m"
 
 ## Flags
 while getopts "oahcs" opt; do
@@ -27,8 +30,9 @@ while getopts "oahcs" opt; do
 				Rscript model.r --set i --save &> /dev/null & Rscript model.r --set c --save &> /dev/null
 				echo -e "[Clear Sky] ${in}"
 				echo -e "[Clear Sky] ${ch}"
-				Rscript model.r --poster --save &> /dev/null
+				Rscript model.r --poster --save &> /dev/null & Rscript model.r --pacman --save &> /dev/null
 				echo -e "[Clear Sky] ${po}"
+				echo -e "[Clear Sky] ${pa}"
 				echo -e "\e[96m ~~~~ Complete ~~~~\e[0m" && exit 0;;
 		o)
 				echo -e "\e[96m ~~~~ Overcast ~~~~\e[0m"
@@ -38,17 +42,21 @@ while getopts "oahcs" opt; do
 				Rscript model.r --set c --save &> /dev/null & Rscript model.r --set i -o --save &> /dev/null
 				echo -e "[Overcast] ${ch}"
 				echo -e "[Overcast] ${in}"
-				Rscript model.r --poster --save &> /dev/null
+				Rscript model.r --poster --save &> /dev/null & Rscript model.r --pacman -o --save &> /dev/null
 				echo -e "[Overcast] ${po}"
+				echo -e "[Overcast] ${pa}"
 				echo -e "\e[96m ~~~~ Complete ~~~~\e[0m" && exit 0;;
 		a)
 				echo -e "\e[96m ~~~~ All Plots ~~~~\e[0m"
-				Rscript model.r --set t -o --save &> /dev/null & Rscript model.r --set a -o --save &> /dev/null
+				Rscript model.r --set t -o --save &> /dev/null & Rscript model.r --pacman -o --save &> /dev/null
 				echo -e "[Overcast] ${ts}"
+				echo -e "[Overcast] ${pa}"
+				Rscript model.r --set a -o --save &> /dev/null & Rscript model.r --set i -o --save &> /dev/null
 				echo -e "[Overcast] ${ap}"
-				Rscript model.r --set i -o --save &> /dev/null & Rscript model.r --set t --save &> /dev/null
 				echo -e "[Overcast] ${in}"
+				Rscript model.r --set t --save &> /dev/null & Rscript model.r --pacman --save &> /dev/null
 				echo -e "[Clear Sky] ${ts}"
+				echo -e "[Clear Sky] ${pa}"
 				Rscript model.r --set a --save &> /dev/null & Rscript model.r --set i --save &> /dev/null
 				echo -e "[Clear Sky] ${ap}"
 				echo -e "[Clear Sky] ${in}"
@@ -57,12 +65,12 @@ while getopts "oahcs" opt; do
 				echo -e "[All] ${ch}"
 				Rscript model.r --data -ml &> /dev/null
 				echo -e "\e[92mMachine Learning Data saved\e[0m"
-				python3 ./ml/svm/class_svm.py -dfile "../data/ml/" -N $3
+				python3 ./ml/svm/class_svm.py -dfile "../data/ml/" -N $mlN
 				echo -e "\e[96m ~~~~ Complete ~~~~\e[0m" && exit 0;;
 		s)
 				Rscript model.r --data -ml &> /dev/null
 				echo -e "\e[92mMachine Learning Data saved\e[0m"
-				python3 ./ml/svm/class_svm.py -dfile "../data/ml/" -N $3
+				python3 ./ml/svm/class_svm.py -dfile "../data/ml/" -N $mlN
 				echo -e "\e[96m ~~~~ Complete ~~~~\e[0m" && exit 0;;
 		h)
 				echo "usage: run.sh [-hcoas] [-N int]";
