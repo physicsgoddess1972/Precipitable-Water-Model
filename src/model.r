@@ -1262,7 +1262,7 @@ poster3 <- function(...){
 		layout(matrix(c(4,1,2,3), 2, 2, byrow=TRUE))
 		par(mar=c(0, 2, 4,2), oma=c(2.5,0,0,0.5), xpd=TRUE)
 		for(a in 1:length(snsr_name)){
-			if (a/4 == 1){
+			if ((a/4)%%1 == 0){
 				par(oma=c(5, 5, 5, 5), mar=c(5,3,5,5), xpd=NA)
 				title("Condition Distribution by Sensor", line=3)
 				legend(5, 5,legend = title, fill=color)
@@ -1365,7 +1365,6 @@ instr 	<- function(...,overcast=args$overcast){
 		}
 	}
 }
-
 
 ## Off-site Ground Temperature Time Series
 dev1	<- function(...,overcast=args$overcast){

@@ -113,13 +113,15 @@
 						  <i class="material-icons">cloud</i></button>
 						  <button id="demo-menu-lower-right2" class="mdl-button mdl-js-button mdl-button--icon">
 							  <i class="material-icons">insert_chart_outlined</i></button>
+                <button id="demo-menu-lower-right3" class="mdl-button mdl-js-button mdl-button--icon">
+                  <i class="material-icons">table-chart</i></button>
 						  <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
 							  data-mdl-for="demo-menu-lower-right1">
 							  <li style="text-align: center; padding: 5px;"><b>Plot Set: <br /> Clear Sky</b></li>
 							  <li class="mdl-menu__item"><a id="time" download>Time Series</a></li>
 							  <li class="mdl-menu__item"><a id="analy" download>Analytics</a></li>
 							  <li class="mdl-menu__item"><a id="instr" download>Sensor Time Series</a></li>
-
+                <li class="mdl-menu__item"><a id="pacman" download>Pacman</a></li>
 						  </ul>
 						  <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
 							  data-mdl-for="demo-menu-lower-right">
@@ -127,13 +129,18 @@
 							  <li class="mdl-menu__item"><a id="timeo" download>Time Series</a></li>
 							  <li class="mdl-menu__item"><a id="analyo" download>Analytics</a></li>
 							  <li class="mdl-menu__item"><a id="instro" download>Sensor Time Series</a></li>
-
+                <li class="mdl-menu__item"><a id="pacmano" download>Pacman</a></li>
 						  </ul>
 						  <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
 							  data-mdl-for="demo-menu-lower-right2">
 							  <li style="text-align: center; padding: 5px;"><b>Plot Set: Chart</b></li>
 							  <li class="mdl-menu__item"><a id="charts" download>Chart</a></li>
 						  </ul>
+              <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+                data-mdl-for="demo-menu-lower-right3">
+                <li style="text-align: center; padding: 5px;"><b>Plot Set: Poster</b></li>
+                <li class="mdl-menu__item"><a id="charts" download>Chart</a></li>
+              </ul>
 					  </div>
 					<a href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/releases" target="_blank" class="mdl-button mdl-js-button mdl-js-ripple-effect">Read More</a>
 
@@ -225,6 +232,9 @@
 		var fnamea = 'https://github.com/physicsgoddess1972/Precipitable-Water-Model/raw/master/figs/results/analytics.pdf';
 		var fnamei = 'https://github.com/physicsgoddess1972/Precipitable-Water-Model/raw/master/figs/results/sensor.pdf';
 		var fnameio = 'https://github.com/physicsgoddess1972/Precipitable-Water-Model/raw/master/figs/results/sensor_overcast.pdf';
+    var fnamepos = 'https://github.com/physicsgoddess1972/Precipitable-Water-Model/raw/master/figs/results/poster.pdf';
+    var fnamepac = 'https://github.com/physicsgoddess1972/Precipitable-Water-Model/raw/master/figs/results/pacman.pdf';
+    var fnamepaco = 'https://github.com/physicsgoddess1972/Precipitable-Water-Model/raw/master/figs/results/pacman_overcast.pdf';
 
 		$('a#charts').attr({target: '_blank', href  : fnamec });
 		$('a#timeo').attr({target: '_blank', href  : fnameto });
@@ -233,6 +243,10 @@
 		$('a#analy').attr({target: '_blank', href  : fnamea });
 		$('a#instr').attr({target: '_blank', href  : fnamei });
 		$('a#instro').attr({target: '_blank', href  : fnameio });
+    $('a#poster').attr({target: '_blank', href  : fnamepos});
+    $('a#pacman').attr({target: '_blank', href  : fnamepac});
+    $('a#pacmano').attr({target: '_blank', href  : fnamepaco});
+
 	</script>
   </body>
 </html>
