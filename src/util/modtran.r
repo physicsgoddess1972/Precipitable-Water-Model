@@ -1,9 +1,9 @@
-library(Hmisc)
+suppressMessages(library(Hmisc))
 ## Imports data from master_data.csv
-fname1       <- read.table(file="../data/modtran/radiance/modtran.csv", sep=",", header=TRUE, strip.white=TRUE)
-fname2       <- read.table(file="../data/modtran/temp_offset_wvs1/modtran.csv", sep=",", header=TRUE, strip.white=TRUE)
-fname3       <- read.table(file="../data/modtran/modtran_wps1.csv", sep=",", header=TRUE, strip.white=TRUE)
-fname4       <- read.table(file="../data/modtran/temp_offset_wsv_half/modtran.csv", sep=",", header=TRUE, strip.white=TRUE)
+fname1       <- read.table(file="../../data/modtran/radiance/modtran.csv", sep=",", header=TRUE, strip.white=TRUE)
+fname2       <- read.table(file="../../data/modtran/temp_offset_wvs1/modtran.csv", sep=",", header=TRUE, strip.white=TRUE)
+fname3       <- read.table(file="../../data/modtran/modtran_wps1.csv", sep=",", header=TRUE, strip.white=TRUE)
+fname4       <- read.table(file="../../data/modtran/temp_offset_wsv_half/modtran.csv", sep=",", header=TRUE, strip.white=TRUE)
 
 modtran_plot <- function(xran,fname,offset, leg, xran1, fname1, offset1, leg1) {
     planck_curve <- function(x, T){
@@ -60,9 +60,6 @@ modtran_plot <- function(xran,fname,offset, leg, xran1, fname1, offset1, leg1) {
     curve(planck_curve(x, temp_planck_curve(avg0, avg2)), add=TRUE)
     curve(planck_curve(x, temp_planck_curve(avg0, avg3)), add=TRUE)
 
-    print(list(avg0, avg1))
-    print(list(avg0, avg2))
-    print(list(avg0, avg3))
     points(avg0, avg1, pch=16, col=substr(color[1], start=1, stop=7))
     points(avg0, avg2, pch=16, col=substr(color[2], start=1, stop=7))
     points(avg0, avg3, pch=16, col=substr(color[3], start=1, stop=7))
@@ -75,6 +72,7 @@ modtran_plot <- function(xran,fname,offset, leg, xran1, fname1, offset1, leg1) {
                              substr(color[2], start=1, stop=7),
                              substr(color[3], start=1, stop=7)), lty=c(0,0,0), pch=c(16,16,16), legend=c("                             ","                     ","                     "), bty="n")
     legend("topright", col=c(color[1], color[2], color[3]), lty=c(1,1,1), pch=c("","",""), legend=leg)
+    legend("bottomright", "(a)", bty="n")
 
     plot(fname1[,1], rad(fname1[,2]), type='n', xlab=NA, ylab=NA,
     main=NA, xlim=xran, ylim=c(0, 25))
@@ -119,13 +117,15 @@ modtran_plot <- function(xran,fname,offset, leg, xran1, fname1, offset1, leg1) {
                              substr(color[2], start=1, stop=7),
                              substr(color[3], start=1, stop=7)), lty=c(0,0,0), pch=c(16,16,16), legend=c("                     ","                     ","                     "), bty="n")
     legend("topright", col=c(color[1], color[2], color[3]), lty=c(1,1,1), pch=c("","",""), legend=leg1)
+    legend("bottomright", "(b)", bty="n")
+
 }
 
 modtran_plot1 <- function(fname){
     plot(fname[,5], fname[,2], xlab="Water Pressure (mbar)", ylab="Altitude (km)",
     main="Altitude and Water Pressure Correlation")
 }
-pdf("~/Downloads/modtran.pdf")
+pdf("../../figs/modtran.pdf")
 modtran_plot(c(7,10), fname1, c(10,12.74,15),
   c("TPW = 5.7 mm","TPW = 11.4 mm", "TPW = 22.7 mm"),c(7,10), fname2, c(11.5, 12.75, 14), c("-5 K Offset", "0 K Offset", "+5 K Offset"))
 # modtran_plot(c(7,10), fname4, c(10, 11.25, 12.5), c("-5 K Offset", "0 K Offset", "+5 K Offset"))

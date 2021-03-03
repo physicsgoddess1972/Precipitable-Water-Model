@@ -40,12 +40,15 @@ layout="""
 <script src='./assets/legacy.js'></script>
 <script src='./assets/script.js'></script>
 <script src="./assets/materialize.min.js"></script>
+<script src="./assets/layout.js"></script>
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap">
 <link rel='stylesheet' href='./assets/dash.css'>
-{%css%}
+<link rel='stylesheet' href='./assets/material.cyan-light_blue.min.css'>
+<link rel='stylesheet' href='./assets/materialize.min.css'>
+<link rel='stylesheet' href='./assets/style.css'>
 </head>
 <body role='flatdoc'>
 <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">

@@ -7,7 +7,7 @@
 
 ## Necessary Libraries for the script to run, for installation run install.sh
 library(argparse); library(crayon); library(RColorBrewer); library(plotrix)
-library(Metrics); library(Hmisc)
+library(Metrics); suppressMessages(library(Hmisc))
 #library(randomcoloR); #library(Rpyplot);
 
 ## Custom Colors for cmd line features
@@ -18,9 +18,9 @@ green 		<- make_style("lawngreen")
 cloudblue 	<- make_style("lightskyblue")
 
 ## Imports data from master_data.csv
-fname       <- read.table(file="../data/master_data_archive.csv", sep=",", header=TRUE, strip.white=TRUE)
+fname       <- read.table(file="../../data/archive/master_data_archive.csv", sep=",", header=TRUE, strip.white=TRUE)
 ## Imports sensor information from instruments.txt
-sensor 		<- suppressWarnings(read.csv(file="../data/instruments.conf", sep=","))
+sensor 		<- suppressWarnings(read.csv(file="../../data/instruments.conf", sep=","))
 ## Pulls most recent data stamp for the purpose of adding date stamps to file names when plots are saved
 recent 		<- t(fname[1])[length(t(fname[1]))]
 
@@ -356,6 +356,7 @@ figure1 <- function(...){
 		for (i in 1:length(slices)){
 			text(slices[2]*1.5, bar[i], labels=sprintf('%s %%', as.character(pct[i])))
 		}
+		mtext(paste0("(", letters[a], ")"), side = 3, adj = 0, line = 0)
 
 	}
 	par(oma=c(4, 4, 4,4), mar=c(5,4,5,5), xpd=NA)
@@ -374,6 +375,7 @@ figure2 <- function(x,y1,y2, x1,y3,y4, lim_s,lim_g, title_s,title_g){
 
     plot(x, y1, ylab=NA, xlab="AMES 1 Temperature [C]", col="black",
 					pch=1, main=NA, xlim=c(-60,20), ylim=c(-60,20))
+		mtext("(a)", side = 3, adj = 0.05, line = -1.3)
 
 		abline(0,1, lty=2); abline(v=0, col="gray"); abline(h=0, col="gray")
 		curve(coef(lin_reg1$model)[1] + coef(lin_reg1$model)[2]*x, add=TRUE, col="black")
@@ -396,6 +398,8 @@ figure2 <- function(x,y1,y2, x1,y3,y4, lim_s,lim_g, title_s,title_g){
 		legend("topleft", col=c("black",NA), lty=c(1,0,0), bg="white",
 							legend=c(equ1,
 	 	 					parse(text=sprintf("RMSE == %.2f", lin_reg1$rmsd)),parse(text=sprintf("R^2 == %.3f", lin_reg1$rsq))))
+		legend("bottomright", "(a)", bty="n")
+
 		plot(x, y2, ylab=NA, xlab="AMES 1 Temperature [C]",
 					col="black", pch=1, ylim=c(-60,20), xlim=c(-60,20))
 		minor.tick(nx=2, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
@@ -406,6 +410,7 @@ figure2 <- function(x,y1,y2, x1,y3,y4, lim_s,lim_g, title_s,title_g){
 		legend("topleft", col=c("black",NA), lty=c(1,0,0), bg="white",
 						legend=c(equ2,
 						parse(text=sprintf("RMSE == %.2f", lin_reg2$rmsd)), parse(text=sprintf("R^2 == %.3f",lin_reg2$rsq))))
+		legend("bottomright", "(b)", bty="n")
 
 		lin_reg3 <- lin_regression(as.numeric(x1), as.numeric(y3))
 		lin_reg4 <- lin_regression(as.numeric(x1), as.numeric(y4))
@@ -431,7 +436,7 @@ figure2 <- function(x,y1,y2, x1,y3,y4, lim_s,lim_g, title_s,title_g){
 		legend("topleft", col=c("black",NA), lty=c(1,0,0), bg="white",
 							legend=c(equ1,
 							parse(text=sprintf("RMSE == %.2f", lin_reg3$rmsd)), parse(text=sprintf("R^2 == %.3f", lin_reg3$rsq))))
-
+		legend("bottomright", "(c)", bty="n")
 		plot(x1, y4, ylab=NA, xlab="AMES 1 Temperature [C]",
 					col="black", pch=1, ylim=c(0,60),xlim=c(0,60))
 		abline(0,1, lty=2); abline(v=0, col="gray"); abline(h=0, col="gray")
@@ -441,6 +446,7 @@ figure2 <- function(x,y1,y2, x1,y3,y4, lim_s,lim_g, title_s,title_g){
 		legend("topleft", col=c("black",NA), lty=c(1,0,0), bg="white",
 						legend=c(equ2,
 						parse(text=sprintf("RMSE == %.2f", lin_reg4$rmsd)), parse(text=sprintf("R^2 == %.3f", lin_reg4$rsq))))
+		legend("bottomright", "(d)", bty="n")
 }
 figure3 <- function(){
 		par(mar=c(4,4,0,0), oma = c(0.5, 0.5, 3, 5), xpd=FALSE)
@@ -600,7 +606,7 @@ figure6 	<- function(...){
 	legend(x = c(leftx, rightx), y = c(topy, bottomy), bty='n', col=c("black", "black", "grey46"), lty=c(1, 2, 0),pch=c(NA,NA,NA), lwd=1, legend=c("", "", ""))#, parse(text=sprintf("(30.55*e^{0.035*x}-2.63)")), sep=" ")))
 }
 
-
+pdf("../../figs/paperplots.pdf")
 figure1()
 figure2(snsr_sky$snsr_sky2, snsr_sky$snsr_sky1, snsr_sky$snsr_sky3,
 				snsr_gro$snsr_gro2, snsr_gro$snsr_gro1, snsr_gro$snsr_gro3,

@@ -7,7 +7,7 @@
 
 ## Necessary Libraries for the script to run, for installation run install.sh
 library(argparse); library(crayon); library(RColorBrewer); library(plotrix)
-suppressPackageStartupMessages(library(pacviz)); library(Hmisc)
+suppressPackageStartupMessages(library(pacviz)); suppressMessages(library(Hmisc))
 options(warn=-1)
 #library(investr)
 ## Custom Colors for cmd line features
@@ -19,8 +19,6 @@ cloudblue 	<- make_style("lightskyblue")
 
 ## Used for argument parsing run Rscript model.r --help
 parser <- ArgumentParser(formatter_class='argparse.RawTextHelpFormatter')
-parser$add_argument("--save", action="store_true", default=TRUE,
-	help="Saves plots")
 parser$add_argument("--set", type="character", default=FALSE,
 	help="Select plot sets: \\n\ [t]ime series\\n\ [a]nalytics\\n\ [c]harts\\n\ [i]ndividual sensors")
 parser$add_argument("--poster", action="store_true", default=FALSE,
@@ -930,10 +928,7 @@ plots4 	<- function(..., overcast=args$overcast){
 		title 	<- "Correlation between Mean TPW and Temperature \n Condition: Clear Sky"
 	}
 	# Non-linear model (exponential)
-	plot(exp_reg$x,exp_reg$y, pch=1,
-	#xlim=c(exp_reg$xmin, exp_reg$xmax),
-	ylim=c(ymin, ymax),
-	xlab="Zenith Sky Temperature [C]", ylab="TPW [mm]", main=title)
+	plot(exp_reg$x,exp_reg$y, pch=1, ylim=c(ymin, ymax), xlab="Zenith Sky Temperature [C]", ylab="TPW [mm]", main=title)
 	# Best Fit
 	curve(exp(coef(exp_reg$model)[1]+(coef(exp_reg$model)[2]*x)), col="black", add=TRUE)
 
@@ -945,7 +940,7 @@ plots4 	<- function(..., overcast=args$overcast){
 
 	legend("topleft",col=c("black", "black"), lty=c(1,2),
 	legend=c(parse(text=sprintf("%.2f*e^{%.3f*x}*\t\t(R^2 == %.3f)",
-	exp(coef(exp_reg$model)[1]),coef(exp_reg$model)[2], exp_reg$R2)), "Prediction Interval"))
+	exp(coef(exp_reg$model)[1]),coef(exp_reg$model)[2], exp_reg$R2)), "Confidence Interval"))
 }
 ## Residual Plot
 plots5 	<- function(..., overcast=args$overcast){
@@ -962,7 +957,7 @@ plots5 	<- function(..., overcast=args$overcast){
 	abline(h=0, col="gray")
 }
 
-
+## Pac-Man plot of Super Average Plot
 pac1 <- function(...,overcast=args$overcast){
 	par(mar=c(5.1, 4.1, 4.1, 2.1),xpd=FALSE)
 	if(overcast){
@@ -979,6 +974,7 @@ pac1 <- function(...,overcast=args$overcast){
 	# Finds and removes NaNed values from the dataset
 	pac.plot(exp_reg$x,exp_reg$y, title, c("Zenith Sky Temperature", "C"),c("TPW", "mm"))
 }
+## Pac-Man residual plot
 pac2 <- function(..., overcast=args$overcast){
 	if(overcast){
 			x <- as.numeric(unlist(snsr_sky_calco))
@@ -1533,6 +1529,7 @@ if(args$set == "i"){
 	save(c(instr(overcast=args$overcast)), sname_pub)
 
 	cat(green(sprintf("Plot set downloaded to %s\n", sname)))
+	cat(green(sprintf("Plot set downloaded to %s\n", sname_pub)))
 }else if(args$set == "t"){
 	if (args$overcast){
 	# Overcast Condition
@@ -1608,12 +1605,12 @@ if(args$set == "i"){
 	# Saves plots
 	sname 	<- sprintf("~/Downloads/charts_%s.pdf", gsub("/", "_", recent))
 	sname_pub 	<- sprintf("../figs/results/charts.pdf")
-
 	save(c(charts1()), sname)
 	save(c(charts1()), sname_pub)
-	cat(green(sprintf("Plot set downloaded to %s\n", sname)))}
+	cat(green(sprintf("Plot set downloaded to %s\n", sname)))
+	cat(green(sprintf("Plot set downloaded to %s\n", sname_pub)))
+}
 if(args$pacman){
-	cat(green("[1]"))
 	if (args$overcast){
 	# Overcast Condition
 		cat(magenta("Condition:"), "Overcast\n")
@@ -1626,21 +1623,27 @@ if(args$pacman){
 		sname_pub <- sprintf("../figs/results/pacman.pdf")
 
 	}
+	cat(green("[1]"), "Total Mean PW and Temperature\n")
+	cat(green("[2]"), "Pac-Man Residual Plot\n")
 	save(c(pac1(), pac2()), sname)
 	save(c(pac1(), pac2()), sname_pub)
+	cat(green(sprintf("Plot set downloaded to %s\n", sname)))
+	cat(green(sprintf("Plot set downloaded to %s\n", sname_pub)))
 }
 if(args$poster){
 	# Plots available with this option
 	cat(green("[1]"), "Sky-Ground-Delta Temperature Time Series\n")
 	cat(green("[2]"), "Analytical Plots\n")
-	cat(orange("[3]"), "Condiiton Distrbuion by Sensor\n")
+	cat(green("[3]"), "Condiiton Distrbuion by Sensor\n")
 	# Saves plots
 	sname <- sprintf("~/Downloads/poster_%s.pdf", gsub("/", "_", recent))
 	sname_pub 	<- sprintf("../figs/results/poster.pdf")
 	save(c(poster1(),poster2(), poster3()), sname)
 	save(c(poster1(),poster2(), poster3()), sname_pub)
 
-	cat(green(sprintf("Plot set downloaded to %s\n", sname)))}
+	cat(green(sprintf("Plot set downloaded to %s\n", sname)))
+	cat(green(sprintf("Plot set downloaded to %s\n", sname_pub)))
+}
 if(args$dev){
 	cat("No Plots in this set\n")
 }

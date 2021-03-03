@@ -29,8 +29,16 @@
 	<link rel="stylesheet" href="./assets/css/material.cyan-light_blue.min.css">
 	<link rel="stylesheet" href="./assets/css/dash.css">
 	<link rel="stylesheet" href="./assets/css/changelog.css">
+
+	<script>
+		Flatdoc.run({
+			// fetcher: Flatdoc.github('physicsgoddess1972/Precipitable-Water-Model', 'CHANGELOG.md')
+			fetcher: Flatdoc.file('../CHANGELOG.md')
+		});
+	</script>
+
 </head>
-<body>
+<body role='flatdoc' class="light" id="mode">
 <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
 	<header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
 		<div class="mdl-layout__header-row">
@@ -124,62 +132,7 @@
                     </div>
                 </div>
             <div class="menubar" style="padding-right: -100%;"></div>
-            <div class="section timeline">
-                <div class="timeline-item">
-                            <div class="content">
-                                <div class="collapsible">
-                                    <div class="collapsible-header">
-                                        <h2>Altocumulus v1.0 <span class="label label-rounded text-light text-capitalize tag-date">11/10/2019</span></h2>
-                                    </div>
-                                    <div class="panel">
-                                        <h3 style="color:black">Initial Deployment of The Precipitable Water Model</h3>
-                                        <div>
-                                            <ul style="color: black">
-                                                <li>
-                                                    <span class="label label-rounded text-light text-capitalize tag-added">Added</span>
-                                                    Flexible data input
-                                                </li>
-                                                <li>
-                                                    <span class="label label-rounded text-light text-capitalize tag-added">Added</span>
-                                                    Easy, Hands-off setup
-                                                </li>
-                                                <li>
-                                                    <span class="label label-rounded text-light text-capitalize tag-added">Added</span>
-                                                    Command-line arguments to access the different plots available
-                                                </li>
-                                                <li>
-                                                    <span class="label label-rounded text-light text-capitalize tag-added">Added</span>
-                                                    Time Series plots for zenith sky temperature and precipitable water
-                                                </li>
-                                                <li>
-                                                    <span class="label label-rounded text-light text-capitalize tag-added">Added</span>
-                                                    Analytical plots showing the correlation between zenith sky temperature and precipitable water
-                                                </li>
-                                                <li>
-                                                    <span class="label label-rounded text-light text-capitalize tag-added">Added</span>
-                                                    Poster ready plots for presentations
-                                                </li>
-                                                <li>
-                                                    <span class="label label-rounded text-light text-capitalize tag-added">Added</span>
-                                                    A data set including the average temperature and precipitable water
-                                                </li>
-                                                <li>
-                                                    <span class="label label-rounded text-light text-capitalize tag-added">Added</span>
-                                                    The Pac-Man Residual.
-                                                </li>
-                                                <li>
-                                                    <span class="label label-rounded text-light text-capitalize tag-changed">In Progress</span>
-                                                    Documentation Page
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                </div>
-            </div>
-
+						<div role='flatdoc-content' class='content'></div>
 						<nav class="bottom-nav" style="width: 100%;">
 							<a class="bottom-nav__action" href="#top">
 								<svg class="bottom-nav__icon" viewBox="0 0 24 24">

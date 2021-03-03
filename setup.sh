@@ -68,7 +68,7 @@ while getopts "ighxca" opt; do
 	  rm -r ./src/archive/ ./src/web-app/
 	  rm ./*.md
 	  mkdir ./data/ ./data/ml
-	  echo "Sensor,Error [C],Color Code,D to S,Poster,Temp Range [C]" > ./data/instruments.txt;;
+	  echo "Sensor,Error [C],Color Code,D to S,Poster,Temp Range [C]" > ./data/instruments.conf;;
 	a)
 		bash ./setup.sh -i
 		bash ./setup.sh -x
