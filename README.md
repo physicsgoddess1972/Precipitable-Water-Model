@@ -44,11 +44,11 @@
 	Spot ratio.
 	<br /><br />
     When using the model for your analysis, take the time to fully complete the
-    <code>instruments.txt</code>
+    <code>instruments.conf</code>
 	file with the appropriate information. This will assure that the data
 	properly corresponds to the labels of the sensors. If there is an entry
 	that you are unable to fill, please use NA as a filler. More information
-	regarding the different columns of the <code>instruments.txt</code> will
+	regarding the different columns of the <code>instruments.conf</code> will
 	be discussed in the Data Format section of this documentation page.
 </div></div>
 <div id="methods">
@@ -113,11 +113,11 @@
 </tr>
 <tr>
 	<td><span class="numbered">2</span></td>
-	<td>Update <code>instruments.txt</code>with the appropriate sensor information.</td>
+	<td>Update <code>instruments.conf</code>with the appropriate sensor information.</td>
 </tr>
 <tr>
 	<td><span class="numbered">2</span></td>
-	<td>Download your dataset as a Comma-Seperated-Value file <i>(.csv)</i>, with the filename <code>master_data.csv</code>. <i>(Be sure to follow the guidelines laid out in <a href="#data">Data Format</a>.)</i></td>
+	<td>Download your dataset as a Comma-Seperated-Value file <i>(.csv)</i>, with the filename <code>cool_data.csv</code>. <i>(Be sure to follow the guidelines laid out in <a href="#data">Data Format</a>.)</i></td>
 </tr>
 <tr>
 	<td><span class="numbered">3</span></td>
@@ -147,9 +147,9 @@ Here are some examples of valid datasets:
 <br />
 <a href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/master/data/example/example1.csv" target="_blank">Dataset 3</a>
 <br /><br />
-It should be noted that the columns do not have to be in any set order, with one small caveat, the model pulls the data from columns with headers containing specific words or phrases. The caveat is with regards to Ground and Sky temperature readings. The temperature measurements must go in consecutive order by sensor as determined by <code>instruments.txt</code>.
+It should be noted that the columns do not have to be in any set order, with one small caveat, the model pulls the data from columns with headers containing specific words or phrases. The caveat is with regards to Ground and Sky temperature readings. The temperature measurements must go in consecutive order by sensor as determined by <code>instruments.conf</code>.
 <br /><br />
-For example, if the order of the sensors in <code>instruments.txt</code> is 1610 TE, FLIR i3, and then AMES 1. Then the order of the ground and sky temperature measurements in the dataset should be: 1610 TE, FLIR i3, and then AMES 1. <i>(As seen in Dataset 2)</i>
+For example, if the order of the sensors in <code>instruments.conf</code> is 1610 TE, FLIR i3, and then AMES 1. Then the order of the ground and sky temperature measurements in the dataset should be: 1610 TE, FLIR i3, and then AMES 1. <i>(As seen in Dataset 2)</i>
 <h3>Column Headers for Dataset</h3>
 <table>
 	<tbody>
@@ -185,31 +185,21 @@ For example, if the order of the sensors in <code>instruments.txt</code> is 1610
 		</tr>
 	</tbody>
 </table>
-<sup>\*</sup>This should be consistent with what the sensor is labeled as in <code>instruments.txt</code>
-<h3>Format of <code>instruments.txt</code></h3>
+<sup>\*</sup>This should be consistent with what the sensor is labeled as in <code>instruments.conf</code>
+<h3>Format of <code>instruments.conf</code></h3>
 The purpose of this file is to get all of the information on the sensors organized in one place. This file has a total
 of six columns. Each row corresponds to a infrared thermometer used to collect data.
-<br>
-The first column is used for designating the Sensor. For example, if the sensor is the FLIR i3, then
-(?...?).
+<li>The first column is used for designating the Sensor. If there is more than one sensor of the same type than use a underbar and the number. For example, if there are two sensors called AMES, then the you would type in `AMES_1` and `AMES_2`. </li>
+
+<li>The Second column is the error of the sensor in units of Celsius. If an error cannot be recorded use `NA`. </li>
+
+<li>The third column is the color code, this is a hexidecimal color that will be used in sensor specific plots. An example is of an input is `FF00FF`. </li>
+<li>The fourth column is the Distance ratio of the sensor, this is often recorded in the manual or on the packaging. In the file record the ratio in the format `a:b` with `a` and `b` corresponding to the numbers for the sensor.</li>
+<li>The fifth column is a `True` or `False` input that will decide whether or not to include the sensor in the poster plots</li>
+<li>The last column is for the temperature range in Celsius.</li>
+<h3>Important Note for Missing Data</h3>
+If you have a sensor that did not take measurements for a period of time, for whatever reason, use `-Inf` as the measurement for that day. For example, if the battery of AMES 1 died for two days the ground and sky measurement for those days would be `-Inf`.
 </div></div></div></div>
-
-<!-- <div id="require">
-<div class="collapsible">
-<div class="collapsible-header">
-	<h2>Requirements</h2>
-</div>
-<div class="panel">
-To satisfy the requirements to execute the script. Run <code>install.sh</code>.
-It will install the system requirements and the R package
-requirements.
-
-<pre lang="bash">
-<code>
-<inp>$</inp> bash setup.sh
-</code>
-</pre>
-</div></div></div> -->
 
 <div id="overview">
 <div class="collapsible">
@@ -230,12 +220,11 @@ argument.
 <code>
 <inp>$</inp> Rscript model.r --help
 
-usage: model.r [-h] [--save] [--set SET] [--poster] [--dev] [-d] [-o] [-1st]
-               [-i] [-ml]
+usage: model.r [-h] [--set SET] [--poster] [--dev] [-d] [-o] [-1st] [-i] [-ml]
+               [--pacman]
 
 optional arguments:
   -h, --help          Show this help message and exit
-  --save              Saves plots
   --set SET           Select plot sets:
                           [t]ime series
                           [a]nalytics
@@ -247,7 +236,9 @@ optional arguments:
   -o, --overcast      Shows time series data for days with overcast condition
 	                  (Used with --set [t/a/i])
   -1st, --first_time  Notes for first time users.
-  -i, --instrument    Prints out sensor data stored in instruments.txt
+  -i, --instrument    Prints out sensor data stored in instruments.conf
+  -ml                 Outs a datafile to use with the neural network.
+  --pacman            Produces Pacman plots.
 </code>
 </pre>
 
@@ -264,12 +255,13 @@ optional arguments:
 	<li> Air Temperature Time Series </li>
 	<li> Ground Temperature Time Series </li>
 	<li> Change in Temperature Time Series </li>
-    <li> Precipitable Water Time Series </li>
-    <li> Sky Temperature - Precipitable Water Time Series </li>
-    <li> Temporal Mean Precipitable Water Time Series </li>
-    <li> Locational Mean Precipitable Water Time Series </li>
-    <li> Mean Precipitable Water Time Series </li>
-
+  <li> Precipitable Water Time Series </li>
+  <li> Sky Temperature - Precipitable Water Time Series </li>
+  <li> Temporal Mean Precipitable Water Time Series </li>
+  <li> Locational Mean Precipitable Water Time Series </li>
+  <li> Mean Precipitable Water Time Series </li>
+	<li> Precipitable Water  - RH Time Series</li>
+	<li> Sky Temperature - RH Time Series </li>
 </ol>
 </div></div>
 
@@ -288,7 +280,6 @@ optional arguments:
 	<li> Locational Average PW and Temperature </li>
 	<li> Total Mean PW and Temperature </li>
 	<li> Residual for Total Mean PW and Temperature</li>
-	<li> Pac-Man Residual</li>
 </ol>
 </div></div>
 
@@ -303,7 +294,7 @@ optional arguments:
 </pre>
 
 <ol>
-	<li> Overcast Condition Percentage (Bar) </li>
+	<li> Overcast Condition Percentage Bar Chart for each sensor</li>
 </ol>
 </div></div>
 
@@ -322,6 +313,24 @@ optional arguments:
 	<li> Sky and Ground Temperature Time Series for each sensor</li>
 </ol>
 </div></div>
+
+<div class="collapsible_1">
+<div class="panel">
+<h3> 'Pac-Man' Set Contents </h3>
+
+<pre lang="bash">
+<code>
+<inp>$</inp> Rscript model.r --pacman
+<inp>$</inp> Rscript model.r --pacman --overcast
+</code>
+</pre>
+
+<ol>
+	<li>Total Mean PW and Temperature</li>
+	<li>Pac-Man Residual Plot</li>
+</ol>
+</div></div>
+
 </div></div></div></div>
 
 
