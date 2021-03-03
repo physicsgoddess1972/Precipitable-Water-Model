@@ -10,7 +10,7 @@ The following sections define and show interesting
 features in the R source code
 that exist as a part of the model. To use the following
 code snippets it is important to run the bash script
-defined in <a href="#require">Requirements</a>.
+defined in Methodology section of the <a href="./index.html">Documentation page</a>.
 <br><br>
 In a more general sense, the features included in the computational model are related to
 methods of generalized data input. This is significant because it allows flexibility in the

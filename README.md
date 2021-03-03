@@ -54,7 +54,7 @@
 <div id="methods">
 <div class="collapsible">
 <div class="collapsible-header">
-	<h2>Methodology</h2>
+	<h2 id="methodology">Methodology</h2>
 </div>
 <div class="panel">
 <div class="data-format">
