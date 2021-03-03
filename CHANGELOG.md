@@ -60,7 +60,7 @@
                   <li style="list-style: none;">
                     <span class="label label-rounded text-light text-capitalize tag-added">Added</span>
                     Mean TPW and Mean temperature comparison can now be visualized in a Pac-Man plot.
-                  <li>
+                  </li>
                 <h3>Web Applications</h3>
                   <li style="list-style: none;">
                   <span class="label label-rounded text-light text-capitalize tag-added">Added</span>
