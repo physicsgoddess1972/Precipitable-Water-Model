@@ -34,7 +34,7 @@ parser$add_argument("-1st", "--first_time", action="store_true", default=FALSE,
 parser$add_argument("-i", "--instrument", action="store_true", default=FALSE,
 	help="Prints out sensor data stored in instruments.txt")
 parser$add_argument("-ml", action="store_true",
-	help="Outs a datafile to use with the neural network.")
+	help="Outs a datafile to use with the machine learning algorithm")
 parser$add_argument("--pacman", action="store_true",
 	help="Produces Pacman plots.")
 
