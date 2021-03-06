@@ -6,6 +6,7 @@ import flask
 from flask import Flask, render_template
 
 import dash
+import base64, io
 #from dash.dependencies import Input, Output
 import dash_core_components as dcc
 import dash_html_components as html
@@ -193,15 +194,27 @@ server = app.server
 
 df = pd.read_csv("https://raw.githubusercontent.com/physicsgoddess1972/Precipitable-Water-Model/master/data/ml/ml_data.csv")
 
-## Shoving data and labels into an array
-X = array(df[df.columns[1:4]])
-Y = array(df.condition)
-## Redefining data labels to be -1 or 1
-Y[Y == "clear sky"] = -1
-Y[Y == "overcast"] = 1
-Y = (ones(len(X)) * Y).astype('int')
+def parse_data(contents, filename, clear):
+	if clear == 0:
+		try:
+			content_type, content_string = contents.split(',')
+			decoded = base64.b64decode(content_string)
+			df = pd.read_csv(io.StringIO(decoded.decode('utf-8')))
+		except AttributeError:
+			df = pd.read_csv("https://raw.githubusercontent.com/physicsgoddess1972/Precipitable-Water-Model/master/data/ml/ml_data.csv")
+	elif clear > 0:
+		df = pd.read_csv("https://raw.githubusercontent.com/physicsgoddess1972/Precipitable-Water-Model/master/data/ml/ml_data.csv")
+	return df
 
-def analysis(randstate, setting, checkopt, trainsize):
+
+def analysis(randstate, setting, checkopt, trainsize, data):
+    ## Shoving data and labels into an array
+    X = array(data[data.columns[1:4]])
+    Y = array(data[data.columns[-1]])
+    ## Redefining data labels to be -1 or 1
+    Y[Y == "clear sky"] = -1
+    Y[Y == "overcast"] = 1
+    Y = (ones(len(X)) * Y).astype('int')
     X_train, X_test, y_train, y_test = train_test_split(X, Y,
     train_size=trainsize,
     random_state=randstate)
@@ -260,7 +273,14 @@ def analysis(randstate, setting, checkopt, trainsize):
         index = pd.DataFrame({'All': pd.concat([pd.Series(pd.DataFrame(X_train).index), pd.Series(pd.DataFrame(X_test).index)])})
     return [df_x, df_y, df_l], [df_x1, df_y1, df_l1], [df_x2, df_y2, df_l2], [df_x3, df_y3, df_l3], [x_min,x_max, y_min,y_max], title, index
 
-def result(randstate, trainsize):
+def result(randstate, trainsize, data):
+    ## Shoving data and labels into an array
+    X = array(data[data.columns[1:4]])
+    Y = array(data[data.columns[-1]])
+    ## Redefining data labels to be -1 or 1
+    Y[Y == "clear sky"] = -1
+    Y[Y == "overcast"] = 1
+    Y = (ones(len(X)) * Y).astype('int')
     X_train, X_test, y_train, y_test = train_test_split(X, Y,
     train_size=trainsize,
     random_state=randstate)
@@ -305,86 +325,107 @@ def result(randstate, trainsize):
 
 app.layout = html.Div(children=[
 html.Div([
-html.Label("Input random state: ",
-style={"color": "#000",
-'vertical-align': 'middle',
-"margin-right": 10,
-'padding-top': 15}),
-dcc.Input(
-id="randstate",
-type="number",
-placeholder="1", value=1,
-style={'width': 100,
-'color': '#000',
-'margin-right': 50}),
+	html.Div(children=[
+		html.Div(children=[
+			dcc.Upload(
+				id='upload-data',
+				children=[html.Button("add",
+					className="bottom-nav__icon material-icons",
+					style={'display': 'block', 'width': '40px', 'height': '100%', 'background-color': '#FFF', 'border-color': '#DDD','border-width': '2px','margin-left': '14px', 'margin-right': '8px'})],
+			),
+			html.Label("Upload", style={'color': 'black', 'padding-left': '0px', 'textAlign': 'left'})
+			], style={'display': 'flex'}),
+		html.Div([
+			html.Button("clear",
+				id='clear',
+				className="bottom-nav__icon material-icons",
+				n_clicks=0,
+				style={'display': 'block', 'height': '100%', 'width': '40px', 'background-color': '#FFF', 'border-color': '#DDD','border-width': '2px', 'margin-left': '13px','margin-right': '10px'}
+			),
+			html.Label("Clear", style={'color': 'black', 'textAlign': 'left'})
+			], style={'display': 'flex'}),
+		],
+		style={'margin-right': '4em'}
+		),
+        html.Label("Input random state: ",
+                    style={"color": "#000",
+                        'vertical-align': 'middle',
+                        "margin-right": 10,
+                        'padding-top': 15}),
+        dcc.Input(id="randstate", type="number", placeholder="1", value=1,
+                    style={'width': 100,
+                            'color': '#000',
+                            'margin-right': 50}),
 
-html.Label("Input training size: ",
-style={"color": "#000",
-'vertical-align': 'middle',
-"margin-right": 10,
-'padding-top': 15}),
-dcc.Input(
-id="trainsize",
-type="number",
-placeholder="0.7", value=0.7,
-min=0.1, max=0.9, step=0.1,
-style={'width': 100,
-'color': '#000',
-'margin-right': 50}),
+    html.Label("Input training size: ",
+    style={"color": "#000",
+    'vertical-align': 'middle',
+    "margin-right": 10,
+    'padding-top': 15}),
+    dcc.Input(
+    id="trainsize",
+    type="number",
+    placeholder="0.7", value=0.7,
+    min=0.1, max=0.9, step=0.1,
+    style={'width': 100,
+    'color': '#000',
+    'margin-right': 50}),
+    ], style={'display': 'flex'}),
+    dcc.Tabs([
+    dcc.Tab(label="Data", children=[
+    html.Div(children=[
+    dcc.Dropdown(
+    id='dataset',
+    options=[{'label': i, 'value': i} for i in ["Training", "Testing", "All"]],
+    value="Training",
+    searchable=False,
+    style={'width': 150,
+    'margin-right': 40}),
+    # dcc.Button('Decision Hyperplane', id='decision', value="DB"),
+    # dcc.Button('Support Vectors', id='support', value="SV"),
+    dcc.Checklist(
+    id='checkopt',
+    options=[
+    {'label': 'Decision Hyperplane', 'value': 'DB'},
+    {'label': 'Support Vectors', 'value': 'SV'}],
+    labelStyle={'display':'flex',
+    'color': 'rgb(0,0,0)',
+    'padding-left': 10,
+    'border-width': '1px',
+    'border-color': '#000'})
+    ],
+    style={'display': 'flex', 'margin-top': 10}
+    ),
 
-
-]),
-dcc.Tabs([
-dcc.Tab(label="Data", children=[
-html.Div(children=[
-dcc.Dropdown(
-id='dataset',
-options=[{'label': i, 'value': i} for i in ["Training", "Testing", "All"]],
-value="Training",
-searchable=False,
-style={'width': 150,
-'margin-right': 40}),
-# dcc.Button('Decision Hyperplane', id='decision', value="DB"),
-# dcc.Button('Support Vectors', id='support', value="SV"),
-dcc.Checklist(
-id='checkopt',
-options=[
-{'label': 'Decision Hyperplane', 'value': 'DB'},
-{'label': 'Support Vectors', 'value': 'SV'}],
-labelStyle={'display':'flex',
-'color': 'rgb(0,0,0)',
-'padding-left': 10,
-'border-width': '1px',
-'border-color': '#000'})
-],
-style={'display': 'flex', 'margin-top': 10}
-),
-
-dcc.Graph(id='alldata'),
-]),
-dcc.Tab(label="Results and Evaluation", children=[
-html.Div([
-dcc.Graph(id='conmat'),
-DataTable(id='table',
-style_as_list_view=True,
-style_table={'margin-top': 45, 'margin-left': 0},
-style_cell_conditional=[{'if': {'column_id': c},
-'textAlign': 'left'
-} for c in ['Metric']])
-], style={'display': 'flex', 'margin-top': 10})
-]),
-]),
+    dcc.Graph(id='alldata'),
+    ]),
+    dcc.Tab(label="Results and Evaluation", children=[
+    html.Div([
+    dcc.Graph(id='conmat'),
+    DataTable(id='table',
+    style_as_list_view=True,
+    style_table={'margin-top': 45, 'margin-left': 0},
+    style_cell_conditional=[{'if': {'column_id': c},
+    'textAlign': 'left'
+    } for c in ['Metric']])
+    ], style={'display': 'flex', 'margin-top': 10})
+    ]),
+    ]),
 ])
 
 
 @app.callback(
 dash.dependencies.Output('alldata', 'figure'),
-[dash.dependencies.Input('dataset', 'value'),
-dash.dependencies.Input('randstate', 'value'),
-dash.dependencies.Input('checkopt', 'value'),
-dash.dependencies.Input('trainsize', 'value')])
-def display_graph(dataset, randstate, checkopt, trainsize):
-    df_0, df_1, df_2, df_3, axes_rng, title, index = analysis(randstate, dataset, checkopt, trainsize)
+[dash.dependencies.Input('upload-data', 'contents'),
+ dash.dependencies.Input('upload-data', 'filename'),
+ dash.dependencies.Input('clear', 'n_clicks'),
+ dash.dependencies.Input('dataset','value'),
+ dash.dependencies.Input('randstate', 'value'),
+ dash.dependencies.Input('checkopt', 'value'),
+ dash.dependencies.Input('trainsize', 'value')])
+def display_graph(data, fname, clear, dataset, randstate, checkopt, trainsize):
+    df = parse_data(data, fname, clear)
+    df_0, df_1, df_2, df_3, axes_rng, title, index = analysis(randstate, dataset, checkopt, trainsize, df)
     hovertext = list()
     for xi, yi, zi in zip(df[df.columns[0]][index[dataset]],df_0[0][dataset], df_0[1][dataset]):
         hovertext.append('Date: {date}<br>Temperature: {x:.2f} C <br>TPW: {y:.2f} mm '.format(date=xi, x=yi, y=zi))
@@ -458,9 +499,13 @@ def display_graph(dataset, randstate, checkopt, trainsize):
 @app.callback(
 dash.dependencies.Output('conmat', 'figure'),
 [dash.dependencies.Input('randstate', 'value'),
-dash.dependencies.Input('trainsize', 'value')])
-def display_heatmap(randstate, trainsize):
-    confusion, scores = result(randstate, trainsize)
+dash.dependencies.Input('trainsize', 'value'),
+dash.dependencies.Input('upload-data', 'contents'),
+ dash.dependencies.Input('upload-data', 'filename'),
+ dash.dependencies.Input('clear', 'n_clicks')])
+def display_heatmap(randstate, trainsize, data, fname, clear):
+    df = parse_data(data, fname, clear)
+    confusion, scores = result(randstate, trainsize, df)
     data = [go.Heatmap(
     x=['predicted clear', 'predicted overcast'],
     y=['overcast','clear sky'],
@@ -478,9 +523,13 @@ def display_heatmap(randstate, trainsize):
 [dash.dependencies.Output('table', 'data'),
 dash.dependencies.Output('table', 'columns')],
 [dash.dependencies.Input('randstate', 'value'),
-dash.dependencies.Input('trainsize', 'value')])
-def display_table(randstate, trainsize):
-    confusion, scores = result(randstate, trainsize)
+dash.dependencies.Input('trainsize', 'value'),
+dash.dependencies.Input('upload-data', 'contents'),
+ dash.dependencies.Input('upload-data', 'filename'),
+ dash.dependencies.Input('clear', 'n_clicks')])
+def display_table(randstate, trainsize, data, fname, clear):
+    df = parse_data(data, fname, clear)
+    confusion, scores = result(randstate, trainsize, df)
     scores.reset_index(level=0, inplace=True)
     scores.columns = ["Metric", "Values"]
 

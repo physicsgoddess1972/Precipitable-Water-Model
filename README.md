@@ -237,7 +237,7 @@ optional arguments:
 	                  (Used with --set [t/a/i])
   -1st, --first_time  Notes for first time users.
   -i, --instrument    Prints out sensor data stored in instruments.conf
-  -ml                 Outs a datafile to use with the neural network.
+  -ml                 Outs a datafile to use with the machine learning algorithm.
   --pacman            Produces Pacman plots.
 </code>
 </pre>
