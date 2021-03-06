@@ -4,7 +4,7 @@
     <div class="content">
       <div class="collapsible">
             <div class="collapsible-header">
-                <h2>PMAT v2.0 (Cirrus) <span class="label label-rounded text-light text-capitalize tag-date">TBA</span></h2></div>
+                <h2>PMAT v2.0 (Cirrus) <span class="label label-rounded text-light text-capitalize tag-date">3/6/2021</span></h2></div>
             <div class="panel">
               <h4 style="color:black">New and Improved PMAT</h4>
               <div>
@@ -69,6 +69,10 @@
                   <li style="list-style: none;">
                     <span class="label label-rounded text-light text-capitalize tag-added">Added</span>
                     The Data Dashboard also allows for custom time series data to be uploaded.
+                  </li><br>
+                  <li style="list-style: none;">
+                    <span class="label label-rounded text-light text-capitalize tag-added">Added</span>
+                    The Machine Learning dashboard now allows for custom data to be uploaded.
                   </li><br>
                 <h3>Documentation</h3>
                   <li style="list-style: none;">
