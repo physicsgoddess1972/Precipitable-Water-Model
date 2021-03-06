@@ -273,8 +273,7 @@ _:-ms-input-placeholder, :root .demo-graph {
 
 footer {
   position: relative;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z
+  top: 19%;
+  margin: 0;
+  padding: 0;
 }
