@@ -72,7 +72,7 @@ quit_it <- function(){
 }
 
 ## Imports data from master_data.csv
-fname       <- read.table(file="../data/master_data.csv", sep=",", header=TRUE, strip.white=TRUE)
+fname       <- read.table(file="../data/archive/master_data_archive.csv", sep=",", header=TRUE, strip.white=TRUE)
 ## Imports sensor information from instruments.txt
 sensor 		<- suppressWarnings(read.csv(file="../data/instruments.conf", sep=","))
 ## Pulls most recent data stamp for the purpose of adding date stamps to file names when plots are saved
@@ -441,7 +441,6 @@ for (i in 1:length(col_pwtm)){
 
 ## Takes super average of the precipitable water measurements
 avgo 		<-  Reduce("+", pw_loco)/length(pw_loco)
-
 ## A general function that will save plots
 save 			<- function(func, name){
 	pdf(name);func;invisible(graphics.off())
@@ -1320,7 +1319,8 @@ instr 	<- function(...,overcast=args$overcast){
 			date 		<- clear_date
 		}
 		xmin <- min(do.call("c", date), na.rm=TRUE); xmax <- max(do.call("c", date), na.rm=TRUE)
-
+		print(sky_range[1])
+		print(length(date))
 		plot(date, t(unlist(sky_range[1])), xlab="Date", ylab="Temperature [C]",
 				main=sky_title, pch=16, xaxt='n',
 				#ylim=c(sky_ymin, sky_ymax),
