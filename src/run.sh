@@ -24,53 +24,53 @@ while getopts "oahcs" opt; do
 	case "${opt}" in
 		c)
 				echo -e "\e[96m ~~~~ Clear Sky ~~~~\e[0m"
-				Rscript model.r --set t --save &> /dev/null & Rscript model.r --set a --save &> /dev/null
+				Rscript model.r --set t &> /dev/null & Rscript model.r --set a &> /dev/null
 				echo -e "[Clear Sky] ${ts}"
 				echo -e "[Clear Sky] ${ap}"
-				Rscript model.r --set i --save &> /dev/null & Rscript model.r --set c --save &> /dev/null
+				Rscript model.r --set i &> /dev/null & Rscript model.r --set c &> /dev/null
 				echo -e "[Clear Sky] ${in}"
 				echo -e "[Clear Sky] ${ch}"
-				Rscript model.r --poster --save &> /dev/null & Rscript model.r --pacman --save &> /dev/null
+				Rscript model.r --poster &> /dev/null & Rscript model.r --pacman &> /dev/null
 				echo -e "[Clear Sky] ${po}"
 				echo -e "[Clear Sky] ${pa}"
 				echo -e "\e[96m ~~~~ Complete ~~~~\e[0m" && exit 0;;
 		o)
 				echo -e "\e[96m ~~~~ Overcast ~~~~\e[0m"
-				Rscript model.r --set t -o --save &> /dev/null & Rscript model.r --set a -o --save &> /dev/null
+				Rscript model.r --set t -o &> /dev/null & Rscript model.r --set a -o &> /dev/null
 				echo -e "[Overcast] ${ts}"
 				echo -e "[Overcast] ${ap}"
-				Rscript model.r --set c --save &> /dev/null & Rscript model.r --set i -o --save &> /dev/null
+				Rscript model.r --set c &> /dev/null & Rscript model.r --set i -o &> /dev/null
 				echo -e "[Overcast] ${ch}"
 				echo -e "[Overcast] ${in}"
-				Rscript model.r --poster --save &> /dev/null & Rscript model.r --pacman -o --save &> /dev/null
+				Rscript model.r --poster &> /dev/null & Rscript model.r --pacman -o &> /dev/null
 				echo -e "[Overcast] ${po}"
 				echo -e "[Overcast] ${pa}"
 				echo -e "\e[96m ~~~~ Complete ~~~~\e[0m" && exit 0;;
 		a)
 				echo -e "\e[96m ~~~~ All Plots ~~~~\e[0m"
-				Rscript model.r --set t -o --save &> /dev/null & Rscript model.r --pacman -o --save &> /dev/null
+				Rscript model.r --set t -o &> /dev/null & Rscript model.r --pacman -o &> /dev/null
 				echo -e "[Overcast] ${ts}"
 				echo -e "[Overcast] ${pa}"
-				Rscript model.r --set a -o --save &> /dev/null & Rscript model.r --set i -o --save &> /dev/null
+				Rscript model.r --set a -o &> /dev/null & Rscript model.r --set i -o &> /dev/null
 				echo -e "[Overcast] ${ap}"
 				echo -e "[Overcast] ${in}"
-				Rscript model.r --set t --save &> /dev/null & Rscript model.r --pacman --save &> /dev/null
+				Rscript model.r --set t &> /dev/null & Rscript model.r --pacman &> /dev/null
 				echo -e "[Clear Sky] ${ts}"
 				echo -e "[Clear Sky] ${pa}"
-				Rscript model.r --set a --save &> /dev/null & Rscript model.r --set i --save &> /dev/null
+				Rscript model.r --set a &> /dev/null & Rscript model.r --set i &> /dev/null
 				echo -e "[Clear Sky] ${ap}"
 				echo -e "[Clear Sky] ${in}"
-				Rscript model.r --poster --save &> /dev/null & Rscript model.r --set c --save &> /dev/null
+				Rscript model.r --poster &> /dev/null & Rscript model.r --set c &> /dev/null
 				echo -e "[All] ${po}"
 				echo -e "[All] ${ch}"
 				Rscript model.r --data -ml &> /dev/null
 				echo -e "\e[92mMachine Learning Data saved\e[0m"
-				python3 ./ml/svm/class_svm.py -dfile "../data/ml/" -N $mlN
+				python3 ./ml/svm/class_svm_tf.py -dfile "../data/ml/" -N $mlN -ffile "../figs/ml/"
 				echo -e "\e[96m ~~~~ Complete ~~~~\e[0m" && exit 0;;
 		s)
 				Rscript model.r --data -ml &> /dev/null
 				echo -e "\e[92mMachine Learning Data saved\e[0m"
-				python3 ./ml/svm/class_svm.py -dfile "../data/ml/" -N $mlN
+				python3 ./ml/svm/class_svm_tf.py -dfile "../data/ml/" -N $mlN -ffile "../figs/ml/"
 				echo -e "\e[96m ~~~~ Complete ~~~~\e[0m" && exit 0;;
 		h)
 				echo "usage: run.sh [-hcoas] [-N int]";
