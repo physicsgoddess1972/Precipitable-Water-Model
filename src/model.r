@@ -72,7 +72,7 @@ quit_it <- function(){
 }
 
 ## Imports data from master_data.csv
-fname       <- read.table(file="../data/archive/master_data_archive.csv", sep=",", header=TRUE, strip.white=TRUE)
+fname       <- read.table(file="../data/master_data.csv", sep=",", header=TRUE, strip.white=TRUE)
 ## Imports sensor information from instruments.txt
 sensor 		<- suppressWarnings(read.csv(file="../data/instruments.conf", sep=","))
 ## Pulls most recent data stamp for the purpose of adding date stamps to file names when plots are saved
@@ -1035,128 +1035,126 @@ poster1 <- function(...){
 			snsr_name[[i]] <- NULL
 		}
 	}
-	if(args$save){
-	# Layout/Margin configuration
-		par(mfrow=c(3,2),mar=c(1,2, 3.1, 1), oma=c(1,2,0,0), xpd=TRUE)
-	# Date limits
-		xmin <- min(do.call("c", clear_date), na.rm=TRUE); xmax <- max(do.call("c", clear_date), na.rm=TRUE)
-	# Sky Temperature Time series
-		ymax 			  <- max(c(as.numeric(unlist(snsr_skyo)),as.numeric(unlist(snsr_sky))), na.rm=TRUE)
-		ymin 			  <- min(c(as.numeric(unlist(snsr_skyo)),as.numeric(unlist(snsr_sky))), na.rm=TRUE)
-		range_index <- snsr_sky
+# Layout/Margin configuration
+	par(mfrow=c(3,2),mar=c(1,2, 3.1, 1), oma=c(1,2,0,0), xpd=TRUE)
+# Date limits
+	xmin <- min(do.call("c", clear_date), na.rm=TRUE); xmax <- max(do.call("c", clear_date), na.rm=TRUE)
+# Sky Temperature Time series
+	ymax 			  <- max(c(as.numeric(unlist(snsr_skyo)),as.numeric(unlist(snsr_sky))), na.rm=TRUE)
+	ymin 			  <- min(c(as.numeric(unlist(snsr_skyo)),as.numeric(unlist(snsr_sky))), na.rm=TRUE)
+	range_index <- snsr_sky
 
-		plot(clear_date,range_index[[1]], xlab=NA, ylab=NA, main=NA, pch=16,xaxt='n',
-			xlim=c(xmin, xmax), ylim=c(ymin, ymax), col=c(snsr_color[1]), las=1)
-		ticks.at <- seq(as.Date(paste(substr(clear_date[[1]], 1, 8),"01",sep="")), clear_date[[length(clear_date)]] , by = "months")
-		mj_ticks <- ticks.at[seq(1, length(ticks.at), length.out=5)]
-		mn_ticks <- ticks.at[-(seq(1, length(ticks.at), length.out=5))]
+	plot(clear_date,range_index[[1]], xlab=NA, ylab=NA, main=NA, pch=16,xaxt='n',
+		xlim=c(xmin, xmax), ylim=c(ymin, ymax), col=c(snsr_color[1]), las=1)
+	ticks.at <- seq(as.Date(paste(substr(clear_date[[1]], 1, 8),"01",sep="")), clear_date[[length(clear_date)]] , by = "months")
+	mj_ticks <- ticks.at[seq(1, length(ticks.at), length.out=5)]
+	mn_ticks <- ticks.at[-(seq(1, length(ticks.at), length.out=5))]
 
-		axis(1, at=mn_ticks, labels=rep("", length(mn_ticks)), tck=-0.015)
-		axis(1, at=mj_ticks, labels=format(mj_ticks, "%b %y"), tck=-0.03)
+	axis(1, at=mn_ticks, labels=rep("", length(mn_ticks)), tck=-0.015)
+	axis(1, at=mj_ticks, labels=format(mj_ticks, "%b %y"), tck=-0.03)
 
-		title("Sky Temperature",line=0.5)
-		mtext("Temperature [C]", side=2, line=2.5, cex=0.65)
+	title("Sky Temperature",line=0.5)
+	mtext("Temperature [C]", side=2, line=2.5, cex=0.65)
 
-		for(j in 2:length(range_index)){
-			points(clear_date,range_index[[j]], pch=16,
-			col=c(snsr_color[j]))
-		}
-		legend("topleft", legend=c(gsub("_", " ", snsr_name)),col=snsr_color, pch=16)
-
-	# Sky Temperature Time Series (overcast)
-		range_index <- snsr_skyo
-
-		plot(over_date,range_index[[1]], ylab=NA,
-			main=NA, pch=16, las=1, col=snsr_color[1],xaxt='n',
-			xlim=c(xmin, xmax), ylim=c(ymin, ymax))
-		ticks.at <- seq(as.Date(paste(substr(clear_date[[1]], 1, 8),"01",sep="")), clear_date[[length(clear_date)]] , by = "months")
-		mj_ticks <- ticks.at[seq(1, length(ticks.at), length.out=5)]
-		mn_ticks <- ticks.at[-(seq(1, length(ticks.at), length.out=5))]
-
-		axis(1, at=mn_ticks, labels=rep("", length(mn_ticks)), tck=-0.015)
-		axis(1, at=mj_ticks, labels=format(mj_ticks, "%b %y"), tck=-0.03)
-
-		title("Sky Temperature", line=0.5)
-		for(j in 2:length(range_index)){
-			points(over_date, range_index[[j]], pch=16, col=snsr_color[j])
-		}
-	# Ground Temperature Time Series
-		ymax  		<- max(c(as.numeric(unlist(snsr_gro)),as.numeric(unlist(snsr_groo))),na.rm=TRUE)
-		ymin  		<- min(c(as.numeric(unlist(snsr_gro)),as.numeric(unlist(snsr_groo))),na.rm=TRUE)
-		range_index <- snsr_gro
-
-		plot(clear_date, range_index[[1]], xlab=NA, ylab=NA, main=NA, pch=16,xaxt='n',
-			xlim=c(xmin, xmax), ylim=c(ymin, ymax), col=snsr_color[1], las=1)
-		ticks.at <- seq(as.Date(paste(substr(clear_date[[1]], 1, 8),"01",sep="")), clear_date[[length(clear_date)]] , by = "months")
-		mj_ticks <- ticks.at[seq(1, length(ticks.at), length.out=5)]
-		mn_ticks <- ticks.at[-(seq(1, length(ticks.at), length.out=5))]
-
-		axis(1, at=mn_ticks, labels=rep("", length(mn_ticks)), tck=-0.015)
-		axis(1, at=mj_ticks, labels=format(mj_ticks, "%b %y"), tck=-0.03)
-
-		title("Ground Temperature", line=0.5)
-		mtext("Temperature [C]", side=2, line=2.5, cex=0.65)
-
-		for(j in 2:length(range_index)){
-			points(clear_date,range_index[[j]], pch=16, col=snsr_color[j])
-		}
-	# Ground Temperature Time Series (overcast)
-		range_index <- snsr_groo
-
-		plot(over_date, range_index[[1]], xlab=NA, ylab=NA, main=NA, pch=16,xaxt='n',
-			xlim=c(xmin, xmax), ylim=c(ymin, ymax), col=snsr_color[1], las=1)
-		ticks.at <- seq(as.Date(paste(substr(clear_date[[1]], 1, 8),"01",sep="")), clear_date[[length(clear_date)]] , by = "months")
-		mj_ticks <- ticks.at[seq(1, length(ticks.at), length.out=5)]
-		mn_ticks <- ticks.at[-(seq(1, length(ticks.at), length.out=5))]
-
-		axis(1, at=mn_ticks, labels=rep("", length(mn_ticks)), tck=-0.015)
-		axis(1, at=mj_ticks, labels=format(mj_ticks, "%b %y"), tck=-0.03)
-
-		title("Ground Temperature", line=0.5)
-		for(j in 2:length(range_index)){
-			points(over_date,range_index[[j]], pch=16, col=snsr_color[j])
-		}
-	# Difference in Temperature Time Series
-		ymax 		<- max(c(as.numeric(unlist(snsr_del)),as.numeric(unlist(snsr_delo))), na.rm=TRUE)
-		ymin 		<- min(c(as.numeric(unlist(snsr_del)),as.numeric(unlist(snsr_delo))), na.rm=TRUE)
-		range_index <- snsr_del
-
-		plot(clear_date,range_index[[1]], xlab=NA, ylab=NA,main=NA, pch=16,xaxt='n',
-			  xlim=c(xmin, xmax), ylim=c(ymin, ymax),col=snsr_color[1], las=1)
-		ticks.at <- seq(as.Date(paste(substr(clear_date[[1]], 1, 8),"01",sep="")), clear_date[[length(clear_date)]] , by = "months")
-	 	mj_ticks <- ticks.at[seq(1, length(ticks.at), length.out=5)]
-	 	mn_ticks <- ticks.at[-(seq(1, length(ticks.at), length.out=5))]
-
-	 	axis(1, at=mn_ticks, labels=rep("", length(mn_ticks)), tck=-0.015)
-	 	axis(1, at=mj_ticks, labels=format(mj_ticks, "%b %y"), tck=-0.03)
-
-		title("Difference in Temperature", line=0.5)
-		mtext("Temperature [C]", side=2, line=2.5, cex=0.65)
-
-		for(j in 2:length(range_index)){
-			points(clear_date, range_index[[j]], pch=16, col=snsr_color[j])
-		}
-	# Difference in Temperature Time Series (overcast)
-		range_index <- snsr_delo
-
-		plot(over_date,range_index[[1]], xlab=NA, ylab=NA,main=NA, pch=16,xaxt='n',
-			 xlim=c(xmin, xmax), ylim=c(ymin, ymax),col=snsr_color[1], las=1)
-	  ticks.at <- seq(as.Date(paste(substr(clear_date[[1]], 1, 8),"01",sep="")), clear_date[[length(clear_date)]] , by = "months")
-	 	mj_ticks <- ticks.at[seq(1, length(ticks.at), length.out=5)]
-	 	mn_ticks <- ticks.at[-(seq(1, length(ticks.at), length.out=5))]
-
-	 	axis(1, at=mn_ticks, labels=rep("", length(mn_ticks)), tck=-0.015)
-	 	axis(1, at=mj_ticks, labels=format(mj_ticks, "%b %y"), tck=-0.03)
-
-		title("Difference in Temperature", line=0.5)
-
-		for(j in 2:length(range_index)){
-			points(over_date,range_index[[j]], pch=16, col=snsr_color[j])
-		}
-	# Column Titles
-		mtext("Condition: Overcast", outer=TRUE, cex=0.75, line=-1.5, at=c(x=0.76))
-		mtext("Condition: Clear Sky", outer=TRUE, cex=0.75, line=-1.5, at=c(x=0.26))
+	for(j in 2:length(range_index)){
+		points(clear_date,range_index[[j]], pch=16,
+		col=c(snsr_color[j]))
 	}
+	legend("topleft", legend=c(gsub("_", " ", snsr_name)),col=snsr_color, pch=16)
+
+# Sky Temperature Time Series (overcast)
+	range_index <- snsr_skyo
+
+	plot(over_date,range_index[[1]], ylab=NA,
+		main=NA, pch=16, las=1, col=snsr_color[1],xaxt='n',
+		xlim=c(xmin, xmax), ylim=c(ymin, ymax))
+	ticks.at <- seq(as.Date(paste(substr(clear_date[[1]], 1, 8),"01",sep="")), clear_date[[length(clear_date)]] , by = "months")
+	mj_ticks <- ticks.at[seq(1, length(ticks.at), length.out=5)]
+	mn_ticks <- ticks.at[-(seq(1, length(ticks.at), length.out=5))]
+
+	axis(1, at=mn_ticks, labels=rep("", length(mn_ticks)), tck=-0.015)
+	axis(1, at=mj_ticks, labels=format(mj_ticks, "%b %y"), tck=-0.03)
+
+	title("Sky Temperature", line=0.5)
+	for(j in 2:length(range_index)){
+		points(over_date, range_index[[j]], pch=16, col=snsr_color[j])
+		}
+# Ground Temperature Time Series
+	ymax  		<- max(c(as.numeric(unlist(snsr_gro)),as.numeric(unlist(snsr_groo))),na.rm=TRUE)
+	ymin  		<- min(c(as.numeric(unlist(snsr_gro)),as.numeric(unlist(snsr_groo))),na.rm=TRUE)
+	range_index <- snsr_gro
+
+	plot(clear_date, range_index[[1]], xlab=NA, ylab=NA, main=NA, pch=16,xaxt='n',
+		xlim=c(xmin, xmax), ylim=c(ymin, ymax), col=snsr_color[1], las=1)
+	ticks.at <- seq(as.Date(paste(substr(clear_date[[1]], 1, 8),"01",sep="")), clear_date[[length(clear_date)]] , by = "months")
+	mj_ticks <- ticks.at[seq(1, length(ticks.at), length.out=5)]
+	mn_ticks <- ticks.at[-(seq(1, length(ticks.at), length.out=5))]
+
+	axis(1, at=mn_ticks, labels=rep("", length(mn_ticks)), tck=-0.015)
+	axis(1, at=mj_ticks, labels=format(mj_ticks, "%b %y"), tck=-0.03)
+
+	title("Ground Temperature", line=0.5)
+	mtext("Temperature [C]", side=2, line=2.5, cex=0.65)
+
+	for(j in 2:length(range_index)){
+		points(clear_date,range_index[[j]], pch=16, col=snsr_color[j])
+	}
+# Ground Temperature Time Series (overcast)
+	range_index <- snsr_groo
+
+	plot(over_date, range_index[[1]], xlab=NA, ylab=NA, main=NA, pch=16,xaxt='n',
+		xlim=c(xmin, xmax), ylim=c(ymin, ymax), col=snsr_color[1], las=1)
+	ticks.at <- seq(as.Date(paste(substr(clear_date[[1]], 1, 8),"01",sep="")), clear_date[[length(clear_date)]] , by = "months")
+	mj_ticks <- ticks.at[seq(1, length(ticks.at), length.out=5)]
+	mn_ticks <- ticks.at[-(seq(1, length(ticks.at), length.out=5))]
+
+	axis(1, at=mn_ticks, labels=rep("", length(mn_ticks)), tck=-0.015)
+	axis(1, at=mj_ticks, labels=format(mj_ticks, "%b %y"), tck=-0.03)
+
+	title("Ground Temperature", line=0.5)
+	for(j in 2:length(range_index)){
+		points(over_date,range_index[[j]], pch=16, col=snsr_color[j])
+	}
+# Difference in Temperature Time Series
+	ymax 		<- max(c(as.numeric(unlist(snsr_del)),as.numeric(unlist(snsr_delo))), na.rm=TRUE)
+	ymin 		<- min(c(as.numeric(unlist(snsr_del)),as.numeric(unlist(snsr_delo))), na.rm=TRUE)
+	range_index <- snsr_del
+
+	plot(clear_date,range_index[[1]], xlab=NA, ylab=NA,main=NA, pch=16,xaxt='n',
+		  xlim=c(xmin, xmax), ylim=c(ymin, ymax),col=snsr_color[1], las=1)
+	ticks.at <- seq(as.Date(paste(substr(clear_date[[1]], 1, 8),"01",sep="")), clear_date[[length(clear_date)]] , by = "months")
+ 	mj_ticks <- ticks.at[seq(1, length(ticks.at), length.out=5)]
+ 	mn_ticks <- ticks.at[-(seq(1, length(ticks.at), length.out=5))]
+
+ 	axis(1, at=mn_ticks, labels=rep("", length(mn_ticks)), tck=-0.015)
+ 	axis(1, at=mj_ticks, labels=format(mj_ticks, "%b %y"), tck=-0.03)
+
+	title("Difference in Temperature", line=0.5)
+	mtext("Temperature [C]", side=2, line=2.5, cex=0.65)
+
+	for(j in 2:length(range_index)){
+		points(clear_date, range_index[[j]], pch=16, col=snsr_color[j])
+	}
+# Difference in Temperature Time Series (overcast)
+	range_index <- snsr_delo
+
+	plot(over_date,range_index[[1]], xlab=NA, ylab=NA,main=NA, pch=16,xaxt='n',
+		 xlim=c(xmin, xmax), ylim=c(ymin, ymax),col=snsr_color[1], las=1)
+  ticks.at <- seq(as.Date(paste(substr(clear_date[[1]], 1, 8),"01",sep="")), clear_date[[length(clear_date)]] , by = "months")
+ 	mj_ticks <- ticks.at[seq(1, length(ticks.at), length.out=5)]
+ 	mn_ticks <- ticks.at[-(seq(1, length(ticks.at), length.out=5))]
+
+ 	axis(1, at=mn_ticks, labels=rep("", length(mn_ticks)), tck=-0.015)
+ 	axis(1, at=mj_ticks, labels=format(mj_ticks, "%b %y"), tck=-0.03)
+
+	title("Difference in Temperature", line=0.5)
+
+	for(j in 2:length(range_index)){
+		points(over_date,range_index[[j]], pch=16, col=snsr_color[j])
+	}
+# Column Titles
+	mtext("Condition: Overcast", outer=TRUE, cex=0.75, line=-1.5, at=c(x=0.76))
+	mtext("Condition: Clear Sky", outer=TRUE, cex=0.75, line=-1.5, at=c(x=0.26))
 }
 ### Plots Galore for poster
 poster2 <- function(...){

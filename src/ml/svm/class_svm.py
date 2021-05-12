@@ -161,7 +161,7 @@ class svm_analysis:
 
         confusion = pd.DataFrame(con_mat, index=['clear sky', 'overcast'],
                             columns=['predicted clear', 'predicted clouds'])
-
+        print(y_test)
         scores      = cross_val_score(svc, X, y, cv=5)
         precision   = round(precision_score(y_test, y_pred),2)
         jaccard     = round(jaccard_score(y_test, y_pred),2)
