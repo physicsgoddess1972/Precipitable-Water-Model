@@ -206,23 +206,21 @@ def parse_data(contents, filename, clear):
 		df = pd.read_csv("https://raw.githubusercontent.com/physicsgoddess1972/Precipitable-Water-Model/master/data/ml/ml_data.csv")
 	return df
 
-
 def analysis(randstate, setting, checkopt, trainsize, data):
     ## Shoving data and labels into an array
-    X = array(data[data.columns[1:4]])
-    Y = array(data[data.columns[-1]])
+    X = pd.DataFrame(array(data[data.columns[1:3]]))
+    Y = pd.DataFrame(array(data[data.columns[-1]]))
     ## Redefining data labels to be -1 or 1
     Y[Y == "clear sky"] = -1
     Y[Y == "overcast"] = 1
-    Y = (ones(len(X)) * Y).astype('int')
-    X_train, X_test, y_train, y_test = train_test_split(X, Y,
-    train_size=trainsize,
-    random_state=randstate)
-    svc = svm.SVC(kernel='linear', degree=5, C=2).fit(X_train, y_train)
+
+    X_train, X_test, y_train, y_test = train_test_split(X, Y, train_size=trainsize, random_state=randstate)
+    svc = svm.SVC(kernel='linear', degree=5, C=2).fit(X_train.to_numpy().tolist(), y_train.to_numpy().tolist())
 
     # # Minimum and Maximum values for the testing data
-    x_min, x_max = X[:, 0].min() - 1, X[:, 0].max() + 1
-    y_min, y_max = 0, X[:, 1].max() + 1
+    x_min, x_max = X[0].min() - 1, X[0].max() + 1
+    y_min, y_max = 0, X[1].max() + 1
+
     # # Analysis coefficients
     w = svc.coef_[0]
     a = -w[0] / w[1]
@@ -248,30 +246,24 @@ def analysis(randstate, setting, checkopt, trainsize, data):
     df_x3 = pd.DataFrame({'DB': db_x})
     df_y3 = pd.DataFrame({'DB': db_y})
     df_l3 = pd.DataFrame({'DB': ["rgb(202, 8, 205)"]})
+
     if setting == "Training":
         title = "Training Dataset Temperature vs TPW"
-        df_x = pd.DataFrame({'Training': X_train[:, 0]})
-        df_y = pd.DataFrame({'Training': X_train[:, 1]})
-        df_l = pd.DataFrame({'Training': y_train})
-        index = pd.DataFrame({'Training': pd.DataFrame(X_train).index})
+        df_x = pd.DataFrame({'Training': X_train[0]})
+        df_y = pd.DataFrame({'Training': X_train[1]})
+        df_l = pd.DataFrame({'Training': y_train[0]})
     elif setting == "Testing":
         title = "Testing Dataset Temperature vs TPW"
-
-        df_x = pd.DataFrame({'Testing': X_test[:, 0]})
-        df_y = pd.DataFrame({'Testing': X_test[:, 1]})
-        df_l = pd.DataFrame({'Testing': y_test})
-        index = pd.DataFrame({'Testing': pd.DataFrame(X_test).index})
+        df_x = pd.DataFrame({'Testing': X_test[0]})
+        df_y = pd.DataFrame({'Testing': X_test[1]})
+        df_l = pd.DataFrame({'Testing': y_test[0]})
     elif setting == "All":
         title = "Full Dataset Temperature vs TPW"
+        df_x = pd.DataFrame({'All': X[0]})
+        df_y = pd.DataFrame({'All': X[1]})
+        df_l = pd.DataFrame({'All': Y[0]})
 
-        df_x = pd.DataFrame({'All': pd.concat([pd.Series(X_train[:,0]),
-        pd.Series(X_test[:,0])])})
-        df_y = pd.DataFrame({'All': pd.concat([pd.Series(X_train[:,1]),
-        pd.Series(X_test[:,1])])})
-        df_l = pd.DataFrame({'All': pd.concat([pd.Series(y_train),
-        pd.Series(y_test)])})
-        index = pd.DataFrame({'All': pd.concat([pd.Series(pd.DataFrame(X_train).index), pd.Series(pd.DataFrame(X_test).index)])})
-    return [df_x, df_y, df_l], [df_x1, df_y1, df_l1], [df_x2, df_y2, df_l2], [df_x3, df_y3, df_l3], [x_min,x_max, y_min,y_max], title, index
+    return [df_x, df_y, df_l], [df_x1, df_y1, df_l1], [df_x2, df_y2, df_l2], [df_x3, df_y3, df_l3], [x_min,x_max, y_min,y_max], title
 
 def result(randstate, trainsize, data):
     ## Shoving data and labels into an array
@@ -425,10 +417,11 @@ dash.dependencies.Output('alldata', 'figure'),
  dash.dependencies.Input('trainsize', 'value')])
 def display_graph(data, fname, clear, dataset, randstate, checkopt, trainsize):
     df = parse_data(data, fname, clear)
-    df_0, df_1, df_2, df_3, axes_rng, title, index = analysis(randstate, dataset, checkopt, trainsize, df)
+    df_0, df_1, df_2, df_3, axes_rng, title = analysis(randstate, dataset, checkopt, trainsize, df)
     hovertext = list()
-    for xi, yi, zi in zip(df[df.columns[0]][index[dataset]],df_0[0][dataset], df_0[1][dataset]):
-        hovertext.append('Date: {date}<br>Temperature: {x:.2f} C <br>TPW: {y:.2f} mm '.format(date=xi, x=yi, y=zi))
+
+    for xi, yi, zi, ai in zip(df['date'][df_0[0][dataset].index.tolist()],df_0[0][dataset], df_0[1][dataset], df['condition'][df_0[0][dataset].index.tolist()]):
+        hovertext.append('Date: {date}<br>Temperature: {x:.2f} C <br>TPW: {y:.2f} mm <br>Condition: {a}'.format(date=xi, x=yi, y=zi,a=ai))
 
     data = [{
         'x': df_0[0][dataset],
