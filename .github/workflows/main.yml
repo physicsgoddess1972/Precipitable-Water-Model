@@ -23,7 +23,7 @@ jobs:
         key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
 
     - name: Run a one-line script
-      if: steps.cache.outputs.cache-hit == 'true'
+      if: steps.cache.outputs.cache-hit = 'true'
       run: Rscript src/model.r --set t
     - name: stage changed files
       run: git add .
