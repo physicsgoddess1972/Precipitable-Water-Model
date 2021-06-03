@@ -16,18 +16,6 @@ jobs:
       with:
         persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
         fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
-    - uses: r-lib/actions/setup-r@v1
-      with:
-        r-version: '4.0.1' # The R version to download (if necessary) and use.
-    - name: install packages
-      run: |
-        R -e "install.packages('argparse', repos='https://cran.rstudio.com/')"
-        R -e "install.packages('devtools', repos='https://cran.rstudio.com/', dependencies=TRUE)"
-        R -e "devtools::install_version('plotrix', version='3.5', repos='https://cran.rstudio.com/')"
-        R -e "install.packages('RColorBrewer', repos='https://cran.rstudio.com/')"
-        R -e "install.packages('Metrics', repos='https://cran.rstudio.com/')"
-        R -e "install.packages('pacviz', repos='https://cran.rstudio.com/')"
-        R -e "install.packages('Hmisc', repos='https://cran.rstudio.com/')"
     - name: Run a one-line script
       run: Rscript src/model.r --set t
     - name: stage changed files
