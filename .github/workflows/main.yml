@@ -20,22 +20,7 @@ jobs:
       id: cache
       with:
         path: path/to/dependencies
-        key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
-    - name: Run a one-line script
-      run: Rscript src/model.r --set t
-    - name: stage changed files
-      run: git add .
-    - name: Commit files
-      run: |
-        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-        git config --local user.name "github-actions[bot]"
-        git commit -m "Testing CI implementation" -a
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: ${{ github.ref }}
-      
+        key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}      
     - name: Install Dependencies
       if: steps.cache.outputs.cache-hit != 'true'
       run: |
@@ -55,3 +40,17 @@ jobs:
         R -e "install.packages('Metrics', repos='https://cran.rstudio.com/')"
         R -e "install.packages('pacviz', repos='https://cran.rstudio.com/')"
         R -e "install.packages('Hmisc', repos='https://cran.rstudio.com/')"
+    - name: Run a one-line script
+      run: Rscript src/model.r --set t
+    - name: stage changed files
+      run: git add .
+    - name: Commit files
+      run: |
+        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git commit -m "Testing CI implementation" -a
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.ref }}
