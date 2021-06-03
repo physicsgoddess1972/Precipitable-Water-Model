@@ -5,10 +5,10 @@
 ## To get a list of arguments run [bash -h]
 ####
 
-#!/usr/bin/env bash
-cd ./util/
-python3 data_import.py
-cd ../
+# #!/usr/bin/env bash
+# cd ./util/
+# python3 data_import.py
+# cd ../
 
 N=100
 mlN="${3:-$N}"
