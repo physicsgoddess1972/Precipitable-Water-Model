@@ -19,7 +19,7 @@ jobs:
     - uses: actions/cache@v2
       id: cache
       with:
-        path: path/to/dependencies
+        path: ~/.local/share/renv
         key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}      
     - name: Install Dependencies
       if: steps.cache.outputs.cache-hit != 'true'
@@ -41,7 +41,7 @@ jobs:
         R -e "install.packages('pacviz', repos='https://cran.rstudio.com/')"
         R -e "install.packages('Hmisc', repos='https://cran.rstudio.com/')"
     - name: Run a one-line script
-      run: Rscript src/model.r --set t -dir "" -id "nm"
+      run: Rscript src/model.r --set t -dir " " -id "nm"
     - name: stage changed files
       run: git add .
     - name: Commit files
