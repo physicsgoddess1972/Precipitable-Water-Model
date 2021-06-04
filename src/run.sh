@@ -65,7 +65,6 @@ while getopts "oahcs" opt; do
 				echo -e "[All] ${ch}"
 				Rscript model.r --data -ml &> /dev/null
 				echo -e "\e[92mMachine Learning Data saved\e[0m"
-				python3 ./ml/svm/class_svm_tf.py -dfile "../data/ml/" -N $mlN -ffile "../figs/ml/"
 				echo -e "\e[96m ~~~~ Complete ~~~~\e[0m" && exit 0;;
 		s)
 				Rscript model.r --data -ml &> /dev/null

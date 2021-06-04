@@ -101,7 +101,6 @@
                   </li></div></div>
           </div></div>
     </div>
-  </div>
   <div class="timeline-item">
     <div class="content">
       <div class="collapsible">
@@ -148,4 +147,5 @@
         </div>
       </div>
   </div>
+</div>
 </div>

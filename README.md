@@ -1,5 +1,5 @@
 <a id="top"></a>
-<div id="data">
+<div>
 <div class="collapsible">
 <div class="collapsible-header">
 		<h2>Introduction</h2>
