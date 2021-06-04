@@ -1532,7 +1532,7 @@ if(args$set == "i"){
 	}else{
 	# Clear Sky condition
 		cat(magenta("Condition:"), "Clear Sky\n")
-		sname_pub <- sprintf("figs/%s/results/time_series.pdf", args$id) # File name of saved pdf
+		sname_pub <- sprintf("../figs/%s/results/time_series.pdf", args$id) # File name of saved pdf
 	}
 	# Plots available with this option
 	cat(green("[1]"), "Sky Temperature Time Series\n")
@@ -1565,11 +1565,11 @@ if(args$set == "i"){
 	if(args$overcast){
 	# Overcast condition
 		cat(magenta("Condition:"), "Overcast\n")
-		sname_pub <- sprintf("figs/%s/results/analytics_overcast.pdf", args$id) # File name of saved pdf
+		sname_pub <- sprintf("../figs/%s/results/analytics_overcast.pdf", args$id) # File name of saved pdf
 	}else{
 	# Clear Sky condition
 		cat(magenta("Condition:"), "Clear Sky\n")
-		sname_pub <- sprintf("figs/%s/results/analytics.pdf", args$id) # File name of saved pdf
+		sname_pub <- sprintf("../figs/%s/results/analytics.pdf", args$id) # File name of saved pdf
 
 	}
 	# Plots available with this option
