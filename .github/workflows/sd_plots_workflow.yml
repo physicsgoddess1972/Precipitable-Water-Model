@@ -46,7 +46,7 @@ jobs:
         remotes::install_deps(dependencies = TRUE)
       shell: Rscript {0}
     - name: Run South Dakota sequence
-      run: cd src && bash run.sh -a -id "rapidcity_sd"
+      run: cd src && sudo bash run.sh -a -id "rapidcity_sd"
     - name: stage changed files
       run: git add *
     - name: Commit files
