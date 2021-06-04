@@ -41,7 +41,7 @@ jobs:
         R -e "install.packages('pacviz', repos='https://cran.rstudio.com/')"
         R -e "install.packages('Hmisc', repos='https://cran.rstudio.com/')"
     - name: Run a one-line script
-      run: Rscript src/model.r --set t -dir " " -id "nm"
+      run: Rscript src/model.r --set t -dir "data/" -id "nm"
     - name: stage changed files
       run: git add .
     - name: Commit files
