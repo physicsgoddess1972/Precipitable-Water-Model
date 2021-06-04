@@ -1,11 +1,12 @@
 <a id="top"></a>
-<div id="data">
+<div>
 <div class="collapsible">
 <div class="collapsible-header">
 		<h2>Introduction</h2>
 </div>
 <div class="panel">
 	<a href="https://zenodo.org/badge/latestdoi/178975498"><img src="https://zenodo.org/badge/178975498.svg" alt="DOI"></a>
+	<a href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/actions/workflows/main.yml"><img src="https://github.com/physicsgoddess1972/Precipitable-Water-Model/actions/workflows/main.yml/badge.svg?branch=master"></a>
     <h3>What is Precipitable Water?</h3>
     Precipitable water is the amount of condensed water vapor to be found in a vertical column of air, with a base of 1 meter-squared, that
     extends from the surface of the Earth to the top of the atmosphere.

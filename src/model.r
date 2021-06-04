@@ -9,7 +9,7 @@
 library(argparse); library(crayon); library(RColorBrewer); library(plotrix)
 suppressPackageStartupMessages(library(pacviz)); suppressMessages(library(Hmisc))
 options(warn=-1)
-#library(investr)
+
 ## Custom Colors for cmd line features
 red 		<- make_style("red1")
 orange 		<- make_style("orange")
@@ -37,8 +37,8 @@ parser$add_argument("-ml", action="store_true",
 	help="Outs a datafile to use with the machine learning algorithm")
 parser$add_argument("--pacman", action="store_true",
 	help="Produces Pacman plots.")
-parser$add_argument("-id", help="ID of measurement site")
-parser$add_argument("-dir", help="base directory", default="../data/")
+parser$add_argument("--id", help="ID of measurement site")
+parser$add_argument("--dir", help="base directory", default="../data/")
 
 args <- parser$parse_args()
 
@@ -74,9 +74,9 @@ quit_it <- function(){
 }
 
 ## Imports data from master_data.csv
-fname       <- read.table(file="https://raw.githubusercontent.com/physicsgoddess1972/Precipitable-Water-Model/master/data/master_data_nm.csv", sep=",", header=TRUE, strip.white=TRUE)
+fname       <- read.table(file=sprintf("https://raw.githubusercontent.com/physicsgoddess1972/Precipitable-Water-Model/master/data/%s/master_data.csv", args$id), sep=",", header=TRUE, strip.white=TRUE)
 ## Imports sensor information from instruments.txt
-sensor 		<- suppressWarnings(read.csv(file="https://raw.githubusercontent.com/physicsgoddess1972/Precipitable-Water-Model/master/data/instruments_nm.conf", sep=","))
+sensor 		<- suppressWarnings(read.csv(file=sprintf("https://raw.githubusercontent.com/physicsgoddess1972/Precipitable-Water-Model/master/data/%s/instruments.conf", args$id), sep=","))
 ## Pulls most recent data stamp for the purpose of adding date stamps to file names when plots are saved
 recent 		<- t(fname[1])[length(t(fname[1]))]
 
@@ -1319,8 +1319,6 @@ instr 	<- function(...,overcast=args$overcast){
 			date 		<- clear_date
 		}
 		xmin <- min(do.call("c", date), na.rm=TRUE); xmax <- max(do.call("c", date), na.rm=TRUE)
-		print(sky_range[1])
-		print(length(date))
 		plot(date, t(unlist(sky_range[1])), xlab="Date", ylab="Temperature [C]",
 				main=sky_title, pch=16, xaxt='n',
 				#ylim=c(sky_ymin, sky_ymax),
@@ -1511,11 +1509,11 @@ if(args$set == "i"){
 	if (args$overcast){
 	# Overcast Condition
 		cat(magenta("Condition:"), "Overcast\n")
-		sname_pub <- sprintf("figs/results/sensor_overcast.pdf") # File name of saved pdf
+		sname_pub <- sprintf("figs/%s/results/sensor_overcast.pdf", args$id) # File name of saved pdf
 	}else{
 	# Clear Sky condition
 		cat(magenta("Condition:"), "Clear Sky\n")
-		sname_pub <- sprintf("figs/results/sensor.pdf") # File name of saved pdf
+		sname_pub <- sprintf("figs/%s/results/sensor.pdf", args$id) # File name of saved pdf
 
 	}
 	# Plots available with this option
@@ -1530,11 +1528,11 @@ if(args$set == "i"){
 	if (args$overcast){
 	# Overcast Condition
 		cat(magenta("Condition:"), "Overcast\n")
-		sname_pub <- sprintf("figs/results/time_series_overcast.pdf") # File name of saved pdf
+		sname_pub <- sprintf("figs/%s/results/time_series_overcast.pdf", args$id) # File name of saved pdf
 	}else{
 	# Clear Sky condition
 		cat(magenta("Condition:"), "Clear Sky\n")
-		sname_pub <- sprintf("figs/results/time_series.pdf") # File name of saved pdf
+		sname_pub <- sprintf("../figs/%s/results/time_series.pdf", args$id) # File name of saved pdf
 	}
 	# Plots available with this option
 	cat(green("[1]"), "Sky Temperature Time Series\n")
@@ -1567,11 +1565,11 @@ if(args$set == "i"){
 	if(args$overcast){
 	# Overcast condition
 		cat(magenta("Condition:"), "Overcast\n")
-		sname_pub <- sprintf("figs/results/analytics_overcast.pdf") # File name of saved pdf
+		sname_pub <- sprintf("../figs/%s/results/analytics_overcast.pdf", args$id) # File name of saved pdf
 	}else{
 	# Clear Sky condition
 		cat(magenta("Condition:"), "Clear Sky\n")
-		sname_pub <- sprintf("figs/results/analytics.pdf") # File name of saved pdf
+		sname_pub <- sprintf("../figs/%s/results/analytics.pdf", args$id) # File name of saved pdf
 
 	}
 	# Plots available with this option
@@ -1595,7 +1593,7 @@ if(args$set == "i"){
 		cat(green(sprintf("[%s]", i)), sprintf("Overcast Condition Percentage: %s\n", gsub("_", " ",snsr_name[i])))
 	}
 	# Saves plots
-	sname_pub 	<- sprintf("figs/results/charts.pdf")
+	sname_pub 	<- sprintf("figs/%s/results/charts.pdf", args$id)
 
 	save(c(charts1()), sname_pub)
 	cat(green(sprintf("Plot set downloaded to %s\n", sname_pub)))
@@ -1604,11 +1602,11 @@ if(args$pacman){
 	if (args$overcast){
 	# Overcast Condition
 		cat(magenta("Condition:"), "Overcast\n")
-		sname_pub <- sprintf("figs/results/pacman_overcast.pdf") # File name of saved pdf
+		sname_pub <- sprintf("figs/%s/results/pacman_overcast.pdf", args$id) # File name of saved pdf
 	}else{
 	# Clear Sky condition
 		cat(magenta("Condition:"), "Clear Sky\n")
-		sname_pub <- sprintf("figs/results/pacman.pdf")
+		sname_pub <- sprintf("figs/%s/results/pacman.pdf", args$id)
 
 	}
 	cat(green("[1]"), "Total Mean PW and Temperature\n")
@@ -1622,7 +1620,7 @@ if(args$poster){
 	cat(green("[2]"), "Analytical Plots\n")
 	cat(green("[3]"), "Condiiton Distrbuion by Sensor\n")
 	# Saves plots
-	sname_pub 	<- sprintf("figs/results/poster.pdf")
+	sname_pub 	<- sprintf("figs/%s/results/poster.pdf", args$id)
 	save(c(poster1(),poster2(), poster3()), sname_pub)
 
 	cat(green(sprintf("Plot set downloaded to %s\n", sname_pub)))
