@@ -33,22 +33,30 @@ progress = Progress(TextColumn("[bold blue]{task.fields[filename]}", justify="ri
                     TimeRemainingColumn())
 progress.print(Panel("[bold deep_sky_blue2]Good Morning\nWelcome to the Data Extraction Module of the Precipitable Water Model. For more information about the model and the purpose of this tool, please visit the [link=https://git.io/fj5Xr]documentation page[/link]"))
 
+import argparse
+
+parser = argparse.ArgumentParser(description="Data Import Module")
+parser.add_argument("-I", type=list, help="ID for data import\n\t[Default: nm]", default=["nm"], dest="I")
+
+args = parser.parse_args()
+
+
 ## Timeout Retry
 REQUESTS_MAX_RETRIES = int(os.getenv("REQUESTS_MAX_RETRIES", 10))
 adapter = requests.adapters.HTTPAdapter(max_retries=REQUESTS_MAX_RETRIES)
 
 ## Imports Wyoming and MesoWest Site IDs
-config  = "../../data/import.conf"
+config  = "../../data/%s/import.conf".format(args.I)
 cnfg = loadtxt(config, dtype=str, delimiter=":")
 
 ## Imports Sensor information
-instr   = "../../data/instruments.conf"
+instr   = "../../data/%s/instruments.conf".format(args.I)
 intr = loadtxt(instr, dtype=str, delimiter=",", unpack=True)[0]
 ## Data file used for model input
-fname   = '../../data/master_data.csv'
+fname   = '../../data/%s/master_data.csv'.format(args.I)
 
 ## Data file used for user input
-wname   = '../../data/cool_data.csv'
+wname   = '../../data/%s/cool_data.csv'.format(args.I)
 
 ## Stations used
 wy_station = cnfg[1][1].split(",")
