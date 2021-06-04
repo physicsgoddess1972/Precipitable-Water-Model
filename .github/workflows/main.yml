@@ -16,14 +16,6 @@ jobs:
       with:
         persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
         fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
-#    - name: Cache depends
-#      id: cache
-#      uses: actions/cache@v2
-#      with:
-#        path: ~/.local/share/renv
-#        key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
-#        restore-keys: |
-#          ${{ runner.os }}-renv-
     - name: Install Dependencies
       run: |
         sudo apt install gfortran libbz2-dev libv8-dev libcurl4-openssl-dev libxml2-dev libssl-dev unzip libfontconfig1-dev
@@ -42,7 +34,7 @@ jobs:
         R -e "install.packages('pacviz', repos='https://cran.rstudio.com/')"
         R -e "install.packages('Hmisc', repos='https://cran.rstudio.com/')"
     - name: Run New Mexico Plot sequence
-      run: cd src && bash run.sh -a -id "nm"
+      run: cd src && bash run.sh -a -id "socorro_nm"
     - name: stage changed files
       run: git add .
     - name: Commit files
