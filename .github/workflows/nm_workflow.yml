@@ -29,12 +29,14 @@ jobs:
       run: |
           sudo R -e "install.packages('remotes', repos='https://cran.rstudio.com/')"
           sudo R -e "saveRDS(remotes::dev_package_deps(dependencies = TRUE), '.github/depends.Rds', version = 2)"
-#          sudo R -e "writeLines(sprintf('R-%i.%i', getRversion()$major, getRversion()$minor), '.github/R-version')"
+          sudo R -e "writeLines(sprintf('R-%i.%i', getRversion()$major, getRversion()$minor), '.github/R-version')"
+      shell: Rscript {0}
     - name: Cache R packages
-      uses: actions/cache@v1
+      uses: actions/cache@v2
       with:
         path: ${{ env.R_LIBS_USER }}
-        key: r-${{ hashFiles('DESCRIPTION') }}
+        key: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-${{ hashFiles('.github/depends.Rds') }}
+        restore-keys: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-
     - name: install R packages
       run: |
         sudo R -e "install.packages('argparse', repos='https://cran.rstudio.com/')"
