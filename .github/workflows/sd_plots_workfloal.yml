@@ -1,11 +1,12 @@
 # This is a basic workflow to help you get started with Actions
 
-name: New Mexico CI
+name: South Dakota Plots CI
 
-# Controls when the action will run. 
+# Controls when the action will run.
 on:
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+  push:
+    paths:
+      - 'data/rapidcity_sd/master_data.csv'
 
 jobs:
   converter:
@@ -44,7 +45,7 @@ jobs:
         remotes::install_deps(dependencies = TRUE)
       shell: Rscript {0}
     - name: Run New Mexico Plot sequence
-      run: cd src && bash run.sh -a -id "socorro_nm"
+      run: cd src && bash run.sh -a -id "rapidcity_sd"
     - name: stage changed files
       run: git add *
     - name: Commit files
