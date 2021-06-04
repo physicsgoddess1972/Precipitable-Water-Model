@@ -22,7 +22,7 @@ in="\e[92mIndividual Sensor plots saved to figs/results/\e[0m"
 ch="\e[92mCharts saved to figs/results/\e[0m"
 po="\e[92mPoster plots saved to figs/results/\e[0m"
 pa="\e[92mPac-man plots saved to figs/results/\e[0m"
-
+echo $id
 ## Flags
 while getopts "oahcs" opt; do
 	case "${opt}" in
