@@ -9,7 +9,7 @@
 library(argparse); library(crayon); library(RColorBrewer); library(plotrix)
 suppressPackageStartupMessages(library(pacviz)); suppressMessages(library(Hmisc))
 options(warn=-1)
-#library(investr)
+
 ## Custom Colors for cmd line features
 red 		<- make_style("red1")
 orange 		<- make_style("orange")
@@ -1319,8 +1319,6 @@ instr 	<- function(...,overcast=args$overcast){
 			date 		<- clear_date
 		}
 		xmin <- min(do.call("c", date), na.rm=TRUE); xmax <- max(do.call("c", date), na.rm=TRUE)
-		print(sky_range[1])
-		print(length(date))
 		plot(date, t(unlist(sky_range[1])), xlab="Date", ylab="Temperature [C]",
 				main=sky_title, pch=16, xaxt='n',
 				#ylim=c(sky_ymin, sky_ymax),
