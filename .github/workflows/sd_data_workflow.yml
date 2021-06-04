@@ -1,12 +1,12 @@
 # This is a basic workflow to help you get started with Actions
 
-name: New Mexico Data Import CI
+name: South Dakota Data Import CI
 
 # Controls when the action will run.
 on:
   push:
     paths:
-      - 'data/socorro_nm/cool_data.csv'
+      - 'data/rapidcity_sd/cool_data.csv'
   workflow_dispatch:
 
 jobs:
@@ -36,7 +36,7 @@ jobs:
     - name: Install Dependencies
       run: python3 -m pip install -r requirements.txt
     - name: Run New Mexico Plot sequence
-      run: cd src/util/ && python3 data_import.py -I "socorro_nm"
+      run: cd src/util/ && python3 data_import.py -I "rapidcity_sd"
     - name: stage changed files
       run: git add *
     - name: Commit files
