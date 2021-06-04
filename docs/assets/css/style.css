@@ -1571,3 +1571,52 @@ table {
 .navbar-dark .navbar-text a,.navbar-dark .navbar-text a:focus,.navbar-dark .navbar-text a:hover {
     color: #fff
 }
+
+.collab{
+    width: 47%
+}
+@media (max-width: 700px) {
+    .collab{
+        width: 100%
+    }
+
+}
+
+.research-info {
+    width: 50%;
+}
+@media (max-width: 700px) {
+    .research-info{
+        width: 100%
+    }
+
+}
+
+.img-small-nm {
+    background-image: url('../img/IMG_20170623_161817.jpg');
+    margin-right: 5px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.img-small-sd {
+    background-image: url('../img/IMG_20200802_052417.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.data-nav {
+    width: 50%;
+}
+
+@media (max-width: 550px) {
+    .img-small-nm {
+        background-image: none;
+    }
+    .img-small-sd {
+        background-image: none;
+    }
+    .data-nav {
+        width: 100%;
+    }
+}

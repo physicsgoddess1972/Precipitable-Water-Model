@@ -1,0 +1,51 @@
+# This is a basic workflow to help you get started with Actions
+
+name: South Dakota Data Import CI
+
+# Controls when the action will run.
+on:
+  push:
+    paths:
+      - 'data/rapidcity_sd/cool_data.csv'
+  workflow_dispatch:
+
+jobs:
+  converter:
+    name: Run converter
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+      with:
+        persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
+        fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8.5
+    - name: Get pip cache dir
+      id: pip-cache
+      run: |
+        echo "::set-output name=dir::$(pip cache dir)"
+    - name: pip cache
+      uses: actions/cache@v2
+      with:
+        path: ${{ steps.pip-cache.outputs.dir }}
+        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+    - name: Install Dependencies
+      run: python3 -m pip install -r requirements.txt
+    - name: Run New Mexico Plot sequence
+      run: cd src/util/ && python3 data_import.py -I "rapidcity_sd"
+    - name: stage changed files
+      run: git add *
+    - name: Commit files
+      run: |
+        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git commit -m "Testing CI implementation" -a
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.ref }}
