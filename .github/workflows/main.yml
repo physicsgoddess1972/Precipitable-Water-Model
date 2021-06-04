@@ -16,14 +16,14 @@ jobs:
       with:
         persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
         fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
-    - name: Cache depends
-      id: cache
-      uses: actions/cache@v2
-      with:
-        path: ~/.local/share/renv
-        key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-renv-
+#    - name: Cache depends
+#      id: cache
+#      uses: actions/cache@v2
+#      with:
+#        path: ~/.local/share/renv
+#        key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
+#        restore-keys: |
+#          ${{ runner.os }}-renv-
     - name: Install Dependencies
       run: |
         sudo apt install gfortran libbz2-dev libv8-dev libcurl4-openssl-dev libxml2-dev libssl-dev unzip libfontconfig1-dev
@@ -31,7 +31,7 @@ jobs:
         sudo apt install libfreetype6-dev libpng-dev libtiff5-dev libjpeg-dev
     - uses: r-lib/actions/setup-r@v1
       with:
-        r-version: '4.0.1' # The R version to download (if necessary) and use.
+        r-version: '4.0.1'
     - name: install R packages
       run: |
         R -e "install.packages('argparse', repos='https://cran.rstudio.com/')"
@@ -41,19 +41,8 @@ jobs:
         R -e "install.packages('Metrics', repos='https://cran.rstudio.com/')"
         R -e "install.packages('pacviz', repos='https://cran.rstudio.com/')"
         R -e "install.packages('Hmisc', repos='https://cran.rstudio.com/')"
-    - name: Run a one-line script
-      run: | 
-        Rscript src/model.r --set t -dir "data/" -id "nm"
-        Rscript src/model.r --set a -dir "data/" -id "nm"
-        Rscript src/model.r --set c -dir "data/" -id "nm"
-        Rscript src/model.r --set i -dir "data/" -id "nm"
-        Rscript src/model.r --poster -dir "data/" -id "nm"
-        Rscript src/model.r --pacman -dir "data/" -id "nm"
-        
-        Rscript src/model.r --set t -o -dir "data/" -id "nm"
-        Rscript src/model.r --set a -o -dir "data/" -id "nm"
-        Rscript src/model.r --set i -o -dir "data/" -id "nm"
-        Rscript src/model.r --pacman -o -dir "data/" -id "nm"
+    - name: Run New Mexico Plot sequence
+      run: cd src && bash run.sh -a -id "nm"
     - name: stage changed files
       run: git add .
     - name: Commit files
