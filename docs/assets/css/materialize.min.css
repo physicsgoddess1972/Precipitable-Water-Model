@@ -15,7 +15,7 @@ body {
 	margin: 0;
 }
 
-article, aside, footer, header, nav, section {
+article, aside, footer, header, section {
 	display: block
 }
 
@@ -296,7 +296,7 @@ ul:not(.browser-default) > li {
 blockquote {
 	margin: 20px 0;
 	padding-left: 1.5rem;
-	border-left: 5px solid #ee6e73
+	border-left: 5px solid #6EBAEE
 }
 
 i {
@@ -355,7 +355,7 @@ img.responsive-img, video.responsive-video {
 }
 
 .pagination li.active {
-	background-color: #ee6e73
+	background-color: #6EBAEE
 }
 
 .pagination li.disabled a {
@@ -547,7 +547,7 @@ ul.staggered-list li {
 .page-footer {
 	padding-top: 20px;
 	color: #fff;
-	background-color: #ee6e73
+	background-color: #6EBAEE
 }
 
 .page-footer .footer-copyright {
@@ -1112,7 +1112,6 @@ table span.badge {
 }
 
 .row .col.s3 {
-	width: 25%;
 	margin-left: auto;
 	left: auto;
 	right: auto
@@ -2599,7 +2598,7 @@ small {
 }
 
 .tabs .tab a {
-	color: rgba(238, 110, 115, 0.7);
+	color: rgba(76, 105, 236, 0.7);
 	display: block;
 	width: 100%;
 	height: 100%;
@@ -2612,17 +2611,17 @@ small {
 }
 
 .tabs .tab a:focus, .tabs .tab a:focus.active {
-	background-color: rgba(246, 178, 181, 0.2);
+	background-color: rgba(76, 105, 236, 0.2);
 	outline: none
 }
 
 .tabs .tab a:hover, .tabs .tab a.active {
 	background-color: transparent;
-	color: #ee6e73
+	color: #4C69EC
 }
 
 .tabs .tab.disabled a, .tabs .tab.disabled a:hover {
-	color: rgba(238, 110, 115, 0.4);
+	color: rgba(76, 105, 236, 0.4);
 	cursor: default
 }
 
@@ -2630,7 +2629,7 @@ small {
 	position: absolute;
 	bottom: 0;
 	height: 2px;
-	background-color: #f6b2b5;
+	background-color: #4C69EC;
 	will-change: left, right
 }
 
@@ -2979,12 +2978,12 @@ body.keyboard-focused .dropdown-content li:focus {
 .modal {
 	display: none;
 	position: fixed;
-	left: 0;
-	right: 0;
+    left: 20%;
+    right: 20%;
+    width: 50%;
 	background-color: #fafafa;
 	padding: 0;
 	max-height: 70%;
-	width: 55%;
 	margin: auto;
 	overflow-y: auto;
 	border-radius: 2px;
@@ -2994,7 +2993,11 @@ body.keyboard-focused .dropdown-content li:focus {
 .modal:focus {
 	outline: none
 }
-
+@media only screen and (max-width: 992px) {
+	.modal {
+		width: 80%
+	}
+}
 @media only screen and (max-width: 992px) {
 	.modal {
 		width: 80%
@@ -4528,13 +4531,13 @@ input[type=range]::-ms-thumb {
 .table-of-contents a:hover {
 	color: #a8a8a8;
 	padding-left: 15px;
-	border-left: 1px solid #ee6e73
+	border-left: 1px solid #6EBAEE
 }
 
 .table-of-contents a.active {
 	font-weight: 500;
 	padding-left: 14px;
-	border-left: 2px solid #ee6e73
+	border-left: 2px solid #6EBAEE
 }
 
 .sidenav {
@@ -4735,7 +4738,7 @@ input[type=range]::-ms-thumb {
 }
 
 .sidenav .collapsible-body > ul:not(.collapsible) > li.active, .sidenav.sidenav-fixed .collapsible-body > ul:not(.collapsible) > li.active {
-	background-color: #ee6e73
+	background-color: #6EBAEE
 }
 
 .sidenav .collapsible-body > ul:not(.collapsible) > li.active a, .sidenav.sidenav-fixed .collapsible-body > ul:not(.collapsible) > li.active a {

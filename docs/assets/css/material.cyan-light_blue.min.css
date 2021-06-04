@@ -3854,10 +3854,6 @@ fieldset[disabled] .mdl-checkbox .mdl-checkbox__ripple-container .mdl-ripple, .m
     background-color: #424242
 }
 
-.mdl-mini-footer:after {
-    content: '';
-    display: block
-}
 
 .mdl-mini-footer .mdl-logo {
     line-height: 36px
@@ -4526,6 +4522,16 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
     letter-spacing: 0;
     opacity: .9
 }
+.mdl-navigation__link--current-top {
+    color: #007F8F;
+    text-decoration: none;
+    margin: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0;
+    opacity: .9
+}
 .mdl-navigation__link .material-icons {
     vertical-align: middle
 }
@@ -4680,7 +4686,15 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
     margin: 0;
     color: #333
 }
-
+.mdl-layout__drawer .mdl-navigation .mdl-navigation__link--current-top {
+    display: block;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    padding: 1px 40px;
+    margin: 0;
+    color: #333
+}
 @media screen and (min-width: 1025px) {
     .mdl-layout--fixed-drawer > .mdl-layout__drawer {
         -webkit-transform: translateX(0);
