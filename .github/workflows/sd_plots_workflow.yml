@@ -7,6 +7,7 @@ on:
   push:
     paths:
       - 'data/rapidcity_sd/master_data.csv'
+  workflow_dispatch:
 
 jobs:
   converter:
