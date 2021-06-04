@@ -22,8 +22,9 @@ jobs:
         r-version: '4.0.1'
     - name: Install Dependencies
       run: |
-        sudo apt install gfortran libbz2-dev libv8-dev libcurl4-openssl-dev libxml2-dev libssl-dev unzip libfontconfig1-dev
-        sudo apt install zlib1g-dev libpcre3-dev liblzma-dev python3-pip python3-dev g++ libgit2-dev default-jdk libharfbuzz-dev libfribidi-dev
+        sudo apt update && sudo apt upgrade
+        sudo apt install gfortran libbz2-dev libv8-dev libcurl4-openssl-dev libxml2-dev libssl-dev libfontconfig1-dev
+        sudo apt install zlib1g-dev libpcre3-dev liblzma-dev g++ libgit2-dev default-jdk libharfbuzz-dev libfribidi-dev
         sudo apt install libfreetype6-dev libpng-dev libtiff5-dev libjpeg-dev
     - name: Query dependencies
       run: |
@@ -36,19 +37,12 @@ jobs:
       uses: actions/cache@v2
       with:
         path: ${{ env.R_LIBS_USER }}
-        key: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-${{ hashFiles('.github/depends.Rds') }}
+        key: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-cache-v2-${{ hashFiles('.github/depends.Rds') }}
         restore-keys: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-
     - name: install R packages
       run: |
         remotes::install_deps(dependencies = TRUE)
       shell: Rscript {0}
-#        sudo R -e "install.packages('argparse', repos='https://cran.rstudio.com/')"
-#        sudo R -e "install.packages('devtools', repos='https://cran.rstudio.com/', dependencies=TRUE)"
-#        sudo R -e "devtools::install_version('plotrix', version='3.5', repos='https://cran.rstudio.com/')"
-#        sudo R -e "install.packages('RColorBrewer', repos='https://cran.rstudio.com/')"
-#        sudo R -e "install.packages('Metrics', repos='https://cran.rstudio.com/')"
-#        sudo R -e "install.packages('pacviz', repos='https://cran.rstudio.com/')"
-#        sudo R -e "install.packages('Hmisc', repos='https://cran.rstudio.com/')"
     - name: Run New Mexico Plot sequence
       run: cd src && bash run.sh -a -id "socorro_nm"
     - name: stage changed files
