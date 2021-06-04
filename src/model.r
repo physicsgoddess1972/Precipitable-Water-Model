@@ -38,7 +38,7 @@ parser$add_argument("-ml", action="store_true",
 parser$add_argument("--pacman", action="store_true",
 	help="Produces Pacman plots.")
 parser$add_argument("-id", action="store_const", help="ID of measurement site")
-parser$add_argument("-dir", action="store_const", help="base directory", default="../")
+parser$add_argument("-dir", action="store_const", help="base directory", default="../data/")
 
 args <- parser$parse_args()
 
@@ -74,9 +74,9 @@ quit_it <- function(){
 }
 
 ## Imports data from master_data.csv
-fname       <- read.table(file=paste(args$dir, "data/master_data_", args$id, ".csv"), sep=",", header=TRUE, strip.white=TRUE)
+fname       <- read.table(file=paste(args$dir, "master_data_", args$id, ".csv"), sep=",", header=TRUE, strip.white=TRUE)
 ## Imports sensor information from instruments.txt
-sensor 		<- suppressWarnings(read.csv(file=paste(args$dir, "data/instruments_", args$id, ".conf"), sep=","))
+sensor 		<- suppressWarnings(read.csv(file=paste(args$dir, "instruments_", args$id, ".conf"), sep=","))
 ## Pulls most recent data stamp for the purpose of adding date stamps to file names when plots are saved
 recent 		<- t(fname[1])[length(t(fname[1]))]
 
