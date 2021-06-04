@@ -1467,8 +1467,8 @@ if(args$data){
 		data 		<- data.frame(list(date=c(norm$x),avg_temp=c(norm$y1), avg_pw=c(norm$y2), avg_rh=c(norm$y3), cond=c(norm$c)))
 		colnames(data) <- c("date", "avg_temp", "avg_pw", "avg_rh", "condition")
 	# Writes the data to a csv
-		write.csv(data, file="data/ml/ml_data.csv", row.names=FALSE)
-		cat(green(sprintf("Data sent to data/ml/ml_data.csv\n")))
+		write.csv(data, file=sprintf("../data/%s/ml/ml_data.csv", args$id), row.names=FALSE)
+		cat(green(sprintf("Data sent to data/%s/ml/ml_data.csv\n", args$id)))
 	}else{
 		if (args$overcast){
 	# Pulls the data
@@ -1483,8 +1483,8 @@ if(args$data){
 			data 		<- data.frame(list(date=c(norm$x), avg_temp=c(norm$y1), avg_pw=c(norm$y2)))
 			colnames(data) <- c("date", "avg_temp", "avg_pw")
 	# Writes the data to a csv
-			write.csv(data, file="data/data_overcast.csv", row.names=FALSE)
-			cat(green(sprintf("Data sent to data/data_overcast.csv\n")))
+			write.csv(data, file=sprintf("../data/%s/data_overcast.csv", args$id), row.names=FALSE)
+			cat(green(sprintf("Data sent to data/%s/data_overcast.csv\n", args$id)))
 		}else{
 	# Pulls the data
 			avg_temp	<- as.numeric(unlist(snsr_sky_calc))
@@ -1498,8 +1498,8 @@ if(args$data){
 			data 		<- data.frame(list(date=c(norm$x),avg_temp=c(norm$y1), avg_pw=c(norm$y2)))
 			colnames(data) <- c("date", "avg_temp", "avg_pw")
 	# Writes the data to a csv
-			write.csv(data, file="data/data.csv", row.names=FALSE)
-			cat(green(sprintf("Data sent to data/data.csv\n")))
+			write.csv(data, file=sprintf("../data/%s/data_clearsky.csv", args$id), row.names=FALSE)
+			cat(green(sprintf("Data sent to data/%s/data_clearsky.csv\n", args$id)))
 
 		}
 	}
@@ -1509,11 +1509,11 @@ if(args$set == "i"){
 	if (args$overcast){
 	# Overcast Condition
 		cat(magenta("Condition:"), "Overcast\n")
-		sname_pub <- sprintf("figs/%s/results/sensor_overcast.pdf", args$id) # File name of saved pdf
+		sname_pub <- sprintf("../figs/%s/results/sensor_overcast.pdf", args$id) # File name of saved pdf
 	}else{
 	# Clear Sky condition
 		cat(magenta("Condition:"), "Clear Sky\n")
-		sname_pub <- sprintf("figs/%s/results/sensor.pdf", args$id) # File name of saved pdf
+		sname_pub <- sprintf("../figs/%s/results/sensor.pdf", args$id) # File name of saved pdf
 
 	}
 	# Plots available with this option
@@ -1528,7 +1528,7 @@ if(args$set == "i"){
 	if (args$overcast){
 	# Overcast Condition
 		cat(magenta("Condition:"), "Overcast\n")
-		sname_pub <- sprintf("figs/%s/results/time_series_overcast.pdf", args$id) # File name of saved pdf
+		sname_pub <- sprintf("../figs/%s/results/time_series_overcast.pdf", args$id) # File name of saved pdf
 	}else{
 	# Clear Sky condition
 		cat(magenta("Condition:"), "Clear Sky\n")
@@ -1593,7 +1593,7 @@ if(args$set == "i"){
 		cat(green(sprintf("[%s]", i)), sprintf("Overcast Condition Percentage: %s\n", gsub("_", " ",snsr_name[i])))
 	}
 	# Saves plots
-	sname_pub 	<- sprintf("figs/%s/results/charts.pdf", args$id)
+	sname_pub 	<- sprintf("../figs/%s/results/charts.pdf", args$id)
 
 	save(c(charts1()), sname_pub)
 	cat(green(sprintf("Plot set downloaded to %s\n", sname_pub)))
@@ -1602,11 +1602,11 @@ if(args$pacman){
 	if (args$overcast){
 	# Overcast Condition
 		cat(magenta("Condition:"), "Overcast\n")
-		sname_pub <- sprintf("figs/%s/results/pacman_overcast.pdf", args$id) # File name of saved pdf
+		sname_pub <- sprintf("../figs/%s/results/pacman_overcast.pdf", args$id) # File name of saved pdf
 	}else{
 	# Clear Sky condition
 		cat(magenta("Condition:"), "Clear Sky\n")
-		sname_pub <- sprintf("figs/%s/results/pacman.pdf", args$id)
+		sname_pub <- sprintf("../figs/%s/results/pacman.pdf", args$id)
 
 	}
 	cat(green("[1]"), "Total Mean PW and Temperature\n")
@@ -1620,7 +1620,7 @@ if(args$poster){
 	cat(green("[2]"), "Analytical Plots\n")
 	cat(green("[3]"), "Condiiton Distrbuion by Sensor\n")
 	# Saves plots
-	sname_pub 	<- sprintf("figs/%s/results/poster.pdf", args$id)
+	sname_pub 	<- sprintf("../figs/%s/results/poster.pdf", args$id)
 	save(c(poster1(),poster2(), poster3()), sname_pub)
 
 	cat(green(sprintf("Plot set downloaded to %s\n", sname_pub)))
