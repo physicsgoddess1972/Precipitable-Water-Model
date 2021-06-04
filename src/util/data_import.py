@@ -46,17 +46,17 @@ REQUESTS_MAX_RETRIES = int(os.getenv("REQUESTS_MAX_RETRIES", 10))
 adapter = requests.adapters.HTTPAdapter(max_retries=REQUESTS_MAX_RETRIES)
 
 ## Imports Wyoming and MesoWest Site IDs
-config  = "../../data/%s/import.conf".format(args.I)
+config  = "../../data/{}/import.conf".format(args.I)
 cnfg = loadtxt(config, dtype=str, delimiter=":")
 
 ## Imports Sensor information
-instr   = "../../data/%s/instruments.conf".format(args.I)
+instr   = "../../data/{}/instruments.conf".format(args.I)
 intr = loadtxt(instr, dtype=str, delimiter=",", unpack=True)[0]
 ## Data file used for model input
-fname   = '../../data/%s/master_data.csv'.format(args.I)
+fname   = '../../data/{}/master_data.csv'.format(args.I)
 
 ## Data file used for user input
-wname   = '../../data/%s/cool_data.csv'.format(args.I)
+wname   = '../../data/{}/cool_data.csv'.format(args.I)
 
 ## Stations used
 wy_station = cnfg[1][1].split(",")
