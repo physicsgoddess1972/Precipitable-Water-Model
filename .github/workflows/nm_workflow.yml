@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: New Mexico CI
 
 # Controls when the action will run. 
 on:
@@ -29,7 +29,7 @@ jobs:
       run: |
           sudo R -e "install.packages('remotes', repos='https://cran.rstudio.com/')"
           sudo R -e "saveRDS(remotes::dev_package_deps(dependencies = TRUE), '.github/depends.Rds', version = 2)"
-          sudo R -e "writeLines(sprintf('R-%i.%i', getRversion()$major, getRversion()$minor), '.github/R-version')"
+#          sudo R -e "writeLines(sprintf('R-%i.%i', getRversion()$major, getRversion()$minor), '.github/R-version')"
     - name: Cache R packages
       uses: actions/cache@v1
       with:
@@ -46,8 +46,6 @@ jobs:
         sudo R -e "install.packages('Hmisc', repos='https://cran.rstudio.com/')"
     - name: Run New Mexico Plot sequence
       run: cd src && bash run.sh -a -id "socorro_nm"
-#    - name: Run South Dakota Plot sequence
-#      run: cd src && bash run.sh -a -id "rapidcity_sd"
     - name: stage changed files
       run: git add *
     - name: Commit files
