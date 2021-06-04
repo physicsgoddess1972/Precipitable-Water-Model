@@ -25,7 +25,6 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-renv-
     - name: Install Dependencies
-      if: steps.cache.outputs.cache-hit != 'true'
       run: |
         sudo apt install gfortran libbz2-dev libv8-dev libcurl4-openssl-dev libxml2-dev libssl-dev unzip libfontconfig1-dev
         sudo apt install zlib1g-dev libpcre3-dev liblzma-dev python3-pip python3-dev g++ libgit2-dev default-jdk libharfbuzz-dev libfribidi-dev
@@ -34,7 +33,6 @@ jobs:
       with:
         r-version: '4.0.1' # The R version to download (if necessary) and use.
     - name: install R packages
-      if: steps.cache.outputs.cache-hit != 'true'
       run: |
         R -e "install.packages('argparse', repos='https://cran.rstudio.com/')"
         R -e "install.packages('devtools', repos='https://cran.rstudio.com/', dependencies=TRUE)"
