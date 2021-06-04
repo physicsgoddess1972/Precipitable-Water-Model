@@ -1581,7 +1581,7 @@ if(args$set == "i"){
 	cat(green("[4]"), "Total Mean PW and Temperature\n")
 	cat(green("[5]"), "Residual of the Mean PW and Temperature Model\n")
 	# Saves plots
-	for (i in list(sname, sname_pub)){
+	for (i in list(sname_pub)){
 		save(c(
 			plots1(overcast=args$overcast),
 			plots2(overcast=args$overcast),
