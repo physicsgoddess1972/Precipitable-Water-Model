@@ -1607,7 +1607,7 @@ if(args$pacman){
 		sname_pub <- sprintf("figs/results/pacman_overcast.pdf") # File name of saved pdf
 	}else{
 	# Clear Sky condition
-		cat(magenta("Condition:"), "Clear Sky\n"
+		cat(magenta("Condition:"), "Clear Sky\n")
 		sname_pub <- sprintf("figs/results/pacman.pdf")
 
 	}
