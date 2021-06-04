@@ -38,7 +38,6 @@ parser$add_argument("-ml", action="store_true",
 parser$add_argument("--pacman", action="store_true",
 	help="Produces Pacman plots.")
 parser$add_argument("--id", help="ID of measurement site")
-parser$add_argument("--dir", help="base directory", default="../data/")
 
 args <- parser$parse_args()
 
