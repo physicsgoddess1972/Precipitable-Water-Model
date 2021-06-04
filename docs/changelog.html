@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+	<meta charset='utf-8'>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width">
+
+	<title>Precipitable Water Model</title>
+
+	<link rel="icon" href="./assets/img/icon.png">
+
+	<link rel="preconnect" href="//www.gstatic.com" crossorigin>
+	<link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
+	<link rel="preconnect" href="//fonts.googleapis.com" crossorigin>
+
+	<script src="./assets/js/jquery.min.js"></script>
+	<script src='./assets/js/legacy.js'></script>
+	<script src='./assets/js/flatdoc.js'></script>
+	<script src='./assets/js/script.js'></script>
+	<script src="./assets/js/materialize.min.js"></script>
+
+	<link rel='stylesheet' href='./assets/css/style.css'>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap">
+
+	<link rel="stylesheet" href="./assets/css/materialize.min.css">
+	<link rel="stylesheet" href="./assets/css/material.cyan-light_blue.min.css">
+	<link rel="stylesheet" href="./assets/css/dash.css">
+	<link rel="stylesheet" href="./assets/css/changelog.css">
+
+	<script>
+		Flatdoc.run({
+			fetcher: Flatdoc.github('physicsgoddess1972/Precipitable-Water-Model', 'CHANGELOG.md')
+			// fetcher: Flatdoc.file('../CHANGELOG.md')
+		});
+	</script>
+
+</head>
+<body role='flatdoc' class="light" id="mode">
+<div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+	<header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+		<div class="mdl-layout__header-row">
+			<span class="mdl-layout-title">Precipitable Water Model</span>
+			<div class="mdl-layout-spacer"></div>
+		</div>
+	</header>
+	<div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
+		<nav class="demo-navigation mdl-navigation mdl-color--blue-grey-900">
+			<a class="mdl-navigation__link" href="./dash.html"><i class="material-icons" role="presentation">dashboard</i>Home</a>
+			<a class="mdl-navigation__link" href="./index.html"><i class="material-icons" role="presentation">chrome_reader_mode</i>Documentation</a>
+			<a class="mdl-navigation__link" href="./contrib.html"><i class="material-icons" role="presentation">people</i>Contribute</a>
+			<a class="mdl-navigation__link" href="./code.html"><i class="material-icons" role="presentation">code</i>R Features</a>
+			<a class="mdl-navigation__link" onclick="$('#maintainers').modal('open');"><i class="material-icons" role="presentation">face</i>The Maintainers</a>
+			<hr>
+		  <a class="mdl-navigation__link" href="https://github.com/physicsgoddess1972/Precipitable-Water-Model"><i class="material-icons"><i class="fab fa-github big-icon"></i></i> View on Github</a>
+			<a class="mdl-navigation__link" href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/archive/master.zip"><i class="material-icons" role="presentation">cloud_download</i>Download the Repo</a>
+			<a class="mdl-navigation__link" href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/issues"><i class="material-icons" role="presentation">bug_report</i>Bug Report</a>
+			<a class="mdl-navigation__link--current" href="./changelog.html"><i class="material-icons" role="presentation">new_releases</i>Changelog</a>
+
+		</nav>
+	</div>
+	<main class="mdl-layout__content">
+        <div class="modal" id="maintainers">
+            <div class="modal-content">
+                <h4>The Maintainers</h4>
+                <table>
+                    <tr>
+                        <td><i class="material-icons">face</i></td>
+                        <td>Spencer Riley</td>
+                        <td><i class="material-icons">face</i></td>
+                        <td>Vicki Kelsey</td>
+                    </tr>
+										<tr>
+											<td><i class="material-icons">public</i></td>
+											<td><a target="_blank" href="https://spencerriley.me">spencerriley.me</a></td>
+											<td><i class="material-icons">public</i></td>
+											<td><a target="_blank" href="http://physicsgoddess1972.github.io">physicsgoddess1972.github.io</a></td>
+										</tr>
+										<tr>
+											<td><i class="material-icons">alternate_email</i></td>
+											<td>spencer.riley@student.nmt.edu</td>
+											<td><i class="material-icons">alternate_email</i></td>
+											<td>vicki.kelsey@mines.sdsmt.edu</td>
+										</tr>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-teal btn-flat" data-dismiss="maintainers">Continue</a>
+            </div>
+
+        </div>
+            <div class="modal" id="initial">
+                    <div class="modal-content">
+                        <h4 style="text-align: center">Welcome to the Precipitable Water Model Documentation Page</h4>
+                        <p>
+                            If you are interested in conducting this experiment in your
+                            location read through this page and follow the process.
+                        </p>
+                        <p>
+                            It should be noted that you have no obligation to assimilate your data into this project.
+                            However, we would appreciate it greatly.
+                        </p>
+                        <p>
+                            If there are any concerns or inquiries about the research or the process, feel free to
+                            contact us.
+                        </p>
+                        <table>
+                            <tr>
+                                <td><i class="material-icons">face</i></td>
+                                <td>Spencer Riley</td>
+                                <td><i class="material-icons">face</i></td>
+                                <td>Vicki Kelsey</td>
+                            </tr>
+                            <tr>
+                                <td><i class="material-icons">public</i></td>
+                                <td><a target="_blank" href="http://pharaohcola13.github.io">pharaohcola13.github.io</a></td>
+                                <td><i class="material-icons">public</i></td>
+                                <td><a target="_blank" href="http://physicsgoddess1972.github.io">physicsgoddess1972.github.io</a></td>
+                            </tr>
+                            <tr>
+                                <td><i class="material-icons">alternate_email</i></td>
+                                <td>spencer.riley@student.nmt.edu</td>
+                                <td><i class="material-icons">alternate_email</i></td>
+                                <td>vicki.kelsey@student.nmt.edu</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#!" class="modal-close waves-effect waves-teal btn-flat" data-dismiss="modal1">Continue</a>
+                    </div>
+                </div>
+            <div class="menubar" style="padding-right: -100%;"></div>
+						<div role='flatdoc-content' class='content'></div>
+						<nav class="bottom-nav" style="width: 100%;">
+							<a class="bottom-nav__action" href="#top">
+								<svg class="bottom-nav__icon" viewBox="0 0 24 24">
+									<path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"/>
+								</svg>
+								<span class="bottom-nav__label">Back to Top</span>
+							</a>
+							<a class="bottom-nav__action" href="https://pw-ml-dash.uc.r.appspot.com/">
+								<i class="bottom-nav__icon material-icons" role="presentation" style="margin-bottom: -10px; margin-top: -18px">memory</i>
+								<span class="bottom-nav__label">Machine Learning</span>
+							</a>
+							<a class="bottom-nav__action" href="https://pw-data-dash.uc.r.appspot.com/">
+								<i class="bottom-nav__icon material-icons" role="presentation" style="margin-bottom: -10px; margin-top: -18px">insights</i>
+								<span class="bottom-nav__label">Data Dashboard</span>
+							</a>
+						</nav>
+        </main>
+    </div>
+</body>
+<script>
+	$(document).ready(function(){
+		$('.modal').modal({});
+	});
+</script>
+<script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+<script src="./assets/js/modal1.js"></script>
+</html>
