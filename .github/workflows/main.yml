@@ -42,7 +42,7 @@ jobs:
         R -e "install.packages('pacviz', repos='https://cran.rstudio.com/')"
         R -e "install.packages('Hmisc', repos='https://cran.rstudio.com/')"
     - name: Run New Mexico Plot sequence
-      run: cd src && bash run.sh -a -id "nm"
+      run: bash run.sh -a -id "socorro_nm"
     - name: stage changed files
       run: git add .
     - name: Commit files
