@@ -16,12 +16,19 @@ jobs:
       with:
         persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
         fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
+     - name: Cache R packages
+       if: runner.os != 'Windows'
+       uses: actions/cache@v1
+       with:
+         path: ${{ env.R_LIBS_USER }}
+         key: ${{ runner.os }}-r-${{ matrix.config.r }}-${{ hashFiles('DESCRIPTION') }}
     - name: Install Dependencies
       run: |
         sudo apt install gfortran libbz2-dev libv8-dev libcurl4-openssl-dev libxml2-dev libssl-dev unzip libfontconfig1-dev
         sudo apt install zlib1g-dev libpcre3-dev liblzma-dev python3-pip python3-dev g++ libgit2-dev default-jdk libharfbuzz-dev libfribidi-dev
         sudo apt install libfreetype6-dev libpng-dev libtiff5-dev libjpeg-dev
-    - uses: r-lib/actions/setup-r@v1
+    - name: Install R
+      uses: r-lib/actions/setup-r@v1
       with:
         r-version: '4.0.1'
     - name: install R packages
