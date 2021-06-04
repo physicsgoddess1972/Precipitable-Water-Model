@@ -1,0 +1,23 @@
+Package: PMAT
+Title: Precipitable-Water Model Analysis Tool
+Version: 1.0.1
+Authors@R:
+    person(given = "Spencer",
+           family = "Riley",
+           role = c("aut", "cre"),
+           email = "spencer.riley@student.nmt.edu")
+Description: THis is a TEST
+License: MIT + file LICENSE
+Depends:
+    R (>= 4.0.0)
+Imports:
+    argparse,
+    devtools,
+    RColorBrewer,
+    Metrics,
+    pacviz,
+    Hmisc,
+    plotrix,
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.1
