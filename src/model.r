@@ -74,9 +74,9 @@ quit_it <- function(){
 }
 
 ## Imports data from master_data.csv
-fname       <- read.table(file="https://raw.githubusercontent.com/physicsgoddess1972/Precipitable-Water-Model/master/data/master_data_nm.csv", sep=",", header=TRUE, strip.white=TRUE)
+fname       <- read.table(file=sprintf("https://raw.githubusercontent.com/physicsgoddess1972/Precipitable-Water-Model/master/data/%s/master_data.csv", id$args), sep=",", header=TRUE, strip.white=TRUE)
 ## Imports sensor information from instruments.txt
-sensor 		<- suppressWarnings(read.csv(file="https://raw.githubusercontent.com/physicsgoddess1972/Precipitable-Water-Model/master/data/instruments_nm.conf", sep=","))
+sensor 		<- suppressWarnings(read.csv(file=sprintf("https://raw.githubusercontent.com/physicsgoddess1972/Precipitable-Water-Model/master/data/%s/instruments.conf", id$args), sep=","))
 ## Pulls most recent data stamp for the purpose of adding date stamps to file names when plots are saved
 recent 		<- t(fname[1])[length(t(fname[1]))]
 
