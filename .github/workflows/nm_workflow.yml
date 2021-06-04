@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: New Mexico CI
 
 # Controls when the action will run. 
 on:
@@ -16,23 +16,39 @@ jobs:
       with:
         persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
         fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
+    - name: Install R
+      uses: r-lib/actions/setup-r@v1
+      with:
+        r-version: '4.0.1'
     - name: Install Dependencies
       run: |
         sudo apt install gfortran libbz2-dev libv8-dev libcurl4-openssl-dev libxml2-dev libssl-dev unzip libfontconfig1-dev
         sudo apt install zlib1g-dev libpcre3-dev liblzma-dev python3-pip python3-dev g++ libgit2-dev default-jdk libharfbuzz-dev libfribidi-dev
         sudo apt install libfreetype6-dev libpng-dev libtiff5-dev libjpeg-dev
-    - uses: r-lib/actions/setup-r@v1
+    - name: Query dependencies
+      run: |
+        install.packages('remotes')
+        saveRDS(remotes::dev_package_deps(dependencies = TRUE), ".github/depends.Rds", version = 2)
+        writeLines(sprintf("R-%i.%i", getRversion()$major, getRversion()$minor), ".github/R-version")
+      shell: Rscript {0}
+    - name: Cache R packages
+      if: runner.os != 'Windows'
+      uses: actions/cache@v2
       with:
-        r-version: '4.0.1'
+        path: ${{ env.R_LIBS_USER }}
+        key: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-${{ hashFiles('.github/depends.Rds') }}
+        restore-keys: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-
     - name: install R packages
       run: |
-        R -e "install.packages('argparse', repos='https://cran.rstudio.com/')"
-        R -e "install.packages('devtools', repos='https://cran.rstudio.com/', dependencies=TRUE)"
-        R -e "devtools::install_version('plotrix', version='3.5', repos='https://cran.rstudio.com/')"
-        R -e "install.packages('RColorBrewer', repos='https://cran.rstudio.com/')"
-        R -e "install.packages('Metrics', repos='https://cran.rstudio.com/')"
-        R -e "install.packages('pacviz', repos='https://cran.rstudio.com/')"
-        R -e "install.packages('Hmisc', repos='https://cran.rstudio.com/')"
+        remotes::install_deps(dependencies = TRUE)
+      shell: Rscript {0}
+#        sudo R -e "install.packages('argparse', repos='https://cran.rstudio.com/')"
+#        sudo R -e "install.packages('devtools', repos='https://cran.rstudio.com/', dependencies=TRUE)"
+#        sudo R -e "devtools::install_version('plotrix', version='3.5', repos='https://cran.rstudio.com/')"
+#        sudo R -e "install.packages('RColorBrewer', repos='https://cran.rstudio.com/')"
+#        sudo R -e "install.packages('Metrics', repos='https://cran.rstudio.com/')"
+#        sudo R -e "install.packages('pacviz', repos='https://cran.rstudio.com/')"
+#        sudo R -e "install.packages('Hmisc', repos='https://cran.rstudio.com/')"
     - name: Run New Mexico Plot sequence
       run: cd src && bash run.sh -a -id "socorro_nm"
     - name: stage changed files
