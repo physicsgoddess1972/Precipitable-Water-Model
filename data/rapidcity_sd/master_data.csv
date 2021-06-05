@@ -1,0 +1,7 @@
+Date,Condition,Time,RWES2_Time,RWES2_RH,RWES2_Temp,PW RAP_12Z,PW RAP_00Z,AMES 2 (Sky),AMES 2 (Ground),comments
+5/28/2021,overcast,3:29,03:16,94.0,3.89,6.73,14.23,-8.7,26.8,Very thin high cloud cover
+5/29/2021,clear,3:49,04:16,80.0,12.22,19.88,15.84,-Inf,-Inf,Storm had just past; battery issues
+5/30/2021,overcast,4:34,04:16,52.0,10.56,8.89,11.35,-Inf,-Inf,low fluffy cloud; battery issues
+5/31/2021,clear,3:21,03:16,62.0,8.89,11.88,12.91,-13,39.4,
+6/1/2021,clear,3:59,04:16,54.0,15.56,19.69,15.26,-6.8,42.2,
+6/2/2021,NaN,0:00,NaT,NaN,NaN,17.01,16.61,-Inf,-Inf, No Measurements taken

@@ -1,0 +1,6 @@
+numpy
+pandas
+metpy
+requests
+rich
+git+https://github.com/Unidata/siphon.git

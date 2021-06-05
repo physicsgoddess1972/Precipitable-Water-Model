@@ -9,38 +9,38 @@
                 We would like to recognize the people that have contributed to this project.
             </p>
             <div style="display: flex">
-                <div class="collapsible_1" style="width: 47%">
+                <div class="collapsible_1 collab">
                     <div class="panel" style="margin-bottom: 0; padding-bottom: 2%;">
                         <h3>Dr. Kenneth Minschwaner</h3>
                         <img width="100%" src="assets/img/kminschwaner.jpg" alt="Kenneth Minschwaner">
                         <br>
                         <b style="font-weight: bold;">Role:</b> Research Advisor and Co-author
                         <hr>
-                        <a class="button" target="_blank" style="width: 49%; text-align: center" href="mailto:kenneth.minschwaner@nmt.edu">Email</a>
-                        <a class="button" target="_blank" style="width: 49%; text-align: center" href="http://kestrel.nmt.edu/~krm/Ken_home.html">Webpage</a>
+                        <a class="button" target="_blank" style="width: 49%; text-align: center" href="mailto:kenneth.minschwaner@nmt.edu"><i class="material-icons">email</i></a>
+                        <a class="button" target="_blank" style="width: 49%; text-align: center" href="http://kestrel.nmt.edu/~krm/Ken_home.html"><i class="material-icons">public</i></a>
                     </div>
                 </div>
             </div>
             <div style="display: flex">
-                <div class="collapsible_1" style="width: 47%">
+                <div class="collapsible_1 collab">
                     <div class="panel" style="margin-bottom: 0; padding-bottom: 2%;">
                         <h3>Fernando Rivera</h3>
                         <img width="100%" src="assets/img/frivera.png" alt="Fernando Rivera">
                         <br>
                         <b style="font-weight: bold;">Role:</b> Data Collection and Analysis for Socorro, NM.
                         <hr>
-                        <a class="button" target="_blank" style="width: 49%; text-align: center" href="mailto:fernando.rivera@student.nmt.edu">Email</a>
+                        <a class="button" target="_blank" style="width: 100%; text-align: center" href="mailto:fernando.rivera@student.nmt.edu"><i class="material-icons">email</i></a>
                     </div>
                 </div>
                 <div style="width: 5%"></div>
-                <div class="collapsible_1" style="width: 47%">
+                <div class="collapsible_1 collab">
                     <div class="panel" style="margin-bottom: 0; padding-bottom: 2%;">
                         <h3>Christen Gauker</h3>
                         <img width="100%" src="assets/img/cgauker.jpg" alt="Christen Gauker">
                         <br>
                         <b style="font-weight: bold;">Role:</b> Data Collection and Analysis for Rapid City, SD.
                         <hr>
-                        <a class="button" target="_blank" style="width: 49%; text-align: center" href="mailto:christen.gauker@mines.sdsmt.edu">Email</a>
+                        <a class="button" target="_blank" style="width: 100%; text-align: center" href="mailto:christen.gauker@mines.sdsmt.edu"><i class="material-icons">email</i></a>
                     </div>
                 </div>
             </div>
