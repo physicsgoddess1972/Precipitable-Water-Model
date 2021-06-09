@@ -5,7 +5,16 @@
 		<h2>Introduction</h2>
 </div>
 <div class="panel">
+    <p style="text-align: center">
 	<a href="https://zenodo.org/badge/latestdoi/178975498"><img src="https://zenodo.org/badge/178975498.svg" alt="DOI"></a>
+    <a href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/releases/tag/v2.0"><img alt="GitHub tag (latest by date)" src="https://img.shields.io/github/v/tag/physicsgoddess1972/Precipitable-Water-Model?label=PMAT"></a>
+    <a href="https://hub.docker.com/r/pharaohcola13/docker-pmat"><img alt="Docker Cloud Build Status" src="https://img.shields.io/docker/cloud/build/pharaohcola13/docker-pmat"></a>
+    </p>
+    <p style="text-align: center">
+        <a href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/actions/workflows/main_nm.yml"><img src="https://github.com/physicsgoddess1972/Precipitable-Water-Model/actions/workflows/main_nm.yml/badge.svg?branch=pmat-socorro-nm" alt=".github/workflows/main_nm.yml"></a>
+        <a href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/actions/workflows/main_sd.yml"><img src="https://github.com/physicsgoddess1972/Precipitable-Water-Model/actions/workflows/main_sd.yml/badge.svg?branch=pmat-rapidcity-sd" alt=".github/workflows/main_sd.yml"></a>
+    </p>
+    <p style="text-align: center"><a href="https://github.com/ellerbrock/open-source-badges/"><img src="https://badges.frapsoft.com/os/v1/open-source.svg?v=103" alt="Open Source Love svg1"></a></p>
     <h3>What is Precipitable Water?</h3>
     Precipitable water is the amount of condensed water vapor to be found in a vertical column of air, with a base of 1 meter-squared, that
     extends from the surface of the Earth to the top of the atmosphere.
@@ -32,7 +41,7 @@
 	We endeavor to develop a methodology and data
 	source that is more rigorous, more accessible, and more easily repeatable across a variety of climate zones.
 	<h3>Intstrumentation</h3>
-    <img src="https://i.ibb.co/s2qTzgy/thermometers.jpg" width=80% height=50% style="display: block; margin-left: auto; margin-right: auto"></img>
+    <img src="https://i.ibb.co/s2qTzgy/thermometers.jpg" width=80% height=50% style="display: block; margin-left: auto; margin-right: auto">
     <br>
 	This experiment used three infrared sensors <i>(from left to right)</i>:
 	<ol>
@@ -110,11 +119,11 @@
 <tbody>
 <tr style="border: 0px;">
 	<td><span class="numbered">1</span></td>
-	<td>In the Linux terminal run the command <code>bash setup.sh -a</code></td>
+	<td></td>
 </tr>
 <tr>
 	<td><span class="numbered">2</span></td>
-	<td>Update <code>instruments.conf</code>with the appropriate sensor information.</td>
+	<td></td>
 </tr>
 <tr>
 	<td><span class="numbered">2</span></td>
@@ -122,11 +131,11 @@
 </tr>
 <tr>
 	<td><span class="numbered">3</span></td>
-	<td>Transfer the datafile to <code>/data/</code> located inside of the Precipitable Water Model directory.</td>
+	<td></td>
 </tr>
 <tr style="border: 0px;">
 	<td><span class="numbered">4</span></td>
-	<td>From <code>/src/</code> run the command <code>bash run.sh -a</code> in the terminal. <i>(Go to <a>Model Overview</a> for more information</i>)</td>
+	<td></td>
 </tr>
 </tbody>
 </table>
