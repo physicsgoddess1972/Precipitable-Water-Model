@@ -36,7 +36,7 @@ progress.print(Panel("[bold deep_sky_blue2]Good Morning\nWelcome to the Data Ext
 import argparse
 
 parser = argparse.ArgumentParser(description="Data Import Module")
-parser.add_argument("-I", type=str, help="ID for data import\n\t[Default: socorro_nm]", default="socorro_nm", dest="I")
+parser.add_argument("-I", type=str, help="ID for data import", dest="I")
 
 args = parser.parse_args()
 
