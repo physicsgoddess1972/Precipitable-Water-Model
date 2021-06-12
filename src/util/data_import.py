@@ -191,6 +191,8 @@ def impt(end_date, idx):
     if os.stat(fname).st_size == 0:
         out_data = out.to_csv(fname, index=False, header=True)
     else:
+        with open(fname) as f:
+            f.write('\n')
         out_data = out.to_csv(fname, index=False, mode="a", header=False)
 
 full_len = len(loadtxt(wname, delimiter=",", dtype=str, usecols=(0))) - 1
