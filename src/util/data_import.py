@@ -196,7 +196,7 @@ def impt(end_date, idx):
     if os.stat(fname).st_size == 0:
         out.to_csv(fname, index=False, header=True)
     else:
-        with open(fname, 'w') as f:
+        with open(fname, 'a') as f:
             f.write('\n')
         out.to_csv(fname, index=False, mode="a", header=False)
 
