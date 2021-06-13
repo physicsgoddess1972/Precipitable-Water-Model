@@ -18,8 +18,7 @@ while getopts "ihxca" opt; do
       sudo apt install gfortran libbz2-dev libv8-dev libcurl4-openssl-dev libxml2-dev libssl-dev unzip libfontconfig1-dev
       sudo apt install zlib1g-dev libpcre3-dev liblzma-dev python3-pip python3-dev g++ libgit2-dev default-jdk libharfbuzz-dev libfribidi-dev
       sudo apt install libfreetype6-dev libpng-dev libtiff5-dev libjpeg-dev
-      sudo pip3 install numpy pandas metpy requests rich
-      sudo pip3 install git+https://github.com/Unidata/siphon.git
+      sudo python3 -m pip install -r ./requirements.txt
       curl -O https://cran.rstudio.com/src/base/R-${rvers:2:1}/${rvers}.tar.gz
       sudo tar -zxf ./R-*.tar.gz -C /opt/
       cd /opt/R-*/ && sudo ./configure --with-readline=no --with-x=no --with-cairo=yes --with-pcre1 && sudo make && sudo make install
@@ -28,13 +27,8 @@ while getopts "ihxca" opt; do
       cd - && rm R-*.tar.gz
 
       ## R Package Requirements
-      sudo R -e "install.packages('argparse', repos='https://cran.rstudio.com/')"
-      sudo R -e "install.packages('devtools', repos='https://cran.rstudio.com/', dependencies=TRUE)"
-      sudo R -e "devtools::install_version('plotrix', version='3.5', repos='https://cran.rstudio.com/')"
-      sudo R -e "install.packages('RColorBrewer', repos='https://cran.rstudio.com/')"
-      sudo R -e "install.packages('Metrics', repos='https://cran.rstudio.com/')"
-      sudo R -e "install.packages('pacviz', repos='https://cran.rstudio.com/')"
-      sudo R -e "install.packages('Hmisc', repos='https://cran.rstudio.com/')"
+      sudo R -e "install.packages('remotes')"
+      sudo R -e "remotes::install_deps(dependencies = TRUE)"
       echo -e "\n\e[93mPlease check to make sure that your version is ${rvers}\e[39m"
       R --version
       Rscript --version
@@ -48,7 +42,7 @@ while getopts "ihxca" opt; do
       echo -n "Please input the appropriate University of Wyoming site identifier: "
       read wyoming
 
-      echo -e "MesoWest: $mesowest\nWyoming: $wyoming" >> ./data/config.txt
+      echo -e "MesoWest: $mesowest\nWyoming: $wyoming" >> ../data/config.txt
       ;;
   	h)
       echo "usage: setup.sh [-higx]"
