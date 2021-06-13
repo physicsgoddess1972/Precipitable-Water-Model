@@ -1475,11 +1475,16 @@ a.text-error:visited {
 .tag-added {
     background: #32b643
 }
+.tag-added x {
+    visibility: hidden;
+}
 
 .tag-changed {
     background: #ffb700
 }
-
+.tag-changed x {
+    visibility: hidden;
+}
 .tag-deprecated {
     background: #acb3c2
 }
@@ -1491,7 +1496,9 @@ a.text-error:visited {
 .tag-fixed {
     background: #a1548b
 }
-
+.tag-fixed x {
+    visibility: hidden
+}
 .tag-security {
     background: #e85600
 }

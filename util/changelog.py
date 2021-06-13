@@ -23,9 +23,11 @@ with open("../CHANGELOG.md", 'w', newline='') as csvfile:
                 for k in list(my_dict['releases'][i]['changes'][str(j)]):
                     csvfile.write('<li style="list-style: none;">\n')
                     if list(k.keys())[0] == "updated":
-                        csvfile.write('<span class="label label-rounded text-light text-capitalize tag-changed">Updated</span>\n')
+                        csvfile.write('<span class="label label-rounded text-light text-capitalize tag-changed"><x>(</x>Updated<x>)</x></span>\n')
                     elif list(k.keys())[0] == "added":
-                        csvfile.write('<span class="label label-rounded text-light text-capitalize tag-added">Added</span>\n')
+                        csvfile.write('<span class="label label-rounded text-light text-capitalize tag-added"><x>(</x>Added<x>)</x></span>\n')
+                    elif list(k.keys())[0] == "fixed":
+                        csvfile.write('<span class="label label-rounded text-light text-capitalize tag-fixed"><x>(</x>Fixed<x>)</x></span>\n')
                     csvfile.write(list(k.values())[0] + "\n")
                     csvfile.write("</li><br>\n")
             csvfile.write('</div></div></div></div></div>')
