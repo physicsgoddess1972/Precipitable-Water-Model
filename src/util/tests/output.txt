@@ -1,530 +1,0 @@
-[01:16:55] Date         ABQ 00       ABQ 12       EPZ 00       EPZ 12       RH           diag.py:169
-[01:17:01] 8/10/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:17:05] 8/11/2019    Success      Success      Success      Success      Success      diag.py:148
-[01:17:10] 8/12/2019    Success      Success      Success      Success      Success      diag.py:148
-[01:17:14] 8/13/2019    Success      Success      Success      Success      Success      diag.py:148
-[01:17:19] 8/14/2019    Success      Success      Success      Success      Success      diag.py:148
-[01:17:23] 8/15/2019    Success      Success      Success      Success      Success      diag.py:148
-[01:17:29] 8/16/2019    Success      Success      Success      Success      Success      diag.py:148
-[01:17:34] 8/17/2019    Success      Success      Success      Success      Success      diag.py:148
-[01:17:38] 8/18/2019    Success      Success      Success      Success      Success      diag.py:148
-[01:17:48] 8/20/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:17:52] 8/21/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:17:57] 8/22/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:18:02] 8/23/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:18:07] 8/24/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:18:11] 8/25/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:18:17] 8/26/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:18:22] 8/27/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:18:26] 8/28/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:18:31] 8/29/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:18:36] 8/30/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:18:42] 8/31/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:18:47] 9/1/2019     Success      Success      Success      Success      Success      diag.py:148 
-[01:18:52] 9/2/2019     Success      Success      Success      Success      Success      diag.py:148 
-[01:18:58] 9/3/2019     NaN          Success      Success      Success      Success      diag.py:148 
-[01:19:03] 9/4/2019     Success      Success      Success      Success      Success      diag.py:148 
-[01:19:08] 9/5/2019     Success      Success      Success      Success      Success      diag.py:148 
-[01:19:54] 9/6/2019     Success      Success      Success      Success      Success      diag.py:148 
-[01:20:00] 9/7/2019     Success      Success      Success      Success      Success      diag.py:148 
-[01:20:06] 9/8/2019     Success      Success      Success      Success      Success      diag.py:148 
-[01:20:11] 9/9/2019     Success      Success      Success      Success      Success      diag.py:148 
-[01:20:16] 9/10/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:20:20] 9/11/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:20:25] 9/12/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:20:30] 9/13/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:20:35] 9/14/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:20:39] 9/15/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:20:44] 9/16/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:20:49] 9/17/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:20:53] 9/18/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:20:59] 9/19/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:21:05] 9/20/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:21:10] 9/21/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:21:15] 9/22/2019    Success      NaN          Success      Success      Success      diag.py:148 
-[01:21:20] 9/23/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:21:24] 9/24/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:21:29] 9/25/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:21:34] 9/26/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:21:38] 9/27/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:21:42] 9/28/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:21:47] 9/29/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:21:52] 9/30/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:21:57] 10/1/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:22:02] 10/2/2019    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 29 != 36.0                                                                diag.py:146 
-[01:22:06] 10/3/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:22:11] 10/4/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:22:16] 10/5/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:22:20] 10/6/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:22:25] 10/7/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:22:30] 10/8/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:22:35] 10/9/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:22:39] 10/10/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:22:44] 10/11/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:22:49] 10/12/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:22:53] 10/13/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:22:58] 10/14/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:23:02] 10/15/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:23:07] 10/16/2019   Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 22 != 20.0                                                                diag.py:146 
-[01:23:12] 10/17/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:23:16] 10/18/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:23:21] 10/19/2019   Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 11 != 12.0                                                                diag.py:146 
-[01:23:26] 10/20/2019   Success      Success      NaN          Success      Success      diag.py:148 
-[01:23:30] 10/21/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:23:35] 10/22/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:23:40] 10/23/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:23:45] 10/24/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:23:49] 10/25/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:23:54] 10/26/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:24:01] 10/27/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:24:07] 10/28/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:24:24] 10/29/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:24:55] 10/30/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:25:00] 10/31/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:25:04] 11/1/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:25:09] 11/2/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:25:13] 11/3/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:25:19] 11/4/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:25:23] 11/5/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:25:28] 11/6/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:25:33] 11/7/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:25:38] 11/8/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:25:43] 11/9/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:25:47] 11/10/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:25:52] 11/11/2019   Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 33 != 27.0                                                                diag.py:146 
-[01:25:56] 11/12/2019   Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 41 != 40.0                                                                diag.py:146 
-[01:26:01] 11/13/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:26:06] 11/14/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:26:11] 11/15/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:26:15] 11/16/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:26:20] 11/17/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:26:24] 11/18/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:26:29] 11/19/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:26:34] 11/20/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:26:39] 11/21/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:26:43] 11/22/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:26:48] 11/23/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:26:54] 11/24/2019   Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 60 != 67.0                                                                diag.py:146 
-[01:26:58] 11/25/2019   Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 71 != 66.0                                                                diag.py:146 
-[01:27:03] 11/26/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:27:08] 11/27/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:27:13] 11/28/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:27:18] 11/29/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:27:23] 11/30/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:27:29] 12/1/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:27:35] 12/2/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:27:41] 12/3/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:27:47] 12/4/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:27:53] 12/5/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:27:59] 12/6/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:28:03] 12/7/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:28:09] 12/8/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:28:14] 12/9/2019    Success      Success      Success      Success      Success      diag.py:148 
-[01:28:20] 12/10/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:28:27] 12/11/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:28:38] 12/12/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:28:49] 12/13/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:28:59] 12/14/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:29:10] 12/15/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:29:21] 12/16/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:29:33] 12/17/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:29:44] 12/18/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:29:56] 12/19/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:30:07] 12/20/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:30:18] 12/21/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:30:29] 12/22/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:30:40] 12/23/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:30:51] 12/24/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:31:03] 12/25/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:31:14] 12/26/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:31:25] 12/27/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:31:36] 12/28/2019   Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 48 != 47.0                                                                diag.py:146 
-[01:31:47] 12/29/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:31:58] 12/30/2019   Success      Success      Success      Success      Success      diag.py:148 
-[01:32:11] 12/31/2019   Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 30 != 29.0                                                                diag.py:146 
-[01:32:23] 1/1/2020     Success      Success      Success      Success      Success      diag.py:148 
-[01:32:57] 1/2/2020     Success      Success      Success      Success      Success      diag.py:148 
-[01:33:19] 1/3/2020     Success      Success      Success      Success      Success      diag.py:148 
-[01:33:32] 1/4/2020     Success      Success      Success      Success      Success      diag.py:148 
-[01:33:43] 1/5/2020     Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 36 != 35.0                                                                diag.py:146 
-[01:33:55] 1/6/2020     Success      Success      Success      Success      Success      diag.py:148 
-[01:34:06] 1/7/2020     Success      Success      Success      Success      Success      diag.py:148 
-[01:34:17] 1/8/2020     Success      Success      Success      Success      Success      diag.py:148 
-[01:34:29] 1/9/2020     Success      Success      Success      Success      Success      diag.py:148 
-[01:34:42] 1/10/2020    Success      Success      Success      Success      Success      diag.py:148 
-[01:34:54] 1/11/2020    Success      Success      Success      Success      Success      diag.py:148 
-[01:35:05] 1/12/2020    Success      Success      Success      Success      Success      diag.py:148 
-[01:35:16] 1/13/2020    Success      Success      Success      Success      Success      diag.py:148 
-[01:35:27] 1/14/2020    Success      Success      Success      Success      Success      diag.py:148 
-[01:35:38] 1/15/2020    Success      Success      Success      Success      Success      diag.py:148 
-[01:35:49] 1/16/2020    Success      Success      Success      Success      Success      diag.py:148 
-[01:36:01] 1/17/2020    Success      Success      Success      Success      Success      diag.py:148 
-[01:36:13] 1/18/2020    Success      Success      Success      Success      Success      diag.py:148 
-[01:36:23] 1/19/2020    Success      Success      Success      Success      Success      diag.py:148 
-[01:36:34] 1/20/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 26 != 35.0                                                                diag.py:146 
-[01:36:46] 1/21/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 13 != 89.0                                                                diag.py:146 
-[01:36:57] 1/22/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 40 != 35.0                                                                diag.py:146 
-[01:37:08] 1/23/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 22 != 32.0                                                                diag.py:146 
-[01:37:20] 1/24/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 28 != 43.0                                                                diag.py:146 
-[01:37:31] 1/25/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 20 != 30.0                                                                diag.py:146 
-[01:37:43] 1/26/2020    Success      Success      Success      Success      Success      diag.py:148 
-[01:37:55] 1/27/2020    Success      Success      Success      Success      Success      diag.py:148 
-[01:38:06] 1/28/2020    Success      Success      Success      Success      Success      diag.py:148 
-[01:38:18] 1/29/2020    Success      Success      Success      Success      Success      diag.py:148 
-[01:38:29] 1/30/2020    Success      Success      Success      Success      Success      diag.py:148 
-[01:38:42] 1/31/2020    Success      Success      Success      Success      Success      diag.py:148 
-[01:38:53] 2/1/2020     Success      Success      Success      Success      Success      diag.py:148 
-[01:39:04] 2/2/2020     Success      Success      Success      Success      Success      diag.py:148 
-[01:39:15] 2/3/2020     Success      Success      Success      Success      Success      diag.py:148 
-[01:39:26] 2/4/2020     Success      Success      Success      Success      Success      diag.py:148 
-[01:39:38] 2/5/2020     Success      Success      Success      Success      Success      diag.py:148 
-[01:39:50] 2/6/2020     Success      Success      Success      Success      Success      diag.py:148 
-[01:40:01] 2/7/2020     Success      Success      Success      Success      Success      diag.py:148 
-[01:40:13] 2/8/2020     Success      Success      Success      Success      Success      diag.py:148 
-[01:40:24] 2/9/2020     Success      Success      Success      Success      Success      diag.py:148 
-[01:40:36] 2/10/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 72 != 71.0                                                                diag.py:146 
-[01:40:49] 2/11/2020    Success      Success      Success      Success      Success      diag.py:148 
-[01:41:07] 2/12/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 70 != 69.0                                                                diag.py:146 
-[01:41:21] 2/13/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 45 != 59.0                                                                diag.py:146 
-[01:41:51] 2/14/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 57 != 77.0                                                                diag.py:146 
-[01:42:04] 2/15/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 21 != 24.0                                                                diag.py:146 
-[01:42:15] 2/16/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 57 != 45.0                                                                diag.py:146 
-[01:42:26] 2/17/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 21 != 22.0                                                                diag.py:146 
-[01:42:38] 2/18/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 23 != 37.0                                                                diag.py:146 
-[01:42:49] 2/19/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 25 != 36.0                                                                diag.py:146 
-[01:43:01] 2/20/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 51 != 44.0                                                                diag.py:146 
-[01:43:13] 2/21/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 80 != 48.0                                                                diag.py:146 
-[01:43:25] 2/22/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 27 != 82.0                                                                diag.py:146 
-[01:43:36] 2/23/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 28 != 31.0                                                                diag.py:146 
-[01:43:48] 2/24/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 15 != 32.0                                                                diag.py:146 
-[01:43:59] 2/25/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 39 != 15.0                                                                diag.py:146 
-[01:44:10] 2/26/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 14 != 19.0                                                                diag.py:146 
-[01:44:21] 2/27/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 18 != 22.0                                                                diag.py:146 
-[01:44:33] 2/28/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 11 != 15.0                                                                diag.py:146 
-[01:44:48] 2/29/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 25 != 19.0                                                                diag.py:146 
-[01:44:59] 3/1/2020     Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 41 != 32.0                                                                diag.py:146 
-[01:45:10] 3/2/2020     Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 17 != 20.0                                                                diag.py:146 
-[01:45:22] 3/3/2020     Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 16 != 18.0                                                                diag.py:146 
-[01:45:34] 3/4/2020     Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 40 != 21.0                                                                diag.py:146 
-[01:45:49] 3/5/2020     Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 22 != 26.0                                                                diag.py:146 
-[01:46:00] 3/6/2020     Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 41 != 27.0                                                                diag.py:146 
-[01:46:12] 3/7/2020     Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 60 != 24.0                                                                diag.py:146 
-[01:46:24] 3/8/2020     Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 50 != 60.0                                                                diag.py:146 
-[01:46:35] 3/9/2020     Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 29 != 30.0                                                                diag.py:146 
-[01:46:46] 3/10/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 49 != 30.0                                                                diag.py:146 
-[01:46:58] 3/11/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 42 != 44.0                                                                diag.py:146 
-[01:47:09] 3/12/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 47 != 44.0                                                                diag.py:146 
-[01:47:20] 3/13/2020    NaN          Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 22 != 40.0                                                                diag.py:146 
-[01:47:32] 3/14/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 34 != 28.0                                                                diag.py:146 
-[01:47:43] 3/15/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 9 != 22.0                                                                 diag.py:146 
-[01:47:54] 3/16/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 24 != 27.0                                                                diag.py:146 
-[01:48:07] 3/17/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 64 != 20.0                                                                diag.py:146 
-[01:48:20] 3/18/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 25 != 60.0                                                                diag.py:146 
-[01:48:31] 3/19/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 25 != 22.0                                                                diag.py:146 
-[01:48:43] 3/20/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 29 != 30.0                                                                diag.py:146 
-[01:48:54] 3/21/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 28 != 49.0                                                                diag.py:146 
-[01:49:06] 3/22/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 8 != 13.0                                                                 diag.py:146 
-[01:49:17] 3/23/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 18 != 8.0                                                                 diag.py:146 
-[01:49:28] 3/24/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K[01:49:29] RH: 23 != 32.0                                                                diag.py:146 
-[01:49:39] 3/25/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K[01:49:40] RH: 18 != 10.0                                                                diag.py:146 
-[01:49:52] 3/26/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 11 != 18.0                                                                diag.py:146 
-[01:50:06] 3/27/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 12 != 11.0                                                                diag.py:146 
-[01:50:18] 3/28/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 12 != 11.0                                                                diag.py:146 
-[01:50:49] 3/29/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 18 != 19.0                                                                diag.py:146 
-[01:51:02] 3/30/2020    Success      Success      Success      Success      Success      diag.py:148 
-[01:51:14] 3/31/2020    Success      Success      Success      Success      Success      diag.py:148 
-[01:51:25] 4/1/2020     Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 8 != 10.0                                                                 diag.py:146 
-[01:51:36] 4/2/2020     Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 12 != 8.0                                                                 diag.py:146 
-[01:51:48] 4/3/2020     Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 30 != 20.0                                                                diag.py:146 
-[01:51:58] 4/4/2020     Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 11 != 13.0                                                                diag.py:146 
-[01:52:09] 4/5/2020     Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 22 != 19.0                                                                diag.py:146 
-[01:52:20] 4/6/2020     Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 15 != 22.0                                                                diag.py:146 
-[01:52:31] 4/7/2020     Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 14 != 12.0                                                                diag.py:146 
-[01:52:43] 4/8/2020     Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 30 != 20.0                                                                diag.py:146 
-[01:52:53] 4/9/2020     Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 19 != 22.0                                                                diag.py:146 
-[01:53:04] 4/10/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 11 != 8.0                                                                 diag.py:146 
-[01:53:15] 4/11/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 17 != 10.0                                                                diag.py:146 
-[01:53:32] 4/12/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 87 != 17.0                                                                diag.py:146 
-[01:53:45] 4/13/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 10 != 85.0                                                                diag.py:146 
-[01:53:56] 4/14/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 17 != 29.0                                                                diag.py:146 
-[01:54:07] 4/15/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 9 != 10.0                                                                 diag.py:146 
-[01:54:18] 4/16/2020    Success      Success      Success      Success      Success      diag.py:148 
-[01:54:29] 4/17/2020    Success      Success      Success      Success      Success      diag.py:148 
-[01:54:40] 4/18/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 24 != 13.0                                                                diag.py:146 
-[01:54:51] 4/19/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 11 != 15.0                                                                diag.py:146 
-[01:55:06] 4/20/2020    Success      Success      Success      Success      Success      diag.py:148 
-[01:56:29] 4/21/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 11 != 9.0                                                                 diag.py:146 
-[01:56:40] 4/22/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K[01:56:41] RH: 11 != 12.0                                                                diag.py:146 
-[01:56:52] 4/23/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 8 != 11.0                                                                 diag.py:146 
-[01:57:03] 4/24/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 11 != 10.0                                                                diag.py:146 
-[01:57:14] 4/25/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 10 != 12.0                                                                diag.py:146 
-[01:57:25] 4/26/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 11 != 10.0                                                                diag.py:146 
-[01:57:36] 4/27/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 9 != 11.0                                                                 diag.py:146 
-[01:57:47] 4/28/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 27 != 11.0                                                                diag.py:146 
-[01:57:58] 4/29/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 18 != 26.0                                                                diag.py:146 
-[01:58:12] 4/30/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 14 != 18.0                                                                diag.py:146 
-[01:58:23] 5/1/2020     Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 9 != 4.0                                                                  diag.py:146 
-[01:58:36] 5/2/2020     Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 15 != 13.0                                                                diag.py:146 
-[01:58:47] 5/3/2020     Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 10 != 14.0                                                                diag.py:146 
-[01:58:58] 5/4/2020     Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 25 != 10.0                                                                diag.py:146 
-[01:59:10] 5/5/2020     Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 10 != 15.0                                                                diag.py:146 
-[01:59:21] 5/6/2020     Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 7 != 19.0                                                                 diag.py:146 
-[01:59:32] 5/7/2020     Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 12 != 4.0                                                                 diag.py:146 
-[01:59:43] 5/8/2020     Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 9 != 12.0                                                                 diag.py:146 
-[01:59:54] 5/9/2020     Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 17 != 9.0                                                                 diag.py:146 
-[02:00:04] 5/10/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 28 != 25.0                                                                diag.py:146 
-[02:00:15] 5/11/2020    Success      Success      NaN          Success      Fail         diag.py:145 
-[2K           RH: 12 != 41.0                                                                diag.py:146 
-[02:00:26] 5/12/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 16 != 19.0                                                                diag.py:146 
-[02:00:40] 5/13/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 14 != 12.0                                                                diag.py:146 
-[02:00:59] 5/14/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 9 != 10.0                                                                 diag.py:146 
-[02:01:10] 5/15/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 13 != 12.0                                                                diag.py:146 
-[02:01:24] 5/16/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 11 != 10.0                                                                diag.py:146 
-[02:01:37] 5/17/2020    Fail         Success      Success      Success      Fail         diag.py:145 
-[2K           ABQ 00: 14.32 != ['6.15' '4.86' '2.95' '3.16' '4.56' '5.73' '4.08' '4.94' '2. diag.py:146 
-            '8.65' '11.46' '9.36' '10.96' '4.35' '3.46' '1.35' '2.34' '8.28' '4.48'                  
-            '4.23' '1.74' '6.57' '20.16' '6.66' '4.26' '4.14' '4.62' '3.83' '3.63'                   
-            '4.52' '8.41' '2.77' '2.49' '5.6' '4.56' '8.4' '8.85' '7.38' '12.19'                     
-            '8.15' '8.44' '6.31' '9.96' '5.36' 'NaN' '4.67' '8.15' '14.84' '19.07'                   
-            '5.76' '5.71' '4.66' '7.1' '4.7' '6.12' '11.9' '8.76' '11.03' '4.37'                     
-            '7.54' '6.58' '4.46' 'NaN' '8.66' '4.13' '3.4' '6.23' '9.47' '6.84'                      
-            '8.35' '8.54' '7.96' '8.34' '8.78' '6.8' '7.37' '5.71' '3.84' '6.12'                     
-            '9.63' '8.04' '5.24' '4.54' '8.34' '4.83' '7.03' '6.73' '8.14' '8.26'                    
-            '12.63' '12.37' '11.45' '9.75' '12.26' '10.54' '6.31' '13.61' '8' '7.23'                 
-            '7.87' '4.35' '8.19' '6.36' '7.08' '7.91' '13.3' '12.41' '14.46' '13.55'                 
-            '12.7' '11.21' '9.08' '12.45' '14.28' '7.07' '5.26' '8.89' '10.73' '8.14'                
-            '8.49' '5.78' '7.87' '7.15' '13.3' '6' '7.94' '9.49' '10.32' '11.46'                     
-            '17.1' '17.74' '13.71' '13.36' '13.67' '15.09' '12.18' '10.38' '14.2'                    
-            '17.27' '10.92' '12.2' '15.91' '8.3' '14.25' '18.82' '17.13' '6.91'                      
-            '11.23' '9.28' '5.37' '10.35' '4.73' '9.25' '8.3' '17.08' '19.69' '15.5'                 
-            '19.24' '18.64' '24.32' '17.54' '11.25' '11.77' '11.99' '26.1' '27.7'                    
-            '9.58' '7.76' '12.22' '16.91' '19.94' '22.47' '20.38' '27' '27.28'                       
-            '22.85' '13.46' '16.4' '20.17' '20.57' '23.4' '26.72' '23.8' '26.8'                      
-            '27.3' '25.71' '18.43' '19.08' '22.36' '19.6' '24.5' '27.33' '24.96'                     
-            '27.94' '24.37' '32' '27.91' '24.56' '27.9' '28.19' '31.35' '18.99'                      
-            '16.89' '26.39' '17.16' '16.84' '11.36' '11.69' '16.25' '21.24' '22.28'                  
-            '19.04' '17.17' '14.39' '14.25' '16.25' '26.22' '19.38' '17.38' '17.32'                  
-            '13.83' '21.66' '17.57' 'NaN' '15.77' '16.88' '19.5' '23.54' '24.58'                     
-            '13.47' '24.88' '18.36' '9.06' '15.56' '23.95' '26.88' '20.84' '17.16'                   
-            '13.18' '17.94' '11.44' '16.97' '5.07' '20.42' '14.35' '16.69' '17.86'                   
-            '18.7' '12.64' '13.84' '15.68' '14.29' '7.16' '18.65' '17.5' '10.28'                     
-            '6.51' '11.77' '17.4' '8.79' '5.86' '1.79' '11.63' '7.46' '9.54' '4.46'                  
-            '4' '7.8' '8.57' '4.58' '2.93' '4.65' '7.11' '4.36' '5.68' '4.94' '5.96'                 
-            '5.98' '3.6' '5.05' '1.41' '1.56' '2.8' '4.88' '5.05' '4.72' '6.9'                       
-            '16.27' '11.94' '4.54' '2.2' '8.24' '7.72' '4.37' '7.2' '5.82' '7.99'                    
-            '7.86' '5.59' '6.45' '7.12' '15.42' '9.5' '7.81' '5.38' '4.75' '5.41'                    
-            '3.33' '10.12' '12.37' '7.82' '3.83' '7.67' '6.23' '7.69' '13.94' '7.84'                 
-            '7.59' '9.65' '12.71' '8.03' '4.51' '5.37' '7.8' '10.2' '9.67' '5.23'                    
-            '1.91' '2.87' '1.72' '3.88' '2.85' '3.07' '3.48' '4.71' '13.25' '7.3'                    
-            '7.13' '8.23' '6.44' '2.73' '6.36' '7.25' '8.11' '7.84' '5.4' '4.81'                     
-            '4.68' '2.05' '3.83' '3.62' '6.89' '3.64' '3.85' '4.56' '3.98' '4.37'                    
-            '3.28' '15.27' '7.19' '3.41' '7.56' '9.75' '13.58' '6.03' '7.36' '7.17'                  
-            '5.8' '6.61' '9.75' '3.51' '5.57' '4.94' '4.95' '5.51' '6.18' '6.29'                     
-            '4.88' '2.39' '7.74' '6.58' '4.69' '5.95' '11.89' '8.11' '4.24' '5.79'                   
-            '6.05' '6.51' '8.81' '9.84' '8.98' '8.98' '5.21' '11.45' '17.88' '8.0'                   
-            '4.73' '1.85' '2.08' '2.87' '2.2' '3.98' '8.54' '6.1' '5.66' '3.42'                      
-            '6.05' '4.84' '10.37' '13.32' '5.38' '10.9' '16.77' '14.14' 'NaN' '7.62'                 
-            '10.35' '5.13' '7.93' '12.28' '0.0' '10.34' '9.02' '5.79' '3.89' '4.81'                  
-            '10.9' '13.63' '5.36' '3.31' '5.5' '4.66' '5.59' '7.73' '6.27' '6.88'                    
-            '7.8' '6.31' '4.2' '6.59' '5.1' '8.31' '4.98' '4.95' '10.58' '10.71'                     
-            '1.98' '4.92' '4.89' '6.64' '5.84' '8.22' '8.24' '8.19' '6.2' '8.22'                     
-            '5.6' '4.93' '7.7' '8.76' '8.02' '8.74' '11.48' '7.9' '7.05' '10.18'                     
-            '6.64' '9.3' '8.62' '7.47' '7.65' '6.95' '10.13' '16.55' '12.96' '6.55'                  
-            '5.84' '8.8' '9.03' '14.31' '11.02' '13.3' '5.48' '4.37' '5.15' '9.42'                   
-            '6.29' '9.52' '8.73' '13.98' '15.67' '17.72' '19.13' '22.07' '18.85'                     
-            '20.05' '12.8' '15.28' '15.21' '12.95' '9.33' '7.01' '3.93' '5.35' '9.43'                
-            '19.15' '18.57' '13.62' '16.33' '19.47' '6.54' '7.61' '7.05' '9.31'                      
-            '10.15' '12.86' '16.34' '16.14' '12.28' '9.34' '7.23' '12.8' '9.63'                      
-            '7.64']                                                                                  
-[02:01:48] 5/18/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 27 != 14.0                                                                diag.py:146 
-[02:01:59] 5/19/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 10 != 14.0                                                                diag.py:146 
-[02:02:09] 5/20/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 5 != 6.0                                                                  diag.py:146 
-[02:02:20] 5/21/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 6 != 5.0                                                                  diag.py:146 
-[02:02:31] 5/22/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 8 != 6.0                                                                  diag.py:146 
-[02:02:42] 5/23/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 9 != 8.0                                                                  diag.py:146 
-[02:02:54] 5/24/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 26 != 13.0                                                                diag.py:146 
-[02:03:05] 5/25/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 11 != 14.0                                                                diag.py:146 
-[02:03:18] 5/26/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 10 != 11.0                                                                diag.py:146 
-[02:03:30] 5/27/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 11 != 10.0                                                                diag.py:146 
-[02:03:41] 5/28/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 14 != 11.0                                                                diag.py:146 
-[02:03:53] 5/29/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 13 != 14.0                                                                diag.py:146 
-[02:04:07] 5/30/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 12 != 13.0                                                                diag.py:146 
-[02:04:18] 5/31/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 24 != 23.0                                                                diag.py:146 
-[02:04:30] 6/1/2020     Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 32 != 26.0                                                                diag.py:146 
-[02:04:41] 6/2/2020     Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 12 != 13.0                                                                diag.py:146 
-[02:04:52] 6/3/2020     Success      Success      Success      Success      Fail         diag.py:145 
-[2K[02:04:53] RH: 21 != 30.0                                                                diag.py:146 
-[02:05:04] 6/4/2020     Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 8 != 10.0                                                                 diag.py:146 
-[02:05:14] 6/5/2020     Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 33 != 11.0                                                                diag.py:146 
-[02:05:25] 6/6/2020     Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 10 != 34.0                                                                diag.py:146 
-[02:05:35] 6/7/2020     Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 6 != 9.0                                                                  diag.py:146 
-[02:05:46] 6/8/2020     Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 6 != 8.0                                                                  diag.py:146 
-[02:05:57] 6/9/2020     Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 11 != 14.0                                                                diag.py:146 
-[02:06:07] 6/10/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 14 != 6.0                                                                 diag.py:146 
-[02:06:18] 6/11/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 19 != 9.0                                                                 diag.py:146 
-[02:06:30] 6/12/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 15 != 18.0                                                                diag.py:146 
-[02:06:42] 6/13/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 22 != 30.0                                                                diag.py:146 
-[02:06:53] 6/14/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 14 != 16.0                                                                diag.py:146 
-[02:07:04] 6/15/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 17 != 13.0                                                                diag.py:146 
-[02:07:15] 6/16/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 7 != 14.0                                                                 diag.py:146 
-[02:07:26] 6/17/2020    Success      Success      Success      Success      Success      diag.py:148 
-[02:07:38] 6/18/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 8 != 11.0                                                                 diag.py:146 
-[02:07:48] 6/19/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 21 != 9.0                                                                 diag.py:146 
-[02:08:00] 6/20/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 7 != 9.0                                                                  diag.py:146 
-[02:08:12] 6/21/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 12 != 10.0                                                                diag.py:146 
-[02:08:21] 6/22/2020    Success      Success      Success      NaN          Fail         diag.py:145 
-[2K           RH: 30 != 11.0                                                                diag.py:146 
-[02:08:36] 6/23/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 17 != 15.0                                                                diag.py:146 
-[02:08:47] 6/24/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 10 != 15.0                                                                diag.py:146 
-[02:09:03] 6/25/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 8 != 10.0                                                                 diag.py:146 
-[02:09:27] 6/26/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 9 != 8.0                                                                  diag.py:146 
-[02:09:40] 6/27/2020    Success      Success      Success      Success      Success      diag.py:148 
-[02:10:03] 6/28/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 8 != 11.0                                                                 diag.py:146 
-[02:10:14] 6/29/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 14 != 15.0                                                                diag.py:146 
-[02:10:25] 6/30/2020    Success      Success      Success      Success      Fail         diag.py:145 
-[2K           RH: 10 != 8.0                                                                 diag.py:146 
