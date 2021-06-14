@@ -1,6 +1,6 @@
 env:
-  city: city # Insert name of city without capitalization or spaces
-  state: st # Insert state Abbreviation
+  city: City # Insert name of city without spaces
+  state: ST # Insert state Abbreviation
 
 on: [workflow_dispatch]
 
