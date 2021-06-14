@@ -24,11 +24,10 @@ jobs:
         run: |
           rm -r data/ docs/ figs/ src/ util/
           rm *.md LICENSE
-          mkdir -p data/"${{ env.city }}_${{ env.state }}"/
-          mkdir -p .github/workflows
-          echo "Insert data here" >> data/"${{ env.city }}_${{ env.state }}"/cool_data.csv
-          echo "Insert Import Conf here" >> data/"${{ env.city }}_${{ env.state }}"/import.conf
-          echo "Insert Instrument conf here" >> data/"${{ env.city }}_${{ env.state }}"/instruments.yml
+          mkdir -p data/ .github/workflows/
+          echo "Insert data here" >> data/cool_data.csv
+          echo "Insert Import Conf here" >> data/import.conf
+          echo "Insert Instrument conf here" >> data/instruments.yml
           echo "# Deployment of PMAT for ${{env.city}}, ${{env.state}}" >> README.md
       - name: Configure workflow
         run: |
