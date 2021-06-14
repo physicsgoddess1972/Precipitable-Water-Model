@@ -1,0 +1,43 @@
+env:
+  city: template_city
+  state: template_st
+on:
+  push:
+    paths:
+      - 'data/${{ env.city }}_${{ env.state }}/cool_data.csv'
+jobs:
+  pmat:
+    runs-on: ubuntu-latest
+    name: PMAT Docker
+    steps:
+    - name: Checkout
+      uses: actions/checkout@master
+      with:
+        persist-credentials: false
+        fetch-depth: 0
+    - name: Run docker image
+      uses: docker://pharaohcola13/docker-pmat:latest
+      with:
+        args: "${{ env.city }}_${{ env.state }}"
+    - name: Upload figs artifacts
+      uses: actions/upload-artifact@master
+      with:
+        name: workspace_artifacts_figs
+        path: ${{github.workspace}}/figs
+    - name: Upload data artifacts
+      uses: actions/upload-artifact@master
+      with:
+        name: workspace_artifacts_data
+        path: ${{github.workspace}}/data
+    - name: stage changed files
+      run: git add figs/* data/"${{ env.city }}_${{ env.state }}"/master_data.csv
+    - name: Commit files
+      run: |
+        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git commit -m "Generate '${{ env.state }}'  Plots" -a
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: '${{secrets.GITHUB_TOKEN}}'
+        branch: '${{ github.ref }}'
