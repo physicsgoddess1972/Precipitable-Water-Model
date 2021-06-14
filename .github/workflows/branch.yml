@@ -1,48 +1,53 @@
-env:
-  city: City # Insert name of city without spaces
-  state: ST # Insert state Abbreviation
-
-on: [workflow_dispatch]
-
+on:
+  issues: 
+    types: [closed]
 jobs:
   branch:
+    if:  contains(github.event.issue.labels.*.name, 'pmat-deploy')
     runs-on: ubuntu-latest
     name: Create Branch for PMAT Docker Deployment
     steps:
+      - name: Define variables
+        shell: bash
+        run: |
+          ISSUE="${{ github.event.issue.title }}"
+          SPLIT=(${ISSUE//,/ })
+          echo 'city='${SPLIT[0]} >> $GITHUB_ENV
+          echo 'state='${SPLIT[1]} >> $GITHUB_ENV
       - uses: peterjgrainger/action-create-branch@v2.0.1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          branch: "pmat-${{ env.city }}-${{ env.state }}"
+         branch: "pmat-${{ env.city }}-${{ env.state }}"
       - name: Checkout
         uses: actions/checkout@master
         with:
-          ref: "pmat-${{ env.city }}-${{ env.state }}"
-          persist-credentials: false
-          fetch-depth: 0
+         ref: "pmat-${{ env.city }}-${{ env.state }}"
+         persist-credentials: false
+         fetch-depth: 0
       - name: Configure Branch Directories
         run: |
-          rm -r data/ docs/ figs/ src/ util/
-          rm *.md LICENSE
-          mkdir -p data/ .github/workflows/
-          echo "Insert data here" >> data/cool_data.csv
-          echo "Insert Import Conf here" >> data/import.conf
-          echo "Insert Instrument conf here" >> data/instruments.yml
-          echo "# Deployment of PMAT for ${{env.city}}, ${{env.state}}" >> README.md
+           rm -r data/ docs/ figs/ src/ util/
+           rm *.md LICENSE
+           mkdir -p data/ .github/workflows/
+           echo "Insert data here" >> data/cool_data.csv
+           echo "Insert Import Conf here" >> data/import.conf
+           echo "Insert Instrument conf here" >> data/instruments.yml
+           echo "# Deployment of PMAT for ${{env.city}}, ${{env.state}}" >> README.md
       - name: Configure workflow
         run: |
-          mv .github/templates/template.yml .github/workflows/main_${{ env.state }}.yml
-          sed -i 's/template_city/${{ env.city }}/g' .github/workflows/main_${{ env.state }}.yml
-          sed -i 's/template_st/${{ env.state }}/g' .github/workflows/main_${{ env.state }}.yml
+         mv .github/templates/template.yml .github/workflows/main_${{ env.state }}.yml
+         sed -i 's/template_city/${{ env.city }}/g' .github/workflows/main_${{ env.state }}.yml
+         sed -i 's/template_st/${{ env.state }}/g' .github/workflows/main_${{ env.state }}.yml
       - name: stage changed files
         run: git add * .github/*
       - name: Commit files
         run: |
-          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git commit -m "create new branch for PMAT Deployments" -a
+         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+         git config --local user.name "github-actions[bot]"
+         git commit -m "create new branch for PMAT Deployments" -a
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
-          branch: "pmat-${{ env.city }}-${{ env.state }}"
-          github_token: ${{ secrets.WORKFLOW_TOKEN }}
+         branch: "pmat-${{ env.city }}-${{ env.state }}"
+         github_token: ${{ secrets.WORKFLOW_TOKEN }}
