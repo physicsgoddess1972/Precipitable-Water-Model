@@ -14,31 +14,34 @@ jobs:
           SPLIT=(${ISSUE//,/ })
           echo 'city='${SPLIT[0]} >> $GITHUB_ENV
           echo 'state='${SPLIT[1]} >> $GITHUB_ENV
+          echo 'lcity='${SPLIT[0],,} >> $GITHUB_ENV
+          echo 'lstate='${SPLIT[1],,} >> $GITHUB_ENV          
       - uses: peterjgrainger/action-create-branch@v2.0.1
         env:
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-         branch: "pmat-${{ env.city }}-${{ env.state }}"
+         branch: "pmat-${{ env.lcity }}-${{ env.lstate }}"
       - name: Checkout
         uses: actions/checkout@master
         with:
-         ref: "pmat-${{ env.city }}-${{ env.state }}"
+         ref: "pmat-${{ env.lcity }}-${{ env.lstate }}"
          persist-credentials: false
          fetch-depth: 0
       - name: Configure Branch Directories
         run: |
-           rm -r data/ docs/ figs/ src/ util/
+           MDCITY="${{ env.city }}"
+           rm -r data/ docs/ figs/ src/ util/ .github/workflows/
            rm *.md LICENSE
            mkdir -p data/ .github/workflows/
            echo "Insert data here" >> data/cool_data.csv
            echo "Insert Import Conf here" >> data/import.conf
            echo "Insert Instrument conf here" >> data/instruments.yml
-           echo "# Deployment of PMAT for ${{env.city}}, ${{env.state}}" >> README.md
+           echo "# Deployment of PMAT for $(sed 's/[A-Z]\+/ &/g' <<< $MDCITY), ${{env.state}}" >> README.md
       - name: Configure workflow
         run: |
-         mv .github/templates/template.yml .github/workflows/main_${{ env.state }}.yml
-         sed -i 's/template_city/${{ env.city }}/g' .github/workflows/main_${{ env.state }}.yml
-         sed -i 's/template_st/${{ env.state }}/g' .github/workflows/main_${{ env.state }}.yml
+         mv .github/templates/template.yml .github/workflows/main_${{ env.lstate }}.yml
+         sed -i 's/template_city/${{ env.city }}/g' .github/workflows/main_${{ env.lstate }}.yml
+         sed -i 's/template_st/${{ env.state }}/g' .github/workflows/main_${{ env.lstate }}.yml
       - name: stage changed files
         run: git add * .github/*
       - name: Commit files
@@ -49,5 +52,5 @@ jobs:
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
-         branch: "pmat-${{ env.city }}-${{ env.state }}"
+         branch: "pmat-${{ env.lcity }}-${{ env.lstate }}"
          github_token: ${{ secrets.WORKFLOW_TOKEN }}
