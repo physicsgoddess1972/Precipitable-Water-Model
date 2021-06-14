@@ -2,9 +2,8 @@ env:
   city: template_city
   state: template_st
 on:
-  push:
-    paths:
-      - 'data/${{ env.city }}_${{ env.state }}/cool_data.csv'
+  pull_request:
+    types: [opened]
 jobs:
   pmat:
     runs-on: ubuntu-latest
