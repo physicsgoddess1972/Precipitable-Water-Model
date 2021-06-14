@@ -37,7 +37,6 @@ parser$add_argument("-ml", action="store_true",
 	help="Outs a datafile to use with the machine learning algorithm")
 parser$add_argument("--pacman", action="store_true",
 	help="Produces Pacman plots.")
-parser$add_argument("--id", help="ID of measurement site")
 
 args <- parser$parse_args()
 
@@ -73,9 +72,9 @@ quit_it <- function(){
 }
 
 ## Imports data from master_data.csv
-fname       <- read.table(file=sprintf("../data/%s/master_data.csv", args$id), sep=",", header=TRUE, strip.white=TRUE)
+fname       <- read.table(file=sprintf("../data/master_data.csv"), sep=",", header=TRUE, strip.white=TRUE)
 ## Imports sensor information from instruments.txt
-sensor 		<- suppressWarnings(read.csv(file=sprintf("../data/%s/instruments.conf", args$id), sep=","))
+sensor 		<- suppressWarnings(read.csv(file=sprintf("../data/instruments.conf"), sep=","))
 ## Pulls most recent data stamp for the purpose of adding date stamps to file names when plots are saved
 recent 		<- t(fname[1])[length(t(fname[1]))]
 
@@ -1496,8 +1495,8 @@ if(args$data){
 		data 		<- data.frame(list(date=c(norm$x),avg_temp=c(norm$y1), avg_pw=c(norm$y2), avg_rh=c(norm$y3), cond=c(norm$c)))
 		colnames(data) <- c("date", "avg_temp", "avg_pw", "avg_rh", "condition")
 	# Writes the data to a csv
-		write.csv(data, file=sprintf("../data/%s/ml/ml_data.csv", args$id), row.names=FALSE)
-		cat(green(sprintf("Data sent to data/%s/ml/ml_data.csv\n", args$id)))
+		write.csv(data, file=sprintf("../data/ml/ml_data.csv"), row.names=FALSE)
+		cat(green(sprintf("Data sent to data/ml/ml_data.csv\n")))
 	}else{
 		if (args$overcast){
 	# Pulls the data
@@ -1512,8 +1511,8 @@ if(args$data){
 			data 		<- data.frame(list(date=c(norm$x), avg_temp=c(norm$y1), avg_pw=c(norm$y2)))
 			colnames(data) <- c("date", "avg_temp", "avg_pw")
 	# Writes the data to a csv
-			write.csv(data, file=sprintf("../data/%s/data_overcast.csv", args$id), row.names=FALSE)
-			cat(green(sprintf("Data sent to data/%s/data_overcast.csv\n", args$id)))
+			write.csv(data, file=sprintf("../data/data_overcast.csv"), row.names=FALSE)
+			cat(green(sprintf("Data sent to data/data_overcast.csv\n")))
 		}else{
 	# Pulls the data
 			avg_temp	<- as.numeric(unlist(snsr_sky_calc))
@@ -1538,11 +1537,11 @@ if(args$set == "i"){
 	if (args$overcast){
 	# Overcast Condition
 		cat(magenta("Condition:"), "Overcast\n")
-		sname_pub <- sprintf("../figs/%s/results/sensor_overcast.pdf", args$id) # File name of saved pdf
+		sname_pub <- sprintf("../figs/results/sensor_overcast.pdf") # File name of saved pdf
 	}else{
 	# Clear Sky condition
 		cat(magenta("Condition:"), "Clear Sky\n")
-		sname_pub <- sprintf("../figs/%s/results/sensor.pdf", args$id) # File name of saved pdf
+		sname_pub <- sprintf("../figs/results/sensor.pdf") # File name of saved pdf
 
 	}
 	# Plots available with this option
@@ -1557,11 +1556,11 @@ if(args$set == "i"){
 	if (args$overcast){
 	# Overcast Condition
 		cat(magenta("Condition:"), "Overcast\n")
-		sname_pub <- sprintf("../figs/%s/results/time_series_overcast.pdf", args$id) # File name of saved pdf
+		sname_pub <- sprintf("../figs/results/time_series_overcast.pdf") # File name of saved pdf
 	}else{
 	# Clear Sky condition
 		cat(magenta("Condition:"), "Clear Sky\n")
-		sname_pub <- sprintf("../figs/%s/results/time_series.pdf", args$id) # File name of saved pdf
+		sname_pub <- sprintf("../figs/results/time_series.pdf") # File name of saved pdf
 	}
 	# Plots available with this option
 	cat(green("[1]"), "Sky Temperature Time Series\n")
@@ -1594,11 +1593,11 @@ if(args$set == "i"){
 	if(args$overcast){
 	# Overcast condition
 		cat(magenta("Condition:"), "Overcast\n")
-		sname_pub <- sprintf("../figs/%s/results/analytics_overcast.pdf", args$id) # File name of saved pdf
+		sname_pub <- sprintf("../figs/results/analytics_overcast.pdf") # File name of saved pdf
 	}else{
 	# Clear Sky condition
 		cat(magenta("Condition:"), "Clear Sky\n")
-		sname_pub <- sprintf("../figs/%s/results/analytics.pdf", args$id) # File name of saved pdf
+		sname_pub <- sprintf("../figs/results/analytics.pdf") # File name of saved pdf
 
 	}
 	# Plots available with this option
@@ -1622,7 +1621,7 @@ if(args$set == "i"){
 		cat(green(sprintf("[%s]", i)), sprintf("Overcast Condition Percentage: %s\n", gsub("_", " ",snsr_name[i])))
 	}
 	# Saves plots
-	sname_pub 	<- sprintf("../figs/%s/results/charts.pdf", args$id)
+	sname_pub 	<- sprintf("../figs/results/charts.pdf")
 
 	save(c(charts1()), sname_pub)
 	cat(green(sprintf("Plot set downloaded to %s\n", sname_pub)))
@@ -1631,11 +1630,11 @@ if(args$pacman){
 	if (args$overcast){
 	# Overcast Condition
 		cat(magenta("Condition:"), "Overcast\n")
-		sname_pub <- sprintf("../figs/%s/results/pacman_overcast.pdf", args$id) # File name of saved pdf
+		sname_pub <- sprintf("../figs/results/pacman_overcast.pdf") # File name of saved pdf
 	}else{
 	# Clear Sky condition
 		cat(magenta("Condition:"), "Clear Sky\n")
-		sname_pub <- sprintf("../figs/%s/results/pacman.pdf", args$id)
+		sname_pub <- sprintf("../figs/results/pacman.pdf")
 
 	}
 	cat(green("[1]"), "Total Mean PW and Temperature\n")
@@ -1649,7 +1648,7 @@ if(args$poster){
 	cat(green("[2]"), "Analytical Plots\n")
 	cat(green("[3]"), "Condiiton Distrbuion by Sensor\n")
 	# Saves plots
-	sname_pub 	<- sprintf("../figs/%s/results/poster.pdf", args$id)
+	sname_pub 	<- sprintf("../figs/results/poster.pdf")
 	save(c(poster1(),poster2(), poster3()), sname_pub)
 
 	cat(green(sprintf("Plot set downloaded to %s\n", sname_pub)))
