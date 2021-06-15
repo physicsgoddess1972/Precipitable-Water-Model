@@ -75,7 +75,7 @@ polygon(c(exp_reg$newx, rev(exp_reg$newx)),
         border = NA)
 <comment># Legend</comment>
 legend("topleft",col=c("black", "black"), lty=c(1,2),
-legend=c(parse(text=sprintf("%.2f*e^{%.3f*x}*\t\t(R^2 == %.3f)",
+legend=c(parse(text=sprintf("%.2f*e^{"%.3"f*x}*\t\t(R^2 == %.3f)",
        exp(coef(exp_reg$model)[1]),
        coef(exp_reg$model)[2], exp_reg$R2)),
        "Confidence Interval"))
