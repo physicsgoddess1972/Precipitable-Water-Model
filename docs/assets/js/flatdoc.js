@@ -86,12 +86,13 @@
     if (typeof opts === 'string') {
       opts = {
         repo: arguments[0],
-        filepath: arguments[1]
+        filepath: arguments[1],
+        ref: arguments[2]
       };
     }
     var url;
     if (opts.filepath) {
-      url = 'https://api.github.com/repos/'+opts.repo+'/contents/'+opts.filepath;
+      url = 'https://api.github.com/repos/'+opts.repo+'/contents/'+opts.filepath+'?ref='+opts.ref;
     } else {
       url = 'https://api.github.com/repos/'+opts.repo+'/readme';
     }
