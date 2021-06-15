@@ -32,11 +32,10 @@
 	<link rel="stylesheet" href="./assets/css/bootstrap.min.css">
 	<script src="./assets/js/bootstrap.min.js"></script>
 
-
 	<script>
 		Flatdoc.run({
-			fetcher: Flatdoc.github('physicsgoddess1972/Precipitable-Water-Model', 'RESEARCH.md', 'master')
-			 //fetcher: Flatdoc.file('../RESEARCH.md')
+			 fetcher: Flatdoc.github('physicsgoddess1972/Precipitable-Water-Model', 'FEATURES.md', 'docs')
+			// fetcher: Flatdoc.file('../FEATURES.md')
 		});
 	</script>
 </head>
@@ -54,22 +53,22 @@
 			<a class="mdl-navigation__link" href="dash.html"><i class="material-icons" role="presentation">dashboard</i>Home</a>
 			<li class="nav-item">
 				<a  class="mdl-navigation__link nav-link" href="#">Main Project<i class="material-icons" role="presentation">expand_more</i></a>
-				<ul class="submenu collapse">
+				<ul class="submenu">
 					<a class="mdl-navigation__link" href="index.html"><i class="material-icons" role="presentation">chrome_reader_mode</i>Documentation</a>
 					<a class="mdl-navigation__link" href="contrib.html"><i class="material-icons" role="presentation">people</i>Contribute</a>
-					<a class="mdl-navigation__link" href="code.html"><i class="material-icons" role="presentation">code</i>R Features</a>
+					<a class="mdl-navigation__link--current" href="code.html"><i class="material-icons" role="presentation">code</i>R Features</a>
 					<a class="mdl-navigation__link" href="changelog.html"><i class="material-icons" role="presentation">new_releases</i>Changelog</a>
 				</ul>
 			</li>
 			<li class="nav-item">
 				<a class="mdl-navigation__link nav-link" data-toggle="dropdown" href="#">Side Projects <i class="material-icons" role="presentation">expand_more</i></a>
 				<ul class="submenu collapse">
-					<a class="mdl-navigation__link" href="machine_learning.html"><i class="material-icons">memory</i>Machine Learning</a>
-					<a class="mdl-navigation__link" href="automation.html"><i class="material-icons">smart_toy</i>Automation</a>
+					<a class="mdl-navigation__link" href="./machine_learning.html"><i class="material-icons">memory</i>Machine Learning</a>
+					<a class="mdl-navigation__link" href="./automation.html"><i class="material-icons">smart_toy</i>Automation</a>
 
 				</ul>
 			</li>
-            <a class="mdl-navigation__link--current" href="research.html"><i class="material-icons">science</i>Research</a>
+			<a class="mdl-navigation__link" href="research.html"><i class="material-icons">science</i>Research</a>
 			<a class="mdl-navigation__link" onclick="$('#maintainers').modal('open');"><i class="material-icons" role="presentation">face</i>The Maintainers</a>
 			<hr>
 		    <a class="mdl-navigation__link" href="https://github.com/physicsgoddess1972/Precipitable-Water-Model"><i class="material-icons"><i class="fab fa-github big-icon"></i></i> View on Github</a>
