@@ -48,7 +48,8 @@ instr = "../../data/instruments.conf"
 intr = loadtxt(instr, dtype=str, delimiter=",", unpack=True)[0]
 ## Data file used for model input
 fname = '../../data/master_data.csv'
-
+with open(fname, 'a') as f:
+    f.write('\n')
 ## Data file used for user input
 wname = '../../data/cool_data.csv'
 
@@ -184,16 +185,12 @@ def impt(end_date, idx):
     for i in range(len(gro)):
         d[str(headr[indx[1]][i])] = neat[0][3][i]
     d["comments"] = str(neat[0][4][0])
-
     out = pd.DataFrame(d)
 
     if os.stat(fname).st_size == 0:
         out.to_csv(fname, index=False, header=True)
     else:
-        with open(fname, 'a') as f:
-            f.write('\n')
         out.to_csv(fname, index=False, mode="a", header=False)
-
 
 full_len = len(loadtxt(wname, delimiter=",", dtype=str, usecols=(0))) - 1
 try:
