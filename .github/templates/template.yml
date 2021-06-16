@@ -3,7 +3,7 @@ env:
   state: template_st
 on:
   pull_request:
-    types: [opened]
+    types: [closed]
 jobs:
   pmat:
     runs-on: ubuntu-latest
