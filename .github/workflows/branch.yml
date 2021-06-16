@@ -38,7 +38,7 @@ jobs:
            echo "Insert data here" >> data/cool_data.csv
            echo "Insert Import Conf here" >> data/import.conf
            echo "Insert Instrument conf here" >> data/instruments.yml
-           echo "<h1>Deployment of PMAT for $(sed 's/[A-Z]\+/ &/g' <<< $MDCITY), ${{env.state}}</h1> <br> <h3>Managed by ${{ env.author }}</h3> " >> README.md
+           echo "<h1>Deployment of PMAT for $(sed 's/[A-Z]\+/ &/g' <<< $MDCITY), ${{env.state}}</h1> <br> <h3>Managed by <a href="https://github.com/${{ env.author }}">${{ env.author }}</a></h3> " >> README.md
       - name: Configure workflow
         run: |
          mv .github/templates/template.yml .github/workflows/main_${{ env.lstate }}.yml
