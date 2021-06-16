@@ -1,6 +1,0 @@
-numpy
-pandas
-metpy
-requests
-rich
-siphon
