@@ -1,6 +1,6 @@
 env:
-  city: template_city
-  state: template_st
+  city: Demo
+  state: XYZ
 on:
   pull_request:
     types: [closed]
