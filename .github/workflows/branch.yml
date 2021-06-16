@@ -11,11 +11,13 @@ jobs:
         shell: bash
         run: |
           ISSUE="${{ github.event.issue.title }}"
+          AUTHOR="${{ github.event.issue.user.login }}"
           SPLIT=(${ISSUE//,/ })
           echo 'city='${SPLIT[0]} >> $GITHUB_ENV
           echo 'state='${SPLIT[1]} >> $GITHUB_ENV
           echo 'lcity='${SPLIT[0],,} >> $GITHUB_ENV
-          echo 'lstate='${SPLIT[1],,} >> $GITHUB_ENV          
+          echo 'lstate='${SPLIT[1],,} >> $GITHUB_ENV
+          echo 'author='${AUTHOR} >> $GITHUB_ENV
       - uses: peterjgrainger/action-create-branch@v2.0.1
         env:
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -30,13 +32,13 @@ jobs:
       - name: Configure Branch Directories
         run: |
            MDCITY="${{ env.city }}"
-           rm -r data/ docs/ figs/ src/ util/ .github/workflows/
+           rm -r data/ figs/ src/ util/ .github/workflows/
            rm *.md LICENSE
            mkdir -p data/ .github/workflows/
            echo "Insert data here" >> data/cool_data.csv
            echo "Insert Import Conf here" >> data/import.conf
            echo "Insert Instrument conf here" >> data/instruments.yml
-           echo "# Deployment of PMAT for $(sed 's/[A-Z]\+/ &/g' <<< $MDCITY), ${{env.state}}" >> README.md
+           echo "<h1>Deployment of PMAT for $(sed 's/[A-Z]\+/ &/g' <<< $MDCITY), ${{env.state}}</h1> <br> <h3>Managed by <a href="https://github.com/${{ env.author }}" target="_blank">${{ env.author }}</a></h3> " >> README.md
       - name: Configure workflow
         run: |
          mv .github/templates/template.yml .github/workflows/main_${{ env.lstate }}.yml
