@@ -32,7 +32,7 @@ jobs:
       - name: Configure Branch Directories
         run: |
            MDCITY="${{ env.city }}"
-           rm -r data/ figs/ src/ util/ .github/workflows/
+           rm -r data/ figs/ src/ util/ .github/workflows/ .github/ISSUE_TEMPLATE/
            rm *.md LICENSE
            mkdir -p data/ .github/workflows/
            echo "Insert data here" >> data/cool_data.csv
