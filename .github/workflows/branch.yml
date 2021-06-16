@@ -11,7 +11,7 @@ jobs:
         shell: bash
         run: |
           ISSUE="${{ github.event.issue.title }}"
-          AUTHOR="${{ github.event.issue.author }}"
+          AUTHOR="${{ github.event.issue.user.login }}"
           SPLIT=(${ISSUE//,/ })
           echo 'city='${SPLIT[0]} >> $GITHUB_ENV
           echo 'state='${SPLIT[1]} >> $GITHUB_ENV
@@ -38,7 +38,7 @@ jobs:
            echo "Insert data here" >> data/cool_data.csv
            echo "Insert Import Conf here" >> data/import.conf
            echo "Insert Instrument conf here" >> data/instruments.yml
-           echo "# Deployment of PMAT for $(sed 's/[A-Z]\+/ &/g' <<< $MDCITY), ${{env.state}}\n Managed by " >> README.md
+           echo "# Deployment of PMAT for $(sed 's/[A-Z]\+/ &/g' <<< $MDCITY), ${{env.state}} ### Managed by " >> README.md
       - name: Configure workflow
         run: |
          mv .github/templates/template.yml .github/workflows/main_${{ env.lstate }}.yml
