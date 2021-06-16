@@ -11,9 +11,6 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@master
-      with:
-        persist-credentials: false
-        fetch-depth: 0
     - name: Run docker image
       uses: docker://pharaohcola13/docker-pmat:latest
       with:
