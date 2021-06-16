@@ -17,7 +17,7 @@ jobs:
           echo 'state='${SPLIT[1]} >> $GITHUB_ENV
           echo 'lcity='${SPLIT[0],,} >> $GITHUB_ENV
           echo 'lstate='${SPLIT[1],,} >> $GITHUB_ENV
-          echo $AUTHOR
+          echo 'author='${AUTHOR} >> $GITHUB_ENV
       - uses: peterjgrainger/action-create-branch@v2.0.1
         env:
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -38,7 +38,7 @@ jobs:
            echo "Insert data here" >> data/cool_data.csv
            echo "Insert Import Conf here" >> data/import.conf
            echo "Insert Instrument conf here" >> data/instruments.yml
-           echo "# Deployment of PMAT for $(sed 's/[A-Z]\+/ &/g' <<< $MDCITY), ${{env.state}} ### Managed by " >> README.md
+           echo "# Deployment of PMAT for $(sed 's/[A-Z]\+/ &/g' <<< $MDCITY), ${{env.state}} \ ### Managed by ${{ env.author }} " >> README.md
       - name: Configure workflow
         run: |
          mv .github/templates/template.yml .github/workflows/main_${{ env.lstate }}.yml
