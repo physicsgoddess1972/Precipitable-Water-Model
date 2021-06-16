@@ -14,8 +14,6 @@ jobs:
       with:
         persist-credentials: false
         fetch-depth: 0
-    - name: Create master_data.csv
-      run: touch master_data.csv
     - name: Run docker image
       uses: docker://pharaohcola13/docker-pmat:latest
       with:
