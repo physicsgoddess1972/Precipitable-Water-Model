@@ -1,10 +1,13 @@
 env:
   city: demo
   state: xyz
-on: [pull_request]
+on: 
+  push:
+    branches:
+      - pmat-${{ env.city }}-${{ env.state }}
 jobs:
   pmat:
-    if:  contains(github.event.pull_request.labels.*.name, 'pmat-deploy')
+#     if:  contains(github.event.pull_request.labels.*.name, 'pmat-deploy')
     runs-on: ubuntu-latest
     name: PMAT Docker
     steps:
