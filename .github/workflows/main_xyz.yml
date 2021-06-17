@@ -3,14 +3,14 @@ env:
   state: XYZ
 on:
   pull_request:
-    types: [opened]
+    types: [closed]
 jobs:
   pmat:
     runs-on: ubuntu-latest
     name: PMAT Docker
     steps:
     - name: Checkout
-      uses: actions/checkout@master
+      uses: actions/checkout@v2
     - name: Run docker image
       uses: docker://pharaohcola13/docker-pmat:latest
       with:
