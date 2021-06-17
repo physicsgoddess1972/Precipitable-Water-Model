@@ -37,8 +37,9 @@ jobs:
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
         git commit -m "Generate '${{ env.state }}'  Plots" -a
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.WORKFLOW_TOKEN }}
-        branch: ${{ github.ref }}
+    - name: Something new
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        git fetch origin pull/${{ github.event.pull_request.number }}/head:"pmat-${{ env.city }}-${{ env.state }}"
+        git push origin "pmat-${{ env.city }}-${{ env.state }}"
