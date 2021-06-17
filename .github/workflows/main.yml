@@ -1,6 +1,6 @@
 on:
-  pull_request_target:
-    types: [closed]
+  pull_request:
+    types: [opened]
 jobs:
   pmat:
     if:  contains(github.event.pull_request.labels.*.name, 'pmat-deploy')
