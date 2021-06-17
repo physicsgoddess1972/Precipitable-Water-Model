@@ -1,7 +1,6 @@
 on:
   pull_request:
     types: [closed]
-  workflow_dispatch:
 jobs:
   pmat:
     runs-on: ubuntu-latest
