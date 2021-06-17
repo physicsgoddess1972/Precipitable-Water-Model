@@ -1,3 +1,6 @@
+on:
+  pull_request_target:
+    types: [closed]
 jobs:
   pmat:
     if:  contains(github.event.pull_request.labels.*.name, 'pmat-deploy')
@@ -45,7 +48,3 @@ jobs:
       with:
         github_token: '${{secrets.GITHUB_TOKEN}}'
         branch: "pmat-${{ env.city }}-${{ env.state }}"
-on:
-  push:
-    branches:
-      - "pmat-${{ env.city }}-${{ env.state }}"
