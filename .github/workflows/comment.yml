@@ -5,13 +5,15 @@ on:
     types: [closed]
 
 jobs:
-  add_label:
+  comment:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions-ecosystem/action-add-labels@v1
-        if: ${{ startsWith(github.event.comment.body, '/add-labels') }}
+      - uses: actions/github-script@v4
         with:
-          labels: test
-          number: ${{ github.event.pull_request.number }}
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            github.pull_request.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: 'This is a test'
+            })
