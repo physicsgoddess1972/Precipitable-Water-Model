@@ -1,13 +1,14 @@
 env:
   city: demo
   state: xyz
-on: 
-  push:
-    branches:
-      - pmat-demo-xyz
+on: [push]
+#   pull_request:
+#     types: [opened]
+permissions:
+  actions: write
+  pull-requests: write
 jobs:
   pmat:
-#     if:  contains(github.event.pull_request.labels.*.name, 'pmat-deploy')
     runs-on: ubuntu-latest
     name: PMAT Docker
     steps:
@@ -36,8 +37,10 @@ jobs:
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
         git commit -m "Generate '${{ env.state }}'  Plots" -a
-    - name: Push changes
-      uses: ad-m/github-push-action@master
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v3
       with:
-        github_token: '${{secrets.GITHUB_TOKEN}}'
-        branch: "pmat-${{ env.city }}-${{ env.state }}"
+        branch: Precipitable-Water-Model/pmat-${{ env.city }}-${{ env.state }}
+        labels: pmat-deploy
+        base: pmat-${{ env.city }}-${{ env.state }}
+        token: ${{ secrets.GITHUB_TOKEN }}
