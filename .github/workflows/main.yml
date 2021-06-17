@@ -59,19 +59,9 @@ jobs:
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         filterOutClosed: true
-    - run: echo "Your PR is ${prNumber} and its JSON is ${prJSON}"
-      if: success() && steps.PR.outputs.number
-      env:
-        prNumber: ${{ steps.PR.outputs.number }}
-        prJSON: ${{ steps.PR.outputs.pr }}
-        prUrl: ${{ steps.PR.outputs.pr_url }}
-        prTitle: ${{ steps.PR.outputs.pr_title }}
-        prCreatedAt: ${{ steps.PR.outputs.pr_created_at }}
-        prMergedAt: ${{ steps.PR.outputs.pr_merged_at }}
-        prClosedAt: ${{ steps.PR.outputs.pr_closed_at }}
+    - run: echo ${{ steps.PR.outputs.number }}
     - name: automerge
-      if: contains('${{ steps.PR.outputs.pr }}', 'pmat-deploy') && contains('${{ steps.PR.outputs.pr }}', 'automerge')
       uses: "pascalgn/automerge-action@v0.14.2"
       env:
-        GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-        PULL_REQUEST: "${{ steps.PR.outputs.number }}"
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        PULL_REQUEST: ${{ steps.PR.outputs.number }}
