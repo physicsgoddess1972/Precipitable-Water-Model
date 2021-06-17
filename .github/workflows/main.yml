@@ -1,5 +1,9 @@
+on:
+  pull_request: 
+    types: [opened]
 jobs:
   pmat:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     name: PMAT Docker
     steps:
@@ -44,7 +48,3 @@ jobs:
       with:
         github_token: '${{secrets.GITHUB_TOKEN}}'
         branch: "pmat-${{ env.city }}-${{ env.state }}"
-on:
-  push:
-    branches:
-      - "pmat-${{ env.city }}-${{ env.state }}"
