@@ -51,3 +51,6 @@ coverage.xml
 */_site/*
 Gemfile.lock
 
+# PMAT
+src/
+data/instruments.conf
