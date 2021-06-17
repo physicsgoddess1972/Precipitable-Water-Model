@@ -1,6 +1,6 @@
 on:
   pull_request: 
-    types: [opened]
+    types: [closed]
 jobs:
   pmat:
     if: github.event.pull_request.merged == true
