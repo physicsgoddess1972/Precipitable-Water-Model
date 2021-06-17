@@ -41,11 +41,16 @@ jobs:
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
         git commit -m "Generate '${{ env.state }}'  Plots" -a
-    - name: Create Pull Request
-      uses: peter-evans/create-pull-request@v3
+    - name: Push changes
+      uses: ad-m/github-push-action@master
       with:
-        branch: pmat-${{ env.city }}-${{ env.state }}-patch
-        base: pmat-${{ env.city }}-${{ env.state }}
-        delete-branch: true
-        labels: pmat-deploy
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: "pmat-${{ env.city }}-${{ env.state }}"
+#     - name: Create Pull Request
+#       uses: peter-evans/create-pull-request@v3
+#       with:
+#         branch: pmat-${{ env.city }}-${{ env.state }}-patch
+#         base: pmat-${{ env.city }}-${{ env.state }}
+#         delete-branch: true
+#         labels: pmat-deploy
         token: ${{ secrets.GITHUB_TOKEN }}
