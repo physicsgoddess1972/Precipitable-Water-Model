@@ -9,6 +9,7 @@ jobs:
   automerge:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v1
     - uses: 8BitJonny/gh-get-current-pr@1.1.0
       id: PR
       with:
