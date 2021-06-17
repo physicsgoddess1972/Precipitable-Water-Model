@@ -1,7 +1,7 @@
 env:
   city: demo
   state: xyz
-on: [pull_request_target]
+on: [pull_request]
 permissions:
   actions: write
   issues: write
@@ -37,7 +37,6 @@ jobs:
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
         git commit -m "Generate '${{ env.state }}'  Plots" -a
-    - uses: superbrothers/close-pull-request@v3
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v3
       with:
