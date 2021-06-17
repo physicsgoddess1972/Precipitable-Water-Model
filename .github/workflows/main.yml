@@ -40,3 +40,4 @@ jobs:
       with:
         branch: pmat-${{ env.city }}-${{ env.state }}
         labels: pmat-deploy
+        base: pmat-${{ env.city }}-${{ env.state }}
