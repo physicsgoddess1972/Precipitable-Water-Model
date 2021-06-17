@@ -1,0 +1,16 @@
+on:
+  push:
+    branches:
+      - pmat-demo-xyz
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: mshick/add-pr-comment@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          message: |
+            This is a test
+          allow-repeats: true
