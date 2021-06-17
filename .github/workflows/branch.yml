@@ -34,6 +34,7 @@ jobs:
            MDCITY="${{ env.city }}"
            rm -r data/ figs/ src/ util/ .github/workflows/ .github/ISSUE_TEMPLATE/
            rm *.md LICENSE
+           mkdir -p data/
            echo "Insert data here" >> data/cool_data.csv
            mv .github/templates/import_template.conf data/import.conf
            mv .github/templates/instruments_template.yml data/instruments.yml
