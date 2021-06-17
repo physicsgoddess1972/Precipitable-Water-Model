@@ -23,11 +23,11 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
       with:
-        ref: "pmat-${{ env.city }}-${{ env.state }}"
+        ref: "pmat-${{ env.lcity }}-${{ env.lstate }}"
     - name: Run docker image
       uses: docker://pharaohcola13/docker-pmat:latest
       with:
-        args: "${{ env.city }}_${{ env.state }}"
+        args: "${{ env.lcity }}_${{ env.lstate }}"
     - name: Upload figs artifacts
       uses: actions/upload-artifact@master
       with:
@@ -49,8 +49,8 @@ jobs:
       uses: peter-evans/create-pull-request@v3
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        branch: "pmat-${{ env.city }}-${{ env.state }}-patch"
-        base: "pmat-${{ env.city }}-${{ env.state }}"
+        branch: "pmat-${{ env.lcity }}-${{ env.lstate }}-patch"
+        base: "pmat-${{ env.lcity }}-${{ env.lstate }}"
         delete-branch: true
         labels: pmat-deploy
     - name: automerge
