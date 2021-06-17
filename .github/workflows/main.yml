@@ -5,7 +5,7 @@ on:
   pull_request:
     branches:
       - pmat-demo-xyz
-    types: [opened]
+    types: [opened, reopened]
 permissions:
   actions: write
   pull-requests: write
