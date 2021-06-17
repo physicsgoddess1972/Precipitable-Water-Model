@@ -1,7 +1,36 @@
+
 - sensor:
-    name: 
-    error: 
-    color: 
-    ratio: 
-    poster: 
-    range: 
+    name: 1610 TE
+    error: 2.5
+    color: FA5301
+    ratio: 12 to 1
+    poster: true
+    range: -20 ~ 537
+- sensor:
+    name: FLIR i3
+    error: null
+    color: 01A8FA
+    ratio: 12 to 1
+    poster: true
+    range: null
+- sensor:
+    name: AMES_1
+    error: 7
+    color: 2BFA01
+    ratio: 12 to 1
+    poster: true
+    range: -50 ~ 550
+- sensor:
+    name: AMES_2
+    error: 7
+    color: D001FA
+    ratio: 12 to 1
+    poster: true
+    range: -50 ~ 550
+- sensor:
+    name: AMES_3
+    error: 7
+    color: 30AF9B
+    ratio: 12 to 1
+    poster: true
+    range: -50 ~ 550
