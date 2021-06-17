@@ -1,0 +1,15 @@
+name: automerge
+on:
+  workflow_run:
+    branches: [master]
+    workflows: ["Docker Run"]
+    types: 
+      - completed
+jobs:
+  automerge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: automerge
+        uses: "pascalgn/automerge-action@v0.14.2"
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
