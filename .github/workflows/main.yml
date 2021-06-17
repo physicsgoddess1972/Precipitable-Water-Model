@@ -3,6 +3,8 @@ env:
   state: xyz
 on:
   pull_request_target:
+    branches:
+      - pmat-demo-xyz
     types: [opened, reopened]
     
 permissions:
