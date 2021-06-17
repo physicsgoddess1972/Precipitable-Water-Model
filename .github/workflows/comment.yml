@@ -13,4 +13,4 @@ jobs:
         with:
           labels: test
           number: ${{ github.event.pull_request.number }}
-          github_token: ${{ github.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
