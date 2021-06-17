@@ -12,4 +12,4 @@ jobs:
           issue-number: ${{ github.event.pull_request.number }}
           body: |
             This is a test
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.WORKFLOW_TOKEN }}
