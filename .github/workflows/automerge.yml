@@ -9,7 +9,16 @@ jobs:
   automerge:
     runs-on: ubuntu-latest
     steps:
-      - name: automerge
-        uses: "pascalgn/automerge-action@v0.14.2"
-        env:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+    - uses: 8BitJonny/gh-get-current-pr@1.1.0
+      id: PR
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        filterOutClosed: true
+    - name: print
+      run: echo "Your PR is ${prNumber} and its JSON is ${prJSON}"
+    - name: automerge
+      if: contains(${prJSON}, 'pmat-deploy') && contains(${prJSON}, 'automerge')
+      uses: "pascalgn/automerge-action@v0.14.2"
+      env:
+        GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+        PULL_REQUEST: "${prNumber}"
