@@ -1,10 +1,7 @@
 env:
   city: demo
   state: xyz
-on:
-  pull_request:
-    types: [ labeled ]
-    
+on: [pull_request_target]
 permissions:
   actions: write
   issues: write
@@ -12,7 +9,6 @@ permissions:
   pull-requests: write
 jobs:
   pmat:
-    if: ${{ github.event.label.name == 'test' }}
     runs-on: ubuntu-latest
     name: PMAT Docker
     steps:
@@ -41,10 +37,16 @@ jobs:
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
         git commit -m "Generate '${{ env.state }}'  Plots" -a
-    - name: Push changes
-      uses: ad-m/github-push-action@master
+    - uses: superbrothers/close-pull-request@v3
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v3
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: "pmat-${{ env.city }}-${{ env.state }}"
-        token: ${{ secrets.GITHUB_TOKEN }}
-
+        token: ${{ secrets.WORKFLOW_TOKEN }}
+        branch: "pmat-${{ env.city }}-${{ env.state }}-patch"
+        base: "pmat-${{ env.city }}-${{ env.state }}"
+        delete-branch: true
+        labels: pnat-deploy
+    - name: automerge
+      uses: "pascalgn/automerge-action@v0.14.2"
+      env:
+        GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
