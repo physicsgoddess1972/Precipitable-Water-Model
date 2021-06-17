@@ -3,14 +3,12 @@ on:
     types: [closed]
 
 jobs:
-  test:
-    if: github.event.pull_request.merged == true
+  pr:
     runs-on: ubuntu-latest
     steps:
       - uses: mshick/add-pr-comment@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           message: |
             This is a test
-          allow-repeats: true
+          proxy-url: https://add-pr-comment-proxy-94idvmwyie-uc.a.run.app
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
