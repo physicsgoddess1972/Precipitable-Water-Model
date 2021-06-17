@@ -54,6 +54,9 @@ jobs:
         base: "pmat-${{ env.lcity }}-${{ env.lstate }}"
         delete-branch: true
         labels: pmat-deploy, automerge
+        assignees: PharaohCola13
+        body: Preparing for '${{ env.state }}' plot run
+        title: Pull request for incomming $(sed 's/[A-Z]\+/ &/g' <<< ${{ env.city }}), ${{ env.state }} plots
     - uses: 8BitJonny/gh-get-current-pr@1.1.0
       id: PR
       with:
