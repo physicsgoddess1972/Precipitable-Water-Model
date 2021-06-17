@@ -46,4 +46,4 @@ jobs:
         base: pmat-${{ env.city }}-${{ env.state }}
         delete-branch: true
         labels: pmat-deploy
-        token: ${{ secrets.PUSH_TOKEN }}
+        token: ${{ secrets.GITHUB_TOKEN }}
