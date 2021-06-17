@@ -6,12 +6,9 @@ jobs:
   comment:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/github-script@v4
+      - name: Create comment
+        uses: peter-evans/create-or-update-comment@v1
         with:
-          script: |
-            github.issue.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: 'This is a test'
-            })
+          issue-number: 74
+          body: |
+            This is a test
