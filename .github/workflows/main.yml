@@ -1,9 +1,9 @@
 env:
   city: demo
   state: xyz
-on: [push]
-#   pull_request:
-#     types: [opened]
+on: 
+  pull_request:
+    types: [opened]
 permissions:
   actions: write
   pull-requests: write
