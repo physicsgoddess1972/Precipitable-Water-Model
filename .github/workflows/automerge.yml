@@ -16,10 +16,10 @@ jobs:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         filterOutClosed: true
     - name: print
-      run: echo "Your PR is ${prNumber} and its JSON is ${prJSON}"
+      run: echo "Your PR is ${{ steps.PR.outputs.number }} and its JSON is${{ steps.PR.outputs.pr }}"
     - name: automerge
-      if: contains('${prJSON}', 'pmat-deploy') && contains('${prJSON}', 'automerge')
+      if: contains('${{ steps.PR.outputs.pr }}', 'pmat-deploy') && contains('${{ steps.PR.outputs.pr }}', 'automerge')
       uses: "pascalgn/automerge-action@v0.14.2"
       env:
         GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-        PULL_REQUEST: "${prNumber}"
+        PULL_REQUEST: "${{ steps.PR.outputs.number }}"
