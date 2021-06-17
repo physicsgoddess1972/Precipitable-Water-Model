@@ -1,10 +1,10 @@
 name: automerge
-on:
-  workflow_run:
-    branches: [master]
-    workflows: ["Docker Run"]
-    types: 
-      - completed
+on: [push]
+#   workflow_run:
+#     branches: [master]
+#     workflows: ["Docker Run"]
+#     types: 
+#       - completed
 jobs:
   automerge:
     runs-on: ubuntu-latest
@@ -17,7 +17,7 @@ jobs:
     - name: print
       run: echo "Your PR is ${prNumber} and its JSON is ${prJSON}"
     - name: automerge
-      if: contains(${prJSON}, 'pmat-deploy') && contains(${prJSON}, 'automerge')
+      if: contains('${prJSON}', 'pmat-deploy') && contains('${prJSON}', 'automerge')
       uses: "pascalgn/automerge-action@v0.14.2"
       env:
         GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
