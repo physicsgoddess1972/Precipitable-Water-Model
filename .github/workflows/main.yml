@@ -21,7 +21,7 @@ jobs:
           echo 'state='${SPLIT[1]} >> $GITHUB_ENV
           echo 'lcity='${SPLIT[0],,} >> $GITHUB_ENV
           echo 'lstate='${SPLIT[1],,} >> $GITHUB_ENV
-          echo 'sscity=' $(sed 's/[A-Z]\+/ &/g' <<< ${{ env.city }}) >> $GITHUB_ENV
+          echo 'sscity='$(sed "s/[A-Z]\+/ &/g" <<< ${{ env.city }}) >> $GITHUB_ENV
     - name: Checkout
       uses: actions/checkout@v2
       with:
