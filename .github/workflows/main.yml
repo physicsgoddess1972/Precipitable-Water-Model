@@ -39,4 +39,4 @@ jobs:
       with:
         branch: Precipitable-Water-Model/pmat-${{ env.city }}-${{ env.state }}
         labels: pmat-deploy
-        token: ${{ secrets.WORKFLOW_TOKEN }}
+        token: ${{ secrets.GITHUB_TOKEN }}
