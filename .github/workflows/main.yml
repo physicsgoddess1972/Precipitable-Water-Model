@@ -1,6 +1,6 @@
 env:
-  city: Demo
-  state: XYZ
+  city: demo
+  state: xyz
 on:
   push:
     branches:
