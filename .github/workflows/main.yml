@@ -4,10 +4,11 @@ env:
 on: 
   pull_request:
     types: [opened]
+permissions:
+  actions: write
+  pull-requests: write
 jobs:
   pmat:
-    permissions:
-      pull-requests: write
     runs-on: ubuntu-latest
     name: PMAT Docker
     steps:
