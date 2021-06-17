@@ -4,7 +4,7 @@ env:
 on: 
   push:
     branches:
-      - pmat-${{ env.city }}-${{ env.state }}
+      - pmat-demo-xyz
 jobs:
   pmat:
 #     if:  contains(github.event.pull_request.labels.*.name, 'pmat-deploy')
