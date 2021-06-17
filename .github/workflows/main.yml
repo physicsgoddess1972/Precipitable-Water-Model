@@ -14,8 +14,8 @@ jobs:
     steps:
     - name: Test
       run: |
-          echo "${{ github.event.pull_request.head.ref }}"
-          echo "${{ github.event.pull_request.base.ref }}"
+          echo "${{ github.event.issue.head.ref }}"
+          echo "${{ github.event.issue.base.ref }}"
 #     - name: Checkout
 #       uses: actions/checkout@v2
 #       with:
