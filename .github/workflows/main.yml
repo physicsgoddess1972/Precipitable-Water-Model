@@ -1,9 +1,6 @@
-on:
-  pull_request_review:
-    types:
-      - submitted
 jobs:
   pmat:
+    if:  contains(github.event.pull_request.labels.*.name, 'pmat-deploy')
     runs-on: ubuntu-latest
     name: PMAT Docker
     steps:
@@ -48,3 +45,7 @@ jobs:
       with:
         github_token: '${{secrets.GITHUB_TOKEN}}'
         branch: "pmat-${{ env.city }}-${{ env.state }}"
+on:
+  push:
+    branches:
+      - "pmat-${{ env.city }}-${{ env.state }}"
