@@ -1,7 +1,7 @@
 env:
   city: demo
   state: xyz
-on: [pull_request]
+on: [pull_request_target]
 permissions:
   actions: write
   issues: write
@@ -37,9 +37,11 @@ jobs:
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
         git commit -m "Generate '${{ env.state }}'  Plots" -a
-    - name: Something new
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-        git fetch origin pull/${{ github.event.pull_request.number }}/head:"pmat-${{ env.city }}-${{ env.state }}"
-        git push origin "pmat-${{ env.city }}-${{ env.state }}"
+    - uses: superbrothers/close-pull-request@v3
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v3
+      with:
+        token: ${{ secrets.WORKFLOW_TOKEN }}
+        branch: "pmat-${{ env.city }}-${{ env.state }}-patch"
+        base: "pmat-${{ env.city }}-${{ env.state }}"
+        delete-branch: true
