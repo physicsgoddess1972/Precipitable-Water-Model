@@ -3,8 +3,7 @@ env:
   state: xyz
 on: 
   pull_request:
-    branches: 
-      - pmat-demo-xyz
+    types: [opened, closed]
 permissions:
   actions: write
   issues: write
