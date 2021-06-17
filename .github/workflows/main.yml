@@ -46,11 +46,5 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         branch: "pmat-${{ env.city }}-${{ env.state }}"
-#     - name: Create Pull Request
-#       uses: peter-evans/create-pull-request@v3
-#       with:
-#         branch: pmat-${{ env.city }}-${{ env.state }}-patch
-#         base: pmat-${{ env.city }}-${{ env.state }}
-#         delete-branch: true
-#         labels: pmat-deploy
         token: ${{ secrets.GITHUB_TOKEN }}
+
