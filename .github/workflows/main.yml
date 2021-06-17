@@ -1,11 +1,11 @@
 env:
   city: demo
   state: xyz
-on: 
-  pull_request:
-    types: [opened, reopened]
-    branches: 
-      - pmat-demo-xyz
+on: [push]
+#   pull_request:
+#     types: [opened, reopened]
+#     branches: 
+#       - pmat-demo-xyz
     
 permissions:
   actions: write
