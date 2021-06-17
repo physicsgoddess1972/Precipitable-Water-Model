@@ -1,22 +1,23 @@
 on:
   pull_request:
     types: [closed]
+  workflow_dispatch:
 jobs:
   pmat:
     runs-on: ubuntu-latest
     name: PMAT Docker
     steps:
-  - name: Define variables
-    shell: bash
-    run: |
-      ISSUE="${{ github.event.pull_request.title }}"
-      AUTHOR="${{ github.event.pull_request.user.login }}"
-      SPLIT=(${ISSUE//,/ })
-      echo 'city='${SPLIT[0]} >> $GITHUB_ENV
-      echo 'state='${SPLIT[1]} >> $GITHUB_ENV
-      echo 'lcity='${SPLIT[0],,} >> $GITHUB_ENV
-      echo 'lstate='${SPLIT[1],,} >> $GITHUB_ENV
-      echo 'author='${AUTHOR} >> $GITHUB_ENV
+    - name: Define variables
+      shell: bash
+      run: |
+        ISSUE="${{ github.event.pull_request.title }}"
+        AUTHOR="${{ github.event.pull_request.user.login }}"
+        SPLIT=(${ISSUE//,/ })
+        echo 'city='${SPLIT[0]} >> $GITHUB_ENV
+        echo 'state='${SPLIT[1]} >> $GITHUB_ENV
+        echo 'lcity='${SPLIT[0],,} >> $GITHUB_ENV
+        echo 'lstate='${SPLIT[1],,} >> $GITHUB_ENV
+        echo 'author='${AUTHOR} >> $GITHUB_ENV
     - name: Checkout
       uses: actions/checkout@v2
       with:
