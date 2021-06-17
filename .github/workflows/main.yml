@@ -6,7 +6,7 @@ on:
   push:
   pull_request:
     branches:
-      - "pmat-${{ env.city }}-${{ env.state }}"
+      - pmat-${{ env.city }}-${{ env.state }}
 jobs:
   pmat:
     if:  contains(github.event.pull_request.labels.*.name, 'pmat-deploy')
