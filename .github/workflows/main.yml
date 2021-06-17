@@ -1,0 +1,45 @@
+env:
+  city: demo
+  state: xyz
+on: 
+  pull_request:
+    types: [opened, reopened]
+permissions:
+  actions: write
+  pull-requests: write
+jobs:
+  pmat:
+    runs-on: ubuntu-latest
+    name: PMAT Docker
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        ref: "pmat-${{ env.city }}-${{ env.state }}"
+    - name: Run docker image
+      uses: docker://pharaohcola13/docker-pmat:latest
+      with:
+        args: "${{ env.city }}_${{ env.state }}"
+    - name: Upload figs artifacts
+      uses: actions/upload-artifact@master
+      with:
+        name: workspace_artifacts_figs
+        path: ${{github.workspace}}/figs
+    - name: Upload data artifacts
+      uses: actions/upload-artifact@master
+      with:
+        name: workspace_artifacts_data
+        path: ${{github.workspace}}/data
+    - name: stage changed files
+      run: git add figs/* data/master_data.csv
+    - name: Commit files
+      run: |
+        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git commit -m "Generate '${{ env.state }}'  Plots" -a
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v3
+      with:
+        branch: Precipitable-Water-Model/pmat-${{ env.city }}-${{ env.state }}
+        labels: pmat-deploy
+        token: ${{ secrets.WORKFLOW_TOKEN }}
