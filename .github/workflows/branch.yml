@@ -34,16 +34,10 @@ jobs:
            MDCITY="${{ env.city }}"
            rm -r data/ figs/ src/ util/ .github/workflows/ .github/ISSUE_TEMPLATE/
            rm *.md LICENSE
-           mkdir -p data/ .github/workflows/
            echo "Insert data here" >> data/cool_data.csv
            mv .github/templates/import_template.conf data/import.conf
            mv .github/templates/instruments_template.yml data/instruments.yml
            echo "<h1>Deployment of PMAT for $(sed 's/[A-Z]\+/ &/g' <<< $MDCITY), ${{env.state}}</h1> <br> <h3>Managed by <a href='https://github.com/${{ env.author }}' target='_blank'>${{ env.author }}</a></h3>" >> README.md
-      - name: Configure workflow
-        run: |
-         mv .github/templates/template.yml .github/workflows/main_${{ env.lstate }}.yml
-         sed -i 's/template_city/${{ env.city }}/g' .github/workflows/main_${{ env.lstate }}.yml
-         sed -i 's/template_st/${{ env.state }}/g' .github/workflows/main_${{ env.lstate }}.yml
       - name: stage changed files
         run: git add * .github/*
       - name: Commit files
