@@ -1,7 +1,9 @@
 env:
   city: demo
   state: xyz
-on: [pull_request]
+on: 
+  issue_comment:
+    types: [created]
 permissions:
   actions: write
   issues: write
@@ -45,7 +47,7 @@ jobs:
         branch: "pmat-${{ env.city }}-${{ env.state }}-patch"
         base: "pmat-${{ env.city }}-${{ env.state }}"
         delete-branch: true
-        labels: pnat-deploy
+        labels: pmat-deploy
     - name: automerge
       uses: "pascalgn/automerge-action@v0.14.2"
       env:
