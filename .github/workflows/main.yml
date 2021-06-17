@@ -1,7 +1,10 @@
 env:
   city: demo
   state: xyz
-on: [pull_request]
+on: 
+  pull_request:
+    branches:
+      - pmat-demo-xyz
 permissions:
   actions: write
   pull-requests: write
