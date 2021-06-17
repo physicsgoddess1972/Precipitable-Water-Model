@@ -1,7 +1,7 @@
 env:
   city: demo
   state: xyz
-on: [push]
+on: [pull_request]
 permissions:
   actions: write
   pull-requests: write
