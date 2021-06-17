@@ -1,11 +1,7 @@
 env:
   city: demo
   state: xyz
-on: 
-  pull_request:
-    branches:
-      - pmat-demo-xyz
-    types: [opened, reopened]
+on: [push]
 permissions:
   actions: write
   pull-requests: write
@@ -44,5 +40,4 @@ jobs:
       with:
         branch: Precipitable-Water-Model/pmat-${{ env.city }}-${{ env.state }}
         labels: pmat-deploy
-        base: pmat-${{ env.city }}-${{ env.state }}
         token: ${{ secrets.GITHUB_TOKEN }}
