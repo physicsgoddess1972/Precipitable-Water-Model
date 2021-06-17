@@ -38,6 +38,5 @@ jobs:
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v3
       with:
-        branch: pmat-${{ env.city }}-${{ env.state }}
+        branch: Precipitable-Water-Model/pmat-${{ env.city }}-${{ env.state }}
         labels: pmat-deploy
-        base: pmat-${{ env.city }}-${{ env.state }}
