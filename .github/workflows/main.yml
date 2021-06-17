@@ -1,6 +1,7 @@
 on:
-  pull_request: 
-    types: [closed]
+  pull_request_review:
+    types:
+      - submitted
 jobs:
   pmat:
     if: github.event.pull_request.merged == true
