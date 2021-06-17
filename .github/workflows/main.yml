@@ -2,8 +2,8 @@ env:
   city: demo
   state: xyz
 on:
-  issue_comment:
-    types: [created]
+  pull_request:
+    types: [ labeled ]
     
 permissions:
   actions: write
@@ -12,7 +12,7 @@ permissions:
   pull-requests: write
 jobs:
   pmat:
-    if: ${{ github.event.issue.pull_request }}
+    if: ${{ github.event.label.name == 'test' }}
     runs-on: ubuntu-latest
     name: PMAT Docker
     steps:
