@@ -3,7 +3,7 @@ name: Add Label
 on:
   pull_request:
     branches:
-      - pmat-demo-xyz
+      - 'pmat-*'
 
 jobs:
   comment:
