@@ -21,6 +21,7 @@ jobs:
           echo 'state='${SPLIT[1]} >> $GITHUB_ENV
           echo 'lcity='${SPLIT[0],,} >> $GITHUB_ENV
           echo 'lstate='${SPLIT[1],,} >> $GITHUB_ENV
+          echo 'sscity=' $(sed 's/[A-Z]\+/ &/g' <<< ${{ env.city }}) >> $GITHUB_ENV
     - name: Checkout
       uses: actions/checkout@v2
       with:
@@ -56,7 +57,7 @@ jobs:
         labels: pmat-deploy, automerge
         assignees: PharaohCola13
         body: Preparing for '${{ env.state }}' plot run
-        title: Pull request for incomming $(sed 's/[A-Z]\+/ &/g' <<< ${{ env.city }}), ${{ env.state }} plots
+        title: Pull request for incomming ${{ env.sscity }}, ${{ env.state }} plots
     - uses: 8BitJonny/gh-get-current-pr@1.1.0
       id: PR
       with:
