@@ -12,9 +12,9 @@ jobs:
       - uses: actions/github-script@v4
         with:
           script: |
-            github.pull_request.createComment({
-              issue_number: context.issue.number,
+            github.issues.createComment({
+              issue_number: 19,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: 'This is a test'
+              body: '👋 Thanks for reporting!'
             })
