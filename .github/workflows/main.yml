@@ -10,6 +10,7 @@ permissions:
   pull-requests: write
 jobs:
   pmat:
+    if: ${{ github.event.issue.pull_request }}
     runs-on: ubuntu-latest
     name: PMAT Docker
     steps:
