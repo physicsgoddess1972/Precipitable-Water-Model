@@ -2,7 +2,7 @@ env:
   city: demo
   state: xyz
 on:
-  pull_request:
+  pull_request_target:
     types: [opened, reopened]
     
 permissions:
