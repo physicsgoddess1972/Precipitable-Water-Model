@@ -59,9 +59,9 @@ jobs:
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         filterOutClosed: true
-    - run: echo ${{ steps.PR.outputs.number }}
+    - run: echo ${{ env.PULL_REQUEST_NUMBER }}
     - name: automerge
       uses: "pascalgn/automerge-action@v0.14.2"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        PULL_REQUEST: ${{ steps.PR.outputs.number }}
+        PULL_REQUEST: "${{ env.PULL_REQUEST_NUMBER }}"
