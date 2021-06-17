@@ -52,8 +52,4 @@ jobs:
         branch: "pmat-${{ env.lcity }}-${{ env.lstate }}-patch"
         base: "pmat-${{ env.lcity }}-${{ env.lstate }}"
         delete-branch: true
-        labels: pmat-deploy
-    - name: automerge
-      uses: "pascalgn/automerge-action@v0.14.2"
-      env:
-        GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+        labels: pmat-deploy, automerge
