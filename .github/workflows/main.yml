@@ -1,9 +1,7 @@
 env:
   city: demo
   state: xyz
-on: 
-  pull_request:
-    types: [opened, closed]
+on: [pull_request]
 permissions:
   actions: write
   issues: write
@@ -11,6 +9,7 @@ permissions:
   pull-requests: write
 jobs:
   pmat:
+    if:  contains(github.event.pull_reqest.labels.*.name, 'pmat-deploy')
     runs-on: ubuntu-latest
     name: PMAT Docker
     steps:
@@ -39,11 +38,10 @@ jobs:
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
         git commit -m "Generate '${{ env.state }}'  Plots" -a
-    - uses: superbrothers/close-pull-request@v3
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v3
       with:
-        token: ${{ secrets.WORKFLOW_TOKEN }}
+        token: ${{ secrets.GITHUB_TOKEN }}
         branch: "pmat-${{ env.city }}-${{ env.state }}-patch"
         base: "pmat-${{ env.city }}-${{ env.state }}"
         delete-branch: true
