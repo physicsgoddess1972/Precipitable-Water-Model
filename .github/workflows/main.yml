@@ -2,6 +2,7 @@ name: Docker Run
 on: 
   issue_comment:
     types: [created]
+  workflow_dispatch:
 permissions:
   actions: write
   issues: write
@@ -55,7 +56,6 @@ jobs:
         base: "pmat-${{ env.lcity }}-${{ env.lstate }}"
         delete-branch: true
         labels: pmat-deploy, automerge
-        assignees: PharaohCola13
         body: Preparing for ${{ env.sscity }}, ${{ env.state }} plot run
         title: Pull request for incoming ${{ env.sscity }}, ${{ env.state }} plots
     - uses: 8BitJonny/gh-get-current-pr@1.1.0
@@ -63,7 +63,6 @@ jobs:
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         filterOutClosed: true
-    - run: echo ${{ env.PULL_REQUEST_NUMBER }}
     - name: automerge
       uses: "pascalgn/automerge-action@v0.14.2"
       env:
