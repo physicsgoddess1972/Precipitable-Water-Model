@@ -34,7 +34,6 @@ progress = Progress(TextColumn("[bold blue]{task.fields[filename]}", justify="ri
 progress.print(Panel(
     "[bold deep_sky_blue2]Good Morning\nWelcome to the Data Extraction Module of the Precipitable Water Model. For more information about the model and the purpose of this tool, please visit the [link=https://git.io/fj5Xr]documentation page[/link]"))
 
-
 ## Timeout Retry
 REQUESTS_MAX_RETRIES = int(os.getenv("REQUESTS_MAX_RETRIES", 10))
 adapter = requests.adapters.HTTPAdapter(max_retries=REQUESTS_MAX_RETRIES)
@@ -48,8 +47,6 @@ instr = "../../data/instruments.conf"
 intr = loadtxt(instr, dtype=str, delimiter=",", unpack=True)[0]
 ## Data file used for model input
 fname = '../../data/master_data.csv'
-with open(fname, 'a') as f:
-    f.write('\n')
 ## Data file used for user input
 wname = '../../data/cool_data.csv'
 
@@ -186,16 +183,18 @@ def impt(end_date, idx):
         d[str(headr[indx[1]][i])] = neat[0][3][i]
     d["comments"] = str(neat[0][4][0])
     out = pd.DataFrame(d)
-
-    if os.stat(fname).st_size == 0:
+    print(os.stat(fname).st_size)
+    if os.stat(fname).st_size == 16:
         out.to_csv(fname, index=False, header=True)
     else:
         out.to_csv(fname, index=False, mode="a", header=False)
 
-full_len = len(loadtxt(wname, delimiter=",", dtype=str, usecols=(0))) - 1
+
+full_len = len(loadtxt(wname, delimiter=",", dtype=str, usecols=0)) - 1
 try:
-    last = list(loadtxt(wname, delimiter=",", dtype=str, usecols=(0))).index(
-        str(loadtxt(fname, delimiter=",", dtype=str, usecols=(0))[-1]))
+
+    last = list(loadtxt(wname, delimiter=",", dtype=str, usecols=0)).index(
+        str(loadtxt(fname, delimiter=",", dtype=str, usecols=0)[-1]))
 except IndexError:
     last = 0
 with progress:
