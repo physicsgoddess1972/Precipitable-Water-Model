@@ -48,9 +48,8 @@ instr = "../../data/instruments.conf"
 intr = loadtxt(instr, dtype=str, delimiter=",", unpack=True)[0]
 ## Data file used for model input
 fname = '../../data/master_data.csv'
-if os.stat(fname).st_size != 0:
-    with open(fname, 'a') as f:
-        f.write('\n')
+with open(fname, 'a') as f:
+    f.write('\n')
 ## Data file used for user input
 wname = '../../data/cool_data.csv'
 

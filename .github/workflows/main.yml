@@ -1,0 +1,71 @@
+name: Docker Run
+on: 
+  issue_comment:
+    types: [created]
+permissions:
+  actions: write
+  issues: write
+  contents: write
+  pull-requests: write
+jobs:
+  pmat:
+    if:  contains(github.event.issue.labels.*.name, 'pmat-deploy') || github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    name: PMAT Docker
+    steps:
+    - name: Define Variables
+      run: |
+          ISSUE="${{ github.event.issue.title }}"
+          SPLIT=(${ISSUE//,/ })
+          echo 'city='${SPLIT[0]} >> $GITHUB_ENV
+          echo 'state='${SPLIT[1]} >> $GITHUB_ENV
+          echo 'lcity='${SPLIT[0],,} >> $GITHUB_ENV
+          echo 'lstate='${SPLIT[1],,} >> $GITHUB_ENV
+          echo 'sscity='$(sed "s/[A-Z]\+/ &/g" <<< ${SPLIT[0]}) >> $GITHUB_ENV
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        ref: "pmat-${{ env.lcity }}-${{ env.lstate }}"
+    - name: Run docker image
+      uses: docker://pharaohcola13/docker-pmat:latest
+      with:
+        args: "${{ env.lcity }}_${{ env.lstate }}"
+    - name: Upload figs artifacts
+      uses: actions/upload-artifact@master
+      with:
+        name: workspace_artifacts_figs
+        path: ${{github.workspace}}/figs
+    - name: Upload data artifacts
+      uses: actions/upload-artifact@master
+      with:
+        name: workspace_artifacts_data
+        path: ${{github.workspace}}/data
+    - name: stage changed files
+      run: git add figs/* data/master_data.csv
+    - name: Commit files
+      run: |
+        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git commit -m "Generate '${{ env.state }}'  Plots" -a
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v3
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        branch: "pmat-${{ env.lcity }}-${{ env.lstate }}-patch"
+        base: "pmat-${{ env.lcity }}-${{ env.lstate }}"
+        delete-branch: true
+        labels: pmat-deploy, automerge
+        assignees: PharaohCola13
+        body: Preparing for ${{ env.sscity }}, ${{ env.state }} plot run
+        title: Pull request for incoming ${{ env.sscity }}, ${{ env.state }} plots
+    - uses: 8BitJonny/gh-get-current-pr@1.1.0
+      id: PR
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        filterOutClosed: true
+    - run: echo ${{ env.PULL_REQUEST_NUMBER }}
+    - name: automerge
+      uses: "pascalgn/automerge-action@v0.14.2"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        PULL_REQUEST: "${{ env.PULL_REQUEST_NUMBER }}"
