@@ -227,41 +227,35 @@ _:-ms-input-placeholder, :root .demo-graph {
 }
 .demo-updates .mdl-card__title {
   min-height: 200px;
-  background-image: url('../img/sky.jpg');
+  background-image: url('../img/dash/sky.jpg');
   background-position: 20% 0%;
   background-repeat: no-repeat;
 }
 .demo-updates2 .mdl-card__title {
     min-height: 200px;
-    background-image: url('../img/sun.jpg');
+    background-image: url('../img/dash/sun.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
 
-.demo-updates3 .mdl-card__title {
-    min-height: 200px;
-    background-image: url('../img/nmt.jpg');
-    background-position: 43% 35%;
-    background-repeat: no-repeat;
-}
 
 .demo-updates4 .mdl-card__title {
     min-height: 200px;
-    background-image: url('../img/rain.jpg');
+    background-image: url('../img/dash/rain.jpg');
     background-position: 70% 0%;
     background-repeat: no-repeat;
 }
 .demo-updates5 .mdl-card__title {
     min-height: 200px;
-    background-image: url('../img/IMG_20170623_161817.jpg');
+    background-image: url('../img/dash/nmt.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
 .demo-updates6 .mdl-card__title {
     min-height: 200px;
-    background-image: url('../img/IMG_20200802_052417.jpg');
+    background-image: url('../img/dash/sdsm.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
