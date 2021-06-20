@@ -2,6 +2,8 @@ dash:
   - data:
       city: Socorro
       state: NM
+      img: nmt.jpg
   - data:
       city: Rapid City
       state: SD
+      img: sdsm.jpg

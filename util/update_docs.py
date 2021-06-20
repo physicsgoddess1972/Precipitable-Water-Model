@@ -111,6 +111,7 @@ def dash():
         for i in list(my_dict['dash']):
             state = (i['data']['state']).lower()
             city = (i['data']['city']).lower().replace(" ", "")
+            img = "https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/docs/docs/assets/img/dash/{}?raw=true/".format(i['data']['img'])
             csvfile.write('\t\t<div class="col s12" id="{0}-{1}">\n'.format(city, state))
             csvfile.write('\t\t\t<div style="display: flex;">\n')
             csvfile.write('\t\t\t\t<div class="data-nav" style="height: 250px">\n')
@@ -178,7 +179,7 @@ def dash():
                     city, state))
             csvfile.write('\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t</div>\n')
             csvfile.write('\t\t\t\t\t</div>\n\t\t\t\t</div>\n')
-            csvfile.write('\t\t\t<div class="img-small-{}" style="width: 50%; padding-top: 15px; padding-right: 5px"></div>\n'.format(state))
+            csvfile.write('\t\t\t<div class="img-small-{}" style="background-image: url({}); width: 50%; padding-top: 15px; padding-right: 5px"></div>\n'.format(state, img))
             csvfile.write('\t\t\t</div>\n\t\t</div>\n')
         csvfile.write('\t</div>\t\n</div>\n</div>')
 
