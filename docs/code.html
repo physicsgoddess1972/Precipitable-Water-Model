@@ -31,6 +31,12 @@
 	<link rel="stylesheet" href="./assets/css/dash.css">
 	<link rel="stylesheet" href="./assets/css/bootstrap.min.css">
 	<script src="./assets/js/bootstrap.min.js"></script>
+    <script>
+        $(function(){
+          $("#modal-maintainers").load("assets/external/modal_maintainers.html");
+          $("#modal-introduction").load("assets/external/modal_introduction.html");
+        });
+    </script>
 
 	<script>
 		Flatdoc.run({
@@ -78,34 +84,8 @@
 		</nav>
 	</div>
 	<main class="mdl-layout__content">
-		<div class="modal" id="maintainers">
-			<div class="modal-content">
-				<h4>The Maintainers</h4>
-				<table>
-					<tr>
-						<td><i class="material-icons">face</i></td>
-						<td>Spencer Riley</td>
-						<td><i class="material-icons">face</i></td>
-						<td>Vicki Kelsey</td>
-					</tr>
-					<tr>
-						<td><i class="material-icons">public</i></td>
-						<td><a target="_blank" href="https://spencerriley.me">spencerriley.me</a></td>
-						<td><i class="material-icons">public</i></td>
-						<td><a target="_blank" href="http://physicsgoddess1972.github.io">physicsgoddess1972.github.io</a></td>
-					</tr>
-					<tr>
-						<td><i class="material-icons">alternate_email</i></td>
-						<td>spencer.riley@student.nmt.edu</td>
-						<td><i class="material-icons">alternate_email</i></td>
-						<td>vicki.kelsey@mines.sdsmt.edu</td>
-					</tr>
-				</table>
-			</div>
-			<div class="modal-footer">
-				<a href="#!" class="modal-close waves-effect waves-teal btn-flat" data-dismiss="maintainers">Continue</a>
-			</div>
-		</div>
+		<div id="modal-maintainers"></div>
+		<div id="modal-introduction"></div>
 		<div class="menubar" style="padding-right: -100%;"></div>
 		<div role='flatdoc-content' class='content'></div>
 		<nav class="bottom-nav" style="width: 100%;">
@@ -126,11 +106,6 @@
 		</nav>
 	</main>
 </div>
-<script>
-	$(document).ready(function(){
-		$('.modal').modal({});
-	});
-</script>
 <script>
 	document.addEventListener("DOMContentLoaded", function(){
 	  document.querySelectorAll('.sidebar .nav-link').forEach(function(element){

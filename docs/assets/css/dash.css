@@ -239,26 +239,11 @@ _:-ms-input-placeholder, :root .demo-graph {
     background-position: center;
 }
 
-
 .demo-updates4 .mdl-card__title {
     min-height: 200px;
     background-image: url('../img/dash/rain.jpg');
     background-position: 70% 0%;
     background-repeat: no-repeat;
-}
-.demo-updates5 .mdl-card__title {
-    min-height: 200px;
-    background-image: url('../img/dash/nmt.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-.demo-updates6 .mdl-card__title {
-    min-height: 200px;
-    background-image: url('../img/dash/sdsm.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
 }
 .demo-options h3 {
   margin: 0;
@@ -303,4 +288,17 @@ footer {
   top: 19%;
   margin: 0;
   padding: 0;
+}
+.img-small-nm {
+    background-image: url('../img/dash/nmt.jpg');
+    margin-right: 5px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.img-small-sd {
+    background-image: url('../img/dash/sdsm.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }

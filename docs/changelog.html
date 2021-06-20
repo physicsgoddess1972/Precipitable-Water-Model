@@ -31,14 +31,18 @@
 	<link rel="stylesheet" href="./assets/css/changelog.css">
 	<link rel="stylesheet" href="./assets/css/bootstrap.min.css">
 	<script src="./assets/js/bootstrap.min.js"></script>
-
+    <script>
+        $(function(){
+          $("#modal-maintainers").load("assets/external/modal_maintainers.html");
+          $("#modal-introduction").load("assets/external/modal_introduction.html");
+        });
+    </script>
 	<script>
 		Flatdoc.run({
 			fetcher: Flatdoc.github('physicsgoddess1972/Precipitable-Water-Model', 'CHANGELOG.md', 'docs')
 			// fetcher: Flatdoc.file('../CHANGELOG.md')
 		});
 	</script>
-
 </head>
 <body role='flatdoc' class="light" id="mode">
 <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
@@ -79,101 +83,29 @@
 		</nav>
 	</div>
 	<main class="mdl-layout__content">
-        <div class="modal" id="maintainers">
-            <div class="modal-content">
-                <h4>The Maintainers</h4>
-                <table>
-                    <tr>
-                        <td><i class="material-icons">face</i></td>
-                        <td>Spencer Riley</td>
-                        <td><i class="material-icons">face</i></td>
-                        <td>Vicki Kelsey</td>
-                    </tr>
-										<tr>
-											<td><i class="material-icons">public</i></td>
-											<td><a target="_blank" href="https://spencerriley.me">spencerriley.me</a></td>
-											<td><i class="material-icons">public</i></td>
-											<td><a target="_blank" href="http://physicsgoddess1972.github.io">physicsgoddess1972.github.io</a></td>
-										</tr>
-										<tr>
-											<td><i class="material-icons">alternate_email</i></td>
-											<td>spencer.riley@student.nmt.edu</td>
-											<td><i class="material-icons">alternate_email</i></td>
-											<td>vicki.kelsey@mines.sdsmt.edu</td>
-										</tr>
-                </table>
-            </div>
-            <div class="modal-footer">
-                <a href="#!" class="modal-close waves-effect waves-teal btn-flat" data-dismiss="maintainers">Continue</a>
-            </div>
-
-        </div>
-            <div class="modal" id="initial">
-                    <div class="modal-content">
-                        <h4 style="text-align: center">Welcome to the Precipitable Water Model Documentation Page</h4>
-                        <p>
-                            If you are interested in conducting this experiment in your
-                            location read through this page and follow the process.
-                        </p>
-                        <p>
-                            It should be noted that you have no obligation to assimilate your data into this project.
-                            However, we would appreciate it greatly.
-                        </p>
-                        <p>
-                            If there are any concerns or inquiries about the research or the process, feel free to
-                            contact us.
-                        </p>
-                        <table>
-                            <tr>
-                                <td><i class="material-icons">face</i></td>
-                                <td>Spencer Riley</td>
-                                <td><i class="material-icons">face</i></td>
-                                <td>Vicki Kelsey</td>
-                            </tr>
-                            <tr>
-                                <td><i class="material-icons">public</i></td>
-                                <td><a target="_blank" href="http://pharaohcola13.github.io">pharaohcola13.github.io</a></td>
-                                <td><i class="material-icons">public</i></td>
-                                <td><a target="_blank" href="http://physicsgoddess1972.github.io">physicsgoddess1972.github.io</a></td>
-                            </tr>
-                            <tr>
-                                <td><i class="material-icons">alternate_email</i></td>
-                                <td>spencer.riley@student.nmt.edu</td>
-                                <td><i class="material-icons">alternate_email</i></td>
-                                <td>vicki.kelsey@student.nmt.edu</td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div class="modal-footer">
-                        <a href="#!" class="modal-close waves-effect waves-teal btn-flat" data-dismiss="modal1">Continue</a>
-                    </div>
-                </div>
-            <div class="menubar" style="padding-right: -100%;"></div>
-						<div role='flatdoc-content' class='content'></div>
-						<nav class="bottom-nav" style="width: 100%;">
-							<a class="bottom-nav__action" href="#top">
-								<svg class="bottom-nav__icon" viewBox="0 0 24 24">
-									<path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"/>
-								</svg>
-								<span class="bottom-nav__label">Back to Top</span>
-							</a>
-							<a class="bottom-nav__action" href="https://pw-ml-dash.uc.r.appspot.com/">
-								<i class="bottom-nav__icon material-icons" role="presentation" style="margin-bottom: -10px; margin-top: -18px">memory</i>
-								<span class="bottom-nav__label">Machine Learning</span>
-							</a>
-							<a class="bottom-nav__action" href="https://pw-data-dash.uc.r.appspot.com/">
-								<i class="bottom-nav__icon material-icons" role="presentation" style="margin-bottom: -10px; margin-top: -18px">insights</i>
-								<span class="bottom-nav__label">Data Dashboard</span>
-							</a>
-						</nav>
+        <div id="modal-maintainers"></div>
+		<div id="modal-introduction"></div>
+		<div class="menubar" style="padding-right: -100%;"></div>
+		<div role='flatdoc-content' class='content'></div>
+		<nav class="bottom-nav" style="width: 100%;">
+			<a class="bottom-nav__action" href="#top">
+				<svg class="bottom-nav__icon" viewBox="0 0 24 24">
+					<path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"/>
+				</svg>
+				<span class="bottom-nav__label">Back to Top</span>
+			</a>
+			<a class="bottom-nav__action" href="https://pw-ml-dash.uc.r.appspot.com/">
+				<i class="bottom-nav__icon material-icons" role="presentation" style="margin-bottom: -10px; margin-top: -18px">memory</i>
+				<span class="bottom-nav__label">Machine Learning</span>
+			</a>
+			<a class="bottom-nav__action" href="https://pw-data-dash.uc.r.appspot.com/">
+				<i class="bottom-nav__icon material-icons" role="presentation" style="margin-bottom: -10px; margin-top: -18px">insights</i>
+				<span class="bottom-nav__label">Data Dashboard</span>
+			</a>
+		</nav>
         </main>
     </div>
 </body>
-<script>
-	$(document).ready(function(){
-		$('.modal').modal({});
-	});
-</script>
 <script>
 	document.addEventListener("DOMContentLoaded", function(){
 	  document.querySelectorAll('.sidebar .nav-link').forEach(function(element){

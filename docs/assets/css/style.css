@@ -1592,19 +1592,6 @@ table {
 
 }
 
-.img-small-nm {
-    background-image: url('../img/IMG_20170623_161817.jpg');
-    margin-right: 5px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-.img-small-sd {
-    background-image: url('../img/IMG_20200802_052417.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-}
 .data-nav {
     width: 50%;
 }

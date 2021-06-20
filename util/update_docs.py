@@ -82,8 +82,9 @@ def research():
             conference = i['poster']['conference']
             abstract = i['poster']['abstract']
             image = i['poster']['image']
+
             csvfile.write('<div class="collapsible_1">\n<div class="panel">\n')
-            csvfile.write('<img src="assets/img/{}" width="100%">\n'.format(image))
+            csvfile.write('<img src="https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/docs/docs/assets/img/poster/{}?raw=true" width="100%">\n'.format(image))
             csvfile.write('<h2 style="text-align: center; font-size: 15px">{}</h2>\n'.format(title))
             csvfile.write('<h3 class="research-info" style="float: left">{}</h3>'.format(author))
             csvfile.write(
@@ -96,7 +97,8 @@ def research():
 def dash():
     with open("./dash.yml") as f:
         my_dict = yaml.safe_load(f)
-    with open("../docs/results.html", 'w', newline='') as csvfile:
+    with open("../docs/assets/external/results.html", 'w', newline='') as csvfile:
+        csvfile.write('<script type="text/javascript">$(document).ready(function(){$(".tabs").tabs();});</script>\n')
         csvfile.write('<div class="mdl-grid demo-content">\n')
         csvfile.write('<div class="mdl-shadow--2dp mdl-cell mdl-cell--stretch mdl-cell--12-col">\n')
         csvfile.write('\t<div class="row">\n\t\t<div class="col s12">\n')
@@ -111,7 +113,7 @@ def dash():
             city = (i['data']['city']).lower().replace(" ", "")
             csvfile.write('\t\t<div class="col s12" id="{0}-{1}">\n'.format(city, state))
             csvfile.write('\t\t\t<div style="display: flex;">\n')
-            csvfile.write('\t\t\t\t<div class="data-nav">\n')
+            csvfile.write('\t\t\t\t<div class="data-nav" style="height: 250px">\n')
             csvfile.write('\t\t\t\t\t<div class="mdl-card__actions mdl-card--border">\n')
             csvfile.write('\t\t\t\t\t\t<div class="row">\n')
             csvfile.write('\t\t\t\t\t\t\t<div class="col s12">\n')
@@ -175,11 +177,9 @@ def dash():
                 '\t\t\t\t\t\t\t\t<li><a href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/raw/pmat-{}-{}/figs/results/poster.pdf" download>Poster</a></li>\n'.format(
                     city, state))
             csvfile.write('\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t</div>\n')
-            csvfile.write('\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n')
-            csvfile.write(
-                '\t\t\t<div class="img-small-{}" style="width: 50%; padding-top: 15px; padding-right: 5px"></div>\n'.format(
-                    state))
-            csvfile.write('\t\t</div>\n')
+            csvfile.write('\t\t\t\t\t</div>\n\t\t\t\t</div>\n')
+            csvfile.write('\t\t\t<div class="img-small-{}" style="width: 50%; padding-top: 15px; padding-right: 5px"></div>\n'.format(state))
+            csvfile.write('\t\t\t</div>\n\t\t</div>\n')
         csvfile.write('\t</div>\t\n</div>\n</div>')
 
 
