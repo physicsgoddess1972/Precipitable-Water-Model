@@ -12,7 +12,7 @@
                 <div class="collapsible_1 collab">
                     <div class="panel" style="margin-bottom: 0; padding-bottom: 2%;">
                         <h3>Dr. Kenneth Minschwaner</h3>
-                        <img width="100%" src="assets/img/kminschwaner.jpg" alt="Kenneth Minschwaner">
+                        <img width="100%" src="https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/docs/docs/assets/img/people/kminschwaner.jpg?raw=true/" alt="Kenneth Minschwaner">
                         <br>
                         <b style="font-weight: bold;">Role:</b> Research Advisor and Co-author
                         <hr>
@@ -25,7 +25,7 @@
                 <div class="collapsible_1 collab">
                     <div class="panel" style="margin-bottom: 0; padding-bottom: 2%;">
                         <h3>Fernando Rivera</h3>
-                        <img width="100%" src="assets/img/frivera.png" alt="Fernando Rivera">
+                        <img width="100%" src="https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/docs/docs/assets/img/people/frivera.png?raw=true/" alt="Fernando Rivera">
                         <br>
                         <b style="font-weight: bold;">Role:</b> Data Collection and Analysis for Socorro, NM.
                         <hr>
@@ -36,7 +36,7 @@
                 <div class="collapsible_1 collab">
                     <div class="panel" style="margin-bottom: 0; padding-bottom: 2%;">
                         <h3>Christen Gauker</h3>
-                        <img width="100%" src="assets/img/cgauker.jpg" alt="Christen Gauker">
+                        <img width="100%" src="https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/docs/docs/assets/img/people/cgauker.jpg?raw=true/" alt="Christen Gauker">
                         <br>
                         <b style="font-weight: bold;">Role:</b> Data Collection and Analysis for Rapid City, SD.
                         <hr>
