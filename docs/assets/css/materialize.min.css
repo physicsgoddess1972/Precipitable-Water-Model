@@ -2987,7 +2987,8 @@ body.keyboard-focused .dropdown-content li:focus {
 	margin: auto;
 	overflow-y: auto;
 	border-radius: 2px;
-	will-change: top, opacity
+	will-change: top, opacity;
+
 }
 
 .modal:focus {
@@ -3320,16 +3321,13 @@ body.keyboard-focused .dropdown-content li:focus {
 
 .chip {
 	display: inline-block;
-	height: 32px;
 	font-size: 13px;
 	font-weight: 500;
-	color: rgba(0, 0, 0, 0.6);
 	line-height: 32px;
 	padding: 0 12px;
 	border-radius: 16px;
-	background-color: #e4e4e4;
-	margin-bottom: 5px;
-	margin-right: 5px
+	background-color: rgba(255, 162, 0, 0.5);
+	color: #000;
 }
 
 .chip:focus {
@@ -3469,7 +3467,7 @@ button:focus {
 
 label {
 	font-size: .8rem;
-	color: #9e9e9e
+	color: #000;
 }
 
 ::-webkit-input-placeholder {

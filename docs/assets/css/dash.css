@@ -14,12 +14,6 @@
  * limitations under the License.
  */
 
-html, body {
-  font-family: 'Roboto', 'Helvetica', sans-serif;
-  padding: 0;
-  margin: 0;
-  height: 100%;
-}
 .demo-avatar {
   width: 48px;
   height: 48px;
@@ -290,15 +284,23 @@ footer {
   padding: 0;
 }
 .img-small-nm {
-    background-image: url('../img/dash/nmt.jpg');
+    background-image: url(https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/docs/docs/assets/img/dash/nmt.jpg?raw=true/);
     margin-right: 5px;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
 .img-small-sd {
-    background-image: url('../img/dash/sdsm.jpg');
+    background-image: url(https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/docs/docs/assets/img/dash/sdsm.jpg?raw=true/);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+}
+@media only screen and (max-width: 700px) {
+    .img-small-sd {
+        background-image: none;
+    }
+    .img-small-nm {
+        background-image: none;
+    }
 }

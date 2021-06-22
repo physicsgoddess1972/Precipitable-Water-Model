@@ -3,7 +3,6 @@ on:
   push:
     paths:
       - "util/dash.yml"
-  workflow_dispatch:
 jobs:
   branch:
     runs-on: ubuntu-latest

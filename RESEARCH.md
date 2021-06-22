@@ -28,15 +28,15 @@ Atmospheric Measurement Techniques
 <div class="panel">
 <div class="collapsible_1">
 <div class="panel">
-<img src="assets/img/ams100.png" width="100%">
+<img src="https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/docs/docs/assets/img/poster/ams100.png?raw=true" width="100%">
 <h2 style="text-align: center; font-size: 15px">Atmospheric Precipitable Water and its Correlation with Clear Sky Infrared Temperature Readings</h2>
-<h3 class="research-info" style="float: left">V. Kelsey, S. Riley</h3><h3 class="research-info" style="float: right; text-align: right">American Meteorlogical Society 100</h3>
+<h3 class="research-info" style="float: left">V. Kelsey, S. Riley</h3><h3 class="research-info" style="float: right; text-align: right">AMS 100</h3>
 <p>
 Precipitable water is primarily measured using radiosondes, ground-based global positioning systems (GPS), sun photometers, and microwave radiometry (MWRI). This limits the number of precipitable water measurement sites, which affects forecast accuracy in regards to storm formation, strength, and the potential for precipitation. Socorro, NM is among the sites that do not have the capability to measure precipitable water. Our research builds upon a previous study which determined an exponential relationship between infrared clear sky temperature measurements and precipitable water over the Gulf Coast of Texas. We are analyzing this relationship for the climate zone found in Socorro, NM. Daily ground and clear sky temperature measurements are being taken with low-cost infrared thermometers. Radiosonde precipitable water measurements from Albuquerque and Santa Teresa NWS monitoring sites are input into our dataset and analysed via our newly developed computational tool; which shows that there is a correlation ($R^2 = 0.707$) between clear sky temperature and precipitable water. Our research demonstrates the capability to measure and analyze precipitable water with low cost instrumentation in higher altitude arid climate zones similar to those found in the desert Southwest. We are building a platform to expand our tools and methods so that they can be used to determine and analyse similar correlations over a greater variety of climate zones.
 </p>
 </div></div><div class="collapsible_1">
 <div class="panel">
-<img src="assets/img/vicki_physcon2019.png" width="100%">
+<img src="https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/docs/docs/assets/img/poster/vicki_physcon2019.png?raw=true" width="100%">
 <h2 style="text-align: center; font-size: 15px">Atmospheric Precipitable Water and its Correlation with Clear Sky Infrared Temperature Readings: Field Observations</h2>
 <h3 class="research-info" style="float: left">V. Kelsey, S. Riley</h3><h3 class="research-info" style="float: right; text-align: right">Physics Congress 2019</h3>
 <p>
@@ -44,7 +44,7 @@ Precipitable water is the total amount of water vapor which is contained in a ve
 </p>
 </div></div><div class="collapsible_1">
 <div class="panel">
-<img src="assets/img/spencer_physcon2019.png" width="100%">
+<img src="https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/docs/docs/assets/img/poster/spencer_physcon2019.png?raw=true" width="100%">
 <h2 style="text-align: center; font-size: 15px">Atmospheric Precipitable Water and its Correlation with Clear Sky Infrared Temperature Readings: Data Analysis</h2>
 <h3 class="research-info" style="float: left">S. Riley, V. Kelsey</h3><h3 class="research-info" style="float: right; text-align: right">Physics Congress 2019</h3>
 <p>

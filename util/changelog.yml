@@ -11,13 +11,16 @@ releases:
         - added: New method for releases and changelog updates
         - updated: Moved data and relavent figures to their own deployment branch
       documentation:
-        - updated: Contribution page
+        - updated: Contribution page to include the special people that helped us
+        - updated: Contribution page with new procedures on contributing data
         - updated: Methodology now includes the Docker deployment rather than the local deployment
         - added: A new page for all the different ways to deploy PMAT (in more detail)
         - added: A new page for research products
         - added: A new page for Machine Learning research
         - added: A new page for Automation research
         - updated: Dashboard cards
+        - added: A method to look at available plots on the Dashboard
+        - updated: How the documentation pages are organized and put together
   v2:
     name: Cirrus
     tagline: New and Improved PMAT

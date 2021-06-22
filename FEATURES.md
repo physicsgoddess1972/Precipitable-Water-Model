@@ -3,7 +3,7 @@
 <div id="r-feat">
 <div class="collapsible">
 <div class="collapsible-header">
-	<h2>R Features</h2>
+	<h2>Features</h2>
 </div>
 <div class="panel">
 The following sections define and show interesting

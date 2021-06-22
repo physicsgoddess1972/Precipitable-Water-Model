@@ -1,7 +1,16 @@
 <script>
-		$(document).ready(function(){
-			$('.modal').modal({});
-		});
+    $(document).ready(function(){
+        $('.modal').modal({});
+    });
+    $( document ).ready(function() {
+        if (document.cookie.indexOf('visited=true') == -1){
+           $('#initial').modal('open');
+           var year =  1000*60*60*24*365;
+           var expires = new Date((new Date()).valueOf() + year);
+           console.log(expires)
+           document.cookie = "visited=true;expires=" + expires.toUTCString();
+       }
+});
 </script>
 <div class="modal" id="initial">
     <div class="modal-content">

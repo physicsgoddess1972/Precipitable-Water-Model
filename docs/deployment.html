@@ -1,6 +1,4 @@
-<!doctype html>
-<!--suppress ALL -->
-<html>
+<!DOCTYPE html>
 <head>
 	<title>Precipitable Water Model</title>
 	<link rel="icon" href="assets/img/icon.png">
@@ -26,27 +24,29 @@
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/css/changelog.css">
 	<link rel="stylesheet" href="assets/css/dash.css">
-	<script src="assets/js/jquery.min.js"></script>
+
+	<script rel="preload" src="assets/js/jquery.min.js"></script>
 	<script>
 		$("#content").load("assets/external/head.html");
 	</script>
-	<script type="text/javascript">var fname = "AUTOMATION.md"</script>
+
+	<script type="text/javascript">var fname = "DEPLOYMENT.md"</script>
 	<script type="text/javascript">var bname = "docs"</script>
 	<script rel="preload" src="assets/js/header.js"></script>
-	<div rel="preload" id="content"></div>
+	<div id="content"></div>
 </head>
-<body role='flatdoc' class="light" id="mode">
-<div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
-	<header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600" id="top-bar"></header>
-	<div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50" id="side-nav"></div>
-	<main class="mdl-layout__content">
-		<div id="modal-maintainers"></div>
-		<div id="modal-introduction"></div>
-		<div class="menubar" style="padding-right: -100%;"></div>
-		<div role='flatdoc-content' class='content'></div>
-		<div id="bottom-nav"></div>
-	</main>
-</div>
+<body role='flatdoc'>
+	<div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+		<header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600" id="top-bar"></header>
+		<div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50" id="side-nav"></div>
+		<main class="mdl-layout__content">
+			<div id="modal-maintainers"></div>
+			<div id="modal-introduction"></div>
+			<div class="menubar" style="padding-right: -100%;"></div>
+			<div role='flatdoc-content' class='content'></div>
+			<div id="bottom-nav"></div>
+		</main>
+    </div>
 </body>
 <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 </html>

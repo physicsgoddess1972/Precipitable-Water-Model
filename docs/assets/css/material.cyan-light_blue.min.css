@@ -7,7 +7,8 @@
  */
 @charset "UTF-8";
 html {
-    color: rgba(0, 0, 0, .87)
+    color: rgba(0, 0, 0, .87);
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 }
 
 ::-moz-selection {
@@ -160,13 +161,6 @@ main {
 
 *[hidden] {
     display: none !important
-}
-
-html, body {
-    font-family: "Helvetica", "Arial", sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 20px
 }
 
 h3, h4, h5, h6, p {
@@ -4581,7 +4575,11 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
     -ms-flex-positive: 1;
     flex-grow: 1
 }
-
+@media only screen and (max-width: 600px) {
+    .mdl-layout-spacer {
+        padding-right: 100%;
+    }
+}
 .mdl-layout__drawer {
     display: -webkit-flex;
     display: -ms-flexbox;
