@@ -1495,8 +1495,8 @@ if(args$data){
 		data 		<- data.frame(list(date=c(norm$x),avg_temp=c(norm$y1), avg_pw=c(norm$y2), avg_rh=c(norm$y3), cond=c(norm$c)))
 		colnames(data) <- c("date", "avg_temp", "avg_pw", "avg_rh", "condition")
 	# Writes the data to a csv
-		write.csv(data, file=sprintf("../data/ml/ml_data.csv"), row.names=FALSE)
-		cat(green(sprintf("Data sent to data/ml/ml_data.csv\n")))
+		write.csv(data, file=sprintf("../data/ml_data.csv"), row.names=FALSE)
+		cat(green(sprintf("Data sent to data/ml_data.csv\n")))
 	}else{
 		if (args$overcast){
 	# Pulls the data
@@ -1526,8 +1526,8 @@ if(args$data){
 			data 		<- data.frame(list(date=c(norm$x),avg_temp=c(norm$y1), avg_pw=c(norm$y2)))
 			colnames(data) <- c("date", "avg_temp", "avg_pw")
 	# Writes the data to a csv
-			write.csv(data, file=sprintf("../data/%s/data_clearsky.csv", args$id), row.names=FALSE)
-			cat(green(sprintf("Data sent to data/%s/data_clearsky.csv\n", args$id)))
+			write.csv(data, file=sprintf("../data/data_clearsky.csv"), row.names=FALSE)
+			cat(green(sprintf("Data sent to data/data_clearsky.csv\n")))
 
 		}
 	}
