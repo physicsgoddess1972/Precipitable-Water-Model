@@ -42,7 +42,7 @@ jobs:
         name: workspace_artifacts_data
         path: ${{github.workspace}}/data
     - name: stage changed files
-      run: git add figs/* data/master_data.csv
+      run: git add figs/* data/master_data.csv data/ml_data.csv
     - name: Commit files
       run: |
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
