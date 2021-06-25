@@ -10,10 +10,6 @@
     <a href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/releases/tag/v2.0"><img alt="GitHub tag (latest by date)" src="https://img.shields.io/github/v/tag/physicsgoddess1972/Precipitable-Water-Model?label=PMAT"></a>
     <a href="https://hub.docker.com/r/pharaohcola13/docker-pmat"><img alt="Docker Cloud Build Status" src="https://img.shields.io/docker/cloud/build/pharaohcola13/docker-pmat"></a>
     </p>
-    <p style="text-align: center">
-        <a href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/actions/workflows/main_nm.yml"><img src="https://github.com/physicsgoddess1972/Precipitable-Water-Model/actions/workflows/main_nm.yml/badge.svg?branch=pmat-socorro-nm" alt=".github/workflows/main_nm.yml"></a>
-        <a href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/actions/workflows/main_sd.yml"><img src="https://github.com/physicsgoddess1972/Precipitable-Water-Model/actions/workflows/main_sd.yml/badge.svg?branch=pmat-rapidcity-sd" alt=".github/workflows/main_sd.yml"></a>
-    </p>
     <p style="text-align: center"><a href="https://github.com/ellerbrock/open-source-badges/"><img src="https://badges.frapsoft.com/os/v1/open-source.svg?v=103" alt="Open Source Love svg1"></a></p>
     <h3>What is Precipitable Water?</h3>
     Precipitable water is the amount of condensed water vapor to be found in a vertical column of air, with a base of 1 meter-squared, that
@@ -54,12 +50,28 @@
 	Spot ratio.
 	<br /><br />
     When using the model for your analysis, take the time to fully complete the
-    <code>instruments.conf</code>
+    <code>instruments.yml</code>
 	file with the appropriate information. This will assure that the data
 	properly corresponds to the labels of the sensors. If there is an entry
 	that you are unable to fill, please use NA as a filler. More information
-	regarding the different columns of the <code>instruments.conf</code> will
+	regarding the different columns of the <code>instruments.yml</code> will
 	be discussed in the Data Format section of this documentation page.
+</div></div>
+<div id="pmat">
+<div class="collapsible">
+<div class="collapsible-header">
+	<h2 id="what-is-pmat">What is PMAT?</h2></div>
+<div class="panel">
+The Precipitable-water Model Analysis Tool (PMAT) is a computational utility that is used to analyze the data collected from this project to understand the relationship between the zenith sky temperature and precipitable water in the atmosphere. PMAT has 4 different modules that work together to present data.
+<br><br>
+The first is the <b>Deployment Module </b>. This is utilized to create and organize GitHub branches for users and also allows for semi-automated implementation of data collected by the public into the analysis workflow.
+<br><br>
+The second is the <b>Data Import Module</b>, this module imports data from MesoWest and the University of Wyoming UpperAir Databases. This part relies on the information in the `import.conf` file and the accompanying <a href="https://pw-map-dash.uc.r.appspot.com">Import Configuration Dashboard</a> which is currently under development.  
+<br><br>
+The third module is the main program to run the analysis, the <b>Data Analysis Module</b>. Here the all of the data is presented and the regression analysis between precipitable water and zenith sky temperature is conducted.
+<br><br>
+The final module is the <b>Classical Support Vector Machine Module</b>. Currently there are two versions of this module under development, but the goal is to utilize machine learning to classify the data collected into either overcast or clear sky labels. More information on this module can be accessed through the <a href="https://physicsgoddess1972.github.io/Precipitable-Water-Model/machine_learning.html">Macine Learning documentation page</a>
+
 </div></div>
 <div id="methods">
 <div class="collapsible">
@@ -77,7 +89,7 @@
 </tr>
 <tr>
 	<td><span class="numbered">2</span></td>
-	<td>Find the closest 2 or 3 precipitable water measuring sites for your area and familiarize yourself with how to access and read the data.</td>
+	<td>Identify the closest MesoWest and wyoming sites to your area. Utilize our <a href="">Import Configuration Dashboard</a> for this step.</td>
 </tr>
 <tr>
 	<td><span class="numbered">3</span></td>
@@ -105,7 +117,7 @@
     <br />
     <i>(If the zenith sky reading is obstructed by cloud cover, record the condition as overcast. Otherwise record the condition as clear sky)</i>
     <br />
-    <i>(Do not leave blanks in your dataset. Any value that is not available needs to be marked as NaN)</i>
+    <i>(Do not leave blanks in your dataset. Any value that is not available needs to be marked as -Inf or NaN)</i>
 	</td>
 </tr>
 <tr style="border: 0px;">
@@ -115,30 +127,7 @@
 </tbody>
 </table>
 <h3>Data Analysis</h3>
-<table class="usage">
-<tbody>
-<tr style="border: 0px;">
-	<td><span class="numbered">1</span></td>
-	<td></td>
-</tr>
-<tr>
-	<td><span class="numbered">2</span></td>
-	<td></td>
-</tr>
-<tr>
-	<td><span class="numbered">2</span></td>
-	<td>Download your dataset as a Comma-Seperated-Value file <i>(.csv)</i>, with the filename <code>cool_data.csv</code>. <i>(Be sure to follow the guidelines laid out in <a href="#data">Data Format</a>.)</i></td>
-</tr>
-<tr>
-	<td><span class="numbered">3</span></td>
-	<td></td>
-</tr>
-<tr style="border: 0px;">
-	<td><span class="numbered">4</span></td>
-	<td></td>
-</tr>
-</tbody>
-</table>
+To complete the data analysis look at the <a href="">procedures for PMAT deployment</a> and follow the steps tht best fit your needs.
 </div></div></div></div>
 
 <div id="data">
@@ -157,9 +146,9 @@ Here are some examples of valid datasets:
 <br />
 <a href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/master/data/example/example1.csv" target="_blank">Dataset 3</a>
 <br /><br />
-It should be noted that the columns do not have to be in any set order, with one small caveat, the model pulls the data from columns with headers containing specific words or phrases. The caveat is with regards to Ground and Sky temperature readings. The temperature measurements must go in consecutive order by sensor as determined by <code>instruments.conf</code>.
+It should be noted that the columns do not have to be in any set order, with one small caveat, the model pulls the data from columns with headers containing specific words or phrases. The caveat is with regards to Ground and Sky temperature readings. The temperature measurements must go in consecutive order by sensor as determined by <code>instruments.yml</code>.
 <br /><br />
-For example, if the order of the sensors in <code>instruments.conf</code> is 1610 TE, FLIR i3, and then AMES 1. Then the order of the ground and sky temperature measurements in the dataset should be: 1610 TE, FLIR i3, and then AMES 1. <i>(As seen in Dataset 2)</i>
+For example, if the order of the sensors in <code>instruments.yml</code> is 1610 TE, FLIR i3, and then AMES 1. Then the order of the ground and sky temperature measurements in the dataset should be: 1610 TE, FLIR i3, and then AMES 1. <i>(As seen in Dataset 2)</i>
 <h3>Column Headers for Dataset</h3>
 <table>
 	<tbody>
@@ -195,155 +184,33 @@ For example, if the order of the sensors in <code>instruments.conf</code> is 161
 		</tr>
 	</tbody>
 </table>
-<sup>\*</sup>This should be consistent with what the sensor is labeled as in <code>instruments.conf</code>
-<h3>Format of <code>instruments.conf</code></h3>
+<sup>\*</sup>This should be consistent with what the sensor is labeled as in <code>instruments.yml</code>
+<h3>Format of <code>instruments.yml</code></h3>
 The purpose of this file is to get all of the information on the sensors organized in one place. This file has a total
-of six columns. Each row corresponds to a infrared thermometer used to collect data.
-<li>The first column is used for designating the Sensor. If there is more than one sensor of the same type than use a underbar and the number. For example, if there are two sensors called AMES, then the you would type in `AMES_1` and `AMES_2`. </li>
+of six fields for each sensor. The format will look like the following snippet. Additional sensors can be added by creating a new set of fields underneath the existing information. <a href="https://raw.githubusercontent.com/physicsgoddess1972/Precipitable-Water-Model/pmat-socorro-nm/data/instruments.yml">here is an example</a>.
+<pre>
+<code>
+- sensor:
+    name:
+    error:
+    color:
+    ratio:
+    poster:
+    range:
+</code>
+</pre>
 
-<li>The Second column is the error of the sensor in units of Celsius. If an error cannot be recorded use `NA`. </li>
+<li>The first entry is used for designating the Sensor. If there is more than one sensor of the same type than use a underbar and the number. For example, if there are two sensors called AMES, then the you would type in `AMES_1` and `AMES_2`. </li>
 
-<li>The third column is the color code, this is a hexidecimal color that will be used in sensor specific plots. An example is of an input is `FF00FF`. </li>
-<li>The fourth column is the Distance ratio of the sensor, this is often recorded in the manual or on the packaging. In the file record the ratio in the format `a:b` with `a` and `b` corresponding to the numbers for the sensor.</li>
-<li>The fifth column is a `True` or `False` input that will decide whether or not to include the sensor in the poster plots</li>
-<li>The last column is for the temperature range in Celsius.</li>
+<li>The second entry is the error of the sensor in units of Celsius. If an error cannot be recorded use `null`. </li>
+
+<li>The third entry is the color code, this is a hexidecimal color that will be used in sensor specific plots. An example is of an input is `FF00FF`. </li>
+<li>The fourth entry is the Distance ratio of the sensor, this is often recorded in the manual or on the packaging. In the file record the ratio in the format `a to b` with `a` and `b` corresponding to the numbers for the sensor.</li>
+<li>The fifth entry is a `true` or `false` input that will decide whether or not to include the sensor in the poster plots</li>
+<li>The last entry is for the temperature range in Celsius. This will look something like `a ~ b` with `a` representative of the lowest temperature and `b` being the larger temperature</li>
 <h3>Important Note for Missing Data</h3>
 If you have a sensor that did not take measurements for a period of time, for whatever reason, use `-Inf` as the measurement for that day. For example, if the battery of AMES 1 died for two days the ground and sky measurement for those days would be `-Inf`.
 </div></div></div></div>
-
-<div id="overview">
-<div class="collapsible">
-<div class="collapsible-header">
-	<h2>Overview of the Model</h2>
-</div>
-<div class="panel">
-<b>Please read this section before using the script</b>
-<br />
-The computational model is enclosed in the script <code>model.r</code>.
-Some of the plot sets are divided into two subcategories: clear sky and overcast.
-This division is used to isolate data where clouds may have interfered with the temperature
-measurement. To access the overcast subcategory use the <code>--overcast</code> or <code>-o</code>
-argument.
-<br /><br />
-
-<pre lang="bash">
-<code>
-<inp>$</inp> Rscript model.r --help
-
-usage: model.r [-h] [--set SET] [--poster] [--dev] [-d] [-o] [-1st] [-i] [-ml]
-               [--pacman]
-
-optional arguments:
-  -h, --help          Show this help message and exit
-  --set SET           Select plot sets:
-                          [t]ime series
-                          [a]nalytics
-                          [c]harts
-                          [i]ndividual sensors
-  --poster            Produces poster plots
-  --dev               Development plots
-  -d, --data          Produces two columned dataset including mean temp and PW
-  -o, --overcast      Shows time series data for days with overcast condition
-	                  (Used with --set [t/a/i])
-  -1st, --first_time  Notes for first time users.
-  -i, --instrument    Prints out sensor data stored in instruments.conf
-  -ml                 Outs a datafile to use with the machine learning algorithm.
-  --pacman            Produces Pacman plots.
-</code>
-</pre>
-
-<div class="collapsible_1">
-<div class="panel">
-<h3> 'Time Series' Set Contents </h3>
-<pre lang="bash">
-<code>
-<inp>$</inp> Rscript model.r --set t
-<inp>$</inp> Rscript model.r --set t --overcast
-</code>
-</pre>
-<ol>
-	<li> Air Temperature Time Series </li>
-	<li> Ground Temperature Time Series </li>
-	<li> Change in Temperature Time Series </li>
-  <li> Precipitable Water Time Series </li>
-  <li> Sky Temperature - Precipitable Water Time Series </li>
-  <li> Temporal Mean Precipitable Water Time Series </li>
-  <li> Locational Mean Precipitable Water Time Series </li>
-  <li> Mean Precipitable Water Time Series </li>
-	<li> Precipitable Water  - RH Time Series</li>
-	<li> Sky Temperature - RH Time Series </li>
-</ol>
-</div></div>
-
-<div class="collapsible_1">
-<div class="panel">
-<h3> 'Analytics' Set Contents </h3>
-<pre lang="bash">
-<code>
-<inp>$</inp> Rscript model.r --set a
-<inp>$</inp> Rscript model.r --set a --overcast
-</code>
-</pre>
-
-<ol>
-	<li> Individual Location PW and Temperature </li>
-	<li> Locational Average PW and Temperature </li>
-	<li> Total Mean PW and Temperature </li>
-	<li> Residual for Total Mean PW and Temperature</li>
-</ol>
-</div></div>
-
-<div class="collapsible_1">
-<div class="panel">
-<h3> 'Charts' Set Contents </h3>
-
-<pre lang="bash">
-<code>
-<inp>$</inp> Rscript model.r --set c
-</code>
-</pre>
-
-<ol>
-	<li> Overcast Condition Percentage Bar Chart for each sensor</li>
-</ol>
-</div></div>
-
-<div class="collapsible_1">
-<div class="panel">
-<h3> 'Individual Sensors' Set Contents </h3>
-
-<pre lang="bash">
-<code>
-<inp>$</inp> Rscript model.r --set i
-<inp>$</inp> Rscript model.r --set i --overcast
-</code>
-</pre>
-
-<ol>
-	<li> Sky and Ground Temperature Time Series for each sensor</li>
-</ol>
-</div></div>
-
-<div class="collapsible_1">
-<div class="panel">
-<h3> 'Pac-Man' Set Contents </h3>
-
-<pre lang="bash">
-<code>
-<inp>$</inp> Rscript model.r --pacman
-<inp>$</inp> Rscript model.r --pacman --overcast
-</code>
-</pre>
-
-<ol>
-	<li>Total Mean PW and Temperature</li>
-	<li>Pac-Man Residual Plot</li>
-</ol>
-</div></div>
-
-</div></div></div></div>
-
-
 
 <div id="contrib">
 <div class="collapsible">
