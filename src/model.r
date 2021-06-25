@@ -57,7 +57,7 @@ if(args$first_time){
 	quit()
 	}else{
 		cat(bold(cloudblue(paste(replicate(65, "-"), collapse=""), "\n")))
-		cat(bold(cloudblue("|\t\t   Precipitable Water Model   \t\t\t|\n")))
+		cat(bold(cloudblue("|\t\t   Precipitable-water Model Analysis Tool   \t\t\t|\n")))
 		cat(bold(cloudblue(paste(replicate(65, "-"), collapse=""), "\n")))
 		cat(bold(green("First time users are recommended to run the program with the -1st argument\n")))
 		cat(bold(green("Ex: Rscript model.r -1st\n")))
