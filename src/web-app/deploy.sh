@@ -5,8 +5,8 @@ while getopts "mdb" opt; do
     m)
       echo "Deploying ML Dashboard"
       cd ./pw_ml_dash/
-      /opt/google-cloud*/bin/gcloud config set project pw-ml-dash
-      /opt/google-cloud*/bin/gcloud app deploy
+      gcloud config set project pw-ml-dash
+      gcloud app deploy
       echo "Complete";;
     d)
       echo "Deploying Data Dashboard"
@@ -15,7 +15,7 @@ while getopts "mdb" opt; do
       gcloud app deploy
       echo "Complete";;
 
-    m)
+    n)
       echo "Deploying Map Dashboard"
       cd ./pw_map_dash/
       gcloud config set project pw-map-dash

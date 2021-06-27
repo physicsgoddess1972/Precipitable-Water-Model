@@ -1,5 +1,5 @@
 ####
-## Title: 	Precipitable Water Model
+## Title: 	Precipitable Water Model Data Analysis Module
 ## Author: 	Spencer Riley / Vicki Kelsey
 ## Documentation Page: https://git.io/fjVHo
 ## To get a list of arguments run [Rscript model.r --help]

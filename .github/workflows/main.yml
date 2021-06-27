@@ -1,4 +1,4 @@
-name: Docker Run
+name: PMAT Run
 on: 
   issue_comment:
     types: [created]

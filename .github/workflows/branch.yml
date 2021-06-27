@@ -1,3 +1,4 @@
+name: Create PMAT Branch
 on:
   issues: 
     types: [closed]
