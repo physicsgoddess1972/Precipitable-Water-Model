@@ -42,7 +42,7 @@ while getopts "ihxca" opt; do
       echo -n "Please input the appropriate University of Wyoming site identifier: "
       read wyoming
 
-      echo -e "MesoWest: $mesowest\nWyoming: $wyoming" >> ../data/config.txt
+      echo -e "MesoWest: $mesowest\nWyoming: $wyoming" >> ../../data/config.txt
       ;;
   	h)
       echo "usage: setup.sh [-higx]"
@@ -57,11 +57,11 @@ while getopts "ihxca" opt; do
   	x)
 ### Clear Data Files
       echo -e "\e[96m ~~~~ Clearing Directories and Files ~~~~\e[0m"
-      rm -r ./data/ ./docs/
-      rm -r ./src/archive/ ./src/web-app/
-      rm ./*.md
-      mkdir ./data/ ./data/ml
-      echo "Sensor,Error [C],Color Code,D to S,Poster,Temp Range [C]" > ./data/instruments.conf;;
+      rm -r ../../data/
+      rm -r ../../src/archive/ ../../src/web-app/
+      rm ../../*.md
+      mkdir ../../data/ ../../data/ml
+      echo "Sensor,Error [C],Color Code,D to S,Poster,Temp Range [C]" > ../../data/instruments.conf;;
   	a)
       bash ./setup.sh -i
       bash ./setup.sh -x

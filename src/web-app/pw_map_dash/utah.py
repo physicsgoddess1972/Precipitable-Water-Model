@@ -71,10 +71,9 @@ class Utah(HTTPEndPoint):
             label = names[i - 1].tolist()
             list = [k for k in [j.split("  ") for j in info][0] if k]
             sts = [n for n in [m.split(" ") for m in [list[1]] if m][0] if n]
-            print(sts)
-            if list[1].isupper() and list[1].isalpha() and (len(sts) == 3 or len(sts) == 2):
+            if sts[0].isupper() and sts[0].isalpha() and (len(sts[0]) == 3 or len(sts[0]) == 2):
                 state.setdefault(sts[0], {})[label[0]] = list
-            elif list[1].isalnum() or list[1].isdigit():
+            elif sts[0].isdigit():
                 sts1 = [n for n in [m.split(" ") for m in [list[2]] if m][0] if n][0]
                 state.setdefault(sts1, {})[label[0]] = list
             else:

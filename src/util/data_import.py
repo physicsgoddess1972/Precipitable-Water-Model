@@ -1,5 +1,5 @@
 ####
-## Title: 	Precipitable Water Data Extraction
+## Title: 	Precipitable Water Data Extraction Module
 ## Author: 	Spencer Riley / Vicki Kelsey
 ## Documentation Page: https://git.io/fjVHo
 ####

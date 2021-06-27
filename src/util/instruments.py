@@ -1,3 +1,8 @@
+####
+## Title: 	Instrument Configuration Converter
+## Author: 	Spencer Riley / Vicki Kelsey
+## Documentation Page: https://git.io/fjVHo
+####
 import yaml, csv
 
 with open("../../data/instruments.yml") as f:
