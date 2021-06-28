@@ -12,10 +12,10 @@ jobs:
        ref: deployment
     - name: Login to GHCR
       run: |
-        echo $CR_PAT | docker login ghcr.io -u pharaohcola13 --password-stdin
+        echo $CR_PAT | docker login ghcr.io -u physicsgoddess1972 --password-stdin
       env:
         CR_PAT: ${{ secrets.CR_TOKEN }}
     - name: Build and Publish the PMAT Package
       run: |
-        docker build . --tag ghcr.io/pharaohcola13/pmat:latest
-        docker push ghcr.io/pharaohcola13/pmat:latest
+        docker build . --tag ghcr.io/physicsgoddess1972/pmat:latest
+        docker push ghcr.io/physicsgoddess1972/pmat:latest
