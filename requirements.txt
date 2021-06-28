@@ -4,3 +4,4 @@ metpy
 requests
 rich
 siphon
+pyyaml
