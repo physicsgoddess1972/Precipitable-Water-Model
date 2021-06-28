@@ -711,6 +711,34 @@ a.big.button:hover:visited {
 	padding-bottom: 30rem;
 }
 
+#github .panel {
+    padding-bottom: 25rem;
+}
+@media only screen and (max-width: 700px){
+    #github .panel {
+        padding-bottom: 29rem;
+    }
+}
+@media only screen and (max-width: 622px){
+    #github .panel {
+        padding-bottom: 32rem;
+    }
+}
+@media only screen and (max-width: 486px){
+    #github .panel {
+        padding-bottom: 34rem;
+    }
+}
+@media only screen and (max-width: 387px){
+    #github .panel {
+        padding-bottom: 36rem;
+    }
+}
+@media only screen and (max-width: 332px){
+    #github .panel {
+        padding-bottom: 38rem;
+    }
+}
 @media only screen and (max-width: 636px){
 	#methods .collapsible .panel {
 		padding-bottom: 34rem;
@@ -722,10 +750,13 @@ a.big.button:hover:visited {
 	}
 }
 
-@media only screen and (max-width: 324px){
+@media only screen and (max-width: 325px){
 	#methods .collapsible .panel {
 		padding-bottom: 42rem;
 	}
+    #github .panel {
+        padding-bottom: 40rem;
+    }
 }
 
 @media only screen and (max-width: 924px){
@@ -822,14 +853,14 @@ a.big.button:hover:visited {
 	}
 }
 
-.usage .numbered{
+.usage .numbered, .gh-deploy .numbered{
 	color: #000;
 	display: inline-block;
 	font-size: 18px;
 	text-align: center;
 }
 
-.usage .subnumbered{
+.usage .subnumbered, .gh-deploy .subnumbered{
 	margin-left: 50px;
 	color: #000;
 	display: inline-block;
