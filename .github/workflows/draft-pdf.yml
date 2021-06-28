@@ -1,0 +1,25 @@
+on: [push]
+
+jobs:
+  paper:
+    runs-on: ubuntu-latest
+    name: Paper Draft
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build draft PDF
+        uses: openjournals/openjournals-draft-action@master
+        with:
+          journal: joss
+          # This should be the path to the paper within your repo.
+          paper-path: paper.md
+      - name: Upload
+        uses: actions/upload-artifact@v1
+        with:
+          name: paper
+          path: paper_draft.pdf
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+         branch: "paper"
+         github_token: ${{ secrets.WORKFLOW_TOKEN }}
