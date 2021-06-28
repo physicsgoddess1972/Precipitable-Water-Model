@@ -132,9 +132,11 @@ To complete the data analysis look at the <a href="">procedures for PMAT deploym
 
 <div id="data">
 <div class="collapsible">
-<div class="collapsible-header">
-	<h2>Data Format</h2>
-</div>
+<a href="#data-format">
+	<div class="collapsible-header">
+		<h2>Data Format</h2>
+	</div>
+</a>
 <div class="panel">
 <div class="data-format">
 Using pattern identification, the data format is flexible with few strict requirements.
