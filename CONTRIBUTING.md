@@ -89,45 +89,8 @@
 <h2>Contributing Data</h2>
 </div>
 <div class="panel">
-If you would like to add temperature and precipitable water measurements to our dataset please follow the following rules:
-Use the data format requirements that are included on the
-<a href="./index.html#precipitable-water-model-data-format">documentation page</a>. 
-Follow the brief procedure below.
-
-<div class="collapsible_1">
-<div class="panel give-data">
-<table class="usage" >
-<tbody>
-<tr style="border: 0px;">
-    <td><span class="numbered">1</span></td>
-    <td>Make measurements at least once per day.</td>
-</tr>
-<tr>
-    <td><span class="numbered">2</span></td>
-    <td>Record the weather condition (clear,overcast, etc.)</td>
-</tr>
-<tr>
-    <td><span class="numbered">3</span></td>
-    <td>Submit a pull request on a weekly basis.</td>
-</tr>
-<tr>
-    <td><span class="subnumbered">3.1</span></td>
-    <td>Fork it!</td>
-</tr>
-<tr>
-    <td><span class="subnumbered">3.2</span></td>
-    <td>Create your feature branch: <code>git checkout -b my-new-feature</code></td>
-</tr>
-<tr>
-    <td><span class="subnumbered">3.3</span></td>
-    <td>Commit your changes: <code>git commit -m 'Add some feature'</code></td>
-</tr>
-<tr>
-    <td><span class="subnumbered">3.4</span></td>
-    <td>Submit a pull request</td>
-</tr>
-</tbody>
-</table>
+If you would like to add temperature and precipitable water measurements to our dataset please follow the data formatting guidelines on the
+<a href="./index.html#data-format">documentation page</a>. To contribute datasets follow the procedure on the <a href="https://precipitable-water.tech/deployment.html#github">deployment documentation page</a>.
 </div>
 </div></div></div></div>
 <div id="give-code">
