@@ -23,7 +23,7 @@ jobs:
       with:
         ref: "pmat-${{ env.lcity }}-${{ env.lstate }}"
     - name: Run docker image
-      uses: docker://docker.pkg.github.com/physicsgoddess1972/Precipitable-Water-Model/pmat:latest
+      uses: docker://docker.pkg.github.com/physicsgoddess1972/precipitable-water-model/pmat:latest
       with:
         args: "${{ env.lcity }}_${{ env.lstate }}"
     - name: Upload figs artifacts
