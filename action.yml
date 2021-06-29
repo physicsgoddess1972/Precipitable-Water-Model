@@ -1,12 +1,6 @@
 # action.yml
 name: 'Test deployment of PMAT'
 description: 'Data Collection Import and Analysis Utility'
-inputs:
-  location:
-    description: 'the location ID'
-    required: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
-    - ${{ inputs.location }}
