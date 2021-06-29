@@ -124,14 +124,14 @@
     <i>(Do not leave blanks in your dataset. Any value that is not available needs to be marked as -Inf or NaN)</i>
 	</td>
 </tr>
-<tr style="border: 0px;">
+<tr>
 	<td><span class="numbered">3</span></td>
 	<td>Retrieve precipitable water readings and add them to your dataset</td>
 </tr>
 </tbody>
 </table>
 <h3>Data Analysis</h3>
-To complete the data analysis look at the <a href="">procedures for PMAT deployment</a> and follow the steps tht best fit your needs.
+To complete the data analysis look at the <a href="https://physicsgoddess1972.github.io/Precipitable-Water-Model/deployment.html">procedures for PMAT deployment</a> and follow the steps tht best fit your needs.
 </div></div></div></div>
 
 <div id="data">
