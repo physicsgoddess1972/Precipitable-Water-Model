@@ -703,10 +703,6 @@ a.big.button:hover:visited {
 
 }
 
-#methods .collapsible .panel {
-	padding-bottom: 30rem;
-}
-
 #step .collapsible_1 .panel{
 	padding-bottom: 30rem;
 }
@@ -739,21 +735,8 @@ a.big.button:hover:visited {
         padding-bottom: 38rem;
     }
 }
-@media only screen and (max-width: 636px){
-	#methods .collapsible .panel {
-		padding-bottom: 34rem;
-	}
-}
-@media only screen and (max-width: 380px){
-	#methods .collapsible .panel {
-		padding-bottom: 40rem;
-	}
-}
 
 @media only screen and (max-width: 325px){
-	#methods .collapsible .panel {
-		padding-bottom: 42rem;
-	}
     #github .panel {
         padding-bottom: 40rem;
     }
