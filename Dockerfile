@@ -36,5 +36,5 @@ ADD "https://raw.githubusercontent.com/physicsgoddess1972/Precipitable-Water-Mod
 ADD "https://raw.githubusercontent.com/physicsgoddess1972/Precipitable-Water-Model/master/src/util/instruments.py" /src/util
 
 COPY entrypoint.sh /entrypoint.sh
-# Code file to execute when the docker container starts up (`entrypoint.sh`)
+RUN chmod +x entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
