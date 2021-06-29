@@ -27,19 +27,19 @@ As a result we now have two methods of deploying PMAT, the first and recommended
 <tbody>
 <tr style="border: 0px;">
 	<td><span class="numbered">1</span></td>
-	<td>Create an <a href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/issues">Issue</a> using the PMAT Deployment template. A branch with the city and state name will be created, all branches of the repo can be viewed <a href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/branches">here.</a> </td>
+	<td>Create a GitHub repository from the <a href="https://github.com/PharaohCola13/pmat-template">template</a>.</td>
 </tr>
 <tr>
 	<td><span class="numbered">2</span></td>
-	<td>Once the Issue has been closed, <a href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/fork">fork the repository</a></td>
+	<td>Edit the README.md page based on your location and username</td>
 </tr>
 <tr>
 	<td><span class="numbered">3</span></td>
-	<td>Navigate to the branch that corresponds to your location and edit the data files appropriately. Guidelines for data files can be viewed on the <a href="https://physicsgoddess1972.github.io/Precipitable-Water-Model/">main documentation page</a>.</td>
+	<td>Update all files that are contained in the <code>data/</code> directory, and utilize the <a href="https://physicsgoddess1972.github.io/Precipitable-Water-Model/index.html#data-format">documentation on data formatting.</a></td>
 </tr>
 <tr>
 	<td><span class="numbered">4</span></td>
-	<td>Submit a pull request. Be sure when opening a pull request that the <code>base</code> and <code>head</code> repositories have branches that correspond to the branch created in Step 1. </td>
+	<td>Upon finializing updates on <code>cool_data.csv</code>, the workflow will run and the plots and master dataset will be generated.</td>
 </tr>
 </tbody>
 </table>
