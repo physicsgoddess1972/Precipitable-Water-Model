@@ -18,15 +18,16 @@ jobs:
           echo 'lcity='${SPLIT[0],,} >> $GITHUB_ENV
           echo 'lstate='${SPLIT[1],,} >> $GITHUB_ENV
           echo 'sscity='$(sed "s/[A-Z]\+/ &/g" <<< ${SPLIT[0]}) >> $GITHUB_ENV
-    - name: pull docker image
-      run: docker pull ghcr.io/physicsgoddess1972/pmat:latest
     - name: Checkout
       uses: actions/checkout@v2
       with:
         ref: "pmat-${{ env.lcity }}-${{ env.lstate }}"
     - name: Run docker image
-      run: |
-        docker run ghcr.io/physicsgoddess1972/pmat:latest  -v ${{ github.workspace }}:/github/workspace --workdir "/github/workspace" "${{ env.lcity }}_${{ env.lstate }}" 
+      uses: addnab/docker-run-action@v3
+      with:
+        registry: ghcr.io
+        image: physicsgoddess1972/pmat:latest
+        options: -v ${{ github.workspace }}:/work -e "${{ env.lcity }}_${{ env.lstate }}" 
     - name: Upload figs artifacts
       uses: actions/upload-artifact@master
       with:
