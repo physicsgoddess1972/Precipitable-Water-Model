@@ -24,8 +24,7 @@ jobs:
         ref: "pmat-${{ env.lcity }}-${{ env.lstate }}"
     - name: Run docker image
       run: |
-        docker pull ghcr.io/physicsgoddess1972/pmat:latest
-        docker run ghcr.io/physicsgoddess1972/pmat:latest -v ${{ github.workspace }}:/github/workspace --workdir "github/workspace" "${{ env.lcity }}_${{ env.lstate }}" 
+        docker run -d -v ${{ github.workspace }}:/github/workspace --workdir "/github/workspace" ghcr.io/physicsgoddess1972/pmat:latest "${{ env.lcity }}_${{ env.lstate }}" 
     - name: Upload figs artifacts
       uses: actions/upload-artifact@master
       with:
