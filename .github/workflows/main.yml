@@ -27,7 +27,7 @@ jobs:
       with:
         registry: ghcr.io
         image: ghcr.io/physicsgoddess1972/pmat:latest
-        options: -v ${{ github.workspace }}:/work -e "${{ env.lcity }}_${{ env.lstate }}" 
+        options: -v ${{ github.workspace }}:/work -e var="${{ env.lcity }}_${{ env.lstate }}" 
     - name: Upload figs artifacts
       uses: actions/upload-artifact@master
       with:
