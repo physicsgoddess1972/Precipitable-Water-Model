@@ -22,10 +22,8 @@ jobs:
       uses: actions/checkout@v2
       with:
         ref: "pmat-${{ env.lcity }}-${{ env.lstate }}"
-#     - name: Docker login
-#       run: docker login docker.pkg.github.com -u $GITHUB_ACTOR -p  ${{ secrets.GITHUB_TOKEN }}
     - name: Run docker image
-      run: docker run ghcr.io/physicsgoddess1972/pmat:latest "${{ env.lcity }}_${{ env.lstate }}"
+      run: docker run https://ghcr.io/physicsgoddess1972/pmat:latest "${{ env.lcity }}_${{ env.lstate }}"
     - name: Upload figs artifacts
       uses: actions/upload-artifact@master
       with:
