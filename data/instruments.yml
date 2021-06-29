@@ -1,7 +1,7 @@
 - sensor:
-    name: 
-    error: 
-    color: 
-    ratio: 
-    poster: 
-    range: 
+    name: AMES_2
+    error: 7
+    color: D001FA
+    ratio: 12 to 1
+    poster: true
+    range: -50 ~ 550
