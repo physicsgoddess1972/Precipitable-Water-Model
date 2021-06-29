@@ -1,5 +1,5 @@
 #!/bin/bash
-mkdir -p figs/results/; ls ; ls /data/
+mkdir -p figs/results/; ls
 touch /data/master_data.csv
 cd src/util/; python3 instruments.py; python3 data_import.py
 cd ../; bash run.sh -a
