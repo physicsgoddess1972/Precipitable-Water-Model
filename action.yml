@@ -1,6 +1,6 @@
 # action.yml
-name: 'Test deployment of PMAT'
-description: 'Data Collection Import and Analysis Utility'
+name: 'PMAT Deployment Module'
+description: 'Deployment package for the PMAT software'
 runs:
   using: 'docker'
   image: 'Dockerfile'
