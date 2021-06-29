@@ -24,8 +24,6 @@ jobs:
         ref: "pmat-${{ env.lcity }}-${{ env.lstate }}"
     - name: Run docker image
       uses: docker://ghcr.io/physicsgoddess1972/pmat:latest
-      with:
-        args: "${{ env.lcity }}_${{ env.lstate }}"
     - name: Upload figs artifacts
       uses: actions/upload-artifact@master
       with:
