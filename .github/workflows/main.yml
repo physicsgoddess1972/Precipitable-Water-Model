@@ -25,10 +25,8 @@ jobs:
     - name: Run docker image
       uses: addnab/docker-run-action@v3
       with:
-        username: physicsgoddess1972
-        password: ${{ secrets.GITHUB_TOKEN }}
         registry: ghcr.io
-        image: physicsgoddess1972/pmat:latest
+        image: ghcr.io/physicsgoddess1972/pmat:latest
         options: -v ${{ github.workspace }}:/work -e "${{ env.lcity }}_${{ env.lstate }}" 
     - name: Upload figs artifacts
       uses: actions/upload-artifact@master
