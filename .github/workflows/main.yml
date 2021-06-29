@@ -25,7 +25,7 @@ jobs:
     - name: Docker login
       run: docker login docker.pkg.github.com -u $GITHUB_ACTOR -p  ${{ secrets.GITHUB_TOKEN }}
     - name: Run docker image
-      uses: docker://docker.pkg.github.com/physicsgoddess1972/precipitable-water-model/pmat:latest
+      uses: docker://ghcr.io/physicsgoddess1972/precipitable-water-model/pmat:latest
       with:
         args: "${{ env.lcity }}_${{ env.lstate }}"
     - name: Upload figs artifacts
