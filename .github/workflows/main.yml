@@ -6,12 +6,13 @@ jobs:
   publish_pmat_package:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout Deployment Branch
-      uses: actions/checkout@master
-      with:
-       ref: deployment
-    - name: Checkout src files
+#    - name: Checkout Deployment Branch
+#      uses: actions/checkout@master
+#      with:
+#       ref: deployment
+    - name: Checkout
       run: |
+        git checkout deployment
         git checkout master src/model.r
         git checkout master src/run.sh
         git checkout master src/util/data_import.py
