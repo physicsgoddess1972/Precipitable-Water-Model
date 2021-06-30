@@ -22,7 +22,7 @@ jobs:
         CR_PAT: ${{ secrets.CR_TOKEN }}
     - name: Transfer src files
       run: |
-        ls main/
+        mkdir -p src/ src/util
         mv main/src/model.r src/model.r
         mv main/src/run.sh src/run.sh
         mv main/src/util/*.py src/util/
