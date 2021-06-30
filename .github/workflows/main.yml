@@ -13,6 +13,7 @@ jobs:
     - name: Checkout src files
       uses: Bhacaz/checkout-files@v1
       with:
+        token: ${{ secrets.GITHUB_TOKEN }}
         files: src/model.r src/run.sh src/util/data_import.py src/util/mesowest.py src/util/http_util.py src/instruments.py
     - name: Login to GHCR
       run: |
