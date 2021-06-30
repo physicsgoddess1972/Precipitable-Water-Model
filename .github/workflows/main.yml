@@ -12,12 +12,12 @@ jobs:
        ref: deployment
     - name: Checkout src files
       run: |
-        git checkout master -- src/model.r
-        git checkout master -- src/run.sh
-        git checkout master -- src/util/data_import.py
-        git checkout master -- src/util/mesowest.py
-        git checkout master -- src/util/http_util.py
-        git checkout master -- src/instruments.py
+        git checkout master src/model.r
+        git checkout master src/run.sh
+        git checkout master src/util/data_import.py
+        git checkout master src/util/mesowest.py
+        git checkout master src/util/http_util.py
+        git checkout master src/instruments.py
     - name: Login to GHCR
       run: |
         echo $CR_PAT | docker login ghcr.io -u physicsgoddess1972 --password-stdin
