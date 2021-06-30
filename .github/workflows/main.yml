@@ -21,9 +21,10 @@ jobs:
         CR_PAT: ${{ secrets.CR_TOKEN }}
     - name: Transfer src files
       run: |
-        mv ./main/src/model.r ./src/model.r
-        mv ./main/src/run.sh ./src/run.sh
-        mv ./main/src/util/*.py ./src/util/
+        ls main/
+        mv main/src/model.r src/model.r
+        mv main/src/run.sh src/run.sh
+        mv main/src/util/*.py src/util/
         rm -r main
     - name: Build and Publish the PMAT Package
       run: |
