@@ -28,7 +28,7 @@ RUN python3 -m pip install -r /requirements.txt
 RUN R -e "install.packages('remotes')"
 RUN R -e "remotes::install_deps(dependencies = TRUE)"
 # Copies your code file from your action repository to the filesystem path `/` of the container
-
+COPY src/ /src
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
