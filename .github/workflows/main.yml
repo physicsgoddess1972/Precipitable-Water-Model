@@ -1,6 +1,5 @@
 name: publish
 on:
-  push:
   workflow_run:
     workflows: ["Update src files"]
     branch: [deployment]
@@ -16,11 +15,6 @@ jobs:
       uses: actions/checkout@master
       with:
        ref: deployment
-    - name: Checkout Deployment Branch
-      uses: actions/checkout@master
-      with:
-        ref: master
-        path: main
     - name: Login to GHCR
       run: |
         echo $CR_PAT | docker login ghcr.io -u physicsgoddess1972 --password-stdin
