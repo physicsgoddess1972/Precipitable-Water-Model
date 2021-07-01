@@ -17,6 +17,7 @@ jobs:
         path: main
     - name: Transfer files
       run: |
+        mkdir -p ./src/util
         mv ./main/src/model.r ./src/
         mv ./main/src/run.sh ./src/
         mv ./main/src/util*.py ./src/util/
