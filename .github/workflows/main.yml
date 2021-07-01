@@ -1,7 +1,9 @@
 name: publish
 on:
-  push:
+  workflow_run:
+    workflows: ["Update src files"]
   workflow_dispatch:
+
 jobs:
   publish_pmat_package:
     runs-on: ubuntu-latest
