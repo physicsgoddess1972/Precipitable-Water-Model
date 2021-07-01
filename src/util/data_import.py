@@ -184,7 +184,7 @@ def impt(end_date, idx):
     d["comments"] = str(neat[0][4][0])
     out = pd.DataFrame(d)
 
-    if os.stat(fname).st_size == 16:
+    if os.stat(fname).st_size == 0:
         out.to_csv(fname, index=False, header=True)
     else:
         out.to_csv(fname, index=False, mode="a", header=False)
