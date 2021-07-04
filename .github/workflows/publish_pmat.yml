@@ -2,7 +2,7 @@ name: Publish PMAT
 on:
   workflow_run:
     workflows: ["Update src files"]
-    branch: [deployment]
+    types: [completed]
   workflow_dispatch:
 
 jobs:
