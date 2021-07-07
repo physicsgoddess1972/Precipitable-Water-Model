@@ -1,7 +1,10 @@
-name: Update src files
+name: Update PMAT
 on:
   push:
-  workflow_dispatch:
+    paths:
+      - "src/util"
+      - "src/model.r"
+      - "src/run.sh"
 jobs:
   update_src:
     runs-on: ubuntu-latest
