@@ -1,11 +1,10 @@
-dash:
-  - data:
-      city: Socorro
-      state: NM
-      img: nmt.jpg
-      active: yes
-  - data:
-      city: Rapid City
-      state: SD
-      img: sdsm.jpg
-      active: no
+---
+city: Socorro
+state: NM
+img: nmt.jpg
+active: yes
+---
+city: Rapid City
+state: SD
+img: sdsm.jpg
+active: no

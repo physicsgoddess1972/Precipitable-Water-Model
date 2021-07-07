@@ -7,28 +7,29 @@ args = parser.parse_args()
 
 def changelog():
     with open("./changelog.yml") as f:
-        my_dict = yaml.safe_load(f)
+        my_dict = list(yaml.load_all(f, Loader=yaml.FullLoader))
 
     with open("../CHANGELOG.md", 'w', newline='') as csvfile:
         csvfile.write('<a id="top"></a>\n<div class="section timeline">\n')
-        for i in my_dict['releases'].keys():
-            if my_dict['releases'][i]['released']:
-                name = my_dict['releases'][i]['name']
-                date = my_dict['releases'][i]['date']
-                tagline = my_dict['releases'][i]['tagline']
-                csvfile.write("\t<div id='{}' class='timeline-item'>\n\t\t<div class='content'>\n".format(i))
+        for i in my_dict:
+            if i['released']:
+                name = i['name']
+                date = i['date']
+                tagline = i['tagline']
+                version = i['version']
+                csvfile.write("\t<div id='{}' class='timeline-item'>\n\t\t<div class='content'>\n".format(version))
                 csvfile.write('\t\t\t<div class="collapsible">\n')
                 csvfile.write('\t\t\t\t<div class="collapsible-header">\n')
                 csvfile.write(
-                    '\t\t\t\t\t<h2>PMAT {}.0 ({}) <span class="text-light text-capitalize tag-date">{}</span></h2>\n'.format(
-                        i, name, date))
+                    '\t\t\t\t\t<h2>PMAT {} ({}) <span class="text-light text-capitalize tag-date">{}</span></h2>\n'.format(
+                        version, name, date))
                 csvfile.write('\t\t\t\t</div>\n')
                 csvfile.write('\t\t\t\t<div class="panel">\n')
                 csvfile.write('\t\t\t\t\t<b style="font-size: 20px">{}</b>\n'.format(tagline))
                 csvfile.write('\t\t\t\t\t<div>\n')
-                for j in my_dict['releases'][i]['changes'].keys():
+                for j in i['changes'].keys():
                     csvfile.write('\t\t\t\t\t\t<h3>{}</h3>\n'.format(j.capitalize()))
-                    for k in list(my_dict['releases'][i]['changes'][str(j)]):
+                    for k in list(i['changes'][str(j)]):
                         csvfile.write('\t\t\t\t\t\t<li style="list-style: none;">\n')
                         if list(k.keys())[0] == "updated":
                             csvfile.write(
@@ -46,76 +47,81 @@ def changelog():
 
     with open("../docs/assets/external/header.html", 'w', newline='') as htmlfile:
         r = []
-        for i in range(0, len(list(my_dict['releases'].keys()))):
-            if my_dict['releases'][list(my_dict['releases'].keys())[i]]['released']:
-                r.append(list(my_dict['releases'].keys())[i])
+        for i in range(0, len(list(my_dict))):
+            if my_dict[i]['released']:
+                r.append(list(my_dict)[i])
         htmlfile.write('<div class="mdl-layout__header-row">\n')
         htmlfile.write('\t<span class="mdl-layout-title">Precipitable Water Model</span>\n')
         htmlfile.write('\t<div class="mdl-layout-spacer" style="padding-right: 50%;"></div>\n')
-        htmlfile.write('\t<a href="changelog.html#{}">\n'.format(r[0]))
+        htmlfile.write('\t<a href="changelog.html#{}">\n'.format(r[0]['version']))
         htmlfile.write('\t\t<div class="chip" style="height: 67%">\n')
         htmlfile.write('\t\t\t<div style="display: flex">\n')
         htmlfile.write('\t\t\t\t<div style="width: 10%;">\n')
         htmlfile.write('\t\t\t\t\t<i class="material-icons" style="padding-top: 8px">new_releases</i>\n')
         htmlfile.write('\t\t\t\t</div>\n')
         htmlfile.write('\t\t\t\t<div style="width: 90%; padding-left: 20px; padding-top: 6px">\n')
-        htmlfile.write('\t\t\t\t\t<b>Version {} is available</b>\n'.format(r[0][1:]))
+        htmlfile.write('\t\t\t\t\t<b>Version {} is available</b>\n'.format(r[0]['version']))
         htmlfile.write('\t\t\t\t</div>\n')
         htmlfile.write('\t\t\t</div>\n')
         htmlfile.write('\t\t</div>\n\t</a>\n</div>')
 
+
 def research():
     with open("./research.yml") as f:
-        my_dict = yaml.safe_load(f)
+        my_dict = list(yaml.load_all(f, Loader=yaml.FullLoader))
+
     with open("../RESEARCH.md", 'w', newline='') as csvfile:
         csvfile.write('<a id="top"></a>\n')
         csvfile.write('<div class="collapsible" id="papers">\n')
-        csvfile.write('<div class="collapsible-header">\n<h2>Papers</h2>\n</div>\n')
-        csvfile.write('<div class="panel">\n')
-        for i in list(my_dict['research']['papers']):
-            title = i['paper']['title']
-            author = i['paper']['author']
-            journal = i['paper']['journal']
-            doi = i['paper']['doi']
-            pdf = i['paper']['pdf']
-            csvfile.write('<div class="collapsible_1">\n<div class="panel">\n')
-            csvfile.write('<h2 style="text-align: center; font-size: 15px">\n{}\n</h2>\n'.format(title))
-            csvfile.write('<b style="font-weight: bold">\n{}\n</b>\n'.format(author))
-            csvfile.write('<i style="float right">\n{}\n</i>\n'.format(journal))
-            csvfile.write('<br><br>\n')
-            csvfile.write('<div style="display: flex">\n')
-            csvfile.write(
-                '<a class="button" target="_blank" style="width: 100%; text-align: center" href="https://doi.org/{}">Web View</a>\n'.format(
-                    doi))
-            csvfile.write(
-                '<a class="button" target="_blank" style="width: 100%; text-align: center" href="{}">PDF View</a>\n'.format(
-                    pdf))
-            csvfile.write('</div></div></div></div>\n')
+        csvfile.write('\t<div class="collapsible-header">\n\t\t<h2>Papers</h2>\n\t</div>\n')
+        csvfile.write('\t<div class="panel">\n')
+        for i in list(my_dict):
+            if 'paper' in i:
+                title = i['paper']['title']
+                author = i['paper']['author']
+                journal = i['paper']['journal']
+                doi = i['paper']['doi']
+                pdf = i['paper']['pdf']
+                status = i['paper']['status']
+                csvfile.write('\t\t<div class="collapsible_1">\n\t\t\t<div class="panel">\n')
+                csvfile.write('\t\t\t\t<h2 style="text-align: center; font-size: 15px">{}</h2>\n'.format(title))
+                csvfile.write('\t\t\t\t<b style="font-weight: bold">{}</b>\n\t\t\t\t<br>\n'.format(author))
+                csvfile.write('\t\t\t\t<i>{}</i>\n\t\t\t\t<br>\n'.format(journal))
+                csvfile.write('\t\t\t\t<b>{}</b>\n'.format(status))
+                csvfile.write('\t\t\t\t<br><br>\n')
+                csvfile.write('\t\t\t\t<div style="display: flex">\n')
+                csvfile.write(
+                    '\t\t\t\t\t<a class="button" target="_blank" style="width: 100%; text-align: center" href="https://doi.org/{}">Web View</a>\n'.format(
+                        doi))
+                csvfile.write(
+                    '\t\t\t\t\t<a class="button" target="_blank" style="width: 100%; text-align: center" href="{}">PDF View</a>\n'.format(
+                        pdf))
+                csvfile.write('\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n')
         csvfile.write('</div>\n')
         csvfile.write('<div class="collapsible" id="posters">\n')
-        csvfile.write('<div class="collapsible-header">\n<h2>Posters</h2>\n</div>\n')
-        csvfile.write('<div class="panel">\n')
-        for i in list(my_dict['research']['posters']):
-            title = i['poster']['title']
-            author = i['poster']['author']
-            conference = i['poster']['conference']
-            abstract = i['poster']['abstract']
-            image = i['poster']['image']
+        csvfile.write('\t<div class="collapsible-header">\n\t\t<h2>Posters</h2>\n\t</div>\n')
+        csvfile.write('\t<div class="panel">\n')
+        for i in list(my_dict):
+            if 'poster' in i:
+                title = i['poster']['title']
+                author = i['poster']['author']
+                conference = i['poster']['conference']
+                abstract = i['poster']['abstract']
+                image = i['poster']['image']
 
-            csvfile.write('<div class="collapsible_1">\n<div class="panel">\n')
-            csvfile.write('<img src="https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/docs/docs/assets/img/poster/{}?raw=true" width="100%">\n'.format(image))
-            csvfile.write('<h2 style="text-align: center; font-size: 15px">{}</h2>\n'.format(title))
-            csvfile.write('<h3 class="research-info" style="float: left">{}</h3>'.format(author))
-            csvfile.write(
-                '<h3 class="research-info" style="float: right; text-align: right">{}</h3>\n'.format(conference))
-            csvfile.write('<p>\n{}\n</p>\n'.format(abstract))
-            csvfile.write('</div></div>')
-        csvfile.write('</div></div>')
+                csvfile.write('\t\t<div class="collapsible_1">\n\t\t\t<div class="panel">\n')
+                csvfile.write('\t\t\t\t<img src="https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/docs/docs/assets/img/poster/{}?raw=true" width="100%">\n'.format(image))
+                csvfile.write('\t\t\t\t<h2 style="text-align: center; font-size: 15px">{}</h2>\n'.format(title))
+                csvfile.write('\t\t\t\t<b>{}</b>\n\t\t\t\t<br>\n'.format(author))
+                csvfile.write('\t\t\t\t<i>{}</i>\n\t\t\t\t<hr>\n'.format(conference))
+                csvfile.write('\t\t\t\t<p>{}</p>\n'.format(abstract))
+                csvfile.write('\t\t\t</div>\n\t\t</div>\n')
+        csvfile.write('\t</div>\n</div>')
 
 
 def dash():
     with open("./dash.yml") as f:
-        my_dict = yaml.safe_load(f)
+        my_dict = list(yaml.load_all(f, Loader=yaml.FullLoader))
     with open("../docs/assets/external/results.html", 'w', newline='') as csvfile:
         csvfile.write('<script type="text/javascript">$(document).ready(function(){$(".tabs").tabs();});</script>\n')
         csvfile.write("<script>function getChcked(){var chks = document.querySelectorAll('input[type=\"checkbox\"]');var checked = [];for(var i = 0; i < chks.length; i++){if(chks[i].checked){checked.push(chks[i].name)}}return checked;}</script>\n")
@@ -125,20 +131,16 @@ def dash():
         csvfile.write('\t<div class="row">\n\t\t<div class="col s12">\n')
         csvfile.write('\t\t\t<ul class="tabs">\n')
         csvfile.write('\t\t\t\t<li class="tab col s3" style="padding-top: 10px; padding-left: 10px; padding-right: 10px"><i style="color: #4C69EC" id="button" name="action" type="submit"><i class="material-icons">save</i></i></li>\n')
-        for i in list(my_dict['dash']):
-            if i['data']['active'] == True:
-                csvfile.write('\t\t\t\t<li class="tab col s3"><a href="#{0}-{1}">{2}, {3}</a></li>\n'.format(
-                    (i['data']['city']).lower().replace(" ", ""), (i['data']['state']).lower(), i['data']['city'],
-                    i['data']['state']))
+        for i in list(my_dict):
+            if i['active'] == True:
+                csvfile.write('\t\t\t\t<li class="tab col s3"><a href="#{0}-{1}">{2}, {3}</a></li>\n'.format((i['city']).lower().replace(" ", ""), (i['state']).lower(), i['city'],i['state']))
             else:
-                csvfile.write('\t\t\t\t<li class="tab col s3 disabled"><a href="#{0}-{1}">{2}, {3}</a></li>\n'.format(
-                    (i['data']['city']).lower().replace(" ", ""), (i['data']['state']).lower(), i['data']['city'],
-                    i['data']['state']))
+                csvfile.write('\t\t\t\t<li class="tab col s3 disabled"><a href="#{0}-{1}">{2}, {3}</a></li>\n'.format((i['city']).lower().replace(" ", ""), (i['state']).lower(), i['city'], i['state']))
         csvfile.write('\t\t\t</ul>\n\t\t</div>\n')
-        for i in list(my_dict['dash']):
-            state = (i['data']['state']).lower()
-            city = (i['data']['city']).lower().replace(" ", "")
-            img = "https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/docs/docs/assets/img/dash/{}?raw=true/".format(i['data']['img'])
+        for i in list(my_dict):
+            state = (i['state']).lower()
+            city = (i['city']).lower().replace(" ", "")
+            img = "https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/docs/docs/assets/img/dash/{}?raw=true/".format(i['img'])
             csvfile.write('\t\t<div class="col s12" id="{0}-{1}">\n'.format(city, state))
             csvfile.write('\t\t\t<div style="display: flex;">\n')
             csvfile.write('\t\t\t\t<div class="data-nav" style="height: 250px">\n')
@@ -146,18 +148,10 @@ def dash():
             csvfile.write('\t\t\t\t\t\t<div class="row">\n')
             csvfile.write('\t\t\t\t\t\t\t<div class="col s12">\n')
             csvfile.write('\t\t\t\t\t\t\t\t<ul class="tabs">\n')
-            csvfile.write(
-                '\t\t\t\t\t\t\t\t\t<li class="tab col s3"><a href="#clear-{}"><i class="material-icons">brightness_5</i></a></li>\n'.format(
-                    state))
-            csvfile.write(
-                '\t\t\t\t\t\t\t\t\t<li class="tab col s3"><a href="#over-{}"><i class="material-icons">cloud</i></a></li>\n'.format(
-                    state))
-            csvfile.write(
-                '\t\t\t\t\t\t\t\t\t<li class="tab col s3"><a href="#chart-{}"><i class="material-icons">insert_chart_outlined</i></a></li>\n'.format(
-                    state))
-            csvfile.write(
-                '\t\t\t\t\t\t\t\t\t<li class="tab col s3"><a href="#poster-{}"><i class="material-icons">table_chart</i></a></li>\n'.format(
-                    state))
+            csvfile.write('\t\t\t\t\t\t\t\t\t<li class="tab col s3"><a href="#clear-{}"><i class="material-icons">brightness_5</i></a></li>\n'.format(state))
+            csvfile.write('\t\t\t\t\t\t\t\t\t<li class="tab col s3"><a href="#over-{}"><i class="material-icons">cloud</i></a></li>\n'.format(state))
+            csvfile.write('\t\t\t\t\t\t\t\t\t<li class="tab col s3"><a href="#chart-{}"><i class="material-icons">insert_chart_outlined</i></a></li>\n'.format(state))
+            csvfile.write('\t\t\t\t\t\t\t\t\t<li class="tab col s3"><a href="#poster-{}"><i class="material-icons">table_chart</i></a></li>\n'.format(state))
             csvfile.write('\t\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n')
             csvfile.write('\t\t\t\t\t\t<div id="clear-{}" class="col s12">\n'.format(state))
             csvfile.write('\t\t\t\t\t\t\t<h5>Plot Set: Clear Sky</h5>\n')
@@ -192,6 +186,32 @@ def dash():
         csvfile.write('\t</div>\t\n</div>\n</div>')
 
 
+def maintainer():
+    with open("./maintainers.yml") as f:
+        my_dict = list(yaml.load_all(f, Loader=yaml.FullLoader))
+    with open("../docs/assets/external/modal_maintainers.html", 'w', newline='') as csvfile:
+        csvfile.write('<script>$(document).ready(function(){$(".modal").modal({});});</script>\n')
+        csvfile.write('<link rel="stylesheet" href="assets/css/style.css">\n')
+        csvfile.write('<div class="modal" id="maintainers">\n')
+        csvfile.write('\t<div class="modal-content">\n')
+        csvfile.write('\t\t<h4>The Maintainers</h4>\n\t\t<hr>\n')
+        csvfile.write('\t\t<table>\n\t\t\t<tr>\n')
+        for i in my_dict:
+            csvfile.write('\t\t\t\t<td><i class="material-icons" style="padding: 5px">face</i></td>\n')
+            csvfile.write('\t\t\t\t<td>{}</td>\n'.format(i['name']))
+        csvfile.write('\t\t\t</tr>\n\t\t\t<tr>\n')
+        for i in my_dict:
+            csvfile.write('\t\t\t\t<td><i class="material-icons">public</i></td>\n')
+            csvfile.write('\t\t\t\t<td><a target="_blank" href="https://{0}">{0}</a></td>'.format(i['webpage']))
+        csvfile.write('\t\t\t</tr>\n\t\t\t<tr>\n')
+        for i in my_dict:
+            csvfile.write('\t\t\t\t<td><i class="material-icons">alternate_email</i></td>\n')
+            csvfile.write('\t\t\t\t<td>{}</td>\n'.format(i['email']))
+        csvfile.write('\t\t\t</tr>\n\t\t</table>\n\t</div>\n')
+        csvfile.write('\t<div class="modal-footer"><a href="#!" class="modal-close waves-effect waves-teal btn-flat" data-dismiss="maintainers">Continue</a></div>\n')
+        csvfile.write('</div>')
+
+
 if args.t == 'dash':
     dash()
 
@@ -200,3 +220,6 @@ if args.t == 'changelog':
 
 if args.t == 'research':
     research()
+
+if args.t == 'maintainers':
+    maintainer()

@@ -1,10 +1,10 @@
 <a id="top"></a>
 <div class="section timeline">
-	<div id='v2' class='timeline-item'>
+	<div id='2.0' class='timeline-item'>
 		<div class='content'>
 			<div class="collapsible">
 				<div class="collapsible-header">
-					<h2>PMAT v2.0 (Cirrus) <span class="text-light text-capitalize tag-date">3/6/2021</span></h2>
+					<h2>PMAT 2.0 (Cirrus) <span class="text-light text-capitalize tag-date">3/6/2021</span></h2>
 				</div>
 				<div class="panel">
 					<b style="font-size: 20px">New and Improved PMAT</b>
@@ -130,11 +130,11 @@
 			</div>
 		</div>
 	</div>
-	<div id='v1' class='timeline-item'>
+	<div id='1.0' class='timeline-item'>
 		<div class='content'>
 			<div class="collapsible">
 				<div class="collapsible-header">
-					<h2>PMAT v1.0 (Altocumulus) <span class="text-light text-capitalize tag-date">11/10/2019</span></h2>
+					<h2>PMAT 1.0 (Altocumulus) <span class="text-light text-capitalize tag-date">11/10/2019</span></h2>
 				</div>
 				<div class="panel">
 					<b style="font-size: 20px">Initial Deployment of The Precipitable Water Model</b>

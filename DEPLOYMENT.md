@@ -60,7 +60,7 @@ As a result we now have two methods of deploying PMAT, the first and recommended
 </tr>
 <tr>
 	<td><span class="numbered">2</span></td>
-	<td>Navigate to the <code>util/</code> directory in the Project folder</td>
+	<td>Navigate to the <code>util/local/</code> directory in the Project folder</td>
 </tr>
 <tr>
 	<td><span class="numbered">3</span></td>

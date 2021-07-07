@@ -178,7 +178,7 @@ h3 small, h4 small, h5 small, h6 small {
 
 
 h3 {
-    margin: 24px 0
+    margin: 24px 0;
     font-size: 34px;
     line-height: 40px
 }

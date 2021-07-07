@@ -2778,17 +2778,15 @@ small {
 
 .dropdown-content {
 	background-color: #fff;
-	margin: 0;
 	display: none;
-	min-width: 100px;
-	overflow-y: auto;
 	opacity: 0;
 	position: absolute;
 	left: 0;
-	top: 0;
+	top: 100%;
 	z-index: 9999;
 	-webkit-transform-origin: 0 0;
-	transform-origin: 0 0
+	transform-origin: 0 0;
+    padding-right: 175px;
 }
 
 .dropdown-content:focus {
@@ -2801,8 +2799,8 @@ small {
 	cursor: pointer;
 	min-height: 50px;
 	line-height: 1.5rem;
-	width: 100%;
-	text-align: left
+	text-align: left;
+
 }
 
 .dropdown-content li:hover, .dropdown-content li.active {
@@ -2823,7 +2821,9 @@ small {
 	color: #26a69a;
 	display: block;
 	line-height: 22px;
-	padding: 14px 16px
+	padding: 14px 16px;
+
+
 }
 
 .dropdown-content li > span > label {
@@ -2837,7 +2837,6 @@ small {
 	line-height: inherit;
 	float: left;
 	margin: 0 24px 0 0;
-	width: 24px
 }
 
 body.keyboard-focused .dropdown-content li:focus {
@@ -2980,9 +2979,8 @@ body.keyboard-focused .dropdown-content li:focus {
 	position: fixed;
     left: 20%;
     right: 20%;
-    width: 50%;
+    width: 550px;
 	background-color: #fafafa;
-	padding: 0;
 	max-height: 70%;
 	margin: auto;
 	overflow-y: auto;
@@ -2990,6 +2988,12 @@ body.keyboard-focused .dropdown-content li:focus {
 	will-change: top, opacity;
 
 }
+
+.modal table td{
+   height: 50px;
+   vertical-align: center;
+}
+
 
 .modal:focus {
 	outline: none
