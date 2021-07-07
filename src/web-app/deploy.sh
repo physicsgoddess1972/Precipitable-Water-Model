@@ -14,13 +14,6 @@ while getopts "mdb" opt; do
       gcloud config set project pw-data-dash
       gcloud app deploy
       echo "Complete";;
-
-    n)
-      echo "Deploying Map Dashboard"
-      cd ./pw_map_dash/
-      gcloud config set project pw-map-dash
-      gcloud app deploy
-      echo "Complete";;
     b)
       echo "Deploying ML Dashboard"
       cd ./pw_ml_dash/
@@ -30,10 +23,5 @@ while getopts "mdb" opt; do
       cd ../pw_data_dash/
       gcloud config set project pw-data-dash
       gcloud app deploy
-      echo "Deploying Map Dashboard"
-      cd ./pw_map_dash/
-      gcloud config set project pw-map-dash
-      gcloud app deploy
-      echo "Complete";;
   esac
 done

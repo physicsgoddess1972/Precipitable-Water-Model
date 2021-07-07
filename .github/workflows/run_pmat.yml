@@ -1,4 +1,4 @@
-name: PMAT Run
+name: Run PMAT
 on: 
   issue_comment:
     types: [created]
