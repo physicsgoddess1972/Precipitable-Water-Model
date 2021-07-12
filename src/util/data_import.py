@@ -3,16 +3,13 @@
 ## Author: 	Spencer Riley / Vicki Kelsey
 ## Documentation Page: https://git.io/fjVHo
 ####
-import os
 import csv
-import sys
 import requests
 from numpy import *
 import pandas as pd
 
 import time
 import datetime
-from datetime import date as dte
 from datetime import datetime as dt
 
 from metpy.units import units
@@ -20,10 +17,8 @@ from siphon.simplewebservice.wyoming import WyomingUpperAir
 
 from mesowest import MesoWest
 
-from rich import print, box
 from rich.panel import Panel
-from rich.table import Table
-from rich.progress import track
+
 
 from rich.progress import BarColumn, TextColumn, TimeRemainingColumn, Progress, track
 
