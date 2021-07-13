@@ -41,23 +41,28 @@ jobs:
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
         git commit -m "Generate '${{ env.state }}'  Plots" -a
-    - name: Create Pull Request
-      uses: peter-evans/create-pull-request@v3
+    - name: Push changes
+      uses: ad-m/github-push-action@master
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        branch: "pmat-${{ env.lcity }}-${{ env.lstate }}-patch"
-        base: "pmat-${{ env.lcity }}-${{ env.lstate }}"
-        delete-branch: true
-        labels: pmat-deploy, automerge
-        body: Preparing for ${{ env.sscity }}, ${{ env.state }} plot run
-        title: Pull request for incoming ${{ env.sscity }}, ${{ env.state }} plots
-    - uses: 8BitJonny/gh-get-current-pr@1.1.0
-      id: PR
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        filterOutClosed: true
-    - name: automerge
-      uses: "pascalgn/automerge-action@v0.14.2"
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        PULL_REQUEST: "${{ env.PULL_REQUEST_NUMBER }}"
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: "pmat-${{ env.lcity }}-${{ env.lstate }}"
+#     - name: Create Pull Request
+#       uses: peter-evans/create-pull-request@v3
+#       with:
+#         token: ${{ secrets.GITHUB_TOKEN }}
+#         branch: "pmat-${{ env.lcity }}-${{ env.lstate }}-patch"
+#         base: "pmat-${{ env.lcity }}-${{ env.lstate }}"
+#         delete-branch: true
+#         labels: pmat-deploy, automerge
+#         body: Preparing for ${{ env.sscity }}, ${{ env.state }} plot run
+#         title: Pull request for incoming ${{ env.sscity }}, ${{ env.state }} plots
+#     - uses: 8BitJonny/gh-get-current-pr@1.1.0
+#       id: PR
+#       with:
+#         github-token: ${{ secrets.GITHUB_TOKEN }}
+#         filterOutClosed: true
+#     - name: automerge
+#       uses: "pascalgn/automerge-action@v0.14.2"
+#       env:
+#         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#         PULL_REQUEST: "${{ env.PULL_REQUEST_NUMBER }}"
