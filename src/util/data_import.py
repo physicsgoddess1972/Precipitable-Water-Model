@@ -3,7 +3,7 @@
 ## Author: 	Spencer Riley / Vicki Kelsey
 ## Documentation Page: https://git.io/fjVHo
 ####
-import csv
+import csv, os
 import requests
 from numpy import *
 import pandas as pd

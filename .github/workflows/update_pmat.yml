@@ -5,6 +5,7 @@ on:
       - "src/util"
       - "src/model.r"
       - "src/run.sh"
+  workflow_dispatch:
 jobs:
   update_src:
     runs-on: ubuntu-latest
