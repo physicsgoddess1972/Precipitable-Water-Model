@@ -7,7 +7,7 @@
 
 ## Necessary Libraries for the script to run, for installation run install.sh
 library(argparse); library(crayon); library(RColorBrewer); library(plotrix)
-library(Metrics); suppressMessages(library(Hmisc)); library(pracma)
+library(Metrics); suppressMessages(library(Hmisc)); #library(pracma)
 #library(randomcoloR); #library(Rpyplot);
 
 ## Custom Colors for cmd line features
@@ -18,10 +18,9 @@ green 		<- make_style("lawngreen")
 cloudblue 	<- make_style("lightskyblue")
 
 ## Imports data from master_data.csv
-# fname       <- read.table(file="../../data/archive/master_data_archive.csv", sep=",", header=TRUE, strip.white=TRUE)
-fname       <- read.table(file="../../data/archive/master_data_archive.csv", sep=",", header=TRUE, strip.white=TRUE)
+fname       <- read.table(file="../../../data/socorro_nm/archive/master_data_archive.csv", sep=",", header=TRUE, strip.white=TRUE)
 ## Imports sensor information from instruments.txt
-sensor 		<- suppressWarnings(read.csv(file="../../data/instruments.conf", sep=","))
+sensor 		<- suppressWarnings(read.csv(file="./instruments.conf", sep=","))
 ## Pulls most recent data stamp for the purpose of adding date stamps to file names when plots are saved
 recent 		<- t(fname[1])[length(t(fname[1]))]
 
@@ -44,9 +43,9 @@ col_com 	<- grep("comments", colnames(fname))
 snsr_name 	<- list(); snsr_color <- snsr_sky_indx <- snsr_gro_indx  	<- unlist(list())
 for(i in 1:length(sensor[, 1])){
 	if (i %in% c(2,3,4)){
-		var 							<- assign(paste("Thermo", i, sep=""), sensor[i, 1])
-		snsr_name 				<- append(snsr_name, toString(var))
-		snsr_color 				<- append(snsr_color, paste("#", toString(sensor[i, 3]), sep=""))
+		var 				<- assign(paste("Thermo", i, sep=""), sensor[i, 1])
+		snsr_name 			<- append(snsr_name, toString(var))
+		snsr_color 			<- append(snsr_color, paste("#", toString(sensor[i, 3]), sep=""))
 		snsr_sky_indx 		<- append(snsr_sky_indx, col_sky[i])
 		snsr_gro_indx 		<- append(snsr_gro_indx, col_gro[i])
 	}
@@ -54,12 +53,12 @@ for(i in 1:length(sensor[, 1])){
 temp_name <- list()
 temp_gro_indx <- temp_sky_indx <- unlist(list())
 for (i in col_temp){
-		name 			<- gsub("Temp", "", colnames(fname)[i])
-		name 			<- trimws(gsub("[[:punct:]]", " ", name), which="l")
-		temp_name <- append(temp_name, name)
+		name 	    <- gsub("Temp", "", colnames(fname)[i])
+		name 	    <- trimws(gsub("[[:punct:]]", " ", name), which="l")
+		temp_name   <- append(temp_name, name)
 
-		if (grepl("Ground", name)){temp_gro_indx <- append(temp_gro_indx, i)}
-		if (grepl("Sky", name)){temp_sky_indx <- append(temp_sky_indx, i)}
+		if (grepl("Ground", name)){temp_gro_indx<-append(temp_gro_indx, i)}
+		if (grepl("Sky", name)){temp_sky_indx<-append(temp_sky_indx, i)}
 }
 temp_place <- gsub("_.*$", "", gsub(" ", "_", temp_name))
 ## Pulls individual PW measurement labels
@@ -82,7 +81,6 @@ for (j in unique(pw_time)){
 	col_pwtm <- append(col_pwtm, list(grep(j, pw_time)))
 }
 # Assigns a color for each label
-#pw_color <- distinctColorPalette(length(pw_name), runTsne=TRUE, altCol=TRUE)
 pw_color <- brewer.pal(length(pw_name),"Set1")
 
 colscheme <- function(range){
@@ -150,14 +148,51 @@ overcast_filter <- function(){
 	}
 	return(output1)
 }
+
+mean_filter <- function(pw, avg, percent){
+    storage <- bad <- good <- list()
+    for (i in 1:length(pw)){
+        out <- append(x=storage, values=Map("/",Map("-",unlist(pw[i]),avg), avg))
+        for (j in 1:length(out)){
+            if (is.na(out[j])){
+                next
+            }else if (abs(as.numeric(out[j])) >= percent/100){
+                bad[[ paste("bad",i,sep="") ]] 	<- append(x=bad[[ paste("bad",i,sep="") ]], values=j)
+            }else{
+                good[[ paste("good",i,sep="") ]] <- append(x=good[[ paste("good",i,sep="") ]], values=j)
+            }
+        }
+    }
+    bad <- sort(unique(Reduce(c, bad)))
+    good <- sort(unique(Reduce(c, good)))
+    good <- good[!(good %in% bad)]
+    print(length(good)/length(avg))
+    print(length(bad)/length(avg))
+    return(list(good))
+}
+data.partition <- function(x,y, train_size=0.7, rand_state=sample(1:2^15, 1)){
+  set.seed(rand_state)
+  train_idx <- sample(1:length(x), trunc(length(x)*train_size), replace=FALSE)
+  test_idx  <- (1:length(x))[-(train_idx)]
+
+  train     <- data.frame(x[train_idx],
+                          y[train_idx])
+  colnames(train) <- c("x", "y")
+
+  test    <- data.frame(x[test_idx],
+                          y[test_idx])
+  colnames(test) <- c("x", "y")
+
+  return(list(train=train, test=test, train_idx=train_idx))
+}
 ## Pushes returned values to the variable overcast
 overcast 	<- overcast_filter()
 ### Clear Sky Data
 ## Pulls date from filter function
 clear_date  <- overcast$clear_date	# Date
-comments <- overcast$com
+comments    <- overcast$com
 ## Pulls relative humidity from filter function
-clear_rh <- as.numeric(overcast$rh)
+clear_rh    <- as.numeric(overcast$rh)
 ## Initialize empty lists
 snsr_del 	<- snsr_sky <- snsr_gro <- pw_loc <- loc_avg <- snsr_sky_calc <- tmp_avg <- temp_sky_off <- temp_gro_off <- list()
 if (!is.null(temp_gro_indx)){
@@ -319,52 +354,9 @@ exp_regression 	<- function(x,y){
 					"model"=model, "confint"=confint, "predint"=predint, "R2"=rsq)
 	return (output)
 }
-### Instrumentation Barplots
-figure1 <- function(...){
-	par(oma = c(3, 3, 3,3), xpd=FALSE)
-	layout(matrix(c(1,2,3,4), 2, 2, byrow=TRUE))
+data_indx <- mean_filter(pw_loc, avg, 30)
 
-	# for (i in 1:length(sensor[,5])){
-	# 	if(sensor[i,5] == FALSE){
-	# 		snsr_sky[[i]] <- NULL; snsr_skyo[[i]] <- NULL
-	# 		snsr_gro[[i]] <- NULL; snsr_groo[[i]] <- NULL
-	# 		snsr_del[[i]] <- NULL; snsr_delo[[i]] <- NULL
-	# 		snsr_name[[i]] <- NULL
-	# 	}
-	# }
-	title 	<- c("Clear Sky","Overcast", "Clear Sky NaN", "Overcast NaN")
-	color 	<- c("#FFFFFF", "#000000", "#D6D6D6", "#616161")
-	par(mar=c(0, 2, 4,2), oma=c(2.5,0,0,0.5), xpd=TRUE)
-	layout(matrix(c(4,1,2,3), 2, 2, byrow=TRUE))
-
-	for(a in 1:length(snsr_name)){
-		norm	<- length(na.omit(as.numeric(unlist(snsr_sky[[a]]))))
-		over	<- length(na.omit(as.numeric(unlist(snsr_skyo[[a]]))))
-
-		norm_na <- length(unlist(snsr_sky[a])) - norm
-		over_na <- length(unlist(snsr_skyo[a])) - over
-
-		slices 	<- matrix(c(norm, over, norm_na, over_na), nrow=4, byrow=TRUE)
-		pct 	<- round(rev(slices)/sum(rev(slices))*100, 1)
-
-		bar <- barplot(rev(slices), col=rev(color),
-		horiz=TRUE, las=1,xlab=NA, axes=FALSE, xlim=c(0,600))
-		axis(side = 1, labels=TRUE, las=1, cex.axis=0.9)
-		minor.tick(nx=2, ny=1, tick.ratio=0.5, x.args = list(), y.args = list())
-		mtext(sprintf("%s", gsub("_", " ",snsr_name[a])), font=2, side=3, line=0)
-		mtext("N", side=1, line=1, at=640, cex=1)
-
-		for (i in 1:length(slices)){
-			text(slices[2]*1.5, bar[i], labels=sprintf('%s %%', as.character(pct[i])))
-		}
-		mtext(paste0("(", letters[a], ")"), side = 3, adj = 0, line = 0)
-
-	}
-	par(oma=c(4, 4, 4,4), mar=c(5,4,5,5), xpd=NA)
-	title("Condition Distribution by Sensor", line=3)
-	legend(5, 5,legend = title, fill=color)
-}
-figure2 <- function(x,y1,y2, x1,y3,y4, lim_s,lim_g, title_s,title_g){
+figure1 <- function(x,y1,y2, x1,y3,y4, lim_s,lim_g, title_s,title_g){
     par(mar=c(5,5,0,0), oma = c(0, 0, 3, 3), xpd=FALSE)
 		layout(matrix(c(1,2,3,4), 2, 2, byrow=TRUE))
 		y1 <- replace(y1, y1 == "-Inf", NaN)
@@ -451,45 +443,45 @@ figure2 <- function(x,y1,y2, x1,y3,y4, lim_s,lim_g, title_s,title_g){
 						parse(text=sprintf("RMSE == %.2f", lin_reg4$rmsd)), parse(text=sprintf("R^2 == %.3f", lin_reg4$rsq))))
 		legend("bottomright", "(d)", bty="n")
 }
-figure2a <- function(x,y1,y2, x1,y3,y4, lim_s,lim_g, title_s,title_g){
-    par(mar=c(5,5,0,0), oma = c(0, 0, 3, 3), xpd=FALSE)
-		layout(matrix(c(1,2,3,4), 2, 2, byrow=TRUE))
-		x  <- replace(x, x == "-Inf", NaN)
-		x1 <- replace(x1, x1 == "-Inf", NaN)
-		y1 <- replace(y1, y1 == "-Inf", NaN)
-		y2 <- replace(y2, y2 == "-Inf", NaN)
-		y3 <- replace(y3, y3 == "-Inf", NaN)
-		y4 <- replace(y4, y4 == "-Inf", NaN)
-
-		lin_reg1 <- lin_regression(as.numeric(x), as.numeric(y1))
-		lin_reg2 <- lin_regression(as.numeric(x), as.numeric(y2))
-
-		plot(lin_reg1$x, resid(lin_reg1$model), col=c("black"), pch=16)
-    # plot(x, y1, ylab=NA, xlab="AMES 1 Temperature [C]", col="black",
-		# 			pch=1, main=NA, xlim=c(-60,20), ylim=c(-60,20))
-		mtext("(a)", side = 3, adj = 0.05, line = -1.3)
-		minor.tick(nx=2, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
-
-		mtext("Instrument Comparison", cex=1, outer=TRUE, side=3, at=0.55, padj=-1)
-		legend("bottomright", "(a)", bty="n")
-
-		plot(lin_reg2$x, resid(lin_reg2$model), col=c("black"), pch=16)
-		minor.tick(nx=2, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
-
-		legend("bottomright", "(b)", bty="n")
-
-		lin_reg3 <- lin_regression(as.numeric(x1), as.numeric(y3))
-		lin_reg4 <- lin_regression(as.numeric(x1), as.numeric(y4))
-
-		plot(lin_reg3$x, resid(lin_reg3$model), col=c("black"), pch=16)
-		minor.tick(nx=2, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
-
-		legend("bottomright", "(c)", bty="n")
-		plot(lin_reg4$x, resid(lin_reg4$model), col=c("black"), pch=16)
-
-		minor.tick(nx=2, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
-		legend("bottomright", "(d)", bty="n")
-}
+# figure2a <- function(x,y1,y2, x1,y3,y4, lim_s,lim_g, title_s,title_g){
+#     par(mar=c(5,5,0,0), oma = c(0, 0, 3, 3), xpd=FALSE)
+# 		layout(matrix(c(1,2,3,4), 2, 2, byrow=TRUE))
+# 		x  <- replace(x, x == "-Inf", NaN)
+# 		x1 <- replace(x1, x1 == "-Inf", NaN)
+# 		y1 <- replace(y1, y1 == "-Inf", NaN)
+# 		y2 <- replace(y2, y2 == "-Inf", NaN)
+# 		y3 <- replace(y3, y3 == "-Inf", NaN)
+# 		y4 <- replace(y4, y4 == "-Inf", NaN)
+#
+# 		lin_reg1 <- lin_regression(as.numeric(x), as.numeric(y1))
+# 		lin_reg2 <- lin_regression(as.numeric(x), as.numeric(y2))
+#
+# 		plot(lin_reg1$x, resid(lin_reg1$model), col=c("black"), pch=16)
+#     # plot(x, y1, ylab=NA, xlab="AMES 1 Temperature [C]", col="black",
+# 		# 			pch=1, main=NA, xlim=c(-60,20), ylim=c(-60,20))
+# 		mtext("(a)", side = 3, adj = 0.05, line = -1.3)
+# 		minor.tick(nx=2, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
+#
+# 		mtext("Instrument Comparison", cex=1, outer=TRUE, side=3, at=0.55, padj=-1)
+# 		legend("bottomright", "(a)", bty="n")
+#
+# 		plot(lin_reg2$x, resid(lin_reg2$model), col=c("black"), pch=16)
+# 		minor.tick(nx=2, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
+#
+# 		legend("bottomright", "(b)", bty="n")
+#
+# 		lin_reg3 <- lin_regression(as.numeric(x1), as.numeric(y3))
+# 		lin_reg4 <- lin_regression(as.numeric(x1), as.numeric(y4))
+#
+# 		plot(lin_reg3$x, resid(lin_reg3$model), col=c("black"), pch=16)
+# 		minor.tick(nx=2, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
+#
+# 		legend("bottomright", "(c)", bty="n")
+# 		plot(lin_reg4$x, resid(lin_reg4$model), col=c("black"), pch=16)
+#
+# 		minor.tick(nx=2, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
+# 		legend("bottomright", "(d)", bty="n")
+# }
 
 figure3 <- function(){
 		par(mar=c(4,4,0,0), oma = c(0.5, 0.5, 3, 5), xpd=FALSE)
@@ -554,9 +546,11 @@ figure4 	<- function(...){
 	for (i in 1:(length(unlist(snsr_sky))/length(snsr_sky))){
 		snsr_sky_calc[[ paste("snsr_sky_calc",i,sep="") ]] <- mean(snsr_sky_calc[[ paste("snsr_sky_calc",i,sep="") ]])
 	}
+	train <- data.partition(as.numeric(unlist(snsr_sky_calc)), avg, train_size=0.8)$train
+    print(train)
 	exp_reg <- exp_regression(as.numeric(unlist(snsr_sky_calc)), avg)
-	ymax 		<- max(exp_reg$y, 45.4, na.rm=TRUE)
-	ymin 		<- min(exp_reg$y, na.rm=TRUE)
+	ymax 	<- max(exp_reg$y, 45.4, na.rm=TRUE)
+	ymin 	<- min(exp_reg$y, na.rm=TRUE)
 	title 	<- "Correlation between Mean TPW and Temperature"
 	# Non-linear model (exponential)
 	plot(exp_reg$x,exp_reg$y, col=c("black"), pch=1,
@@ -624,11 +618,11 @@ figure6 	<- function(...){
 	for (i in 1:(length(unlist(snsr_sky))/length(snsr_sky))){
 		snsr_sky_calc[[ paste("snsr_sky_calc",i,sep="") ]] <- mean(snsr_sky_calc[[ paste("snsr_sky_calc",i,sep="") ]])
 	}
-	exp_reg <- exp_regression(as.numeric(unlist(snsr_sky_calc)), avg)
+	exp_reg     <- exp_regression(as.numeric(unlist(snsr_sky_calc)), avg)
 	ymax 		<- max(exp_reg$y, 45.4, na.rm=TRUE)
 	ymin 		<- min(exp_reg$y, na.rm=TRUE)
-	title 	<- "Correlation between Mean TPW and Temperature"
-	newx	  <- seq(min(exp_reg$newx), 0, length.out=length(exp_reg$newx))
+	title 	    <- "Correlation between Mean TPW and Temperature"
+	newx	    <- seq(min(exp_reg$newx), 0, length.out=length(exp_reg$newx))
 	# Non-linear model (exponential)
 	plot(NULL,NULL, col=c("black"), pch=1,
 	xlim=c(exp_reg$xmin, 0), ylim=c(ymin, ymax),
@@ -893,90 +887,11 @@ figure13 <- function(...){
 }
 
 pdf("../../figs/paperplots.pdf")
-figure1()
-figure2(snsr_sky$snsr_sky2, snsr_sky$snsr_sky1, snsr_sky$snsr_sky3,
+figure1(snsr_sky$snsr_sky2, snsr_sky$snsr_sky1, snsr_sky$snsr_sky3,
 				snsr_gro$snsr_gro2, snsr_gro$snsr_gro1, snsr_gro$snsr_gro3,
 				c(-60,30),c(0, 60), "Air Temperature", "Ground Temperature")
-# figure2a(snsr_sky$snsr_sky2, snsr_sky$snsr_sky1, snsr_sky$snsr_sky3,
-# 								snsr_gro$snsr_gro2, snsr_gro$snsr_gro1, snsr_gro$snsr_gro3,
-# 								c(-60,30),c(0, 60), "Air Temperature", "Ground Temperature")
-
 figure3()
 figure4()
 figure5()
 figure6()
 figure13()
-# figure2(pw_loc$pw_loc1, pw_loc$pw_loc2,pw_loc$pw_loc3, pw_loc$pw_loc4)
-#
-# figure3(loc_avg$loc_avg1, loc_avg$loc_avg2, c(0,60))
-# par(family="HersheySerif")
-# plot(seq(0, 5, 0.5), seq(0, 5, 0.5), xlab=NA, ylab=NA)
-# axis(side = 4)
-# text(-1, 2.5, "\\bu", srt=90, xpd=TRUE)
-#
-# demo(Hershey)
-# figure2 <- function(x,x1,y1,y2){
-# 	par(mar=c(5,4,0,0), oma = c(0, 0, 3, 1), xpd=FALSE)
-# 	layout(matrix(c(1,2,1,2), 2, 2, byrow=TRUE))
-#
-# 	lin_reg1 <- lin_regression(as.numeric(x), as.numeric(y1))
-# 	lin_reg2 <- lin_regression(as.numeric(x1), as.numeric(y2))
-#
-# 	plot(x, y1, ylab=NA, xlab="ABQ Precipitable Water 12Z [mm]", col="black",
-# 				pch=1, ylim=c(0,40), xlim=c(0,40))
-#
-# 	abline(0,1, lty=2)
-# 	curve(coef(lin_reg1$model)[1] + coef(lin_reg1$model)[2]*x, add=TRUE, col="black")
-# 	mtext("EPZ Precipitable Water 12Z [mm]", side=2, line=2.5, cex=1)
-#
-# 	mtext("Precipitable Water Measurement Site Comparison by Time", cex=1, side=3, outer=TRUE, at=0.55, padj=-1)
-#
-# 	if (coef(lin_reg1$model)[1] > 0){
-# 		equ1 = parse(text=sprintf("y == %.2f * x + %.2f", coef(lin_reg1$model)[2], coef(lin_reg1$model)[1]))
-# 	} else if (coef(lin_reg1$model)[1] < 0){
-# 		equ1 = parse(text=sprintf("y == %.2f * x*%.2f", coef(lin_reg1$model)[2], coef(lin_reg1$model)[1]))
-# 	}
-# 	if (coef(lin_reg2$model)[1] > 0){
-# 		equ2 = parse(text=sprintf("y == %.2f * x + %.2f", coef(lin_reg2$model)[2], coef(lin_reg2$model)[1]))
-# 	} else if (coef(lin_reg2$model)[1] < 0){
-# 		equ2 = parse(text=sprintf("y == %.2f * x*%.2f", coef(lin_reg2$model)[2], coef(lin_reg2$model)[1]))
-# 	}
-#
-# 	legend("bottomright", col=c("black",NA), lty=c(1,0,0),
-# 						legend=c(equ1,
-# 							parse(text=sprintf("(RMSE == %.2f)*\t\t\t(R^2 == %.3f)", lin_reg1$rmsd, lin_reg1$rsq))))
-#
-# 	plot(x1, y2, ylab=NA, xlab="ABQ Precipitable Water 00Z [mm]",
-# 				col="black", pch=1, ylim=c(0, 40), xlim=c(0,40))
-# 	abline(0,1, lty=2)
-# 	curve(coef(lin_reg2$model)[1] + coef(lin_reg2$model)[2]*x, add=TRUE, col="black")
-#
-# 	mtext("EPZ Precipitable Water 00Z [mm]", side=2, line=2.5, cex=1)
-# 	legend("bottomright", col=c("black",NA), lty=c(1,0),
-# 					legend=c(equ2,
-#  									 parse(text=sprintf("(RMSE == %.2f)*\t\t\t(R^2 == %.3f)", lin_reg2$rmsd, lin_reg2$rsq))))
-# }
-# figure3 <- function(x, y, lim_s){
-# 		par(mar=c(5,5,0,0), oma = c(0, 0, 3, 3), xpd=FALSE)
-# 		layout(matrix(c(1,1,1,1), 1, 1, byrow=TRUE))
-#
-# 		lin_reg1 <- lin_regression(as.numeric(x), as.numeric(y))
-#
-# 		plot(x, y, ylab=NA, xlab="ABQ Precipitable Water [mm]", col="black",
-# 					pch=1, main=NA, xlim=c(0, 40), ylim=c(0,40))
-# 		mtext("Precipitable Water Measurement Site Time Average Comparison", cex=1, outer=TRUE, at=0.6, padj=-1)
-# 		abline(0,1, lty=2); abline(v=0, col="gray"); abline(h=0, col="gray")
-# 		curve(coef(lin_reg1$model)[1] + coef(lin_reg1$model)[2]*x, add=TRUE, col="black")
-# 		mtext("EPZ Precipitable Water [mm]", side=2, line=2.5, cex=1)
-#
-# 		if (coef(lin_reg1$model)[1] > 0){
-# 			equ1 = parse(text=sprintf("y == %.2f * x + %.2f", coef(lin_reg1$model)[2], coef(lin_reg1$model)[1]))
-# 		} else if (coef(lin_reg1$model)[1] < 0){
-# 			equ1 = parse(text=sprintf("y == %.2f * x*%.2f", coef(lin_reg1$model)[2], coef(lin_reg1$model)[1]))
-# 		}
-#
-# 		legend("topleft", col=c("black",NA), lty=c(1,0,0), bg="white",
-# 							legend=c(equ1,
-# 							parse(text=sprintf("RMSE == %.2f", lin_reg1$rmsd)),
-# 							parse(text=sprintf("R^2 == %.2f", lin_reg1$rsq))))
-# }
