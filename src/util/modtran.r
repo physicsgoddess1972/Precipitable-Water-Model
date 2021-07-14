@@ -4,22 +4,6 @@ fname1       <- read.table(file="../../data/modtran/radiance/modtran.csv", sep="
 fname2       <- read.table(file="../../data/modtran/temp_offset_wvs1/modtran.csv", sep=",", header=TRUE, strip.white=TRUE)
 fname3       <- read.table(file="../../data/modtran/modtran_wps1.csv", sep=",", header=TRUE, strip.white=TRUE)
 fname4       <- read.table(file="../../data/modtran/temp_offset_wsv_half/modtran.csv", sep=",", header=TRUE, strip.white=TRUE)
-# num_integration <- function(x,y){
-# 	y <- as.numeric(y)
-# 	x <- as.numeric(x)
-# 	sum = y[1]
-#   dx = x[2] - x[1]
-# 	for (i in 3:(length(y)-1)){
-#     if ((i %% 2) == 0){
-#       sum = sum + 2 * y[i]
-#     }else{
-#       sum = sum + 4 * y[i]
-#     }
-# 	}
-# 	sum = sum + y[length(y)]
-# 	result = dx/3.0 * sum
-# 	return(result)
-# }
 
 modtran_plot <- function(xran,fname,offset, leg, xran1, fname1, offset1, leg1) {
     planck_curve <- function(x, T){
