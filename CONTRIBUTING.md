@@ -88,12 +88,13 @@
 <div class="collapsible-header">
 <h2>Contributing Data</h2>
 </div>
-<div class="panel give-data">
+<div class="panel">
 If you would like to add temperature and precipitable water measurements to our dataset please follow the data formatting guidelines on the
 <a href="./index.html#data-format">documentation page</a>. To contribute datasets follow the procedure in this section:
 <br><br>
 <b>We should make note that the only prerequisite for this deployment system is a GitHub account. </b>
 <div class="collapsible_1">
+<div class="give-data panel">
 <table class="usage">
 <tbody>
 <tr style="border: 0px;">
@@ -118,7 +119,7 @@ If you would like to add temperature and precipitable water measurements to our 
     </div>
 </div>
 </div>
-</div></div></div></div></div>
+</div></div></div></div></div></div>
 <div id="give-code">
 <div class="collapsible">
 <div class="collapsible-header">
