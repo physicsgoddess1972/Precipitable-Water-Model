@@ -7,7 +7,7 @@ from datetime import datetime
 
 from numpy.testing import assert_almost_equal
 
-from ..mesowest import MesoWest
+from src.util.mesowest import MesoWest
 from siphon.testing import get_recorder
 
 
