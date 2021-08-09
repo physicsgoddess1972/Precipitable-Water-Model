@@ -4,6 +4,7 @@ myObj.anc = function(){
     $.get("assets/external/side_nav.html", function(data){
         if (document.location.pathname == '/' ){
             var path = "/index.html";
+            console.log("Condition met")
         } else{
             var path = document.location.pathname;   
         }
