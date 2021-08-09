@@ -4,7 +4,8 @@ myObj.anc = function(){
     $.get("assets/external/side_nav.html", function(data){
         var path = document.location.pathname;
         var page1 = path.split("/").pop().replace(".", "-");
-        console.log(document.getElementById(page1))
+        console.log(page1);
+        console.log(document.getElementById(page1));
         document.getElementById(page1).parentElement.setAttribute('class', 'submenu show');
         var page2 = document.getElementById(page1).classList;
         page2.add("mdl-navigation__link--current");
