@@ -20265,7 +20265,6 @@
  .content h1,.content h2,.content h3 {
      -webkit-font-smoothing: antialiased;
      text-rendering: optimizeLegibility;
-     font-family: montserrat;
      padding-bottom: 0
 }
  .content h1,.content h2 {
