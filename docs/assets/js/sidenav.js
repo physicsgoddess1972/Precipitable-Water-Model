@@ -3,6 +3,8 @@ var myObj = {}
 myObj.anc = function(){
     $.get("assets/external/side_nav.html", function(data){
         console.log(document.location.pathname);
+        console.log(window.location.pathname);
+        console.log(document.documentURI);
         var path = document.location.pathname;
         var page1 = path.split("/").pop().replace(".", "-");
         document.getElementById(page1).parentElement.setAttribute('class', 'submenu show');
