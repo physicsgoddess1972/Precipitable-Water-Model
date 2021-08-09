@@ -21,7 +21,7 @@ myObj.anc = function(){
 };
 
 myObj.gnc = function(){
-    window.addEventListener('load', function(){
+    document.addEventListener('DOMContentLoaded', function(){
 
         document.querySelectorAll('.sidebar .nav-link').forEach(function(element) {
 
