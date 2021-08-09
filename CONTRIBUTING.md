@@ -128,7 +128,7 @@ If you would like to add temperature and precipitable water measurements to our 
 <div class="panel">
 If you would like to add an additional feature to the model follow the procedure below.
 <div class="collapsible_1">
-<div class="panel give-code">
+<div class="give-code panel">
 <table class="usage">
 <tbody>
 <tr style="border: 0px;">
