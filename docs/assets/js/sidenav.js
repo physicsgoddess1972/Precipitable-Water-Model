@@ -48,6 +48,6 @@ myObj.gnc = function(){
         });
     })
 
-});
+};
 myObj.anc();
 myObj.gnc();
