@@ -2,11 +2,13 @@ var myObj = {}
 
 myObj.anc = function(){
     $.get("assets/external/side_nav.html", function(data){
-        console.log(document.location.pathname);
-        console.log(window.location.pathname);
-        console.log(document.documentURI);
-        var path = document.location.pathname;
+        if (document.location.pathname == '/' ){
+            var path = "/index.html";
+        } else{
+            var path = document.location.pathname;   
+        }
         var page1 = path.split("/").pop().replace(".", "-");
+        console.log(page1)
         document.getElementById(page1).parentElement.setAttribute('class', 'submenu show');
         var page2 = document.getElementById(page1).classList;
         page2.add("mdl-navigation__link--current");
