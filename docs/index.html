@@ -1,51 +1,31 @@
 <!doctype html>
 <html>
 <head>
-    <title>Precipitable Water Model</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+	<title>Precipitable Water Model</title>
+	<link rel="icon" href="assets/img/icon.png">
+	<meta charset='utf-8'>
 
-    <!-- Add to homescreen for Chrome on Android -->
-    <meta name="mobile-web-app-capable" content="yes">
-    <link rel="icon" sizes="192x192" href="./assets/img/icon.png">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width">
 
-    <!-- Tile icon for Win8 (144x144 + tile color) -->
-    <meta name="msapplication-TileColor" content="#3372DF">
-    <script src="assets/js/jquery.min.js"></script>
-    <script rel="preload" src="assets/js/materialize.min.js"></script>
-    <script rel="preload" src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/download.js"></script>
-	
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.0/css/all.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap">
-    <link rel='stylesheet' href='./assets/css/main.max.css'>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.12.0/devicon.min.css">
+	<link rel="preconnect" href="//www.gstatic.com" crossorigin>
+	<link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
+	<link rel="preconnect" href="//fonts.googleapis.com" crossorigin>
 
-    <style>
-	#view-source {
-	  position: fixed;
-	  display: block;
-	  right: 0;
-	  bottom: 0;
-	  margin-right: 40px;
-	  margin-bottom: 40px;
-	  z-index: 900;
-	}
-    </style>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.12.0/devicon.min.css">
 
-    <script rel="preload">
-      $(function(){
-        $("#modal-maintainers").load("assets/external/modal_maintainers.html");
-        $("#modal-introduction").load("assets/external/modal_introduction.html");
-        $("#bottom-nav").load("assets/external/bottom_nav.html");
-        $("#side-nav").load("assets/external/side_nav.html");
-        $('#results-plots').load("assets/external/results.html");
-        $('#top-bar').load("assets/external/header.html");
-      });
-    </script>
+	<link rel="stylesheet" href="assets/css/main.max.css">
+	<script src="assets/js/jquery.min.js"></script>
+ 	<script>
+		$("#content").load("assets/external/head.html");
+	</script>
+ 	<script type="text/javascript">var fname = "README.md"</script>
+	<script type="text/javascript">var bname = "master"</script>
+	<script rel="preload" src="assets/js/header.js"></script>
+	<div rel="preload" id="content"></div>
 </head>
 <body role='flatdoc'>
 <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
