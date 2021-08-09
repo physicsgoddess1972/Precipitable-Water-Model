@@ -20,37 +20,34 @@ myObj.anc = function(){
 };
 
 myObj.gnc = function(){
-    document.addEventListener('DOMContentLoaded', (event) => {
 
-        document.querySelectorAll('.sidebar .nav-link').forEach(function(element) {
+    document.querySelectorAll('.sidebar .nav-link').forEach(function(element) {
 
-            element.addEventListener('click', function(e) {
+        element.addEventListener('click', function(e) {
 
-                let nextEl = element.nextElementSibling;
-                let parentEl = element.parentElement;
-                console.log(nextEl)
-                console.log(parentEl)
-                if (nextEl) {
-                    let mycollapse = new bootstrap.Collapse(nextEl);
+            let nextEl = element.nextElementSibling;
+            let parentEl = element.parentElement;
+            console.log(nextEl)
+            console.log(parentEl)
+            if (nextEl) {
+                let mycollapse = new bootstrap.Collapse(nextEl);
 
-                    if (nextEl.classList.contains('show')) {
-                        mycollapse.hide();
-                    } else {
-                        mycollapse.show();
-                        // find other submenus with class=show
-                    }
-                    var opened_submenu = parentEl.parentElement.querySelector('.submenu.show');
-                    // if it exists, then close all of them
-                    if (opened_submenu) {
-                        new bootstrap.Collapse(opened_submenu);
-                    }
+                if (nextEl.classList.contains('show')) {
+                    mycollapse.hide();
+                } else {
+                    mycollapse.show();
+                    // find other submenus with class=show
                 }
+                var opened_submenu = parentEl.parentElement.querySelector('.submenu.show');
+                // if it exists, then close all of them
+                if (opened_submenu) {
+                    new bootstrap.Collapse(opened_submenu);
+                }
+            }
 
-            });
-        })
+        });
+    })
 
-    });
-    // DOMContentLoaded  end
-};
+});
 myObj.anc();
 myObj.gnc();
