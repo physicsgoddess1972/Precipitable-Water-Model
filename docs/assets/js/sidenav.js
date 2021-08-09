@@ -8,9 +8,9 @@ myObj.anc = function(){
             var path = document.location.pathname;   
         }
         var page1 = path.split("/").pop().replace(".", "-");
+        console.log(page1)
         document.getElementById(page1).parentElement.setAttribute('class', 'submenu show');
         var page2 = document.getElementById(page1).classList;
-        console.log(page2);
         page2.add("mdl-navigation__link--current");
         page2.remove("mdl-navigation__link");
     })
