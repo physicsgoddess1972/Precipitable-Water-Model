@@ -6,7 +6,11 @@ myObj.anc = function(){
             var path = "/index.html";
             console.log("Condition met")
         } else{
-            var path = document.location.pathname;   
+            if (document.location.pathname.includes(".html")){
+                var path = document.location.pathname;   
+            } else{
+                var path = document.location.pathname + ".html"
+            }
         }
         var page1 = path.split("/").pop().replace(".", "-");
         console.log(page1);
