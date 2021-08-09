@@ -13,9 +13,6 @@ myObj.anc = function(){
             }
         }
         var page1 = path.split("/").pop().replace(".", "-");
-        console.log(page1);
-        console.log(document.getElementById(page1));
-        console.log(document.getElementById(page1).parentElement);
         document.getElementById(page1).parentElement.setAttribute('class', 'submenu show');
         var page2 = document.getElementById(page1).classList;
         page2.add("mdl-navigation__link--current");
@@ -32,7 +29,8 @@ myObj.gnc = function(){
 
                 let nextEl = element.nextElementSibling;
                 let parentEl = element.parentElement;
-
+                console.log(nextEl)
+                console.log(parentEl)
                 if (nextEl) {
                     let mycollapse = new bootstrap.Collapse(nextEl);
 
