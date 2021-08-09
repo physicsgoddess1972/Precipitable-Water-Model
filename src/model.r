@@ -10,6 +10,7 @@ library(argparse); library(crayon); library(RColorBrewer); library(plotrix)
 suppressPackageStartupMessages(library(pacviz)); suppressMessages(library(Hmisc))
 options(warn=-1)
 
+
 ## Custom Colors for cmd line features
 red 		<- make_style("red1")
 orange 		<- make_style("orange")
@@ -63,18 +64,196 @@ if(args$first_time){
 		cat(bold(green("Ex: Rscript model.r -1st\n")))
 		cat(bold(cyan("\t\t>>>>>>>>> Program Start <<<<<<<<\n\n")))
 }
+### quit_it
 ## Command Prompt "End of Program"
+###
 quit_it <- function(){
 	# There is an empty pdf file that is generated for some reason, and this removes it.
 	if(file.exists("Rplots.pdf")){file.remove("Rplots.pdf")}
 	# End of program
 	cat(bold(cyan("\n\t\t>>>>>>> Program Complete <<<<<<<\n"))); quit()
 }
+### overcast.filter
+## Filters out data with overcast condition
+## Function Arguments
+# col_con - column number for condition
+# col_date - column number for dates
+# col_com - column number for comments
+# pw_name - pw measurement labels
+# snsr_name - sensor labels
+###
+overcast.filter <- function(col_con, col_date, col_com, pw_name, snsr_name){
+	# Initializes the lists to store values
+	date_clear	<- snsr_sky		<- snsr_gro		<- pw_loc  <- rh 	<- list()
+	date_over		<- snsr_skyo	<- snsr_groo	<- pw_loco <- rho <- list()
+	com <- como <- list()
+	# Divides the data based on condition (Overcast/Clear Skies)
+	for (i in 1:length(t(fname[col_con]))){
+		if ("clear sky" %in% fname[i,col_con]){
+			date_clear  <- append(date_clear, lapply(fname[[i, as.numeric(col_date)]], as.Date, "%m/%d/%Y" ))
+			for (j in 1:length(pw_name)) {
+				pw_loc[[ paste("pw_loc", j, sep="")]] 		<- append(x=pw_loc[[ paste("pw_loc", j, sep="")]],  values=fname[i, col_pw[j]])
+			}
+			for (j in 1:length(snsr_name)) {
+				snsr_gro[[ paste("snsr_gro",j,sep="") ]] 	<- append(x=snsr_gro[[ paste("snsr_gro",j,sep="") ]], values=fname[i, snsr_gro_indx[j]])
+				snsr_sky[[ paste("snsr_sky",j,sep="") ]] 	<- append(x=snsr_sky[[ paste("snsr_sky",j,sep="") ]], values=fname[i, snsr_sky_indx[j]])
+			}
+			rh <- append(x=rh, value=fname[i, col_rh[1]])
+			com <- append(x=com, value=fname[i, col_com[1]])
+		}else{
+			date_over   <- append(date_over, lapply(fname[[i, as.numeric(col_date)]], as.Date, "%m/%d/%Y" ))
+			for (j in 1:length(pw_name)){
+				pw_loco[[ paste("pw_loco", j, sep="")]] <- append(x=pw_loco[[ paste("pw_loco", j, sep="")]],  values=fname[i, col_pw[j]])
+			}
+			for (j in 1:length(snsr_name)) {
+				snsr_groo[[ paste("snsr_groo",j,sep="") ]] <- append(x=snsr_groo[[ paste("snsr_groo",j,sep="") ]], values=fname[i, snsr_gro_indx[j]])
+				snsr_skyo[[ paste("snsr_skyo",j,sep="") ]]<- append(x=snsr_skyo[[ paste("snsr_skyo",j,sep="") ]], values=fname[i, snsr_sky_indx[j]])
+			}
+			rho <- append(x=rho, value=fname[i, col_rh[1]])
+			como <- append(x=como, value=fname[i, col_com[1]])
+		}
+	}
+	# Adds divided data into list to output from function
+	output1 <- list(clear_date=date_clear, over_date=date_over, rh=rh, rho=rho,com=com)
+	for(j in 1:length(snsr_name)){
+		output1 <- append(x=output1, values=list("clear_gro"=snsr_gro[[ paste("snsr_gro",j,sep="") ]]))
+	}
+	for(j in 1:length(snsr_name)){
+		output1 <- append(x=output1, values=list("clear_sky"=snsr_sky[[ paste("snsr_sky",j,sep="") ]]))
+	}
+	for(j in 1:length(snsr_name)){
+		output1 <- append(x=output1, values=list("over_sky"=snsr_skyo[[ paste("snsr_skyo",j,sep="") ]]))
+	}
+	for(j in 1:length(snsr_name)){
+		output1 <- append(x=output1, values=list("over_gro"=snsr_groo[[ paste("snsr_groo",j,sep="") ]]))
+	}
+	for(j in 1:length(pw_name)){
+		output1 <- append(x=output1, values=list("clear_pw"=pw_loc[[ paste("pw_loc", j, sep="")]]))
+	}
+	for(j in 1:length(pw_name)){
+		output1 <- append(x=output1, values=list("over_pw"=pw_loco[[ paste("pw_loco", j, sep="")]]))
+	}
+	return(output1)
+}
+### inf_counter
+## Takes average of available sky temperature measurements
+## function arguments
+# bool - a true/false
+# snsr_data - dataset
+# label - label of data (sky/gro or skyo/groo)
+###
+inf_counter <- function(bool, snsr_data, label){
+    output <- list()
+    for (i in seq(1, length(snsr_data))){
+        if (bool == FALSE){
+            if ('-Inf' %in% snsr_data[[ paste(paste("snsr_",label,sep=""),i,sep="") ]]) {
+                snsr_data[[ paste(paste("snsr_",label,sep=""),i,sep="") ]] <- replace(snsr_data[[ paste(paste("snsr_",label,sep=""),i,sep="") ]], snsr_data[[ paste(paste("snsr_",label,sep=""),i,sep="") ]] == "-Inf", NaN)
+            }
+        }
+        output <- append(output, values=list(snsr_data[[ paste(paste("snsr_",label,sep=""),i,sep="") ]]))
+    }
+    return(output)
+}
+### exp.regression
+## Function includes all of the stuff to generate the exponential regression model with intervals
+## Function Arguments
+# x - the domain of the dataset
+# y - the range of the dataset
+###
+exp.regression 	<- function(x,y){
+	# Finds and removes NaNed values from the dataset
+	nans <- c(grep("NaN", y)); nans <- append(nans, grep("NaN", x))
+	x <- x[-(nans)]; y <- y[-(nans)]
+	# creates a uniform sequence of numbers that fit within the limits of x
+	xmin 	<- min(x, na.rm=TRUE)
+	xmax 	<- max(x, na.rm=TRUE)
+	newx 	<- seq(xmin, xmax, length.out=length(x))
+	# Non-linear model (exponential)
+	## Initial values are in fact the converged values
+	model.0 <- lm(log(y, base=exp(1))~x, data=data.frame(x=x, y=y))
+	start 	<- list(a=coef(model.0)[1], b=coef(model.0)[2])
+	model 	<- nls(log(y, base=exp(1))~a+x*b, data=data.frame(x=x, y=y), start=start)
+	# Intervals (confidence/prediction)
+	confint <- predict(model.0, newdata=data.frame(x=newx), interval='confidence')
+	predint <- predict(model.0, newdata=data.frame(x=newx), interval='prediction')
+	# Coefficient of determination
+	r2		<- summary(model.0)$r.squared
+    # estimate from regression
+	est     <- exp(coef(model)[1]+coef(model)[2]*x)
+	# accuracy of model
+	acc     <- sqrt((1/length(x))*(sum((est-y)^2)/length(x)))
+    # Residual Standard Deiviation
+	S       <- sqrt(sum((est-y)^2)/(length(x) - 2))
+	# Root Square Mean Error
+	rsme    <- sqrt(sum((est-y)^2)/length(x))
+	# Function outputs
+	output 	<- list("x"=x, "y"=y, "newx"=newx, "xmin"=xmin, "xmax"=xmax, "model.0"=model.0,
+					"model"=model, "confint"=confint, "predint"=predint, "R2"=r2,
+					'est'=est, 'acc'=acc, 'S'=S, 'rsme'=rsme)
+	return (output)
+}
+### mean.filter
+## filters data based on mean value of pw
+## Function Arguements
+# pw - precipitable water data
+# avg - average values for pw
+# percent - percent away from mean to filter data
+mean.filter <- function(pw, avg, percent){
+    storage <- bad <- good <- list()
+    for (i in 1:length(pw)){
+        out <- append(x=storage, values=Map("/",Map("-",unlist(pw[i]),avg), avg))
+        for (j in 1:length(out)){
+            if (is.na(out[j])){
+                next
+            }else if (abs(as.numeric(out[j])) >= percent/100){
+                bad[[ paste("bad",i,sep="") ]] 	<- append(x=bad[[ paste("bad",i,sep="") ]], values=j)
+            }else{
+                good[[ paste("good",i,sep="") ]] <- append(x=good[[ paste("good",i,sep="") ]], values=j)
+            }
+        }
+    }
+    bad <- sort(unique(Reduce(c, bad)))
+    good <- sort(unique(Reduce(c, good)))
+    good <- good[!(good %in% bad)]
+    return(good)
+}
+### data.partition
+## splits the data into a training/testing set
+## Function Arguments
+# x - domain of the data
+# y - range of the data
+# train_size - fraction of data in the testing set [Default is 0.7]
+# rand_state - the seed for the random generated partition
+###
+data.partition <- function(x,y, train_size=0.7, rand_state=sample(1:2^15, 1)){
+  set.seed(rand_state)
+  train_idx <- sample(1:length(x), trunc(length(x)*train_size), replace=FALSE)
+  test_idx  <- (1:length(x))[-(train_idx)]
+
+  train     <- data.frame(x[train_idx],
+                          y[train_idx])
+  colnames(train) <- c("x", "y")
+
+  test    <- data.frame(x[test_idx],
+                          y[test_idx])
+  colnames(test) <- c("x", "y")
+
+  return(list(train=train, test=test, train_idx=train_idx, seed=rand_state))
+}
+### save
+## A general function that will save plots
+## Function Arguments
+# func - the plotting function that will be saved
+# name - the name of the file with the plots
+###
+save <- function(func, name){
+	pdf(name);func;invisible(graphics.off())
+}
 
 ## Imports data from master_data.csv
-fname       <- read.table(file=sprintf("../data/master_data.csv"), sep=",", header=TRUE, strip.white=TRUE)
+fname       <- read.table(file=sprintf("tests/data/master_data.csv"), sep=",", header=TRUE, strip.white=TRUE)
 ## Imports sensor information from instruments.txt
-sensor 		<- suppressWarnings(read.csv(file=sprintf("../data/instruments.conf"), sep=","))
+sensor 		<- suppressWarnings(read.csv(file=sprintf("tests/data/instruments.conf"), sep=","))
 ## Pulls most recent data stamp for the purpose of adding date stamps to file names when plots are saved
 recent 		<- t(fname[1])[length(t(fname[1]))]
 
@@ -92,13 +271,15 @@ col_rh 		<- grep("RH", colnames(fname))
 col_temp 	<- grep("Temp", colnames(fname))
 ## Pulls the column number of the Condition
 col_con 	<- grep("Condition", colnames(fname))
+## Pulls the column number for the comments
+col_com 	<- grep("comments", colnames(fname))
 ## Pulls sensor labels and colors from instruments.txt
 snsr_name 	<- list(); snsr_color <- snsr_sky_indx <- snsr_gro_indx  	<- unlist(list())
 for(i in 1:length(sensor[, 1])){
 	if (length(!(grep("#", sensor[i, 1]))) == 0){
-		var 							<- assign(paste("Thermo", i, sep=""), sensor[i, 1])
-		snsr_name 				<- append(snsr_name, toString(var))
-		snsr_color 				<- append(snsr_color, paste("#", toString(sensor[i, 3]), sep=""))
+		var 				<- assign(paste("Thermo", i, sep=""), sensor[i, 1])
+		snsr_name 			<- append(snsr_name, toString(var))
+		snsr_color 			<- append(snsr_color, paste("#", toString(sensor[i, 3]), sep=""))
 		snsr_sky_indx 		<- append(snsr_sky_indx, col_sky[i])
 		snsr_gro_indx 		<- append(snsr_gro_indx, col_gro[i])
 	}
@@ -151,118 +332,18 @@ col_snsr <- list()
 for (j in unique(snsr_tag)){
 	col_snsr <- append(col_snsr, list(grep(j, snsr_tag)))
 }
-## Filters out data with overcast condition
-overcast_filter <- function(){
-	# Initializes the lists to store values
-	date_clear	<- snsr_sky		<- snsr_gro		<- pw_loc  <- rh	<- temp_gro_off 	<- temp_sky_off 	<- list()
-	date_over		<- snsr_skyo	<- snsr_groo	<- pw_loco <- rho <- temp_sky_offo 	<- temp_gro_offo  <- list()
-	# Divides the data based on condition (Overcast/Clear Skies)
-	for (i in 1:length(t(fname[col_con]))){
-		if (!"overcast" %in% fname[i,col_con]){
-			date_clear  <- append(date_clear, lapply(fname[[i, as.numeric(col_date)]], as.Date, "%m/%d/%Y" ))
-			if (!is.null(temp_gro_indx)){
-				for (j in 1:length(temp_gro_indx)){
-					temp_gro_off[[ paste("temp_gro_off", j, sep="") ]] <- append(x=temp_gro_off[[ paste("temp_gro_off", j, sep="") ]], values=fname[i, temp_gro_indx[j]])
-				}
-			}
-			if (!is.null(temp_sky_indx)){
-				for (j in 1:length(temp_sky_indx)){
-					temp_sky_off[[ paste("temp_sky_off", j, sep="") ]] <- append(x=temp_sky_off[[ paste("temp_sky_off", j, sep="") ]], values=fname[i, temp_sky_indx[j]])
-				}
-			}
-			for (j in 1:length(pw_name)) {
-				pw_loc[[ paste("pw_loc", j, sep="")]] 		<- append(x=pw_loc[[ paste("pw_loc", j, sep="")]],  values=fname[i, col_pw[j]])
-			}
-			for (j in 1:length(snsr_name)) {
-				snsr_gro[[ paste("snsr_gro",j,sep="") ]] 	<- append(x=snsr_gro[[ paste("snsr_gro",j,sep="") ]], values=fname[i, snsr_gro_indx[j]])
-				snsr_sky[[ paste("snsr_sky",j,sep="") ]] 	<- append(x=snsr_sky[[ paste("snsr_sky",j,sep="") ]], values=fname[i, snsr_sky_indx[j]])
-			}
-			rh <- append(x=rh, value=fname[i, col_rh[1]])
-		}else{
-			date_over   <- append(date_over, lapply(fname[[i, as.numeric(col_date)]], as.Date, "%m/%d/%Y" ))
-			if (!is.null(temp_gro_indx)){
-				for (j in 1:length(temp_gro_indx)){
-					temp_gro_offo[[ paste("temp_gro_offo", j, sep="") ]] <- append(x=temp_gro_offo[[ paste("temp_gro_offo", j, sep="") ]], values=fname[i, temp_gro_indx[j]])
-				}
-			}
-			if (!is.null(temp_sky_indx)){
-				for (j in 1:length(temp_sky_indx)){
-					temp_sky_offo[[ paste("temp_sky_offo", j, sep="") ]] <- append(x=temp_sky_offo[[ paste("temp_sky_offo", j, sep="") ]], values=fname[i, temp_sky_indx[j]])
-				}
-			}
-			for (j in 1:length(pw_name)){
-				pw_loco[[ paste("pw_loco", j, sep="")]] 		<- append(x=pw_loco[[ paste("pw_loco", j, sep="")]],  values=fname[i, col_pw[j]])
-			}
-			for (j in 1:length(snsr_name)) {
-				snsr_groo[[ paste("snsr_groo",j,sep="") ]] 	<- append(x=snsr_groo[[ paste("snsr_groo",j,sep="") ]], values=fname[i, snsr_gro_indx[j]])
-				snsr_skyo[[ paste("snsr_skyo",j,sep="") ]] 	<- append(x=snsr_skyo[[ paste("snsr_skyo",j,sep="") ]], values=fname[i, snsr_sky_indx[j]])
-			}
-			rho <- append(x=rho, value=fname[i, col_rh[1]])
-		}
-	}
-	# Adds divided data into list to output from function
-	output1 <- list(clear_date=date_clear, over_date=date_over, rh=rh, rho=rho)
-	if (!is.null(temp_gro_indx)){
-		for(j in 1:length(temp_gro_indx)){
-			output1 <- append(x=output1, values=list("clear_temp_gro_off"=temp_gro_off[[ paste("temp_gro_off", j, sep="")]]))
-		}
-	}
-	if (!is.null(temp_sky_indx)){
-		for(j in 1:length(temp_sky_indx)){
-			output1 <- append(x=output1, values=list("clear_temp_sky_off"=temp_sky_off[[ paste("temp_sky_off", j, sep="")]]))
-		}
-	}
-	if (!is.null(temp_gro_indx)){
-		for(j in 1:length(temp_gro_indx)){
-			output1 <- append(x=output1, values=list("over_temp_gro_offo"=temp_gro_offo[[ paste("temp_gro_offo", j, sep="")]]))
-		}
-	}
-	if (!is.null(temp_sky_indx)){
-		for(j in 1:length(temp_sky_indx)){
-			output1 <- append(x=output1, values=list("over_temp_sky_offo"=temp_sky_offo[[ paste("temp_sky_offo", j, sep="")]]))
-		}
-	}
-	for(j in 1:length(snsr_name)){
-		output1 <- append(x=output1, values=list("clear_gro"=snsr_gro[[ paste("snsr_gro",j,sep="") ]]))
-	}
-	for(j in 1:length(snsr_name)){
-		output1 <- append(x=output1, values=list("clear_sky"=snsr_sky[[ paste("snsr_sky",j,sep="") ]]))
-	}
-	for(j in 1:length(snsr_name)){
-		output1 <- append(x=output1, values=list("over_sky"=snsr_skyo[[ paste("snsr_skyo",j,sep="") ]]))
-	}
-	for(j in 1:length(snsr_name)){
-		output1 <- append(x=output1, values=list("over_gro"=snsr_groo[[ paste("snsr_groo",j,sep="") ]]))
-	}
-	for(j in 1:length(pw_name)){
-		output1 <- append(x=output1, values=list("clear_pw"=pw_loc[[ paste("pw_loc", j, sep="")]]))
-	}
-	for(j in 1:length(pw_name)){
-		output1 <- append(x=output1, values=list("over_pw"=pw_loco[[ paste("pw_loco", j, sep="")]]))
-	}
-	return(output1)
-	}
+
 ## Pushes returned values to the variable overcast
-overcast 	<- overcast_filter()
+overcast 	<- overcast.filter(col_con, col_date, col_com, pw_name, snsr_name)
 
 ### Clear Sky Data
 ## Pulls date from filter function
 clear_date  <- overcast$clear_date	# Date
+comments    <- overcast$com
 ## Pulls relative humidity from filter function
 clear_rh <- as.numeric(overcast$rh)
 ## Initialize empty lists
-snsr_del 	<- snsr_sky <- snsr_gro <- pw_loc <- loc_avg <- snsr_sky_calc <- tmp_avg <- temp_sky_off <- temp_gro_off <- list()
-snsr_sky_inf <- list()
-if (!is.null(temp_gro_indx)){
-	for (i in 1:length(temp_gro_indx)){
-		temp_gro_off[[ paste("temp_gro_off", i, sep="") ]] <- as.numeric(unlist(overcast[grep("clear_temp_gro_off", names(overcast), fixed=TRUE)[1]+i-1]))
-	}
-}
-if (!is.null(temp_sky_indx)){
-	for (i in 1:length(temp_sky_indx)){
-		temp_sky_off[[ paste("temp_sky_off", i, sep="") ]] <- as.numeric(unlist(overcast[grep("clear_temp_sky_off", names(overcast), fixed=TRUE)[1]+i-1]))
-	}
-}
+snsr_del 	<- snsr_sky <- snsr_gro <- pw_loc <- loc_avg <- snsr_sky_calc <- tmp_avg <- list()
 ## Adds PW measurements for clear sky to list
 for (i in 1:length(pw_name)){
 	pw_loc[[ paste("pw_loc", i, sep="")]]	 <- as.numeric(unlist(overcast[grep("clear_pw", names(overcast), fixed=TRUE)[1]+i-1]))
@@ -270,43 +351,16 @@ for (i in 1:length(pw_name)){
 ## Adds Sky temperature, Ground temperature, and Change in temperature for each sensor to empty list
 for (i in 1:length(snsr_name)){
 	snsr_gro[[ paste("snsr_gro",i,sep="") ]] <- as.numeric(unlist(overcast[grep("clear_gro", names(overcast), fixed=TRUE)[1]+i-1]))
-	snsr_sky_inf[[ paste("snsr_sky",i,sep="") ]] <- as.numeric(unlist(overcast[grep("clear_sky", names(overcast), fixed=TRUE)[1]+i-1]))
 	snsr_sky[[ paste("snsr_sky",i,sep="") ]] <- as.numeric(unlist(overcast[grep("clear_sky", names(overcast), fixed=TRUE)[1]+i-1]))
 	snsr_del[[ paste("snsr_del",i,sep="") ]] <- as.numeric(unlist(overcast[grep("clear_gro", names(overcast), fixed=TRUE)[1]+i-1])) - as.numeric(unlist(overcast[grep("clear_sky", names(overcast), fixed=TRUE)[1]+i-1]))
 }
-## Takes average of available sky temperature measurements
-# Removes all NaN values from daily lists
-inf_counter_sky <- function(...,bool){
-	output <- list()
-	for (i in seq(1, length(snsr_sky))){
-		if (bool == TRUE){
-			snsr_sky[[ paste("snsr_sky",i,sep="") ]] <- snsr_sky_inf[[ paste("snsr_sky",i,sep="") ]]
-		}else{
-			if ('-Inf' %in% snsr_sky[[ paste("snsr_sky",i,sep="") ]]) {
-				snsr_sky[[ paste("snsr_sky",i,sep="") ]] <- replace(snsr_sky[[ paste("snsr_sky",i,sep="") ]], snsr_sky[[ paste("snsr_sky",i,sep="") ]] == "-Inf", NaN)
-			}
-		}
-		output <- append(output, values=list(snsr_sky[[ paste("snsr_sky",i,sep="") ]]))
-	}
-	return(output)
-}
-out_sky <- inf_counter_sky(bool=FALSE)
+
+out_sky <- inf_counter(FALSE, snsr_sky, 'sky')
 for (i in seq(1, length(snsr_sky))){
 	snsr_sky[[ paste("snsr_sky",i,sep="") ]] <- out_sky[[i]]
 }
-inf_counter_gro <- function(...,bool){
-	output <- list()
-	for (i in seq(1, length(snsr_gro))){
-		if (bool == FALSE){
-			if ('-Inf' %in% snsr_gro[[ paste("snsr_gro",i,sep="") ]]) {
-				snsr_gro[[ paste("snsr_gro",i,sep="") ]] <- replace(snsr_gro[[ paste("snsr_gro",i,sep="") ]], snsr_gro[[ paste("snsr_gro",i,sep="") ]] == "-Inf", NaN)
-			}
-		}
-		output <- append(output, values=list(snsr_gro[[ paste("snsr_gro",i,sep="") ]]))
-	}
-	return(output)
-}
-out_gro <- inf_counter_gro(bool=FALSE)
+
+out_gro <- inf_counter(FALSE, snsr_gro, 'gro')
 for (i in seq(1, length(snsr_gro))){
 	snsr_gro[[ paste("snsr_gro",i,sep="") ]] <- out_gro[[i]]
 }
@@ -341,25 +395,13 @@ for (i in 1:length(col_pwtm)){
 }
 ## Takes super average of the precipitable water measurements
 avg 		<-  Reduce("+", pw_loc)/length(pw_loc)
-
 ### Overcast Data
 ## Pulls date from filter function (overcast)
 over_date  	<- overcast$over_date
 ## Pulls relative humidity from filter function
 over_rh <- as.numeric(overcast$rho)
 # Initialize empty lists
-snsr_delo  	<- snsr_skyo <- snsr_groo <- pw_loco <- loc_avgo <- snsr_sky_calco <- tmp_avgo <- temp_gro_offo <- temp_sky_offo <- list()
-snsr_skyo_inf <- list()
-if (!is.null(temp_gro_indx)){
-	for (i in 1:length(temp_gro_indx)){
-		temp_gro_offo[[ paste("temp_gro_offo", i, sep="") ]] <- as.numeric(unlist(overcast[grep("clear_temp_gro_offo", names(overcast), fixed=TRUE)[1]+i-1]))
-	}
-}
-if (!is.null(temp_sky_indx)){
-	for (i in 1:length(temp_sky_indx)){
-		temp_sky_offo[[ paste("temp_sky_offo", i, sep="") ]] <- as.numeric(unlist(overcast[grep("clear_temp_sky_offo", names(overcast), fixed=TRUE)[1]+i-1]))
-	}
-}
+snsr_delo  	<- snsr_skyo <- snsr_groo <- pw_loco <- loc_avgo <- snsr_sky_calco <- tmp_avgo <- list()
 ## Adds PW measurements for overcast to list
 for (i in 1:length(pw_name)){
 	pw_loco[[ paste("pw_loco", i, sep="")]] 	<- as.numeric(unlist(overcast[grep("over_pw", names(overcast), fixed=TRUE)[1]+i-1]))
@@ -367,41 +409,16 @@ for (i in 1:length(pw_name)){
 ## Adds Sky temperature, Ground temperature, and Change in temperature for each sensor to empty list
 for (i in 1:length(snsr_name)){
 	snsr_skyo[[ paste("snsr_skyo",i,sep="") ]] <- as.numeric(unlist(overcast[grep("over_sky", names(overcast), fixed=TRUE)[1]+i-1]))
-	snsr_skyo_inf[[ paste("snsr_skyo",i,sep="") ]] <- as.numeric(unlist(overcast[grep("over_sky", names(overcast), fixed=TRUE)[1]+i-1]))
 	snsr_groo[[ paste("snsr_groo",i,sep="") ]] <- as.numeric(unlist(overcast[grep("over_gro", names(overcast), fixed=TRUE)[1]+i-1]))
 	snsr_delo[[ paste("snsr_delo",i,sep="") ]] <- as.numeric(unlist(overcast[grep("over_gro", names(overcast), fixed=TRUE)[1]+i-1])) - as.numeric(unlist(overcast[grep("over_sky", names(overcast), fixed=TRUE)[1]+i-1]))
 }
-inf_counter_skyo <- function(...,bool){
-	output <- list()
-	for (i in seq(1, length(snsr_skyo))){
-		if (bool == TRUE){
-			snsr_skyo[[ paste("snsr_skyo",i,sep="") ]] <- snsr_skyo_inf[[ paste("snsr_skyo",i,sep="") ]]
-		}else{
-			if ('-Inf' %in% snsr_skyo[[ paste("snsr_skyo",i,sep="") ]]) {
-				snsr_skyo[[ paste("snsr_skyo",i,sep="") ]] <- replace(snsr_skyo[[ paste("snsr_skyo",i,sep="") ]], snsr_skyo[[ paste("snsr_skyo",i,sep="") ]] == "-Inf", NaN)
-			}
-		}
-		output <- append(output, values=list(snsr_skyo[[ paste("snsr_skyo",i,sep="") ]]))
-	}
-	return(output)
-}
-out_skyo <- inf_counter_skyo(bool=FALSE)
+
+out_skyo <- inf_counter(FALSE, snsr_skyo, 'skyo')
 for (i in seq(1, length(snsr_skyo))){
 	snsr_skyo[[ paste("snsr_skyo",i,sep="") ]] <- out_skyo[[i]]
 }
-inf_counter_groo <- function(...,bool){
-	output <- list()
-	for (i in seq(1, length(snsr_groo))){
-		if (bool == FALSE){
-			if ('-Inf' %in% snsr_groo[[ paste("snsr_groo",i,sep="") ]]) {
-				snsr_groo[[ paste("snsr_groo",i,sep="") ]] <- replace(snsr_groo[[ paste("snsr_groo",i,sep="") ]], snsr_groo[[ paste("snsr_groo",i,sep="") ]] == "-Inf", NaN)
-			}
-		}
-		output <- append(output, values=list(snsr_groo[[ paste("snsr_groo",i,sep="") ]]))
-	}
-	return(output)
-}
-out_groo <- inf_counter_groo(bool=FALSE)
+
+out_groo <- inf_counter(FALSE, snsr_groo, 'groo')
 for (i in seq(1, length(snsr_groo))){
 	snsr_groo[[ paste("snsr_groo",i,sep="") ]] <- out_groo[[i]]
 }
@@ -441,68 +458,28 @@ for (i in 1:length(col_pwtm)){
 
 ## Takes super average of the precipitable water measurements
 avgo 		<-  Reduce("+", pw_loco)/length(pw_loco)
-## A general function that will save plots
-save 			<- function(func, name){
-	pdf(name);func;invisible(graphics.off())
-}
-## Creates legend for the PW that is used for the saved native R plots
-legend_plot		<- function(filter, show){
-	if(!show){
-		legend("topright", inset=c(-0.21, 0),
-				legend=c(gsub("_", " ",snsr_name)),
-				col=c(snsr_color),
-				pch=c(16,16, 16))
-	}else{
-		legend("topright", inset=c(-0.265, 0),
-				legend=c(gsub("_", " ",snsr_name)),
-				col=c(snsr_color),
-				pch=c(16,16, 16))
-	}
-}
-## Function includes all of the stuff to generate the exponential regression model with intervals
-exp_regression 	<- function(x,y){
-	# Finds and removes NaNed values from the dataset
-	nans <- c(grep("NaN", y)); nans <- append(nans, grep("NaN", x))
-	x <- x[-(nans)]; y <- y[-(nans)]
-	# creates a uniform sequence of numbers that fit within the limits of x
-	xmin 	<- min(x, na.rm=TRUE)
-	xmax 	<- max(x, na.rm=TRUE)
-	newx 	<- seq(xmin, xmax, length.out=length(x))
-	# Non-linear model (exponential)
-	## Initial values are in fact the converged values
-	model.0 <- lm(log(y, base=exp(1))~x, data=data.frame(x=x, y=y))
-	start 	<- list(a=coef(model.0)[1], b=coef(model.0)[2])
-	model 	<- nls(log(y, base=exp(1))~a+x*b, data=data.frame(x=x, y=y), start=start)
-	# Intervals (confidence/prediction)
-	confint <- predict(model.0, newdata=data.frame(x=newx), interval='confidence')
-	predint <- predict(model.0, newdata=data.frame(x=newx), interval='prediction')
-	# Coefficient of determination
-	r2		<- summary(model.0)$r.squared
-	# Function outputs
-	output 	<- list("x"=x, "y"=y, "newx"=newx, "xmin"=xmin, "xmax"=xmax, "model.0"=model.0,
-					"model"=model, "confint"=confint, "predint"=predint, "R2"=r2)
-	return (output)
-}
-### Plot functions
+
+#### Plot functions
+### time1
 ## Sky Temperature plot
-time1 	<- function(overcast=args$overcast){
+## Function Arguments
+# date - the datestamp of the data
+# overcast - the condition of data (clear sky/overcast)
+###
+time1 	<- function(date, overcast){
 	# Plotting margins
 	par(mar=c(5.1, 5.1, 5.1, 5.3), xpd=TRUE)
 	if(overcast){
-		ymax 			<- max(as.numeric(unlist(snsr_skyo)), na.rm=TRUE)
-		ymin 			<- min(as.numeric(unlist(snsr_skyo)), na.rm=TRUE)
-		range 		<- snsr_skyo
-		range_alt <- temp_sky_offo
-		date 			<- over_date
-		title 		<- sprintf("Sky Temperature Time Series \n Condition: Overcast")
+		range 		    <- snsr_skyo
+		title 		    <- sprintf("Sky Temperature Time Series \n Condition: Overcast")
 	}else{
-		ymax 			<- max(as.numeric(unlist(snsr_sky)),na.rm=TRUE)
-		ymin 			<- min(as.numeric(unlist(snsr_sky)),na.rm=TRUE)
 		range	 		<- snsr_sky
-		range_alt <- temp_sky_off
-		date 			<- clear_date
-		title 		<- sprintf("Sky Temperature Time Series \n Condition: Clear Sky")
+		title 		    <- sprintf("Sky Temperature Time Series \n Condition: Clear Sky")
 	}
+	test <- unlist(range)
+	test[!is.finite(unlist(range))] <- NA
+
+	ymin <- min(as.numeric(unlist(test)), na.rm=TRUE); ymax <- max(as.numeric(unlist(test)), na.rm=TRUE)
 	xmin <- min(do.call("c", date), na.rm=TRUE); xmax <- max(do.call("c", date), na.rm=TRUE)
 
 	plot(date, t(unlist(range[1])), xlab="Date", ylab="Temperature [C]", xaxt='n',
@@ -520,38 +497,28 @@ time1 	<- function(overcast=args$overcast){
 			points(date, t(unlist(range[i])), pch=16, col=snsr_color[i])
 		}
 	}
-	if (!is.null(temp_sky_indx)){
-		for(i in 1:length(range_alt)){
-			points(date, t(unlist(range_alt[i])), pch=16, col=temp_col[i])
-		}
-
-		label  <- unlist(list(snsr_name, temp_place))
-		labcol <- unlist(list(snsr_color, temp_col))
-		legend("topright", inset=c(-0.21, 0),
-				legend=c(gsub("_", " ",label)),
-				col=c(labcol),
-				pch=c(16,16, 16))
-	}else{legend_plot(overcast, FALSE)}
+	legend("topright", inset=c(-0.21, 0), legend=c(gsub("_", " ",snsr_name)), col=c(snsr_color), pch=c(16,16, 16))
 }
+### time2
 ## Ground Temperature plot
-time2 	<- function(overcast=args$overcast){
+## Function Arguments
+# date - the datestamp of the data
+# overcast - the condition of data (clear sky/overcast)
+###
+time2 	<- function(date, overcast){
 	# Margin Configuration
 	par(mar=c(5.1, 5.1, 5.1, 5.3), xpd=TRUE)
 	if(overcast){
-		ymax  		<- max(as.numeric(unlist(snsr_groo)),na.rm=TRUE)
-		ymin  		<- min(as.numeric(unlist(snsr_groo)),na.rm=TRUE)
 		range 		<- snsr_groo
-		range_alt <- temp_gro_offo
 		title 		<- "Ground Temperature Time Series \n Condition: Overcast"
-		date 			<- over_date
 	}else{
-		ymax  		<- max(as.numeric(unlist(snsr_gro)),na.rm=TRUE)
-		ymin  		<- min(as.numeric(unlist(snsr_gro)),na.rm=TRUE)
-		range			<- snsr_gro
-		range_alt <- temp_gro_off
+		range		<- snsr_gro
 		title 		<- "Ground Temperature Time Series \n Condition: Clear Sky"
-		date 			<- clear_date
 	}
+	test <- unlist(range)
+	test[!is.finite(unlist(range))] <- NA
+
+	ymin <- min(as.numeric(unlist(test)), na.rm=TRUE); ymax <- max(as.numeric(unlist(test)), na.rm=TRUE)
 	xmin <- min(do.call("c", date), na.rm=TRUE); xmax <- max(do.call("c", date), na.rm=TRUE)
 	# Legend configuration
 	plot(date, t(unlist(range[1])), xlab="Date", ylab="Temperature [C]", xaxt='n',
@@ -569,37 +536,28 @@ time2 	<- function(overcast=args$overcast){
 			points(date, t(unlist(range[i])), pch=16, col=snsr_color[i])
 		}
 	}
-	if (!is.null(temp_gro_indx)){
-		for(i in 1:length(range_alt)){
-			points(date, t(unlist(range_alt[i])), pch=16, col=temp_col[i])
-		}
-		label  <- unlist(list(snsr_name, temp_place))
-		labcol <- unlist(list(snsr_color, temp_col))
-		legend("topright", inset=c(-0.21, 0),
-				legend=c(gsub("_", " ",label)),
-				col=c(labcol),
-				pch=c(16,16, 16))
-	}else{
-		legend_plot(overcast, FALSE)
-	}
+	legend("topright", inset=c(-0.21, 0), legend=c(gsub("_", " ",snsr_name)), col=c(snsr_color), pch=c(16,16, 16))
 }
+### time3
 ## Delta T plot
-time3 	<- function(overcast=args$overcast){
+## Function Arguments
+# date - the datestamp of the data
+# overcast - the condition of data (clear sky/overcast)
+###
+time3 	<- function(date, overcast){
 	# Margin Configuration
 	par(mar=c(5.1, 5.1, 5.1, 5.3), xpd=TRUE)
 	if(overcast){
-		ymax 		<- max(as.numeric(unlist(snsr_delo)), na.rm=TRUE)
-		ymin 		<- min(as.numeric(unlist(snsr_delo)), na.rm=TRUE)
-		range 		<- snsr_delo
+        range 		<- snsr_delo
 		title 		<- sprintf("Difference Between Ground-Sky Temperature Time Series \n Condition: Overcast")
-		date 		<- over_date
 	}else{
-		ymax 		<- max(as.numeric(unlist(snsr_del)), na.rm=TRUE)
-		ymin 		<- min(as.numeric(unlist(snsr_del)), na.rm=TRUE)
 		range 		<- snsr_del
 		title 		<- sprintf("Difference Between Ground-Sky Temperature Time Series \n Condition: Clear Sky")
-		date 		<- clear_date
 	}
+	test <- unlist(range)
+	test[!is.finite(unlist(range))] <- NA
+
+	ymin <- min(as.numeric(unlist(test)), na.rm=TRUE); ymax <- max(as.numeric(unlist(test)), na.rm=TRUE)
 	xmin <- min(do.call("c", date), na.rm=TRUE); xmax <- max(do.call("c", date), na.rm=TRUE)
 
 	plot(date, t(unlist(range[1])), xlab="Date", ylab="Temperature [C]", xaxt='n',
@@ -617,28 +575,33 @@ time3 	<- function(overcast=args$overcast){
 			points(date, t(unlist(range[i])), pch=16, col=snsr_color[i])
 		}
 	}
-	legend_plot(overcast, FALSE)
+	legend("topright", inset=c(-0.21, 0), legend=c(gsub("_", " ",snsr_name)), col=c(snsr_color), pch=c(16,16, 16))
 }
+### time4
 ## PW Time Series
-time4		<- function(overcast=args$overcast){
+## Function Arguments
+# date - the datestamp of the data
+# overcast - the condition of data (clear sky/overcast)
+###
+time4		<- function(date, overcast){
 	# Margin Configuration
 	par(mar=c(5.1, 5.1, 5.1, 5.3), xpd=TRUE)
 	if(overcast){
-		ymax		<- max(as.numeric(unlist(pw_loco)), na.rm=TRUE)
-		ymin		<- min(as.numeric(unlist(pw_loco)), na.rm=TRUE)
 		range 		<- pw_loco
 		title 		<- "Total Precipitable Water Time Series \n Condition: Overcast"
-		date 		<- over_date
 	}else{
-		ymax		<- max(as.numeric(unlist(pw_loc)), na.rm=TRUE)
-		ymin		<- min(as.numeric(unlist(pw_loc)), na.rm=TRUE)
 		range 		<- pw_loc
 		title 		<- "Total Precipitable Water Time Series \n Condition: Clear Sky"
-		date 		<- clear_date
 	}
+	test <- unlist(range)
+	test[!is.finite(unlist(range))] <- NA
+
+	ymin <- min(as.numeric(unlist(test)), na.rm=TRUE); ymax <- max(as.numeric(unlist(test)), na.rm=TRUE)
 	xmin <- min(do.call("c", date), na.rm=TRUE); xmax <- max(do.call("c", date), na.rm=TRUE)
+
 	plot(date, t(unlist(range[1])), xlab="Date", ylab="TPW [mm]", xaxt='n',
 		 xlim=c(xmin, xmax), ylim=c(ymin, ymax), main=title, pch=16, col=pw_color[1])
+
 	ticks.at <- seq(as.Date(paste(substr(date[[1]], 1, 8),"01",sep="")), date[[length(date)]], by = "months")
  	mj_ticks <- ticks.at[seq(1, length(ticks.at), length.out=5)]
  	mn_ticks <- ticks.at[-(seq(1, length(ticks.at), length.out=5))]
@@ -652,15 +615,18 @@ time4		<- function(overcast=args$overcast){
 		}
 	}
 	legend("topright", inset=c(-0.205, 0), legend=c(pw_name), col=pw_color, pch=c(16,16, 16), cex=0.95)}
+### time4
 ## Sky Temperature - PW Time Series
-time5 	<- function(overcast=args$overcast){
+## Function Arguments
+# date - the datestamp of the data
+# overcast - the condition of data (clear sky/overcast)
+###
+time5 	<- function(date, overcast){
 	if(overcast){
-		date 		<- over_date
 		range1 	<- as.numeric(unlist(snsr_sky_calco))
 		range2 	<- avgo
 		title 	<- sprintf("Mean Sky Temperature and TPW Time Series \n Condition: Overcast");
 	}else{
-		date 		<- clear_date
 		range1 	<- as.numeric(unlist(snsr_sky_calc))
 		range2 	<- avg
 		title 	<- sprintf("Mean Sky Temperature and TPW Time Series \n Condition: Clear Sky")
@@ -677,28 +643,31 @@ time5 	<- function(overcast=args$overcast){
 	axis(side = 2); mtext(side = 2, line=3, "Temperature [C]", col="red")
 	par(new = T)
 	plot(date, range2, ylab=NA, axes=F, xlab=NA, col="blue", pch=16)
-	axis(side = 4); mtext(side = 4, line=3, "TPW [mm]", col="blue")}
+	axis(side = 4); mtext(side = 4, line=3, "TPW [mm]", col="blue")
+}
+### time6
 ## Temporal Mean PW Time Series
-time6 	<- function(overcast=args$overcast){
+## Function Arguments
+# date - the datestamp of the data
+# overcast - the condition of data (clear sky/overcast)
+###
+time6 	<- function(date, overcast){
 	# Margin Configuration
 	par(mar=c(5.1, 5.1, 5.1, 5.3), xpd=TRUE)
 	if(overcast){
-		ymax		<- max(as.numeric(unlist(loc_avgo)), na.rm=TRUE)
-		ymin		<- min(as.numeric(unlist(loc_avgo)), na.rm=TRUE)
 		range 		<- tmp_avgo
 		title 		<- "Temporal Average TPW Time Series \n Condition: Overcast"
-		date 		<- over_date
 	}else{
-		ymax		<- max(as.numeric(unlist(tmp_avg)), na.rm=TRUE)
-		ymin		<- min(as.numeric(unlist(tmp_avg)), na.rm=TRUE)
 		range 		<- tmp_avg
 		title 		<- "Temporal Average TPW Time Series \n Condition: Clear Sky"
-		date 		<- clear_date
 	}
+	ymin <- min(as.numeric(unlist(range)), na.rm=TRUE); ymax <- max(as.numeric(unlist(range)), na.rm=TRUE)
 	xmin <- min(do.call("c", date), na.rm=TRUE); xmax <- max(do.call("c", date), na.rm=TRUE)
+
 	plot(date,  t(unlist(range[1])), xlab="Date", ylab="TPW [mm]", xaxt='n',
 		 xlim=c(xmin, xmax), ylim=c(ymin, ymax), main=title, pch=16, col=pw_color[1])
-  ticks.at <- seq(date[[1]], date[[length(date)]], by = "months")
+
+    ticks.at <- seq(date[[1]], date[[length(date)]], by = "months")
  	mj_ticks <- ticks.at[seq(1, length(ticks.at), length.out=5)]
  	mn_ticks <- ticks.at[-(seq(1, length(ticks.at), length.out=5))]
 
@@ -711,24 +680,25 @@ time6 	<- function(overcast=args$overcast){
 	}
 	legend("topright", inset=c(-0.153, 0), legend=c(unique(pw_place)), col=c(pw_color), pch=c(16,16, 16))
 }
+### time7
 ## Locational Mean PW Time Series
-time7 	<- function(overcast=args$overcast){
+## Function Arguments
+# date - the datestamp of the data
+# overcast - the condition of data (clear sky/overcast)
+###
+time7 	<- function(date, overcast){
 	# Margin Configuration
 	par(mar=c(5.1, 5.1, 5.1, 5.3), xpd=TRUE)
 	if(overcast){
-		ymax		<- max(as.numeric(unlist(loc_avgo)), na.rm=TRUE)
-		ymin		<- min(as.numeric(unlist(loc_avgo)), na.rm=TRUE)
 		range 	<- loc_avgo
 		title 	<- "Locational Average TPW Time Series \n Condition: Overcast"
-		date 		<- over_date
 	}else{
-		ymax		<- max(as.numeric(unlist(loc_avg)), na.rm=TRUE)
-		ymin		<- min(as.numeric(unlist(loc_avg)), na.rm=TRUE)
 		range 	<- loc_avg
 		title 	<- "Locational Average TPW Time Series \n Condition: Clear Sky"
-		date 		<- clear_date
 	}
+	ymin <- min(as.numeric(unlist(range)), na.rm=TRUE); ymax <- max(as.numeric(unlist(range)), na.rm=TRUE)
 	xmin <- min(do.call("c", date), na.rm=TRUE); xmax <- max(do.call("c", date), na.rm=TRUE)
+
 	plot(date,  t(unlist(range[1])), xlab="Date", ylab="TPW [mm]", xaxt='n',
 		 xlim=c(xmin, xmax), ylim=c(ymin, ymax), main=title, pch=16, col=pw_color[1])
 	ticks.at <- seq(as.Date(paste(substr(date[[1]], 1, 8),"01",sep="")), date[[length(date)]], by = "months")
@@ -744,23 +714,23 @@ time7 	<- function(overcast=args$overcast){
 	}
 	legend("topright", inset=c(-0.14, 0), legend=c(unique(pw_time)), col=pw_color, pch=c(16,16))
 }
+### time8
 ## Mean PW Time Series
-time8 	<- function(overcast=args$overcast){
+## Function Arguments
+# date - the datestamp of the data
+# overcast - the condition of data (clear sky/overcast)
+###
+time8 	<- function(date, overcast){
 	# Margin Configuration
 	par(mar=c(5.1, 5.1, 5.1, 5.3), xpd=TRUE)
 	if(overcast){
-		ymax		<- max(as.numeric(unlist(avgo)), na.rm=TRUE)
-		ymin		<- min(as.numeric(unlist(avgo)), na.rm=TRUE)
 		range 		<- avgo
 		title 		<- "Mean TPW Time Series \n Condition: Overcast"
-		date 		<- over_date
 	}else{
-		ymax		<- max(as.numeric(unlist(avg)), na.rm=TRUE)
-		ymin		<- min(as.numeric(unlist(avg)), na.rm=TRUE)
 		range 		<- avg
 		title 		<- "Mean TPW Time Series \n Condition: Clear Sky"
-		date 		<- clear_date
 	}
+	ymin <- min(as.numeric(unlist(range)), na.rm=TRUE); ymax <- max(as.numeric(unlist(range)), na.rm=TRUE)
 	xmin <- min(do.call("c", date), na.rm=TRUE); xmax <- max(do.call("c", date), na.rm=TRUE)
 
 	plot(date,  t(unlist(range)), xlab="Date", ylab="TPW [mm]", xaxt='n',
@@ -773,14 +743,15 @@ time8 	<- function(overcast=args$overcast){
  	axis(1, at=mj_ticks, labels=format(mj_ticks, "%b %y"), tck=-0.03)
 }
 ## PW - RH Time Series
-time9 	<- function(overcast=args$overcast){
+## Function Arguments
+# overcast - the condition of data (clear sky/overcast)
+###
+time9 	<- function(date, overcast){
 	if(overcast){
-		date 		<- over_date
 		range1 	<- avgo
 		range2  <- over_rh
 		title 	<- sprintf("Mean TPW and RH Time Series \n Condition: Overcast");
 	}else{
-		date 		<- clear_date
 		range1 	<- avg
 		range2 	<- clear_rh
 		title 	<- sprintf("Mean TPW and RH Time Series \n Condition: Clear Sky")
@@ -799,15 +770,17 @@ time9 	<- function(overcast=args$overcast){
 	plot(date, range2, ylab=NA, axes=F, xlab=NA, col="green3", pch=16)
 	axis(side = 4); mtext(side=4, line=3, "RH [%]", col="green3")
 }
+### time10
 ## Sky Temperature - RH Time Series
-time10 	<- function(overcast=args$overcast){
+## Function Arguments
+# overcast - the condition of data (clear sky/overcast)
+###
+time10 	<- function(date, overcast){
 	if(overcast){
-		date 		<- over_date
 		range1 	<- as.numeric(unlist(snsr_sky_calco))
 		range2  <- over_rh
 		title 	<- sprintf("Mean Sky Temperature and RH Time Series \n Condition: Overcast");
 	}else{
-		date 		<- clear_date
 		range1 	<- as.numeric(unlist(snsr_sky_calc))
 		range2 	<- clear_rh
 		title 	<- sprintf("Mean Sky Temperature and RH Time Series \n Condition: Clear Sky")
@@ -826,31 +799,24 @@ time10 	<- function(overcast=args$overcast){
 	plot(date, range2, ylab=NA, axes=F, xlab=NA, col="green3", pch=16)
 	axis(side = 4); mtext(side=4, line=3, "RH [%]", col="green3")
 }
-
+### plots1
 ## Individual Location plots
-plots1 	<- function(..., overcast=args$overcast){
+## Function Arguments
+# overcast - the condition of data (clear sky/overcast)
+###
+plots1 	<- function(overcast){
 	par(mar=c(5.1, 5.1, 5.1, 5.3), xpd=TRUE)
 	if(overcast){
-		# xmax 	<- max(as.numeric(unlist(snsr_skyo)), na.rm=TRUE)
-		# xmin 	<- min(as.numeric(unlist(snsr_skyo)), na.rm=TRUE)
-		ymax	<- max(as.numeric(unlist(pw_loco)), na.rm=TRUE)
-		ymin	<- min(as.numeric(unlist(pw_loco)), na.rm=TRUE)
 		x 		<- as.numeric(unlist(snsr_sky_calco))
 		range 	<- pw_loco
 		title 	<- "Correlation between TPW and Temperature \n Condition: Overcast"
 	}else{
-		# xmax 	<- max(as.numeric(unlist(snsr_sky)), na.rm=TRUE)
-		# xmin 	<- min(as.numeric(unlist(snsr_sky)), na.rm=TRUE)
-		ymax	<- max(as.numeric(unlist(pw_loc)), na.rm=TRUE)
-		ymin	<- min(as.numeric(unlist(pw_loc)), na.rm=TRUE)
 		x 		<- as.numeric(unlist(snsr_sky_calc))
 		range 	<- pw_loc
 		title	<- "Correlation between TPW and Temperature \n Condition: Clear Sky"
 	}
-	plot(x,  t(unlist(range[1])), xlab="Zenith Sky Temperature [C]", ylab="TPW [mm]",
-	#xlim=c(xmin, xmax),
-	ylim=c(ymin, ymax),
-	main=title, pch=16, col=pw_color[1])
+	ymax	<- max(as.numeric(unlist(range)), na.rm=TRUE); ymin	<- min(as.numeric(unlist(range)), na.rm=TRUE)
+	plot(x,  t(unlist(range[1])), xlab="Zenith Sky Temperature [C]", ylab="TPW [mm]", ylim=c(ymin, ymax), main=title, pch=16, col=pw_color[1])
 
 	if (length(range) >= 2){
 		for(i in 2:length(range)){
@@ -861,27 +827,56 @@ plots1 	<- function(..., overcast=args$overcast){
 
 	legend("topright", inset=c(-0.205, 0), legend=c(pw_name), col=pw_color, pch=c(16,16, 16), cex=0.95)
 }
+### plots2
 ## Locational Average Plots
-plots2 	<- function(..., overcast=args$overcast){
+## Function Arguments
+# overcast - the condition of data (clear sky/overcast)
+###
+plots2 	<- function(overcast){
 	par(mar=c(5.1, 5.1, 5.1, 5.3), xpd=TRUE)
 	if(overcast){
-		# xmax 	<- max(as.numeric(unlist(snsr_sky_calco)), na.rm=TRUE)
-		# xmin 	<- min(as.numeric(unlist(snsr_sky_calco)), na.rm=TRUE)
-		ymax	<- max(as.numeric(unlist(loc_avgo)), na.rm=TRUE)
-		ymin	<- min(as.numeric(unlist(loc_avgo)), na.rm=TRUE)
 		x 		<- as.numeric(unlist(snsr_sky_calco))
 		range 	<- loc_avgo
 		title 	<- "Correlation between Temporal Mean TPW and Temperature \n Condition: Overcast"
 	}else{
-		# xmax 	<- max(as.numeric(unlist(inf_counter(bool=FALSE))), na.rm=TRUE)
-		# xmin 	<- min(as.numeric(unlist(inf_counter(bool=FALSE))), na.rm=TRUE)
-		ymax	<- max(as.numeric(unlist(loc_avg)), na.rm=TRUE)
-		ymin	<- min(as.numeric(unlist(loc_avg)), na.rm=TRUE)
 		x 		<- as.numeric(unlist(snsr_sky_calc))
 		range 	<- loc_avg
 		title 	<- "Correlation between Temporal Mean TPW and Temperature \n Condition: Clear Sky"
 	}
-	col <- colscheme(range)
+	ymax	<- max(as.numeric(unlist(range)), na.rm=TRUE); ymin	<- min(as.numeric(unlist(range)), na.rm=TRUE)
+    col <- colscheme(range)
+
+	plot(x,  t(unlist(range[1])), xlab="Zenith Sky Temperature [C]", ylab="TPW [mm]",ylim=c(ymin, ymax), main=title, pch=16, col=col[1])
+
+	minor.tick(nx=2, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
+
+	if (length(range) >= 2){
+		for(i in 2:length(range)){
+			points(x, t(unlist(range[i])), pch=16, col=col[i])
+		}
+	}
+	legend("topright", inset=c(-0.153, 0), legend=c(unique(pw_place)), col=col, pch=c(16,16, 16))
+}
+### plots3
+## Temporal Average Plots
+## Function Arguments
+# overcast - the condition of data (clear sky/overcast)
+###
+plots3 	<- function(overcast){
+	par(mar=c(5.1, 5.1, 5.1, 5.3), xpd=TRUE)
+
+	if(overcast){
+		x 		<- as.numeric(unlist(snsr_sky_calco))
+		range 	<- tmp_avgo
+		title 	<- "Correlation between Locational Mean TPW and Temperature \n Condition: Overcast"
+	}else{
+		x 		<- as.numeric(unlist(snsr_sky_calc))
+		range 	<- tmp_avg
+		title 	<- "Correlation between Locational Mean TPW and Temperature \n Condition: Clear Sky"
+	}
+	ymax	<- max(as.numeric(unlist(range)), na.rm=TRUE); ymin	<- min(as.numeric(unlist(range)), na.rm=TRUE)
+	col     <- colscheme(range)
+
 	plot(x,  t(unlist(range[1])), xlab="Zenith Sky Temperature [C]", ylab="TPW [mm]",
 	#xlim=c(xmin, xmax),
 	ylim=c(ymin, ymax), main=title, pch=16, col=col[1])
@@ -892,57 +887,23 @@ plots2 	<- function(..., overcast=args$overcast){
 			points(x, t(unlist(range[i])), pch=16, col=col[i])
 		}
 	}
-	legend("topright", inset=c(-0.153, 0), legend=c(unique(pw_place)), col=col, pch=c(16,16, 16))
+	legend("topright", inset=c(-0.14, 0), legend=c(unique(pw_time)), col=col, pch=c(16,16, 16))
 }
-## Temporal Average Plots
-plots3 	<- function(..., overcast=args$overcast){
-	par(mar=c(5.1, 5.1, 5.1, 5.3), xpd=TRUE)
-
-	if(overcast){
-		# xmax 	<- max(as.numeric(unlist(snsr_sky_calco)), na.rm=TRUE)
-		# xmin 	<- min(as.numeric(unlist(snsr_sky_calco)), na.rm=TRUE)
-		ymax	<- max(as.numeric(unlist(tmp_avgo)), na.rm=TRUE)
-		ymin	<- min(as.numeric(unlist(tmp_avgo)), na.rm=TRUE)
-		x 		<- as.numeric(unlist(snsr_sky_calco))
-		range 	<- tmp_avgo
-		title 	<- "Correlation between Locational Mean TPW and Temperature \n Condition: Overcast"
-	}else{
-		# xmax 	<- max(as.numeric(unlist(snsr_sky_calc)), na.rm=TRUE)
-		# xmin 	<- min(as.numeric(unlist(snsr_sky_calc)), na.rm=TRUE)
-		ymax	<- max(as.numeric(unlist(tmp_avg)), na.rm=TRUE)
-		ymin	<- min(as.numeric(unlist(tmp_avg)), na.rm=TRUE)
-		x 		<- as.numeric(unlist(snsr_sky_calc))
-		range 	<- tmp_avg
-		title 	<- "Correlation between Locational Mean TPW and Temperature \n Condition: Clear Sky"
-	}
-	color <- colscheme(range)
-
-	plot(x,  t(unlist(range[1])), xlab="Zenith Sky Temperature [C]", ylab="TPW [mm]",
-	#xlim=c(xmin, xmax),
-	ylim=c(ymin, ymax), main=title, pch=16, col=color[1])
-	minor.tick(nx=2, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
-
-	if (length(range) >= 2){
-		for(i in 2:length(range)){
-			points(x, t(unlist(range[i])), pch=16, col=color[i])
-		}
-	}
-	legend("topright", inset=c(-0.14, 0), legend=c(unique(pw_time)), col=color, pch=c(16,16, 16))
-}
+### plots4
 ## Super Average Plot with Exponential Fit
-plots4 	<- function(..., overcast=args$overcast){
+## Function Arguments
+# overcast - the condition of data (clear sky/overcast)
+###
+plots4 	<- function(overcast){
 	par(mar=c(5.1, 4.1, 4.1, 2.1),xpd=FALSE)
 	if(overcast){
-		exp_reg <- exp_regression(as.numeric(unlist(snsr_sky_calco)), avgo)
-		ymax 	<- max(exp_reg$y, 45.4, na.rm=TRUE)
-		ymin 	<- min(exp_reg$y, na.rm=TRUE)
+		exp_reg <- exp.regression(as.numeric(unlist(snsr_sky_calco)), avgo)
 		title 	<- "Correlation between Mean TPW and Temperature \n Condition: Overcast"
 	}else{
-		exp_reg <- exp_regression(as.numeric(unlist(snsr_sky_calc)), avg)
-		ymax 	<- max(exp_reg$y, 45.4, na.rm=TRUE)
-		ymin 	<- min(exp_reg$y, na.rm=TRUE)
+		exp_reg <- exp.regression(as.numeric(unlist(snsr_sky_calc)), avg)
 		title 	<- "Correlation between Mean TPW and Temperature \n Condition: Clear Sky"
 	}
+	ymax <- max(exp_reg$y, na.rm=TRUE); ymin <- min(exp_reg$y, na.rm=TRUE)
 	# Non-linear model (exponential)
 	plot(exp_reg$x,exp_reg$y, pch=1, ylim=c(ymin, ymax), xlab="Zenith Sky Temperature [C]", ylab="TPW [mm]", main=title)
 	# Best Fit
@@ -955,16 +916,20 @@ plots4 	<- function(..., overcast=args$overcast){
 	minor.tick(nx=2, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
 
 	legend("topleft",col=c("black", "black"), lty=c(1,2),
-	legend=c(parse(text=sprintf("%.2f*e^{%.3f*x}*\t\t(R^2 == %.3f)",
-	exp(coef(exp_reg$model)[1]),coef(exp_reg$model)[2], exp_reg$R2)), "Confidence Interval"))
+	legend=c(parse(text=sprintf("%.2f*e^{%.3f*x}*\t\t(S == %.3f)",
+	exp(coef(exp_reg$model)[1]),coef(exp_reg$model)[2], exp_reg$S)), "Confidence Interval"))
 }
+### plots5
 ## Residual Plot
-plots5 	<- function(..., overcast=args$overcast){
+## Function Arguments
+# overcast - the condition of data (clear sky/overcast)
+###
+plots5 	<- function(overcast){
 	if(overcast){
-		exp_reg <- exp_regression(as.numeric(unlist(snsr_sky_calco)), avgo)
+		exp_reg <- exp.regression(as.numeric(unlist(snsr_sky_calco)), avgo)
 		title 	<- "Residual of the Mean TPW and Temperature Model \n Condition: Overcast"
 	}else{
-		exp_reg <- exp_regression(as.numeric(unlist(snsr_sky_calc)), avg)
+		exp_reg <- exp.regression(as.numeric(unlist(snsr_sky_calc)), avg)
 		title 	<- "Residual of the Mean TPW and Temperature Model \n Condition: Clear Sky"
 	}
 	plot(exp_reg$x, resid(exp_reg$model.0), col=c("royalblue"), pch=16,
@@ -972,77 +937,89 @@ plots5 	<- function(..., overcast=args$overcast){
 		xlab="Zenith Sky Temperature [C]", ylab=bquote(.("Residual Values [")*sigma*.("]")), main=title)
 	abline(h=0, col="gray")
 }
-
+### pac1
 ## Pac-Man plot of Super Average Plot
-pac1 <- function(...,overcast=args$overcast){
+## Function Arguments
+# overcast - the condition of data (clear sky/overcast)
+###
+pac1 <- function(overcast){
 	par(mar=c(5.1, 4.1, 4.1, 2.1),xpd=FALSE)
 	if(overcast){
-		exp_reg <- exp_regression(as.numeric(unlist(snsr_sky_calco)), avgo)
-		ymax 	<- max(exp_reg$y, 45.4, na.rm=TRUE)
-		ymin 	<- min(exp_reg$y, na.rm=TRUE)
+		exp_reg <- exp.regression(as.numeric(unlist(snsr_sky_calco)), avgo)
 		title 	<- "Correlation between Mean TPW and Temperature \n Condition: Overcast"
 	}else{
-		exp_reg <- exp_regression(as.numeric(unlist(snsr_sky_calc)), avg)
-		ymax 	<- max(exp_reg$y, 45.4, na.rm=TRUE)
-		ymin 	<- min(exp_reg$y, na.rm=TRUE)
+		exp_reg <- exp.regression(as.numeric(unlist(snsr_sky_calc)), avg)
 		title 	<- "Correlation between Mean TPW and Temperature \n Condition: Clear Sky"
 	}
 	# Finds and removes NaNed values from the dataset
 	pac.plot(exp_reg$x,exp_reg$y, title, c("Zenith Sky Temperature", "C"),c("TPW", "mm"))
 }
+### pac2
 ## Pac-Man residual plot
-pac2 <- function(..., overcast=args$overcast){
+## Function Arguments
+# overcast - the condition of data (clear sky/overcast)
+###
+pac2 <- function(overcast){
 	if(overcast){
-			x <- as.numeric(unlist(snsr_sky_calco))
-			y <- log(avgo, base=exp(1))
-			title 		<- "Pac-Man Residual of the Mean TPW and Temperature Model\nCondition: Overcast"
+        x <- as.numeric(unlist(snsr_sky_calco))
+        y <- log(avgo, base=exp(1))
+        title 		<- "Pac-Man Residual of the Mean TPW and Temperature Model\nCondition: Overcast"
 	}else{
-			x <- as.numeric(unlist(snsr_sky_calc))
-			y <- log(avg, base=exp(1))
-			title 		<- "Pac-Man Residual of the Mean TPW and Temperature Model\nCondition: Clear Sky"
+        x <- as.numeric(unlist(snsr_sky_calc))
+        y <- log(avg, base=exp(1))
+        title 		<- "Pac-Man Residual of the Mean TPW and Temperature Model\nCondition: Clear Sky"
 	}
 	# Finds and removes NaNed values from the dataset
 	nans <- c(grep("NaN", y)); nans <- append(nans, grep("NaN", x))
 	x <- x[-(nans)]; y <- y[-(nans)]
 	pac.resid(x, y, title, c("Zenith Sky Temperature", "degC"))
 }
-
+### charts1
 ## Overcast Condition Percentage (bar)
+###
 charts1 	<- function(...){
-	out_sky_inf <- inf_counter_sky(bool=TRUE)
-	out_skyo_inf <- inf_counter_skyo(bool=TRUE)
-	snsr_sky_inf <- snsr_skyo_inf <- list()
-	for (i in seq(1, length(snsr_sky))){
-		snsr_sky_inf[[ paste("snsr_sky_inf",i,sep="") ]] <- out_sky_inf[[i]]
-		snsr_skyo_inf[[ paste("snsr_skyo_inf",i,sep="") ]] <- out_skyo_inf[[i]]
-	}
+    for (i in 1:length(snsr_name)){
+        snsr_sky[[ paste("snsr_sky",i,sep="") ]] <- as.numeric(unlist(overcast[grep("clear_sky", names(overcast), fixed=TRUE)[1]+i-1]))
+    	snsr_skyo[[ paste("snsr_skyo",i,sep="") ]] <- as.numeric(unlist(overcast[grep("over_sky", names(overcast), fixed=TRUE)[1]+i-1]))
+    }
+
 	par(mar=c(0, 0, 0,0), oma=c(0,0,0,0), xpd=TRUE)
 	for (count in 1:length(snsr_name)){
-			norm	<- length(na.omit(unlist(snsr_sky_inf[count])))
-			over	<- length(na.omit(unlist(snsr_skyo_inf[count])))
+            test <- unlist(snsr_sky[count])
+            testo <- unlist(snsr_skyo[count])
+            testo[is.finite(testo)] <- NA
+            test[is.finite(test)] <- NA
 
-			norm_na <- length(unlist(snsr_sky_inf[count])) - norm
-			over_na <- length(unlist(snsr_skyo_inf[count])) - over
+            norm_inf <- length(na.omit(test))
+            over_inf <- length(na.omit(testo))
 
-			slices 	<- matrix(c(norm, over, norm_na, over_na), nrow=4, byrow=TRUE)
-			title 	<- c("Clear Sky","Overcast", "Clear Sky NaN", "Overcast NaN")
-			pct 	<- round(rev(slices)/sum(rev(slices))*100, 1)
+			norm	<- length(na.omit(unlist(snsr_sky[count]))) - norm_inf
+			over	<- length(na.omit(unlist(snsr_skyo[count]))) - over_inf
 
-			color 	<- c("#FFFFFF", "#000000", "#D6D6D6", "#616161")
+			norm_na <- length(unlist(snsr_sky[count])) - norm - norm_inf
+			over_na <- length(unlist(snsr_skyo[count])) - over - over_inf
 
-			par(mar=c(7.1, 7.1, 7.1, 1.3), xpd=TRUE)
-			bar <- barplot(rev(slices), names.arg=rev(title), col=rev(color), xlim=c(0,max(slices)*1.5),
-			horiz=TRUE, las=1,xlab="Samples", axes=FALSE, main=sprintf("Overcast Condition Percentage: %s", gsub("_", " ",snsr_name[count])))
-			axis(side = 1, labels=TRUE, las=1)
-			minor.tick(nx=2, ny=1, tick.ratio=0.5, x.args = list(), y.args = list())
+			slices  <- data.frame(B=c(over, over_na, over_inf),A=c(norm,norm_na, norm_inf))
 
-			for (i in 1:length(slices)){
-				text(slices[2]*1.5, bar[i], labels=sprintf('%s %%', as.character(pct[i])))
+			title 	<- c("Overcast","Clear Sky")
+			pct 	<- data.frame(B=c(over/length(unlist(snsr_skyo[count]))*100, over_na/length(unlist(snsr_skyo[count]))*100, over_inf/length(unlist(snsr_skyo[count]))*100),A=c(norm/length(unlist(snsr_sky[count]))*100, norm_na/length(unlist(snsr_sky[count]))*100,norm_inf/length(unlist(snsr_sky[count]))*100))
+
+    		par(mar=c(7.1, 7.1, 7.1, 1.3), xpd=TRUE)
+			bar <- barplot(as.matrix(slices),names.arg=title, las=1, ylim=c(0,max(length(unlist(snsr_sky[count])),length(unlist(snsr_skyo[count])))*1.5),xlab="Samples",
+			horiz=FALSE, axes=FALSE,main=sprintf("Data Type Distribution: %s", gsub("_", " ",snsr_name[count])))
+
+            slices <- as.matrix(slices)
+			axis(side = 2, labels=TRUE, las=1)
+			minor.tick(nx=1, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
+
+			for (i in 1:2){
+				text(bar[i],max(length(unlist(snsr_sky[count])),length(unlist(snsr_skyo[count])))*1.5, labels=sprintf('%s %%', as.character(round(pct[i],1))))
 			}
 	}
 }
-
+### poster1
 ## Main plots for poster
+###
 poster1 <- function(...){
 	for (i in 1:length(sensor[,5])){
 		if(sensor[i,5] == FALSE){
@@ -1183,7 +1160,9 @@ poster1 <- function(...){
 	mtext("Condition: Overcast", outer=TRUE, cex=0.75, line=-1.5, at=c(x=0.76))
 	mtext("Condition: Clear Sky", outer=TRUE, cex=0.75, line=-1.5, at=c(x=0.26))
 }
-### Plots Galore for poster
+### poster2
+## Plots Galore for poster
+###
 poster2 <- function(...){
 	## Layout/Margin Configuration
 		par(mar=c(3,3, 3, 1), oma=c(1,1.5,0,0), xpd=FALSE)
@@ -1232,7 +1211,7 @@ poster2 <- function(...){
 		legend("topleft", legend=unique(pw_place), col=colscheme(range), pch=16)
 
 	## Total Mean PW Temperature Correlation with exponential regression
-		exp_reg <- exp_regression(as.numeric(unlist(snsr_sky_calc)), avg)
+		exp_reg <- exp.regression(as.numeric(unlist(snsr_sky_calc)), avg)
 
 		ymax = max(exp_reg$y, na.rm=TRUE)
 		ymin = min(exp_reg$y, na.rm=TRUE)
@@ -1263,7 +1242,9 @@ poster2 <- function(...){
 	# Layout configuration for preceding plots
 		layout(matrix(c(1), 2, 2, byrow=TRUE))
 }
-### Instrumentation Barplots
+### poster3
+## Instrumentation Barplots
+###
 poster3 <- function(...){
 	out_sky_inf <- inf_counter_sky(bool=TRUE)
 	out_skyo_inf <- inf_counter_skyo(bool=TRUE)
@@ -1315,8 +1296,11 @@ poster3 <- function(...){
 		title("Condition Distribution by Sensor", line=3)
 		legend(5, 5,legend = title, fill=color)
 	}
-
+### instr
 ## Plots ground and sky temperature measurements for each individual sensor
+## Function Arguments
+# overcast - the condition of data (clear sky/overcast)
+###
 instr 	<- function(...,overcast=args$overcast){
 	# X axis limits
 	for (count in col_snsr){
@@ -1386,65 +1370,6 @@ instr 	<- function(...,overcast=args$overcast){
 			}
 		}
 	}
-}
-
-## Off-site Ground Temperature Time Series
-dev1	<- function(...,overcast=args$overcast){
-	#Margin Configuration
-	par(mar=c(5.1, 5.1, 5.1, 5.3), xpd=TRUE)
-	# Limits of the x-direction
-	xmin <- min(clear_date, na.rm=TRUE)
-	xmax <- max(clear_date, na.rm=TRUE)
-	if(overcast){
-		ymax		<- max(as.numeric(temp_gro_offo), na.rm=TRUE)
-		ymin		<- min(as.numeric(temp_gro_offo), na.rm=TRUE)
-		range 	<- temp_gro_offo
-		title 	<- "Off-Site Ground Temperature Time Series \n Condition: Overcast"
-		date 		<- over_date
-	}else{
-		ymax		<- max(as.numeric(unlist(temp_gro_off)), na.rm=TRUE)
-		ymin		<- min(as.numeric(unlist(temp_gro_off)), na.rm=TRUE)
-		range 	<- temp_gro_off
-		title 	<- "Off-Site Ground Temperature Time Series \n Condition: Clear Sky"
-		date 		<- clear_date
-	}
-	plot(date, unlist(range[1]), xlab="Date", ylab="Temperature [C]", xaxt='n',
-		 xlim=c(xmin, xmax), ylim=c(ymin, ymax), main=title, pch=16, col=pw_color[1])
-	 axis(1, at=seq(from=xmin, to=xmax, length.out=5), labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%d %b %Y"))
-
-	for(i in 2:length(range)){
-		points(date, unlist(range[i]), pch=16, col=temp_col[i])
-	}
-	legend("topright", inset=c(-0.205, 0), legend=c(temp_place), col=temp_col, pch=c(16,16, 16), cex=0.95)
-}
-## Off-site Sky Temperature Time Series
-dev2  <- function(overcast=args$overcast){
-	# Margin Configuration
-	par(mar=c(5.1, 5.1, 5.1, 5.3), xpd=TRUE)
-	# Limits of the x-direction
-	xmin <- min(clear_date, na.rm=TRUE)
-	xmax <- max(clear_date, na.rm=TRUE)
-	if(overcast){
-		ymax		<- max(as.numeric(temp_sky_offo), na.rm=TRUE)
-		ymin		<- min(as.numeric(temp_sky_offo), na.rm=TRUE)
-		range 	<- temp_sky_offo
-		title 	<- "Off-Site Sky Temperature Time Series \n Condition: Overcast"
-		date 		<- over_date
-	}else{
-		ymax		<- max(as.numeric(unlist(temp_sky_off)), na.rm=TRUE)
-		ymin		<- min(as.numeric(unlist(temp_sky_off)), na.rm=TRUE)
-		range 		<- temp_sky_off
-		title 		<- "Off-Site Sky Temperature Time Series \n Condition: Clear Sky"
-		date 		<- clear_date
-	}
-	plot(date, unlist(range[1]), xlab="Date", ylab="Temperature [C]", xaxt='n',
-		 xlim=c(xmin, xmax), ylim=c(ymin, ymax), main=title, pch=16, col=pw_color[1])
-	 axis(1, at=seq(from=xmin, to=xmax, length.out=5), labels=format(as.Date(seq(from=xmin, to=xmax, length.out=5)), "%d %b %Y"))
-
-	for(i in 2:length(range)){
-		points(date, unlist(range[i]), pch=16, col=temp_col[i])
-	}
-	legend("topright", inset=c(-0.205, 0), legend=c(temp_name), col=temp_col, pch=c(16,16, 16), cex=0.95)
 }
 
 if(args$instrument){
@@ -1556,11 +1481,13 @@ if(args$set == "i"){
 	if (args$overcast){
 	# Overcast Condition
 		cat(magenta("Condition:"), "Overcast\n")
-		sname_pub <- sprintf("../figs/results/time_series_overcast.pdf") # File name of saved pdf
+		sname_pub <- sprintf("../figs/time_series_overcast.pdf") # File name of saved pdf
+        date <- over_date
 	}else{
 	# Clear Sky condition
 		cat(magenta("Condition:"), "Clear Sky\n")
-		sname_pub <- sprintf("../figs/results/time_series.pdf") # File name of saved pdf
+		sname_pub <- sprintf("../figs/time_series.pdf") # File name of saved pdf
+		date <- clear_date
 	}
 	# Plots available with this option
 	cat(green("[1]"), "Sky Temperature Time Series\n")
@@ -1577,27 +1504,27 @@ if(args$set == "i"){
 	# Saves plots
 	for (i in list(sname_pub)){
 		save(c(
-			time1(overcast=args$overcast),
-			time2(overcast=args$overcast),
-			time3(overcast=args$overcast),
-			time4(overcast=args$overcast),
-			time5(overcast=args$overcast),
-			time6(overcast=args$overcast),
-			time7(overcast=args$overcast),
-			time8(overcast=args$overcast),
-			time9(overcast=args$overcast),
-			time10(overcast=args$overcast)), i)
+			time1(date, args$overcast),
+			time2(date, args$overcast),
+			time3(date, args$overcast),
+			time4(date, args$overcast),
+			time5(date, args$overcast),
+			time6(date, args$overcast),
+			time7(date, args$overcast),
+			time8(date, args$overcast),
+			time9(date, args$overcast),
+			time10(date, args$overcast)), i)
 			cat(green(sprintf("Plot set downloaded to %s\n", i)))
 	}
 }else if(args$set == "a"){
 	if(args$overcast){
 	# Overcast condition
 		cat(magenta("Condition:"), "Overcast\n")
-		sname_pub <- sprintf("../figs/results/analytics_overcast.pdf") # File name of saved pdf
+		sname_pub <- sprintf("../figs/analytics_overcast.pdf") # File name of saved pdf
 	}else{
 	# Clear Sky condition
 		cat(magenta("Condition:"), "Clear Sky\n")
-		sname_pub <- sprintf("../figs/results/analytics.pdf") # File name of saved pdf
+		sname_pub <- sprintf("../figs/analytics.pdf") # File name of saved pdf
 
 	}
 	# Plots available with this option
@@ -1609,11 +1536,11 @@ if(args$set == "i"){
 	# Saves plots
 	for (i in list(sname_pub)){
 		save(c(
-			plots1(overcast=args$overcast),
-			plots2(overcast=args$overcast),
-			plots3(overcast=args$overcast),
-			plots4(overcast=args$overcast),
-			plots5(overcast=args$overcast)), i)
+			plots1(args$overcast),
+			plots2(args$overcast),
+			plots3(args$overcast),
+			plots4(args$overcast),
+			plots5(args$overcast)), i)
 		cat(green(sprintf("Plot set downloaded to %s\n", i)))}
 }else if(args$set == "c"){
 	# Plots available with this option
@@ -1621,7 +1548,7 @@ if(args$set == "i"){
 		cat(green(sprintf("[%s]", i)), sprintf("Overcast Condition Percentage: %s\n", gsub("_", " ",snsr_name[i])))
 	}
 	# Saves plots
-	sname_pub 	<- sprintf("../figs/results/charts.pdf")
+	sname_pub 	<- sprintf("../figs/charts.pdf")
 
 	save(c(charts1()), sname_pub)
 	cat(green(sprintf("Plot set downloaded to %s\n", sname_pub)))
