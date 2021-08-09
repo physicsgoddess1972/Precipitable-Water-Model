@@ -93,6 +93,7 @@ If you would like to add temperature and precipitable water measurements to our 
 <a href="./index.html#data-format">documentation page</a>. To contribute datasets follow the procedure in this section:
 <br><br>
 <b>We should make note that the only prerequisite for this deployment system is a GitHub account. </b>
+<div class="collapsible_1">
 <table class="usage">
 <tbody>
 <tr style="border: 0px;">
@@ -117,7 +118,7 @@ If you would like to add temperature and precipitable water measurements to our 
     </div>
 </div>
 </div>
-</div></div></div></div>
+</div></div></div></div></div>
 <div id="give-code">
 <div class="collapsible">
 <div class="collapsible-header">
