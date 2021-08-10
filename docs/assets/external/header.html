@@ -10,7 +10,7 @@
 <script>
 function w3_toggle() {
 	console.log(getComputedStyle(document.getElementsByClassName('sidebar')[0])['display'])
-	if (getComputedStyle(document.getElementsByClassName('sidebar')[0])['display'].includes('block')){
+	if (getComputedStyle(document.getElementsByClassName('sidebar')[0])['display'].includes('flex')){
 	    document.getElementsByClassName("sidebar")[0].style.display = "none";
 	} else {
 	   document.getElementsByClassName("sidebar")[0].style.display = "flex";
