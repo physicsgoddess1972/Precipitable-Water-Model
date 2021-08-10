@@ -9,7 +9,7 @@
 </div>
 <script>
 function w3_toggle() {
-	console.log(getComputedStyle(document.getElementsByClassName('sidebar')))
+	console.log(getComputedStyle(document.getElementsByClassName('sidebar')[0]))
 	if (getComputedStyle(document.getElementsByClassName('sidebar')[0]).includes('block')){
 	    document.getElementsByClassName("sidebar")[0].style.display = "none";
 	} else {
