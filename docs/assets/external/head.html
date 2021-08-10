@@ -3,18 +3,17 @@
 <script rel="preload" src='assets/js/script.js'></script>
 <script rel="preload" src="assets/js/materialize.min.js"></script>
 <script rel="preload" src="assets/js/layout.js"></script>
-<script rel="preload" src="assets/js/sidenav.js"></script>
 <script rel="preload" src="assets/js/bootstrap.min.js"></script>
-
 <script rel="preload">
   $(function(){
     $("#modal-maintainers").load("assets/external/modal_maintainers.html");
     $("#modal-introduction").load("assets/external/modal_introduction.html");
     $("#bottom-nav").load("assets/external/bottom_nav.html");
     $("#side-nav").load("assets/external/side_nav.html");
-    $("#top-bar").load("assets/external/header.html");
+    $('#top-bar').load("assets/external/header.html");
   });
 </script>
+
 <script id="content">
   Flatdoc.run({
    fetcher: Flatdoc.github('physicsgoddess1972/Precipitable-Water-Model', 'file_name', 'branch')
