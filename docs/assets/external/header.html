@@ -1,5 +1,7 @@
 <div class="mdl-layout__header-row">
-	<a href="#" onclick="w3_toggle()"><i class="material-icons">menu</i></a>
+	<button type="button" id="sidebarCollapse" class="btn btn-info">
+		<i class="material-icons">menu</i>
+	</button>
 	<span class="mdl-layout-title">Precipitable Water Model</span>
 	<div class="mdl-layout-spacer" style="padding-right: 50%;"></div>
 	<a href="changelog.html#2.0">
@@ -8,13 +10,9 @@
 	</a>
 </div>
 <script>
-function w3_toggle() {
-	console.log(getComputedStyle(document.getElementById('side-nav'))['display'])
-	if (getComputedStyle(document.getElementById('side-nav'))['display'].includes('flex')){
-	    document.getElementById('side-nav').style.display = "none";
-	    document.getElementById("main").style.marginLeft = "25%";
-	} else {
-	   document.getElementById('side-nav').style.display = "flex";
-	}
-}
+$(document).ready(function () {
+    $('#sidebarCollapse').on('click', function () {
+        $('#sidebar').toggleClass('active');
+    });
+});
 </script>
