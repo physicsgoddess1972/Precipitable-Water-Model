@@ -9,11 +9,11 @@
 </div>
 <script>
 function w3_toggle() {
-	console.log(getComputedStyle(document.getElementsByClassName('sidebar')[0])['display'])
-	if (getComputedStyle(document.getElementsByClassName('sidebar')[0])['display'].includes('flex')){
-	    document.getElementsByClassName("sidebar")[0].style.display = "none";
+	console.log(getComputedStyle(document.getElementById('side-nav'))['display'])
+	if (getComputedStyle(document.getElementById('side-nav'))['display'].includes('flex')){
+	    document.getElementById('side-nav').style.display = "none";
 	} else {
-	   document.getElementsByClassName("sidebar")[0].style.display = "flex";
+	   document.getElementById('side-nav').style.display = "flex";
 	}
 }
 </script>
