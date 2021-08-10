@@ -10,10 +10,10 @@
 <script>
 function w3_toggle() {
 	console.log(getComputedStyle(document.getElementsByClassName('sidebar')[0])['display'])
-	if (getComputedStyle(document.getElementsByClassName('sidebar')[0]).includes('block')){
+	if (getComputedStyle(document.getElementsByClassName('sidebar')[0])['display'].includes('block')){
 	    document.getElementsByClassName("sidebar")[0].style.display = "none";
 	} else {
-	   document.getElementsByClassName("sidebar")[0].style.display = "block";
+	   document.getElementsByClassName("sidebar")[0].style.display = "flex";
 	}
 }
 </script>
