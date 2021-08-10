@@ -1,5 +1,5 @@
 <div class="mdl-layout__header-row">
-	<a href="#" data-target="nav_accordion" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+	<a href="#" onclick="w3_toggle()"><i class="material-icons">menu</i></a>
 	<span class="mdl-layout-title">Precipitable Water Model</span>
 	<div class="mdl-layout-spacer" style="padding-right: 50%;"></div>
 	<a href="changelog.html#2.0">
@@ -7,3 +7,13 @@
 		<span class="badge position-absolute translate-middle bg-warning">1</span>
 	</a>
 </div>
+<script>
+function w3_toggle() {
+	console.log(getComputedStyle('.sidebar'))
+	if (getComputedStyle('.sidebar').includes('block')){
+	    document.getElementsByClassName("sidebar")[0].style.display = "none";
+	} else {
+	   document.getElementsByClassName("sidebar")[0].style.display = "block";
+	}
+}
+</script>
