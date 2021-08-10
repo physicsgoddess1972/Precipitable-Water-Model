@@ -12,6 +12,7 @@ function w3_toggle() {
 	console.log(getComputedStyle(document.getElementById('side-nav'))['display'])
 	if (getComputedStyle(document.getElementById('side-nav'))['display'].includes('flex')){
 	    document.getElementById('side-nav').style.display = "none";
+	    document.getElementById("main").style.marginLeft = "25%";
 	} else {
 	   document.getElementById('side-nav').style.display = "flex";
 	}
