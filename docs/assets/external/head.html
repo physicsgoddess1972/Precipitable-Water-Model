@@ -17,14 +17,12 @@
 </script>
 <script>
 document.getElementsByTagName('body')[0].addEventListener('click', function(e) {
-	console.log(e.target.getAttribute('id'))
-	console.log(e.target.parentElement)
-	console.log(e.target.parentElement.tagName)
+	console.log(e.target.className)
 	if (e.target.getAttribute('id') != 'pain' && e.target.getAttribute('id') != 'icon-of-pain'){
 		$("#pain").attr("aria-expanded","true");
 		$("#side-nav").attr("aria-hidden","false");
 		document.getElementById('side-nav').classList.remove("is-visible");
-	} else if (e.target.className == 'mdl-navigation__link'){
+	} else if (e.target.classList.contains('mdl-navigation__link')){
 		console.log("Pass 1")
 	} else {
 		$("#pain").attr("aria-expanded","false");
