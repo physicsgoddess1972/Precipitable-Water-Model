@@ -19,12 +19,12 @@
 document.getElementsByTagName('body')[0].addEventListener('click', function(e) {
 	console.log(e.target.getAttribute('id'))
 	console.log(e.target.parentElement)
-	console.log(e.target.parentElement.tgName)
+	console.log(e.target.parentElement.tagName)
 	if (e.target.getAttribute('id') != 'pain' && e.target.getAttribute('id') != 'icon-of-pain'){
 		$("#pain").attr("aria-expanded","true");
 		$("#side-nav").attr("aria-hidden","false");
 		document.getElementById('side-nav').classList.remove("is-visible");
-	} else if (e.target.parentElement.tgName == 'NAV'){
+	} else if (e.target.parentElement.tagName == 'NAV'){
 		console.log("Pass 1")
 	} else {
 		$("#pain").attr("aria-expanded","false");
