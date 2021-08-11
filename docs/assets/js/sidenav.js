@@ -27,8 +27,6 @@ myObj.gnc = function(){
 
             let nextEl = element.nextElementSibling;
             let parentEl = element.parentElement;
-            console.log(nextEl)
-            console.log(parentEl)
             if (nextEl) {
                 let mycollapse = new bootstrap.Collapse(nextEl);
 
