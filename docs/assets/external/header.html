@@ -13,9 +13,11 @@ $( ".mdl-layout__drawer-button" ).click(function() {
 	if (document.getElementById('pain').getAttribute('aria-expanded').includes('true')){
 		$("#pain").attr("aria-expanded","false");
 		$(".mdl-layout__drawer").attr("aria-expanded","false");
+		$(".mdl-layout__drawer").classList.remove("is-visible");
 	} else {
 		$("#pain").attr("aria-expanded","true");
 		$(".mdl-layout__drawer").attr("aria-expanded","true");
+		$(".mdl-layout__drawer").classList.add("is-visible");
 	}
 });
 </script>
