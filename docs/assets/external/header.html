@@ -8,21 +8,23 @@
 	</a>
 </div>
 <script>
-console.log(document.getElementById('side-nav').classList.contains('is-visible'));
-if (document.getElementById('side-nav').classList.contains('is-visible')){
-	console.log("Pass1")
-	$( ".mdl-layout__content" ).click(function() {
-		console.log("Pass 2")
-		$("#pain").attr("aria-expanded","true");
-		$("#side-nav").attr("aria-hidden","false");
-		document.getElementById('side-nav').classList.remove("is-visible");
-	  });
-} else {
-	$( ".mdl-layout__drawer-button" ).click(function() {
-		$("#pain").attr("aria-expanded","false");
-		$("#side-nav").attr("aria-hidden","true");
-		document.getElementById('side-nav').classList.add("is-visible");
-	});
+document.getElementById('page').addEventListener('click', function(e) {
 	console.log(document.getElementById('side-nav').classList.contains('is-visible'));
-}
+	if (document.getElementById('side-nav').classList.contains('is-visible')){
+		console.log("Pass1")
+		$( ".mdl-layout__content" ).click(function() {
+			console.log("Pass 2")
+			$("#pain").attr("aria-expanded","true");
+			$("#side-nav").attr("aria-hidden","false");
+			document.getElementById('side-nav').classList.remove("is-visible");
+		  });
+	} else {
+		$( ".mdl-layout__drawer-button" ).click(function() {
+			$("#pain").attr("aria-expanded","false");
+			$("#side-nav").attr("aria-hidden","true");
+			document.getElementById('side-nav').classList.add("is-visible");
+		});
+		console.log(document.getElementById('side-nav').classList.contains('is-visible'));
+	}
+});
 </script>
