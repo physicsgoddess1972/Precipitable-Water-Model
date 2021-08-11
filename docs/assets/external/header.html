@@ -11,17 +11,11 @@
 $(document).ready(function(){
 	console.log(document.getElementById('side-nav').classList.contains('is-visible'))
 	if (document.getElementById('side-nav').classList.contains('is-visible')){
-		document.getElementById('page').onclick = function(e) {
-			  if(e.target != document.getElementById('side-nav')) {
-			      console.log('You clicked outside');
-				$("#pain").attr("aria-expanded","true");
-				$("#side-nav").attr("aria-hidden","false");
-				document.getElementById('side-nav').classList.remove("is-visible");
-			  } else {
-			      console.log('You clicked inside');
-			  }
+		$( "#page" ).click(function() {
+			$("#pain").attr("aria-expanded","true");
+			$("#side-nav").attr("aria-hidden","false");
+			document.getElementById('side-nav').classList.remove("is-visible");
 		  }
-		
 	} else {
 		$( ".mdl-layout__drawer-button" ).click(function() {
 			$("#pain").attr("aria-expanded","false");
