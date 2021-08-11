@@ -8,7 +8,7 @@
 	</a>
 </div>
 <script>
-document.getElementById('page').addEventListener('click', function(e) {
+document.getElementsByClassName('demo-layout')[0].addEventListener('click', function(e) {
 	if (document.getElementById('side-nav').classList.contains('is-visible')){
 		$( ".mdl-layout__content" ).click(function() {
 			$("#pain").attr("aria-expanded","true");
