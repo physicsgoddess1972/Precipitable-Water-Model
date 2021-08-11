@@ -16307,9 +16307,7 @@ td,th {
     padding: 0!important
 }
 span.badge {
-    min-width: 3rem;
     padding: 0 6px;
-    margin-left: 14px;
     font-size: 1rem;
     line-height: 22px;
     height: 22px;
