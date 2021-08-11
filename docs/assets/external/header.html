@@ -12,12 +12,12 @@ $( ".mdl-layout__drawer-button" ).click(function() {
 	console.log(document.getElementById('pain').getAttribute('aria-expanded'))
 	if (document.getElementById('pain').getAttribute('aria-expanded').includes('true')){
 		$("#pain").attr("aria-expanded","false");
-		$(".mdl-layout__drawer").attr("aria-expanded","false");
-		$(".mdl-layout__drawer").classList.remove("is-visible");
+		$("#side-nav").attr("aria-expanded","false");
+		document.getElementById('side-nav').classList.remove("is-visible");
 	} else {
 		$("#pain").attr("aria-expanded","true");
-		$(".mdl-layout__drawer").attr("aria-expanded","true");
-		$(".mdl-layout__drawer").classList.add("is-visible");
+		$("#side-nav").attr("aria-expanded","true");
+		document.getElementById('side-nav').classList.add("is-visible");
 	}
 });
 </script>
