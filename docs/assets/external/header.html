@@ -11,7 +11,9 @@
 $(document).ready(function(){
 	console.log(document.getElementById('side-nav').classList.contains('is-visible'))
 	if (document.getElementById('side-nav').classList.contains('is-visible')){
-		$( "#page" ).click(function() {
+		console.log("Pass1")
+		$( ".mdl-layout__content" ).click(function() {
+			console.log("Pass 2")
 			$("#pain").attr("aria-expanded","true");
 			$("#side-nav").attr("aria-hidden","false");
 			document.getElementById('side-nav').classList.remove("is-visible");
