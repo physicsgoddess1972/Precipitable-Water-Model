@@ -17,6 +17,7 @@
 </script>
 <script>
 document.getElementsByTagName('body')[0].addEventListener('click', function(e) {
+	console.log(e.target.attributes)
 	console.log(e.target.hasAttribute('pain'))
 	console.log(e.target.hasAttribute('icon-of-pain'))
 	if (!e.target.hasAttribute('pain')){
