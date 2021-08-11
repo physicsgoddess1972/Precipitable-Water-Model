@@ -19,7 +19,7 @@
 document.getElementsByTagName('body')[0].addEventListener('click', function(e) {
 	console.log(e)
 	console.log(e.target)
-	if (!e.includes('<i class="material-icons">menu</i>')){
+	if (e.id != 'icon-of-pain'){
 		$("#pain").attr("aria-expanded","true");
 		$("#side-nav").attr("aria-hidden","false");
 		document.getElementById('side-nav').classList.remove("is-visible");
