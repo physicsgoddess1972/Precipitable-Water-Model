@@ -24,7 +24,7 @@ document.getElementsByTagName('body')[0].addEventListener('click', function(e) {
 		$("#pain").attr("aria-expanded","true");
 		$("#side-nav").attr("aria-hidden","false");
 		document.getElementById('side-nav').classList.remove("is-visible");
-	} else if (e.target.parentElement.tagName == 'NAV'){
+	} else if (e.target.className == 'mdl-navigation__link'){
 		console.log("Pass 1")
 	} else {
 		$("#pain").attr("aria-expanded","false");
