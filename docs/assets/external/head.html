@@ -17,8 +17,9 @@
 </script>
 <script>
 document.getElementsByTagName('body')[0].addEventListener('click', function(e) {
+	console.log(e.target.hasAttribute('pain'))
 	console.log(e.target.hasAttribute('icon-of-pain'))
-	if (!e.target.hasAttribute('icon-of-pain')){
+	if (!e.target.hasAttribute('pain')){
 		$("#pain").attr("aria-expanded","true");
 		$("#side-nav").attr("aria-hidden","false");
 		document.getElementById('side-nav').classList.remove("is-visible");
