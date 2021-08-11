@@ -10,13 +10,9 @@
 <script>
 $( ".mdl-layout__drawer-button" ).click(function() {
 	console.log(document.getElementById('pain').getAttribute('aria-expanded'))
-	if (document.getElementById('pain').getAttribute('aria-expanded').includes('true')){
-// 		$("#pain").attr("aria-expanded","false");
-// 		$("#side-nav").attr("aria-hidden","false");
-		document.getElementById('side-nav').classList.remove("is-visible");
-	} else {
-// 		$("#pain").attr("aria-expanded","true");
-// 		$("#side-nav").attr("aria-hidden","false");
+	if (document.getElementById('pain').getAttribute('aria-expanded').includes('false')){
+		$("#pain").attr("aria-expanded","true");
+		$("#side-nav").attr("aria-hidden","false");
 		document.getElementById('side-nav').classList.add("is-visible");
 	}
 });
