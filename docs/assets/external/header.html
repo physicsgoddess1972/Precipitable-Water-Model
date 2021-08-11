@@ -1,5 +1,5 @@
 <div class="mdl-layout__header-row">
-	<i id="sidebarCollapse" class="material-icons">menu</i>
+	<a href="#" data-target="nav_accordion" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 	<span class="mdl-layout-title">Precipitable Water Model</span>
 	<div class="mdl-layout-spacer" style="padding-right: 50%;"></div>
 	<a href="changelog.html#2.0">
@@ -7,29 +7,8 @@
 		<span class="badge position-absolute translate-middle bg-warning">1</span>
 	</a>
 </div>
-<style>
-#side-nav {
-    min-width: 250px;
-    max-width: 250px;
-}
-
-#side-nav.active {
-    margin-left: -250px;
-}
-@media (max-width: 768px) {
-    #side-nav {
-        margin-left: -250px;
-    }
-    #side-nav.active {
-        margin-left: 0;
-    }
-}
-</style>
 <script>
-$(document).ready(function () {
-
-    $('#sidebarCollapse').on('click', function () {
-        $('#side-nav').toggleClass('active');
-    });
+$(document).ready(function(){
+	$('.sidenav').sidenav();
 });
 </script>
