@@ -19,9 +19,10 @@
 
 	<link rel="stylesheet" href="assets/css/main.max.css">
 	<script src="assets/js/jquery.min.js"></script>
-	<script rel="preload" src="assets/js/materialize.min.js"></script>
  	<script>
-		$("#content").load("assets/external/head.html");
+		$.get('assets/external/head.html', function(response) {
+		        $('head').append(response);
+		});
 	</script>
  	<script type="text/javascript">var fname = "README.md"</script>
 	<script type="text/javascript">var bname = "master"</script>
