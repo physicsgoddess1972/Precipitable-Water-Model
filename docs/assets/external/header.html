@@ -7,21 +7,3 @@
 		<span class="badge position-absolute translate-middle bg-warning">1</span>
 	</a>
 </div>
-<script>
-console.log(document.getElementsByTagName('body')[0])
-document.getElementsByTagName('body')[0].addEventListener('click', function(e) {
-	if (document.getElementById('side-nav').classList.contains('is-visible')){
-		$( ".mdl-layout__content" ).click(function() {
-			$("#pain").attr("aria-expanded","true");
-			$("#side-nav").attr("aria-hidden","false");
-			document.getElementById('side-nav').classList.remove("is-visible");
-		  });
-	} else {
-		$( ".mdl-layout__drawer-button" ).click(function() {
-			$("#pain").attr("aria-expanded","false");
-			$("#side-nav").attr("aria-hidden","true");
-			document.getElementById('side-nav').classList.add("is-visible");
-		});
-	}
-});
-</script>
