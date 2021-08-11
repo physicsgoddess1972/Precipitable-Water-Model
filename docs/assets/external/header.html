@@ -9,7 +9,7 @@
 </div>
 <script>
 $(document).ready(function(){
-	console.log(document.getElementById('side-nav').classList.contains('is-visible'))
+	console.log(document.getElementById('side-nav').classList.contains('is-visible'));
 	if (document.getElementById('side-nav').classList.contains('is-visible')){
 		console.log("Pass1")
 		$( ".mdl-layout__content" ).click(function() {
@@ -24,6 +24,7 @@ $(document).ready(function(){
 			$("#side-nav").attr("aria-hidden","true");
 			document.getElementById('side-nav').classList.add("is-visible");
 		});
+		console.log(document.getElementById('side-nav').classList.contains('is-visible'));
 	}
 });
 </script>
