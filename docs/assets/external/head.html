@@ -17,8 +17,7 @@
 </script>
 <script>
 document.getElementsByTagName('body')[0].addEventListener('click', function(e) {
-	console.log(e)
-	console.log(e.target)
+	console.log(e.id)
 	if (e.id != 'icon-of-pain'){
 		$("#pain").attr("aria-expanded","true");
 		$("#side-nav").attr("aria-hidden","false");
