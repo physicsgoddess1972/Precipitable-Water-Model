@@ -1,4 +1,5 @@
 <div class="mdl-layout__header-row">
+	<div role="button" tabindex="0" class="mdl-layout__drawer-button" id="pain"><i class="material-icons">menu</i></div>
 	<span class="mdl-layout-title">Precipitable Water Model</span>
 	<div class="mdl-layout-spacer" style="padding-right: 50%;"></div>
 	<a href="changelog.html#2.0">
@@ -6,3 +7,15 @@
 		<span class="badge position-absolute translate-middle bg-warning">1</span>
 	</a>
 </div>
+<script>
+$( ".mdl-layout__drawer-button" ).click(function() {
+	console.log(document.getElementById('test').getAttribute('aria-expanded'))
+	if (document.getElementById('pain').getAttribute('aria-expanded').includes('true')){
+		$("#pain").attr("aria-expanded","false");
+		$(".mdl-layout__drawer").attr("aria-expanded","false");
+	} else {
+		$("#pain").attr("aria-expanded","true");
+		$(".mdl-layout__drawer").attr("aria-expanded","true");
+	}
+});
+</script>
