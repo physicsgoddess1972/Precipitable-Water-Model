@@ -8,23 +8,23 @@
 	</a>
 </div>
 <script>
-	
-$( ".mdl-layout__drawer-button" ).click(function() {
-	if (document.getElementById('pain').getAttribute('aria-expanded').includes('true')){
-		$("#pain").attr("aria-expanded","false");
-		$("#side-nav").attr("aria-hidden","true");
-		document.getElementById('side-nav').classList.add("is-visible");
-	} else {
+$(document).ready(function(){
+	if (document.getElementById('side-nav').classList.includes('is-visible')){
 		document.getElementById('page').onclick = function(e) {
 		  if(e.target != document.getElementById('side-nav')) {
 		      console.log('You clicked outside');
 			$("#pain").attr("aria-expanded","true");
 			$("#side-nav").attr("aria-hidden","false");
-		      	document.getElementById('side-nav').classList.remove("is-visible");
+			document.getElementById('side-nav').classList.remove("is-visible");
 		  } else {
 		      console.log('You clicked inside');
 		  }
-		}	
+	} else {
+		$( ".mdl-layout__drawer-button" ).click(function() {
+			$("#pain").attr("aria-expanded","false");
+			$("#side-nav").attr("aria-hidden","true");
+			document.getElementById('side-nav').classList.add("is-visible");
+		});
 	}
 });
 </script>
