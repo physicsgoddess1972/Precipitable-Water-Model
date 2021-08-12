@@ -1,6 +1,6 @@
 <script>$(document).ready(function(){$(".modal").modal({});});</script>
 <script>
-$.get('../util/maintainers.yml', function (data) {
+$.get('https://raw.githubusercontent.com/physicsgoddess1972/Precipitable-Water-Model/docs/util/maintainers.yml', function (data) {
     var thing = data.split("---");
     var spencer = thing[1].split('\r\n');
     var vicki = thing[2].split('\r\n');
