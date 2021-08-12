@@ -2,7 +2,7 @@
 <script>function getChcked(){var chks = document.querySelectorAll('input[type="checkbox"]');var checked = [];for(var i = 0; i < chks.length; i++){if(chks[i].checked){checked.push(chks[i].name)}}return checked;}</script>
 <script>var arr = [];$('#button').click(function(){{for (var i = 0; i < getChcked().length; i++){{arr.push('https://github.com/physicsgoddess1972/Precipitable-Water-Model/raw/pmat-'+ $('.tabs .active').attr('href').split('#').pop() + '/figs/results/' + getChcked()[i] + '.pdf')}}download_files(arr);}})</script>
 <div class="mdl-grid demo-content">
-<div class="mdl-shadow--2dp mdl-cell mdl-cell--stretch mdl-cell--12-col">
+<div class="mdl-shadow--2dp mdl-cell mdl-cell--stretch mdl-cell--12-col" style="background-color: white">
 	<div class="row">
 		<div class="col s12">
 			<ul class="tabs">

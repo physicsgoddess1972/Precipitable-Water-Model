@@ -17059,7 +17059,6 @@ h1 a,h2 a,h3 a,h4 a,h5 a,h6 a {
 }
 h1,h2,h3,h4,h5,h6 {
     font-size: 4.2rem;
-    line-height: 110%;
     margin: 2.8rem 0 1.68rem
 }
 h2,h3,h4,h5,h6 {
@@ -20711,7 +20710,7 @@ a.big.button:hover:visited {
     padding-bottom: 20rem
 }
 #give-data .panel .give-data {
-    padding-bottom: 35rem
+    padding-bottom: 28rem
 }
 @media only screen and (max-width: 900px) {
     #give-data .panel .give-data {
@@ -20747,7 +20746,7 @@ a.big.button:hover:visited {
 }
 @media only screen and (max-width: 668px) {
     #give-data .panel .give-data {
-        padding-bottom:38rem
+        padding-bottom:30rem
    }
 }
 @media only screen and (max-width: 563px) {

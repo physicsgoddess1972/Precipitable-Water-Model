@@ -1,15 +1,19 @@
 <script>
-    $(document).ready(function(){
-        $('.modal').modal({});
-    });
-    $( document ).ready(function() {
-        if (document.cookie.indexOf('visited=true') == -1){
-           $('#initial').modal('open');
-           var year =  1000*60*60*24*365;
-           var expires = new Date((new Date()).valueOf() + year);
-           console.log(expires)
-           document.cookie = "visited=true;expires=" + expires.toUTCString();
-       }
+var toastHTML = '<span style="width: 100%;text-align: center"><i class="material-icons">cookie</i><i class="material-icons">cookie</i><i class="material-icons">cookie</i><i class="material-icons">cookie</i><i class="material-icons">cookie</i><i class="material-icons">cookie</i><i class="material-icons">cookie</i><p>This site uses one cookie</p><button type="button" onclick="storeCookie()" class="mdl-button" style="color: white">Accept</button><button type="button" class="mdl-button" style="color: white">Refuse</button></span>';
+function storeCookie() {
+    if (document.cookie.indexOf('visited=true') == -1){
+       var year =  1000*60*60*24*365;
+       var expires = new Date((new Date()).valueOf() + year);
+       document.cookie = "visited=true;expires=" + expires.toUTCString();
+    }
+};
+$(document).ready(function(){
+    $('.modal').modal({});
+    if (document.cookie.indexOf('visited=true') == -1){
+        $('#initial').modal('open');
+        M.toast({html: toastHTML, 'displayLength': 1e+100});
+        $('#cookie-dialog').modal('open');
+    }
 });
 </script>
 <div class="modal" id="initial">
@@ -36,15 +40,15 @@
             </tr>
             <tr>
                 <td><i class="material-icons">public</i></td>
-                <td><a target="_blank" href="http://pharaohcola13.github.io">pharaohcola13.github.io</a></td>
+                <td><a target="_blank" class="web1"></a></td>
                 <td><i class="material-icons">public</i></td>
-                <td><a target="_blank" href="http://physicsgoddess1972.github.io">physicsgoddess1972.github.io</a></td>
+                <td><a target="_blank" class="web2"></a></td>
             </tr>
             <tr>
                 <td><i class="material-icons">alternate_email</i></td>
-                <td>spencer.riley@student.nmt.edu</td>
+                <td class="email1"></td>
                 <td><i class="material-icons">alternate_email</i></td>
-                <td>vicki.kelsey@student.nmt.edu</td>
+                <td class="email2"></td>
             </tr>
         </table>
     </div>

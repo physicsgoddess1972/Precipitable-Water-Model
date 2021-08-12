@@ -186,32 +186,6 @@ def dash():
         csvfile.write('\t</div>\t\n</div>\n</div>')
 
 
-def maintainer():
-    with open("./maintainers.yml") as f:
-        my_dict = list(yaml.load_all(f, Loader=yaml.FullLoader))
-    with open("../docs/assets/external/modal_maintainers.html", 'w', newline='') as csvfile:
-        csvfile.write('<script>$(document).ready(function(){$(".modal").modal({});});</script>\n')
-        csvfile.write('<link rel="stylesheet" href="assets/css/style.css">\n')
-        csvfile.write('<div class="modal" id="maintainers">\n')
-        csvfile.write('\t<div class="modal-content">\n')
-        csvfile.write('\t\t<h4>The Maintainers</h4>\n\t\t<hr>\n')
-        csvfile.write('\t\t<table>\n\t\t\t<tr>\n')
-        for i in my_dict:
-            csvfile.write('\t\t\t\t<td><i class="material-icons" style="padding: 5px">face</i></td>\n')
-            csvfile.write('\t\t\t\t<td>{}</td>\n'.format(i['name']))
-        csvfile.write('\t\t\t</tr>\n\t\t\t<tr>\n')
-        for i in my_dict:
-            csvfile.write('\t\t\t\t<td><i class="material-icons">public</i></td>\n')
-            csvfile.write('\t\t\t\t<td><a target="_blank" href="https://{0}">{0}</a></td>'.format(i['webpage']))
-        csvfile.write('\t\t\t</tr>\n\t\t\t<tr>\n')
-        for i in my_dict:
-            csvfile.write('\t\t\t\t<td><i class="material-icons">alternate_email</i></td>\n')
-            csvfile.write('\t\t\t\t<td>{}</td>\n'.format(i['email']))
-        csvfile.write('\t\t\t</tr>\n\t\t</table>\n\t</div>\n')
-        csvfile.write('\t<div class="modal-footer"><a href="#!" class="modal-close waves-effect waves-teal btn-flat" data-dismiss="maintainers">Continue</a></div>\n')
-        csvfile.write('</div>')
-
-
 if args.t == 'dash':
     dash()
 
@@ -220,6 +194,3 @@ if args.t == 'changelog':
 
 if args.t == 'research':
     research()
-
-if args.t == 'maintainers':
-    maintainer()
