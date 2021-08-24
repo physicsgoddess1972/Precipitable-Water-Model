@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 ####
-## Title: 	pmat.sh.sh
+## Title: 	pmat.sh
 ## Author: 	Spencer Riley / Vicki Kelsey
 ## Documentation Page: https://git.io/fjVHo
-## To get a list of arguments run [bash install.sh -h]
+## To get a list of arguments run [bash pmat.sh -h]
 ####
-while getopts "iR" opt; do
+while getopts "iRU" opt; do
   case "${opt}" in
     i)
         codename=$(lsb_release -a | cut -d':' -f 2 | sed -n 4p)
@@ -19,9 +19,9 @@ while getopts "iR" opt; do
         sudo apt update
         apt-cache policy docker-ce
         sudo apt install docker-ce
+        sudo docker pull ghcr.io/physicsgoddess1972/pmat
         ;;
     R)
-        sudo docker pull ghcr.io/physicsgoddess1972/pmat
         sudo docker container create --name pmat ghcr.io/physicsgoddess1972/pmat
         sudo docker start pmat
         sudo docker cp data/. pmat:/data
@@ -30,6 +30,9 @@ while getopts "iR" opt; do
         sudo docker cp pmat:/data/. data
         sudo docker stop pmat
         sudo docker rm pmat
+        ;;
+    U)
+        sudo docker pull ghcr.io/physicsgoddess1972/pmat
         ;;
     *)
         echo "Invalid option"

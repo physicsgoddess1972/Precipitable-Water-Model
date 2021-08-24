@@ -6,10 +6,6 @@
 ####
 
 # #!/usr/bin/env bash
-# cd ./util/
-# python3 data_import.py
-# cd ../
-
 N=100
 mlN="${3:-$N}"
 ts="\e[92mTime Series plots saved to figs/results/\e[0m"
