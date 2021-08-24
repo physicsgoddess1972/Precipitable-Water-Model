@@ -3,7 +3,7 @@
 ## Author: 	Spencer Riley / Vicki Kelsey
 ## Documentation Page: https://git.io/fjVHo
 ####
-import csv, os
+import csv, os, yaml
 import requests
 from numpy import *
 import pandas as pd
@@ -19,7 +19,6 @@ from mesowest import MesoWest
 
 from rich.panel import Panel
 
-
 from rich.progress import BarColumn, TextColumn, TimeRemainingColumn, Progress, track
 
 progress = Progress(TextColumn("[bold blue]{task.fields[filename]}", justify="right"),
@@ -29,25 +28,25 @@ progress = Progress(TextColumn("[bold blue]{task.fields[filename]}", justify="ri
 progress.print(Panel(
     "[bold deep_sky_blue2]Good Morning\nWelcome to the Data Extraction Module of the Precipitable Water Model. For more information about the model and the purpose of this tool, please visit the [link=https://git.io/fj5Xr]documentation page[/link]"))
 
+dir = "../tests/data/"
 ## Timeout Retry
 REQUESTS_MAX_RETRIES = int(os.getenv("REQUESTS_MAX_RETRIES", 10))
 adapter = requests.adapters.HTTPAdapter(max_retries=REQUESTS_MAX_RETRIES)
 
 ## Imports Wyoming and MesoWest Site IDs
-config = "../../data/import.conf"
-cnfg = loadtxt(config, dtype=str, delimiter=":")
+config = dir + "_pmat.yml"
+with open(config) as f:
+    cnfg = list(yaml.safe_load_all(f))
 
 ## Imports Sensor information
-instr = "../../data/instruments.conf"
-intr = loadtxt(instr, dtype=str, delimiter=",", unpack=True)[0]
 ## Data file used for model input
-fname = '../../data/master_data.csv'
+fname = dir + 'master_data.csv'
 ## Data file used for user input
-wname = '../../data/cool_data.csv'
+wname = dir + 'cool_data.csv'
 
 ## Stations used
-wy_station = cnfg[1][1].split(",")
-mw_station = cnfg[0][1].split(",")
+wy_station = list(map(lambda x : x['id'], cnfg[1][1]['wyoming']))
+mw_station = list(map(lambda x : x['id'], cnfg[1][0]['mesowest']))
 ## Hours to pull
 hour = [00, 12]
 
