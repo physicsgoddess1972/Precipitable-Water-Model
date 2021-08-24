@@ -7,8 +7,10 @@
 
 ## Necessary Libraries for the script to run, for installation run install.sh
 library(argparse); library(crayon); library(RColorBrewer); library(plotrix)
-library(Metrics); suppressMessages(library(Hmisc)); library(pracma)
-library(gdata)
+suppressPackageStartupMessages(library(Metrics))
+suppressPackageStartupMessages(library(Hmisc))
+suppressPackageStartupMessages(library(pracma))
+# suppressPackageStartupMessages(library(gdata))
 ## Custom Colors for cmd line features
 red 		<- make_style("red1")
 orange 		<- make_style("orange")
@@ -164,8 +166,14 @@ mean_filter <- function(pw, avg, percent){
         }
     }
     bad <- sort(unique(Reduce(c, bad)))
+	print(length(bad)/length(avg))
     good <- sort(unique(Reduce(c, good)))
     good <- good[!(good %in% bad)]
+	# print(length(bad)/length(avg) + length(good)/length(avg))
+	print(length(bad)/length(avg))
+	# print(length(bad)/length(avg))
+	# print(length(bad) + length(good))
+	print(length(avg))
     return(good)
 }
 data.partition <- function(x,y, train_size=0.7, rand_state=sample(1:2^15, 1)){
@@ -245,8 +253,7 @@ for (i in 1:length(col_pwtm)){
 	tmp_avg[[ paste("tmp_avg",i,sep="") ]] <- Reduce("+", tmp[[1]])/length(col_pwtm)
 }
 ## Takes super average of the precipitable water measurements
-avg 		<-  Reduce("+", pw_loc)/length(pw_loc)
-
+avg 		<-  ((2/6) * (Reduce("+", c(pw_loc[1],pw_loc[2])))) + ((1/6) * (Reduce("+", c(pw_loc[3],pw_loc[4]))))
 ### Overcast Data
 ## Pulls date from filter function (overcast)
 over_date  	<- overcast$over_date
@@ -347,64 +354,19 @@ exp_regression 	<- function(x,y){
 	rsq		<- summary(model.0)$r.squared
     # estimate from regression
 	est     <- exp(coef(model)[1]+coef(model)[2]*x)
+	print(model)
 	# accuracy of model
 	acc     <- sqrt((1/length(x))*(sum((est-y)^2)/length(x)))
     # Residual Standard Deiviation
 	S       <- sqrt(sum((est-y)^2)/(length(x) - 2))
 	# Root Square Mean Error
 	rsme    <- sqrt(sum((est-y)^2)/length(x))
-
-	print(acc)
 	# Function outputs
 	output 	<- list("x"=x, "y"=y, "newx"=newx, "model.0"=model.0, "xmin"=xmin, "xmax"=xmax,
 					"model"=model, "confint"=confint, "predint"=predint, "R2"=rsq, "S"=S, 'rsme'=rsme)
 	return (output)
 }
-### Instrumentation Barplots
-charts1 <- function(...){
-	par(oma = c(3, 3, 3,3), xpd=FALSE)
-	layout(matrix(c(1,2,3,4), 2, 2, byrow=TRUE))
 
-	# for (i in 1:length(sensor[,5])){
-	# 	if(sensor[i,5] == FALSE){
-	# 		snsr_sky[[i]] <- NULL; snsr_skyo[[i]] <- NULL
-	# 		snsr_gro[[i]] <- NULL; snsr_groo[[i]] <- NULL
-	# 		snsr_del[[i]] <- NULL; snsr_delo[[i]] <- NULL
-	# 		snsr_name[[i]] <- NULL
-	# 	}
-	# }
-	title 	<- c("Clear Sky","Overcast", "Clear Sky NaN", "Overcast NaN")
-	color 	<- c("#FFFFFF", "#000000", "#D6D6D6", "#616161")
-	par(mar=c(0, 2, 4,2), oma=c(2.5,0,0,0.5), xpd=TRUE)
-	layout(matrix(c(4,1,2,3), 2, 2, byrow=TRUE))
-
-	for(a in 1:length(snsr_name)){
-		norm	<- length(na.omit(as.numeric(unlist(snsr_sky[[a]]))))
-		over	<- length(na.omit(as.numeric(unlist(snsr_skyo[[a]]))))
-		norm_na <- length(unlist(snsr_sky[a])) - norm
-		over_na <- length(unlist(snsr_skyo[a])) - over
-        print(list(norm/length(unlist(snsr_sky[a])), norm_na/norm))
-
-		slices 	<- matrix(c(norm, over, norm_na, over_na), nrow=4, byrow=TRUE)
-		pct 	<- round(rev(slices)/sum(rev(slices))*100, 1)
-
-		bar <- barplot(rev(slices), col=rev(color),
-		horiz=TRUE, las=1,xlab=NA, axes=FALSE, xlim=c(0,600))
-		axis(side = 1, labels=TRUE, las=1, cex.axis=0.9)
-		minor.tick(nx=2, ny=1, tick.ratio=0.5, x.args = list(), y.args = list())
-		mtext(sprintf("%s", gsub("_", " ",snsr_name[a])), font=2, side=3, line=0)
-		mtext("N", side=1, line=1, at=640, cex=1)
-
-		for (i in 1:length(slices)){
-			text(slices[2]*1.5, bar[i], labels=sprintf('%s %%', as.character(pct[i])))
-		}
-		mtext(paste0("(", letters[a], ")"), side = 3, adj = 0, line = 0)
-
-	}
-	par(oma=c(4, 4, 4,4), mar=c(5,4,5,5), xpd=NA)
-	title("Condition Distribution by Sensor", line=3)
-	legend(5, 5,legend = title, fill=color)
-}
 figure1 <- function(x,y1,y2, x1,y3,y4, lim_s,lim_g, title_s,title_g){
     par(mar=c(5,5,0,0), oma = c(0, 0, 3, 3), xpd=FALSE)
 		layout(matrix(c(1,2,3,4), 2, 2, byrow=TRUE))
@@ -539,6 +501,50 @@ figure2 <- function(){
 		mtext(side = 4, line=3, "PWV [mm]")
 }
 ## Super Average Plot with Exponential Fit
+figure3_auto	<- function(...){
+	par(mar=c(5,5,0,0), oma = c(0, 0, 3, 3), xpd=FALSE)
+	layout(matrix(c(1,1,1,1), 1, 1, byrow=TRUE))
+	snsr_sky$snsr_sky1 <- as.numeric(unlist(replace(snsr_sky$snsr_sky1, snsr_sky$snsr_sky1 == "-Inf", NaN)))
+	snsr_sky$snsr_sky2 <- as.numeric(unlist(replace(snsr_sky$snsr_sky2, snsr_sky$snsr_sky2 == "-Inf", NaN)))
+	snsr_sky$snsr_sky3 <- as.numeric(unlist(replace(snsr_sky$snsr_sky3, snsr_sky$snsr_sky3 == "-Inf", NaN)))
+	snsr_sky <- list(snsr_sky$snsr_sky2, snsr_sky$snsr_sky3)
+	for (i in snsr_sky){
+		for (j in 1:(length(unlist(snsr_sky))/length(snsr_sky))){
+			snsr_sky_calc[[ paste("snsr_sky_calc",j,sep="") ]] <-
+				append(x=snsr_sky_calc[[ paste("snsr_sky_calc", j, sep="")]], values=na.omit(c(i[j])))
+		}
+	}
+	for (i in 1:(length(unlist(snsr_sky))/length(snsr_sky))){
+		snsr_sky_calc[[ paste("snsr_sky_calc",i,sep="") ]] <- mean(snsr_sky_calc[[ paste("snsr_sky_calc",i,sep="") ]])
+	}
+	data_indx <- mean_filter(pw_loc, avg, 75)
+	train <- data.partition(as.numeric(unlist(snsr_sky_calc))[data_indx], avg[data_indx], train_size=0.8)$train
+	exp_reg <- exp_regression(train$x, train$y)
+	# exp_reg <- exp_regression(c(train$x), c(train$y))
+	ymax 	<- max(exp_reg$y, na.rm=TRUE)
+	ymin 	<- min(exp_reg$y, na.rm=TRUE)
+	title 	<- "Correlation between Mean PWV and Temperature"
+	# Non-linear model (exponential)
+	plot(exp_reg$x,exp_reg$y, col=c("black"), pch=1,
+	xlim=c(exp_reg$xmin, exp_reg$xmax), ylim=c(ymin, ymax),
+	xlab="Zenith Sky Temperature [C]", ylab="PWV [mm]", main=NA)
+	mtext(title, cex=1, outer=TRUE, at=0.6, padj=-1)
+	minor.tick(nx=2, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
+	# Best Fit
+	# curve(30.55 * exp(x/28.725) - 2.63, col="red", add=TRUE)
+	curve(exp(coef(exp_reg$model)[1]+coef(exp_reg$model)[2]*x), col="black", add=TRUE)
+    mims_y  <- (30.55 * exp(exp_reg$x/28.725) - 2.63)
+    rsme    <- sqrt(sum((mims_y - exp_reg$y)^2)/length(exp_reg$y))
+	# Confidence Interval
+	lines(exp_reg$newx, exp(exp_reg$confint[ ,3]), col="black", lty="dashed")
+	lines(exp_reg$newx, exp(exp_reg$confint[ ,2]), col="black", lty="dashed")
+	# cat(unlist(list(round(exp_reg$rsme,3), round(rsme,3), round(as.numeric(coef(exp_reg$model)[1]),3), round(as.numeric(coef(exp_reg$model)[2]),3), round(as.numeric(exp_reg$S),3), '\n')))
+	polygon(c(exp_reg$newx, rev(exp_reg$newx)), c(exp(exp_reg$predint[ ,3]), rev(exp(exp_reg$predint[ ,2]))),col=rgb(0.25, 0.25, 0.25,0.25), border = NA)
+
+	legend("topleft",col=c("black", "black"), lty=c(1, 2),
+	legend=c(parse(text=sprintf("%.2f*e^{%.3f*x}*\t\t(S == %.2f*mm)",
+	exp(coef(exp_reg$model)[1]),coef(exp_reg$model)[2], exp_reg$S)), "Confidence Interval"))
+}
 figure3	<- function(...){
 	par(mar=c(5,5,0,0), oma = c(0, 0, 3, 3), xpd=FALSE)
 	layout(matrix(c(1,1,1,1), 1, 1, byrow=TRUE))
@@ -555,11 +561,9 @@ figure3	<- function(...){
 	for (i in 1:(length(unlist(snsr_sky))/length(snsr_sky))){
 		snsr_sky_calc[[ paste("snsr_sky_calc",i,sep="") ]] <- mean(snsr_sky_calc[[ paste("snsr_sky_calc",i,sep="") ]])
 	}
-	data_indx <- mean_filter(pw_loc, avg, 100)
-	train <- data.partition(as.numeric(unlist(snsr_sky_calc))[data_indx], avg[data_indx], train_size=1)$train
 	exp_reg <- exp_regression(as.numeric(unlist(snsr_sky_calc)), avg)
 	# exp_reg <- exp_regression(c(train$x), c(train$y))
-	ymax 	<- max(exp_reg$y, 45.4, na.rm=TRUE)
+	ymax 	<- max(exp_reg$y, na.rm=TRUE)
 	ymin 	<- min(exp_reg$y, na.rm=TRUE)
 	title 	<- "Correlation between Mean PWV and Temperature"
 	# Non-linear model (exponential)
@@ -570,21 +574,22 @@ figure3	<- function(...){
 	minor.tick(nx=2, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
 	# Best Fit
 	# curve(30.55 * exp(x/28.725) - 2.63, col="red", add=TRUE)
-	curve(exp(coef(exp_reg$model)[1]+coef(exp_reg$model)[2]*x), col="black", add=TRUE)
+	curve(20.20 * exp(0.036 * x), col="black", add=TRUE)
+
     mims_y  <- (30.55 * exp(exp_reg$x/28.725) - 2.63)
     rsme    <- sqrt(sum((mims_y - exp_reg$y)^2)/length(exp_reg$y))
-	print(list(rsme, exp_reg$rsme))
 	# Confidence Interval
-	lines(exp_reg$newx, exp(exp_reg$confint[ ,3]), col="black", lty="dashed")
-	lines(exp_reg$newx, exp(exp_reg$confint[ ,2]), col="black", lty="dashed")
-
+	# curve(21.33 * exp(0.038 * x), col="black", lty="dashed", add=TRUE)
+	# curve(19.13 * exp(0.034 * x), col="black", lty="dashed", add=TRUE)
+	# lines(exp_reg$newx, exp(exp_reg$confint[ ,3]), col="black", lty="dashed")
+	# lines(exp_reg$newx, exp(exp_reg$confint[ ,2]), col="black", lty="dashed")
 	polygon(c(exp_reg$newx, rev(exp_reg$newx)), c(exp(exp_reg$predint[ ,3]), rev(exp(exp_reg$predint[ ,2]))),col=rgb(0.25, 0.25, 0.25,0.25), border = NA)
 
 	legend("topleft",col=c("black", "black"), lty=c(1, 2),
 	legend=c(parse(text=sprintf("%.2f*e^{%.3f*x}*\t\t(S == %.2f*mm)",
-	exp(coef(exp_reg$model)[1]),coef(exp_reg$model)[2], exp_reg$S)), "Confidence Interval"))
+	20.20,0.036, 3.83)), "Confidence Interval"))
 }
-
+## Best-Fit comparison
 ## Best-Fit comparison
 figure6 	<- function(...){
 	par(mar=c(5,5,0,0), oma = c(0, 0, 3, 3), xpd=FALSE)
@@ -603,41 +608,38 @@ figure6 	<- function(...){
 	for (i in 1:(length(unlist(snsr_sky))/length(snsr_sky))){
 		snsr_sky_calc[[ paste("snsr_sky_calc",i,sep="") ]] <- mean(snsr_sky_calc[[ paste("snsr_sky_calc",i,sep="") ]])
 	}
-    data_indx   <- mean_filter(pw_loc, avg, 20)
-
-	exp_reg     <- exp_regression(as.numeric(unlist(snsr_sky_calc))[data_indx], avg[data_indx])
-	ymax 		<- max(exp_reg$y, 45.4, na.rm=TRUE)
+	exp_reg     <- exp_regression(as.numeric(unlist(snsr_sky_calc)), avg)
+	ymax 		<- max(exp_reg$y, na.rm=TRUE)
 	ymin 		<- min(exp_reg$y, na.rm=TRUE)
-	title 	    <- "Correlation between Mean PWV and Temperature"
+	title 	    <- "Correlation between Mean TPW and Temperature"
 	newx	    <- seq(min(exp_reg$newx), 0, length.out=length(exp_reg$newx))
 	# Non-linear model (exponential)
 	plot(NULL,NULL, col=c("black"), pch=1,
-	xlim=c(exp_reg$xmin, 0), ylim=c(ymin, ymax),
-	xlab="Zenith Sky Temperature [C]", ylab="PWV [mm]", main=NA)
+	xlim=c(exp_reg$xmin, exp_reg$xmax), ylim=c(ymin, ymax),
+	xlab="Zenith Sky Temperature [C]", ylab="TPW [mm]", main=NA)
 	mtext(title, cex=1, outer=TRUE, at=0.6, padj=-1)
 	minor.tick(nx=2, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
 
 	# Best Fit
-	curve(exp(coef(exp_reg$model)[1]+coef(exp_reg$model)[2]*x), col="black", add=TRUE)
+	curve(20.2*exp(0.036*x), col="black", add=TRUE)
 	curve(30.55 * exp(x/28.725) - 2.63, col="black", lty="dashed", add=TRUE)
-    mims_y  <- (30.55 * exp(exp_reg$x/28.725) - 2.63)
-    rsme    <- sqrt(sum((exp_reg$y - mims_y)^2)/length(exp_reg$y))
 
-    print(rsme)
 
 	points((242.85-273.15) + (5.7-11.4)*1.05, 5.7, col=c("#0166FF"), pch=16, cex=1.5)
 	points((252.77-273.15), 11.4, col=c("#FF9924"), pch=16, cex=1.5)
 	points((260.55-273.15) + (22.7-11.4)*1.05, 22.7, col=c("#FF05B8"), pch=16, cex=1.5)
 
-	leg <- legend("topleft",plot=FALSE, col=c("black", "black", "grey46"), lty=c(1, 2, 0),pch=c(NA,NA,NA), lwd=1, legend=c("This paper", "Mims et al. (2011)", "Derived from Equation (3)"))#, parse(text=sprintf("(30.55*e^{0.035*x}-2.63)")), sep=" ")))
-	legendg("topleft", col=list("black", "black", c("#FF05B8", "#FF9924","#0166FF" )), lty=c(1,2,0),lwd=1, pch=list(NA, NA, c(16,16,16)), legend=c("This paper", "Mims et al. (2011)", "Derived from Equation (3)"), merge=TRUE)
+	leg <- legend("topleft",plot=FALSE, col=c("black", "black", "grey46"), lty=c(1, 2, 0),pch=c(NA,NA,NA), lwd=1, legend=c("This paper", "Mims et al. (2011)", "Derived from Equation (3)"))
 
 	leftx <- leg$rect$left + 0.5
 	rightx <- (leg$rect$left + leg$rect$w) * 1
 	topy <- leg$rect$top
 	bottomy <- (leg$rect$top - leg$rect$h) * 1
 
-	legend(x = c(leftx, rightx), y = c(topy, bottomy), bty='n', col=c("black", "black", "grey46"), lty=c(1, 2, 0),pch=c(NA,NA,NA), lwd=1, legend=c("", "", ""))#, parse(text=sprintf("(30.55*e^{0.035*x}-2.63)")), sep=" ")))
+	legendg(x = c(leftx-0.5, rightx), y = c(topy, bottomy),, col=list("black", "black", c("#FF05B8", "#FF9924","#0166FF" )), lty=c(1,2,0),lwd=1, pch=list(NA, NA, c(16,16,16)), legend=c("This paper", "Mims et al. (2011)", "Derived from Equation (3)"), merge=TRUE, pt.space = 0.7)
+
+
+	legend(x = c(leftx, rightx), y = c(topy, bottomy), bty='n', col=c("black", "black", "grey46"), lty=c(1, 2, 0),pch=c(NA,NA,NA), lwd=1, legend=c("", "", ""))
 }
 
 
@@ -772,12 +774,12 @@ data1 <- function(){
 
 }
 pdf("./paperplots.pdf")
-# figure1(snsr_sky$snsr_sky2, snsr_sky$snsr_sky1, snsr_sky$snsr_sky3,
-# 				snsr_gro$snsr_gro2, snsr_gro$snsr_gro1, snsr_gro$snsr_gro3,
-# 				c(-60,30),c(0, 60), "Air Temperature", "Ground Temperature")
+figure1(snsr_sky$snsr_sky2, snsr_sky$snsr_sky1, snsr_sky$snsr_sky3,
+				snsr_gro$snsr_gro2, snsr_gro$snsr_gro1, snsr_gro$snsr_gro3,
+				c(-60,30),c(0, 60), "Air Temperature", "Ground Temperature")
 # data1()
-# figure2()
-# charts1()
+figure2()
 figure3()
-# figure6()
-# figureA1()
+figure3_auto()
+figure6()
+figureA1()

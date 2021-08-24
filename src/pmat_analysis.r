@@ -8,8 +8,8 @@
 ## Necessary Libraries for the script to run, for installation run install.sh
 library(argparse); library(crayon); library(RColorBrewer); library(plotrix)
 suppressPackageStartupMessages(library(pacviz)); suppressMessages(library(Hmisc))
+library(yaml)
 options(warn=-1)
-
 
 ## Custom Colors for cmd line features
 red 		<- make_style("red1")
@@ -20,6 +20,7 @@ cloudblue 	<- make_style("lightskyblue")
 
 ## Used for argument parsing run Rscript model.r --help
 parser <- ArgumentParser(formatter_class='argparse.RawTextHelpFormatter')
+parser$add_argument('--dir', help="Directory path to data folder", default="../data/")
 parser$add_argument("--set", type="character", default=FALSE,
 	help="Select plot sets: \\n\ [t]ime series\\n\ [a]nalytics\\n\ [c]harts\\n\ [i]ndividual sensors")
 parser$add_argument("--poster", action="store_true", default=FALSE,
@@ -251,9 +252,10 @@ save <- function(func, name){
 }
 
 ## Imports data from master_data.csv
-fname       <- read.table(file=sprintf("tests/data/master_data.csv"), sep=",", header=TRUE, strip.white=TRUE)
+fname       <- read.table(paste(args$dir,"master_data.csv", sep=""), sep=",", header=TRUE, strip.white=TRUE)
 ## Imports sensor information from instruments.txt
-sensor 		<- suppressWarnings(read.csv(file=sprintf("tests/data/instruments.conf"), sep=","))
+config		<- yaml.load_file(paste(args$dir,"_pmat.yml", sep=""))
+
 ## Pulls most recent data stamp for the purpose of adding date stamps to file names when plots are saved
 recent 		<- t(fname[1])[length(t(fname[1]))]
 
@@ -273,17 +275,23 @@ col_temp 	<- grep("Temp", colnames(fname))
 col_con 	<- grep("Condition", colnames(fname))
 ## Pulls the column number for the comments
 col_com 	<- grep("comments", colnames(fname))
+## The value for the training fraction
+train_frac 	<- config[[as.numeric(length(config) - 1)]]$value
+## The value for the threshold of the mean.filter
+rel_diff 	<- config[[length(config)]]$value
+
 ## Pulls sensor labels and colors from instruments.txt
 snsr_name 	<- list(); snsr_color <- snsr_sky_indx <- snsr_gro_indx  	<- unlist(list())
-for(i in 1:length(sensor[, 1])){
-	if (length(!(grep("#", sensor[i, 1]))) == 0){
-		var 				<- assign(paste("Thermo", i, sep=""), sensor[i, 1])
+for(i in 1:length(config)){
+	if (!(length(config[[i]]$sensor$active) == 0)){
+		var 				<- assign(paste("Thermo", i, sep=""), config[[i]]$sensor$name)
 		snsr_name 			<- append(snsr_name, toString(var))
-		snsr_color 			<- append(snsr_color, paste("#", toString(sensor[i, 3]), sep=""))
+		snsr_color 			<- append(snsr_color, paste("#", toString(config[[i]]$sensor$color), sep=""))
 		snsr_sky_indx 		<- append(snsr_sky_indx, col_sky[i])
 		snsr_gro_indx 		<- append(snsr_gro_indx, col_gro[i])
 	}
 }
+
 temp_name <- list()
 temp_gro_indx <- temp_sky_indx <- unlist(list())
 for (i in col_temp){
@@ -1000,10 +1008,9 @@ charts1 	<- function(...){
 			over_na <- length(unlist(snsr_skyo[count])) - over - over_inf
 
 			slices  <- data.frame(B=c(over, over_na, over_inf),A=c(norm,norm_na, norm_inf))
-
 			title 	<- c("Overcast","Clear Sky")
 			pct 	<- data.frame(B=c(over/length(unlist(snsr_skyo[count]))*100, over_na/length(unlist(snsr_skyo[count]))*100, over_inf/length(unlist(snsr_skyo[count]))*100),A=c(norm/length(unlist(snsr_sky[count]))*100, norm_na/length(unlist(snsr_sky[count]))*100,norm_inf/length(unlist(snsr_sky[count]))*100))
-
+			print(pct)
     		par(mar=c(7.1, 7.1, 7.1, 1.3), xpd=TRUE)
 			bar <- barplot(as.matrix(slices),names.arg=title, las=1, ylim=c(0,max(length(unlist(snsr_sky[count])),length(unlist(snsr_skyo[count])))*1.5),xlab="Samples",
 			horiz=FALSE, axes=FALSE,main=sprintf("Data Type Distribution: %s", gsub("_", " ",snsr_name[count])))
@@ -1021,8 +1028,8 @@ charts1 	<- function(...){
 ## Main plots for poster
 ###
 poster1 <- function(...){
-	for (i in 1:length(sensor[,5])){
-		if(sensor[i,5] == FALSE){
+	for (i in 1:length(snsr_name)){
+		if(config[[i]]$sensor$poster == FALSE){
 			snsr_sky[[i]] <- NULL; snsr_skyo[[i]] <- NULL
 			snsr_gro[[i]] <- NULL; snsr_groo[[i]] <- NULL
 			snsr_del[[i]] <- NULL; snsr_delo[[i]] <- NULL
@@ -1246,16 +1253,16 @@ poster2 <- function(...){
 ## Instrumentation Barplots
 ###
 poster3 <- function(...){
-	out_sky_inf <- inf_counter_sky(bool=TRUE)
-	out_skyo_inf <- inf_counter_skyo(bool=TRUE)
+	out_sky_inf <- inf_counter(bool=TRUE, snsr_sky, 'sky')
+	out_skyo_inf <- inf_counter(bool=TRUE, snsr_skyo, 'skyo')
 	snsr_sky_inf <- snsr_skyo_inf <- list()
 	for (i in seq(1, length(snsr_sky))){
 		snsr_sky_inf[[ paste("snsr_sky_inf",i,sep="") ]] <- out_sky_inf[[i]]
 		snsr_skyo_inf[[ paste("snsr_skyo_inf",i,sep="") ]] <- out_skyo_inf[[i]]
 	}
-	for (i in 1:length(sensor[,5])){
-		if(sensor[i,5] == FALSE){
-			snsr_sky_inf[[i]] <- NULL; snsr_skyo_inf[[i]] <- NULL
+	for (i in 1:length(snsr_name)){
+		if(config[[i]]$sensor$poster == FALSE){
+			snsr_sky[[i]] <- NULL; snsr_skyo[[i]] <- NULL
 			snsr_gro[[i]] <- NULL; snsr_groo[[i]] <- NULL
 			snsr_del[[i]] <- NULL; snsr_delo[[i]] <- NULL
 			snsr_name[[i]] <- NULL
@@ -1557,11 +1564,11 @@ if(args$pacman){
 	if (args$overcast){
 	# Overcast Condition
 		cat(magenta("Condition:"), "Overcast\n")
-		sname_pub <- sprintf("../figs/results/pacman_overcast.pdf") # File name of saved pdf
+		sname_pub <- sprintf("../figs/pacman_overcast.pdf") # File name of saved pdf
 	}else{
 	# Clear Sky condition
 		cat(magenta("Condition:"), "Clear Sky\n")
-		sname_pub <- sprintf("../figs/results/pacman.pdf")
+		sname_pub <- sprintf("../figs/pacman.pdf")
 
 	}
 	cat(green("[1]"), "Total Mean PW and Temperature\n")
@@ -1575,7 +1582,7 @@ if(args$poster){
 	cat(green("[2]"), "Analytical Plots\n")
 	cat(green("[3]"), "Condiiton Distrbuion by Sensor\n")
 	# Saves plots
-	sname_pub 	<- sprintf("../figs/results/poster.pdf")
+	sname_pub 	<- sprintf("../figs/poster.pdf")
 	save(c(poster1(),poster2(), poster3()), sname_pub)
 
 	cat(green(sprintf("Plot set downloaded to %s\n", sname_pub)))
