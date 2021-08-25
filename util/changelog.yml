@@ -1,24 +1,30 @@
 ---
 name: Cumulonimbus
-tagline: PMAT. Now with Docker!
+tagline: PMAT. Now with 100% more whale!
 released: no
 version: 3.0
 date:
 changes:
   overall:
-    - added: Docker deployment
     - updated: setup script now relies on DESCRIPTION and requirements.txt files
     - added: New method for releases and changelog updates
+    - updated: Updates to the configuration files used to run the import module and analysis module
+  plots:
+    - updated: Charts have undergone a fundamental design change
+  deployment:
+    - added: Docker deployment
+    - added: Offical local docker deployment
     - updated: Moved data and relavent figures to their own deployment branch
   documentation:
     - updated: Contribution page to include the special people that helped us
     - updated: Contribution page with new procedures on contributing data
     - updated: Methodology now includes the Docker deployment rather than the local deployment
     - added: A new page for all the different ways to deploy PMAT (in more detail)
-    - added: A new page for research products
-    - added: A new page for Machine Learning research
+    - added: A new page for research products including papers and presentations
+    - added: A new page for Machine Learning research which will be updated through the release of v 4.0
     - added: A new page for Automation research
     - updated: Dashboard cards
+    - added: A dashboard card that has easily accessible plots
     - added: A method to look at available plots on the Dashboard
     - updated: How the documentation pages are organized and put together
 ---
