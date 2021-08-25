@@ -28,7 +28,7 @@ progress = Progress(TextColumn("[bold blue]{task.fields[filename]}", justify="ri
 progress.print(Panel(
     "[bold deep_sky_blue2]Good Morning\nWelcome to the Data Extraction Module of the Precipitable Water Model. For more information about the model and the purpose of this tool, please visit the [link=https://git.io/fj5Xr]documentation page[/link]"))
 
-dir = "../data/"
+dir = "../../data/"
 ## Timeout Retry
 REQUESTS_MAX_RETRIES = int(os.getenv("REQUESTS_MAX_RETRIES", 10))
 adapter = requests.adapters.HTTPAdapter(max_retries=REQUESTS_MAX_RETRIES)
