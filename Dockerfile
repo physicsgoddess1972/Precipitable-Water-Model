@@ -20,7 +20,8 @@ RUN apt-get update -y && apt-get install -y python3 \
                                          libfreetype6-dev \
                                          libpng-dev \
                                          libtiff5-dev \
-                                         libjpeg-dev && rm -rf /var/lib/apt/lists/*
+                                         libjpeg-dev \
+                                         r-base && rm -rf /var/lib/apt/lists/*
 # RUN cp /usr/bin/python3 /usr/bin/python
 COPY requirements.txt /requirements.txt
 COPY DESCRIPTION /DESCRIPTION
