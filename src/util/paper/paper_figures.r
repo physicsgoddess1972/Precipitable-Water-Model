@@ -166,14 +166,8 @@ mean_filter <- function(pw, avg, percent){
         }
     }
     bad <- sort(unique(Reduce(c, bad)))
-	print(length(bad)/length(avg))
     good <- sort(unique(Reduce(c, good)))
     good <- good[!(good %in% bad)]
-	# print(length(bad)/length(avg) + length(good)/length(avg))
-	print(length(bad)/length(avg))
-	# print(length(bad)/length(avg))
-	# print(length(bad) + length(good))
-	print(length(avg))
     return(good)
 }
 data.partition <- function(x,y, train_size=0.7, rand_state=sample(1:2^15, 1)){
@@ -354,7 +348,6 @@ exp_regression 	<- function(x,y){
 	rsq		<- summary(model.0)$r.squared
     # estimate from regression
 	est     <- exp(coef(model)[1]+coef(model)[2]*x)
-	print(model)
 	# accuracy of model
 	acc     <- sqrt((1/length(x))*(sum((est-y)^2)/length(x)))
     # Residual Standard Deiviation
@@ -538,7 +531,7 @@ figure3_auto	<- function(...){
 	# Confidence Interval
 	lines(exp_reg$newx, exp(exp_reg$confint[ ,3]), col="black", lty="dashed")
 	lines(exp_reg$newx, exp(exp_reg$confint[ ,2]), col="black", lty="dashed")
-	# cat(unlist(list(round(exp_reg$rsme,3), round(rsme,3), round(as.numeric(coef(exp_reg$model)[1]),3), round(as.numeric(coef(exp_reg$model)[2]),3), round(as.numeric(exp_reg$S),3), '\n')))
+	cat(unlist(list(round(exp_reg$rsme,3), round(rsme,3), round(as.numeric(coef(exp_reg$model)[1]),3), round(as.numeric(coef(exp_reg$model)[2]),3), round(as.numeric(exp_reg$S),3), '\n')))
 	polygon(c(exp_reg$newx, rev(exp_reg$newx)), c(exp(exp_reg$predint[ ,3]), rev(exp(exp_reg$predint[ ,2]))),col=rgb(0.25, 0.25, 0.25,0.25), border = NA)
 
 	legend("topleft",col=c("black", "black"), lty=c(1, 2),
@@ -778,8 +771,8 @@ figure1(snsr_sky$snsr_sky2, snsr_sky$snsr_sky1, snsr_sky$snsr_sky3,
 				snsr_gro$snsr_gro2, snsr_gro$snsr_gro1, snsr_gro$snsr_gro3,
 				c(-60,30),c(0, 60), "Air Temperature", "Ground Temperature")
 # data1()
-figure2()
-figure3()
+# figure2()
+# figure3()
 figure3_auto()
-figure6()
-figureA1()
+# figure6()
+# figureA1()
