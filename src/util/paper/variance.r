@@ -1,4 +1,4 @@
-fname       <- read.table(file="./rsme_riley.txt", sep=",", header=TRUE, strip.white=TRUE)
+fname       <- read.table(file= "rsme_riley_55.txt", sep=",", header=TRUE, strip.white=TRUE)
 
 
 rsme_riley <- as.numeric(unlist(fname[1]))
