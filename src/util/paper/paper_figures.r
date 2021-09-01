@@ -171,19 +171,21 @@ mean_filter <- function(pw, avg, percent){
     return(good)
 }
 data.partition <- function(x,y, train_size=0.7, rand_state=sample(1:2^15, 1)){
-  set.seed(rand_state)
-  train_idx <- sample(1:length(x), trunc(length(x)*train_size), replace=FALSE)
-  test_idx  <- (1:length(x))[-(train_idx)]
+  	set.seed(rand_state)
+	nans <- c(grep("NaN", y)); nans <- append(nans, grep("NaN", x))
+	x <- x[-(nans)]; y <- y[-(nans)]
+	train_idx <- sample(1:length(x), trunc(length(x)*train_size), replace=FALSE)
+	test_idx  <- (1:length(x))[-(train_idx)]
 
-  train     <- data.frame(x[train_idx],
-                          y[train_idx])
-  colnames(train) <- c("x", "y")
+	train     <- data.frame(x[train_idx],
+						  y[train_idx])
+	colnames(train) <- c("x", "y")
 
-  test    <- data.frame(x[test_idx],
-                          y[test_idx])
-  colnames(test) <- c("x", "y")
+	test    <- data.frame(x[test_idx],
+						  y[test_idx])
+	colnames(test) <- c("x", "y")
 
-  return(list(train=train, test=test, train_idx=train_idx, seed=rand_state))
+	return(list(train=train, test=test, train_idx=train_idx, seed=rand_state))
 }
 ## Pushes returned values to the variable overcast
 overcast 	<- overcast_filter()
@@ -329,8 +331,8 @@ lin_regression <- function(x,y){
 
 exp_regression 	<- function(x,y){
 	# Finds and removes NaNed values from the dataset
-	nans <- c(grep("NaN", y)); nans <- append(nans, grep("NaN", x))
-	x <- x[-(nans)]; y <- y[-(nans)]
+	# nans <- c(grep("NaN", y)); nans <- append(nans, grep("NaN", x))
+	# x <- x[-(nans)]; y <- y[-(nans)]
 	# creates a uniform sequence of numbers that fit within the limits of x
 	xmin 	<- min(x, na.rm=TRUE)
 	xmax 	<- max(x, na.rm=TRUE)
@@ -511,7 +513,8 @@ figure3_auto	<- function(...){
 		snsr_sky_calc[[ paste("snsr_sky_calc",i,sep="") ]] <- mean(snsr_sky_calc[[ paste("snsr_sky_calc",i,sep="") ]])
 	}
 	data_indx <- mean_filter(pw_loc, avg, 75)
-	train <- data.partition(as.numeric(unlist(snsr_sky_calc))[data_indx], avg[data_indx], train_size=0.8)$train
+	data_split <- data.partition(as.numeric(unlist(snsr_sky_calc))[data_indx], avg[data_indx], train_size=0.8)
+	train <- data_split$train
 	exp_reg <- exp_regression(train$x, train$y)
 	# exp_reg <- exp_regression(c(train$x), c(train$y))
 	ymax 	<- max(exp_reg$y, na.rm=TRUE)
@@ -525,13 +528,32 @@ figure3_auto	<- function(...){
 	minor.tick(nx=2, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
 	# Best Fit
 	# curve(30.55 * exp(x/28.725) - 2.63, col="red", add=TRUE)
+	test <- data_split$test
+	est     <- exp(coef(exp_reg$model)[1]+coef(exp_reg$model)[2]*test$x)
+	# accuracy of model
+	acc     <- sqrt((1/length(test$x))*(sum((est-test$y)^2)/length(test$x)))
+    # Residual Standard Deiviation
+	S       <- sqrt(sum((est-test$y)^2)/(length(test$x) - 2))
+	# Root Square Mean Error
+	rsme    <- sqrt(sum((est-test$y)^2)/length(test$x))
+
+
 	curve(exp(coef(exp_reg$model)[1]+coef(exp_reg$model)[2]*x), col="black", add=TRUE)
     mims_y  <- (30.55 * exp(exp_reg$x/28.725) - 2.63)
-    rsme    <- sqrt(sum((mims_y - exp_reg$y)^2)/length(exp_reg$y))
+    mims_rsme    <- sqrt(sum((mims_y - exp_reg$y)^2)/length(exp_reg$y))
+
 	# Confidence Interval
 	lines(exp_reg$newx, exp(exp_reg$confint[ ,3]), col="black", lty="dashed")
 	lines(exp_reg$newx, exp(exp_reg$confint[ ,2]), col="black", lty="dashed")
-	cat(unlist(list(round(exp_reg$rsme,3), round(rsme,3), round(as.numeric(coef(exp_reg$model)[1]),3), round(as.numeric(coef(exp_reg$model)[2]),3), round(as.numeric(exp_reg$S),3), '\n')))
+	cat(unlist(list(round(exp_reg$rsme,3),
+					round(mims_rsme,3),
+					round(as.numeric(coef(exp_reg$model)[1]),3),
+					round(as.numeric(coef(exp_reg$model)[2]),3),
+					round(as.numeric(exp_reg$S),3),
+					round(as.numeric(S), 3),
+					round(as.numeric(rsme), 3),
+					round(as.numeric(acc), 3),
+					'\n')))
 	polygon(c(exp_reg$newx, rev(exp_reg$newx)), c(exp(exp_reg$predint[ ,3]), rev(exp(exp_reg$predint[ ,2]))),col=rgb(0.25, 0.25, 0.25,0.25), border = NA)
 
 	legend("topleft",col=c("black", "black"), lty=c(1, 2),
