@@ -22,7 +22,7 @@ jobs:
     - name: Transfer files
       run: |
         mkdir -p ./src/util
-        mv ./main/src/pmat_analysis.r ./src/
+        mv ./main/src/*.r ./src/
         mv ./main/src/run.sh ./src/
         mv ./main/src/util/*.py ./src/util/
     - name: Add and commit
