@@ -1,3 +1,88 @@
+## Pulls most recent data stamp for the purpose of adding date stamps to file names when plots are saved
+recent 		<- t(fname[1])[length(t(fname[1]))]
+
+## Pulls the column number of the first Sky Temperature measurement
+col_sky 	<- grep("Sky", colnames(fname))
+## Pulls the column number of the first Ground Temperature measurement
+col_gro		<- grep("Ground", colnames(fname))
+## Pulls the column number of the first PW measurement
+col_pw 		<- grep("PW", colnames(fname))
+## Pulls the column number of the date
+col_date 	<- grep("Date", colnames(fname))
+## Pulls the column number of the Relative Humidity
+col_rh 		<- grep("RH", colnames(fname))
+## Pulls the column number of the non-measurement temperature
+col_temp 	<- grep("Temp", colnames(fname))
+## Pulls the column number of the Condition
+col_con 	<- grep("Condition", colnames(fname))
+## Pulls the column number for the comments
+col_com 	<- grep("comments", colnames(fname))
+## The value for the training fraction
+train_frac 	<- config[[as.numeric(length(config) - 1)]]$value
+## The value for the threshold of the mean.filter
+rel_diff 	<- config[[length(config)]]$value
+
+## Pulls sensor labels and colors from instruments.txt
+snsr_name 	<- list(); snsr_color <- snsr_sky_indx <- snsr_gro_indx  	<- unlist(list())
+for(i in 1:length(config)){
+	if (!(length(config[[i]]$sensor$active) == 0)){
+		var 				<- assign(paste("Thermo", i, sep=""), config[[i]]$sensor$name)
+		snsr_name 			<- append(snsr_name, toString(var))
+		snsr_color 			<- append(snsr_color, paste("#", toString(config[[i]]$sensor$color), sep=""))
+		snsr_sky_indx 		<- append(snsr_sky_indx, col_sky[i])
+		snsr_gro_indx 		<- append(snsr_gro_indx, col_gro[i])
+	}
+}
+
+temp_name <- list()
+temp_gro_indx <- temp_sky_indx <- unlist(list())
+for (i in col_temp){
+		name 			<- gsub("Temp", "", colnames(fname)[i])
+		name 			<- trimws(gsub("[[:punct:]]", " ", name), which="l")
+		temp_name <- append(temp_name, name)
+
+		if (grepl("Ground", name)){temp_gro_indx <- append(temp_gro_indx, i)}
+		if (grepl("Sky", name)){temp_sky_indx <- append(temp_sky_indx, i)}
+}
+temp_place <- gsub("_.*$", "", gsub(" ", "_", temp_name))
+## Pulls individual PW measurement labels
+pw_name 	<- col_pwpl  <-	col_pwtm <- list()
+for (j in col_pw){
+	name 	<- gsub("PW", "", colnames(fname)[j])
+	name 	<- trimws(gsub("[[:punct:]]", " ", name), which="l")
+	pw_name <- append(pw_name, name)
+}
+# Pull general location tag from the label
+pw_place 	<- gsub("_.*$", "", gsub(" ", "_", pw_name))
+# Pulls general time tag from label
+pw_time 	<- gsub("*..._", "", gsub(" ", "_", pw_name))
+# Pulls the column numbers that have the general location tag
+for (j in pw_place){
+	col_pwpl <- append(col_pwpl, list(grep(j, pw_place)))
+}
+col_pwpl <- unique(col_pwpl)
+# Pulls the column numbers that have the general time tag
+for (j in unique(pw_time)){
+	col_pwtm <- append(col_pwtm, list(grep(j, pw_time)))
+}
+col_pwtm <- unique(col_pwtm)
+# Assigns a color for each label
+#pw_color <- distinctColorPalette(length(pw_name), runTsne=TRUE, altCol=TRUE)
+pw_color <- brewer.pal(length(pw_name),"Set1")
+temp_col <- brewer.pal(length(temp_name), "Spectral")
+
+colscheme <- function(range){
+	col <- brewer.pal(length(range)+1, "Set1")
+	return(col)
+}
+## Pull general location tag from the label
+snsr_tag 	<- gsub("*_.", "", snsr_name)
+## Pulls the column numbers that have the general location tag
+col_snsr <- list()
+for (j in unique(snsr_tag)){
+	col_snsr <- append(col_snsr, list(grep(j, snsr_tag)))
+}
+
 #' @title mean.filter
 #' @description filters the data based on the relative difference of the mean pw
 #' @param pw precipitable water data
@@ -24,6 +109,7 @@ mean.filter <- function(pw, avg, percent){
     good <- good[!(good %in% bad)]
     return(good)
 }
+
 #' @title data.parition
 #' @description splits the data into a training/testing set
 #' @param x domain of the data
@@ -47,6 +133,7 @@ data.partition <- function(x,y, train_size=0.7, rand_state=sample(1:2^15, 1)){
 
   return(list(train=train, test=test, train_idx=train_idx, seed=rand_state))
 }
+
 #' @title overcast.filter
 #' @description Filters our data with overcast condition
 #' @param col_con column number for condition
@@ -58,8 +145,8 @@ data.partition <- function(x,y, train_size=0.7, rand_state=sample(1:2^15, 1)){
 #' @export
 overcast.filter <- function(col_con, col_date, col_com, pw_name, snsr_name){
 	# Initializes the lists to store values
-	date_clear	<- snsr_sky		<- snsr_gro		<- pw_loc  <- rh 	<- list()
-	date_over		<- snsr_skyo	<- snsr_groo	<- pw_loco <- rho <- list()
+	date_clear	<- snsr_sky		<- snsr_gro		<- pw_loc  <- rh  <- list()
+	date_over	<- snsr_skyo	<- snsr_groo	<- pw_loco <- rho <- list()
 	com <- como <- list()
 	# Divides the data based on condition (Overcast/Clear Skies)
 	for (i in 1:length(t(fname[col_con]))){

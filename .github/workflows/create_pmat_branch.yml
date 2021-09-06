@@ -37,8 +37,7 @@ jobs:
            rm *.md LICENSE
            mkdir -p data/
            echo "Insert data here" >> data/cool_data.csv
-           mv .github/templates/import_template.conf data/import.conf
-           mv .github/templates/instruments_template.yml data/instruments.yml
+           mv .github/templates/_pmat_template.yml data/_pmat.yml
            echo "<h1>Deployment of PMAT for $(sed 's/[A-Z]\+/ &/g' <<< $MDCITY), ${{env.state}}</h1> <br> <h3>Managed by <a href='https://github.com/${{ env.author }}' target='_blank'>${{ env.author }}</a></h3>" >> README.md
       - name: stage changed files
         run: git add * .github/*

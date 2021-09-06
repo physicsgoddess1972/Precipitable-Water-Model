@@ -1,0 +1,19 @@
+- sensor:
+    name:
+    error:
+    color:
+    ratio:
+    range:
+    emissivity:
+    poster:
+    active:
+- train_fraction:
+  value:
+- rel_difference:
+  value:
+---
+- mesowest:
+  - id:
+- wyoming:
+  - id:
+  - id:
