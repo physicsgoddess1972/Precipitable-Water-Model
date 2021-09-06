@@ -331,8 +331,8 @@ lin_regression <- function(x,y){
 
 exp_regression 	<- function(x,y){
 	# Finds and removes NaNed values from the dataset
-	# nans <- c(grep("NaN", y)); nans <- append(nans, grep("NaN", x))
-	# x <- x[-(nans)]; y <- y[-(nans)]
+	nans <- c(grep("NaN", y)); nans <- append(nans, grep("NaN", x))
+	x <- x[-(nans)]; y <- y[-(nans)]
 	# creates a uniform sequence of numbers that fit within the limits of x
 	xmin 	<- min(x, na.rm=TRUE)
 	xmax 	<- max(x, na.rm=TRUE)
@@ -352,8 +352,10 @@ exp_regression 	<- function(x,y){
 	est     <- exp(coef(model)[1]+coef(model)[2]*x)
 	# accuracy of model
 	acc     <- sqrt((1/length(x))*(sum((est-y)^2)/length(x)))
+	print(est)
     # Residual Standard Deiviation
 	S       <- sqrt(sum((est-y)^2)/(length(x) - 2))
+	print(S)
 	# Root Square Mean Error
 	rsme    <- sqrt(sum((est-y)^2)/length(x))
 	# Function outputs
@@ -589,7 +591,7 @@ figure3	<- function(...){
 	minor.tick(nx=2, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
 	# Best Fit
 	# curve(30.55 * exp(x/28.725) - 2.63, col="red", add=TRUE)
-	curve(20.20 * exp(0.036 * x), col="black", add=TRUE)
+	curve(20.138 * exp(0.0364 * x), col="black", add=TRUE)
 
     mims_y  <- (30.55 * exp(exp_reg$x/28.725) - 2.63)
     rsme    <- sqrt(sum((mims_y - exp_reg$y)^2)/length(exp_reg$y))
@@ -602,7 +604,7 @@ figure3	<- function(...){
 
 	legend("topleft",col=c("black", "black"), lty=c(1, 2),
 	legend=c(parse(text=sprintf("%.2f*e^{%.3f*x}*\t\t(S == %.2f*mm)",
-	20.20,0.036, 3.83)), "Confidence Interval"))
+	20.138,0.0364, 3.765)), "Confidence Interval"))
 }
 ## Best-Fit comparison
 ## Best-Fit comparison
@@ -636,7 +638,7 @@ figure6 	<- function(...){
 	minor.tick(nx=2, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
 
 	# Best Fit
-	curve(20.2*exp(0.036*x), col="black", add=TRUE)
+	curve(20.138*exp(0.0364*x), col="black", add=TRUE)
 	curve(30.55 * exp(x/28.725) - 2.63, col="black", lty="dashed", add=TRUE)
 
 
@@ -667,7 +669,8 @@ figureA1 <- function(...){
 		title 	<- sprintf("RH Time Series")
 
 		xmin <- min(do.call("c", date), na.rm=TRUE); xmax <- max(do.call("c", date), na.rm=TRUE)
-		plot(date, movavg(range2, 7, "r"), ylab=NA, xlab=NA, col="black", main=NA, xaxt='n', pch=16, ylim=c(10, 50))
+		plot(date, movavg(range2, 7, "r"), ylab=NA, xlab=NA, col="black", main=NA, xaxt='n', pch=16, 
+		ylim=c(10, 45))
 
 		axis(side = 2); mtext(side = 2, line=2, "RH [%]")
 
@@ -680,12 +683,12 @@ figureA1 <- function(...){
 
 		legend("topright", "(a)", bty="n")
 
-		date 		<- clear_date[297:396]
+		date 	<- clear_date[297:396]
 		range2 	<- clear_rh[297:396]
 		title 	<- sprintf("RH Time Series")
 
 		xmin <- min(do.call("c", date), na.rm=TRUE); xmax <- max(do.call("c", date), na.rm=TRUE)
-		plot(date, movavg(range2, 7, "r"), ylab=NA, xlab=NA, col="black", main=NA, ylim=c(10, 50), xaxt='n', pch=16)
+		plot(date, movavg(range2, 7, "r"), ylab=NA, xlab=NA, col="black", main=NA, ylim=c(10, 45), xaxt='n', pch=16)
 		axis(side = 2); mtext(side = 2, line=2, "RH [%]")
 
 
@@ -716,10 +719,12 @@ figureA1 <- function(...){
 		exp_reg <- exp_regression(as.numeric(unlist(snsr_sky_calc))[9:125], avg[9:125])
 		ymax 		<- max(exp_reg$y, na.rm=TRUE)
 		ymin 		<- min(exp_reg$y, na.rm=TRUE)
+		xmax 		<- max(exp_reg$x, na.rm=TRUE)
+		xmin 		<- min(exp_reg$x, na.rm=TRUE)
 		# Non-linear model (exponential)
 		plot(exp_reg$x,exp_reg$y, col=c("black"), pch=1,
-		xlim=c(exp_reg$xmin, exp_reg$xmax),
-		xlab="Zenith Sky Temperature [C]", ylab=NA, main=NA, ylim=c(0, 35))
+		xlim=c(xmin-1, xmax),
+		xlab="Zenith Sky Temperature [C]", ylab=NA, main=NA, ylim=c(0, 30))
 		minor.tick(nx=2, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
 		# Best Fit
 		curve(exp(coef(exp_reg$model)[1]+coef(exp_reg$model)[2]*x), col="black", add=TRUE)
@@ -755,8 +760,8 @@ figureA1 <- function(...){
 		ymin 		<- min(exp_reg$y, na.rm=TRUE)
 		# Non-linear model (exponential)
 		plot(exp_reg$x,exp_reg$y, col=c("black"), pch=1,
-		xlim=c(exp_reg$xmin, exp_reg$xmax),
-		xlab="Zenith Sky Temperature [C]", ylab=NA, main=NA, ylim=c(0, 35))
+		xlim=c(xmin-1, xmax),
+		xlab="Zenith Sky Temperature [C]", ylab=NA, main=NA, ylim=c(0,30))
 		minor.tick(nx=2, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
 		# Best Fit
 		curve(exp(coef(exp_reg$model)[1]+coef(exp_reg$model)[2]*x), col="black", add=TRUE)
@@ -767,6 +772,7 @@ figureA1 <- function(...){
 		polygon(c(exp_reg$newx, rev(exp_reg$newx)), c(exp(exp_reg$predint[ ,3]), rev(exp(exp_reg$predint[ ,2]))),col=rgb(0.25, 0.25, 0.25,0.25), border = NA)
 
 		axis(side = 2); mtext(side = 2, line=2, "PWV [mm]")
+		print(exp_reg$S)
 
 		legend("topleft",col=c("black", "black"), lty=c(1, 2),
 		legend=c(parse(text=sprintf("%.2f*e^{%.3f*x}*\t\t(S == %.3f)",
@@ -789,12 +795,12 @@ data1 <- function(){
 
 }
 pdf("./paperplots.pdf")
-figure1(snsr_sky$snsr_sky2, snsr_sky$snsr_sky1, snsr_sky$snsr_sky3,
-				snsr_gro$snsr_gro2, snsr_gro$snsr_gro1, snsr_gro$snsr_gro3,
-				c(-60,30),c(0, 60), "Air Temperature", "Ground Temperature")
+# figure1(snsr_sky$snsr_sky2, snsr_sky$snsr_sky1, snsr_sky$snsr_sky3,
+# 				snsr_gro$snsr_gro2, snsr_gro$snsr_gro1, snsr_gro$snsr_gro3,
+# 				c(-60,30),c(0, 60), "Air Temperature", "Ground Temperature")
 # data1()
-# figure2()
+figure2()
 # figure3()
-figure3_auto()
+# figure3_auto()
 # figure6()
-# figureA1()
+figureA1()
