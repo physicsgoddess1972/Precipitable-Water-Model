@@ -17,16 +17,7 @@ from siphon.simplewebservice.wyoming import WyomingUpperAir
 
 from mesowest import MesoWest
 
-from rich.panel import Panel
-
-from rich.progress import BarColumn, TextColumn, TimeRemainingColumn, Progress, track
-
-progress = Progress(TextColumn("[bold blue]{task.fields[filename]}", justify="right"),
-                    BarColumn(bar_width=None),
-                    "[progress.percentage]{task.percentage:>3.1f}%",
-                    TimeRemainingColumn())
-progress.print(Panel(
-    "[bold deep_sky_blue2]Good Morning\nWelcome to the Data Extraction Module of the Precipitable Water Model. For more information about the model and the purpose of this tool, please visit the [link=https://git.io/fj5Xr]documentation page[/link]"))
+print("Good Morning\nWelcome to the Data Extraction Module of the Precipitable Water Model. For more information about the model and the purpose of this tool, please visit the [link=https://git.io/fj5Xr]documentation page[/link]")
 
 dir = "../../data/"
 ## Timeout Retry
