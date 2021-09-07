@@ -3,7 +3,7 @@
 #' @param bool decides if -Inf is not replaced with NaN
 #' @param snsr_data the dataset
 #' @param label the identifer for the dataset (e.g. sky, gro, skyo, groo)
-#' @return
+#' @return data set that replaces all -Infs for NaN (If bool == FALSE).
 #' @export
 inf_counter <- function(bool, snsr_data, label){
     output <- list()
