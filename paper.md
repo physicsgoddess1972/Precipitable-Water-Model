@@ -23,7 +23,7 @@ bibliography: paper.bib
 # Summary
 Precipitable water can be described as the ... . 
 
-The Precipitable-Water Model Analysis Tool (PMAT) is a utility designed to analyze the relationship between zenith clear sky temperature and precipitable water vapor. This relationship has been well documented and defined in both Central New Mexico [@Kelsey:2021] and Eastern Texas [@Mims:2013]. 
+The Precipitable-Water Model Analysis Tool (PMAT) is a utility designed to analyze the relationship between zenith clear sky temperature and precipitable water vapor. This relationship has been well documented and defined in both Central New Mexico [@Kelsey:2021] and Eastern Texas [@Mims:2011]. 
 
 # Statement of Need
 PMAT has been developed to address the need for an easy to use workflow to analyze the relationship between PWV and zenith sky temperature. With the expansive and flexible deployment module, this software has a web-interface and can be deployed locally the Docker framework. 
