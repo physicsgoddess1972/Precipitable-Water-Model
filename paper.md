@@ -18,7 +18,6 @@ affiliations:
     index: 2
 date:
 bibliography: paper.bib
-editor: @KristinaRiemer
 ---
 ## This is a draft
 # Summary
