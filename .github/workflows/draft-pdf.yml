@@ -17,7 +17,7 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: paper
-          path: paper_draft.pdf
+          path: paper.pdf
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
