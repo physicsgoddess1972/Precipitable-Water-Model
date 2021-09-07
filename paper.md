@@ -21,12 +21,10 @@ bibliography: paper.bib
 ---
 ## This is a draft
 # Summary
-Precipitable water can be described as the ... . 
-
-The Precipitable-Water Model Analysis Tool (PMAT) is a utility designed to analyze the relationship between zenith clear sky temperature and precipitable water vapor. This relationship has been well documented and defined in both Central New Mexico [@Kelsey:2021] and Eastern Texas [@Mims:2011]. 
+In this paper we will adapt a common definition of precipitable water vapor (PWV) as defined by (get citation) which states that PWV is the integrated amount of water vapor for a vertical column of air with height from the surface to the top of the atmosphere. The Precipitable-Water Model Analysis Tool (PMAT) is a utility designed to analyze the relationship between zenith clear sky temperature and precipitable water vapor. This relationship has been well documented and defined in both Central New Mexico [@Kelsey:2021] and Eastern Texas [@Mims:2011]. 
 
 # Statement of Need
-PMAT has been developed to address the need for an easy to use workflow to analyze the relationship between PWV and zenith sky temperature. With the expansive and flexible deployment module, this software has a web-interface and can be deployed locally the Docker framework. 
+PMAT has been developed to address the need for an easy to use workflow to analyze the relationship between PWV and zenith sky temperature. This software can be used to more easily analyze measurements of th
 
 # Software Architecture and Design
 The PMAT system is designed into modules, each of the different modules handles a unique task. There are currently four primary modules: Deployment, Data Import, Data Analysis, and the Classical Support Vector Machine module. Together the four modules can pre-process data collected in the field and aggregate with selected atmospheric science databases, process the data, conduct primary analysis functions, and then visualize the results [@pmat].
@@ -38,9 +36,7 @@ Prerequisites for the full deployment of PMAT are minimal but do exist. There ar
 (2) a configuration file that details the sensor information and the site IDs that are needed to retrieve the atmospheric data from the NOAA database
 
 ## Deployment Module
-The Deployment module utilizes a docker environment to run the remaining workflow. 
-There are two variations of the Deployment module, the first is the GitHub Interface, where ... . 
-The second is the local interface, in this variation the docker container can be pulled from the GitHub Container Registry and continuously run in a local environment. 
+The Deployment module utilizes a docker environment to run the remaining workflow. There are currently two methods to interface with PMAT through the Deployment Module, the first is through GitHub and the second involves a local installation of Docker. 
 
 ## Data Import Module
 The Data Import module consists of a Python script to pull and organize data that are required to complete the analysis. The Python script
