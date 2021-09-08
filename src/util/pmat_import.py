@@ -182,12 +182,9 @@ try:
         str(loadtxt(fname, delimiter=",", dtype=str, usecols=0)[-1]))
 except IndexError:
     last = 0
-with progress:
-    progress.log("[bold white]Script Started")
-    task_id = progress.add_task("download", filename="Data Import")
-    for i in range(last, full_len - 1):
-        filew = open(wname, "r")
-        readw = csv.reader(filew, delimiter=",")
-        impt(dt.strptime(str(loadtxt(wname, delimiter=",", dtype=str, usecols=(0))[i + 1]), "%m/%d/%Y"), i)
-        progress.update(task_id, advance=(100. / ((full_len - 1) - last)), refresh=True)
-    progress.log("[bold white]Script Complete")
+    
+for i in range(last, full_len - 1):
+    filew = open(wname, "r")
+    readw = csv.reader(filew, delimiter=",")
+    impt(dt.strptime(str(loadtxt(wname, delimiter=",", dtype=str, usecols=(0))[i + 1]), "%m/%d/%Y"), i)
+   
