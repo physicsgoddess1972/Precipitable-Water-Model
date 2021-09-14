@@ -791,7 +791,7 @@ data1 <- function(){
 	avg_pw 		<- as.numeric(unlist(ml_pw))
 	data 		<- data.frame(list(date=c(date),ml_pw))
 
-	write.fwf(data, file=sprintf("./data.csv"), sep="\t", na="NaN", colnames=FALSE)
+	write.fwf(data, file=sprintf("data.csv"), sep="\t", na="NaN", colnames=FALSE)
 
 }
 pdf("./paperplots.pdf")
