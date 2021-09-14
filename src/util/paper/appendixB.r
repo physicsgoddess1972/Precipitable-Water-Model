@@ -12,7 +12,7 @@ suppressPackageStartupMessages(library(Hmisc))
 suppressPackageStartupMessages(library(pracma))
 
 ## Imports data from master_data.csv
-fname       <- read.table(file="./data.csv", sep=",", header=TRUE, strip.white=TRUE)
+fname       <- read.table(file= "appendixB.csv", sep=",", header=TRUE, strip.white=TRUE)
 
 daynum <- as.numeric(unlist(fname[1]))
 suomi <- as.numeric(unlist(fname[2]))
