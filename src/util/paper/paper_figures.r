@@ -151,8 +151,9 @@ overcast_filter <- function(){
 	return(output1)
 }
 
-mean_filter <- function(pw, avg, percent){
+mean_filter <- function(pw, percent){
     storage <- bad <- good <- list()
+	avg 		<-  Reduce("+", pw_loc)/length(pw_loc)
     for (i in 1:length(pw)){
         out <- append(x=storage, values=Map("/",Map("-",unlist(pw[i]),avg), avg))
         for (j in 1:length(out)){
@@ -331,13 +332,14 @@ lin_regression <- function(x,y){
 
 exp_regression 	<- function(x,y){
 	# Finds and removes NaNed values from the dataset
-	nans <- c(grep("NaN", y)); nans <- append(nans, grep("NaN", x))
-	x <- x[-(nans)]; y <- y[-(nans)]
 	# creates a uniform sequence of numbers that fit within the limits of x
 	xmin 	<- min(x, na.rm=TRUE)
 	xmax 	<- max(x, na.rm=TRUE)
 	newx 	<- seq(xmin, xmax, length.out=length(x))
 	# Non-linear model (exponential)
+	# nans <- c(grep("NaN", y)); nans <- append(nans, grep("NaN", x))
+	# x <- x[-(nans)]; y <- y[-(nans)]
+
 	model.0 <- lm(log(y, base=exp(1))~x, data=data.frame(x,y))
 
 	start 	<- list(a=coef(model.0)[1], b=coef(model.0)[2])
@@ -352,10 +354,8 @@ exp_regression 	<- function(x,y){
 	est     <- exp(coef(model)[1]+coef(model)[2]*x)
 	# accuracy of model
 	acc     <- sqrt((1/length(x))*(sum((est-y)^2)/length(x)))
-	print(est)
     # Residual Standard Deiviation
 	S       <- sqrt(sum((est-y)^2)/(length(x) - 2))
-	print(S)
 	# Root Square Mean Error
 	rsme    <- sqrt(sum((est-y)^2)/length(x))
 	# Function outputs
@@ -514,7 +514,7 @@ figure3_auto	<- function(...){
 	for (i in 1:(length(unlist(snsr_sky))/length(snsr_sky))){
 		snsr_sky_calc[[ paste("snsr_sky_calc",i,sep="") ]] <- mean(snsr_sky_calc[[ paste("snsr_sky_calc",i,sep="") ]])
 	}
-	data_indx <- mean_filter(pw_loc, avg, 75)
+	data_indx <- mean_filter(pw_loc, 55)
 	data_split <- data.partition(as.numeric(unlist(snsr_sky_calc))[data_indx], avg[data_indx], train_size=0.8)
 	train <- data_split$train
 	exp_reg <- exp_regression(train$x, train$y)
@@ -799,8 +799,8 @@ pdf("./paperplots.pdf")
 # 				snsr_gro$snsr_gro2, snsr_gro$snsr_gro1, snsr_gro$snsr_gro3,
 # 				c(-60,30),c(0, 60), "Air Temperature", "Ground Temperature")
 # data1()
-figure2()
+# figure2()
 # figure3()
-# figure3_auto()
+figure3_auto()
 # figure6()
-figureA1()
+# figureA1()
