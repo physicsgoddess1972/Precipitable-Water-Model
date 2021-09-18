@@ -20656,9 +20656,19 @@ a.big.button:hover:visited {
 #github .panel {
     padding-bottom: 25rem
 }
+
+#linux .panel {
+    padding-bottom: 27rem
+}
+
 @media only screen and (max-width: 700px) {
     #github .panel {
         padding-bottom:29rem
+   }
+}
+@media only screen and (max-width: 622px) {
+    #linux .panel {
+        padding-bottom:32rem
    }
 }
 @media only screen and (max-width: 622px) {
@@ -20674,6 +20684,9 @@ a.big.button:hover:visited {
 @media only screen and (max-width: 387px) {
     #github .panel {
         padding-bottom:36rem
+   }
+   #linux .panel {
+        padding-bottom: 35rem;
    }
 }
 @media only screen and (max-width: 332px) {
@@ -20730,6 +20743,9 @@ a.big.button:hover:visited {
     #guidelines .panel .guide {
         padding-bottom: 20rem
    }
+   #linux .panel {
+    padding-bottom: 29rem;
+    }
 }
 @media only screen and (max-width: 991px) {
     #give-code .panel .give-code {
