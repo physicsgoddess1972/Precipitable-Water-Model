@@ -59,8 +59,8 @@ optional arguments:
                 <h3> 'Time Series' Set Contents </h3>
                 <pre lang="bash">
                     <code>
-                        <inp>$</inp> Rscript pmat_run.r --set t
-                        <inp>$</inp> Rscript pmat_run.r --set t --overcast
+<inp>$</inp> Rscript pmat_run.r --set t
+<inp>$</inp> Rscript pmat_run.r --set t --overcast
                     </code>
                 </pre>
                 <ol>
@@ -82,8 +82,8 @@ optional arguments:
                 <h3> 'Analytics' Set Contents </h3>
                 <pre lang="bash">
                     <code>
-                        <inp>$</inp> Rscript pmat_run.r --set a
-                        <inp>$</inp> Rscript pmat_run.r --set a --overcast
+<inp>$</inp> Rscript pmat_run.r --set a
+<inp>$</inp> Rscript pmat_run.r --set a --overcast
                     </code>
                 </pre>
                 <ol>
@@ -112,8 +112,8 @@ optional arguments:
                 <h3> 'Individual Sensors' Set Contents </h3>
                 <pre lang="bash">
                     <code>
-                        <inp>$</inp> Rscript pmat_run.r --set i
-                        <inp>$</inp> Rscript pmat_run.r --set i --overcast
+<inp>$</inp> Rscript pmat_run.r --set i
+<inp>$</inp> Rscript pmat_run.r --set i --overcast
                     </code>
                 </pre>
                 <ol>
@@ -126,8 +126,8 @@ optional arguments:
                 <h3> 'Pac-Man' Set Contents </h3>
                 <pre lang="bash">
                     <code>
-                        <inp>$</inp> Rscript pmat_run.r --pacman
-                        <inp>$</inp> Rscript pmat_run.r --pacman --overcast
+<inp>$</inp> Rscript pmat_run.r --pacman
+<inp>$</inp> Rscript pmat_run.r --pacman --overcast
                     </code>
                 </pre>
                 <ol>
