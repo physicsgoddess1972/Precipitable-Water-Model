@@ -144,11 +144,6 @@ optional arguments:
 </div></div>
 
 </div></div></div></div>
-        </div>
-    </div>
-
-</div>
-	
 
 <div class="collapsible">
 <div class="panel">
