@@ -51,14 +51,14 @@ def changelog():
             if my_dict[i]['released']:
                 r.append(list(my_dict)[i])
         htmlfile.write('<div class="mdl-layout__header-row">\n')
-        htmlfile.write('<div role="button" aria-expanded="true" tabindex="0" class="mdl-layout__drawer-button" id="pain"><i class="material-icons" id="icon-of-pain">menu</i></div>\n')
+        htmlfile.write('\t<div role="button" aria-expanded="true" tabindex="0" class="mdl-layout__drawer-button" id="pain"><i class="material-icons" id="icon-of-pain">menu</i></div>\n')
         htmlfile.write('\t<span class="mdl-layout-title">Precipitable Water Model</span>\n')
         htmlfile.write('\t<div class="mdl-layout-spacer" style="padding-right: 50%;"></div>\n')
         htmlfile.write('\t<a href="changelog.html#{}">\n'.format(r[0]['version']))
-        htmlfile.write('\t\t\t\t\t<i class="material-icons" style="padding-top: 8px">new_releases</i>\n')
-        htmlfile.write('\t\t\t\t\t<b>Version {} is available</b>\n'.format(r[0]['version']))
-        htmlfile.write('\t\t\t\t</a>\n')
-        htmlfile.write('\t\t</div>')
+        htmlfile.write('\t\t<i class="material-icons" style="padding-top: 8px">new_releases</i>\n')
+        htmlfile.write('\t\t<b>1</b>\n')
+        htmlfile.write('\t</a>\n')
+        htmlfile.write('</div>')
 
 
 def research():
