@@ -99,7 +99,7 @@ optional arguments:
                 <h3> 'Charts' Set Contents </h3>
                 <pre lang="bash">
                     <code>
-                        <inp>$</inp> Rscript pmat_run.r --set c
+<inp>$</inp> Rscript pmat_run.r --set c
                     </code>
                 </pre>
                 <ol>
