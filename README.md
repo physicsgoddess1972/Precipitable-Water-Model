@@ -8,7 +8,7 @@
         <div class="panel">
             With the application of Docker containers in the project, we have evolved our deployment system to be much more easily understandable for users. We utilize the GitHub user interface for automating a significant amount of the data processing and analysis. 
             <br><br>
-            As a result we now have two methods of deploying PMAT, the first and recommended method is through GitHub's interface. This requires zero installation of external programs and can be deployed virtually anywhere with ease. The second method of deployment is through local installation. This requires the installation of Python 3 and R in addition to several other dependencies and will only operate on Ubuntu or Debian operating systems. 
+            As a result we now have two methods of deploying PMAT, the first and recommended method is through GitHub's interface. This requires zero installation of external programs and can be deployed virtually anywhere with ease. The second method of deployment requires the installation of Docker on the local machine, the bash script that accompanies this method will install everything (requires sudo permissions) and is capable of running PMAT without further installation of Python or R. However, this works only in the Ubuntu and Debian environment. 
         </div>
     </div>
 </div>
