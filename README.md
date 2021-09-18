@@ -49,7 +49,7 @@ As a result we now have two methods of deploying PMAT, the first and recommended
 <div id="linux">
     <div class="collapsible">
         <div class="collapsible-header">
-            <h2><i class="devicon-ubuntu-plain colored"></i>Local Deployment</h2>
+            <h2><i class="devicon-ubuntu-plain colored"></i>Local Deployment (Linux)</h2>
         </div>
         <div class="panel">
 <table class="local-deploy">
@@ -80,3 +80,4 @@ As a result we now have two methods of deploying PMAT, the first and recommended
 </tr>
 </tbody>
 </table>
+</div></div><</div>
