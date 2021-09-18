@@ -56,7 +56,7 @@ def changelog():
         htmlfile.write('\t<div class="mdl-layout-spacer" style="padding-right: 50%;"></div>\n')
         htmlfile.write('\t<a href="changelog.html#{}">\n'.format(r[0]['version']))
         htmlfile.write('\t\t<i class="material-icons" style="padding-top: 8px">new_releases</i>\n')
-        htmlfile.write('\t\t<b>1</b>\n')
+        htmlfile.write('\t\t<span class="badge position-absolute translate-middle bg-warning">v{}</span>\n'.format(r[0]['version']))
         htmlfile.write('\t</a>\n')
         htmlfile.write('</div>')
 
