@@ -31,30 +31,29 @@ the same model with zero changes to the source code.
         argument.
         <pre lang="bash">
             <code>
-                <inp>$</inp> Rscript pmat_run.r --help
+<inp>$</inp> Rscript pmat_run.r --help
 
-                usage: model.r [-h] [--set SET] [--poster] [--dev] [-d] [-o] [-1st] [-i] [-ml]
-                            [--pacman]
+usage: model.r [-h] [--set SET] [--poster] [--dev] [-d] [-o] [-1st] [-i] [-ml]
+            [--pacman]
 
-                optional arguments:
-                -h, --help          Show this help message and exit
-                --set SET           Select plot sets:
-                                        [t]ime series
-                                        [a]nalytics
-                                        [c]harts
-                                        [i]ndividual sensors
-                --poster            Produces poster plots
-                --dev               Development plots
-                -d, --data          Produces two columned dataset including mean temp and PW
-                -o, --overcast      Shows time series data for days with overcast condition
-                                    (Used with --set [t/a/i])
-                -1st, --first_time  Notes for first time users.
-                -i, --instrument    Prints out sensor data stored in instruments.yml
-                -ml                 Outs a datafile to use with the machine learning algorithm.
-                --pacman            Produces Pacman plots.
+optional arguments:
+-h, --help          Show this help message and exit
+--set SET           Select plot sets:
+                        [t]ime series
+                        [a]nalytics
+                        [c]harts
+                        [i]ndividual sensors
+--poster            Produces poster plots
+--dev               Development plots
+-d, --data          Produces two columned dataset including mean temp and PW
+-o, --overcast      Shows time series data for days with overcast condition
+                    (Used with --set [t/a/i])
+-1st, --first_time  Notes for first time users.
+-i, --instrument    Prints out sensor data stored in instruments.yml
+-ml                 Outs a datafile to use with the machine learning algorithm.
+--pacman            Produces Pacman plots.
             </code>
         </pre>
-    
         <div class="collapsible_1">
             <div class="panel">
                 <h3> 'Time Series' Set Contents </h3>
@@ -78,7 +77,6 @@ the same model with zero changes to the source code.
                 </ol>
             </div>
         </div>
-
         <div class="collapsible_1">
             <div class="panel">
                 <h3> 'Analytics' Set Contents </h3>
@@ -96,7 +94,6 @@ the same model with zero changes to the source code.
                 </ol>
             </div>
         </div>
-
         <div class="collapsible_1">
             <div class="panel">
                 <h3> 'Charts' Set Contents </h3>
@@ -110,7 +107,6 @@ the same model with zero changes to the source code.
                 </ol>
             </div>
         </div>
-
         <div class="collapsible_1">
             <div class="panel">
                 <h3> 'Individual Sensors' Set Contents </h3>
@@ -125,7 +121,6 @@ the same model with zero changes to the source code.
                 </ol>
             </div>
         </div>
-
         <div class="collapsible_1">
             <div class="panel">
                 <h3> 'Pac-Man' Set Contents </h3>
@@ -141,7 +136,6 @@ the same model with zero changes to the source code.
                 </ol>
             </div>
         </div>
-
     </div>
 </div>
 
@@ -152,60 +146,60 @@ the same model with zero changes to the source code.
     <div class="panel">
         <pre lang="R" translate="no" dir="ltr">
             <code>
-                exp_regression 	<- function(x,y){
-                    <comment># Finds and removes NaNed values from the dataset</comment>
-                    nans <- c(grep("NaN", y)); nans <- append(nans, grep("NaN", x))
-                    x <- x[-(nans)]; y <- y[-(nans)]
-                    <comment># creates a uniform sequence of numbers that fit within the limits of x</comment>
-                    xmin 	<- min(x, na.rm=TRUE)
-                    xmax 	<- max(x, na.rm=TRUE)
-                    newx 	<- seq(xmin, xmax, length.out=length(x))
-                    <comment># Non-linear model (exponential)</comment>
-                    model.0 <- lm(log(y, base=exp(1))~x, data=data.frame(x=x, y=y))
-                    <comment>## Initial values are in fact the converged values</comment>
-                    start 	<- list(a=coef(model.0)[1], b=coef(model.0)[2])
-                    model 	<- nls(log(y, base=exp(1))~a+x*b, data=data.frame(x=x, y=y), start=start)
-                    <comment># Intervals (confidence/prediction)</comment>
-                    confint <- predict(model.0, newdata=data.frame(x=newx), interval='confidence')
-                    predint <- predict(model.0, newdata=data.frame(x=newx), interval='prediction')
-                    <comment># Coefficient of determination</comment>
-                    r2		<- summary(model.0)$r.squared
-                    <comment># Function outputs</comment>
-                    output 	<- list("x"=x, "y"=y,
-                                    "newx"=newx,
-                                "model.0"=model.0,
-                                "model"=model,
-                                "confint"=confint,
-                                "predint"=predint,
-                                "R2"=r2)
-                    return (output)
-                }
-                exp_reg <- exp_regression(xdata, ydata)
-                <comment># Non-linear model (exponential)</comment>
-                plot(exp_reg$x, exp_reg$y, pch=1)
-                <comment># Best Fit</comment>
-                curve(exp(coef(exp_reg$model)[1]+(coef(exp_reg$model)[2]*x)), col="black", add=TRUE)
-                <comment># Confidence Interval </comment>
-                lines(exp_reg$newx,
-                    exp(exp_reg$confint[ ,3]),
-                    col="black",
-                    lty="dashed")
-                lines(exp_reg$newx,
-                    exp(exp_reg$confint[ ,2]),
-                    col="black",
-                    lty="dashed")
-                <comment># Predicition Interval</comment>
-                polygon(c(exp_reg$newx, rev(exp_reg$newx)),
-                        c(exp(exp_reg$predint[ ,3]),
-                        rev(exp(exp_reg$predint[ ,2]))),
-                        col=rgb(0.25, 0.25, 0.25,0.25),
-                        border = NA)
-                <comment># Legend</comment>
-                legend("topleft",col=c("black", "black"), lty=c(1,2),
-                legend=c(parse(text=sprintf("%.2f*e^{"%.3"f*x}*\t\t(R^2 == %.3f)",
-                    exp(coef(exp_reg$model)[1]),
-                    coef(exp_reg$model)[2], exp_reg$R2)),
-                    "Confidence Interval"))
+exp_regression 	<- function(x,y){
+    <comment># Finds and removes NaNed values from the dataset</comment>
+    nans <- c(grep("NaN", y)); nans <- append(nans, grep("NaN", x))
+    x <- x[-(nans)]; y <- y[-(nans)]
+    <comment># creates a uniform sequence of numbers that fit within the limits of x</comment>
+    xmin 	<- min(x, na.rm=TRUE)
+    xmax 	<- max(x, na.rm=TRUE)
+    newx 	<- seq(xmin, xmax, length.out=length(x))
+    <comment># Non-linear model (exponential)</comment>
+    model.0 <- lm(log(y, base=exp(1))~x, data=data.frame(x=x, y=y))
+    <comment>## Initial values are in fact the converged values</comment>
+    start 	<- list(a=coef(model.0)[1], b=coef(model.0)[2])
+    model 	<- nls(log(y, base=exp(1))~a+x*b, data=data.frame(x=x, y=y), start=start)
+    <comment># Intervals (confidence/prediction)</comment>
+    confint <- predict(model.0, newdata=data.frame(x=newx), interval='confidence')
+    predint <- predict(model.0, newdata=data.frame(x=newx), interval='prediction')
+    <comment># Coefficient of determination</comment>
+    r2		<- summary(model.0)$r.squared
+    <comment># Function outputs</comment>
+    output 	<- list("x"=x, "y"=y,
+                    "newx"=newx,
+                "model.0"=model.0,
+                "model"=model,
+                "confint"=confint,
+                "predint"=predint,
+                "R2"=r2)
+    return (output)
+}
+exp_reg <- exp_regression(xdata, ydata)
+<comment># Non-linear model (exponential)</comment>
+plot(exp_reg$x, exp_reg$y, pch=1)
+<comment># Best Fit</comment>
+curve(exp(coef(exp_reg$model)[1]+(coef(exp_reg$model)[2]*x)), col="black", add=TRUE)
+<comment># Confidence Interval </comment>
+lines(exp_reg$newx,
+    exp(exp_reg$confint[ ,3]),
+    col="black",
+    lty="dashed")
+lines(exp_reg$newx,
+    exp(exp_reg$confint[ ,2]),
+    col="black",
+    lty="dashed")
+<comment># Predicition Interval</comment>
+polygon(c(exp_reg$newx, rev(exp_reg$newx)),
+        c(exp(exp_reg$predint[ ,3]),
+        rev(exp(exp_reg$predint[ ,2]))),
+        col=rgb(0.25, 0.25, 0.25,0.25),
+        border = NA)
+<comment># Legend</comment>
+legend("topleft",col=c("black", "black"), lty=c(1,2),
+legend=c(parse(text=sprintf("%.2f*e^{"%.3"f*x}*\t\t(R^2 == %.3f)",
+    exp(coef(exp_reg$model)[1]),
+    coef(exp_reg$model)[2], exp_reg$R2)),
+    "Confidence Interval"))
             </code>
         </pre>
     </div>
