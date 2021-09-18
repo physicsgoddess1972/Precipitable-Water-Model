@@ -16,6 +16,7 @@ changes:
     - added: Offical local docker deployment
     - updated: Moved data and relavent figures to their own deployment branch
   documentation:
+    - updated: CSS adjustments, and JavaScript fixes to documentation page
     - updated: Contribution page to include the special people that helped us
     - updated: Contribution page with new procedures on contributing data
     - updated: Methodology now includes the Docker deployment rather than the local deployment
