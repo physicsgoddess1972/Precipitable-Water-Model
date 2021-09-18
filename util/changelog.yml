@@ -27,6 +27,9 @@ changes:
     - added: A dashboard card that has easily accessible plots
     - added: A method to look at available plots on the Dashboard
     - updated: How the documentation pages are organized and put together
+  research:
+    - added: A paper is currently under review on the results of the Socorro, NM analysis
+    - added: A draft of a paper for the Journal of Open Source Software on the PMAT suite is in the works
 ---
 name: Cirrus
 tagline: New and Improved PMAT
