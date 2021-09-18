@@ -52,7 +52,7 @@
             <h2><i class="devicon-ubuntu-plain colored"></i>Local Deployment (Linux)</h2>
         </div>
         <div class="panel">
-            <table class="local-deploy">
+            <table class="linux-deploy">
                 <tbody>
                     <tr style="border: 0px;">
                         <td><span class="numbered">1</span></td>
@@ -89,7 +89,7 @@
             <h2><i class="devicon-windows8-original colored"></i>Local Deployment (Windows)</h2>
         </div>
         <div class="panel">
-            We are currently working to get this feature operational for all of Windows 10.
+            We are currently working to get this feature operational for all versions of Windows 10.
         </div>
     </div>
 </div>
