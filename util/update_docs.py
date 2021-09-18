@@ -122,7 +122,7 @@ def dash():
         csvfile.write("<script>function getChcked(){var chks = document.querySelectorAll('input[type=\"checkbox\"]');var checked = [];for(var i = 0; i < chks.length; i++){if(chks[i].checked){checked.push(chks[i].name)}}return checked;}</script>\n")
         csvfile.write("<script>var arr = [];$('#button').click(function(){{for (var i = 0; i < getChcked().length; i++){{arr.push('https://github.com/physicsgoddess1972/Precipitable-Water-Model/raw/pmat-'+ $('.tabs .active').attr('href').split('#').pop() + '/figs/results/' + getChcked()[i] + '.pdf')}}download_files(arr);}})</script>\n")
         csvfile.write('<div class="mdl-grid demo-content">\n')
-        csvfile.write('<div class="mdl-shadow--2dp mdl-cell mdl-cell--stretch mdl-cell--12-col style="background-color: white">\n')
+        csvfile.write('<div class="mdl-shadow--2dp mdl-cell mdl-cell--stretch mdl-cell--12-col" style="background-color: white">\n')
         csvfile.write('\t<div class="row">\n\t\t<div class="col s12">\n')
         csvfile.write('\t\t\t<ul class="tabs">\n')
         csvfile.write('\t\t\t\t<li class="tab col s3" style="padding-top: 10px; padding-left: 10px; padding-right: 10px"><i style="color: #4C69EC" id="button" name="action" type="submit"><i class="material-icons">save</i></i></li>\n')
