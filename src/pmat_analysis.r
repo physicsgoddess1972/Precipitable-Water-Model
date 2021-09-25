@@ -26,34 +26,62 @@ inf_counter <- function(bool, snsr_data, label){
 #' @export
 exp.regression 	<- function(x,y){
 	# Finds and removes NaNed values from the dataset
-	nans <- c(grep("NaN", y)); nans <- append(nans, grep("NaN", x))
-	x <- x[-(nans)]; y <- y[-(nans)]
+	# nans <- c(grep("NaN", y)); nans <- append(nans, grep("NaN", x))
+	# x <- x[-(nans)]; y <- y[-(nans)]
+	# Porblem seems to be nan values are still being counted in the resid(model.0)
+	if (args$overcast){
+		pw_loc 	<- overcast.results$pw_loc
+		avg 	<- overcast.results$avg
+	} else {
+		pw_loc 	<- clear_sky.results$pw_loc
+		avg 	<- clear_sky.results$avg
+	}
+	data_indx <- mean.filter(pw_loc, avg)
+	data_sep <- data.partition(x[data_indx], y[data_indx])
+	# data_sep <- data.partition(x, y)
+	train <- data_sep$train
+	test <- data_sep$test 
+	print(train$x)
 	# creates a uniform sequence of numbers that fit within the limits of x
-	xmin 	<- min(x, na.rm=TRUE)
-	xmax 	<- max(x, na.rm=TRUE)
-	newx 	<- seq(xmin, xmax, length.out=length(x))
+	xmin 	<- min(train$x, na.rm=TRUE)
+	xmax 	<- max(train$x, na.rm=TRUE)
+	newx 	<- seq(xmin, xmax, length.out=length(train$x))
 	# Non-linear model (exponential)
 	## Initial values are in fact the converged values
-	model.0 <- lm(log(y, base=exp(1))~x, data=data.frame(x=x, y=y))
+	model.0 <- lm(log(y, base=exp(1))~x, data=data.frame(x=train$x, y=train$y))
+	# print(as.numeric(unlist(resid(model.0))))
+	print(length(resid(model.0)))
 	start 	<- list(a=coef(model.0)[1], b=coef(model.0)[2])
-	model 	<- nls(log(y, base=exp(1))~a+x*b, data=data.frame(x=x, y=y), start=start)
+	model 	<- nls(log(y, base=exp(1))~a+x*b, data=data.frame(x=train$x, y=train$y), start=start)
 	# Intervals (confidence/prediction)
-	confint <- predict(model.0, newdata=data.frame(x=newx), interval='confidence')
-	predint <- predict(model.0, newdata=data.frame(x=newx), interval='prediction')
+	confint <- predict(model.0, newdata=data.frame(q=newx), interval='confidence')
+	predint <- predict(model.0, newdata=data.frame(q=newx), interval='prediction')
 	# Coefficient of determination
 	r2		<- summary(model.0)$r.squared
     # estimate from regression
-	est     <- exp(coef(model)[1]+coef(model)[2]*x)
+	est     <- exp(coef(model)[1]+coef(model)[2]*test$x)
 	# accuracy of model
-	acc     <- sqrt((1/length(x))*(sum((est-y)^2)/length(x)))
+	acc     <- sqrt((1/length(test$x))*(sum((est-test$y)^2)/length(test$x)))
     # Residual Standard Deiviation
-	S       <- sqrt(sum((est-y)^2)/(length(x) - 2))
+	S       <- sqrt(sum((est-test$y)^2)/(length(test$x) - 2))
 	# Root Square Mean Error
-	rsme    <- sqrt(sum((est-y)^2)/length(x))
+	rsme    <- sqrt(sum((est-test$y)^2)/length(test$x))
 	# Function outputs
-	output 	<- list("x"=x, "y"=y, "newx"=newx, "xmin"=xmin, "xmax"=xmax, "model.0"=model.0,
-					"model"=model, "confint"=confint, "predint"=predint, "R2"=r2,
-					'est'=est, 'acc'=acc, 'S'=S, 'rsme'=rsme)
+	output 	<- list("x"=train$x, 
+					"y"=train$y, 
+					"newx"=newx, 
+					"xmin"=xmin, 
+					"xmax"=xmax, 
+					"model.0"=model.0,
+					"model"=model, 
+					"confint"=confint, 
+					"predint"=predint, 
+					"R2"=r2,
+					'est'=est, 
+					'acc'=acc, 
+					'S'=S, 
+					'rsme'=rsme, 
+					"seed"=def_seed)
 	return (output)
 }
 
@@ -81,23 +109,31 @@ clear_sky.analysis <- function(overcast){
 	}
 
 	out_sky <- inf_counter(FALSE, snsr_sky, 'sky')
-	for (i in seq(1, length(snsr_sky))){
+	for (i in 1:length(snsr_sky)){
 		snsr_sky[[ paste("snsr_sky",i,sep="") ]] <- out_sky[[i]]
 	}
 
 	out_gro <- inf_counter(FALSE, snsr_gro, 'gro')
-	for (i in seq(1, length(snsr_gro))){
+	for (i in 1:length(snsr_gro)){
 		snsr_gro[[ paste("snsr_gro",i,sep="") ]] <- out_gro[[i]]
 	}
-
-	for (i in snsr_sky){
-		for (j in 1:(length(unlist(snsr_sky))/length(snsr_sky))){
-			snsr_sky_calc[[ paste("snsr_sky_calc",j,sep="") ]] <-
-				append(x=snsr_sky_calc[[ paste("snsr_sky_calc", j, sep="")]], values=na.omit(c(i[j])))
+	for (i in 1:length(clear_date)) {
+		if (grepl("This datapoint has been omitted from the final analysis; refer to documentation on how to handle this day", comments[i], fixed=TRUE)){
+			for (j in 1:length(snsr_name)){
+				snsr_sky[[ paste("snsr_sky",j,sep="") ]][i] <- "NaN"
+				snsr_gro[[ paste("snsr_gro",j,sep="") ]][i] <- "NaN"
+			}
 		}
 	}
+	for (i in 1:length(snsr_sky)){
+		for (j in 1:(length(unlist(snsr_sky))/length(snsr_sky))){
+			snsr_sky_calc[[ paste("snsr_sky_calc",j,sep="") ]] <-
+				append(x=snsr_sky_calc[[ paste("snsr_sky_calc", j, sep="")]], values=as.numeric(snsr_sky[[i]][j]))
+		}
+	}	
+	print(snsr_sky_calc[[100]])
 	for (i in 1:(length(unlist(snsr_sky))/length(snsr_sky))){
-		snsr_sky_calc[[ paste("snsr_sky_calc",i,sep="") ]] <- mean(snsr_sky_calc[[ paste("snsr_sky_calc",i,sep="") ]])
+		snsr_sky_calc[[ paste("snsr_sky_calc",i,sep="") ]] <- mean(na.omit(snsr_sky_calc[[ paste("snsr_sky_calc",i,sep="") ]]))
 	}
 ## Takes locational average of the precipitable water measurements
 	for (i in 1:length(col_pwpl)){
@@ -142,6 +178,7 @@ overcast.analysis <- function(overcast){
 	over_date  	<- overcast$over_date
 ## Pulls relative humidity from filter function
 	over_rh <- as.numeric(overcast$rho)
+	comments    <- overcast$como
 # Initialize empty lists
 	snsr_delo  	<- snsr_skyo <- snsr_groo <- pw_loco <- loc_avgo <- snsr_sky_calco <- tmp_avgo <- list()
 ## Adds PW measurements for overcast to list
@@ -164,7 +201,16 @@ overcast.analysis <- function(overcast){
 	for (i in seq(1, length(snsr_groo))){
 		snsr_groo[[ paste("snsr_groo",i,sep="") ]] <- out_groo[[i]]
 	}
-
+	for (i in seq(from = 1,to = length(over_date))) {
+		if (grepl("This datapoint has been omitted from the final analysis; refer to documentation on how to handle this day", comments[i], fixed=TRUE)){
+			for (j in length(snsr_skyo)){
+				snsr_skyo[[ paste("snsr_skyo",j,sep="") ]][i] <- "-Inf"
+			}
+			for (j in length(snsr_gro)){
+				snsr_groo[[ paste("snsr_groo",j,sep="") ]][i] <- "Inf"
+			}
+		}
+	}
 ## Takes average of available sky temperature measurements
 # Removes all NaN values from daily lists
 	for (i in snsr_skyo){
