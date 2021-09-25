@@ -89,6 +89,11 @@ overcast <- overcast.filter(col_con, col_date, col_com, pw_name, snsr_name)
 source("./pmat_analysis.r")
 clear_sky.results <- clear_sky.analysis(overcast)
 overcast.results <- overcast.analysis(overcast)
+if(args$overcast){
+	exp_reg <- exp.regression(as.numeric(unlist(overcast.results$snsr_sky_calc)), overcast.results$avg)
+}else{
+	exp_reg <- exp.regression(as.numeric(unlist(clear_sky.results$snsr_sky_calc)), clear_sky.results$avg)
+}
 # Plotting functions
 source("./pmat_plots.r")
 
@@ -242,9 +247,21 @@ if(args$set == "i"){
 	cat(green("[5]"), "Residual of the Mean PW and Temperature Model\n")
 	# Saves plots
 	for (i in list(sname_pub)){
-		save(c(analytical.plots(args$overcast)), i)
+		save(c(analytical.plots(args$overcast, exp_reg)), i)
 		cat(green(sprintf("Plot set downloaded to %s\n", i)))
 	}
+	out <- as.yaml(list(seed=c(exp_reg$seed), 
+						data=list(clear=list(count=c(length(clear_sky.results$date))),
+								  overcast=list(count=c(length(overcast.results$date)))
+								 ),
+						analysis=list(coeff=list(A=c(round(exp(coef(exp_reg$model)[1]), 4)),
+												 B=c(round(coef(exp_reg$model)[2],4))), 
+									  rsme=c(round(exp_reg$rsme, 4)), 
+									  rstd=c(round(exp_reg$S, 4)),
+									  accu=c(round(exp_reg$acc * 100, 2))
+									  )))
+	cat(out)
+	write_yaml(out, paste(args$dir,"_output.yml", sep=""))
 }else if(args$set == "c"){
 	# Plots available with this option
 	for (i in 1:length(snsr_name)){
