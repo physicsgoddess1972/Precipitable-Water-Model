@@ -1,4 +1,4 @@
-fname       <- read.table(file="./rsme_riley_75.txt", sep=",", header=TRUE, strip.white=TRUE)
+fname       <- read.table(file="./rsme_riley_55.txt", sep=",", header=TRUE, strip.white=TRUE)
 
 rsme_train <- as.numeric(unlist(fname[1]))
 rsme_mims <- as.numeric(unlist(fname[2]))

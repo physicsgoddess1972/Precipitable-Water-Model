@@ -308,13 +308,13 @@ for (i in 1:length(col_pwtm)){
 			array(overcast[grep("over_pw", names(overcast), fixed=TRUE)][j])
 	}
 	tmp <- tmp_avgo[i]
-	tmp_avgo[[ paste("tmp_avgo",i,sep="") ]] <- Reduce("+", tmp[[ 1 ]])/length(col_pwtm)
 }
 
 ## Takes super average of the precipitable water measurements
 avgo 		<-  Reduce("+", pw_loco)/length(pw_loco)
 lin_regression <- function(x,y){
 
+	tmp_avgo[[ paste("tmp_avgo",i,sep="") ]] <- Reduce("+", tmp[[ 1 ]])/length(col_pwtm)
 	nans <- c(grep("NaN", y)); nans <- append(nans, grep("NaN", x))
 	x <- x[-(nans)]; y <- y[-(nans)]
 
@@ -504,6 +504,7 @@ figure3_auto	<- function(...){
 	snsr_sky$snsr_sky1 <- as.numeric(unlist(replace(snsr_sky$snsr_sky1, snsr_sky$snsr_sky1 == "-Inf", NaN)))
 	snsr_sky$snsr_sky2 <- as.numeric(unlist(replace(snsr_sky$snsr_sky2, snsr_sky$snsr_sky2 == "-Inf", NaN)))
 	snsr_sky$snsr_sky3 <- as.numeric(unlist(replace(snsr_sky$snsr_sky3, snsr_sky$snsr_sky3 == "-Inf", NaN)))
+	print(snsr_sky$snsr_sky3)
 	snsr_sky <- list(snsr_sky$snsr_sky2, snsr_sky$snsr_sky3)
 	for (i in snsr_sky){
 		for (j in 1:(length(unlist(snsr_sky))/length(snsr_sky))){
@@ -591,7 +592,7 @@ figure3	<- function(...){
 	minor.tick(nx=2, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
 	# Best Fit
 	# curve(30.55 * exp(x/28.725) - 2.63, col="red", add=TRUE)
-	curve(20.138 * exp(0.0364 * x), col="black", add=TRUE)
+	curve(20.202 * exp(0.036 * x), col="black", add=TRUE)
 
     mims_y  <- (30.55 * exp(exp_reg$x/28.725) - 2.63)
     rsme    <- sqrt(sum((mims_y - exp_reg$y)^2)/length(exp_reg$y))
@@ -604,7 +605,7 @@ figure3	<- function(...){
 
 	legend("topleft",col=c("black", "black"), lty=c(1, 2),
 	legend=c(parse(text=sprintf("%.2f*e^{%.3f*x}*\t\t(S == %.2f*mm)",
-	20.138,0.0364, 3.765)), "Confidence Interval"))
+	20.202, 0.036, 3.79)), "Confidence Interval"))
 }
 ## Best-Fit comparison
 ## Best-Fit comparison
@@ -638,7 +639,7 @@ figure6 	<- function(...){
 	minor.tick(nx=2, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
 
 	# Best Fit
-	curve(20.138*exp(0.0364*x), col="black", add=TRUE)
+	curve(20.202*exp(0.036*x), col="black", add=TRUE)
 	curve(30.55 * exp(x/28.725) - 2.63, col="black", lty="dashed", add=TRUE)
 
 
