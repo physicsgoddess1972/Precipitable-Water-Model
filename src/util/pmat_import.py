@@ -17,7 +17,7 @@ from siphon.simplewebservice.wyoming import WyomingUpperAir
 
 from mesowest import MesoWest
 
-from atmosaccess.data import NOAAData
+from atmosaccess.NOAAaccess import data, data_allday
 
 print("Good Morning\nWelcome to the Data Extraction Module of the Precipitable Water Model. For more information about the model and the purpose of this tool, please visit the [link=https://git.io/fj5Xr]documentation page[/link]")
 
