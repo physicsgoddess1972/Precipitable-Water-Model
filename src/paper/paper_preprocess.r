@@ -89,6 +89,26 @@ for (j in unique(snsr_tag)){
 	col_snsr <- append(col_snsr, list(grep(j, snsr_tag)))
 }
 
+
+null.scope <- function(x, y){
+		nans <- c()
+		if (length(c(grep("NaN", y))) != 0){
+			nans <- append(nans, grep("NaN", y))
+		}
+		if (length(c(grep("NaN", x))) != 0){
+			nans <- append(nans, grep("NaN", x))
+		}
+		if (!is.null(nans)){
+			x <- x[-(nans)]
+			y <- y[-(nans)]
+		} else {
+			x <- x; y <- y;
+		}
+	# 	nans <- c(grep("NaN", y)); nans <- append(nans, grep("NaN", x))
+	# x <- x[-(nans)]; y <- y[-(nans)]
+	return(list("x"=x, "y"=y))
+}
+
 #' @title mean.filter
 #' @description filters the data based on the relative difference of the mean pw
 #' @param pw precipitable water data
@@ -125,7 +145,10 @@ mean.filter <- function(pw, avg, percent){
 #' @return A sky temperature time series plot
 #' @export
 data.partition <- function(x,y, train_size=0.7, rand_state=sample(1:2^15, 1)){
+	x <- null.scope(x,y)$x
+	y <- null.scope(x,y)$y
   set.seed(rand_state)
+		# Finds and removes NaNed values from the dataset
   train_idx <- sample(1:length(x), trunc(length(x)*train_size), replace=FALSE)
   test_idx  <- (1:length(x))[-(train_idx)]
 
@@ -149,7 +172,7 @@ data.partition <- function(x,y, train_size=0.7, rand_state=sample(1:2^15, 1)){
 #' @param sensr_name sensor labels
 #' @return A sky temperature time series plot
 #' @export
-overcast.filter <- function(col_con, col_date, col_com, pw_name, snsr_name, cloud_bool){
+overcast.filter <- function(col_con, col_date, col_com, pw_name, snsr_name){
 	# Initializes the lists to store values
 	date_clear	<- snsr_sky		<- snsr_gro		<- pw_loc  <- rh  <- list()
 	date_over	<- snsr_skyo	<- snsr_groo	<- pw_loco <- rho <- list()
@@ -181,30 +204,24 @@ overcast.filter <- function(col_con, col_date, col_com, pw_name, snsr_name, clou
 		}
 	}
 	# Adds divided data into list to output from function
-	if (cloud_bool){
-		output1 <- list(date=date_over, rh=rho, com=como)
-		for(j in 1:length(snsr_name)){
-			output1 <- append(x=output1, values=list("sky"=snsr_skyo[[ paste("snsr_skyo",j,sep="") ]]))
-		}
-		for(j in 1:length(snsr_name)){
-			output1 <- append(x=output1, values=list("gro"=snsr_groo[[ paste("snsr_groo",j,sep="") ]]))
-		}
-		for(j in 1:length(pw_name)){
-			output1 <- append(x=output1, values=list("pw"=pw_loco[[ paste("pw_loco", j, sep="")]]))
-		}
-	} else {
-		output1 <- list(date=date_clear, rh=rh, com=com)
-		for(j in 1:length(snsr_name)){
-			output1 <- append(x=output1, values=list("gro"=snsr_gro[[ paste("snsr_gro",j,sep="") ]]))
-		}
-		for(j in 1:length(snsr_name)){
-			output1 <- append(x=output1, values=list("sky"=snsr_sky[[ paste("snsr_sky",j,sep="") ]]))
-		}
-
-		for(j in 1:length(pw_name)){
-			output1 <- append(x=output1, values=list("pw"=pw_loc[[ paste("pw_loc", j, sep="")]]))
-		}
+	output1 <- list(clear_date=date_clear, over_date=date_over, rh=rh, rho=rho,com=com)
+	for(j in 1:length(snsr_name)){
+		output1 <- append(x=output1, values=list("clear_gro"=snsr_gro[[ paste("snsr_gro",j,sep="") ]]))
+	}
+	for(j in 1:length(snsr_name)){
+		output1 <- append(x=output1, values=list("clear_sky"=snsr_sky[[ paste("snsr_sky",j,sep="") ]]))
+	}
+	for(j in 1:length(snsr_name)){
+		output1 <- append(x=output1, values=list("over_sky"=snsr_skyo[[ paste("snsr_skyo",j,sep="") ]]))
+	}
+	for(j in 1:length(snsr_name)){
+		output1 <- append(x=output1, values=list("over_gro"=snsr_groo[[ paste("snsr_groo",j,sep="") ]]))
+	}
+	for(j in 1:length(pw_name)){
+		output1 <- append(x=output1, values=list("clear_pw"=pw_loc[[ paste("pw_loc", j, sep="")]]))
+	}
+	for(j in 1:length(pw_name)){
+		output1 <- append(x=output1, values=list("over_pw"=pw_loco[[ paste("pw_loco", j, sep="")]]))
 	}
 	return(output1)
 }
-
