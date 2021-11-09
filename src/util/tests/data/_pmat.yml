@@ -6,7 +6,7 @@
     range: -20 ~ 537
     emissivity: 0.95
     poster: true
-    active: true
+    active: false
 - sensor:
     name: FLIR i3
     error: null
@@ -15,7 +15,7 @@
     range: null
     emissivity: 0.95
     poster: true
-    active: true
+    active: false
 - sensor:
     name: AMES_1
     error: 7
@@ -42,14 +42,18 @@
     range: -50 ~ 550
     emissivity: 0.95
     poster: true
-    active: true
+    active: false
 - train_fraction:
-  value: 70
+  value: 0.8
 - rel_difference:
   value: 75
+- iteration: true
+  step: 20
+  seed:
 ---
-- mesowest:
-  - id: KONM
+- noaa:
+  - label: KONM
+    id: 72362093040
 - wyoming:
   - id: ABQ
   - id: EPZ

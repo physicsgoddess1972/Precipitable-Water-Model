@@ -24,19 +24,22 @@ col_con 	<- grep("Condition", colnames(fname))
 ## Pulls the column number for the comments
 col_com 	<- grep("comments", colnames(fname))
 ## The value for the training fraction
-train_frac 	<- config[[as.numeric(length(config) - 1)]]$value
+train_frac 	<- config[[as.numeric(length(config) - 2)]]$value
 ## The value for the threshold of the mean.filter
-rel_diff 	<- config[[length(config)]]$value
+rel_diff 	<- config[[length(config) - 1]]$value
 
+step 		<- config[[length(config)]]$step
 ## Pulls sensor labels and colors from instruments.txt
 snsr_name 	<- list(); snsr_color <- snsr_sky_indx <- snsr_gro_indx  	<- unlist(list())
 for(i in 1:length(config)){
 	if (!(length(config[[i]]$sensor$active) == 0)){
-		var 				<- assign(paste("Thermo", i, sep=""), config[[i]]$sensor$name)
-		snsr_name 			<- append(snsr_name, toString(var))
-		snsr_color 			<- append(snsr_color, paste("#", toString(config[[i]]$sensor$color), sep=""))
-		snsr_sky_indx 		<- append(snsr_sky_indx, col_sky[i])
-		snsr_gro_indx 		<- append(snsr_gro_indx, col_gro[i])
+		if (config[[i]]$sensor$active == TRUE){
+				var 				<- assign(paste("Thermo", i, sep=""), config[[i]]$sensor$name)
+				snsr_name 			<- append(snsr_name, toString(var))
+				snsr_color 			<- append(snsr_color, paste("#", toString(config[[i]]$sensor$color), sep=""))
+				snsr_sky_indx 		<- append(snsr_sky_indx, col_sky[i])
+				snsr_gro_indx 		<- append(snsr_gro_indx, col_gro[i])
+		}
 	}
 }
 
@@ -110,7 +113,7 @@ mean.filter <- function(pw, avg, percent){
             }
         }
     }
-    bad <- sort(unique(Reduce(c, bad)))
+    bad  <- sort(unique(Reduce(c, bad)))
     good <- sort(unique(Reduce(c, good)))
     good <- good[!(good %in% bad)]
     return(good)
@@ -124,8 +127,7 @@ mean.filter <- function(pw, avg, percent){
 #' @param rand_state the seed for the random generated partition
 #' @return A sky temperature time series plot
 #' @export
-data.partition <- function(x,y, train_size=0.7, rand_state=sample(1:2^15, 1)){
-  set.seed(rand_state)
+data.partition <- function(x,y, train_size=0.7){
   train_idx <- sample(1:length(x), trunc(length(x)*train_size), replace=FALSE)
   test_idx  <- (1:length(x))[-(train_idx)]
 
@@ -137,7 +139,7 @@ data.partition <- function(x,y, train_size=0.7, rand_state=sample(1:2^15, 1)){
                           y[test_idx])
   colnames(test) <- c("x", "y")
 
-  return(list(train=train, test=test, train_idx=train_idx, seed=rand_state))
+  return(list(train=train, test=test, train_idx=train_idx))
 }
 
 #' @title overcast.filter

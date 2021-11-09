@@ -86,7 +86,16 @@ clear_sky.analysis <- function(overcast){
 		snsr_sky[[ paste("snsr_sky",i,sep="") ]] <- as.numeric(unlist(overcast[grep("clear_sky", names(overcast), fixed=TRUE)[1]+i-1]))
 		snsr_del[[ paste("snsr_del",i,sep="") ]] <- as.numeric(unlist(overcast[grep("clear_gro", names(overcast), fixed=TRUE)[1]+i-1])) - as.numeric(unlist(overcast[grep("clear_sky", names(overcast), fixed=TRUE)[1]+i-1]))
 	}
-
+	for (i in 1:length(clear_date)) {
+		if (grepl("DNA", comments[i], fixed=TRUE)){
+			for (j in 1:length(snsr_sky)){
+				snsr_sky[[ paste("snsr_sky",j,sep="") ]][i] <- NaN
+			}
+			for (j in 1:length(snsr_gro)){
+				snsr_gro[[ paste("snsr_gro",j,sep="") ]][i] <- NaN
+			}
+		}
+	}
 	out_sky <- inf_counter(FALSE, snsr_sky, 'sky')
 	for (i in 1:length(snsr_sky)){
 		snsr_sky[[ paste("snsr_sky",i,sep="") ]] <- out_sky[[i]]
@@ -105,16 +114,6 @@ clear_sky.analysis <- function(overcast){
 	}
 	for (i in 1:(length(unlist(snsr_sky))/length(snsr_sky))){
 		snsr_sky_calc[[ paste("snsr_sky_calc",i,sep="") ]] <- mean(snsr_sky_calc[[ paste("snsr_sky_calc",i,sep="") ]])
-	}
-	for (i in 1:length(clear_date)) {
-		if (grepl("This datapoint has been omitted from the final analysis; refer to documentation on how to handle this day", comments[i], fixed=TRUE)){
-			for (j in 1:length(snsr_sky)){
-				snsr_sky[[ paste("snsr_sky",j,sep="") ]][i] <- NaN
-			}
-			for (j in 1:length(snsr_gro)){
-				snsr_gro[[ paste("snsr_gro",j,sep="") ]][i] <- NaN
-			}
-		}
 	}
 ## Takes locational average of the precipitable water measurements
 	for (i in 1:length(col_pwpl)){

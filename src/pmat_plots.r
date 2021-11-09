@@ -502,51 +502,39 @@ analytical.plots <- function(overcast, exp_reg){
     plots4 	<- function(overcast){
         par(mar=c(5.1, 4.1, 4.1, 2.1),xpd=FALSE)
         if(overcast){
+            x 		<- as.numeric(unlist(overcast.results$snsr_sky_calc))
+            y       <- overcast.results$avg
+            z       <- overcast.results$pw_loc
             title 	<- "Correlation between Mean TPW and Temperature \n Condition: Overcast"
         }else{
+            x 		<- as.numeric(unlist(clear_sky.results$snsr_sky_calc))
+            y       <- clear_sky.results$avg
+            z       <- clear_sky.results$pw_loc
             title 	<- "Correlation between Mean TPW and Temperature \n Condition: Clear Sky"
         }
-        ymax <- max(exp_reg$y, na.rm=TRUE); ymin <- min(exp_reg$y, na.rm=TRUE)
+        xmin <- min(x, na.rm=TRUE); xmax <- max(x, na.rm=TRUE)
+        newx <- seq(xmin, xmax, length.out=length(x))
+        ymax <- max(y, na.rm=TRUE); ymin <- min(y, na.rm=TRUE)
         # Non-linear model (exponential)
-        plot(exp_reg$x,exp_reg$y, pch=1, ylim=c(ymin, ymax), xlab="Zenith Sky Temperature [C]", ylab="TPW [mm]", main=title)
-        # Best Fit
-        curve(exp(coef(exp_reg$model)[1]+(coef(exp_reg$model)[2]*x)), col="black", add=TRUE)
+	    exp_reg <- exp.regression(x, y, z, 1)
 
-        lines(exp_reg$newx, exp(exp_reg$confint[ ,3]), col="black", lty="dashed")
-        lines(exp_reg$newx, exp(exp_reg$confint[ ,2]), col="black", lty="dashed")
+        plot(x,y, pch=1, ylim=c(ymin, ymax), xlab="Zenith Sky Temperature [C]", ylab="TPW [mm]", main=title)
+        # Best Fit
+        curve(iter.results$A*exp(iter.results$B*x), col="black", add=TRUE)
 
         polygon(c(exp_reg$newx, rev(exp_reg$newx)), c(exp(exp_reg$predint[ ,3]), rev(exp(exp_reg$predint[ ,2]))),col=rgb(0.25, 0.25, 0.25,0.25), border = NA)
         minor.tick(nx=2, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
 
-        legend("topleft",col=c("black", "black"), lty=c(1,2),
-        legend=c(parse(text=sprintf("%.2f*e^{%.3f*x}*\t\t(S == %.3f)",
-        exp(coef(exp_reg$model)[1]),coef(exp_reg$model)[2], exp_reg$S)), "Confidence Interval"))
+        legend("topleft",col=c("black"), lty=c(1),
+        legend=c(parse(text=sprintf("%.2f*e^{%.3f*x}*\t\t(S == %.3f*mm)",
+        iter.results$A,iter.results$B,iter.results$S))))
         cat(green("[4]"), "Total Mean PW and Temperature\n")
-    }
-
-#' @title plots5
-#' @description Residual Plot
-#' @param overcast the condition of data (clear sky/overcast)
-#' @return A sky temperature time series plot
-#' @export
-    plots5 	<- function(overcast){
-        if(overcast){
-            title 	<- "Residual of the Mean TPW and Temperature Model \n Condition: Overcast"
-        }else{
-            title 	<- "Residual of the Mean TPW and Temperature Model \n Condition: Clear Sky"
-        }
-        plot(exp_reg$x, resid(exp_reg$model.0), col=c("royalblue"), pch=16,
-        ylim=c(min(resid(exp_reg$model.0)), max(resid(exp_reg$model.0))),
-            xlab="Zenith Sky Temperature [C]", ylab=bquote(.("Residual Values [")*sigma*.("]")), main=title)
-        abline(h=0, col="gray")
-        cat(green("[5]"), "Residual of the Mean PW and Temperature Model\n")
     }
 
     return(list(plots1(overcast),
                 plots2(overcast),
                 plots3(overcast),
-                plots4(overcast),
-                plots5(overcast)))
+                plots4(overcast)))
 }
 
 #' @title pac.plots
@@ -563,12 +551,17 @@ pac.plots <- function(overcast){
     pac1 <- function(overcast){
         par(mar=c(5.1, 4.1, 4.1, 2.1),xpd=FALSE)
         if(overcast){
-            exp_reg <- exp.regression(as.numeric(unlist(overcast.results$snsr_sky_calc)), overcast.results$avg)
+            x 		<- as.numeric(unlist(overcast.results$snsr_sky_calc))
+            y       <- overcast.results$avg
+            z       <- overcast.results$pw_loc
             title 	<- "Correlation between Mean TPW and Temperature \n Condition: Overcast"
         }else{
-            exp_reg <- exp.regression(as.numeric(unlist(clear_sky.results$snsr_sky_calc)), clear_sky.results$avg)
+            x 		<- as.numeric(unlist(clear_sky.results$snsr_sky_calc))
+            y       <- clear_sky.results$avg
+            z       <- clear_sky.results$pw_loc
             title 	<- "Correlation between Mean TPW and Temperature \n Condition: Clear Sky"
         }
+        exp_reg <- exp.regression(x,y,z, 1)
         # Finds and removes NaNed values from the dataset
         pac.plot(exp_reg$x,exp_reg$y, title, c("Zenith Sky Temperature", "C"),c("TPW", "mm"))
         cat(green("[1]"), "Total Mean PW and Temperature\n")
@@ -605,14 +598,10 @@ pac.plots <- function(overcast){
 #' @return Instrumentation bar charts
 #' @export
 charts	<- function(...){
-    snsr_sky  <- clear_sky.results$snsr_sky
-    snsr_skyo <- overcast.results$snsr_sky
-    for (i in 1:length(snsr_name)){
-        snsr_sky[[ paste("snsr_sky",i,sep="") ]] <- as.numeric(unlist(overcast[grep("clear_sky", names(overcast), fixed=TRUE)[1]+i-1]))
-    	snsr_skyo[[ paste("snsr_skyo",i,sep="") ]] <- as.numeric(unlist(overcast[grep("over_sky", names(overcast), fixed=TRUE)[1]+i-1]))
-    }
+    snsr_sky  <- clear_sky.results$raw_sky
+    snsr_skyo <- overcast.results$raw_sky
 
-    par(mar=c(5.1, 5.1, 7.1, 1.3),oma=c(0,0,0,0), xpd=TRUE)
+    par(mar=c(5.1, 5.1, 5.1, 1.3),oma=c(0,0,0,0), xpd=TRUE)
 	for (count in 1:length(snsr_name)){
             test <- unlist(snsr_sky[count])
             testo <- unlist(snsr_skyo[count])
@@ -636,19 +625,23 @@ charts	<- function(...){
                                   A=c(norm/length(unlist(snsr_sky[count]))*100, 
                                       norm_na/length(unlist(snsr_sky[count]))*100,
                                       norm_inf/length(unlist(snsr_sky[count]))*100))
-			bar <- barplot(as.matrix(slices),names.arg=title, las=1, ylim=c(0,max(length(unlist(snsr_sky[count])),length(unlist(snsr_skyo[count])))),xlab="Samples",
-			horiz=FALSE, axes=FALSE,main=sprintf("Data Type Distribution: %s", gsub("_", " ",snsr_name[count])),
-            col=c("red", "green", "blue"))
-            legend("top", legend = c("Decimal", "NaN", "-Inf"), fill=c("red", "green", "blue"), bty = "n", y.intersp = 2, ncol=3)
+			bar <- barplot(as.matrix(slices),names.arg=title, las=1,
+                           ylim=c(0,round(max(length(unlist(snsr_sky[count])),length(unlist(snsr_skyo[count])))+25, -1)),
+                           horiz=FALSE,
+                           ylab="Samples",
+                           axes=FALSE,
+                           main=NA,
+                           col=c("red", "green", "blue"))
+            mtext(sprintf("Data Type Distribution: %s", gsub("_", " ",snsr_name[count])), side=3, line=3, cex=1)
+            legend("bottom", inset=c(0,-0.17), legend = c("Decimal", "NaN", "-Inf"), fill=c("red", "green", "blue"), bty = "n", y.intersp = 2, ncol=3)
             slices <- as.matrix(slices)
 			axis(side = 2, labels=TRUE, las=1)
 			minor.tick(nx=1, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
 
-			# for (i in 1:2){
-            #     text(bar[i],max(length(unlist(snsr_sky[count])),
-            #                     length(unlist(snsr_skyo[count])))*1.5, 
-            #                 labels=sprintf('%s %%', round(pct[i],1)))                
-			# }
+			for (i in 1:2){
+                text(bar[i],colSums(slices,1)[i]+(colSums(slices,1)[i]*0.05),
+                            labels=sprintf('%s %%', round(pct[i],1)))
+			}
 	}
 }
 
@@ -914,30 +907,20 @@ poster.plots <- function(...){
             legend("topleft", legend=unique(pw_place), col=colscheme(range), pch=16)
 
         ## Total Mean PW Temperature Correlation with exponential regression
-            exp_reg <- exp.regression(x, clear_sky.results$avg)
-
-            ymax <- max(exp_reg$y, na.rm=TRUE)
-            ymin <- min(exp_reg$y, na.rm=TRUE)
+            exp_reg <- exp.regression(x, clear_sky.results$avg, clear_sky.results$pw_loc, 1)
         # Non-linear model (exponential)
             plot(exp_reg$x,exp_reg$y, pch=1,
                                       xlim=c(exp_reg$xmin, exp_reg$xmax),
-                                      ylim=c(ymin, max(ymax, 50)),
                                       xlab=NA,
                                       ylab=NA,
                                       main=NA)
-
-            # points(242.85-273.15, 5.7, col=c("#00BCD7"), pch=16)
-            # points(252.77-273.15, 11.4, col=c("#FF9A00"), pch=16)
-            # points(260.55-273.15, 22.7, col=c("#66FF33"), pch=16)
 
             title("Mean TPW vs Temp",line=0.5)
             mtext("TPW [mm]", side=2, line=2.25, cex=0.65)
             mtext("Zenith Sky Temperature [C]", side=1, line=2.25, cex=0.65)
         # Best Fit
-            curve(exp(coef(exp_reg$model)[1] + coef(exp_reg$model)[2]*x), col="black", add=TRUE)
-        # Confidence Interval
-            lines(exp_reg$newx, exp(exp_reg$confint[ ,3]), col="black", lty="dashed")
-            lines(exp_reg$newx, exp(exp_reg$confint[ ,2]), col="black", lty="dashed")
+        curve(iter.results$A*exp(iter.results$B*x), col="black", add=TRUE)
+
         # Prediction Interval
             polygon(c(exp_reg$newx, rev(exp_reg$newx)), c(exp(exp_reg$predint[ ,3]),
                       rev(exp(exp_reg$predint[ ,2]))),
@@ -945,68 +928,16 @@ poster.plots <- function(...){
                       border = NA)
             minor.tick(nx=2, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
 
-            legend("topleft",col=c("black", "black"), lty=c(1,2),
-                    legend=c(parse(text=sprintf("%.2f*e^{%.3f*x}*\t\t(R^2 == %.3f)",
-                                exp(coef(exp_reg$model)[1]),
-                                coef(exp_reg$model)[2],
-                                exp_reg$R2)), "Prediction Interval"))
+        legend("topleft",col=c("black"), lty=c(1),
+        legend=c(parse(text=sprintf("%.2f*e^{%.3f*x}*\t\t(S == %.3f*mm)",
+        iter.results$A,iter.results$B,iter.results$S))))
         # Layout configuration for preceding plots
-            layout(matrix(c(1), 2, 2, byrow=TRUE))
-            cat(green("[2]"), "Analytical Plots\n")
-    }
-
-#' @title poster3
-#' @description The instrumentation bar charts
-#' @return A sky temperature time series plot
-#' @export
-    poster3 <- function(...){
-        out_sky_inf <- inf_counter(bool=TRUE, clear_sky.results$snsr_sky, 'sky')
-        out_skyo_inf <- inf_counter(bool=TRUE, overcast.results$snsr_sky, 'skyo')
-        snsr_sky_inf <- snsr_skyo_inf <- list()
-        for (i in seq(1, length(clear_sky.results$snsr_sky))){
-            snsr_sky_inf[[ paste("snsr_sky_inf",i,sep="") ]] <- out_sky_inf[[i]]
-            snsr_skyo_inf[[ paste("snsr_skyo_inf",i,sep="") ]] <- out_skyo_inf[[i]]
-        }
-        title 	<- c("Clear Sky","Overcast", "Clear Sky NaN", "Overcast NaN")
-        color 	<- c("#FFFFFF", "#000000", "#D6D6D6", "#616161")
-        layout(matrix(c(4,1,2,3), 2, 2, byrow=TRUE))
-        par(mar=c(0, 2, 4,2), oma=c(2.5,0,0,0.5), xpd=TRUE)
-        for(a in 1:length(snsr_name)){
-            if ((a/4)%%1 == 0){
-                par(oma=c(5, 5, 5, 5), mar=c(5,3,5,5), xpd=NA)
-                title("Condition Distribution by Sensor", line=3)
-                legend(5, 5,legend = title, fill=color)
-                par(mar=c(0, 2, 4,2), oma=c(2.5,0,0,0.5), xpd=TRUE)
-            }
-            norm	<- length(na.omit(unlist(snsr_sky_inf[a])))
-            over	<- length(na.omit(unlist(snsr_skyo_inf[a])))
-
-            norm_na <- length(unlist(snsr_sky_inf[a])) - norm
-            over_na <- length(unlist(snsr_skyo_inf[a])) - over
-
-            slices 	<- matrix(c(norm, over, norm_na, over_na), nrow=4, byrow=TRUE)
-            pct 	<- round(rev(slices)/sum(rev(slices))*100, 1)
-
-            bar <- barplot(rev(slices), col=rev(color),
-            horiz=TRUE, las=1,xlab=NA, axes=FALSE, xlim=c(0, round(max(slices)+50, -2)))
-            minor.tick(nx=2, ny=1, tick.ratio=0.5, x.args = list(), y.args = list())
-            mtext(sprintf("%s", gsub("_", " ",snsr_name[a])), font=2, side=3, line=0)
-            mtext("N", side=1, line=1, at=round(max(slices)+50, -2)+35, cex=1)
-
-            axis(side = 1, labels=TRUE, las=1, cex.axis=0.9)
-            for (i in 1:length(slices)){
-                text(slices[2]*1.5, bar[i], labels=sprintf('%s %%', as.character(pct[i])))
-            }
-        }
-        par(oma=c(5, 5, 5, 5), mar=c(5,3,5,5), xpd=NA)
-        title("Condition Distribution by Sensor", line=3)
-        legend(5, 5,legend = title, fill=color)
-        cat(green("[3]"), "Condiiton Distrbuion by Sensor\n")
+        layout(matrix(c(1), 2, 2, byrow=TRUE))
+        cat(green("[2]"), "Analytical Plots\n")
     }
 
     return(list(poster1(),
-                poster2(),
-                poster3()))
+                poster2()))
 }
 
 #' @title instr
@@ -1142,4 +1073,84 @@ heat.maps <- function(date, overcast){
 
 
     return(heat1(date, overcast))
+}
+
+
+dev.plots <- function(date, overcast){
+    force(date); force(overcast)
+#' @title plots5
+#' @description Residual Plot
+#' @param overcast the condition of data (clear sky/overcast)
+#' @return A sky temperature time series plot
+#' @export
+    plots5 	<- function(overcast){
+        if(overcast){
+            title 	<- "Residual of the Mean TPW and Temperature Model \n Condition: Overcast"
+            x 		<- as.numeric(unlist(clear_sky.results$snsr_sky_calc))
+        }else{
+            title 	<- "Residual of the Mean TPW and Temperature Model \n Condition: Clear Sky"
+            x 		<- as.numeric(unlist(clear_sky.results$snsr_sky_calc))
+        }
+        # print(resids)
+        if (step > 1){
+            R		<- Reduce("+", resids)/length(resids)
+        } else {
+            R <- resids
+        }
+        print(c(length(x), length(R)))
+        plot(x, R, col=c("royalblue"), pch=16,
+        ylim=c(min(R), max(R)),
+            xlab="Zenith Sky Temperature [C]", ylab=bquote(.("Residual Values [")*sigma*.("]")), main=title)
+        abline(h=0, col="gray")
+        cat(green("[5]"), "Residual of the Mean PW and Temperature Model\n")
+    }
+#' @title poster3
+#' @description The instrumentation bar charts
+#' @return A sky temperature time series plot
+#' @export
+    poster3 <- function(...){
+        out_sky_inf <- inf_counter(bool=TRUE, clear_sky.results$snsr_sky, 'sky')
+        out_skyo_inf <- inf_counter(bool=TRUE, overcast.results$snsr_sky, 'skyo')
+        snsr_sky_inf <- snsr_skyo_inf <- list()
+        for (i in seq(1, length(clear_sky.results$snsr_sky))){
+            snsr_sky_inf[[ paste("snsr_sky_inf",i,sep="") ]] <- out_sky_inf[[i]]
+            snsr_skyo_inf[[ paste("snsr_skyo_inf",i,sep="") ]] <- out_skyo_inf[[i]]
+        }
+        title 	<- c("Clear Sky","Overcast", "Clear Sky NaN", "Overcast NaN")
+        color 	<- c("#FFFFFF", "#000000", "#D6D6D6", "#616161")
+        layout(matrix(c(4,1,2,3), 2, 2, byrow=TRUE))
+        par(mar=c(0, 2, 4,2), oma=c(2.5,0,0,0.5), xpd=TRUE)
+        for(a in 1:length(snsr_name)){
+            if ((a/4)%%1 == 0){
+                par(oma=c(5, 5, 5, 5), mar=c(5,3,5,5), xpd=NA)
+                title("Condition Distribution by Sensor", line=3)
+                legend(5, 5,legend = title, fill=color)
+                par(mar=c(0, 2, 4,2), oma=c(2.5,0,0,0.5), xpd=TRUE)
+            }
+            norm	<- length(na.omit(unlist(snsr_sky_inf[a])))
+            over	<- length(na.omit(unlist(snsr_skyo_inf[a])))
+
+            norm_na <- length(unlist(snsr_sky_inf[a])) - norm
+            over_na <- length(unlist(snsr_skyo_inf[a])) - over
+
+            slices 	<- matrix(c(norm, over, norm_na, over_na), nrow=4, byrow=TRUE)
+            pct 	<- round(rev(slices)/sum(rev(slices))*100, 1)
+
+            bar <- barplot(rev(slices), col=rev(color),
+            horiz=TRUE, las=1,xlab=NA, axes=FALSE, xlim=c(0, round(max(slices)+50, -2)))
+            minor.tick(nx=2, ny=1, tick.ratio=0.5, x.args = list(), y.args = list())
+            mtext(sprintf("%s", gsub("_", " ",snsr_name[a])), font=2, side=3, line=0)
+            mtext("N", side=1, line=1, at=round(max(slices)+50, -2)+35, cex=1)
+
+            axis(side = 1, labels=TRUE, las=1, cex.axis=0.9)
+            for (i in 1:length(slices)){
+                text(slices[2]*1.5, bar[i], labels=sprintf('%s %%', as.character(pct[i])))
+            }
+        }
+        par(oma=c(5, 5, 5, 5), mar=c(5,3,5,5), xpd=NA)
+        title("Condition Distribution by Sensor", line=3)
+        legend(5, 5,legend = title, fill=color)
+        cat(green("[3]"), "Condiiton Distrbuion by Sensor\n")
+    }
+    return(plots5(overcast), poster3())
 }

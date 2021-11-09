@@ -77,11 +77,15 @@ config		<- yaml.load_file(paste(args$dir,"_pmat.yml", sep=""))
 source("./pmat_processing.r")
 # Analysis functions
 source("./pmat_analysis.r")
+source("./pmat_data.r")
 clear_sky.results <- sky.analysis(overcast.filter(col_con, col_date, col_com, pw_name, snsr_name, FALSE))
 overcast.results <- sky.analysis(overcast.filter(col_con, col_date, col_com, pw_name, snsr_name, TRUE))
+if(args$set == "a" || args$set == "o"){
+	iter.results <- iterative.analysis()
+}
 # Plotting functions
 source("./pmat_plots.r")
-source("./pmat_data.r")
+
 
 if(args$data == "a"){
 	data1(args$overcast, args$dir);
@@ -116,7 +120,7 @@ if(args$set == "i"){
 	# Clear Sky condition
 		cat(magenta("Condition:"), "Clear Sky\n")
 		sname_pub <- sprintf("../figs/results/time_series.pdf") # File name of saved pdf
-		date <- sky.results$date
+		date <- clear_sky.results$date
 	}
 	# Saves plots
 	save(c(time_series.plots(date, args$overcast)), sname_pub)
@@ -130,10 +134,9 @@ if(args$set == "i"){
 	# Clear Sky condition
 		cat(magenta("Condition:"), "Clear Sky\n")
 		sname_pub <- sprintf("../figs/results/analytics.pdf") # File name of saved pdf
-
 	}
 	# Saves plots
-	save(c(analytical.plots(args$overcast)), sname_pub)
+	save(c(analytical.plots(args$overcast, exp_reg)), sname_pub)
 	cat(green(sprintf("Plot set downloaded to %s\n", sname_pub)))
 }else if(args$set == "c"){
 	# Plots available with this option
@@ -158,8 +161,8 @@ if(args$set == "i"){
 		date <- overcast.results$date
 	}
 	# Saves plots
-	save(c(heat.maps(date, args$overcast)), sname_pub)
-	cat(green(sprintf("Plot set downloaded to %s\n", sname_pub)))
+	cat(yellow("This set is under development\n"))
+	#cat(green(sprintf("Plot set downloaded to %s\n", sname_pub)))
 } else if (args$set == "p") {
 	if (args$overcast){
 	# Overcast Condition
@@ -180,7 +183,9 @@ if(args$set == "i"){
 
 	cat(green(sprintf("Plot set downloaded to %s\n", sname_pub)))
 } else if (args$set == "d"){
-	cat("No Plots in this set\n")
+	sname_pub 	<- sprintf("../figs/results/dev.pdf")
+	save(c(heat.maps(date, args$overcast), dev.plots(date, args$overcast)), sname_pub)
+	cat(green(sprintf("Plot set downloaded to %s\n", sname_pub)))
 }
 ## Ends the script
 if(file.exists("Rplots.pdf")){file.remove("Rplots.pdf")}
