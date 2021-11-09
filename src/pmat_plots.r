@@ -398,7 +398,7 @@ time_series.plots <- function(date, overcast){
 #' @param overcast the condition of data (clear sky/overcast)
 #' @return All available analytical plots
 #' @export
-analytical.plots <- function(overcast){
+analytical.plots <- function(overcast, exp_reg){
 #' @title plots1
 #' @description Individual PW Location plots
 #' @param overcast the condition of data (clear sky/overcast)
@@ -494,7 +494,6 @@ analytical.plots <- function(overcast){
         legend("topright", inset=c(-0.14, 0), legend=c(unique(pw_time)), col=col, pch=c(16,16, 16))
         cat(green("[3]"), "Correlation between Temporal Mean PW and Temperature\n")
     }
-
 #' @title plots4
 #' @description Super Average Plot with Exponential Fit
 #' @param overcast the condition of data (clear sky/overcast)
@@ -503,10 +502,8 @@ analytical.plots <- function(overcast){
     plots4 	<- function(overcast){
         par(mar=c(5.1, 4.1, 4.1, 2.1),xpd=FALSE)
         if(overcast){
-            exp_reg <- exp.regression(as.numeric(unlist(overcast.results$snsr_sky_calc)), overcast.results$avg)
             title 	<- "Correlation between Mean TPW and Temperature \n Condition: Overcast"
         }else{
-            exp_reg <- exp.regression(as.numeric(unlist(clear_sky.results$snsr_sky_calc)), clear_sky.results$avg)
             title 	<- "Correlation between Mean TPW and Temperature \n Condition: Clear Sky"
         }
         ymax <- max(exp_reg$y, na.rm=TRUE); ymin <- min(exp_reg$y, na.rm=TRUE)
@@ -534,10 +531,8 @@ analytical.plots <- function(overcast){
 #' @export
     plots5 	<- function(overcast){
         if(overcast){
-            exp_reg <- exp.regression(as.numeric(unlist(overcast.results$snsr_sky_calc)), overcast.results$avg)
             title 	<- "Residual of the Mean TPW and Temperature Model \n Condition: Overcast"
         }else{
-            exp_reg <- exp.regression(as.numeric(unlist(clear_sky.results$snsr_sky_calc)), clear_sky.results$avg)
             title 	<- "Residual of the Mean TPW and Temperature Model \n Condition: Clear Sky"
         }
         plot(exp_reg$x, resid(exp_reg$model.0), col=c("royalblue"), pch=16,
@@ -617,7 +612,7 @@ charts	<- function(...){
     	snsr_skyo[[ paste("snsr_skyo",i,sep="") ]] <- as.numeric(unlist(overcast[grep("over_sky", names(overcast), fixed=TRUE)[1]+i-1]))
     }
 
-	par(mar=c(0, 0, 0,0), oma=c(0,0,0,0), xpd=TRUE)
+    par(mar=c(5.1, 5.1, 7.1, 1.3),oma=c(0,0,0,0), xpd=TRUE)
 	for (count in 1:length(snsr_name)){
             test <- unlist(snsr_sky[count])
             testo <- unlist(snsr_skyo[count])
@@ -635,18 +630,25 @@ charts	<- function(...){
 
 			slices  <- data.frame(B=c(over, over_na, over_inf),A=c(norm,norm_na, norm_inf))
 			title 	<- c("Overcast","Clear Sky")
-			pct 	<- data.frame(B=c(over/length(unlist(snsr_skyo[count]))*100, over_na/length(unlist(snsr_skyo[count]))*100, over_inf/length(unlist(snsr_skyo[count]))*100),A=c(norm/length(unlist(snsr_sky[count]))*100, norm_na/length(unlist(snsr_sky[count]))*100,norm_inf/length(unlist(snsr_sky[count]))*100))
-    		par(mar=c(7.1, 7.1, 7.1, 1.3), xpd=TRUE)
-			bar <- barplot(as.matrix(slices),names.arg=title, las=1, ylim=c(0,max(length(unlist(snsr_sky[count])),length(unlist(snsr_skyo[count])))*1.5),xlab="Samples",
-			horiz=FALSE, axes=FALSE,main=sprintf("Data Type Distribution: %s", gsub("_", " ",snsr_name[count])))
-
+			pct 	<- data.frame(B=c(over/length(unlist(snsr_skyo[count]))*100, 
+                                      over_na/length(unlist(snsr_skyo[count]))*100, 
+                                      over_inf/length(unlist(snsr_skyo[count]))*100),
+                                  A=c(norm/length(unlist(snsr_sky[count]))*100, 
+                                      norm_na/length(unlist(snsr_sky[count]))*100,
+                                      norm_inf/length(unlist(snsr_sky[count]))*100))
+			bar <- barplot(as.matrix(slices),names.arg=title, las=1, ylim=c(0,max(length(unlist(snsr_sky[count])),length(unlist(snsr_skyo[count])))),xlab="Samples",
+			horiz=FALSE, axes=FALSE,main=sprintf("Data Type Distribution: %s", gsub("_", " ",snsr_name[count])),
+            col=c("red", "green", "blue"))
+            legend("top", legend = c("Decimal", "NaN", "-Inf"), fill=c("red", "green", "blue"), bty = "n", y.intersp = 2, ncol=3)
             slices <- as.matrix(slices)
 			axis(side = 2, labels=TRUE, las=1)
 			minor.tick(nx=1, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
 
-			for (i in 1:2){
-				text(bar[i],max(length(unlist(snsr_sky[count])),length(unlist(snsr_skyo[count])))*1.5, labels=sprintf('%s %%', as.character(round(pct[i],1))))
-			}
+			# for (i in 1:2){
+            #     text(bar[i],max(length(unlist(snsr_sky[count])),
+            #                     length(unlist(snsr_skyo[count])))*1.5, 
+            #                 labels=sprintf('%s %%', round(pct[i],1)))                
+			# }
 	}
 }
 

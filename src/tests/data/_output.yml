@@ -1,0 +1,14 @@
+|
+  seed: 252
+  data:
+    clear:
+      count: 539
+    overcast:
+      count: 194
+  analysis:
+    coeff:
+      A: 20.5207
+      B: 0.0353
+    rsme: 3.9293
+    rstd: 3.9688
+    accu: 39.1
