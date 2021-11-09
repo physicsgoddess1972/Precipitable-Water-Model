@@ -15,13 +15,12 @@ from datetime import datetime as dt
 from metpy.units import units
 from siphon.simplewebservice.wyoming import WyomingUpperAir
 
-from mesowest import MesoWest
-
 from atmosaccess.NOAAaccess import data, data_allday
+# https://www.ncei.noaa.gov/pub/data/noaa/isd-history.txt
+# print("Good Morning\nWelcome to the Data Extraction Module of the Precipitable Water Model. For more information about the model and the purpose of this tool, please visit the [link=https://git.io/fj5Xr]documentation page[/link]")
 
-print("Good Morning\nWelcome to the Data Extraction Module of the Precipitable Water Model. For more information about the model and the purpose of this tool, please visit the [link=https://git.io/fj5Xr]documentation page[/link]")
-
-dir = "../../data/"
+#dir = "./tests/data/"
+dir = "../data/"
 ## Timeout Retry
 REQUESTS_MAX_RETRIES = int(os.getenv("REQUESTS_MAX_RETRIES", 10))
 adapter = requests.adapters.HTTPAdapter(max_retries=REQUESTS_MAX_RETRIES)
@@ -39,7 +38,8 @@ wname = dir + 'cool_data.csv'
 
 ## Stations used
 wy_station = list(map(lambda x : x['id'], cnfg[1][1]['wyoming']))
-mw_station = list(map(lambda x : x['id'], cnfg[1][0]['mesowest']))
+noaa_id = list(map(lambda x : x['id'], cnfg[1][0]['noaa']))
+noaa_station = list(map(lambda x : x['label'], cnfg[1][0]['noaa']))
 ## Hours to pull
 hour = [00, 12]
 
@@ -59,7 +59,8 @@ def closest(lst, K, d):
     list = []
     tmp2 = dt.combine(d, K)
     for i in range(len(lst)):
-        list.append(abs(dt.combine(d, lst[i]) - tmp2))
+        t = dt.strptime(lst[i].split("T")[1], '%H:%M:%S').time()
+        list.append(abs(dt.combine(d, t) - tmp2))
     idx = asarray(list).argmin()
     return lst[idx]
 
@@ -83,28 +84,18 @@ def wyoming_import(end_date, station):
     return [station, [end_date, pw12, pw00]]
 
 
-def mesowest_import(end_date, station, in_time):
-    df_mw = MesoWest.request_data(end_date + datetime.timedelta(days=1), station.strip(" "))
-    df_rh = data.NOAAData.request_data(end_date, '72362093040', 'HourlyRelativeHumidity')
-    df_tp = data.NOAAData.request_data(end_date, '72362093040', 'HourlyDryBulbTemperature')
-    df_t  = data_allday.NOAADataDay.request_data(end_date, '72362093040', 'HourlyRelativeHumidity')['DATE']
-    # mw_header = df_mw.columns
-    time = [];
-    for i in range(len(df_t)):
-        time.append(df_t[i].split("T")[1])
-        if (df_t[i].split("T")[1] == closest(df_t, in_time, end_date)):
-            t_idx = i;
-
-    if (str(in_time) in ['00:00:00', 'NaT']) or (str(time[t_idx]) == 'NaT'):
+def noaa_import(end_date, station, in_time):
+    df_t  = data_allday.NOAADataDay.request_data(end_date, station, 'HourlyRelativeHumidity')['DATE']
+    t_idx = df_t.index[df_t == closest(df_t, in_time, end_date)].tolist()[0]
+    if (str(in_time) in ['00:00:00', 'NaT']) or (str(df_t[t_idx]) == 'NaT'):
         rh = "NaN"
         temp = "NaN"
         thyme = "NaT"
     else:
-        thyme = df_t[t_idx]
-        rh   = df_rh['HourlyRelativeHumidity']
+        thyme = dt.strptime(df_t[t_idx], '%Y-%m-%dT%H:%M:%S')
+        rh = int(data.NOAAData.request_data(thyme, station, 'HourlyRelativeHumidity')['HourlyRelativeHumidity'].values[0])
+        df_tp = data.NOAAData.request_data(thyme, station, 'HourlyDryBulbTemperature')
         temp = round((float(df_tp['HourlyDryBulbTemperature'].values[0]) * units.degF).to(units.degC).magnitude, 2)
-        # temp = round((float(df_tm['temperature'].values[0]) * units.degF).to(units.degC).magnitude, 2)
-
         if str(rh) == "nan":
             rh = "NaN"
         if str(temp) == "nan":
@@ -133,9 +124,12 @@ def impt(end_date, idx):
         i = 0
         wy_out = wyoming_import(end_date, j.strip(" "))
         while "Error" in wy_out[1]:
-#             progress.console.log("[bold yellow] (001) Wyoming Sever Disconnected")
-            time.sleep(100)
-            wy_out = wyoming_import(end_date, j.strip(" "))
+            while "Error" == wy_out[1][1]:
+                time.sleep(10)
+                wy_out[1][1] = wyoming_import(end_date, j.strip(" "))[1][1]
+            while "Error" == wy_out[1][2]:
+                time.sleep(10)
+                wy_out[1][2] = wyoming_import(end_date, j.strip(" "))[1][2]
             i = + 1
         wy_data.append(wy_out)
 
@@ -144,9 +138,9 @@ def impt(end_date, idx):
         neat.append(cool_data[i])
     neat = neat[::-1]
 
-    mw_data = []
-    for j in mw_station:
-        mw_data.append(mesowest_import(end_date, j, pd.to_datetime(neat[0][0][0]).time()))
+    noaa_data = []
+    for j in noaa_id:
+        noaa_data.append(noaa_import(end_date, j, pd.to_datetime(neat[0][0][0]).time()))
 
     if str(neat[0][0][0]) == "00:00":
         fin_tme = "NaT"
@@ -156,13 +150,13 @@ def impt(end_date, idx):
     d = {'Date': end_date.strftime("%-m/%-d/%Y"),
          'Condition': neat[0][1][0],
          'Time': fin_tme}
-    for i in range(len(mw_data)):
-        if str(mw_data[i][0]) == "NaT":
-            d[str(mw_station[i]).strip(" ") + "_" + "Time"] = "NaT"
+    for i in range(len(noaa_data)):
+        if str(noaa_data[i][0]) == "NaT":
+            d[str(noaa_station[i]).strip(" ") + "_" + "Time"] = "NaT"
         else:
-            d[str(mw_station[i]).strip(" ") + "_" + "Time"] = mw_data[i][0].strftime("%H:%M")
-        d[str(mw_station[i]).strip(" ") + "_" + "RH"] = mw_data[i][1]
-        d[str(mw_station[i]).strip(" ") + "_" + "Temp"] = mw_data[i][2]
+            d[str(noaa_station[i]).strip(" ") + "_" + "Time"] = noaa_data[i][0].strftime("%H:%M")
+        d[str(noaa_station[i]).strip(" ") + "_" + "RH"] = noaa_data[i][1]
+        d[str(noaa_station[i]).strip(" ") + "_" + "Temp"] = noaa_data[i][2]
     for i in range(len(wy_data)):
         d["PW " + str(wy_station[i]).strip(" ") + "_" + "12Z"] = wy_data[i][1][1]
         d["PW " + str(wy_station[i]).strip(" ") + "_" + "00Z"] = wy_data[i][1][2]

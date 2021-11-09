@@ -30,11 +30,33 @@ inf_counter <- function(bool, snsr_data, label){
 #' @param y the range of the dataset
 #' @return A list of stat stuff
 #' @export
-exp.regression 	<- function(x,y){
+exp.regression 	<- function(x,y,z,t){
 	# Finds and removes NaNed values from the dataset
-	nans <- c(grep("NaN", y)); nans <- append(nans, grep("NaN", x))
-	x <- x[-(nans)]; y <- y[-(nans)]
+	nans <- c(grep(NaN, y)); nans <- append(nans, grep(NaN, x))
+	x <- x[-(nans)]; y <- y[-(nans)];
+
 	# creates a uniform sequence of numbers that fit within the limits of x
+	if (t != 1){
+		for (i in 1:length(z)){
+			z[[ paste("pw_loc",i,sep="") ]] <- z[[ paste("pw_loc",i,sep="") ]][-(nans)]
+		}
+		data_indx <- mean.filter(z, y, rel_diff)
+		data_sep <- data.partition(x[data_indx], y[data_indx], train_frac)
+		# data_sep <- data.partition(x, y)
+		train <- data_sep$train
+		test <- data_sep$test
+		#$print(test)
+		x <- train$x
+		y <- train$y
+
+		tx <- test$x
+		ty <- test$y
+
+	} else {
+		tx <- x
+		ty <- y
+	}
+
 	xmin 	<- min(x, na.rm=TRUE)
 	xmax 	<- max(x, na.rm=TRUE)
 	newx 	<- seq(xmin, xmax, length.out=length(x))
@@ -46,20 +68,17 @@ exp.regression 	<- function(x,y){
 	# Intervals (confidence/prediction)
 	confint <- predict(model.0, newdata=data.frame(x=newx), interval='confidence')
 	predint <- predict(model.0, newdata=data.frame(x=newx), interval='prediction')
-	# Coefficient of determination
 	r2		<- summary(model.0)$r.squared
     # estimate from regression
-	est     <- exp(coef(model)[1]+coef(model)[2]*x)
-	# accuracy of model
-	acc     <- sqrt((1/length(x))*(sum((est-y)^2)/length(x)))
+	est <- exp(coef(model)[1]+coef(model)[2]*tx)
     # Residual Standard Deiviation
-	S       <- sqrt(sum((est-y)^2)/(length(x) - 2))
+	S       <- sqrt(sum((est-ty)^2)/(length(tx) - 2))
 	# Root Square Mean Error
-	rsme    <- sqrt(sum((est-y)^2)/length(x))
+	rsme    <- sqrt(sum((est-ty)^2)/length(tx))
 	# Function outputs
 	output 	<- list("x"=x, "y"=y, "newx"=newx, "xmin"=xmin, "xmax"=xmax, "model.0"=model.0,
 					"model"=model, "confint"=confint, "predint"=predint, "R2"=r2,
-					'est'=est, 'acc'=acc, 'S'=S, 'rsme'=rsme)
+					'est'=est,'S'=S, 'rsme'=rsme)
 	return (output)
 }
 
@@ -87,6 +106,18 @@ sky.analysis <- function(overcast){
 		snsr_del[[ paste("snsr_del",i,sep="") ]] <- as.numeric(unlist(overcast[grep("gro", names(overcast), fixed=TRUE)[1]+i-1])) - as.numeric(unlist(overcast[grep("sky", names(overcast), fixed=TRUE)[1]+i-1]))
 	}
 
+	for (i in 1:length(date)) {
+		if (grepl("DNA", comments[i], fixed=TRUE)){
+			for (j in 1:length(snsr_sky)){
+				snsr_sky[[ paste("snsr_sky",j,sep="") ]][i] <- NaN
+			}
+			for (j in 1:length(snsr_gro)){
+				snsr_gro[[ paste("snsr_gro",j,sep="") ]][i] <- NaN
+			}
+		}
+	}
+	raw_snsr_sky <- snsr_sky
+	raw_snsr_gro <- snsr_gro
 	out_sky <- inf_counter(FALSE, snsr_sky, 'sky')
 	for (i in seq(1, length(snsr_sky))){
 		snsr_sky[[ paste("snsr_sky",i,sep="") ]] <- out_sky[[i]]
@@ -103,22 +134,12 @@ sky.analysis <- function(overcast){
 				append(x=snsr_sky_calc[[ paste("snsr_sky_calc", j, sep="")]], values=na.omit(c(i[j])))
 		}
 	}
+
 	for (i in 1:(length(unlist(snsr_sky))/length(snsr_sky))){
 		snsr_sky_calc[[ paste("snsr_sky_calc",i,sep="") ]] <- mean(snsr_sky_calc[[ paste("snsr_sky_calc",i,sep="") ]])
 	}
-		for (i in 1:length(date)) {
-		if (grepl("This datapoint has been omitted from the final analysis; refer to documentation on how to handle this day", comments[i], fixed=TRUE)){
-			for (j in 1:length(snsr_sky)){
-				snsr_sky[[ paste("snsr_sky",j,sep="") ]][i] <- NaN
-			}
-			for (j in 1:length(snsr_gro)){
-				snsr_gro[[ paste("snsr_gro",j,sep="") ]][i] <- NaN
-			}
-		}
-	}
 ## Takes locational average of the precipitable water measurements
 	for (i in 1:length(col_pwpl)){
-		tmp <- unlist(col_pwpl[i])
 		for (j in col_pwpl[i]){
 			loc_avg[[ paste("loc_avg",i,sep="") ]] <-
 				array(overcast[grep("pw", names(overcast), fixed=TRUE)][j])
@@ -127,7 +148,6 @@ sky.analysis <- function(overcast){
 		loc_avg[[ paste("loc_avg",i,sep="") ]] <- Reduce("+", tmp[[1]])/length(col_pwpl)
 	}
 	for (i in 1:length(col_pwtm)){
-		tmp <- unlist(col_pwtm[i])
 		for (j in col_pwtm[i]){
 			tmp_avg[[ paste("tmp_avg",i,sep="") ]] <-
 				array(overcast[grep("pw", names(overcast), fixed=TRUE)][j])
@@ -147,5 +167,44 @@ sky.analysis <- function(overcast){
 				"pw_loc"=pw_loc,
 				"loc_avg"=loc_avg,
 				"tmp_avg"=tmp_avg,
+				"raw_sky"=raw_snsr_sky,
+				"raw_gro"=raw_snsr_gro,
 				"snsr_sky_calc"=snsr_sky_calc))
+}
+
+
+iterative.analysis <- function(){
+  out <- resids <- list()
+  for (i in 1:step){
+      if (length(config[[length(config)]]$seed) > 0){
+      	def_seed 	<- config[[length(config)]]$seed
+      } else {
+          def_seed 	<- sample(1:2^15, 1)
+      }
+      set.seed(def_seed)
+      if(args$overcast){
+        exp_reg <- exp.regression(as.numeric(unlist(overcast.results$snsr_sky_calc)),
+                                  overcast.results$avg,
+                                  overcast.results$pw_loc, train_frac)
+      }else{
+        exp_reg <- exp.regression(as.numeric(unlist(clear_sky.results$snsr_sky_calc)),
+                                  clear_sky.results$avg,
+                                  clear_sky.results$pw_loc, train_frac)
+      }
+      out 	<- append(out, data3(exp_reg, i, def_seed))
+      resids 	<- append(resids, resid(exp_reg$model.0))
+
+    }
+  write_yaml(out, paste(args$dir,"_output.yml", sep=""))
+  coeff_a <- coeff_b <- rstd <- list()
+  for (i in 1:length(out)){
+      yml_anly <- read_yaml(text=out[[i]])
+      coeff_a <- append(coeff_a, yml_anly$analysis$coeff$A)
+      coeff_b <- append(coeff_b, yml_anly$analysis$coeff$B)
+      rstd 	<- append(rstd, yml_anly$analysis$rstd)
+  }
+	A		<- Reduce("+", coeff_a)/length(coeff_a)
+	B		<- Reduce("+", coeff_b)/length(coeff_b)
+	S       <- Reduce("+", rstd)/length(rstd)
+	return(list("A"=A,"B"=B,"S"=S))
 }

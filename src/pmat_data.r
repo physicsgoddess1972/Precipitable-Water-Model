@@ -82,3 +82,19 @@ data2 <- function(dir){
       write.csv(data, file=sprintf("%sml_data.csv", dir), row.names=FALSE)
       cat(green(sprintf("Data sent to %sml_data.csv\n", dir)))
 }
+
+
+data3 <- function(exp_reg, idx, seed){
+	out <- as.yaml(list(seed=c(seed),
+                        step=c(idx),
+						data=list(clear=list(count=c(length(clear_sky.results$date))),
+								  overcast=list(count=c(length(overcast.results$date)))
+								 ),
+						analysis=list(coeff=list(A=c(round(exp(coef(exp_reg$model)[1]), 4)),
+												 B=c(round(coef(exp_reg$model)[2],4))),
+									  rsme=c(round(exp_reg$rsme, 4)),
+									  rstd=c(round(exp_reg$S, 4))
+									  )))
+	return(out)
+
+}

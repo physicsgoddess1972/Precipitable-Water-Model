@@ -161,9 +161,9 @@ figure3	<- function(...){
 
 	polygon(c(exp_reg$newx, rev(exp_reg$newx)), c(exp(exp_reg$predint[ ,3]), rev(exp(exp_reg$predint[ ,2]))),col=rgb(0.25, 0.25, 0.25,0.25), border = NA)
 
-	legend("topleft",col=c("black", "black"), lty=c(1, 2),
+	legend("topleft",col=c("black"), lty=c(1),
 	legend=c(parse(text=sprintf("%.2f*e^{%.3f*x}*\t\t(S == %.2f*mm)",
-	20.202, 0.036, 3.79)), "Confidence Interval"))
+	20.202, 0.036, 3.79))))
 }
 ## Best-Fit comparison
 figure6 	<- function(...){
