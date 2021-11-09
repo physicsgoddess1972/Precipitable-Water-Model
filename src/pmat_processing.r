@@ -1,3 +1,9 @@
+#' @file pmat_analysis.r
+#' @author Spencer Riley
+#' @brief functions for analysis
+#' @docs https://docs.pmat.app
+#' @help To get a list of arguments run [Rscript model.r --help]
+
 ## Pulls most recent data stamp for the purpose of adding date stamps to file names when plots are saved
 recent 		<- t(fname[1])[length(t(fname[1]))]
 
@@ -18,27 +24,19 @@ col_con 	<- grep("Condition", colnames(fname))
 ## Pulls the column number for the comments
 col_com 	<- grep("comments", colnames(fname))
 ## The value for the training fraction
-train_frac 	<- config[[as.numeric(length(config) - 2)]]$value
+train_frac 	<- config[[as.numeric(length(config) - 1)]]$value
 ## The value for the threshold of the mean.filter
-rel_diff 	<- config[[length(config) - 1]]$value
-##
-if (length(config[[length(config)]]$value) > 0){
-	def_seed 	<- config[[length(config)]]$value
-} else {
-	def_seed 	<- sample(1:2^15, 1)
-}
-set.seed(def_seed)
+rel_diff 	<- config[[length(config)]]$value
+
 ## Pulls sensor labels and colors from instruments.txt
 snsr_name 	<- list(); snsr_color <- snsr_sky_indx <- snsr_gro_indx  	<- unlist(list())
 for(i in 1:length(config)){
 	if (!(length(config[[i]]$sensor$active) == 0)){
-		if (config[[i]]$sensor$active == TRUE){
-			var 				<- assign(paste("Thermo", i, sep=""), config[[i]]$sensor$name)
-			snsr_name 			<- append(snsr_name, toString(var))
-			snsr_color 			<- append(snsr_color, paste("#", toString(config[[i]]$sensor$color), sep=""))
-			snsr_sky_indx 		<- append(snsr_sky_indx, col_sky[i])
-			snsr_gro_indx 		<- append(snsr_gro_indx, col_gro[i])
-		}
+		var 				<- assign(paste("Thermo", i, sep=""), config[[i]]$sensor$name)
+		snsr_name 			<- append(snsr_name, toString(var))
+		snsr_color 			<- append(snsr_color, paste("#", toString(config[[i]]$sensor$color), sep=""))
+		snsr_sky_indx 		<- append(snsr_sky_indx, col_sky[i])
+		snsr_gro_indx 		<- append(snsr_gro_indx, col_gro[i])
 	}
 }
 
@@ -98,8 +96,7 @@ for (j in unique(snsr_tag)){
 #' @param percent the threshold in percent
 #' @return A sky temperature time series plot
 #' @export
-mean.filter <- function(pw, avg){
-	percent <- rel_diff
+mean.filter <- function(pw, avg, percent){
     storage <- bad <- good <- list()
     for (i in 1:length(pw)){
         out <- append(x=storage, values=Map("/",Map("-",unlist(pw[i]),avg), avg))
@@ -127,19 +124,20 @@ mean.filter <- function(pw, avg){
 #' @param rand_state the seed for the random generated partition
 #' @return A sky temperature time series plot
 #' @export
-data.partition <- function(x,y){
-	train_size <- (train_frac/100)
-	train_idx <- sample(1:length(x), trunc(length(x)*train_size), replace=FALSE)
-	test_idx  <- (1:length(x))[-(train_idx)]
+data.partition <- function(x,y, train_size=0.7, rand_state=sample(1:2^15, 1)){
+  set.seed(rand_state)
+  train_idx <- sample(1:length(x), trunc(length(x)*train_size), replace=FALSE)
+  test_idx  <- (1:length(x))[-(train_idx)]
 
-	train     <- data.frame(x[train_idx],
-						  y[train_idx])
-	colnames(train) <- c("x", "y")
+  train     <- data.frame(x[train_idx],
+                          y[train_idx])
+  colnames(train) <- c("x", "y")
 
-	test    <- data.frame(x[test_idx],
-						  y[test_idx])
-	colnames(test) <- c("x", "y")
-	return(list(train=train, test=test, train_idx=train_idx))
+  test    <- data.frame(x[test_idx],
+                          y[test_idx])
+  colnames(test) <- c("x", "y")
+
+  return(list(train=train, test=test, train_idx=train_idx, seed=rand_state))
 }
 
 #' @title overcast.filter
@@ -151,7 +149,7 @@ data.partition <- function(x,y){
 #' @param sensr_name sensor labels
 #' @return A sky temperature time series plot
 #' @export
-overcast.filter <- function(col_con, col_date, col_com, pw_name, snsr_name){
+overcast.filter <- function(col_con, col_date, col_com, pw_name, snsr_name, cloud_bool){
 	# Initializes the lists to store values
 	date_clear	<- snsr_sky		<- snsr_gro		<- pw_loc  <- rh  <- list()
 	date_over	<- snsr_skyo	<- snsr_groo	<- pw_loco <- rho <- list()
@@ -176,31 +174,37 @@ overcast.filter <- function(col_con, col_date, col_com, pw_name, snsr_name){
 			}
 			for (j in 1:length(snsr_name)) {
 				snsr_groo[[ paste("snsr_groo",j,sep="") ]] <- append(x=snsr_groo[[ paste("snsr_groo",j,sep="") ]], values=fname[i, snsr_gro_indx[j]])
-				snsr_skyo[[ paste("snsr_skyo",j,sep="") ]] <- append(x=snsr_skyo[[ paste("snsr_skyo",j,sep="") ]], values=fname[i, snsr_sky_indx[j]])
+				snsr_skyo[[ paste("snsr_skyo",j,sep="") ]]<- append(x=snsr_skyo[[ paste("snsr_skyo",j,sep="") ]], values=fname[i, snsr_sky_indx[j]])
 			}
 			rho <- append(x=rho, value=fname[i, col_rh[1]])
 			como <- append(x=como, value=fname[i, col_com[1]])
 		}
 	}
 	# Adds divided data into list to output from function
-	output1 <- list(clear_date=date_clear, over_date=date_over, rh=rh, rho=rho,com=com, como=como)
-	for(j in 1:length(snsr_name)){
-		output1 <- append(x=output1, values=list("clear_gro"=snsr_gro[[ paste("snsr_gro",j,sep="") ]]))
-	}
-	for(j in 1:length(snsr_name)){
-		output1 <- append(x=output1, values=list("clear_sky"=snsr_sky[[ paste("snsr_sky",j,sep="") ]]))
-	}
-	for(j in 1:length(snsr_name)){
-		output1 <- append(x=output1, values=list("over_sky"=snsr_skyo[[ paste("snsr_skyo",j,sep="") ]]))
-	}
-	for(j in 1:length(snsr_name)){
-		output1 <- append(x=output1, values=list("over_gro"=snsr_groo[[ paste("snsr_groo",j,sep="") ]]))
-	}
-	for(j in 1:length(pw_name)){
-		output1 <- append(x=output1, values=list("clear_pw"=pw_loc[[ paste("pw_loc", j, sep="")]]))
-	}
-	for(j in 1:length(pw_name)){
-		output1 <- append(x=output1, values=list("over_pw"=pw_loco[[ paste("pw_loco", j, sep="")]]))
+	if (cloud_bool){
+		output1 <- list(date=date_over, rh=rho, com=como)
+		for(j in 1:length(snsr_name)){
+			output1 <- append(x=output1, values=list("sky"=snsr_skyo[[ paste("snsr_skyo",j,sep="") ]]))
+		}
+		for(j in 1:length(snsr_name)){
+			output1 <- append(x=output1, values=list("gro"=snsr_groo[[ paste("snsr_groo",j,sep="") ]]))
+		}
+		for(j in 1:length(pw_name)){
+			output1 <- append(x=output1, values=list("pw"=pw_loco[[ paste("pw_loco", j, sep="")]]))
+		}
+	} else {
+		output1 <- list(date=date_clear, rh=rh, com=com)
+		for(j in 1:length(snsr_name)){
+			output1 <- append(x=output1, values=list("gro"=snsr_gro[[ paste("snsr_gro",j,sep="") ]]))
+		}
+		for(j in 1:length(snsr_name)){
+			output1 <- append(x=output1, values=list("sky"=snsr_sky[[ paste("snsr_sky",j,sep="") ]]))
+		}
+
+		for(j in 1:length(pw_name)){
+			output1 <- append(x=output1, values=list("pw"=pw_loc[[ paste("pw_loc", j, sep="")]]))
+		}
 	}
 	return(output1)
 }
+

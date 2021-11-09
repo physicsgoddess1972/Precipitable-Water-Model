@@ -17,6 +17,8 @@ from siphon.simplewebservice.wyoming import WyomingUpperAir
 
 from mesowest import MesoWest
 
+from atmosaccess.data import NOAAData
+
 print("Good Morning\nWelcome to the Data Extraction Module of the Precipitable Water Model. For more information about the model and the purpose of this tool, please visit the [link=https://git.io/fj5Xr]documentation page[/link]")
 
 dir = "../../data/"
@@ -83,23 +85,25 @@ def wyoming_import(end_date, station):
 
 def mesowest_import(end_date, station, in_time):
     df_mw = MesoWest.request_data(end_date + datetime.timedelta(days=1), station.strip(" "))
-    mw_header = df_mw.columns
-    for i in range(len(mw_header)):
-        if "time(" in mw_header[i]:
-            tau = i
-        else:
-            continue
+    df_rh = data.NOAAData.request_data(end_date, '72362093040', 'HourlyRelativeHumidity')
+    df_tp = data.NOAAData.request_data(end_date, '72362093040', 'HourlyDryBulbTemperature')
+    df_t  = data_allday.NOAADataDay.request_data(end_date, '72362093040', 'HourlyRelativeHumidity')['DATE']
+    # mw_header = df_mw.columns
+    time = [];
+    for i in range(len(df_t)):
+        time.append(df_t[i].split("T")[1])
+        if (df_t[i].split("T")[1] == closest(df_t, in_time, end_date)):
+            t_idx = i;
 
-    if (str(in_time) in ['00:00:00', 'NaT']) or (str(df_mw[mw_header[tau]][0]) == 'NaT'):
+    if (str(in_time) in ['00:00:00', 'NaT']) or (str(time[t_idx]) == 'NaT'):
         rh = "NaN"
         temp = "NaN"
         thyme = "NaT"
     else:
-        df_tm = df_mw.loc[(df_mw[mw_header[tau]] == closest(df_mw[mw_header[tau]], in_time, end_date))]
-
-        thyme = df_tm[mw_header[tau]].values[0]
-        rh = df_tm['relative_humidity'].values[0]
-        temp = round((float(df_tm['temperature'].values[0]) * units.degF).to(units.degC).magnitude, 2)
+        thyme = df_t[t_idx]
+        rh   = df_rh['HourlyRelativeHumidity']
+        temp = round((float(df_tp['HourlyDryBulbTemperature'].values[0]) * units.degF).to(units.degC).magnitude, 2)
+        # temp = round((float(df_tm['temperature'].values[0]) * units.degF).to(units.degC).magnitude, 2)
 
         if str(rh) == "nan":
             rh = "NaN"
