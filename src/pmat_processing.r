@@ -24,11 +24,16 @@ col_con 	<- grep("Condition", colnames(fname))
 ## Pulls the column number for the comments
 col_com 	<- grep("comments", colnames(fname))
 ## The value for the training fraction
-train_frac 	<- config[[as.numeric(length(config) - 2)]]$value
+train_frac 	<- config[[as.numeric(length(config) - 5)]]$value
 ## The value for the threshold of the mean.filter
-rel_diff 	<- config[[length(config) - 1]]$value
+rel_diff 	<- config[[length(config) - 4]]$value
 
-step 		<- config[[length(config)]]$step
+step 		<- config[[length(config) - 3]]$step
+
+weights 	<- c()
+for (i in 1:length(config[[length(config)]]$wyoming)){
+	weights <- append(weights, as.numeric(unlist(config[[length(config)]]$wyoming[[i]]$weight)))
+}
 ## Pulls sensor labels and colors from instruments.txt
 snsr_name 	<- list(); snsr_color <- snsr_sky_indx <- snsr_gro_indx  	<- unlist(list())
 for(i in 1:length(config)){

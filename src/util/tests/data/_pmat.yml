@@ -50,10 +50,12 @@
 - iteration: true
   step: 20
   seed:
----
+- |
 - noaa:
   - label: KONM
     id: 72362093040
 - wyoming:
   - id: ABQ
+    weight: 0.3333
   - id: EPZ
+    weight: 0.1667
