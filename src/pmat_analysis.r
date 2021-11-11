@@ -146,8 +146,17 @@ sky.analysis <- function(overcast){
 		tmp_avg[[ paste("tmp_avg",i,sep="") ]] <- Reduce("+", tmp[[1]])/length(col_pwtm)
 	}
 ## Takes super average of the precipitable water measurements
-	avg 		<-  Reduce("+", pw_loc)/length(pw_loc)
+	k <- -1; wt_avg <- list()
+	for (i in 1:length(unique(pw_place))){
+		for (j in 1:length(unique(pw_time))){
+			wt_avg[[ paste("wt_avg",i+j+k,sep="") ]] <- ((weights[i]) * pw_loc[[ paste("pw_loc",i+j+k,sep="") ]])
+		}
+		k <- k + 1;
+	}
+	avg 	<-  Reduce("+", pw_loc)/length(pw_loc)
+	wt_avg  <- Reduce("+", wt_avg)
 	return(list("avg"=avg,
+				"wt_avg"=wt_avg,
 				"date"=date,
 				"snsr_sky"=snsr_sky,
 				"snsr_gro"=snsr_gro,
