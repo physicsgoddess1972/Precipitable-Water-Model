@@ -649,7 +649,7 @@ charts	<- function(...){
 			minor.tick(nx=1, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
 			for (i in 1:3){
                 for (j in 1:length(pct)){
-                    text(bar[i,j],as.numeric(slices[i,j])+10,
+                    text(bar[i,j],as.numeric(slices[i,j])+0.5,
                                 labels=sprintf('%s %%', round(as.numeric(pct[i,j]),1)))
                 }
 
