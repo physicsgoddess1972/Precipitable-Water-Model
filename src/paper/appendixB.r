@@ -19,10 +19,8 @@ figureB2 <- function(model, y1, y2){
 		lin_reg1 <- lin_regression(as.numeric(model), as.numeric(y1))
 		lin_reg2 <- lin_regression(as.numeric(model), as.numeric(y2))
 
-        plot(lin_reg1$x, lin_reg1$y, ylab=NA, xlab="Derived PWV [mm]", col="black",
+        plot(model, y1, ylab=NA, xlab="Derived PWV [mm]", col="black",
 					pch=1, main=NA, xlim=c(0,20), ylim=c(0,20))
-		mtext("(a)", side = 3, adj = 0.05, line = -1.3)
-
 		abline(0,1, lty=2); abline(v=0, col="gray"); abline(h=0, col="gray")
 		curve(coef(lin_reg1$model)[1] + coef(lin_reg1$model)[2]*x, add=TRUE, col="black")
 
@@ -31,32 +29,32 @@ figureB2 <- function(model, y1, y2){
 
 		mtext("PWV Comparitative Analysis 2020", cex=1, outer=TRUE, side=3, at=0.55, padj=-1)
 
-		if (coef(lin_reg1$model)[1] > 0){
-			equ1 = parse(text=sprintf("y == %.2f * x + %.2f", coef(lin_reg1$model)[2], coef(lin_reg1$model)[1]))
-		} else if (coef(lin_reg1$model)[1] < 0){
-			equ1 = parse(text=sprintf("y == %.2f * x*%.2f", coef(lin_reg1$model)[2], coef(lin_reg1$model)[1]))
-		}
-		if (coef(lin_reg2$model)[1] > 0){
-			equ2 = parse(text=sprintf("y == %.2f * x + %.2f", coef(lin_reg2$model)[2], coef(lin_reg2$model)[1]))
-		} else if (coef(lin_reg2$model)[1] < 0){
-			equ2 = parse(text=sprintf("y == %.2f * x*%.2f", coef(lin_reg2$model)[2], coef(lin_reg2$model)[1]))
-		}
+		# if (coef(lin_reg1$model)[1] > 0){
+		# 	equ1 = parse(text=sprintf("y == %.2f * x + %.2f", coef(lin_reg1$model)[2], coef(lin_reg1$model)[1]))
+		# } else if (coef(lin_reg1$model)[1] < 0){
+		# 	equ1 = parse(text=sprintf("y == %.2f * x*%.2f", coef(lin_reg1$model)[2], coef(lin_reg1$model)[1]))
+		# }
+		# if (coef(lin_reg2$model)[1] > 0){
+		# 	equ2 = parse(text=sprintf("y == %.2f * x + %.2f", coef(lin_reg2$model)[2], coef(lin_reg2$model)[1]))
+		# } else if (coef(lin_reg2$model)[1] < 0){
+		# 	equ2 = parse(text=sprintf("y == %.2f * x*%.2f", coef(lin_reg2$model)[2], coef(lin_reg2$model)[1]))
+		# }
 
-		legend("topleft", col=c("black",NA), lty=c(1,0,0), bg="white",
-							legend=c(equ1,
-	 	 					parse(text=sprintf("RMSE == %.2f", lin_reg1$rmsd)),parse(text=sprintf("R^2 == %.3f", lin_reg1$rsq))))
+		# legend("topleft", col=c("black",NA), lty=c(1,0,0), bg="white",
+		# 					legend=c(equ1,
+	 	#  					parse(text=sprintf("RMSE == %.2f", lin_reg1$rmsd)),parse(text=sprintf("R^2 == %.3f", lin_reg1$rsq))))
 		legend("bottomright", "(a)", bty="n")
 
-		plot(lin_reg2$x, lin_reg2$y, ylab=NA, xlab="Derived PWV [mm]",
+		plot(model, y2, ylab=NA, xlab="Derived PWV [mm]",
 					col="black", pch=1, ylim=c(0,20), xlim=c(0,20))
 		minor.tick(nx=2, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
 
 		abline(0,1, lty=2); abline(v=0, col="gray"); abline(h=0, col="gray")
 		curve(coef(lin_reg2$model)[1] + coef(lin_reg2$model)[2]*x, add=TRUE, col="black")
 		mtext("AERONET PWV [mm]", side=2, line=2.5, cex=1)
-		legend("topleft", col=c("black",NA), lty=c(1,0,0), bg="white",
-						legend=c(equ2,
-						parse(text=sprintf("RMSE == %.2f", lin_reg2$rmsd)), parse(text=sprintf("R^2 == %.3f",lin_reg2$rsq))))
+		# legend("topleft", col=c("black",NA), lty=c(1,0,0), bg="white",
+		# 				legend=c(equ2,
+		# 				parse(text=sprintf("RMSE == %.2f", lin_reg2$rmsd)), parse(text=sprintf("R^2 == %.3f",lin_reg2$rsq))))
 		legend("bottomright", "(b)", bty="n")
   xmin <- min(do.call("c", daynum), na.rm=TRUE)
   xmax <- max(do.call("c", daynum), na.rm=TRUE)

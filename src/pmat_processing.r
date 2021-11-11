@@ -142,6 +142,20 @@ data.partition <- function(x,y, train_size=0.7){
   return(list(train=train, test=test, train_idx=train_idx))
 }
 
+dna.filter <- function(date, comments, snsr_sky, snsr_gro){
+	for (i in 1:length(date)) {
+		if (grepl("DNA", comments[i], fixed=TRUE)){
+			for (j in 1:length(snsr_sky)){
+				snsr_sky[[ paste("snsr_sky",j,sep="") ]][i] <- NaN
+			}
+			for (j in 1:length(snsr_gro)){
+				snsr_gro[[ paste("snsr_gro",j,sep="") ]][i] <- NaN
+			}
+		}
+	}
+	return(list("snsr_sky"=snsr_sky, "snsr_gro"=snsr_gro))
+}
+
 #' @title overcast.filter
 #' @description Filters our data with overcast condition
 #' @param col_con column number for condition
@@ -159,7 +173,7 @@ overcast.filter <- function(col_con, col_date, col_com, pw_name, snsr_name, clou
 	# Divides the data based on condition (Overcast/Clear Skies)
 	for (i in 1:length(t(fname[col_con]))){
 		if ("clear sky" %in% fname[i,col_con]){
-			date_clear  <- append(date_clear, lapply(fname[[i, as.numeric(col_date)]], as.Date, "%m/%d/%Y" ))
+			date_clear  <- append(date_clear, lapply(fname[[i, as.numeric(col_date)]], as.Date, "%Y-%m-%d" ))
 			for (j in 1:length(pw_name)) {
 				pw_loc[[ paste("pw_loc", j, sep="")]] 		<- append(x=pw_loc[[ paste("pw_loc", j, sep="")]],  values=fname[i, col_pw[j]])
 			}
@@ -169,30 +183,39 @@ overcast.filter <- function(col_con, col_date, col_com, pw_name, snsr_name, clou
 			}
 			rh <- append(x=rh, value=fname[i, col_rh[1]])
 			com <- append(x=com, value=fname[i, col_com[1]])
+			filter.dna <-dna.filter(date_clear, com, snsr_sky, snsr_gro)
+			snsr_sky <- filter.dna$snsr_sky
+			snsr_gro <- filter.dna$snsr_gro
+
+
 		}else{
 			date_over   <- append(date_over, lapply(fname[[i, as.numeric(col_date)]], as.Date, "%m/%d/%Y" ))
 			for (j in 1:length(pw_name)){
-				pw_loco[[ paste("pw_loco", j, sep="")]] <- append(x=pw_loco[[ paste("pw_loco", j, sep="")]],  values=fname[i, col_pw[j]])
+				pw_loco[[ paste("pw_loc", j, sep="")]] <- append(x=pw_loco[[ paste("pw_loc", j, sep="")]],  values=fname[i, col_pw[j]])
 			}
 			for (j in 1:length(snsr_name)) {
-				snsr_groo[[ paste("snsr_groo",j,sep="") ]] <- append(x=snsr_groo[[ paste("snsr_groo",j,sep="") ]], values=fname[i, snsr_gro_indx[j]])
-				snsr_skyo[[ paste("snsr_skyo",j,sep="") ]]<- append(x=snsr_skyo[[ paste("snsr_skyo",j,sep="") ]], values=fname[i, snsr_sky_indx[j]])
+				snsr_groo[[ paste("snsr_gro",j,sep="") ]] <- append(x=snsr_groo[[ paste("snsr_gro",j,sep="") ]], values=fname[i, snsr_gro_indx[j]])
+				snsr_skyo[[ paste("snsr_sky",j,sep="") ]]<- append(x=snsr_skyo[[ paste("snsr_sky",j,sep="") ]], values=fname[i, snsr_sky_indx[j]])
 			}
 			rho <- append(x=rho, value=fname[i, col_rh[1]])
 			como <- append(x=como, value=fname[i, col_com[1]])
+			filter.dna <-dna.filter(date_over, como, snsr_skyo, snsr_groo)
+			snsr_skyo <- filter.dna$snsr_sky
+			snsr_groo <- filter.dna$snsr_gro
+
 		}
 	}
 	# Adds divided data into list to output from function
 	if (cloud_bool){
 		output1 <- list(date=date_over, rh=rho, com=como)
 		for(j in 1:length(snsr_name)){
-			output1 <- append(x=output1, values=list("sky"=snsr_skyo[[ paste("snsr_skyo",j,sep="") ]]))
+			output1 <- append(x=output1, values=list("sky"=snsr_skyo[[ paste("snsr_sky",j,sep="") ]]))
 		}
 		for(j in 1:length(snsr_name)){
-			output1 <- append(x=output1, values=list("gro"=snsr_groo[[ paste("snsr_groo",j,sep="") ]]))
+			output1 <- append(x=output1, values=list("gro"=snsr_groo[[ paste("snsr_gro",j,sep="") ]]))
 		}
 		for(j in 1:length(pw_name)){
-			output1 <- append(x=output1, values=list("pw"=pw_loco[[ paste("pw_loco", j, sep="")]]))
+			output1 <- append(x=output1, values=list("pw"=pw_loco[[ paste("pw_loc", j, sep="")]]))
 		}
 	} else {
 		output1 <- list(date=date_clear, rh=rh, com=com)
