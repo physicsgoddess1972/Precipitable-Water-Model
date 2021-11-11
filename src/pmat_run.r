@@ -72,7 +72,6 @@ save <- function(func, name){
 fname       <- read.table(paste(args$dir,"master_data.csv", sep=""), sep=",", header=TRUE, strip.white=TRUE)
 ## Imports sensor information from instruments.txt
 config		<- yaml.load_file(paste(args$dir,"_pmat.yml", sep=""))
-
 # Processing functions
 source("./pmat_processing.r")
 # Analysis functions

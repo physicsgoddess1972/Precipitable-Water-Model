@@ -625,21 +625,34 @@ charts	<- function(...){
                                       norm_na/length(unlist(snsr_sky[count]))*100,
                                       norm_inf/length(unlist(snsr_sky[count]))*100))
 			bar <- barplot(as.matrix(slices),names.arg=title, las=1,
-                           ylim=c(0,round(max(length(unlist(snsr_sky[count])),length(unlist(snsr_skyo[count])))+25, -1)),
+                           ylim=c(0,round(max(as.matrix(slices)+25, -2))),
                            horiz=FALSE,
                            ylab="Samples",
+                           density=c(0, 25, 25),
+                           angle=c(0, 45, 135),
                            axes=FALSE,
+                           beside=TRUE,
                            main=NA,
-                           col=c("red", "green", "blue"))
+                           col="black")
             mtext(sprintf("Data Type Distribution: %s", gsub("_", " ",snsr_name[count])), side=3, line=3, cex=1)
-            legend("bottom", inset=c(0,-0.17), legend = c("Decimal", "NaN", "-Inf"), fill=c("red", "green", "blue"), bty = "n", y.intersp = 2, ncol=3)
+            legend("top",
+                    inset=c(0,-0.1),
+                    legend = c("Decimal", "NaN", "-Inf"),
+                    density=c(0, 25, 25),
+                    angle=c(0, 45, 135),
+                    bty = "n",
+                    y.intersp = 2,
+                    ncol=3,
+                    cex=1)
             slices <- as.matrix(slices)
 			axis(side = 2, labels=TRUE, las=1)
 			minor.tick(nx=1, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
+			for (i in 1:3){
+                for (j in 1:length(pct)){
+                    text(bar[i,j],as.numeric(slices[i,j])+10,
+                                labels=sprintf('%s %%', round(as.numeric(pct[i,j]),1)))
+                }
 
-			for (i in 1:2){
-                text(bar[i],colSums(slices,1)[i]+(colSums(slices,1)[i]*0.05),
-                            labels=sprintf('%s %%', round(pct[i],1)))
 			}
 	}
 }

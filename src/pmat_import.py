@@ -17,7 +17,6 @@ from siphon.simplewebservice.wyoming import WyomingUpperAir
 
 from atmosaccess.NOAAaccess import data, data_allday
 # https://www.ncei.noaa.gov/pub/data/noaa/isd-history.txt
-# print("Good Morning\nWelcome to the Data Extraction Module of the Precipitable Water Model. For more information about the model and the purpose of this tool, please visit the [link=https://git.io/fj5Xr]documentation page[/link]")
 
 #dir = "./util/tests/data/"
 dir = "../data/"
@@ -35,14 +34,12 @@ with open(config) as f:
 fname = dir + 'master_data.csv'
 ## Data file used for user input
 wname = dir + 'cool_data.csv'
-
 ## Stations used
-wy_station = list(map(lambda x : x['id'], cnfg[1][1]['wyoming']))
-noaa_id = list(map(lambda x : x['id'], cnfg[1][0]['noaa']))
-noaa_station = list(map(lambda x : x['label'], cnfg[1][0]['noaa']))
+wy_station = list(map(lambda x : x['id'], cnfg[0][-1]['wyoming']))
+noaa_id = list(map(lambda x : x['id'], cnfg[0][-2]['noaa']))
+noaa_station = list(map(lambda x : x['label'], cnfg[0][-2]['noaa']))
 ## Hours to pull
 hour = [00, 12]
-
 ## Retrives column index for sensors
 headr = pd.read_csv(wname, delimiter=",").columns
 indx = [[], []]
@@ -187,5 +184,6 @@ except IndexError:
 for i in range(last, full_len - 1):
     filew = open(wname, "r")
     readw = csv.reader(filew, delimiter=",")
+    print("Collecting {0:d} out of {1:d} days of data\t\tProgress: {2:.2f}%".format(i, full_len-1, i/(full_len-1)*100), end='\r')
     impt(dt.strptime(str(loadtxt(wname, delimiter=",", dtype=str, usecols=(0))[i + 1]), "%Y-%m-%d"), i)
    
