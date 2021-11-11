@@ -1,280 +1,280 @@
 - |
-  seed: 16587
+  seed: 19610
   step: 1
   data:
     clear:
-      count: 539
+      count: 76
     overcast:
-      count: 194
+      count: 23
   analysis:
     coeff:
-      A: 21.1884
-      B: 0.0368
-    rsme: 3.6976
-    rstd: 3.7359
+      A: 18.368
+      B: 0.0318
+    rsme: 2.2487
+    rstd: 2.4446
 - |
-  seed: 23715
+  seed: 2876
   step: 2
   data:
     clear:
-      count: 539
+      count: 76
     overcast:
-      count: 194
+      count: 23
   analysis:
     coeff:
-      A: 20.7719
-      B: 0.0353
-    rsme: 3.9597
-    rstd: 4.0007
+      A: 19.6275
+      B: 0.0328
+    rsme: 1.5993
+    rstd: 1.7386
 - |
-  seed: 21625
+  seed: 19378
   step: 3
   data:
     clear:
-      count: 539
+      count: 76
     overcast:
-      count: 194
+      count: 23
   analysis:
     coeff:
-      A: 21.0465
-      B: 0.0359
-    rsme: 3.657
-    rstd: 3.6949
+      A: 18.7139
+      B: 0.0323
+    rsme: 2.4448
+    rstd: 2.6577
 - |
-  seed: 10757
+  seed: 27215
   step: 4
   data:
     clear:
-      count: 539
+      count: 76
     overcast:
-      count: 194
+      count: 23
   analysis:
     coeff:
-      A: 20.6134
-      B: 0.0356
-    rsme: 4.0531
-    rstd: 4.0951
+      A: 19.1155
+      B: 0.0325
+    rsme: 1.5125
+    rstd: 1.6443
 - |
-  seed: 14769
+  seed: 31710
   step: 5
   data:
     clear:
-      count: 539
+      count: 76
     overcast:
-      count: 194
+      count: 23
   analysis:
     coeff:
-      A: 20.9917
-      B: 0.036
-    rsme: 3.5253
-    rstd: 3.5619
+      A: 23.8607
+      B: 0.0386
+    rsme: 2.9314
+    rstd: 3.1868
 - |
-  seed: 11362
+  seed: 6884
   step: 6
   data:
     clear:
-      count: 539
+      count: 76
     overcast:
-      count: 194
+      count: 23
   analysis:
     coeff:
-      A: 21.2144
-      B: 0.0366
-    rsme: 3.6145
-    rstd: 3.6519
+      A: 20.6328
+      B: 0.0343
+    rsme: 2.3549
+    rstd: 2.56
 - |
-  seed: 10584
+  seed: 1192
   step: 7
   data:
     clear:
-      count: 539
+      count: 76
     overcast:
-      count: 194
+      count: 23
   analysis:
     coeff:
-      A: 20.6258
-      B: 0.0363
-    rsme: 4.3595
-    rstd: 4.4047
+      A: 19.9366
+      B: 0.0332
+    rsme: 2.6135
+    rstd: 2.8412
 - |
-  seed: 7619
+  seed: 19264
   step: 8
   data:
     clear:
-      count: 539
+      count: 76
     overcast:
-      count: 194
+      count: 23
   analysis:
     coeff:
-      A: 20.6967
-      B: 0.0361
-    rsme: 3.8436
-    rstd: 3.8835
+      A: 19.3545
+      B: 0.0325
+    rsme: 1.439
+    rstd: 1.5643
 - |
-  seed: 20771
+  seed: 27503
   step: 9
   data:
     clear:
-      count: 539
+      count: 76
     overcast:
-      count: 194
+      count: 23
   analysis:
     coeff:
-      A: 21.0846
-      B: 0.037
-    rsme: 4.0649
-    rstd: 4.107
+      A: 19.1038
+      B: 0.0321
+    rsme: 1.8234
+    rstd: 1.9823
 - |
-  seed: 17989
+  seed: 11846
   step: 10
   data:
     clear:
-      count: 539
+      count: 76
     overcast:
-      count: 194
+      count: 23
   analysis:
     coeff:
-      A: 21.0126
-      B: 0.0367
-    rsme: 4.0924
-    rstd: 4.1348
+      A: 23.3346
+      B: 0.0378
+    rsme: 2.9117
+    rstd: 3.1653
 - |
-  seed: 21290
+  seed: 26461
   step: 11
   data:
     clear:
-      count: 539
+      count: 76
     overcast:
-      count: 194
+      count: 23
   analysis:
     coeff:
-      A: 20.6305
-      B: 0.0355
-    rsme: 3.9651
-    rstd: 4.0062
+      A: 21.0692
+      B: 0.035
+    rsme: 1.5139
+    rstd: 1.6458
 - |
-  seed: 26825
+  seed: 26741
   step: 12
   data:
     clear:
-      count: 539
+      count: 76
     overcast:
-      count: 194
+      count: 23
   analysis:
     coeff:
-      A: 20.144
-      B: 0.0352
-    rsme: 4.5227
-    rstd: 4.5695
+      A: 19.4156
+      B: 0.0329
+    rsme: 2.3983
+    rstd: 2.6072
 - |
-  seed: 24918
+  seed: 12699
   step: 13
   data:
     clear:
-      count: 539
+      count: 76
     overcast:
-      count: 194
+      count: 23
   analysis:
     coeff:
-      A: 21.0267
-      B: 0.036
-    rsme: 4.0989
-    rstd: 4.1414
+      A: 20.1609
+      B: 0.0346
+    rsme: 1.9397
+    rstd: 2.1087
 - |
-  seed: 28386
+  seed: 2550
   step: 14
   data:
     clear:
-      count: 539
+      count: 76
     overcast:
-      count: 194
+      count: 23
   analysis:
     coeff:
-      A: 21.6046
-      B: 0.0369
-    rsme: 3.7387
-    rstd: 3.7774
+      A: 20.3831
+      B: 0.0337
+    rsme: 1.7237
+    rstd: 1.8739
 - |
-  seed: 21920
+  seed: 29591
   step: 15
   data:
     clear:
-      count: 539
+      count: 76
     overcast:
-      count: 194
+      count: 23
   analysis:
     coeff:
-      A: 21.0546
-      B: 0.0362
-    rsme: 4.0066
-    rstd: 4.0481
+      A: 18.8121
+      B: 0.0324
+    rsme: 2.2155
+    rstd: 2.4085
 - |
-  seed: 9188
+  seed: 2561
   step: 16
   data:
     clear:
-      count: 539
+      count: 76
     overcast:
-      count: 194
+      count: 23
   analysis:
     coeff:
-      A: 20.8701
-      B: 0.0363
-    rsme: 4.1398
-    rstd: 4.1827
+      A: 20.7558
+      B: 0.0349
+    rsme: 2.7554
+    rstd: 2.9955
 - |
-  seed: 13648
+  seed: 13801
   step: 17
   data:
     clear:
-      count: 539
+      count: 76
     overcast:
-      count: 194
+      count: 23
   analysis:
     coeff:
-      A: 20.8046
-      B: 0.0358
-    rsme: 4.0739
-    rstd: 4.1162
+      A: 20.2939
+      B: 0.034
+    rsme: 1.4834
+    rstd: 1.6126
 - |
-  seed: 12965
+  seed: 15927
   step: 18
   data:
     clear:
-      count: 539
+      count: 76
     overcast:
-      count: 194
+      count: 23
   analysis:
     coeff:
-      A: 21.294
-      B: 0.0367
-    rsme: 4.117
-    rstd: 4.1597
+      A: 19.6342
+      B: 0.0337
+    rsme: 1.9863
+    rstd: 2.1593
 - |
-  seed: 27872
+  seed: 31617
   step: 19
   data:
     clear:
-      count: 539
+      count: 76
     overcast:
-      count: 194
+      count: 23
   analysis:
     coeff:
-      A: 20.9385
-      B: 0.0364
-    rsme: 3.9978
-    rstd: 4.0393
+      A: 19.3378
+      B: 0.0332
+    rsme: 2.2034
+    rstd: 2.3954
 - |
-  seed: 42
+  seed: 8494
   step: 20
   data:
     clear:
-      count: 539
+      count: 76
     overcast:
-      count: 194
+      count: 23
   analysis:
     coeff:
-      A: 20.8976
-      B: 0.0365
-    rsme: 4.4761
-    rstd: 4.5225
+      A: 19.6412
+      B: 0.0327
+    rsme: 2.2507
+    rstd: 2.4468

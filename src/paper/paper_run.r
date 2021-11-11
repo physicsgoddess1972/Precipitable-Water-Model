@@ -64,14 +64,28 @@ figure3()
 # # figure3_auto()
 figure6()
 figureA1()
-temp <- snet <- anet <- list();
+
+temp <- snet <- anet <- date <- list();
 for (i in 1:length(unlist(daynum))){
 	for (j in 1:length(unlist(clear_sky.results$date))){
 		if (daynum$date[i] == clear_sky.results$date[[j]]){
+			date <- append(date, as.numeric(clear_sky.results$date[[j]]))
 			temp <- append(temp, clear_sky.results$snsr_sky_calc[j])
 			snet <- append(snet, suomi[i])
 			anet <- append(anet, aeronet[i])
 		}
 	}
 }
-figureB2(20.202 * exp(0.036 * as.numeric(temp)), as.numeric(snet) * 10, as.numeric(anet) * 10)
+t <- data.frame(list(date=as.Date(as.numeric(date), origin="1970-01-01"),
+				temp=round(as.numeric(temp), 2),
+				 model=round(20.202 * exp(0.036 * as.numeric(temp)),2),
+				suominet=round(as.numeric(snet)*10, 2),
+				aeronet=round(as.numeric(anet)*10, 2)))
+dfm <- within(t, {
+       model <- sprintf("%6.3f",model)
+       temp  <- sprintf("%6.3f",temp)
+       suominet  <-sprintf("%6.3f",suominet)
+       aeronet  <- sprintf("%6.3f",aeronet)
+       })
+write.table(dfm, file="../../data/paper/model.txt", quote=FALSE, row.names=FALSE, sep="\t")
+figureB2(20.2 * exp(0.036 * as.numeric(temp)), as.numeric(snet) * 10, as.numeric(anet) * 10)

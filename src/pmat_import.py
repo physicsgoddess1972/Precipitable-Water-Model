@@ -19,7 +19,7 @@ from atmosaccess.NOAAaccess import data, data_allday
 # https://www.ncei.noaa.gov/pub/data/noaa/isd-history.txt
 # print("Good Morning\nWelcome to the Data Extraction Module of the Precipitable Water Model. For more information about the model and the purpose of this tool, please visit the [link=https://git.io/fj5Xr]documentation page[/link]")
 
-#dir = "./tests/data/"
+#dir = "./util/tests/data/"
 dir = "../data/"
 ## Timeout Retry
 REQUESTS_MAX_RETRIES = int(os.getenv("REQUESTS_MAX_RETRIES", 10))
@@ -85,9 +85,12 @@ def wyoming_import(end_date, station):
 
 
 def noaa_import(end_date, station, in_time):
-    df_t  = data_allday.NOAADataDay.request_data(end_date, station, 'HourlyRelativeHumidity')['DATE']
-    t_idx = df_t.index[df_t == closest(df_t, in_time, end_date)].tolist()[0]
-    if (str(in_time) in ['00:00:00', 'NaT']) or (str(df_t[t_idx]) == 'NaT'):
+    try:
+        df_t  = data_allday.NOAADataDay.request_data(end_date, station, 'HourlyRelativeHumidity')['DATE']
+        t_idx = df_t.index[df_t == closest(df_t, in_time, end_date)].tolist()[0]
+    except:
+        t_idx = "NaT"
+    if (str(in_time) in ['00:00:00', 'NaT']) or (t_idx == 'NaT'):
         rh = "NaN"
         temp = "NaN"
         thyme = "NaT"
@@ -147,7 +150,7 @@ def impt(end_date, idx):
     else:
         fin_tme = neat[0][0][0]
 
-    d = {'Date': end_date.strftime("%-m/%-d/%Y"),
+    d = {'Date': end_date.strftime("%Y-%m-%d"),
          'Condition': neat[0][1][0],
          'Time': fin_tme}
     for i in range(len(noaa_data)):
@@ -184,5 +187,5 @@ except IndexError:
 for i in range(last, full_len - 1):
     filew = open(wname, "r")
     readw = csv.reader(filew, delimiter=",")
-    impt(dt.strptime(str(loadtxt(wname, delimiter=",", dtype=str, usecols=(0))[i + 1]), "%m/%d/%Y"), i)
+    impt(dt.strptime(str(loadtxt(wname, delimiter=",", dtype=str, usecols=(0))[i + 1]), "%Y-%m-%d"), i)
    
