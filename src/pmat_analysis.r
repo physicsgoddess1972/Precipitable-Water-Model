@@ -106,16 +106,6 @@ sky.analysis <- function(overcast){
 		snsr_del[[ paste("snsr_del",i,sep="") ]] <- as.numeric(unlist(overcast[grep("gro", names(overcast), fixed=TRUE)[1]+i-1])) - as.numeric(unlist(overcast[grep("sky", names(overcast), fixed=TRUE)[1]+i-1]))
 	}
 
-	for (i in 1:length(date)) {
-		if (grepl("DNA", comments[i], fixed=TRUE)){
-			for (j in 1:length(snsr_sky)){
-				snsr_sky[[ paste("snsr_sky",j,sep="") ]][i] <- NaN
-			}
-			for (j in 1:length(snsr_gro)){
-				snsr_gro[[ paste("snsr_gro",j,sep="") ]][i] <- NaN
-			}
-		}
-	}
 	raw_snsr_sky <- snsr_sky
 	raw_snsr_gro <- snsr_gro
 	out_sky <- inf_counter(FALSE, snsr_sky, 'sky')
@@ -156,8 +146,17 @@ sky.analysis <- function(overcast){
 		tmp_avg[[ paste("tmp_avg",i,sep="") ]] <- Reduce("+", tmp[[1]])/length(col_pwtm)
 	}
 ## Takes super average of the precipitable water measurements
-	avg 		<-  Reduce("+", pw_loc)/length(pw_loc)
+	k <- -1; wt_avg <- list()
+	for (i in 1:length(unique(pw_place))){
+		for (j in 1:length(unique(pw_time))){
+			wt_avg[[ paste("wt_avg",i+j+k,sep="") ]] <- ((weights[i]) * pw_loc[[ paste("pw_loc",i+j+k,sep="") ]])
+		}
+		k <- k + 1;
+	}
+	avg 	<-  Reduce("+", pw_loc)/length(pw_loc)
+	wt_avg  <- Reduce("+", wt_avg)
 	return(list("avg"=avg,
+				"wt_avg"=wt_avg,
 				"date"=date,
 				"snsr_sky"=snsr_sky,
 				"snsr_gro"=snsr_gro,
@@ -172,8 +171,10 @@ sky.analysis <- function(overcast){
 				"snsr_sky_calc"=snsr_sky_calc))
 }
 
-
-iterative.analysis <- function(){
+#' @title iterative.analysis
+#' @description computes regression statistics and outputs to a yaml file
+#' @export
+iterative.analysis <- function(...){
   out <- resids <- list()
   for (i in 1:step){
       if (length(config[[length(config)]]$seed) > 0){
@@ -191,7 +192,19 @@ iterative.analysis <- function(){
                                   clear_sky.results$avg,
                                   clear_sky.results$pw_loc, train_frac)
       }
-      out 	<- append(out, data3(exp_reg, i, def_seed))
+	  yml.out <- as.yaml(list(
+		  			seed=c(def_seed),
+					step=c(i),
+					data=list(clear=list(count=c(length(clear_sky.results$date))),
+							  overcast=list(count=c(length(overcast.results$date)))
+							 ),
+					analysis=list(coeff=list(A=c(round(exp(coef(exp_reg$model)[1]), 4)),
+											 B=c(round(coef(exp_reg$model)[2],4))),
+								  rsme=c(round(exp_reg$rsme, 4)),
+								  rstd=c(round(exp_reg$S, 4))
+								  )
+	  				))
+      out 	<- append(out, yml.out)
       resids 	<- append(resids, resid(exp_reg$model.0))
 
     }

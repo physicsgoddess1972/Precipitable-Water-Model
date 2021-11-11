@@ -72,25 +72,20 @@ save <- function(func, name){
 fname       <- read.table(paste(args$dir,"master_data.csv", sep=""), sep=",", header=TRUE, strip.white=TRUE)
 ## Imports sensor information from instruments.txt
 config		<- yaml.load_file(paste(args$dir,"_pmat.yml", sep=""))
-
 # Processing functions
 source("./pmat_processing.r")
 # Analysis functions
 source("./pmat_analysis.r")
-source("./pmat_data.r")
 clear_sky.results <- sky.analysis(overcast.filter(col_con, col_date, col_com, pw_name, snsr_name, FALSE))
 overcast.results <- sky.analysis(overcast.filter(col_con, col_date, col_com, pw_name, snsr_name, TRUE))
 if(args$set == "a" || args$set == "o"){
 	iter.results <- iterative.analysis()
 }
-# Plotting functions
-source("./pmat_plots.r")
+# Graphical and Data product functions
+source("pmat_products.r")
 
-
-if(args$data == "a"){
-	data1(args$overcast, args$dir);
-} else if (args$data == "m") {
-	data2(args$dir);
+if(length(args$data) > 0){
+	data.products(args$overcast, args$dir, args$data);
 }
 if(args$set == "i"){
 	if (args$overcast){
