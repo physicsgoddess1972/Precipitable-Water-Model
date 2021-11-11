@@ -34,12 +34,12 @@ exp.regression 	<- function(x,y,z,t){
 	# Finds and removes NaNed values from the dataset
 	nans <- c(grep(NaN, y)); nans <- append(nans, grep(NaN, x))
 	x <- x[-(nans)]; y <- y[-(nans)];
-
 	# creates a uniform sequence of numbers that fit within the limits of x
 	if (t != 1){
 		for (i in 1:length(z)){
 			z[[ paste("pw_loc",i,sep="") ]] <- z[[ paste("pw_loc",i,sep="") ]][-(nans)]
 		}
+
 		data_indx <- mean.filter(z, y, rel_diff)
 		data_sep <- data.partition(x[data_indx], y[data_indx], train_frac)
 		# data_sep <- data.partition(x, y)
