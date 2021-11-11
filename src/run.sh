@@ -59,8 +59,10 @@ while getopts "oahcs" opt; do
 				Rscript pmat_run.r --set o &> /dev/null & Rscript pmat_run.r --set c &> /dev/null
 				echo -e "[All] ${po}"
 				echo -e "[All] ${ch}"
-				Rscript pmat_run.r --data -ml &> /dev/null
+				Rscript pmat_run.r --data m &> /dev/null
 				echo -e "\e[92mMachine Learning Data saved\e[0m"
+				Rscript pmat_run.r --data a &> /dev/null & Rscript pmat_run.r --data a -o &> /dev/null
+				echo -e "\e[92mAnalytical Data Products saved\e[0m"
 				echo -e "\e[96m ~~~~ Complete ~~~~\e[0m" && exit 0;;
 		s)
 				Rscript pmat_run.r --data m &> /dev/null
