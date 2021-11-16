@@ -25,27 +25,59 @@ inf_counter <- function(bool, snsr_data, label){
 }
 
 #' @title exp.regression
-#' @description Function includes all of the stuff to generate the exponential regression model with intervals
+#' @description Function includes all of the stuff to generate the linear regression model with intervals
 #' @param x the domain of the dataset
 #' @param y the range of the dataset
 #' @return A list of stat stuff
 #' @export
-exp.regression 	<- function(x,y,z,t){
+lin_regression <- function(x,y){
+	nans <- c(grep("NaN", y)); nans <- append(nans, grep("NaN", x))
+	x <- x[-(nans)]; y <- y[-(nans)]
+
+	xmax <- max(x, na.rm=TRUE); xmin <- min(x, na.rm=TRUE)
+	model.0 <- lm(y~x, data=data.frame(x,y))
+
+	start <- list(a=coef(model.0)[1], b=coef(model.0)[2])
+	model <- nls(y~a+b*x, data=data.frame(x=x, y=y), start=start)
+	rmsd 	<- rmse(y, coef(model)[1] + coef(model)[2]*x)
+	rsq		<- summary(model.0)$r.squared
+
+	output <- list("x"=x, "y"=y, "model.0"=model.0, "xmin"=xmin, "rsq"=rsq,"xmax"=xmax, "model"=model, "rmsd"=rmsd)
+	return(output)
+}
+
+#' @title exp.regression
+#' @description Function includes all of the stuff to generate the exponential regression model with intervals
+#' @param x the domain of the dataset
+#' @param y the range of the dataset
+#' @param z the precipitable water by location data
+#' @param t training fraction
+#' @return A list of stat stuff
+#' @export
+exp.regression 	<- function(results,t, range=c(1:length(results$date))){
 	# Finds and removes NaNed values from the dataset
+	x <- as.numeric(unlist(results$snsr_sky_calc))[range]
+	y1 <- results$avg[range]
+	y <- results$wt_avg[range]
+	z <- results$pw_loc
+	for (i in 1:length(z)){
+		z[[ paste("pw_loc",i,sep="") ]] <- z[[ paste("pw_loc",i,sep="") ]][range]
+	}
 	nans <- c(grep(NaN, y)); nans <- append(nans, grep(NaN, x))
-	x <- x[-(nans)]; y <- y[-(nans)];
-	# creates a uniform sequence of numbers that fit within the limits of x
-	if (t != 1){
+	if (length(nans) > 0){
+		x <- x[-(nans)]; y <- y[-(nans)]; y1 <- y1[-(nans)]
 		for (i in 1:length(z)){
 			z[[ paste("pw_loc",i,sep="") ]] <- z[[ paste("pw_loc",i,sep="") ]][-(nans)]
 		}
-
-		data_indx <- mean.filter(z, y, rel_diff)
-		data_sep <- data.partition(x[data_indx], y[data_indx], train_frac)
+	}
+	# creates a uniform sequence of numbers that fit within the limits of x
+	if (t != 1){
+		data_indx <- mean.filter(z, y1, rel_diff)
+		data_sep <- data.partition(x[data_indx], y[data_indx], t)
 		# data_sep <- data.partition(x, y)
 		train <- data_sep$train
 		test <- data_sep$test
-		#$print(test)
+
 		x <- train$x
 		y <- train$y
 
@@ -173,51 +205,93 @@ sky.analysis <- function(overcast){
 
 #' @title iterative.analysis
 #' @description computes regression statistics and outputs to a yaml file
+#' @param overcast boolean to determine label
+#' @param dir directory file path for _output.yml
+#' @param obool determine whether to generate new _output.yml
 #' @export
-iterative.analysis <- function(...){
-  out <- resids <- list()
-  for (i in 1:step){
-      if (length(config[[length(config)]]$seed) > 0){
-      	def_seed 	<- config[[length(config)]]$seed
-      } else {
-          def_seed 	<- sample(1:2^15, 1)
-      }
-      set.seed(def_seed)
-      if(args$overcast){
-        exp_reg <- exp.regression(as.numeric(unlist(overcast.results$snsr_sky_calc)),
-                                  overcast.results$avg,
-                                  overcast.results$pw_loc, train_frac)
-      }else{
-        exp_reg <- exp.regression(as.numeric(unlist(clear_sky.results$snsr_sky_calc)),
-                                  clear_sky.results$avg,
-                                  clear_sky.results$pw_loc, train_frac)
-      }
-	  yml.out <- as.yaml(list(
-		  			seed=c(def_seed),
-					step=c(i),
-					data=list(clear=list(count=c(length(clear_sky.results$date))),
-							  overcast=list(count=c(length(overcast.results$date)))
-							 ),
-					analysis=list(coeff=list(A=c(round(exp(coef(exp_reg$model)[1]), 4)),
-											 B=c(round(coef(exp_reg$model)[2],4))),
-								  rsme=c(round(exp_reg$rsme, 4)),
-								  rstd=c(round(exp_reg$S, 4))
-								  )
-	  				))
-      out 	<- append(out, yml.out)
-      resids 	<- append(resids, resid(exp_reg$model.0))
-
-    }
-  write_yaml(out, paste(args$dir,"_output.yml", sep=""))
-  coeff_a <- coeff_b <- rstd <- list()
-  for (i in 1:length(out)){
-      yml_anly <- read_yaml(text=out[[i]])
-      coeff_a <- append(coeff_a, yml_anly$analysis$coeff$A)
-      coeff_b <- append(coeff_b, yml_anly$analysis$coeff$B)
-      rstd 	<- append(rstd, yml_anly$analysis$rstd)
-  }
+iterative.analysis <- function(overcast, dir, obool){
+	out <- resids <- mims <- seeds <- list()
+	if (obool){
+		for (i in 1:step){
+			if (length(config[[length(config)]]$seed) > 0){
+				def_seed 	<- config[[length(config)]]$seed
+			} else {
+				def_seed <- sample(1:.Machine$integer.max, 1, replace=FALSE)
+				seeds <- append(seeds, def_seed)
+			}
+			set.seed(def_seed)
+			if(overcast){
+				exp_reg <- exp.regression(overcast.results,train_frac)
+			}else{
+				exp_reg <- exp.regression(clear_sky.results, train_frac)
+			}
+			yml.out <- as.yaml(list(
+						seed=list(def_seed),
+						step=list(i),
+						data=list(clear=list(count=c(length(clear_sky.results$date))),
+								  overcast=list(count=c(length(overcast.results$date)))
+								 ),
+						analysis=list(coeff=list(A=c(round(exp(coef(exp_reg$model)[1]), 4)),
+												 B=c(round(coef(exp_reg$model)[2],4))),
+									  rsme=c(round(exp_reg$rsme, 4)),
+									  rstd=c(round(exp_reg$S, 4))
+									  )
+						))
+			out 	<- append(out, yml.out)
+			resids 	<- append(resids, resid(exp_reg$model.0))
+			mims_y  <- (30.55 * exp(exp_reg$x/28.725) - 2.63)
+			mims <- append(mims, sqrt(sum((mims_y - exp_reg$y)^2)/length(exp_reg$y)))
+		}
+		write_yaml(out, paste(dir,"_output.yml", sep=""))
+	} else {
+		for (i in 1:length(oname)){
+			yml 	<- read_yaml(text=oname[[i]])
+			seeds <- append(seeds, yml$seed)
+			yml.out <- as.yaml(list(
+				seed=list(yml$seed),
+				step=list(yml$step),
+				data=list(clear=list(count=c(yml$data$clear$count)),
+						  overcast=list(count=c(yml$data$overcast$count))
+						 ),
+				analysis=list(coeff=list(A=c(yml$analysis$coeff$A),
+										 B=c(yml$analysis$coeff$B)),
+							  rsme=c(yml$analysis$rsme),
+							  rstd=c(yml$analysis$rstd)
+							  )
+				))
+		    out 	<- append(out, yml.out)
+			set.seed(yml$seed)
+			if(overcast){
+				exp_reg <- exp.regression(as.numeric(unlist(overcast.results$snsr_sky_calc)),
+									  overcast.results$avg,
+									  overcast.results$pw_loc, train_frac)
+			}else{
+				exp_reg <- exp.regression(as.numeric(unlist(clear_sky.results$snsr_sky_calc)),
+									  clear_sky.results$avg,
+									  clear_sky.results$pw_loc, train_frac)
+			}
+			resids 	<- append(resids, resid(exp_reg$model.0))
+			mims_y  <- (30.55 * exp(exp_reg$x/28.725) - 2.63)
+			mims <- append(mims, sqrt(sum((mims_y - exp_reg$y)^2)/length(exp_reg$y)))
+		}
+	}
+	coeff_a <- coeff_b <- rstd <-  list()
+	for (i in 1:length(out)){
+		yml_anly <- read_yaml(text=out[[i]])
+		coeff_a <- append(coeff_a, yml_anly$analysis$coeff$A)
+		coeff_b <- append(coeff_b, yml_anly$analysis$coeff$B)
+		rstd 	<- append(rstd, yml_anly$analysis$rstd)
+	}
+	if (length(unique(seeds)) != step){
+		cat(yellow("Duplicate seeds detected\n"))
+		print(c(length(unique(seeds)), step))
+	}
+	M 		<- Reduce("+", mims)/length(mims)
 	A		<- Reduce("+", coeff_a)/length(coeff_a)
 	B		<- Reduce("+", coeff_b)/length(coeff_b)
 	S       <- Reduce("+", rstd)/length(rstd)
-	return(list("A"=A,"B"=B,"S"=S))
+	return(list("A"=A,
+				"B"=B,
+				"S"=S,
+				"M"=M))
 }
