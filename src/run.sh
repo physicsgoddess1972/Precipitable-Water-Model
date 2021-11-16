@@ -17,47 +17,34 @@ pa="\e[92mPac-man plots saved to figs/results/\e[0m"
 
 ## Flags
 while getopts "oahcs" opt; do
-	case "${opt}" in
+	case "$opt" in
 		c)
 				echo -e "\e[96m ~~~~ Clear Sky ~~~~\e[0m"
-				Rscript pmat_run.r --set t &> /dev/null & Rscript pmat_run.r --set a &> /dev/null
+				Rscript pmat_run.r --set t &> /dev/null & Rscript pmat_run.r --set a -u &> /dev/null
 				echo -e "[Clear Sky] ${ts}"
 				echo -e "[Clear Sky] ${ap}"
-				Rscript pmat_run.r --set i &> /dev/null & Rscript pmat_run.r --set c &> /dev/null
+				Rscript pmat_run.r --set i &> /dev/null
 				echo -e "[Clear Sky] ${in}"
-				echo -e "[Clear Sky] ${ch}"
-				Rscript pmat_run.r --set o &> /dev/null & Rscript pmat_run.r --set p  &> /dev/null
+				Rscript pmat_run.r --set o &> /dev/null & Rscript pmat_run.r --set p &> /dev/null
 				echo -e "[Clear Sky] ${po}"
 				echo -e "[Clear Sky] ${pa}"
 				echo -e "\e[96m ~~~~ Complete ~~~~\e[0m" && exit 0;;
 		o)
 				echo -e "\e[96m ~~~~ Overcast ~~~~\e[0m"
-				Rscript pmat_run.r --set t -o &> /dev/null & Rscript pmat_run.r --set a -o &> /dev/null
+				Rscript pmat_run.r --set t -o &> /dev/null & Rscript pmat_run.r --set a -o -u &> /dev/null
 				echo -e "[Overcast] ${ts}"
 				echo -e "[Overcast] ${ap}"
-				Rscript pmat_run.r --set c &> /dev/null & Rscript pmat_run.r --set i -o &> /dev/null
-				echo -e "[Overcast] ${ch}"
+				Rscript pmat_run.r --set i -o &> /dev/null
 				echo -e "[Overcast] ${in}"
-				Rscript pmat_run.r --set o -o &> /dev/null & Rscript pmat_run.r --set -p -o &> /dev/null
+				Rscript pmat_run.r --set o -o &> /dev/null & Rscript pmat_run.r --set p -o &> /dev/null
 				echo -e "[Overcast] ${po}"
 				echo -e "[Overcast] ${pa}"
 				echo -e "\e[96m ~~~~ Complete ~~~~\e[0m" && exit 0;;
 		a)
 				echo -e "\e[96m ~~~~ All Plots ~~~~\e[0m"
-				Rscript pmat_run.r --set t -o &> /dev/null & Rscript pmat_run.r --set p -o &> /dev/null
-				echo -e "[Overcast] ${ts}"
-				echo -e "[Overcast] ${pa}"
-				Rscript pmat_run.r --set a -o &> /dev/null & Rscript pmat_run.r --set i -o &> /dev/null
-				echo -e "[Overcast] ${ap}"
-				echo -e "[Overcast] ${in}"
-				Rscript pmat_run.r --set t &> /dev/null & Rscript pmat_run.r --set p &> /dev/null
-				echo -e "[Clear Sky] ${ts}"
-				echo -e "[Clear Sky] ${pa}"
-				Rscript pmat_run.r --set a &> /dev/null & Rscript pmat_run.r --set i &> /dev/null
-				echo -e "[Clear Sky] ${ap}"
-				echo -e "[Clear Sky] ${in}"
-				Rscript pmat_run.r --set o &> /dev/null & Rscript pmat_run.r --set c &> /dev/null
-				echo -e "[All] ${po}"
+        bash ./run.sh -c
+        bash ./run.sh -o
+				Rscript pmat_run.r --set c &> /dev/null
 				echo -e "[All] ${ch}"
 				Rscript pmat_run.r --data m &> /dev/null
 				echo -e "\e[92mMachine Learning Data saved\e[0m"

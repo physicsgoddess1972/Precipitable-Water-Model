@@ -194,7 +194,7 @@ overcast.filter <- function(col_con, col_date, col_com, pw_name, snsr_name, clou
 
 
 		}else{
-			date_over   <- append(date_over, lapply(fname[[i, as.numeric(col_date)]], as.Date, "%m/%d/%Y" ))
+			date_over   <- append(date_over, lapply(fname[[i, as.numeric(col_date)]], as.Date, "%Y-%m-%d" ))
 			for (j in 1:length(pw_name)){
 				pw_loco[[ paste("pw_loc", j, sep="")]] <- append(x=pw_loco[[ paste("pw_loc", j, sep="")]],  values=fname[i, col_pw[j]])
 			}
