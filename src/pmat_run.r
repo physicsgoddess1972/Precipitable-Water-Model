@@ -24,7 +24,7 @@ cloudblue 	<- make_style("lightskyblue")
 
 ## Used for argument parsing run Rscript model.r --help
 parser <- ArgumentParser(formatter_class='argparse.RawTextHelpFormatter')
-parser$add_argument('--dir', help="Directory path to data folder", default="../data/")
+parser$add_argument('--dir', help="Directory path to data folder", default="./util/tests/data/")
 parser$add_argument("-s", "--set", type="character", default=FALSE,
 	help="Select plot sets: \\n\  [t]ime series\\n\  [a]nalytics\\n\  [c]harts\\n\  [i]ndividual sensors\\n\  [h]eat plots\\n\  [p]acman\\n\  [d]ev\\n\ p[o]ster")
 parser$add_argument("-d", "--data", type="character", default=FALSE,
@@ -33,6 +33,8 @@ parser$add_argument("-o", "--overcast", action="store_true", default=FALSE,
 	help="Shows plots for days with overcast condition. \\n\ (Used with --set [t/a/i/h/p] and --data [a])")
 parser$add_argument("-1st", "--first_time", action="store_true", default=FALSE,
 	help="Notes for first time users")
+parser$add_argument("-u", action="store_true", default=FALSE,
+	help="Determines whether to use existing _output.yml file for analysis")
 args <- parser$parse_args()
 
 ## Command Prompt "Start of Program" and 1st time user stuff
@@ -70,6 +72,7 @@ save <- function(func, name){
 }
 ## Imports data from master_data.csv
 fname       <- read.table(paste(args$dir,"master_data.csv", sep=""), sep=",", header=TRUE, strip.white=TRUE)
+oname       <- yaml.load_file(paste(args$dir,"_output.yml", sep=""))
 ## Imports sensor information from instruments.txt
 config		<- yaml.load_file(paste(args$dir,"_pmat.yml", sep=""))
 # Processing functions
@@ -79,7 +82,7 @@ source("./pmat_analysis.r")
 clear_sky.results <- sky.analysis(overcast.filter(col_con, col_date, col_com, pw_name, snsr_name, FALSE))
 overcast.results <- sky.analysis(overcast.filter(col_con, col_date, col_com, pw_name, snsr_name, TRUE))
 if(args$set == "a" || args$set == "o"){
-	iter.results <- iterative.analysis()
+	iter.results <- iterative.analysis(args$overcast, args$dir, args$u)
 }
 # Graphical and Data product functions
 source("pmat_products.r")
@@ -173,8 +176,17 @@ if(args$set == "i"){
 	cat(green(sprintf("Plot set downloaded to %s\n", sname_pub)))
 } else if (args$set == "o"){
 	# Saves plots
-	sname_pub 	<- sprintf("../figs/results/poster.pdf")
-	save(c(poster.plots()), sname_pub)
+	if (args$overcast){
+	# Overcast Condition
+		cat(magenta("Condition:"), "Overcast\n")
+		sname_pub <- sprintf("../figs/results/poster_overcast.pdf") # File name of saved pdf
+	}else{
+	# Clear Sky condition
+		cat(magenta("Condition:"), "Clear Sky\n")
+		sname_pub <- sprintf("../figs/results/poster.pdf")
+
+	}
+	save(c(poster.plots(args$overcast)), sname_pub)
 
 	cat(green(sprintf("Plot set downloaded to %s\n", sname_pub)))
 } else if (args$set == "d"){

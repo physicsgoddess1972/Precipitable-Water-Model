@@ -1,7 +1,7 @@
 #! bin/bash
 
-n=5
-fname="./rsme_riley_$n.txt"
+n=5000
+fname="../../data/paper/rsme_riley_$n.txt"
 
 for i in $(seq 1 $n); do
   Rscript auto_analysis.r >>  $fname
