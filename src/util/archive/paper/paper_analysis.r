@@ -32,8 +32,8 @@ inf_counter <- function(bool, snsr_data, label){
 #' @export
 exp.regression 	<- function(x,y){
 	# Finds and removes NaNed values from the dataset
-	nans <- c(grep("NaN", y)); nans <- append(nans, grep("NaN", x))
-	x <- x[-(nans)]; y <- y[-(nans)]
+	# nans <- c(grep("NaN", y)); nans <- append(nans, grep("NaN", x))
+	# x <- x[-(nans)]; y <- y[-(nans)]
 
 	# creates a uniform sequence of numbers that fit within the limits of x
 	xmin 	<- min(x, na.rm=TRUE)
@@ -126,7 +126,7 @@ clear_sky.analysis <- function(overcast){
 		tmp_avg[[ paste("tmp_avg",i,sep="") ]] <- Reduce("+", tmp[[1]])/length(col_pwtm)
 	}
 ## Takes super average of the precipitable water measurements
-	wt_avg 	<- ((2/6) * (Reduce("+", c(pw_loc[1],pw_loc[2])))) + ((1/6) * (Reduce("+", c(pw_loc[3],pw_loc[4]))))#
+	wt_avg 	<- ((3/4) * (Reduce("+", c(pw_loc[1],pw_loc[2])))) + ((1/4) * (Reduce("+", c(pw_loc[3],pw_loc[4]))))#
 	avg 	<- Reduce("+", pw_loc)/length(pw_loc)#
 	return(list("avg"=avg,
 				"wt_avg"=wt_avg,
@@ -142,18 +142,3 @@ clear_sky.analysis <- function(overcast){
 				"snsr_sky_calc"=snsr_sky_calc))
 }
 
-lin_regression <- function(x,y){
-	nans <- c(grep("NaN", y)); nans <- append(nans, grep("NaN", x))
-	x <- x[-(nans)]; y <- y[-(nans)]
-
-	xmax <- max(x, na.rm=TRUE); xmin <- min(x, na.rm=TRUE)
-	model.0 <- lm(y~x, data=data.frame(x,y))
-
-	start <- list(a=coef(model.0)[1], b=coef(model.0)[2])
-	model <- nls(y~a+b*x, data=data.frame(x=x, y=y), start=start)
-	rmsd 	<- rmse(y, coef(model)[1] + coef(model)[2]*x)
-	rsq		<- summary(model.0)$r.squared
-
-	output <- list("x"=x, "y"=y, "model.0"=model.0, "xmin"=xmin, "rsq"=rsq,"xmax"=xmax, "model"=model, "rmsd"=rmsd)
-	return(output)
-}

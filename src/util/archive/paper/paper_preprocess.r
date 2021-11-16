@@ -180,7 +180,7 @@ overcast.filter <- function(col_con, col_date, col_com, pw_name, snsr_name){
 	# Divides the data based on condition (Overcast/Clear Skies)
 	for (i in 1:length(t(fname[col_con]))){
 		if ("clear sky" %in% fname[i,col_con]){
-			date_clear  <- append(date_clear, lapply(fname[[i, as.numeric(col_date)]], as.Date, "%m/%d/%Y" ))
+			date_clear  <- append(date_clear, lapply(fname[[i, as.numeric(col_date)]], as.Date, "%Y-%m-%d" ))
 			for (j in 1:length(pw_name)) {
 				pw_loc[[ paste("pw_loc", j, sep="")]] 		<- append(x=pw_loc[[ paste("pw_loc", j, sep="")]],  values=fname[i, col_pw[j]])
 			}
@@ -191,7 +191,7 @@ overcast.filter <- function(col_con, col_date, col_com, pw_name, snsr_name){
 			rh <- append(x=rh, value=fname[i, col_rh[1]])
 			com <- append(x=com, value=fname[i, col_com[1]])
 		}else{
-			date_over   <- append(date_over, lapply(fname[[i, as.numeric(col_date)]], as.Date, "%m/%d/%Y" ))
+			date_over   <- append(date_over, lapply(fname[[i, as.numeric(col_date)]], as.Date, "%Y-%m-%d" ))
 			for (j in 1:length(pw_name)){
 				pw_loco[[ paste("pw_loco", j, sep="")]] <- append(x=pw_loco[[ paste("pw_loco", j, sep="")]],  values=fname[i, col_pw[j]])
 			}

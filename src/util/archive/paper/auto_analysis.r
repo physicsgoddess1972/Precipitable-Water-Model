@@ -13,17 +13,17 @@ suppressMessages(library(Hmisc))
 library(yaml)
 options(warn=-1)
 ## Imports data from master_data.csv
-fname       <- read.table(file="../../data/socorro_nm/archive/master_data_archive.csv", sep=",", header=TRUE, strip.white=TRUE)
+fname       <- read.table(file= "../../data/socorro_nm/archive/master_data_archive.csv", sep=",", header=TRUE, strip.white=TRUE)
 ## Imports sensor information from instruments.txt
 # sensor 		<- suppressWarnings(read.csv(file="./instruments.conf", sep=","))
-config		<- yaml.load_file("./_pmat.yml")
-source("./paper_preprocess.r")
+config		<- yaml.load_file("../../data/socorro_nm/archive/_pmat.yml")
+source("../pmat_preprocess.r")
 overcast <- overcast.filter(col_con,
 							col_date,
 							col_com,
 							pw_name,
 							snsr_name)
-source("./paper_analysis.r")
+source("../pmat_analysis.r")
 clear_sky.results <- clear_sky.analysis(overcast)
 snsr_sky_calc <- list()
 snsr_sky <- list(clear_sky.results$snsr_sky$snsr_sky2,
