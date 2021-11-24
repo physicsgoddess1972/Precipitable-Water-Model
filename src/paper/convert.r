@@ -26,7 +26,7 @@ for (m in dates){
   t2 <- which(d1 %in% m)
   final_date <- append(final_date, m)
   if (length(t1) > 0){
-    final_suomi <- append(final_suomi, avg_l[[t1]])
+    final_suomi <- append(final_suomi, avg_l[[t1]] * 10)
   } else {
     final_suomi <- append(final_suomi, NaN)
   }
