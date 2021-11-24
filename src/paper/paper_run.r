@@ -26,10 +26,16 @@ config		<- yaml.load_file("../../data/socorro_nm/archive/_pmat.yml")
 
 ## Imports data from master_data.csv
 fname1       <- read.table(file= "../../data/paper/appendixB.csv", sep=",", header=TRUE, strip.white=TRUE)
+fname2 		<- read.table(file="../../data/paper/appendixB_2019.txt", sep="\t", header=TRUE)
 
 daynum <- lapply(fname1[1], as.Date, "%m/%d/%Y")
+daynum2 <- lapply(fname2[1], as.Date, "%Y-%m-%d")
 suomi <- as.numeric(unlist(fname1[2]))
+suomi2 <- as.numeric(unlist(fname2[2]))
+
 aeronet <- as.numeric(unlist(fname1[3]))
+aeronet2 <- as.numeric(unlist(fname2[3]))
+
 abq_pwv <- as.numeric(unlist(fname1[4]))
 epz_pwv <- as.numeric(unlist(fname1[5]))
 wt_mean <- as.numeric(unlist(fname1[6]))
@@ -62,8 +68,8 @@ data2 <- function(){
 	t <- data.frame(list(date=as.Date(as.numeric(date), origin="1970-01-01"),
 					temp=round(as.numeric(temp), 2),
 					 model=round(20.202 * exp(0.036 * as.numeric(temp)),2),
-					suominet=round(as.numeric(snet)*10, 2),
-					aeronet=round(as.numeric(anet)*10, 2)))
+					suominet=round(as.numeric(snet), 2),
+					aeronet=round(as.numeric(anet), 2)))
 	dfm <- within(t, {
 		   model <- sprintf("%6.3f",model)
 		   temp  <- sprintf("%6.3f",temp)
@@ -73,17 +79,16 @@ data2 <- function(){
 	write.table(dfm, file="../../data/paper/model.txt", quote=FALSE, row.names=FALSE, sep="\t")
 }
 temp <- snet <- anet <- date <- list();
-for (i in 1:length(unlist(daynum))){
+for (i in 1:length(unlist(daynum2))){
 	for (j in 1:length(unlist(clear_sky.results$date))){
-		if (daynum$date[i] == clear_sky.results$date[[j]]){
+		if (daynum2$date[i] == clear_sky.results$date[[j]]){
 			date <- append(date, as.numeric(clear_sky.results$date[[j]]))
 			temp <- append(temp, clear_sky.results$snsr_sky_calc[j])
-			snet <- append(snet, suomi[i])
-			anet <- append(anet, aeronet[i])
+			snet <- append(snet, suomi2[i])
+			anet <- append(anet, aeronet2[i])
 		}
 	}
 }
-
 pdf("../../figs/paperplots.pdf")
 if ("FLIR" %in% snsr_name){
 	figure1(clear_sky.results$snsr_sky$snsr_sky2,
@@ -97,9 +102,10 @@ if ("FLIR" %in% snsr_name){
 	figure3()
 	figure6()
 	figureA1()
+	data2()
 	# figureB1(20.2 * exp(0.036 * as.numeric(temp)), as.numeric(snet) * 10, as.numeric(anet) * 10)
 	print(iter.results$M)
-	figureB1(iter.results$A * exp(iter.results$B * as.numeric(temp)), as.numeric(snet) * 10, as.numeric(anet) * 10)
+	figureB1(iter.results$A * exp(iter.results$B * as.numeric(temp)), as.numeric(snet), as.numeric(anet))
 
 	figureB2()
 }

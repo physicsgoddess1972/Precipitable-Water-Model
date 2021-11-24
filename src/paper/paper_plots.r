@@ -296,19 +296,18 @@ figureA1 <- function(...){
 figureB1 <- function(model, y1, y2){
     par(mar=c(5,5,0,0), oma = c(0, 0, 3, 3), xpd=FALSE)
 		layout(matrix(c(1,2,1,2), 2, 2, byrow=TRUE))
-
+		print(length(as.numeric(y1)))
 		lin_reg1 <- lin_regression(as.numeric(model), as.numeric(y1))
 		lin_reg2 <- lin_regression(as.numeric(model), as.numeric(y2))
-
-        plot(model, y1, ylab=NA, xlab="Derived PWV [mm]", col="black",
-					pch=1, main=NA, xlim=c(0,20), ylim=c(0,20))
+        plot(lin_reg1$x, lin_reg1$y, ylab=NA, xlab="Derived PWV [mm]", col="black",
+					pch=1, main=NA)
 		abline(0,1, lty=2); abline(v=0, col="gray"); abline(h=0, col="gray")
 		curve(coef(lin_reg1$model)[1] + coef(lin_reg1$model)[2]*x, add=TRUE, col="black")
 
 		mtext("SuomiNet PWV [mm]", side=2, line=2.5, cex=1)
 		minor.tick(nx=2, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
 
-		mtext("PWV Comparitative Analysis 2020", cex=1, outer=TRUE, side=3, at=0.55, padj=-1)
+		mtext("PWV Comparitative Analysis 2019-2020", cex=1, outer=TRUE, side=3, at=0.55, padj=-1)
 
 		if (coef(lin_reg1$model)[1] > 0){
 			equ1 = parse(text=sprintf("y == %.2f * x + %.2f", coef(lin_reg1$model)[2], coef(lin_reg1$model)[1]))
@@ -327,7 +326,7 @@ figureB1 <- function(model, y1, y2){
 		legend("bottomright", "(a)", bty="n")
 
 		plot(model, y2, ylab=NA, xlab="Derived PWV [mm]",
-					col="black", pch=1, ylim=c(0,20), xlim=c(0,20))
+					col="black", pch=1)
 		minor.tick(nx=2, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
 
 		abline(0,1, lty=2); abline(v=0, col="gray"); abline(h=0, col="gray")
@@ -344,9 +343,9 @@ figureB2 <- function(...) {
     layout(matrix(c(1,1,1,1), 1,1, byrow=TRUE))
    xmin <- min(do.call("c", daynum), na.rm=TRUE)
   xmax <- max(do.call("c", daynum), na.rm=TRUE)
-  plot(daynum$date, suomi*10, pch=16, col="magenta2", ylim=c(0, 40), xlim=c(xmin,xmax), xaxt='n', yaxt='n', ylab="PWV [mm]", main=NA)
+  plot(daynum$date, suomi*10, pch=16, col="magenta2", ylim=c(0, 40), xlim=c(xmin,xmax), xaxt='n', yaxt='n', ylab="PWV [mm]", main=NA, xlab=NA)
   points(daynum$date, aeronet*10, pch=16, col="orange2")
-  points(daynum$date, abq_pwv*10, pch=16, col="mediumpurple2")
+  points(daynum$date, abq_pwv*10, pch=16, col="green4")
   points(daynum$date, epz_pwv*10, pch=16, col="cornflowerblue")
   lines(daynum$date, wt_mean*10, lty="solid", col="black")
   minor.tick(nx=1, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
@@ -359,5 +358,5 @@ figureB2 <- function(...) {
   y_ticks.at <- seq(0.0, 40, by = 5)
   y_mj_ticks <- y_ticks.at[seq(1, length(y_ticks.at), length.out=5)]
   axis(2, at=y_mj_ticks, labels=sprintf("%d", y_mj_ticks), tck=-0.01)
-  legend("topleft", col=c("magenta2", "orange2", "mediumpurple2", "cornflowerblue", "black"), lty=c(0,0,0,0,1), pch=c(16,16,16,16,NA), legend=c("SuomiNet", "AERONET", "ABQ Sonde", "EPZ Sonde", "Sonde Mean"))
+  legend("topleft", col=c("magenta2", "orange2", "green4", "cornflowerblue", "black"), lty=c(0,0,0,0,1), pch=c(16,16,16,16,NA), legend=c("SuomiNet", "AERONET", "ABQ Sonde", "EPZ Sonde", "Sonde Mean"))
 }

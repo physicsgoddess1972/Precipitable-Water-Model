@@ -48,7 +48,7 @@
 - rel_difference:
   value: 55
 - iteration: true
-  step: 5000
+  step: 1
   seed:
 - |
 - noaa:
