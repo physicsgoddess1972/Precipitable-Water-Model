@@ -146,7 +146,14 @@ data.partition <- function(x,y, train_size=0.7){
 
   return(list(train=train, test=test, train_idx=train_idx))
 }
-
+#' @title dna.filter
+#' @description removes data labels as Do Not Analyze
+#' @param date the date of the set
+#' @param comments the comments array for the data
+#' @param snsr_sky sky temperature data
+#' @param snsr_gro ground temperature data
+#' @return sky and temperature data without the DNA data
+#' @export
 dna.filter <- function(date, comments, snsr_sky, snsr_gro){
 	for (i in 1:length(date)) {
 		if (grepl("DNA", comments[i], fixed=TRUE)){
