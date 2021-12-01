@@ -46,9 +46,9 @@
 - train_fraction:
   value: 0.8
 - rel_difference:
-  value: 55
+  value: 0.8
 - iteration: true
-  step: 1
+  step: 5000
   seed:
 - |
 - noaa:

@@ -9,7 +9,6 @@ library(yaml)
 suppressPackageStartupMessages(library(Metrics))
 suppressPackageStartupMessages(library(Hmisc))
 suppressPackageStartupMessages(library(pracma))
-# suppressPackageStartupMessages(library(gdata))
 options(warn=-1)
 
 ## Custom Colors for cmd line features
