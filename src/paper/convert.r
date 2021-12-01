@@ -4,14 +4,16 @@ fname1      <- read.table("../../data/paper/suominet_2019.csv", sep=",")
 fname2      <- read.table("../../data/paper/appendixB.csv", sep=",")
 
 d <- as.Date(fname1[,2], "%Y-%m-%d")
-A <- fname1[,4]
+A <- fname1[,3]
+A <- replace(A, A<0, NaN)
 names(A) <- d
 l <- tapply(unlist(A, use.names=FALSE), rep(names(A), lengths(A)), FUN = c)
 
 avg_l <- list()
-for (i in 1:length(l))
+for (i in 1:length(l)){
   avg_l <- append(avg_l, Reduce("+", unlist(l[i]))/length(unlist(l[i])))
-print(unlist(avg_l))
+}
+  print(unlist(avg_l))
 d1 <- as.Date(fname[,1], "%d:%m:%Y")
 l1 <- fname[,26]
 
@@ -26,7 +28,7 @@ for (m in dates){
   t2 <- which(d1 %in% m)
   final_date <- append(final_date, m)
   if (length(t1) > 0){
-    final_suomi <- append(final_suomi, avg_l[[t1]] * 10)
+    final_suomi <- append(final_suomi, avg_l[[t1]])
   } else {
     final_suomi <- append(final_suomi, NaN)
   }
