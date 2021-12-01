@@ -4,9 +4,9 @@
     overcast.count: 194
   analysis:
     coeff:
-      A: 19.6648
-      B: 0.0359
+      A: 19.2699255
+      B: 0.0352924
   rmse:
-    mims: 4.5816163
-    kelsey: 3.6686202
-    yours: 3.6439
+    mims: 4.6665896
+    kelsey: 3.5704319
+    yours: 3.6318143

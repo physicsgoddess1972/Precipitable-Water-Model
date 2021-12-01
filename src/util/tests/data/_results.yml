@@ -1,0 +1,12 @@
+|
+  data:
+    clear.count: 539
+    overcast.count: 194
+  analysis:
+    coeff:
+      A: 20.1349
+      B: 0.036
+  rmse:
+    mims: 4.4740187
+    kelsey: 3.7262801
+    yours: 3.8304

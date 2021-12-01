@@ -1,0 +1,36 @@
+| n = 1
+  data:
+    clear.count: 539
+    overcast.count: 194
+  analysis:
+    coeff:
+      A: 18.8805648
+      B: 0.0348786
+  rmse:
+    mims: 4.6198369
+    kelsey: 3.5357244
+    yours: 3.6497759
+| n = 100
+  data:
+    clear.count: 539
+    overcast.count: 194
+  analysis:
+    coeff:
+      A: 19.4027009
+      B: 0.035469
+  rmse:
+    mims: 4.6507989
+    kelsey: 3.5839827
+    yours: 3.6192497
+| n = 1.5
+  data:
+    clear.count: 539
+    overcast.count: 194
+  analysis:
+    coeff:
+      A: 19.2699255
+      B: 0.0352924
+  rmse:
+    mims: 4.6665896
+    kelsey: 3.5704319
+    yours: 3.6318143

@@ -104,25 +104,48 @@ for (j in unique(snsr_tag)){
 #' @param percent the threshold in percent
 #' @return A sky temperature time series plot
 #' @export
-mean.filter <- function(pw, avg, percent){
-    storage <- bad <- good <- list()
-    for (i in 1:length(pw)){
-        out <- append(x=storage, values=Map("/",Map("-",unlist(pw[i]),avg), avg))
-        for (j in 1:length(out)){
-            if (is.na(out[j])){
-                next
-            }else if (abs(as.numeric(out[j])) >= percent/100){
-                bad[[ paste("bad",i,sep="") ]] 	<- append(x=bad[[ paste("bad",i,sep="") ]], values=j)
-            }else{
-                good[[ paste("good",i,sep="") ]] <- append(x=good[[ paste("good",i,sep="") ]], values=j)
-            }
-        }
-    }
-    bad  <- sort(unique(Reduce(c, bad)))
-    good <- sort(unique(Reduce(c, good)))
-    good <- good[!(good %in% bad)]
-    return(good)
+# mean.filter <- function(pw, avg, percent){
+#     storage <- bad <- good <- list()
+#     for (i in 1:length(pw)){
+#         out <- append(x=storage, values=Map("/",Map("-",unlist(pw[i]),avg), avg))
+# 	}
+# 	for (j in 1:length(out)){
+# 		if (is.na(out[j])){
+# 			next
+# 		}else if (abs(as.numeric(out[j])) >= percent/100){
+# 			bad	<- append(x=bad, values=j)
+# 		}else{
+# 			good <- append(x=good, values=j)
+# 		}
+#     }
+#     return(unlist(good))
+# }
+mean.filter <- function(pw, avg, n){
+	bad <- good <- list()
+	out <- stdi <- list()
+	for (i in 1:length(pw)){
+		for (j in 1:length(avg)){
+			out[[ paste("out",j,sep="") ]] <- append(out[[ paste("out",j,sep="") ]], pw[[ paste("pw_loc", i, sep="" )]][j])
+		}
+	}
+	for (i in 1:length(avg)){
+		stdi <- append(stdi, sd(unlist(out[[ paste("out",i,sep="") ]])))
+	}
+	for (i in 1:length(stdi)){
+		if(is.na(stdi[i])){
+			next
+		} else if (stdi[i] <=  n * sd(avg)){
+			good <- append(good, i)
+		} else {
+			bad <- append(bad, i)
+		}
+	}
+	# print(unlist(good))
+	# cat("---\n")
+	# print(length(unlist(good))/length(avg))
+	return(unlist(good))
 }
+
 
 #' @title data.parition
 #' @description splits the data into a training/testing set
