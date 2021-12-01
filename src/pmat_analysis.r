@@ -106,11 +106,11 @@ exp.regression 	<- function(results,t, range=c(1:length(results$date))){
     # Residual Standard Deiviation
 	S       <- sqrt(sum((est-ty)^2)/(length(tx) - 2))
 	# Root Square Mean Error
-	rsme    <- sqrt(sum((est-ty)^2)/length(tx))
+	rmse    <- sqrt(sum((est-ty)^2)/length(tx))
 	# Function outputs
 	output 	<- list("x"=x, "y"=y, "newx"=newx, "xmin"=xmin, "xmax"=xmax, "model.0"=model.0,
 					"model"=model, "confint"=confint, "predint"=predint, "R2"=r2,
-					'est'=est,'S'=S, 'rsme'=rsme)
+					'est'=est,'S'=S, 'rmse'=rmse)
 	return (output)
 }
 
@@ -210,7 +210,7 @@ sky.analysis <- function(overcast){
 #' @param obool determine whether to generate new _output.yml
 #' @export
 iterative.analysis <- function(overcast, dir, obool){
-	out <- resids <- mims <- seeds <- list()
+	out <- resids <- mims <- seeds <- kelsey <- list()
 	if (obool){
 		for (i in 1:step){
 			if (length(config[[length(config)]]$seed) > 0){
@@ -226,21 +226,20 @@ iterative.analysis <- function(overcast, dir, obool){
 				exp_reg <- exp.regression(clear_sky.results, train_frac)
 			}
 			yml.out <- as.yaml(list(
-						seed=list(def_seed),
-						step=list(i),
-						data=list(clear=list(count=c(length(clear_sky.results$date))),
-								  overcast=list(count=c(length(overcast.results$date)))
-								 ),
-						analysis=list(coeff=list(A=c(round(exp(coef(exp_reg$model)[1]), 4)),
-												 B=c(round(coef(exp_reg$model)[2],4))),
-									  rsme=c(round(exp_reg$rsme, 4)),
-									  rstd=c(round(exp_reg$S, 4))
-									  )
-						))
+							seed=c(def_seed),
+							step=c(i),
+							analysis=list(coeff=list(A=c(round(exp(coef(exp_reg$model)[1]), 4)),
+													 B=c(round(coef(exp_reg$model)[2],4))),
+										  rmse=c(round(exp_reg$rmse, 4)),
+									  	rstd=c(round(exp_reg$S, 4))
+									  )), indent.mapping.sequence=TRUE)
 			out 	<- append(out, yml.out)
 			resids 	<- append(resids, resid(exp_reg$model.0))
 			mims_y  <- (30.55 * exp(exp_reg$x/28.725) - 2.63)
 			mims <- append(mims, sqrt(sum((mims_y - exp_reg$y)^2)/length(exp_reg$y)))
+
+			kelsey_y <- (19.71 * exp(exp_reg$x * 0.036))
+			kelsey 	 <- append(kelsey, sqrt(sum((kelsey_y - exp_reg$y)^2)/length(exp_reg$y)))
 		}
 		write_yaml(out, paste(dir,"_output.yml", sep=""))
 	} else {
@@ -250,37 +249,34 @@ iterative.analysis <- function(overcast, dir, obool){
 			yml.out <- as.yaml(list(
 				seed=list(yml$seed),
 				step=list(yml$step),
-				data=list(clear=list(count=c(yml$data$clear$count)),
-						  overcast=list(count=c(yml$data$overcast$count))
-						 ),
 				analysis=list(coeff=list(A=c(yml$analysis$coeff$A),
 										 B=c(yml$analysis$coeff$B)),
-							  rsme=c(yml$analysis$rsme),
+							  rmse=c(yml$analysis$rmse),
 							  rstd=c(yml$analysis$rstd)
 							  )
 				))
 		    out 	<- append(out, yml.out)
 			set.seed(yml$seed)
 			if(overcast){
-				exp_reg <- exp.regression(as.numeric(unlist(overcast.results$snsr_sky_calc)),
-									  overcast.results$avg,
-									  overcast.results$pw_loc, train_frac)
+				exp_reg <- exp.regression(overcast.results,train_frac)
 			}else{
-				exp_reg <- exp.regression(as.numeric(unlist(clear_sky.results$snsr_sky_calc)),
-									  clear_sky.results$avg,
-									  clear_sky.results$pw_loc, train_frac)
+				exp_reg <- exp.regression(clear_sky.results,train_frac)
 			}
 			resids 	<- append(resids, resid(exp_reg$model.0))
 			mims_y  <- (30.55 * exp(exp_reg$x/28.725) - 2.63)
 			mims <- append(mims, sqrt(sum((mims_y - exp_reg$y)^2)/length(exp_reg$y)))
+
+			kelsey_y <- (19.71 * exp(exp_reg$x * 0.036))
+			kelsey 	 <- append(kelsey, sqrt(sum((kelsey_y - exp_reg$y)^2)/length(exp_reg$y)))
 		}
 	}
-	coeff_a <- coeff_b <- rstd <-  list()
+	coeff_a <- coeff_b <- rstd <- rmse <- list()
 	for (i in 1:length(out)){
 		yml_anly <- read_yaml(text=out[[i]])
 		coeff_a <- append(coeff_a, yml_anly$analysis$coeff$A)
 		coeff_b <- append(coeff_b, yml_anly$analysis$coeff$B)
 		rstd 	<- append(rstd, yml_anly$analysis$rstd)
+		rmse 	<- append(rmse, yml_anly$analysis$rmse)
 	}
 	if (length(unique(seeds)) != step){
 		cat(yellow("Duplicate seeds detected\n"))
@@ -290,8 +286,20 @@ iterative.analysis <- function(overcast, dir, obool){
 	A		<- Reduce("+", coeff_a)/length(coeff_a)
 	B		<- Reduce("+", coeff_b)/length(coeff_b)
 	S       <- Reduce("+", rstd)/length(rstd)
+	R 		<- Reduce("+", rmse)/length(rmse)
+	K 		<- Reduce("+", kelsey)/length(kelsey)
+
+	res.yml <- as.yaml(list(data=c(clear=list(count=c(length(clear_sky.results$date))),
+								   overcast=list(count=c(length(overcast.results$date)))),
+							analysis=list(coeff=list(A=c(A),
+													 B=c(B))),
+							rmse=list(mims=c(M),
+							             kelsey=c(K),
+										 yours=c(R))))
+	write_yaml(res.yml, paste(dir,"_results.yml", sep=""), indent.mapping.sequence=TRUE)
 	return(list("A"=A,
 				"B"=B,
 				"S"=S,
-				"M"=M))
+				"M"=M,
+				"R"=R))
 }

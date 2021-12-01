@@ -21,6 +21,7 @@ cloudblue 	<- make_style("lightskyblue")
 
 ## Imports data from master_data.csv
 fname       <- read.table(file= "../../data/socorro_nm/archive/master_data_paper.csv", sep=",", header=TRUE, strip.white=TRUE)
+oname       <- yaml.load_file("../../data/socorro_nm/archive/_output_paper.yml")
 ## Imports sensor information from instruments.txt
 config		<- yaml.load_file("../../data/socorro_nm/archive/_pmat.yml")
 
@@ -67,7 +68,7 @@ data1 <- function(){
 data2 <- function(){
 	t <- data.frame(list(date=as.Date(as.numeric(date), origin="1970-01-01"),
 					temp=round(as.numeric(temp), 2),
-					 model=round(20.202 * exp(0.036 * as.numeric(temp)),2),
+					 model=round(iter.results$A * exp(iter.results$B * as.numeric(temp)),2),
 					suominet=round(as.numeric(snet), 2),
 					aeronet=round(as.numeric(anet), 2)))
 	dfm <- within(t, {
@@ -90,7 +91,7 @@ for (i in 1:length(unlist(daynum2))){
 	}
 }
 pdf("../../figs/paperplots.pdf")
-if ("FLIR" %in% snsr_name){
+if ("FLIR i3" %in% unlist(snsr_name)){
 	figure1(clear_sky.results$snsr_sky$snsr_sky2,
 			clear_sky.results$snsr_sky$snsr_sky1,
 			clear_sky.results$snsr_sky$snsr_sky3,
@@ -102,10 +103,7 @@ if ("FLIR" %in% snsr_name){
 	figure3()
 	figure6()
 	figureA1()
-	data2()
-	# figureB1(20.2 * exp(0.036 * as.numeric(temp)), as.numeric(snet) * 10, as.numeric(anet) * 10)
-	print(iter.results$M)
+	#data2()
 	figureB1(iter.results$A * exp(iter.results$B * as.numeric(temp)), as.numeric(snet), as.numeric(anet))
-
 	figureB2()
 }

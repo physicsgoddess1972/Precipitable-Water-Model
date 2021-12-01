@@ -18,8 +18,8 @@ from siphon.simplewebservice.wyoming import WyomingUpperAir
 from atmosaccess.NOAAaccess import data, data_allday
 # https://www.ncei.noaa.gov/pub/data/noaa/isd-history.txt
 
-#dir = "./util/tests/data/"
-dir = "../data/"
+dir = "./util/tests/data/"
+# dir = "../data/"
 ## Timeout Retry
 REQUESTS_MAX_RETRIES = int(os.getenv("REQUESTS_MAX_RETRIES", 10))
 adapter = requests.adapters.HTTPAdapter(max_retries=REQUESTS_MAX_RETRIES)
@@ -82,12 +82,9 @@ def wyoming_import(end_date, station):
 
 
 def noaa_import(end_date, station, in_time):
-    try:
-        df_t  = data_allday.NOAADataDay.request_data(end_date, station, 'HourlyRelativeHumidity')['DATE']
-        t_idx = df_t.index[df_t == closest(df_t, in_time, end_date)].tolist()[0]
-    except:
-        t_idx = "NaT"
-    if (str(in_time) in ['00:00:00', 'NaT']) or (t_idx == 'NaT'):
+    df_t  = data_allday.NOAADataDay.request_data(end_date, station, 'HourlyRelativeHumidity')['DATE']
+    t_idx = df_t.index[df_t == closest(df_t, in_time, end_date)].tolist()[0]
+    if (str(in_time) in ['00:00:00', 'NaT']):
         rh = "NaN"
         temp = "NaN"
         thyme = "NaT"
@@ -184,6 +181,6 @@ except IndexError:
 for i in range(last, full_len - 1):
     filew = open(wname, "r")
     readw = csv.reader(filew, delimiter=",")
-    print("Collecting {0:d} out of {1:d} days of data\t\tProgress: {2:.2f}%".format(i, full_len-1, i/(full_len-1)*100), end='\r')
+    # print("Collecting {0:d} out of {1:d} days of data\t\tProgress: {2:.2f}%".format(i, full_len-1, i/(full_len-1)*100), end='\r')
     impt(dt.strptime(str(loadtxt(wname, delimiter=",", dtype=str, usecols=(0))[i + 1]), "%Y-%m-%d"), i)
    

@@ -296,11 +296,11 @@ figureA1 <- function(...){
 figureB1 <- function(model, y1, y2){
     par(mar=c(5,5,0,0), oma = c(0, 0, 3, 3), xpd=FALSE)
 		layout(matrix(c(1,2,1,2), 2, 2, byrow=TRUE))
-		print(length(as.numeric(y1)))
 		lin_reg1 <- lin_regression(as.numeric(model), as.numeric(y1))
 		lin_reg2 <- lin_regression(as.numeric(model), as.numeric(y2))
+
         plot(lin_reg1$x, lin_reg1$y, ylab=NA, xlab="Derived PWV [mm]", col="black",
-					pch=1, main=NA)
+					pch=1, main=NA, xlim=c(0, 25), ylim=c(0, 25))
 		abline(0,1, lty=2); abline(v=0, col="gray"); abline(h=0, col="gray")
 		curve(coef(lin_reg1$model)[1] + coef(lin_reg1$model)[2]*x, add=TRUE, col="black")
 
@@ -325,8 +325,8 @@ figureB1 <- function(model, y1, y2){
 	 	 					parse(text=sprintf("RMSE == %.2f", lin_reg1$rmsd)),parse(text=sprintf("R^2 == %.3f", lin_reg1$rsq))))
 		legend("bottomright", "(a)", bty="n")
 
-		plot(model, y2, ylab=NA, xlab="Derived PWV [mm]",
-					col="black", pch=1)
+		plot(lin_reg2$x, lin_reg2$y, ylab=NA, xlab="Derived PWV [mm]",
+					col="black", pch=1, xlim=c(0, 25), ylim=c(0, 25))
 		minor.tick(nx=2, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
 
 		abline(0,1, lty=2); abline(v=0, col="gray"); abline(h=0, col="gray")

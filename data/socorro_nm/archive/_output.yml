@@ -1,16 +1,9 @@
 - |
-  seed:
-  - 1651989541
-  step:
-  - 1
-  data:
-    clear:
-      count: 539
-    overcast:
-      count: 194
+  seed: 1815824656
+  step: 1
   analysis:
     coeff:
-      A: 19.9709
-      B: 0.0365
-    rsme: 3.7952
-    rstd: 3.838
+      A: 19.6648
+      B: 0.0359
+    rmse: 3.6439
+    rstd: 3.685
