@@ -89,7 +89,7 @@ for (i in 1:length(unlist(daynum2))){
 		}
 	}
 }
-pdf("../../figs/paperplots.pdf")
+pdf("../../figs/paperplots_n3.pdf")
 if ("FLIR i3" %in% unlist(snsr_name)){
 	figure1(clear_sky.results$snsr_sky$snsr_sky2,
 			clear_sky.results$snsr_sky$snsr_sky1,

@@ -71,10 +71,9 @@ exp.regression 	<- function(results,t, range=c(1:length(results$date))){
 		}
 	}
 	# creates a uniform sequence of numbers that fit within the limits of x
+	data_indx <- mean.filter(z, rel_diff)
 	if (t != 1){
-		data_indx <- mean.filter(z, y1, rel_diff)
 		data_sep <- data.partition(x[data_indx], y[data_indx], t)
-		# data_sep <- data.partition(x, y)
 		train <- data_sep$train
 		test <- data_sep$test
 
@@ -88,7 +87,6 @@ exp.regression 	<- function(results,t, range=c(1:length(results$date))){
 		tx <- x
 		ty <- y
 	}
-
 	xmin 	<- min(x, na.rm=TRUE)
 	xmax 	<- max(x, na.rm=TRUE)
 	newx 	<- seq(xmin, xmax, length.out=length(x))
@@ -110,7 +108,7 @@ exp.regression 	<- function(results,t, range=c(1:length(results$date))){
 	# Function outputs
 	output 	<- list("x"=x, "y"=y, "newx"=newx, "xmin"=xmin, "xmax"=xmax, "model.0"=model.0,
 					"model"=model, "confint"=confint, "predint"=predint, "R2"=r2,
-					'est'=est,'S'=S, 'rmse'=rmse)
+					'est'=est,'S'=S, 'rmse'=rmse, 'refine'=length(data_indx), 'nans'=length(nans))
 	return (output)
 }
 
@@ -223,7 +221,7 @@ iterative.analysis <- function(overcast, dir, obool){
 			if(overcast){
 				exp_reg <- exp.regression(overcast.results,train_frac)
 			}else{
-				exp_reg <- exp.regression(clear_sky.results, train_frac)
+				exp_reg <- exp.regression(clear_sky.results,train_frac)
 			}
 			yml.out <- as.yaml(list(
 							seed=c(def_seed),
@@ -288,9 +286,12 @@ iterative.analysis <- function(overcast, dir, obool){
 	S       <- Reduce("+", rstd)/length(rstd)
 	R 		<- Reduce("+", rmse)/length(rmse)
 	K 		<- Reduce("+", kelsey)/length(kelsey)
+	res.yml <- as.yaml(list(data=list(clear=list(total.count=c(length(clear_sky.results$date))),
+									overcast=list(total.count=c(length(overcast.results$date))),
+									train.count=c(length(exp_reg$x)),
+									nans=c(exp_reg$nans),
+									fraction.kept=c(round(exp_reg$refine/(length(clear_sky.results$date) - exp_reg$nans), 2))),
 
-	res.yml <- as.yaml(list(data=c(clear=list(count=c(length(clear_sky.results$date))),
-								   overcast=list(count=c(length(overcast.results$date)))),
 							analysis=list(coeff=list(A=c(A),
 													 B=c(B))),
 							rmse=list(mims=c(M),
