@@ -46,7 +46,7 @@
 - train_fraction:
   value: 0.8
 - rel_difference:
-  value: 0.8
+  value: 3
 - iteration: true
   step: 5000
   seed:
