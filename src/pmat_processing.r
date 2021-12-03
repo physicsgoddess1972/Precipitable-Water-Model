@@ -100,29 +100,33 @@ for (j in unique(snsr_tag)){
 #' @title mean.filter
 #' @description filters the data based on the relative difference of the mean pw
 #' @param pw precipitable water data
-#' @param avg the average values for pw
-#' @param percent the threshold in percent
+#' @param n the threshold
 #' @return A sky temperature time series plot
 #' @export
-mean.filter <- function(pw, avg, percent){
-    storage <- bad <- good <- list()
-    for (i in 1:length(pw)){
-        out <- append(x=storage, values=Map("/",Map("-",unlist(pw[i]),avg), avg))
-        for (j in 1:length(out)){
-            if (is.na(out[j])){
-                next
-            }else if (abs(as.numeric(out[j])) >= percent/100){
-                bad[[ paste("bad",i,sep="") ]] 	<- append(x=bad[[ paste("bad",i,sep="") ]], values=j)
-            }else{
-                good[[ paste("good",i,sep="") ]] <- append(x=good[[ paste("good",i,sep="") ]], values=j)
-            }
-        }
-    }
-    bad  <- sort(unique(Reduce(c, bad)))
-    good <- sort(unique(Reduce(c, good)))
-    good <- good[!(good %in% bad)]
-    return(good)
+mean.filter <- function(pw, n){
+	bad <- good <- list()
+	out <- stdi <- list()
+	for (i in 1:length(pw)){
+		for (j in 1:length(pw[[i]])){
+			out[[ paste("out",j,sep="") ]] <- append(out[[ paste("out",j,sep="") ]],
+													 pw[[ paste("pw_loc", i, sep="" )]][j])
+		}
+	}
+	for (i in 1:length(pw[[1]])){
+		stdi <- append(stdi, sd(unlist(out[[ paste("out",i,sep="") ]])))
+	}
+	for (i in 1:length(stdi)){
+		if(is.na(stdi[i])){
+			next
+		} else if (stdi[i] < n * (Reduce("+", stdi)/length(stdi))){
+			good <- append(good, i)
+		} else {
+			bad <- append(bad, i)
+		}
+	}
+	return(unlist(good))
 }
+
 
 #' @title data.parition
 #' @description splits the data into a training/testing set
