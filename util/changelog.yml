@@ -9,17 +9,26 @@ changes:
     - updated: setup script now relies on DESCRIPTION and requirements.txt files
     - added: New method for releases and changelog updates
     - updated: Updates to the configuration files used to run the import module and analysis module
+    - updated: reorangization of pre-processing functions, analysis functions, and plotting functions in the primary R script
+  processing:
+    - updated: Dropping support for MesoWest data acquisition, now using NOAA Data Access API.
+    - added: Added 'Do Not Analyze' or DNA filter
+    - added: Added mean.filter function to refine the dataset based on standard deviation
   analysis:
     - updated: Improved documentation of functions
-    - updated: reorangization of pre-processing functions, analysis functions, and plotting functions in the primary R script
-    - added: Data partition function, and relative difference filter for data sampling. 
-    - added: Output yml file that contains correlation profile, iteration information, and analysis statistics. 
+    - updated: Expanded the exp.regression function to utilize the mean.filter functionality
+    - added: Added linear regression analysis
+    - added: Data partition function, and relative difference filter for data sampling.
+    - added: Iterative analysis
+    - added: Output yml file that contains correlation profile, iteration step information, and analysis statistics.
+    - added: Results yml file that contains iterative analysis results such as avg RMSE and coefficients
   plots:
     - updated: Charts have undergone a fundamental design change
   deployment:
     - added: Docker deployment
     - added: Offical local docker deployment
     - updated: Moved data and relavent figures to their own deployment branch
+    - added: Added local development deployment
   documentation:
     - updated: CSS adjustments, and JavaScript fixes to documentation page
     - updated: Contribution page to include the special people that helped us
@@ -36,6 +45,11 @@ changes:
   research:
     - added: A paper is currently under review on the results of the Socorro, NM analysis
     - added: A draft of a paper for the Journal of Open Source Software on the PMAT suite is in the works
+  coming-soon:
+    - added: Full integration of a Machine Learning SVM Model into analysis
+    - updated: Transition from Flask applications to Flutter
+    - added: We may be going to a conference for the National Weather Service in Lubbock, TX in April.
+    - added: We are currently working on some heatmap and additional pacviz visualizations.
 ---
 name: Cirrus
 tagline: New and Improved PMAT
