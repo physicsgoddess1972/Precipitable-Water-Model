@@ -1,7 +1,6 @@
 #' @title Precipitable Water Model Analysis Tool: Offical paper plots
-#' @file paper_figures.r
+#' @file paper_run.r
 #' @author Spencer Riley
-#' @docs https://git.io/fjVHo
 
 ## Necessary Libraries for the script to run, for installation run install.sh
 library(argparse); library(crayon); library(RColorBrewer); library(plotrix)
@@ -89,7 +88,7 @@ for (i in 1:length(unlist(daynum2))){
 		}
 	}
 }
-pdf("../../figs/paperplots_n3.pdf")
+pdf("../../figs/paperplots.pdf")
 if ("FLIR i3" %in% unlist(snsr_name)){
 	figure1(clear_sky.results$snsr_sky$snsr_sky2,
 			clear_sky.results$snsr_sky$snsr_sky1,
