@@ -1,3 +1,4 @@
+#' @title Precipitable Water Model Analysis Tool: Analysis Module
 #' @file pmat_analysis.r
 #' @author Spencer Riley
 #' @brief functions for analysis
@@ -115,6 +116,7 @@ exp.regression 	<- function(results,t, range=c(1:length(results$date))){
 #' @title sky.analysis
 #' @description Computes all analytics
 #' @param overcast results of the overcast.filter function
+#' @return series of arrays including average PWV, RH, etc.
 #' @export
 sky.analysis <- function(overcast){
 ## Pulls date from filter function
@@ -206,6 +208,7 @@ sky.analysis <- function(overcast){
 #' @param overcast boolean to determine label
 #' @param dir directory file path for _output.yml
 #' @param obool determine whether to generate new _output.yml
+#' @return iterative stats and _output.yml
 #' @export
 iterative.analysis <- function(overcast, dir, obool){
 	out <- resids <- mims <- seeds <- kelsey <- list()
