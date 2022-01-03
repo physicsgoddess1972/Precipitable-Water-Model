@@ -1,6 +1,7 @@
-#' @file pmat_analysis.r
+#' @title Precipitable Water Model Analysis Tool: Preprocessing Module
+#' @file pmat_processing.r
 #' @author Spencer Riley
-#' @brief functions for analysis
+#' @brief functions for preprocessing
 #' @docs https://docs.pmat.app
 #' @help To get a list of arguments run [Rscript model.r --help]
 
@@ -98,10 +99,10 @@ for (j in unique(snsr_tag)){
 }
 
 #' @title mean.filter
-#' @description filters the data based on the relative difference of the mean pw
+#' @description filters the data based on the comparison of the daily std and the average std of the dataset
 #' @param pw precipitable water data
 #' @param n the threshold
-#' @return A sky temperature time series plot
+#' @return array of indicies for PWV values to be analyzed
 #' @export
 mean.filter <- function(pw, n){
 	bad <- good <- list()
@@ -118,7 +119,7 @@ mean.filter <- function(pw, n){
 	for (i in 1:length(stdi)){
 		if(is.na(stdi[i])){
 			next
-		} else if (stdi[i] < n * (Reduce("+", stdi)/length(stdi))){
+		} else if (stdi[[i]] - (n * (Reduce("+", stdi)/length(stdi))) < 0){
 			good <- append(good, i)
 		} else {
 			bad <- append(bad, i)
@@ -134,7 +135,7 @@ mean.filter <- function(pw, n){
 #' @param y range of the data
 #' @param train_size fraction of the data in the testing set [Default is 0.7]
 #' @param rand_state the seed for the random generated partition
-#' @return A sky temperature time series plot
+#' @return a testing and training dataset
 #' @export
 data.partition <- function(x,y, train_size=0.7){
   train_idx <- sample(1:length(x), trunc(length(x)*train_size), replace=FALSE)
