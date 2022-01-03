@@ -1,7 +1,7 @@
 ####
-## Title: 	Precipitable Water Data Extraction Module
-## Author: 	Spencer Riley / Vicki Kelsey
-## Documentation Page: https://git.io/fjVHo
+#' @title Precipitable Water Model Analysis Tool: Preprocessing
+#' @author Spencer Riley
+#' @docs https://docs.pmat.app
 ####
 import csv, os, yaml
 import requests
