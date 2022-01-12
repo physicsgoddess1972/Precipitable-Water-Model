@@ -1,6 +1,6 @@
 # Usage
 
-## How to deploy this god-awful evil
+## How to deploy
 
 ### GitHub (Cloud)
 1. Create a GitHub repository from the [Offical Template](https://template.pmat.app).
