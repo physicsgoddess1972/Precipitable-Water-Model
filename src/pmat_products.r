@@ -13,7 +13,31 @@
 #' @export
 time_series.plots <- function(date, overcast){
     force(date); force(overcast)
+    xmin <- as.Date(paste(substr(date[[1]], 1, 8),"01",sep=""))
+    dm <- round(as.integer(substr(date[[length(date)]], 9, 10))/20)
+    xmax <- as.Date(paste(substr(date[[length(date)]], 1, 5),
+                          sprintf("%02d", as.integer(substr(date[[length(date)]], 6, 7)) + dm),
+                          "-01", sep=""))
+    ticks.at <- seq(xmin, xmax, by = "months")
+    if (length(ticks.at) <= 3){
+        xmin <- date[[1]]
+    }
+    time_axis <- function(date){
+        # defines major and minor tick marks for the x-axis and their position
+        if (length(ticks.at) > 3){
+            mj_ticks <- ticks.at[seq(1, length(ticks.at), length.out=4)]
+            mn_ticks <- ticks.at
+            axis(1, at=mn_ticks, labels=rep("", length(mn_ticks)), tck=-0.015)
+            axis(1, at=mj_ticks, labels=format(mj_ticks, "%b %y"), tck=-0.03)
+        } else {
+            ticks.at1 <- seq(date[[1]], xmax, by = "day")
+            mj_ticks <- ticks.at1[seq(1, length(ticks.at1), length.out=5)]
+            mn_ticks <- ticks.at1
+            axis(1, at=mn_ticks, labels=rep("", length(mn_ticks)), tck=-0.015)
+            axis(1, at=mj_ticks, labels=format(mj_ticks, "%d %b"), tck=-0.03)
+        }
 
+    }
 #' @title time1
 #' @description Sky Temperature plot
 #' @param date the datestamp of the data
@@ -43,16 +67,10 @@ time_series.plots <- function(date, overcast){
              main=title,
              pch=16,
              ylim=c(ymin, ymax),
+             xlim=c(xmin, xmax),
              col=snsr_color[1])
 
-        # defines major and minor tick marks for the x-axis and their position
-        ticks.at <- seq(as.Date(paste(substr(date[[1]], 1, 8),"01",sep="")), date[[length(date)]] , by = "months")
-        mj_ticks <- ticks.at[seq(1, length(ticks.at), length.out=5)]
-        mn_ticks <- ticks.at[-(seq(1, length(ticks.at), length.out=5))]
-
-        axis(1, at=mn_ticks, labels=rep("", length(mn_ticks)), tck=-0.015)
-        axis(1, at=mj_ticks, labels=format(mj_ticks, "%b %y"), tck=-0.03)
-
+        time_axis(date)
         # plots all other ranges in the list if the length of range is greater than 1
         if (length(range) > 1){
             for(i in 2:length(range)){
@@ -88,15 +106,17 @@ time_series.plots <- function(date, overcast){
         ymin <- min(as.numeric(unlist(test)), na.rm=TRUE); ymax <- max(as.numeric(unlist(test)), na.rm=TRUE)
 
         # Legend configuration
-        plot(date, t(unlist(range[1])), xlab="Date", ylab="Temperature [C]", xaxt='n',
-            main=title, pch=16, ylim=c(ymin, ymax), col=snsr_color[1])
+        plot(date, t(unlist(range[1])),
+             xlab="Date",
+             ylab="Temperature [C]",
+             xaxt='n',
+             main=title,
+             pch=16,
+             ylim=c(ymin, ymax),
+             xlim=c(xmin, xmax),
+             col=snsr_color[1])
 
-        ticks.at <- seq(as.Date(paste(substr(date[[1]], 1, 8),"01",sep="")), date[[length(date)]], by = "months")
-        mj_ticks <- ticks.at[seq(1, length(ticks.at), length.out=5)]
-        mn_ticks <- ticks.at[-(seq(1, length(ticks.at), length.out=5))]
-
-        axis(1, at=mn_ticks, labels=rep("", length(mn_ticks)), tck=-0.015)
-        axis(1, at=mj_ticks, labels=format(mj_ticks, "%b %y"), tck=-0.03)
+        time_axis(date)
 
         if (length(range) >= 2){
             for(i in 2:length(range)){
@@ -125,17 +145,18 @@ time_series.plots <- function(date, overcast){
         test[!is.finite(unlist(range))] <- NA
 
         ymin <- min(as.numeric(unlist(test)), na.rm=TRUE); ymax <- max(as.numeric(unlist(test)), na.rm=TRUE)
-        xmin <- min(do.call("c", date), na.rm=TRUE); xmax <- max(do.call("c", date), na.rm=TRUE)
 
-        plot(date, t(unlist(range[1])), xlab="Date", ylab="Temperature [C]", xaxt='n',
-        main=title, pch=16, xlim=c(xmin, xmax), ylim=c(ymin, ymax), col=snsr_color[1])
+        plot(date, t(unlist(range[1])),
+             xlab="Date",
+             ylab="Temperature [C]",
+             xaxt='n',
+             main=title,
+             pch=16,
+             ylim=c(ymin, ymax),
+             xlim=c(xmin, xmax),
+             col=snsr_color[1])
 
-        ticks.at <- seq(as.Date(paste(substr(date[[1]], 1, 8),"01",sep="")), date[[length(date)]], by = "months")
-        mj_ticks <- ticks.at[unique(seq(1, length(ticks.at), length.out=5))]
-        mn_ticks <- ticks.at[unique(-(seq(1, length(ticks.at), length.out=5)))]
-
-        axis(1, at=mn_ticks, labels=rep("", length(mn_ticks)), tck=-0.015)
-        axis(1, at=mj_ticks, labels=format(mj_ticks, "%b %y"), tck=-0.03)
+        time_axis(date)
 
         if (length(range) >= 2){
             for(i in 2:length(range)){
@@ -164,17 +185,18 @@ time_series.plots <- function(date, overcast){
         test[!is.finite(unlist(range))] <- NA
 
         ymin <- min(as.numeric(unlist(test)), na.rm=TRUE); ymax <- max(as.numeric(unlist(test)), na.rm=TRUE)
-        xmin <- min(do.call("c", date), na.rm=TRUE); xmax <- max(do.call("c", date), na.rm=TRUE)
 
-        plot(date, t(unlist(range[1])), xlab="Date", ylab="TPW [mm]", xaxt='n',
-            xlim=c(xmin, xmax), ylim=c(ymin, ymax), main=title, pch=16, col=pw_color[1])
+        plot(date, t(unlist(range[1])),
+             xlab="Date",
+             ylab="TPW [mm]",
+             xaxt='n',
+             ylim=c(ymin, ymax),
+             xlim=c(xmin, xmax),
+             main=title,
+             pch=16,
+             col=pw_color[1])
 
-        ticks.at <- seq(as.Date(paste(substr(date[[1]], 1, 8),"01",sep="")), date[[length(date)]], by = "months")
-        mj_ticks <- ticks.at[seq(1, length(ticks.at), length.out=5)]
-        mn_ticks <- ticks.at[-(seq(1, length(ticks.at), length.out=5))]
-
-        axis(1, at=mn_ticks, labels=rep("", length(mn_ticks)), tck=-0.015)
-        axis(1, at=mj_ticks, labels=format(mj_ticks, "%b %y"), tck=-0.03)
+        time_axis(date)
 
         if (length(range) >= 2){
             for(i in 2:length(range)){
@@ -200,17 +222,20 @@ time_series.plots <- function(date, overcast){
             range2 	<- clear_sky.results$avg
             title 	<- sprintf("Mean Sky Temperature and TPW Time Series \n Condition: Clear Sky")
         }
-        plot(date, range1, ylab=NA, xlab="Date", col="red", pch=16, main=title, xaxt='n')
+        plot(date, range1,
+             ylab=NA,
+             xlab="Date",
+             col="red",
+             pch=16,
+             main=title,
+             xaxt='n',
+             xlim=c(xmin, xmax))
 
-        ticks.at <- seq(date[[1]], date[[length(date)]], by = "months")
-        mj_ticks <- ticks.at[seq(1, length(ticks.at), length.out=5)]
-        mn_ticks <- ticks.at[-(seq(1, length(ticks.at), length.out=5))]
+        time_axis(date)
 
-        axis(1, at=mn_ticks, labels=rep("", length(mn_ticks)), tck=-0.015)
-        axis(1, at=mj_ticks, labels=format(mj_ticks, "%b %y"), tck=-0.03)
         axis(side = 2); mtext(side = 2, line=3, "Temperature [C]", col="red")
         par(new = T)
-        plot(date, range2, ylab=NA, axes=F, xlab=NA, col="blue", pch=16)
+        plot(date, range2, ylab=NA, axes=F, xlab=NA, col="blue", pch=16,  xlim=c(xmin, xmax))
         axis(side = 4); mtext(side = 4, line=3, "TPW [mm]", col="blue")
         cat(green("[5]"), "Sky Temperature - Precipitable Water Time Series\n")
     }
@@ -229,17 +254,19 @@ time_series.plots <- function(date, overcast){
             title 		<- "Temporal Average TPW Time Series \n Condition: Clear Sky"
         }
         ymin <- min(as.numeric(unlist(range)), na.rm=TRUE); ymax <- max(as.numeric(unlist(range)), na.rm=TRUE)
-        xmin <- min(do.call("c", date), na.rm=TRUE); xmax <- max(do.call("c", date), na.rm=TRUE)
 
-        plot(date,  t(unlist(range[1])), xlab="Date", ylab="TPW [mm]", xaxt='n',
-            xlim=c(xmin, xmax), ylim=c(ymin, ymax), main=title, pch=16, col=pw_color[1])
+        plot(date,  t(unlist(range[1])),
+             xlab="Date",
+             ylab="TPW [mm]",
+             xaxt='n',
+             ylim=c(ymin, ymax),
+             xlim=c(xmin, xmax),
+             main=title,
+             pch=16,
+             col=pw_color[1])
 
-        ticks.at <- seq(date[[1]], date[[length(date)]], by = "months")
-        mj_ticks <- ticks.at[seq(1, length(ticks.at), length.out=5)]
-        mn_ticks <- ticks.at[-(seq(1, length(ticks.at), length.out=5))]
+        time_axis(date)
 
-        axis(1, at=mn_ticks, labels=rep("", length(mn_ticks)), tck=-0.015)
-        axis(1, at=mj_ticks, labels=format(mj_ticks, "%b %y"), tck=-0.03)
         if (length(range) >= 2){
             for(i in 1:length(range)){
                 points(date, t(unlist(range[i])), pch=16, col=pw_color[i])
@@ -264,19 +291,22 @@ time_series.plots <- function(date, overcast){
             title 	<- "Locational Average TPW Time Series \n Condition: Clear Sky"
         }
         ymin <- min(as.numeric(unlist(range)), na.rm=TRUE); ymax <- max(as.numeric(unlist(range)), na.rm=TRUE)
-        xmin <- min(do.call("c", date), na.rm=TRUE); xmax <- max(do.call("c", date), na.rm=TRUE)
 
-        plot(date,  t(unlist(range[1])), xlab="Date", ylab="TPW [mm]", xaxt='n',
-            xlim=c(xmin, xmax), ylim=c(ymin, ymax), main=title, pch=16, col=pw_color[1])
-        ticks.at <- seq(as.Date(paste(substr(date[[1]], 1, 8),"01",sep="")), date[[length(date)]], by = "months")
-        mj_ticks <- ticks.at[seq(1, length(ticks.at), length.out=5)]
-        mn_ticks <- ticks.at[-(seq(1, length(ticks.at), length.out=5))]
+        plot(date,  t(unlist(range[1])),
+             xlab="Date",
+             ylab="TPW [mm]",
+             xaxt='n',
+             ylim=c(ymin, ymax),
+             main=title,
+             pch=16,
+             col=pw_color[1],
+             xlim=c(xmin, xmax))
 
-        axis(1, at=mn_ticks, labels=rep("", length(mn_ticks)), tck=-0.015)
-        axis(1, at=mj_ticks, labels=format(mj_ticks, "%b %y"), tck=-0.03)
+        time_axis(date)
+
         if (length(range) >= 2){
             for(i in 2:length(range)){
-                points(date, t(unlist(range[i])), pch=16, col=pw_color[i])
+                points(date, t(unlist(range[i])), pch=16, col=pw_color[i],  xlim=c(xmin, xmax))
             }
         }
         legend("topright", inset=c(-0.14, 0), legend=c(unique(pw_time)), col=pw_color, pch=c(16,16))
@@ -298,22 +328,19 @@ time_series.plots <- function(date, overcast){
             title 		<- "Mean TPW Time Series \n Condition: Clear Sky"
         }
         ymin <- min(as.numeric(unlist(range)), na.rm=TRUE); ymax <- max(as.numeric(unlist(range)), na.rm=TRUE)
-        xmin <- min(do.call("c", date), na.rm=TRUE); xmax <- max(do.call("c", date), na.rm=TRUE)
 
-        plot(date,  t(unlist(range)),   xlab="Date",
-                                        ylab="TPW [mm]",
-                                        xaxt='n',
-                                        xlim=c(xmin, xmax),
-                                        ylim=c(ymin, ymax),
-                                        main=title,
-                                        pch=16,
-                                        col="blue")
-        ticks.at <- seq(as.Date(paste(substr(date[[1]], 1, 8),"01",sep="")), date[[length(date)]], by = "months")
-        mj_ticks <- ticks.at[seq(1, length(ticks.at), length.out=5)]
-        mn_ticks <- ticks.at[-(seq(1, length(ticks.at), length.out=5))]
+        plot(date,  t(unlist(range)),
+             xlab="Date",
+             ylab="TPW [mm]",
+             xaxt='n',
+             xlim=c(xmin, xmax),
+             ylim=c(ymin, ymax),
+             main=title,
+             pch=16,
+             col="blue")
 
-        axis(1, at=mn_ticks, labels=rep("", length(mn_ticks)), tck=-0.015)
-        axis(1, at=mj_ticks, labels=format(mj_ticks, "%b %y"), tck=-0.03)
+        time_axis(date)
+
         cat(green("[8]"), "Mean Precipitable Water Time Series\n")
     }
 
@@ -334,17 +361,21 @@ time_series.plots <- function(date, overcast){
             title 	<- sprintf("Mean TPW and RH Time Series \n Condition: Clear Sky")
         }
 
-        plot(date, range1, ylab=NA, xlab="Date", col="blue", main=title, xaxt='n', pch=16)
+        plot(date, range1,
+             ylab=NA,
+             xlab="Date",
+             col="blue",
+             main=title,
+             xaxt='n',
+             pch=16,
+             xlim=c(xmin, xmax))
+
         axis(side = 2); mtext(side = 2, line=3, "TPW [mm]", col="blue")
 
-        ticks.at <- seq(as.Date(paste(substr(date[[1]], 1, 8),"01",sep="")), date[[length(date)]], by = "months")
-        mj_ticks <- ticks.at[seq(1, length(ticks.at), length.out=5)]
-        mn_ticks <- ticks.at[-(seq(1, length(ticks.at), length.out=5))]
+        time_axis(date)
 
-        axis(1, at=mn_ticks, labels=rep("", length(mn_ticks)), tck=-0.015)
-        axis(1, at=mj_ticks, labels=format(mj_ticks, "%b %y"), tck=-0.03)
         par(new = T)
-        plot(date, range2, ylab=NA, axes=F, xlab=NA, col="green3", pch=16)
+        plot(date, range2, ylab=NA, axes=F, xlab=NA, col="green3", pch=16,  xlim=c(xmin, xmax))
         axis(side = 4); mtext(side=4, line=3, "RH [%]", col="green3")
     	cat(green("[9]"), "Precipitable Water - RH Time Series\n")
     }
@@ -366,19 +397,52 @@ time_series.plots <- function(date, overcast){
             title 	<- sprintf("Mean Sky Temperature and RH Time Series \n Condition: Clear Sky")
         }
 
-        plot(date, range1, ylab=NA, xlab="Date", col="red", main=title, xaxt='n', pch=16)
+        plot(date, range1,
+             ylab=NA,
+             xlab="Date",
+             col="red",
+             main=title,
+             xaxt='n',
+             pch=16,
+             xlim=c(xmin, xmax))
+
         axis(side = 2); mtext(side = 2, line=3, "Temperature [C]", col="red")
 
-        ticks.at <- seq(as.Date(paste(substr(date[[1]], 1, 8),"01",sep="")), date[[length(date)]], by = "months")
-        mj_ticks <- ticks.at[seq(1, length(ticks.at), length.out=5)]
-        mn_ticks <- ticks.at[-(seq(1, length(ticks.at), length.out=5))]
+        time_axis(date)
 
-        axis(1, at=mn_ticks, labels=rep("", length(mn_ticks)), tck=-0.015)
-        axis(1, at=mj_ticks, labels=format(mj_ticks, "%b %y"), tck=-0.03)
         par(new = T)
-        plot(date, range2, ylab=NA, axes=F, xlab=NA, col="green3", pch=16)
+        plot(date, range2, ylab=NA, axes=F, xlab=NA, col="green3", pch=16,  xlim=c(xmin, xmax))
         axis(side = 4); mtext(side=4, line=3, "RH [%]", col="green3")
     	cat(green("[10]"), "Sky Temperature - RH Time Series\n")
+    }
+    time11 	<- function(){
+        # Plotting margin
+        range_over 		<- overcast.results$pw.index
+        title 		    <- sprintf("Normalized Index for Weighted PWV Time Series")
+        range_clear	    <- clear_sky.results$pw.index
+        # removes all data that is not defined
+        test <- unlist(range_over)
+        test[!is.finite(unlist(range_over))] <- NA
+
+        test <- unlist(range_clear)
+        test[!is.finite(unlist(range_clear))] <- NA
+
+        # defines the max and min of the y-axis
+        # plots the first range in the list
+        plot(clear_sky.results$date, unlist(range_clear),
+             xlab="Date",
+             ylab="Normalized Index",
+             xaxt='n',
+             main=title,
+             pch=16,
+             ylim=c(0, 1),
+             xlim=c(xmin, xmax))
+
+        time_axis(date)
+        # plots all other ranges in the list if the length of range is greater than 1
+        points(overcast.results$date, unlist(range_over), pch=16)
+        # print statement when completed
+        cat(green("[11]"), "Normalized Index for Weighted PWV Time Series\n")
     }
 
     return(list(time1(date, overcast),
@@ -390,7 +454,8 @@ time_series.plots <- function(date, overcast){
                 time7(date, overcast),
                 time8(date, overcast),
                 time9(date, overcast),
-                time10(date, overcast)))
+                time10(date, overcast),
+                time11()))
 }
 
 #' @title analytical.plots
@@ -530,7 +595,11 @@ analytical.plots <- function(overcast, exp_reg){
         iter.results$A,iter.results$B,iter.results$S))))
         cat(green("[4]"), "Total Mean PW and Temperature\n")
     }
-
+#' @title plots1
+#' @description Individual PW Location plots
+#' @param overcast the condition of data (clear sky/overcast)
+#' @return A sky temperature time series plot
+#' @export
     plots5 	<- function(overcast){
         par(mar=c(5.1, 4.1, 4.1, 2.1),xpd=FALSE)
         if(overcast){
@@ -560,7 +629,7 @@ analytical.plots <- function(overcast, exp_reg){
         legend("topleft",col=c("black"), lty=c(1),
         legend=c(parse(text=sprintf("%.2f*e^{%.3f*x}*\t\t(S == %.3f*mm)",
         iter.results$A,iter.results$B,iter.results$S))))
-        cat(green("[4]"), "Total Mean PW and Temperature\n")
+        cat(green("[5]"), "Weighted Mean PW and Temperature\n")
     }
     return(list(plots1(overcast),
                 plots2(overcast),
@@ -628,63 +697,80 @@ pac.plots <- function(overcast){
 #' @return Instrumentation bar charts
 #' @export
 charts	<- function(...){
-    par(mar=c(5.1, 5.1, 5.1, 1.3),oma=c(0,0,0,0), xpd=TRUE)
-    snsr_sky  <- clear_sky.results$raw_sky
-    snsr_skyo <- overcast.results$raw_sky
+    chart1 <- function(){
+        par(mar=c(5.1, 5.1, 5.1, 1.3),oma=c(0,0,0,0), xpd=TRUE)
+        snsr_sky  <- clear_sky.results$raw_sky
+        snsr_skyo <- overcast.results$raw_sky
 
-	for (count in 1:length(snsr_name)){
-            test <- unlist(snsr_sky[count])
-            testo <- unlist(snsr_skyo[count])
-            testo[is.finite(testo)] <- NA
-            test[is.finite(test)] <- NA
+        for (count in 1:length(snsr_name)){
+                test <- unlist(snsr_sky[count])
+                testo <- unlist(snsr_skyo[count])
+                testo[is.finite(testo)] <- NA
+                test[is.finite(test)] <- NA
 
-            norm_inf <- length(na.omit(test))
-            over_inf <- length(na.omit(testo))
+                norm_inf <- length(na.omit(test))
+                over_inf <- length(na.omit(testo))
 
-			norm	<- length(na.omit(unlist(snsr_sky[count]))) - norm_inf
-			over	<- length(na.omit(unlist(snsr_skyo[count]))) - over_inf
+                norm	<- length(na.omit(unlist(snsr_sky[count]))) - norm_inf
+                over	<- length(na.omit(unlist(snsr_skyo[count]))) - over_inf
 
-			norm_na <- length(unlist(snsr_sky[count])) - norm - norm_inf
-			over_na <- length(unlist(snsr_skyo[count])) - over - over_inf
+                norm_na <- length(unlist(snsr_sky[count])) - norm - norm_inf
+                over_na <- length(unlist(snsr_skyo[count])) - over - over_inf
 
-			slices  <- data.frame(B=c(over, over_na, over_inf),A=c(norm,norm_na, norm_inf))
-			title 	<- c("Overcast","Clear Sky")
-			pct 	<- data.frame(B=c(over/length(unlist(snsr_skyo[count]))*100, 
-                                      over_na/length(unlist(snsr_skyo[count]))*100, 
-                                      over_inf/length(unlist(snsr_skyo[count]))*100),
-                                  A=c(norm/length(unlist(snsr_sky[count]))*100, 
-                                      norm_na/length(unlist(snsr_sky[count]))*100,
-                                      norm_inf/length(unlist(snsr_sky[count]))*100))
-			bar <- barplot(as.matrix(slices),names.arg=title, las=1,
-                           ylim=c(0,round(max(as.matrix(slices)+25, -2))),
-                           horiz=FALSE,
-                           ylab="Samples",
-                           density=c(0, 25, 25),
-                           angle=c(0, 45, 135),
-                           axes=FALSE,
-                           beside=TRUE,
-                           main=NA,
-                           col="black")
-            mtext(sprintf("Data Type Distribution: %s", gsub("_", " ",snsr_name[count])), side=3, line=3, cex=1)
-            legend("top",
-                    inset=c(0,-0.1),
-                    legend = c("Decimal", "NaN", "-Inf"),
-                    density=c(0, 25, 25),
-                    angle=c(0, 45, 135),
-                    bty = "n",
-                    y.intersp = 2,
-                    ncol=3,
-                    cex=1)
-			axis(side = 2, labels=TRUE, las=1)
-			minor.tick(nx=1, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
-			for (i in 1:3){
-                for (j in 1:length(pct)){
-                    text(bar[i,j],as.numeric(as.matrix(slices)[i,j]), pos=3, xpd=NA,
-                                labels=sprintf('%s %%', round(as.numeric(pct[i,j]),1)))
+                slices  <- data.frame(B=c(over, over_na, over_inf),A=c(norm,norm_na, norm_inf))
+                title 	<- c("Overcast","Clear Sky")
+                pct 	<- data.frame(B=c(over/length(unlist(snsr_skyo[count]))*100,
+                                          over_na/length(unlist(snsr_skyo[count]))*100,
+                                          over_inf/length(unlist(snsr_skyo[count]))*100),
+                                      A=c(norm/length(unlist(snsr_sky[count]))*100,
+                                          norm_na/length(unlist(snsr_sky[count]))*100,
+                                          norm_inf/length(unlist(snsr_sky[count]))*100))
+                bar <- barplot(as.matrix(slices),names.arg=title, las=1,
+                               ylim=c(0,round(max(as.matrix(slices)+25, -2))),
+                               horiz=FALSE,
+                               ylab="Samples",
+                               density=c(0, 25, 25),
+                               angle=c(0, 45, 135),
+                               axes=FALSE,
+                               beside=TRUE,
+                               main=NA,
+                               col="black")
+                mtext(sprintf("Data Type Distribution: %s", gsub("_", " ",snsr_name[count])), side=3, line=3, cex=1)
+                legend("top",
+                        inset=c(0,-0.1),
+                        legend = c("Decimal", "NaN", "-Inf"),
+                        density=c(0, 25, 25),
+                        angle=c(0, 45, 135),
+                        bty = "n",
+                        y.intersp = 2,
+                        ncol=3,
+                        cex=1)
+                axis(side = 2, labels=TRUE, las=1)
+                minor.tick(nx=1, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
+                for (i in 1:3){
+                    for (j in 1:length(pct)){
+                        text(bar[i,j],as.numeric(as.matrix(slices)[i,j]), pos=3, xpd=NA,
+                                    labels=sprintf('%s %%', round(as.numeric(pct[i,j]),1)))
+                    }
+
                 }
-
-			}
+        }
 	}
+    chart2 <- function(range, xlabel, title){
+        h <- hist(range,
+                  main = title,
+                  prob = FALSE,
+                  xlab = xlabel,
+                  ylab = "Number of Occurances")
+        text(h$mids, h$counts, labels = h$counts, adj = c(0.5, -0.5))
+
+        x <- seq(min(range, na.rm = TRUE), max(range, na.rm = TRUE), length = 40)
+        f <- (h$counts / h$density) * dnorm(x, mean(range, na.rm = TRUE), sd = sd(range, na.rm=TRUE))
+        lines(x,f, col="black", lwd=2)
+    }
+    return(list(chart1(),
+                 chart2(cbind(overcast.results$wt_avg, clear_sky.results$wt_avg),
+                        "Precipitable Water [mm]", "Distribution of Weighted PWV")))
 }
 
 #' @title poster.plots
@@ -1164,6 +1250,26 @@ dev.plots <- function(date, overcast){
         abline(h=0, col="gray")
         cat(green("[5]"), "Residual of the Mean PW and Temperature Model\n")
     }
+#' @title plots6
+#' @description Individual PW Location plots
+#' @param overcast the condition of data (clear sky/overcast)
+#' @return A sky temperature time series plot
+#' @export
+    plots6 	<- function(){
+        par(mar=c(5.1, 5.1, 5.1, 5.3), xpd=TRUE)
+
+        plot(clear_sky.results$snsr_sky_calc,  index_norm(clear_sky.results$wt_avg),
+             xlab="TPW [mm]",
+             ylab="Normalilzed Index",
+             main="Correlation between Weighted PWV and Normalized Index",
+             pch=16,
+             col="red")
+
+        points(overcast.results$snsr_sky_calc,  index_norm(overcast.results$wt_avg), pch=16, col="blue")
+        minor.tick(nx=2, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
+
+        cat(green("[1]"), "Correlation between Weighted PWV and Normalized Index\n")
+    }
 #' @title poster3
 #' @description The instrumentation bar charts
 #' @return A sky temperature time series plot
@@ -1212,7 +1318,7 @@ dev.plots <- function(date, overcast){
         legend(5, 5,legend = title, fill=color)
         cat(green("[3]"), "Condiiton Distrbuion by Sensor\n")
     }
-    return(plots5(overcast), poster3())
+    return(plots5(overcast), poster3(), plots6())
 }
 
 #' @title data.products

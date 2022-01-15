@@ -11,6 +11,7 @@ library(RColorBrewer)
 library(plotrix)
 suppressPackageStartupMessages(library(pacviz))
 suppressMessages(library(Hmisc))
+# library(mousetrap)
 library(yaml)
 # suppressMessages(library(made4))
 options(warn=-1)
@@ -24,7 +25,7 @@ cloudblue 	<- make_style("lightskyblue")
 
 ## Used for argument parsing run Rscript model.r --help
 parser <- ArgumentParser(formatter_class='argparse.RawTextHelpFormatter')
-parser$add_argument('--dir', help="Directory path to data folder", default="./util/tests/data/")
+parser$add_argument('--dir', help="Directory path to data folder", default="./data/")
 parser$add_argument("-s", "--set", type="character", default=FALSE,
 	help="Select plot sets: \\n\  [t]ime series\\n\  [a]nalytics\\n\  [c]harts\\n\  [i]ndividual sensors\\n\  [h]eat plots\\n\  [p]acman\\n\  [d]ev\\n\ p[o]ster")
 parser$add_argument("-d", "--data", type="character", default=FALSE,
@@ -84,6 +85,10 @@ overcast.results <- sky.analysis(overcast.filter(col_con, col_date, col_com, pw_
 if(args$set == "a" || args$set == "o"){
 	iter.results <- iterative.analysis(args$overcast, args$dir, args$u)
 }
+
+# print(bimodial_coeff(cbind(overcast.results$wt_avg, clear_sky.results$wt_avg)))
+# print(bimodality_coefficient(cbind(overcast.results$wt_avg, clear_sky.results$wt_avg), na.rm = TRUE))
+# # print(index_norm(clear_sky.results$wt_avg))
 # Graphical and Data product functions
 source("pmat_products.r")
 
