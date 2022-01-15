@@ -187,6 +187,7 @@ sky.analysis <- function(overcast){
 	}
 	avg 	<-  Reduce("+", pw_loc)/length(pw_loc)
 	wt_avg  <- Reduce("+", wt_avg)
+	pw.index <- index.norm(wt_avg)
 	return(list("avg"=avg,
 				"wt_avg"=wt_avg,
 				"date"=date,
@@ -200,7 +201,8 @@ sky.analysis <- function(overcast){
 				"tmp_avg"=tmp_avg,
 				"raw_sky"=raw_snsr_sky,
 				"raw_gro"=raw_snsr_gro,
-				"snsr_sky_calc"=snsr_sky_calc))
+				"snsr_sky_calc"=snsr_sky_calc,
+				"pw.index"=pw.index))
 }
 
 #' @title iterative.analysis
@@ -306,4 +308,33 @@ iterative.analysis <- function(overcast, dir, obool){
 				"S"=S,
 				"M"=M,
 				"R"=R))
+}
+
+#' @title iterative.analysis
+#' @description computes regression statistics and outputs to a yaml file
+#' @param overcast boolean to determine label
+#' @param dir directory file path for _output.yml
+#' @param obool determine whether to generate new _output.yml
+#' @return iterative stats and _output.yml
+#' @export
+bimodial.coeff <- function(x){
+
+	n <- length(x)
+	k <- (1/(n * sd(x, na.rm = TRUE)^4)) * sum((x - mean(x, na.rm = TRUE))^4, na.rm = TRUE) - 3
+	s <- (1/(n * sd(x, na.rm = TRUE)^3)) * sum((x - mean(x, na.rm = TRUE))^3, na.rm = TRUE)
+
+	b <- (k^2 + 1) / (s + ((3 * (n - 1)^2) / ((n - 2)) * (n - 3)))
+	return(b)
+}
+
+#' @title iterative.analysis
+#' @description computes regression statistics and outputs to a yaml file
+#' @param overcast boolean to determine label
+#' @param dir directory file path for _output.yml
+#' @param obool determine whether to generate new _output.yml
+#' @return iterative stats and _output.yml
+#' @export
+index.norm <- function(x){
+	i <- (x - min(x, na.rm=TRUE)) / (max(x, na.rm = TRUE) - min(x, na.rm = TRUE))
+	return(i)
 }
