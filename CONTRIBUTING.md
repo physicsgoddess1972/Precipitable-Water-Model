@@ -20,6 +20,7 @@
                         <a class="button" target="_blank" style="width: 49%; text-align: center" href="http://physicsgoddess1972.github.io"><i class="material-icons">public</i></a>
                     </div>
 			</div>
+		<div style="width: 5%"></div>
                 <div class="collapsible_1 collab">
                     <div class="panel" style="margin-bottom: 0; padding-bottom: 2%;">
                         <h3>Spencer Riley</h3>
