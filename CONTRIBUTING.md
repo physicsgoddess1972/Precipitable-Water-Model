@@ -8,7 +8,31 @@
             <p>
                 We would like to recognize the people that have contributed to this project.
             </p>
-            <div style="display: flex">
+		<div style="display: flex">
+                <div class="collapsible_1 collab">
+                    <div class="panel" style="margin-bottom: 0; padding-bottom: 2%;">
+                        <h3>Vicki Kelsey</h3>
+                        <img width="100%" src="https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/docs/docs/assets/img/people/vkelsey.jpg?raw=true/" alt="Vicki Kelsey">
+                        <br>
+                        <b style="font-weight: bold;">Role:</b> Project Lead
+                        <hr>
+                        <a class="button" target="_blank" style="width: 49%; text-align: center" href="mailto:vicki.kelsey@sdsmt.mines.edu"><i class="material-icons">email</i></a>
+                        <a class="button" target="_blank" style="width: 49%; text-align: center" href="http://physicsgoddess1972.github.io"><i class="material-icons">public</i></a>
+                    </div>
+			</div>
+                <div class="collapsible_1 collab">
+                    <div class="panel" style="margin-bottom: 0; padding-bottom: 2%;">
+                        <h3>Spencer Riley</h3>
+                        <img width="100%" src="https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/docs/docs/assets/img/people/sriley.jpg?raw=true/" alt="Spencer Riley">
+                        <br>
+                        <b style="font-weight: bold;">Role:</b> PMAT Software Developer, Web manager, and Co-author
+                        <hr>
+                        <a class="button" target="_blank" style="width: 49%; text-align: center" href="mailto:academic@sriley.dev"><i class="material-icons">email</i></a>
+                        <a class="button" target="_blank" style="width: 49%; text-align: center" href="http://sriley.dev"><i class="material-icons">public</i></a>
+                    </div>
+                </div>
+            </div>
+		<div style="display: flex">
                 <div class="collapsible_1 collab">
                     <div class="panel" style="margin-bottom: 0; padding-bottom: 2%;">
                         <h3>Dr. Kenneth Minschwaner</h3>
@@ -44,6 +68,18 @@
                     </div>
                 </div>
             </div>
+	    <div style="display: flex">
+                <div class="collapsible_1 collab">
+                    <div class="panel" style="margin-bottom: 0; padding-bottom: 2%;">
+                        <h3>Fleford Redoloza</h3>
+                        <img width="100%" src="https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/docs/docs/assets/img/people/fredoloza.jpg?raw=true/" alt="Fleford Redoloza">
+                        <br>
+                        <b style="font-weight: bold;">Role:</b> Automation Engineer
+                        <hr>
+                        <a class="button" target="_blank" style="width: 100%; text-align: center" href="mailto:fleford.redoloza@mines.sdsmt.edu"><i class="material-icons">email</i></a>
+                    </div>
+                </div>
+	</div>
         </div>
     </div>
 </div>
