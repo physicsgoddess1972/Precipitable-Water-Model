@@ -20,9 +20,9 @@ date:
 bibliography: paper.bib
 ---
 # Summary
-The Precipitable-Water Model Analysis Tool (PMAT) is an open-source software suite designed to study the correlation between atmospheric brightness temperature and precipitable water (PWAT) data. PMAT addresses the need for an easily integrated analysis workflow to quantitatively characterize the relationship between regional PWAT and localized atmospheric brightness temperature observations for areas that lack high to moderate-resolution data collection infrastructure. The workflow contains three primary modules: deployment, pre-processing, and analysis. The deployment mechanism allows users to implement the software suite on local and cloud-based systems, which facilitates access to the generated data products and visualizations. The pre-processing stage involves aggregating atmospheric brightness temperature data collected in the field with data from radiosondes and local ground stations. The final element consists of an iterative algorithm that generates an average regression model from the collected data. This model allows for the estimation of PWAT through measured atmospheric brightness temperature. PMAT has already been configured and deployed for use in the South-Central New Mexico climate zone using a series of handheld infrared thermometers as the source of atmospheric brightness temperature data. We plan to expand the scope of the research with community science endeavors in South Dakota; while also expanding the suite’s analysis capabilities with machine learning and additional statistical products for predictive modeling.
+The Precipitable-Water Model Analysis Tool (PMAT) is an open-source software suite designed to study the correlation between atmospheric brightness temperature and precipitable water (PWAT) data. The workflow contains three primary modules: deployment, pre-processing, and analysis. The deployment mechanism allows users to implement the software suite on local and cloud-based systems, which facilitates access to the generated data products and visualizations. The pre-processing stage involves aggregating atmospheric brightness temperature data collected in the field with data from radiosondes and local ground stations. The final element consists of an iterative algorithm that generates an average regression model from the collected data. This model allows for the estimation of PWAT through measured atmospheric brightness temperature. PMAT has already been configured and deployed for use in the South-Central New Mexico climate zone using a series of handheld infrared thermometers as the source of atmospheric brightness temperature data. We plan to expand the scope of the research with community science endeavors in South Dakota; while also expanding the suite’s analysis capabilities with machine learning and additional statistical products for predictive modeling.
 # Statement of Need
-PMAT has been developed to address the need for an easy-to-use pipeline to generate localized correlation profiles. With a defined relationship between the atmospheric brightness temperature and PWV for a target region, precipitation forcasts can be improved. 
+PMAT addresses the need for an easily integrated analysis workflow to quantitatively characterize the relationship between regional PWAT and localized atmospheric brightness temperature observations for areas that lack high to moderate-resolution data collection infrastructure. 
 
 # Software Architecture and Design
 The PMAT suite contains a series of each modules, each handles  There are currently four primary modules: Deployment, Preprocessing, and Analysis module. Together the three modules can pre-process data collected in the field and aggregate with selected atmospheric science databases, process the data, conduct primary analysis functions, and then visualize the results [@pmat].
@@ -33,33 +33,15 @@ Prerequisites for the full deployment of PMAT are minimal but do exist. There ar
 
 (2) A configuration file that details the sensor information, site IDs that are needed to retrieve the atmospheric data from the NOAA database, and analysis parameters. 
 
-## Deployment Module
-The Deployment module utilizes a docker environment to run the remaining workflow. There are currently two methods to interface with PMAT, the first is through GitHub and the second involves a local installation of Docker. The first of the two deployment methods can be configured via a template repository\footnote{https://template.pmat.app }. The prebuilt repository is equipped with correct directory trees and two empty data files: the raw data file and the configuration file.
+The Deployment module utilizes a Docker environment to run the remaining workflow. Currently, there are two methods to interface with PMAT; through GitHub and locally. The GitHub deployment method can be configured automatically with a template repository\footnote{https:template.pmat.docs}. The pre-built GitHub repository has the correct directory arrangement and the raw data and configuration files.
 
-## Preprocessing Module
-The Preprocessing module consists of an algorithm to aquistion and organize data that are required to complete the analysis. This component of the algorithm  consists of a Python script and a collection of R functions. that will first read-in the aforementioned data file and then aquisition atmospheric data from the University of Wyoming Upper Air database, which contains the measurements conducted by radiosondes at National Weather Service sites, and the NOAA database. From these sources we collect PWV measurements from the radiosondes and surface relative humidity from NOAA.  
+The Preprocessing module consists of an algorithm to acquire and organize data. The core of this module is a Python script that will first read in the raw data file and collect atmospheric data from the University of Wyoming Upper-Air database via `siphon` and the University of Utah's MesoWest database. PMAT also supports the usage of external data sources, so local data files that contain precipitable water and relative humidity data can be processed in this section.
 
-## Analysis Module
-The function of the analysis component of PMAT is to present the relationship between PWV and zenith sky temperature in terms of regression statistics. The PWV and temperature subsets of the data undergo a linearization in the form of the exponential relationship
+The primary role of the Analysis module is to present the correlation between PWV and zenith sky temperature in terms of regression statistics. In the PMAT analysis methodology, we have implemented an iterative process for computing the exponential regression statistics and coefficients. This process includes a data partition function and a standard deviation-based filter to minimize measurement errors. The PWV and temperature data undergo a linearization in the form of the exponential equation:
 
-\begin{equation}
-\text{PWV} = ae^{bT_b}\, .
-\end{equation}
+\begin{equation}\text{PWV} = a e^{b T_b} . \end{equation}
 
-With sufficient data, the correlation profile generated by PMAT can approximate the amount of PWV. As apart of this process we have implemented a data parition and mean filter function to both minimize measurement errors and refine the data for the regression model. In addition, to reduce the random bias that is carried with the data parition process  we have implemented an iterative process for computing the exponential regression statistics and coefficients. All results are saved to a human-readable file for all steps in this process. 
-
-## Software Products
-The PMAT suite can generate a variety of data products. There are currently five major plot sets:
-
-- time series
-- analytics 
-- instrumentation time series
-- charts 
-- poster style
-
-Also, the program can generate a series of data products including:
-- clear sky and overcast data files containing the date, temperature, and mean PWV
-- a machine learning data set containing the date, temperature, mean PWV, and the correponding data label
+The software products that PMAT generates include a variety of time series, instrument-specific, and comparative analysis plot sets, in addition to raw data products.  
 
 # Future Developments 
 As we continue to develop and maintain the PMAT software, we intend to add additional modules and optional analytical functions. One of the major developments is a machine learning module that utilizes TensorFlow's support vector machine framework to classify the dataset into a binary weather condition scheme. 
