@@ -1,5 +1,5 @@
 ---
-title: 'Precipitable-Water Model Analysis Tool: An open-source suite for estimating precipitable water'
+title: 'DRAFT: Precipitable-Water Model Analysis Tool: An open-source suite for estimating precipitable water with low-cost instrumentation.'
 tags:
   - atmospheric science
   - R
@@ -20,10 +20,11 @@ date:
 bibliography: paper.bib
 ---
 # Summary
-The Precipitable-Water Model Analysis Tool (`PMAT`) is an open-source software suite designed to study the correlation between atmospheric brightness temperature and precipitable water (PWAT) data. The workflow contains three primary modules: deployment, pre-processing, and analysis. The deployment mechanism allows users to implement the software suite on local and cloud-based systems, which facilitates access to the generated data products and visualizations. The pre-processing stage involves aggregating atmospheric brightness temperature data collected in the field with data from radiosondes and local ground stations. The final element consists of an iterative algorithm that generates an average regression model from the collected data. This model allows for the estimation of PWAT through measured atmospheric brightness temperature. `PMAT` has already been configured and deployed for use in the South-Central New Mexico climate zone using a series of handheld infrared thermometers as the source of atmospheric brightness temperature data. We plan to expand the scope of the research with community science endeavors in South Dakota; while also expanding the suite’s analysis capabilities with machine learning and additional statistical products for predictive modeling.
+The Precipitable-Water Model Analysis Tool (``PMAT``) is an open-source software suite designed to study the correlation between atmospheric brightness temperature and precipitable water (PWAT) data. PMAT addresses the need for an easily integrated analysis workflow to quantitatively characterize the relationship between regional PWAT and localized atmospheric brightness temperature observations for areas that lack high to moderate-resolution data collection infrastructure. The workflow contains three primary modules: deployment, pre-processing, and analysis. The deployment mechanism allows users to implement the software suite on local and cloud-based systems, which facilitates access to the generated data products and visualizations. The pre-processing stage involves aggregating atmospheric brightness temperature data collected in the field with data from radiosondes and local ground stations. The final element consists of an iterative algorithm that generates an average regression model from the collected data. This model allows for the estimation of PWAT through measured atmospheric brightness temperature. ``PMAT`` has already been configured and deployed for use in the South-Central New Mexico climate zone using a series of handheld infrared thermometers as the source of atmospheric brightness temperature data. We plan to expand the scope of the research with community science endeavors in South Dakota; while also expanding the suite’s analysis capabilities with machine learning and additional statistical products for predictive modeling. 
 
 # Statement of Need
-`PMAT` addresses the need for an easily integrated analysis workflow to quantitatively characterize the relationship between regional PWAT and localized atmospheric brightness temperature observations for areas that lack high to moderate-resolution data collection infrastructure. 
+
+
 
 # Software Architecture and Design
 There are currently three primary modules: Deployment, Pre-processing, and Analysis. Collectively, the three modules can pre-process data collected in the field, process the data, conduct analysis functions, and then visualize the results [@pmat].
