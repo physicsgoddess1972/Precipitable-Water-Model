@@ -50,10 +50,11 @@
 - iteration: true
   step: 5000
   seed:
+- verbose:
+  value: all
 - |
-- noaa:
-  - label: KONM
-    id: 72362093040
+- mesowest:
+  - id: KONM
 - wyoming:
   - id: ABQ
     weight: 0.375

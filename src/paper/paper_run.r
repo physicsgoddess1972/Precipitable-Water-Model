@@ -18,14 +18,14 @@ green 		<- make_style("lawngreen")
 cloudblue 	<- make_style("lightskyblue")
 
 ## Imports data from master_data.csv
-fname       <- read.table(file= "../../data/socorro_nm/archive/master_data_paper.csv", sep=",", header=TRUE, strip.white=TRUE)
-oname       <- yaml.load_file("../../data/socorro_nm/archive/_output_paper.yml")
+fname       <- read.table(file= "../../data/paper/dataset/master_data_paper.csv", sep=",", header=TRUE, strip.white=TRUE)
+oname       <- yaml.load_file("../../data/paper/results/_output_paper.yml")
 ## Imports sensor information from instruments.txt
-config		<- yaml.load_file("../../data/socorro_nm/archive/_pmat.yml")
+config		<- yaml.load_file("../../data/paper/_pmat.yml")
 
 ## Imports data from master_data.csv
-fname1       <- read.table(file= "../../data/paper/appendixB.csv", sep=",", header=TRUE, strip.white=TRUE)
-fname2 		<- read.table(file="../../data/paper/appendixB_2019.txt", sep="\t", header=TRUE)
+fname1       <- read.table(file= "../../data/paper/dataset/appendixB.csv", sep=",", header=TRUE, strip.white=TRUE)
+fname2 		<- read.table(file="../../data/paper/dataset/appendixB_2019.txt", sep="\t", header=TRUE)
 
 daynum <- lapply(fname1[1], as.Date, "%m/%d/%Y")
 daynum2 <- lapply(fname2[1], as.Date, "%Y-%m-%d")
@@ -46,7 +46,7 @@ source("../pmat_processing.r")
 source("../pmat_analysis.r")
 overcast.results <- sky.analysis(overcast.filter(col_con, col_date, col_com, pw_name, snsr_name, TRUE))
 clear_sky.results <- sky.analysis(overcast.filter(col_con, col_date, col_com, pw_name, snsr_name, FALSE))
-iter.results <- iterative.analysis(FALSE, "../../data/socorro_nm/archive/", TRUE)
+iter.results <- iterative.analysis(FALSE, "../../data/paper/results/", TRUE)
 source("paper_plots.r")
 
 data1 <- function(){
