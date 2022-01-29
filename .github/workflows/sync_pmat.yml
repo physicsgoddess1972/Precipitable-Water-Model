@@ -10,7 +10,11 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@master
     - name: Run GitHub File Sync
-      uses: BetaHuhn/repo-file-sync-action@v1
-      with: 
-        GH_PAT: ${{ secrets.WORKFLOW_TOKEN }}
+      uses: adrianjost/files-sync-action@v1.0.1
+      with:
+        FILE_PATTERNS: |
+          src/*.r
+        TARGET_REPOS: |
+          PharaohCola13/pmat-docs-test
+        GITHUB_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
 
