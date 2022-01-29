@@ -2,8 +2,8 @@ name: Update PMAT
 on:
   push:
     paths:
-      - "src/util"
-      - "src/pmat_analysis.r"
+      - "src/*.r"
+      - "src/*.py"
       - "src/run.sh"
   workflow_dispatch:
 jobs:
