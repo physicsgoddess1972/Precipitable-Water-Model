@@ -1,6 +1,9 @@
 name: Sync PMAT
 on: 
   push:
+    paths:
+      - "src/*.r"
+      - "src/*.py"
   workflow_dispatch:
 
 jobs:
