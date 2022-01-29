@@ -1,18 +1,14 @@
-#' @title Precipitable Water Model Analysis Tool: Analysis Module
-#' @file pmat_analysis.r
-#' @author Spencer Riley
-#' @brief functions for analysis
-#' @docs https://docs.pmat.app
-#' @help To get a list of arguments run [Rscript model.r --help]
+#' :file: pmat_analysis.r
+#' :module: Precipitable Water Model Analysis Tool: Analysis
+#' :synopsis: general functions for PMAT
+#' :author: Spencer Riley
 
-#' @title inf_counter
-#' @description identifies the -Inf values
-#' @param bool decides if -Inf is not replaced with NaN
-#' @param snsr_data the dataset
-#' @param label the identifer for the dataset (e.g. sky, gro, skyo, groo)
-#' @return data set that replaces all -Infs for NaN (If bool == FALSE).
-#' @export
 inf_counter <- function(bool, snsr_data, label){
+	#' :detail: identifies the -Inf values
+	#' :param bool: decides if -Inf is not replaced with NaN
+	#' :param snsr_data: the dataset
+	#' :param label: the identifer for the dataset (e.g. sky, gro, skyo, groo)
+	#' :return: data set that replaces all -Infs for NaN (If bool == FALSE).
     output <- list()
     for (i in seq(1, length(snsr_data))){
         if (bool == FALSE){
@@ -25,13 +21,11 @@ inf_counter <- function(bool, snsr_data, label){
     return(output)
 }
 
-#' @title exp.regression
-#' @description Function includes all of the stuff to generate the linear regression model with intervals
-#' @param x the domain of the dataset
-#' @param y the range of the dataset
-#' @return A list of stat stuff
-#' @export
 lin_regression <- function(x,y){
+	#' :detail: Function includes all of the stuff to generate the linear regression model with intervals
+	#' :param x: the domain of the dataset
+	#' :param y: the range of the dataset
+	#' :return: A list of stat stuff
 	nans <- c(grep("NaN", y)); nans <- append(nans, grep("NaN", x))
 	x <- x[-(nans)]; y <- y[-(nans)]
 
@@ -47,15 +41,13 @@ lin_regression <- function(x,y){
 	return(output)
 }
 
-#' @title exp.regression
-#' @description Function includes all of the stuff to generate the exponential regression model with intervals
-#' @param x the domain of the dataset
-#' @param y the range of the dataset
-#' @param z the precipitable water by location data
-#' @param t training fraction
-#' @return A list of stat stuff
-#' @export
 exp.regression 	<- function(results,t, range=c(1:length(results$date))){
+	#' :detail: Function includes all of the stuff to generate the exponential regression model with intervals
+	#' :param x: the domain of the dataset
+	#' :param y: the range of the dataset
+	#' :param z: the precipitable water by location data
+	#' :param t: training fraction
+	#' :return: A list of stat stuff
 	# Finds and removes NaNed values from the dataset
 	x <- as.numeric(unlist(results$snsr_sky_calc))[range]
 	y1 <- results$avg[range]
@@ -113,14 +105,13 @@ exp.regression 	<- function(results,t, range=c(1:length(results$date))){
 	return (output)
 }
 
-#' @title sky.analysis
-#' @description Computes all analytics
-#' @param overcast results of the overcast.filter function
-#' @return series of arrays including average PWV, RH, etc.
-#' @export
 sky.analysis <- function(overcast){
-## Pulls date from filter function
+	#' :detail: Computes all analytics
+	#' :param overcast: results of the overcast.filter function
+	#' :return: series of arrays including average PWV, RH, etc.
+	## Pulls date from filter function
 	date  		<- overcast$date	# Date
+	time 		<- overcast$time
 	comments    <- overcast$com
 ## Pulls relative humidity from filter function
 	rh <- as.numeric(overcast$rh)
@@ -191,6 +182,7 @@ sky.analysis <- function(overcast){
 	return(list("avg"=avg,
 				"wt_avg"=wt_avg,
 				"date"=date,
+				"time"=time,
 				"snsr_sky"=snsr_sky,
 				"snsr_gro"=snsr_gro,
 				"snsr_del"=snsr_del,
@@ -201,18 +193,17 @@ sky.analysis <- function(overcast){
 				"tmp_avg"=tmp_avg,
 				"raw_sky"=raw_snsr_sky,
 				"raw_gro"=raw_snsr_gro,
-				"snsr_sky_calc"=snsr_sky_calc,
+				"snsr_sky_calc"=as.numeric(snsr_sky_calc),
 				"pw.index"=pw.index))
 }
 
-#' @title iterative.analysis
-#' @description computes regression statistics and outputs to a yaml file
-#' @param overcast boolean to determine label
-#' @param dir directory file path for _output.yml
-#' @param obool determine whether to generate new _output.yml
-#' @return iterative stats and _output.yml
-#' @export
+
 iterative.analysis <- function(overcast, dir, obool){
+	#' :detail: computes regression statistics and outputs to a yaml file
+	#' :param overcast: boolean to determine label
+	#' :param dir: directory file path for _output.yml
+	#' :param obool: determine whether to generate new _output.yml
+	#' :return: iterative stats and _output.yml
 	out <- resids <- mims <- seeds <- kelsey <- list()
 	if (obool){
 		for (i in 1:step){
@@ -291,6 +282,11 @@ iterative.analysis <- function(overcast, dir, obool){
 	S       <- Reduce("+", rstd)/length(rstd)
 	R 		<- Reduce("+", rmse)/length(rmse)
 	K 		<- Reduce("+", kelsey)/length(kelsey)
+
+	if (is.na(S)){
+		warning(a01)
+	}
+
 	res.yml <- as.yaml(list(data=list(clear=list(total.count=c(length(clear_sky.results$date))),
 									overcast=list(total.count=c(length(overcast.results$date))),
 									train.count=c(length(exp_reg$x)),
@@ -310,31 +306,9 @@ iterative.analysis <- function(overcast, dir, obool){
 				"R"=R))
 }
 
-#' @title iterative.analysis
-#' @description computes regression statistics and outputs to a yaml file
-#' @param overcast boolean to determine label
-#' @param dir directory file path for _output.yml
-#' @param obool determine whether to generate new _output.yml
-#' @return iterative stats and _output.yml
-#' @export
-bimodial.coeff <- function(x){
-
-	n <- length(x)
-	k <- (1/(n * sd(x, na.rm = TRUE)^4)) * sum((x - mean(x, na.rm = TRUE))^4, na.rm = TRUE) - 3
-	s <- (1/(n * sd(x, na.rm = TRUE)^3)) * sum((x - mean(x, na.rm = TRUE))^3, na.rm = TRUE)
-
-	b <- (k^2 + 1) / (s + ((3 * (n - 1)^2) / ((n - 2)) * (n - 3)))
-	return(b)
-}
-
-#' @title iterative.analysis
-#' @description computes regression statistics and outputs to a yaml file
-#' @param overcast boolean to determine label
-#' @param dir directory file path for _output.yml
-#' @param obool determine whether to generate new _output.yml
-#' @return iterative stats and _output.yml
-#' @export
 index.norm <- function(x){
-	i <- (x - min(x, na.rm=TRUE)) / (max(x, na.rm = TRUE) - min(x, na.rm = TRUE))
-	return(i)
+	#' :detail: calculates the normalized index of the dataset
+	#' :param x: data range
+	#' :return: an array of values between 0 and 1
+	return((x - min(x, na.rm=TRUE)) / (max(x, na.rm = TRUE) - min(x, na.rm = TRUE)))
 }
