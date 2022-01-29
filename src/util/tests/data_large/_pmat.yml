@@ -1,0 +1,70 @@
+- instruments:
+  - sensor:
+      name: 1610 TE
+      error: 2.5
+      color: FA5301
+      ratio: 12 to 1
+      range: -20 ~ 537
+      emissivity: 0.95
+      poster: true
+      active: true
+  - sensor:
+      name: FLIR i3
+      error: null
+      color: 01A8FA
+      ratio: 12 to 1
+      range: null
+      emissivity: 0.95
+      poster: true
+      active: true
+  - sensor:
+      name: AMES_1
+      error: 7
+      color: 2BFA01
+      ratio: 12 to 1
+      range: -50 ~ 550
+      emissivity: 0.95
+      poster: true
+      active: true
+  - sensor:
+      name: AMES_2
+      error: 7
+      color: D001FA
+      ratio: 12 to 1
+      range: -50 ~ 550
+      emissivity: 0.95
+      poster: true
+      active: true
+  - sensor:
+      name: AMES_3
+      error: 7
+      color: 30AF9B
+      ratio: 12 to 1
+      range: -50 ~ 550
+      emissivity: 0.95
+      poster: true
+      active: true
+- analysis:
+  - train_fraction: 0.8
+  - rel_difference: 2
+  - iteration:
+      step: 10
+      seed:
+- logging:
+  - verbose: 0
+- import:
+  - external:
+      - pw:
+          - id: AERONET
+            path: "aeronet_2019.csv"
+            weight: 1
+            date: "%d:%m:%Y"
+            merge: false
+            units: cm
+  - mesowest:
+    - id: KONM
+  - wyoming:
+    - id: ABQ
+      weight: 0.375
+    - id: EPZ
+      weight: 0.125

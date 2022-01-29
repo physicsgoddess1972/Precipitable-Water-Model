@@ -9,9 +9,9 @@
     fraction.kept: 0.89
   analysis:
     coeff:
-      A: 18.5201512
-      B: 0.0343356
+      A: 22.24856
+      B: 0.03881
   rmse:
-    mims: 4.6237867
-    kelsey: 3.4352241
-    yours: 3.577135
+    mims: 4.6413225
+    kelsey: 3.4008411
+    yours: 4.3676

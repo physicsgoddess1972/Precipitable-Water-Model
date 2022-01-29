@@ -19,6 +19,7 @@ from http_util import HTTPEndPoint
 
 class MesoWest(HTTPEndPoint):
     """Download and parse data from the University of Utah's MesoWest archive."""
+
     def __init__(self):
         """Set up endpoint."""
         super(MesoWest, self).__init__('https://mesowest.utah.edu/')
@@ -61,8 +62,11 @@ class MesoWest(HTTPEndPoint):
         """
         raw_data = self._get_data_raw(date, site_id)
         soup = BeautifulSoup(raw_data, 'html.parser')
-        names = pd.DataFrame.from_records([[td.find_next(text=True).strip('\n\t\t') for td in tr.find_all('small')] for tr in soup.find_all('th')])[1].dropna(how='any', axis=0).reset_index(drop=True)
-        df = pd.DataFrame.from_records([[td.find_next(text=True).strip("\n\t\t") for td in tr.find_all("td")] for tr in soup.find_all('tr')]).dropna(how='any', axis=0).reset_index(drop=True)
+        names = pd.DataFrame.from_records(
+            [[td.find_next(text=True).strip('\n\t\t') for td in tr.find_all('small')] for tr in soup.find_all('th')])[
+            1].dropna(how='any', axis=0).reset_index(drop=True)
+        df = pd.DataFrame.from_records([[td.find_next(text=True).strip("\n\t\t") for td in tr.find_all("td")] for tr in
+                                        soup.find_all('tr')]).dropna(how='any', axis=0).reset_index(drop=True)
         df = df.replace(r'^\s*$', np.nan, regex=True).replace('N/A', np.inf)
 
         df[0] = pd.to_datetime(df[0], errors='coerce')
@@ -82,7 +86,7 @@ class MesoWest(HTTPEndPoint):
             else:
                 pass
             if names.tolist()[len(df.columns) + i - 1] != "":
-                name.append(names.tolist()[i] + " " + names.tolist()[len(df.columns)+i - 1])
+                name.append(names.tolist()[i] + " " + names.tolist()[len(df.columns) + i - 1])
             else:
                 name.append(names.tolist()[i])
 
@@ -115,3 +119,4 @@ class MesoWest(HTTPEndPoint):
                 'No data available for {date:%Y-%m-%d %HZ} '
                 'for station {stid}.'.format(date=date, stid=site_id))
         return resp.text
+
