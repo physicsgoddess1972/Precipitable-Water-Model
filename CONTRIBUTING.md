@@ -12,7 +12,7 @@
                 <div class="collapsible_1 collab">
                     <div class="panel" style="margin-bottom: 0; padding-bottom: 2%;">
                         <h3>Vicki Kelsey</h3>
-                        <img width="100%" src="https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/docs/docs/assets/img/people/vkelsey.jpg?raw=true/" alt="Vicki Kelsey">
+                        <img width="100%" src="https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/docs/docs/assets/img/people/vkelsey.png?raw=true/" alt="Vicki Kelsey">
                         <br>
                         <b style="font-weight: bold;">Role:</b> Project Lead
                         <hr>
@@ -26,7 +26,7 @@
                         <h3>Spencer Riley</h3>
                         <img width="100%" src="https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/docs/docs/assets/img/people/sriley.jpg?raw=true/" alt="Spencer Riley">
                         <br>
-                        <b style="font-weight: bold;">Role:</b> PMAT Software Developer, Web manager, and Co-author
+                        <b style="font-weight: bold;">Role:</b> PMAT Software Developer and Co-author
                         <hr>
                         <a class="button" target="_blank" style="width: 49%; text-align: center" href="mailto:academic@sriley.dev"><i class="material-icons">email</i></a>
                         <a class="button" target="_blank" style="width: 49%; text-align: center" href="http://sriley.dev"><i class="material-icons">public</i></a>
