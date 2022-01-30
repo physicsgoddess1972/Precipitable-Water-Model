@@ -1,9 +1,7 @@
-#' @title Precipitable Water Model Analysis Tool: Preprocessing Module
-#' @file pmat_processing.r
-#' @author Spencer Riley
-#' @brief functions for preprocessing
-#' @docs https://docs.pmat.app
-#' @help To get a list of arguments run [Rscript model.r --help]
+#' :file: pmat_processing.r
+#' :module: Precipitable Water Model Analysis Tool: Pre-processing
+#' :synopsis: functions for preprocessing
+#' :author: Spencer Riley
 
 ## Pulls most recent data stamp for the purpose of adding date stamps to file names when plots are saved
 recent 		<- t(fname[1])[length(t(fname[1]))]
