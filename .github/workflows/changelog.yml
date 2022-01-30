@@ -29,7 +29,6 @@ jobs:
         python -m pip install pyyaml
         cd docs/util/ && python update_docs.py -t changelog
         cd ../ && mv ./changelog.rst ../
-        ls ../
     - name: stage changed files
       run: |
         git add changelog.rst
@@ -42,4 +41,18 @@ jobs:
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: master
+        branch: docs
+  sync:
+    needs: branch
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@master
+    - name: Run GitHub File Sync
+      uses: adrianjost/files-sync-action@v1.0.1
+      with:
+        FILE_PATTERNS: |
+          changelog.rst
+        TARGET_REPOS: |
+          PharaohCola13/pmat-docs
+        GITHUB_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
