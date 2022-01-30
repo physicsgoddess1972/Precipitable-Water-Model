@@ -10,8 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     name: Update changelog
     steps:
-    - name: Checkout Docs Branch
+    - name: Checkout
       uses: actions/checkout@master
+      with:
+        ref: docs
     - name: Install python
       uses: actions/setup-python@v2
       with:
@@ -45,6 +47,7 @@ jobs:
     - name: Run GitHub File Sync
       uses: adrianjost/files-sync-action@v1.0.1
       with:
+        SKIP_DELETE: true
         FILE_PATTERNS: |
           changelog.rst
         TARGET_REPOS: |
@@ -55,8 +58,10 @@ jobs:
     runs-on: ubuntu-latest
     name: Clean changelog
     steps:
-    - name: Checkout Docs Branch
+    - name: Checkout
       uses: actions/checkout@master
+      with:
+        ref: docs
     - name: stage changed files
       run: |
         rm changelog.rst
