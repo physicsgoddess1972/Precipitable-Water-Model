@@ -17,5 +17,5 @@ jobs:
         FILE_PATTERNS: |
           changelog.rst
         TARGET_REPOS: |
-          PharaohCola13/pmat-docs
+          PharaohCola13/pmat-docs:docs
         GITHUB_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
