@@ -6,7 +6,6 @@ Changelog
 PMAT Cirrus
 ===========
 
-
 :Version: 2.0
 :Date: 3/6/2021
 :Tagline: New and Improved PMAT
@@ -51,22 +50,6 @@ Web-applications
 - [Added] Two web-apps are active. One is a Data Dashboard, which allows for the viewing of time series data as a scatter plot or a heat map, and analytical comparisons between data that has been collected.
 - [Added] The Data Dashboard also allows for custom time series data to be uploaded.
 - [Added] The Machine Learning dashboard now allows for custom data to be uploaded.
-
-------
-Documentation
-------
-
-- [Fixed] Fixed multiple CSS issues
-- [Updated] Altered Pac-Man residual plot documentation to refer to the package documentation
-- [Updated] Updated procedure to include the new command-line arguments
-- [Added] Included buttons on the dashboard's "Project Updates" card to include Pac-Man plots and Poster plots that are generated from data we have collected.
-- [Updated] We also scored a `.tech` domain for the page
-
-------
-Automation
-------
-
-- [Misc] This is a work in progress
 
 
 ================
