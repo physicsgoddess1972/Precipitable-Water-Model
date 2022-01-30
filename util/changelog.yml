@@ -51,7 +51,7 @@ changes:
     - added: We may be going to a conference for the National Weather Service in Lubbock, TX in April.
     - added: We are currently working on some heatmap and additional pacviz visualizations.
 ---
-name: CirrusTest
+name: CirrusTes
 tagline: New and Improved PMAT
 released: yes
 date: 3/6/2021
