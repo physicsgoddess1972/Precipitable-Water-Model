@@ -1,8 +1,6 @@
 name: Sync Changelog
 on:
   push:
-    paths:
-      - "changelog.rst"
   workflow_dispatch:
   
 jobs:
