@@ -1,8 +1,7 @@
-#' @title Precipitable Water Model Analysis Tool
-#' @file pmat_run.r
-#' @author Spencer Riley
-#' @docs https://git.io/fjVHo
-#' @help To get a list of arguments run [Rscript model.r --help]
+#' :file: pmat_run.r
+#' :module: Precipitable Water Model Analysis Tool
+#' :synopsis: Documentation is available docs.pmat.app
+#' :author: Spencer Riley
 
 ## Necessary Libraries for the script to run, for installation run install.sh
 library(argparse)
