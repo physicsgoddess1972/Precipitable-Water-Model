@@ -1,4 +1,4 @@
- name: Sync Changelog
+name: Sync Changelog
 on:
   push:
     paths:
