@@ -12,8 +12,6 @@ jobs:
     steps:
     - name: Checkout Docs Branch
       uses: actions/checkout@master
-      with:
-        ref: docs
     - name: Install python
       uses: actions/setup-python@v2
       with:
