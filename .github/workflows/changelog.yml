@@ -31,17 +31,3 @@ jobs:
       with:
         github_token: '${{secrets.GITHUB_TOKEN}}'
         branch: '${{ github.ref }}'
-  sync:
-    runs-on: ubuntu-latest
-    name: Sync changelog
-    steps:
-    - name: Checkout
-      uses: actions/checkout@master
-    - name: Run GitHub File Sync
-      uses: adrianjost/files-sync-action@v1.0.1
-      with:
-        FILE_PATTERNS: |
-          changelog.rst
-        TARGET_REPOS: |
-          PharaohCola13/pmat-docs
-        GITHUB_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
