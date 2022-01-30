@@ -71,7 +71,7 @@ changes:
     - added: Added more time series plots and more composite plots.
     - updated: Changed the x-axis labeling system to have tick marks at the 1st of the month.
     - updated: Redesigned the main analytical plot, confidence interval is now a shaded region, and the plot is now monochromatic.
-    - updated: Pac-Man residual was removed from this plot set
+    - updated: Pac-Man residual was removed from this plot set.
     - updated: Pac-man residual now resides in a new plot set (run `Rscript model.r --pacman`)
     - added: Mean TPW and Mean temperature comparison can now be visualized in a Pac-Man plot.
   web-applications:
