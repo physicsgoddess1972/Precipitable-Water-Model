@@ -38,6 +38,7 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
   clean:
+    needs: branch
     runs-on: ubuntu-latest
     name: Clean up
     steps:
