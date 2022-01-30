@@ -46,7 +46,7 @@ jobs:
       uses: kbrashears5/github-action-file-sync@v2.0.0
       with:
         FILES: |
-          changelog.rst = docsrc/changelog.rst
+          changelog.rst
         REPOSITORIES: |
           PharaohCola13/pmat-docs@docs
         TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
