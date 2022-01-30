@@ -13,7 +13,7 @@ changes:
   processing:
     - updated: Dropping support for MesoWest data acquisition, now using NOAA Data Access API.
     - added: Added 'Do Not Analyze' or DNA filter
-    - added: Added mean.filter function to refine the dataset based on standard deviation
+    - added: Added mean.filter function to refine the dataset based on standard deviation.
   analysis:
     - updated: Improved documentation of functions
     - updated: Expanded the exp.regression function to utilize the mean.filter functionality
