@@ -49,5 +49,5 @@ jobs:
           changelog.rst = docsrc/changelog.rst
         REPOSITORIES: |
           PharaohCola13/pmat-docs@docs
-        GITHUB_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
+        TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
 
