@@ -7,7 +7,7 @@ from numpy import *
 import sys
 import datetime as dt
 import time
-from ..mesowest import MesoWest
+from src.util.mesowest import MesoWest
 from siphon.simplewebservice.wyoming import WyomingUpperAir
 
 import pandas as pd
