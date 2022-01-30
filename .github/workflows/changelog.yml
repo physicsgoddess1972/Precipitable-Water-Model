@@ -40,10 +40,8 @@ jobs:
     needs: branch
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
+    - name: Checkout Repository
       uses: actions/checkout@master
-      with:
-        ref: docs
     - name: Run GitHub File Sync
       uses: adrianjost/files-sync-action@v1.0.1
       with:
