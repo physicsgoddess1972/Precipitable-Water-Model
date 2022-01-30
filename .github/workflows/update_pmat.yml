@@ -26,29 +26,17 @@ jobs:
         mv ./main/src/*.r ./src/
         mv ./main/src/run.sh ./src/
         mv ./main/src/*.py ./src/
-    - name: Add and commit
-      uses: EndBug/add-and-commit@v7
-      with:
-        default_author: github_actions
-        message: Updating src files
-        add: './src/*'
-        branch: deployment
-  sync:
-    needs: update 
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout Repository
-      uses: actions/checkout@master
     - name: Run GitHub File Sync
-      uses: adrianjost/files-sync-action@v1.0.1
+      uses: kbrashears5/github-action-file-sync@master
       with:
-        FILE_PATTERNS: |
-          src/pmat_.*
-        TARGET_REPOS: |
-          PharaohCola13/pmat-docs
-        GITHUB_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
+        REPOSITORIES: |
+          PharaohCola13/pmat-docs@docs
+          physicsgoddess1972/Precipitable-Water-Model@deployment
+        FILES: |
+          './src/*'
+        TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
   publish_pmat_package:
-    needs: sync
+    needs: update
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Deployment Branch
