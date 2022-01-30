@@ -1,6 +1,6 @@
 #' :file: pmat_products.r
 #' :module: Precipitable Water Model Analysis Tool: Products
-#' :synopsis: plotting functions for PMAT.
+#' :synopsis: plotting functions for PMAT..
 #' :author: Spencer Riley
 
 time_series.plots <- function(datetime, overcast){
