@@ -9,7 +9,7 @@ changes:
     - updated: setup script now relies on DESCRIPTION and requirements.txt files.
     - added: New method for releases and changelog updates
     - updated: Updates to the configuration files used to run the import module and analysis module
-    - updated: reorangization of pre-processing functions, analysis functions, and plotting functions in the primary R script
+    - updated: reorangization of pre-processing functions, analysis functions, and plotting functions in the primary R script.
   processing:
     - updated: Dropping support for MesoWest data acquisition, now using NOAA Data Access API.
     - added: Added 'Do Not Analyze' or DNA filter
