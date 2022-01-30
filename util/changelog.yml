@@ -7,7 +7,7 @@ date:
 changes:
   overall:
     - updated: setup script now relies on DESCRIPTION and requirements.txt files.
-    - added: New method for releases and changelog updates.
+    - added: New method for releases and changelog updates
     - updated: Updates to the configuration files used to run the import module and analysis module
     - updated: reorangization of pre-processing functions, analysis functions, and plotting functions in the primary R script.
   processing:
