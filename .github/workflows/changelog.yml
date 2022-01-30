@@ -24,6 +24,7 @@ jobs:
       run: |
         python -m pip install pyyaml
         cd docs/util/ && python update_docs.py -t changelog
+        cd ../../
         ls
         echo "---"
         ls docs
