@@ -79,7 +79,7 @@ changes:
     - added: The Data Dashboard also allows for custom time series data to be uploaded.
     - added:  The Machine Learning dashboard now allows for custom data to be uploaded.
   documentation:
-    - fixed: Fixed multiple CSS issues
+    - fixed: Fixed multiple CSS issues.
     - updated: Altered Pac-Man residual plot documentation to refer to the package documentation
     - updated: Updated procedure to include the new command-line arguments
     - added: Included buttons on the dashboard's "Project Updates" card to include Pac-Man plots and Poster plots that are generated from data we have collected.
