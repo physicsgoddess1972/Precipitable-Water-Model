@@ -43,11 +43,11 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@master
     - name: Run GitHub File Sync
-      uses: kbrashears5/github-action-file-sync@v2.0.0
+      uses: kbrashears5/github-action-file-sync@master
       with:
-        FILES: |
-          changelog.rst
         REPOSITORIES: |
           PharaohCola13/pmat-docs@docs
+        FILES: |
+          changelog.rst=docsrc/changelog.rst
         TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
 
