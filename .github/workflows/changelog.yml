@@ -37,3 +37,26 @@ jobs:
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
+  clean:
+    runs-on: ubuntu-latest
+    name: Clean up
+    steps:
+    - name: Checkout Docs Branch
+      uses: actions/checkout@master
+      with:
+        ref: docs
+    - name: Clean up
+      run: |
+        rm changelog.rst
+    - name: stage changed files
+      run: |
+        git add changelog.rst
+    - name: Commit files
+      run: |
+        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git commit -m "clean up changelog " -a
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
