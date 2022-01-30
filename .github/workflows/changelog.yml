@@ -24,12 +24,10 @@ jobs:
       run: |
         python -m pip install pyyaml
         cd docs/util/ && python update_docs.py -t changelog
-        cd ../../
+        cd ../ && mv ./changelog.rst ../
     - name: stage changed files
       run: |
-        ls
-        ls docs/
-        git add docs/changelog.rst
+        git add changelog.rst
     - name: Commit files
       run: |
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
