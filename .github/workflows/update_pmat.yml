@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
   
 jobs:
-  update_src:
+  update:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Deployment Branch
@@ -34,6 +34,7 @@ jobs:
         add: './src/*'
         branch: deployment
   sync:
+    needs: update 
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Repository
