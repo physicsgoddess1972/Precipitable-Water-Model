@@ -22,7 +22,14 @@ jobs:
           PharaohCola13/pmat-docs@main
           physicsgoddess1972/Precipitable-Water-Model@deployment
         FILES: |
-          src/*.r=src/*.r
+          src/pmat_processing.r=src/pmat_processing.r
+          src/pmat_analysis.r=src/pmat_analysis.r
+          src/pmat_products.r=src/pmat_products.r
+          src/pmat_utility.r=src/pmat_utility.r
+          src/pmat_logging.r=src/pmat_logging.r
+          src/pmat_import.py=src/pmat_import.py
+          src/pmat_run.r=src/pmat_run.r
+          src/run.sh=src/run.sh
         TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
   publish_pmat_package:
     needs: update
