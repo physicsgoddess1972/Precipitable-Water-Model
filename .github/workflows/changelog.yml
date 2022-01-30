@@ -10,9 +10,6 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@master
-      with:
-        persist-credentials: false
-        fetch-depth: 0
     - name: Install python
       uses: actions/setup-python@v2
       with:
@@ -22,15 +19,13 @@ jobs:
       run: |
         python -m pip install pyyaml
         cd util/ && python update_docs.py -t changelog
-    - name: stage changed files
-      run: git add CHANGELOG.md
-    - name: Commit files
-      run: |
-        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-        git config --local user.name "github-actions[bot]"
-        git commit -m "Updates to changelog" -a
-    - name: Push changes
-      uses: ad-m/github-push-action@master
+    - name: Run GitHub File Sync
+      uses: adrianjost/files-sync-action@v1.0.1
       with:
-        github_token: '${{secrets.GITHUB_TOKEN}}'
-        branch: '${{ github.ref }}'
+        FILE_PATTERNS: |
+          changelog.rst
+        TARGET_ROOT: |
+          docsrc/
+        TARGET_REPOS: |
+          PharaohCola13/pmat-docs-test:docs
+        GITHUB_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}

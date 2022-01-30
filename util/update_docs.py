@@ -7,58 +7,34 @@ args = parser.parse_args()
 
 def changelog():
     with open("./changelog.yml") as f:
-        my_dict = list(yaml.load_all(f, Loader=yaml.FullLoader))
+        my_dict = list(yaml.load_all(f))
 
-    with open("../CHANGELOG.md", 'w', newline='') as csvfile:
-        csvfile.write('<a id="top"></a>\n<div class="section timeline">\n')
+    with open("./changelog.rst", 'w', newline='') as csvfile:
+        csvfile.write("***********\nChangelog\n***********\n\n")
         for i in my_dict:
             if i['released']:
                 name = i['name']
                 date = i['date']
                 tagline = i['tagline']
                 version = i['version']
-                csvfile.write("\t<div id='{}' class='timeline-item'>\n\t\t<div class='content'>\n".format(version))
-                csvfile.write('\t\t\t<div class="collapsible">\n')
-                csvfile.write('\t\t\t\t<div class="collapsible-header">\n')
-                csvfile.write(
-                    '\t\t\t\t\t<h2>PMAT {} ({}) <span class="text-light text-capitalize tag-date">{}</span></h2>\n'.format(
-                        version, name, date))
-                csvfile.write('\t\t\t\t</div>\n')
-                csvfile.write('\t\t\t\t<div class="panel">\n')
-                csvfile.write('\t\t\t\t\t<b style="font-size: 20px">{}</b>\n'.format(tagline))
-                csvfile.write('\t\t\t\t\t<div>\n')
+                csvfile.write("{a}\nPMAT {b}\n{a}\n\n".format(a="="*(len(name)+5), b=name))
+                csvfile.write(":Version: {}\n".format(version))
+                csvfile.write(':Date: {}\n'.format(date))
+                csvfile.write(':Tagline: {}\n\n'.format(tagline))
                 for j in i['changes'].keys():
-                    csvfile.write('\t\t\t\t\t\t<h3>{}</h3>\n'.format(j.capitalize()))
+                    csvfile.write('{a}\n{b}\n{a}\n\n'.format(a="-"*(len(name)), b=j.capitalize()))
                     for k in list(i['changes'][str(j)]):
-                        csvfile.write('\t\t\t\t\t\t<li style="list-style: none;">\n')
                         if list(k.keys())[0] == "updated":
-                            csvfile.write(
-                                '\t\t\t\t\t\t\t<span class="label label-rounded text-light text-capitalize tag-changed"><x>(</x>Updated<x>)</x></span>\n')
+                            csvfile.write('- [Updated] {}\n'.format(list(k.values())[0]))
                         elif list(k.keys())[0] == "added":
-                            csvfile.write(
-                                '\t\t\t\t\t\t\t<span class="label label-rounded text-light text-capitalize tag-added"><x>(</x>Added<x>)</x></span>\n')
+                            csvfile.write('- [Added] {}\n'.format(list(k.values())[0]))
                         elif list(k.keys())[0] == "fixed":
-                            csvfile.write(
-                                '\t\t\t\t\t\t\t<span class="label label-rounded text-light text-capitalize tag-fixed"><x>(</x>Fixed<x>)</x></span>\n')
-                        csvfile.write('\t\t\t\t\t\t\t' + list(k.values())[0] + "\n")
-                        csvfile.write("\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<br>\n")
-                csvfile.write('\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n')
-        csvfile.write('</div>')
+                            csvfile.write('- [Fixed] {}\n'.format(list(k.values())[0]))
+                        elif list(k.keys())[0] == "misc":
+                            csvfile.write('- [Misc] {}\n'.format(list(k.values())[0]))
+                    csvfile.write("\n")
 
-    with open("../docs/assets/external/header.html", 'w', newline='') as htmlfile:
-        r = []
-        for i in range(0, len(list(my_dict))):
-            if my_dict[i]['released']:
-                r.append(list(my_dict)[i])
-        htmlfile.write('<div class="mdl-layout__header-row">\n')
-        htmlfile.write('\t<div role="button" aria-expanded="true" tabindex="0" class="mdl-layout__drawer-button" id="pain"><i class="material-icons" id="icon-of-pain">menu</i></div>\n')
-        htmlfile.write('\t<span class="mdl-layout-title">Precipitable Water Model</span>\n')
-        htmlfile.write('\t<div class="mdl-layout-spacer" style="padding-right: 50%;"></div>\n')
-        htmlfile.write('\t<a href="changelog.html#{}">\n'.format(r[0]['version']))
-        htmlfile.write('\t\t<i class="material-icons" style="padding-top: 8px">new_releases</i>\n')
-        htmlfile.write('\t\t<span class="badge position-absolute translate-middle bg-warning">v{}</span>\n'.format(r[0]['version']))
-        htmlfile.write('\t</a>\n')
-        htmlfile.write('</div>')
+                csvfile.write("\n")
 
 
 def research():
