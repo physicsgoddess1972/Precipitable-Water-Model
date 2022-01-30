@@ -60,7 +60,7 @@ changes:
   overall:
     - updated: Compatible with R 4.0
   data-input:
-    - added: Now includes relative humidity imports
+    - added: Now includes relative humidity imports.
     - added: Now pulls data from MesoWest
     - added: New guidelines for sensors that are not active (See Documentation Page for further info.)
   setup-script:
