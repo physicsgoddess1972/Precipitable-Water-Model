@@ -1,5 +1,9 @@
 name: Update Changelog
-on: push
+on:
+  push:
+    paths:
+      - util/changelog.yml
+  workflow_dispatch:
 
 jobs:
   branch:
