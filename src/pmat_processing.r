@@ -14,6 +14,8 @@ col_gro		<- grep("Ground", colnames(fname))
 col_pw 		<- grep("PW", colnames(fname))
 ## Pulls the column number of the date
 col_date 	<- grep("Date", colnames(fname))
+## Pulls the column number of measurement time
+col_time 	<- grep("Time", colnames(fname))
 ## Pulls the column number of the Relative Humidity
 col_rh 		<- grep("RH", colnames(fname))
 ## Pulls the column number of the non-measurement temperature
@@ -23,30 +25,30 @@ col_con 	<- grep("Condition", colnames(fname))
 ## Pulls the column number for the comments
 col_com 	<- grep("comments", colnames(fname))
 ## The value for the training fraction
-train_frac 	<- config[[as.numeric(length(config) - 5)]]$value
+train_frac 	<- config[[2]]$analysis[[1]]$train_fraction
 ## The value for the threshold of the mean.filter
-rel_diff 	<- config[[length(config) - 4]]$value
+rel_diff 	<-  config[[2]]$analysis[[2]]$rel_difference
 
-step 		<- config[[length(config) - 3]]$step
+step 		<-  config[[2]]$analysis[[3]]$iteration$step
 
 weights 	<- c()
-for (i in 1:length(config[[length(config)]]$wyoming)){
-	weights <- append(weights, as.numeric(unlist(config[[length(config)]]$wyoming[[i]]$weight)))
+for (i in 1:length(config[[4]]$import[[3]]$wyoming)){
+	weights <- append(weights, as.numeric(unlist(config[[4]]$import[[3]]$wyoming[[i]]$weight)))
 }
 ## Pulls sensor labels and colors from instruments.txt
 snsr_name 	<- list(); snsr_color <- snsr_sky_indx <- snsr_gro_indx  	<- unlist(list())
-for(i in 1:length(config)){
-	if (!(length(config[[i]]$sensor$active) == 0)){
-		if (config[[i]]$sensor$active == TRUE){
-				var 				<- assign(paste("Thermo", i, sep=""), config[[i]]$sensor$name)
-				snsr_name 			<- append(snsr_name, toString(var))
-				snsr_color 			<- append(snsr_color, paste("#", toString(config[[i]]$sensor$color), sep=""))
+for(i in 1:length(config[[1]]$instruments)){
+	if (!(length(config[[1]]$instruments[[i]]$sensor$active) == 0)){
+		if (config[[1]]$instruments[[i]]$sensor$active == TRUE){
+				var 				<- assign(paste("Thermo", i, sep=""),
+											 config[[1]]$instruments[[i]]$sensor$name)
+				snsr_name 			<- append(snsr_name, substr(toString(var), 1, 7))
+				snsr_color 			<- append(snsr_color, paste("#", toString(config[[1]]$instruments[[i]]$sensor$color), sep=""))
 				snsr_sky_indx 		<- append(snsr_sky_indx, col_sky[i])
 				snsr_gro_indx 		<- append(snsr_gro_indx, col_gro[i])
 		}
 	}
 }
-
 temp_name <- list()
 temp_gro_indx <- temp_sky_indx <- unlist(list())
 for (i in col_temp){
@@ -63,7 +65,7 @@ pw_name 	<- col_pwpl  <-	col_pwtm <- list()
 for (j in col_pw){
 	name 	<- gsub("PW", "", colnames(fname)[j])
 	name 	<- trimws(gsub("[[:punct:]]", " ", name), which="l")
-	pw_name <- append(pw_name, name)
+	pw_name <- append(pw_name, substr(name, 1, 6))
 }
 # Pull general location tag from the label
 pw_place 	<- gsub("_.*$", "", gsub(" ", "_", pw_name))
@@ -182,8 +184,8 @@ dna.filter <- function(date, comments, snsr_sky, snsr_gro){
 #' @export
 overcast.filter <- function(col_con, col_date, col_com, pw_name, snsr_name, cloud_bool){
 	# Initializes the lists to store values
-	date_clear	<- snsr_sky		<- snsr_gro		<- pw_loc  <- rh  <- list()
-	date_over	<- snsr_skyo	<- snsr_groo	<- pw_loco <- rho <- list()
+	date_clear	<- snsr_sky		<- snsr_gro		<- pw_loc  <- rh <- time <- list()
+	date_over	<- snsr_skyo	<- snsr_groo	<- pw_loco <- rho <- timeo <- list()
 	com <- como <- list()
 	# Divides the data based on condition (Overcast/Clear Skies)
 	for (i in 1:length(t(fname[col_con]))){
@@ -198,11 +200,10 @@ overcast.filter <- function(col_con, col_date, col_com, pw_name, snsr_name, clou
 			}
 			rh <- append(x=rh, value=fname[i, col_rh[1]])
 			com <- append(x=com, value=fname[i, col_com[1]])
+			time <- append(x=time, value=fname[i, col_time[1]])
 			filter.dna <-dna.filter(date_clear, com, snsr_sky, snsr_gro)
 			snsr_sky <- filter.dna$snsr_sky
 			snsr_gro <- filter.dna$snsr_gro
-
-
 		}else{
 			date_over   <- append(date_over, lapply(fname[[i, as.numeric(col_date)]], as.Date, "%Y-%m-%d" ))
 			for (j in 1:length(pw_name)){
@@ -214,6 +215,7 @@ overcast.filter <- function(col_con, col_date, col_com, pw_name, snsr_name, clou
 			}
 			rho <- append(x=rho, value=fname[i, col_rh[1]])
 			como <- append(x=como, value=fname[i, col_com[1]])
+			timeo <- append(x=timeo, value=fname[i, col_time[1]])
 			filter.dna <-dna.filter(date_over, como, snsr_skyo, snsr_groo)
 			snsr_skyo <- filter.dna$snsr_sky
 			snsr_groo <- filter.dna$snsr_gro
@@ -222,7 +224,7 @@ overcast.filter <- function(col_con, col_date, col_com, pw_name, snsr_name, clou
 	}
 	# Adds divided data into list to output from function
 	if (cloud_bool){
-		output1 <- list(date=date_over, rh=rho, com=como)
+		output1 <- list(date=date_over, time=timeo, rh=rho, com=como)
 		for(j in 1:length(snsr_name)){
 			output1 <- append(x=output1, values=list("sky"=snsr_skyo[[ paste("snsr_sky",j,sep="") ]]))
 		}
@@ -233,7 +235,7 @@ overcast.filter <- function(col_con, col_date, col_com, pw_name, snsr_name, clou
 			output1 <- append(x=output1, values=list("pw"=pw_loco[[ paste("pw_loc", j, sep="")]]))
 		}
 	} else {
-		output1 <- list(date=date_clear, rh=rh, com=com)
+		output1 <- list(date=date_clear, time=time, rh=rh, com=com)
 		for(j in 1:length(snsr_name)){
 			output1 <- append(x=output1, values=list("gro"=snsr_gro[[ paste("snsr_gro",j,sep="") ]]))
 		}
