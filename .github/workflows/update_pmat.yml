@@ -11,29 +11,18 @@ jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout Deployment Branch
-      uses: actions/checkout@master
-      with:
-       ref: deployment
     - name: Checkout Master Branch
       uses: actions/checkout@master
       with:
         ref: master
-        path: main
-    - name: Transfer files
-      run: |
-        mkdir -p ./src/util
-        mv ./main/src/*.r ./src/
-        mv ./main/src/run.sh ./src/
-        mv ./main/src/*.py ./src/
     - name: Run GitHub File Sync
       uses: kbrashears5/github-action-file-sync@master
       with:
         REPOSITORIES: |
-          PharaohCola13/pmat-docs@docs
+          PharaohCola13/pmat-docs@main
           physicsgoddess1972/Precipitable-Water-Model@deployment
         FILES: |
-          src/*
+          src/*.r=src/*.r
         TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
   publish_pmat_package:
     needs: update
