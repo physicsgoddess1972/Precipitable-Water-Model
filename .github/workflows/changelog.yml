@@ -24,8 +24,6 @@ jobs:
       with:
         FILE_PATTERNS: |
           changelog.rst
-        TARGET_ROOT: |
-          docsrc/
         TARGET_REPOS: |
           PharaohCola13/pmat-docs-test:docs
         GITHUB_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
