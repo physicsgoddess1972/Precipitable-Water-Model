@@ -21,7 +21,7 @@ Data-input
 ------
 
 - [Added] Now includes relative humidity imports.
-- [Added] Now pulls data from MesoWest
+- [Added] Now pulls data from MesoWest..
 - [Added] New guidelines for sensors that are not active (See Documentation Page for further info.)
 
 ------
