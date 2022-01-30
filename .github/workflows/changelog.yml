@@ -35,6 +35,7 @@ jobs:
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: docs
   sync:
     needs: branch
     runs-on: ubuntu-latest
