@@ -25,6 +25,7 @@ jobs:
         python -m pip install pyyaml
         cd docs/util/ && python update_docs.py -t changelog
         cd ../ && mv ./changelog.rst ../
+        ls ../
     - name: stage changed files
       run: |
         git add changelog.rst
@@ -37,3 +38,4 @@ jobs:
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: master
