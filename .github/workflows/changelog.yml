@@ -10,15 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     name: Update changelog
     steps:
-    - name: Checkout Master Branch
-      uses: actions/checkout@master
-      with:
-        ref: master
     - name: Checkout Docs Branch
       uses: actions/checkout@master
       with:
         ref: docs
-        path: docs
     - name: Install python
       uses: actions/setup-python@v2
       with:
@@ -27,8 +22,7 @@ jobs:
     - name: Update Changelog
       run: |
         python -m pip install pyyaml
-        cd docs/util/ && python update_docs.py -t changelog
-        cd ../ && mv ./changelog.rst ../
+        cd util/ && python update_docs.py -t changelog
     - name: stage changed files
       run: |
         git add changelog.rst
@@ -41,13 +35,14 @@ jobs:
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: docs
   sync:
     needs: branch
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
       uses: actions/checkout@master
+      with:
+        ref: docs
     - name: Run GitHub File Sync
       uses: adrianjost/files-sync-action@v1.0.1
       with:
