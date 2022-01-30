@@ -22,7 +22,7 @@ jobs:
         architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
     - name: Update Changelog
       run: |
-        ls
+        ls docs
         python -m pip install pyyaml
         cd docs/util/ && python update_docs.py -t changelog
     - name: Add and commit
