@@ -2,33 +2,42 @@ name: Update PMAT
 on:
   push:
     paths:
-      - "src/util"
-      - "src/pmat_analysis.r"
+      - "src/*.r"
+      - "src/*.py"
       - "src/run.sh"
   workflow_dispatch:
+  
 jobs:
-  update_src:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Master Branch
+      uses: actions/checkout@master
+      with:
+        ref: master
+    - name: Run GitHub File Sync
+      uses: kbrashears5/github-action-file-sync@master
+      with:
+        REPOSITORIES: |
+          PharaohCola13/pmat-docs@main
+          physicsgoddess1972/Precipitable-Water-Model@deployment
+        FILES: |
+          src/*.r=src/*.r
+        TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
+  publish_pmat_package:
+    needs: update
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Deployment Branch
       uses: actions/checkout@master
       with:
        ref: deployment
-    - name: Checkout Master Branch
-      uses: actions/checkout@master
-      with:
-        ref: master
-        path: main
-    - name: Transfer files
+    - name: Login to GHCR
       run: |
-        mkdir -p ./src/util
-        mv ./main/src/*.r ./src/
-        mv ./main/src/run.sh ./src/
-        mv ./main/src/*.py ./src/
-    - name: Add and commit
-      uses: EndBug/add-and-commit@v7
-      with:
-        default_author: github_actions
-        message: Updating src files
-        add: './src/*'
-        branch: deployment
+        echo $CR_PAT | docker login ghcr.io -u physicsgoddess1972 --password-stdin
+      env:
+        CR_PAT: ${{ secrets.CR_TOKEN }}
+    - name: Build and Publish the PMAT Package
+      run: |
+        docker build . --tag ghcr.io/physicsgoddess1972/pmat:latest
+        docker push ghcr.io/physicsgoddess1972/pmat:latest
