@@ -22,9 +22,9 @@ jobs:
         architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
     - name: Update Changelog
       run: |
+        ls
         python -m pip install pyyaml
         cd docs/util/ && python update_docs.py -t changelog
-        ls docs/
     - name: Add and commit
       uses: EndBug/add-and-commit@v7
       with:
