@@ -1,6 +1,6 @@
 #' :file: pmat_analysis.r
 #' :module: Precipitable Water Model Analysis Tool: Analysis
-#' :synopsis: general functions for PMAT
+#' :synopsis: general functions for PMAT..
 #' :author: Spencer Riley
 
 inf_counter <- function(bool, snsr_data, label){
