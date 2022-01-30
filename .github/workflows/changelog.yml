@@ -6,30 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  clean:
-    runs-on: ubuntu-latest
-    name: Clean changelog
-    steps:
-    - name: Checkout
-      uses: actions/checkout@master
-      with:
-        ref: docs
-    - name: stage changed files
-      run: |
-        rm changelog.rst
-        git add changelog.rst
-    - name: Commit files
-      run: |
-        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-        git config --local user.name "github-actions[bot]"
-        git commit -m "clean up changelog " -a
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: docs
   branch:
-    needs: clean
     runs-on: ubuntu-latest
     name: Update changelog
     steps:
