@@ -33,7 +33,7 @@ jobs:
           PharaohCola13/pmat-docs@docs
           physicsgoddess1972/Precipitable-Water-Model@deployment
         FILES: |
-          './src/*'
+          src/*
         TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
   publish_pmat_package:
     needs: update
