@@ -48,6 +48,7 @@ jobs:
       uses: adrianjost/files-sync-action@v1.0.1
       with:
         SKIP_DELETE: true
+        SKIP_CLEANUP: true
         FILE_PATTERNS: |
           changelog.rst
         TARGET_REPOS: |
