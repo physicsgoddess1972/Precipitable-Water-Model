@@ -87,7 +87,7 @@ changes:
   automation:
     - misc: This is a work in progress.
 ---
-name: Altocumulus
+name: Altocumulus Test
 tagline: Initial Deployment of The Precipitable Water Model
 released: yes
 date: 10 Nov 2019
@@ -102,4 +102,4 @@ changes:
     - added: Poster ready plots for presentations
     - added: A data set including the average temperature and precipitable water
     - added: The Pac-Man Residual.
-    - updated: Documentation Page.
+    - misc: Documentation Page.
