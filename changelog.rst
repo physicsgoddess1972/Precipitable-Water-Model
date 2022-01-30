@@ -68,17 +68,17 @@ Automation
 - [Misc] This is a work in progress.
 
 
-================
-PMAT Altocumulus
-================
+=====================
+PMAT Altocumulus Test
+=====================
 
 :Version: 1.0
 :Date: 10 Nov 2019
 :Tagline: Initial Deployment of The Precipitable Water Model
 
------------
+----------------
 Overall
------------
+----------------
 
 - [Added] Flexible data input.
 - [Added] Easy Hands-off setup.
@@ -88,6 +88,6 @@ Overall
 - [Added] Poster ready plots for presentations
 - [Added] A data set including the average temperature and precipitable water
 - [Added] The Pac-Man Residual.
-- [Updated] Documentation Page.
+- [Misc] Documentation Page.
 
 
