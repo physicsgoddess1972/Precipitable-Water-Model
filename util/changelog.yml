@@ -51,10 +51,10 @@ changes:
     - added: We may be going to a conference for the National Weather Service in Lubbock, TX in April.
     - added: We are currently working on some heatmap and additional pacviz visualizations.
 ---
-name: CirrusTes
+name: Cirrus
 tagline: New and Improved PMAT
 released: yes
-date: 3/6/2021
+date: 6 Mar 2021
 version: 2.0
 changes:
   overall:
@@ -87,10 +87,10 @@ changes:
   automation:
     - misc: This is a work in progress
 ---
-name: AltocumulusTes
+name: Altocumulus
 tagline: Initial Deployment of The Precipitable Water Model
 released: yes
-date: 11/10/2019
+date: 10 Nov 2019
 version: 1.0
 changes:
   overall:
