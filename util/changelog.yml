@@ -95,7 +95,7 @@ version: 1.0
 changes:
   overall:
     - added: Flexible data input.
-    - added: Easy Hands-off setup
+    - added: Easy Hands-off setup.
     - added: Command-line arguments to access the different plots available
     - added: Time Series plots for zenith sky temperature and precipitable water
     - added: Analytical plots showing the correlation between zenith sky temperature and precipitable water
