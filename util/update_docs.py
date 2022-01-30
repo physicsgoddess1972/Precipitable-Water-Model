@@ -7,7 +7,7 @@ args = parser.parse_args()
 
 def changelog():
     with open("./changelog.yml") as f:
-        my_dict = list(yaml.load_all(f))
+        my_dict = list(yaml.load_all(f, Loader=yaml.FullLoader))
 
     with open("./changelog.rst", 'w', newline='') as csvfile:
         csvfile.write("***********\nChangelog\n***********\n\n")
