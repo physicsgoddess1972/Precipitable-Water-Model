@@ -8,6 +8,60 @@ on:
   workflow_dispatch:
   
 jobs:
+  docs:
+    name: Updating PMAT Reference
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Docs
+        uses: actions/checkout@master
+        with:
+         ref: docs
+      - name: Checkout Main
+        uses: actions/checkout@master
+        with:
+          ref: main
+          path: main
+      - name: AutoDoc for R
+        run: |
+          fname="docsrc/pmat-reference.rst"
+          repeat(){
+              for ((i = 0; i < $2; i++)); do echo -n "$1"; done
+          }
+          echo -e "**************\nPMAT Reference\n**************\n" > $fname
+          
+          for i in ./main/src/*.r; do
+            input=$i
+            j=${i##*/}
+            echo -e "\n$(repeat "-" ${#j})\n$j\n$(repeat "-" ${#j})" >> $fname
+            while read -r line; do
+              if [[ "$line" == *":module:"* ]]; then
+                echo -e "\n${line:3:${#line}}" >> $fname
+              elif [[ "$line" == *":synopsis:"* ]]; then
+                echo -e "${line:3:${#line}}" >> $fname
+              fi
+          
+              if [[ "$line" == *"<- function"* ]]; then
+                func=${line/<- function/}
+                func=${func/{/}
+                func=$(echo -e "${func}" | tr -d '[:space:]')
+                echo -e "\n.. function:: ${func}\n" >> $fname
+              elif [[ "$line" == *":detail:"* ]]; then
+                echo -e "\t${line:3:${#line}}\n" >> $fname
+              elif [[ "$line" == *":param"* ]]; then
+                echo -e "\t${line:3:${#line}}" >> $fname
+              elif [[ "$line" == *":return:"* ]]; then
+                echo -e "\t:return: ${line:12:${#line}}" >> $fname
+              fi
+            done < "$input"
+          done
+      - name: Run GitHub File Sync
+        uses: kbrashears5/github-action-file-sync@master
+        with:
+          REPOSITORIES: |
+            physicsgoddess1972/Precipitable-Water-Model@docs
+          FILES: |
+            docsrc/pmat-reference.rst=docsrc/pmat-reference.rst
+          TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
   update:
     runs-on: ubuntu-latest
     steps:
@@ -19,7 +73,6 @@ jobs:
       uses: kbrashears5/github-action-file-sync@master
       with:
         REPOSITORIES: |
-          PharaohCola13/pmat-docs@main
           physicsgoddess1972/Precipitable-Water-Model@deployment
         FILES: |
           src/pmat_processing.r=src/pmat_processing.r
