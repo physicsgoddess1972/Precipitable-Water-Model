@@ -1,6 +1,8 @@
 name: Sphinx Build
 on:
   push:
+    paths:
+      - "docsrc/*.rst"
   workflow_dispatch:
 
 jobs:
