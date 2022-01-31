@@ -2,7 +2,7 @@ name: Sphinx Build
 on:
   push:
     paths:
-      - "docsrc/**"
+      - 'docsrc/**.rst'
 
 jobs:
   build-and-deploy:
