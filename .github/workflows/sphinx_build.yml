@@ -1,8 +1,9 @@
 name: Sphinx Build
 on:
   push:
-    paths:
-      - 'docsrc/changelog.rst'
+    paths-ignore:
+      - 'docs/'
+      - 'util/'
 
 jobs:
   build-and-deploy:
