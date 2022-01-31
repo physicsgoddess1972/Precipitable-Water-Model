@@ -22,7 +22,7 @@ jobs:
           pip3 install sphinx sphinx-rtd-theme
           python3 -m sphinx -T -E -b html ./docsrc ./docs/pmat
           python3 -m sphinx -T -E -b latex ./docsrc ./_pdf
-          cd ./_pdf/ && pdflatex pmat.tex
+          cd ./_pdf/ && pdflatex pmat.tex && pdflatex pmat.tex
           mv ./pmat.pdf ../ && cd ../ && rm -r _pdf
       - name: Add and commit
         uses: EndBug/add-and-commit@v7
