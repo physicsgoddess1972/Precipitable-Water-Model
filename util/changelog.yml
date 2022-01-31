@@ -7,13 +7,13 @@ date:
 changes:
   overall:
     - updated: setup script now relies on DESCRIPTION and requirements.txt files.
-    - added: New method for releases and changelog updates
+    - added: New method for releases and changelog updates.
     - updated: Updates to the configuration files used to run the import module and analysis module
     - updated: reorangization of pre-processing functions, analysis functions, and plotting functions in the primary R script.
   processing:
     - updated: Dropping support for MesoWest data acquisition, now using NOAA Data Access API.
     - added: Added 'Do Not Analyze' or DNA filter
-    - added: Added mean.filter function to refine the dataset based on standard deviation
+    - added: Added mean.filter function to refine the dataset based on standard deviation.
   analysis:
     - updated: Improved documentation of functions
     - updated: Expanded the exp.regression function to utilize the mean.filter functionality
@@ -54,14 +54,14 @@ changes:
 name: Cirrus
 tagline: New and Improved PMAT
 released: yes
-date: 3/6/2021
+date: 6 Mar 2021
 version: 2.0
 changes:
   overall:
     - updated: Compatible with R 4.0
   data-input:
-    - added: Now includes relative humidity imports
-    - added: Now pulls data from MesoWest
+    - added: Now includes relative humidity imports.
+    - added: Now pulls data from MesoWest..
     - added: New guidelines for sensors that are not active (See Documentation Page for further info.)
   setup-script:
     - updated: Now installs R 4.0
@@ -71,7 +71,7 @@ changes:
     - added: Added more time series plots and more composite plots.
     - updated: Changed the x-axis labeling system to have tick marks at the 1st of the month.
     - updated: Redesigned the main analytical plot, confidence interval is now a shaded region, and the plot is now monochromatic.
-    - updated: Pac-Man residual was removed from this plot set
+    - updated: Pac-Man residual was removed from this plot set.
     - updated: Pac-man residual now resides in a new plot set (run `Rscript model.r --pacman`)
     - added: Mean TPW and Mean temperature comparison can now be visualized in a Pac-Man plot.
   web-applications:
@@ -79,27 +79,27 @@ changes:
     - added: The Data Dashboard also allows for custom time series data to be uploaded.
     - added:  The Machine Learning dashboard now allows for custom data to be uploaded.
   documentation:
-    - fixed: Fixed multiple CSS issues
+    - fixed: Fixed multiple CSS issues.
     - updated: Altered Pac-Man residual plot documentation to refer to the package documentation
     - updated: Updated procedure to include the new command-line arguments
     - added: Included buttons on the dashboard's "Project Updates" card to include Pac-Man plots and Poster plots that are generated from data we have collected.
-    - updated: We also scored a `.tech` domain for the page
+    - updated: We also scored a `.tech` domain for the page.
   automation:
-    - misc: This is a work in progress
+    - misc: This is a work in progress.
 ---
 name: Altocumulus
 tagline: Initial Deployment of The Precipitable Water Model
 released: yes
-date: 11/10/2019
+date: 10 Nov 2019
 version: 1.0
 changes:
   overall:
-    - added: Flexible data input
-    - added: Easy Hands-off setup
+    - added: Flexible data input.
+    - added: Easy Hands-off setup.
     - added: Command-line arguments to access the different plots available
     - added: Time Series plots for zenith sky temperature and precipitable water
     - added: Analytical plots showing the correlation between zenith sky temperature and precipitable water
     - added: Poster ready plots for presentations
     - added: A data set including the average temperature and precipitable water
     - added: The Pac-Man Residual.
-    - updated: Documentation Page
+    - updated: Documentation Page.

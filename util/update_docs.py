@@ -22,7 +22,7 @@ def changelog():
                 csvfile.write(':Date: {}\n'.format(date))
                 csvfile.write(':Tagline: {}\n\n'.format(tagline))
                 for j in i['changes'].keys():
-                    csvfile.write('{a}\n{b}\n{a}\n\n'.format(a="-"*(len(name)), b=j.capitalize()))
+                    csvfile.write('{a}\n{b}\n{a}\n\n'.format(a="-"*(len(j)), b=j.capitalize()))
                     for k in list(i['changes'][str(j)]):
                         if list(k.keys())[0] == "updated":
                             csvfile.write('- [Updated] {}\n'.format(list(k.values())[0]))
