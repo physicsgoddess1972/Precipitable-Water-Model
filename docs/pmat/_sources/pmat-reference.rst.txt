@@ -8,7 +8,7 @@ pmat_analysis.r
 ---------------
 
 :module: Precipitable Water Model Analysis Tool: Analysis
-:synopsis: general functions for PMAT.
+:synopsis: general functions for PMAT
 
 .. function:: inf_counter(bool,snsr_data,label)
 
@@ -259,13 +259,3 @@ pmat_utility.r
 	:param des: the description of the plot
 	:param overcast: the sky condition
 	:return: a title string
-
-------
-test.r
-------
-
-.. function:: time_a(date)
-
-	:detail: A sample function for this documentation nonsense
-
-	:param date: date object
