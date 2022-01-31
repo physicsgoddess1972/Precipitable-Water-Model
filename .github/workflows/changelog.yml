@@ -19,11 +19,10 @@ jobs:
       run: |
         python -m pip install pyyaml
         cd util/ && python update_docs.py -t changelog
-    - name: Run GitHub File Sync
-      uses: adrianjost/files-sync-action@v1.0.1
+    - name: Add and commit
+      uses: EndBug/add-and-commit@v7
       with:
-        FILE_PATTERNS: |
-          changelog.rst
-        TARGET_REPOS: |
-          PharaohCola13/pmat-docs
-        GITHUB_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
+        default_author: github_actions
+        message: Updating docs
+        add: "./changelog.rst"
+        branch: docs
