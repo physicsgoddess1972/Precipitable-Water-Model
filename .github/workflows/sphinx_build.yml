@@ -1,10 +1,11 @@
 name: Sphinx Test
 on: 
   push:
-    branch:
+    branches:
       - 'docs'
     paths:
       - 'docsrc/*'
+  workflow_dispatch:
   
 jobs:
   build-and-deploy:
