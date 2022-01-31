@@ -1,6 +1,8 @@
 name: Sphinx Test
 on: 
-  workflow_dispatch:
+  push:
+    paths:
+      - 'docsrc/*'
   
 jobs:
   build-and-deploy:
