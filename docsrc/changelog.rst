@@ -80,7 +80,7 @@ PMAT Altocumulus
 Overall
 -------
 
-- [Added] Flexible data input.
+- [Added] Flexible data input mmm.
 - [Added] Easy Hands-off setup.
 - [Added] Command-line arguments to access the different plots available
 - [Added] Time Series plots for zenith sky temperature and precipitable water
