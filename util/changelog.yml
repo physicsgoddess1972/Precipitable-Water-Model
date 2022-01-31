@@ -85,7 +85,7 @@ changes:
     - added: Included buttons on the dashboard's "Project Updates" card to include Pac-Man plots and Poster plots that are generated from data we have collected.
     - updated: We also scored a `.tech` domain for the page.
   automation:
-    - misc: This is a work in progress.
+    - misc: This is a work in progress.......
 ---
 name: Altocumulus
 tagline: Initial Deployment of The Precipitable Water Model
