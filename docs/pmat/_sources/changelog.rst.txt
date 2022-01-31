@@ -80,14 +80,14 @@ PMAT Altocumulus
 Overall
 -------
 
-- [Added] Flexible data input m
+- [Added] Flexible data input
 - [Added] Easy Hands-off setup.
 - [Added] Command-line arguments to access the different plots available
 - [Added] Time Series plots for zenith sky temperature and precipitable water
 - [Added] Analytical plots showing the correlation between zenith sky temperature and precipitable water
 - [Added] Poster ready plots for presentations
 - [Added] A data set including the average temperature and precipitable water
-- [Added] The Pac-Man Residual.
-- [Updated] Documentation Page.
+- [Added] The Pac-Man Residual
+- [Updated] Documentation Page
 
 
