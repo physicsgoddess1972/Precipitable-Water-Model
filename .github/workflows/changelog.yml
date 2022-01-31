@@ -44,7 +44,6 @@ jobs:
         with:
           python-version: 3.8
       # Build
-      - uses: ammaraskar/sphinx-problem-matcher@master
       - name: Build Sphinx docs
         run: |
           sudo apt install latexmk texlive-latex-extra
