@@ -1,10 +1,6 @@
 name: Sphinx Build
 on:
   push:
-    paths-ignore:
-      - 'docs/**'
-      - 'util/**'
-      - '.github/**'
 
 jobs:
   build-and-deploy:
