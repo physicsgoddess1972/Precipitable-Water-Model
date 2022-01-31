@@ -19,7 +19,7 @@ jobs:
       run: |
         python -m pip install pyyaml
         cd util/ && python update_docs.py -t changelog
-        mv ./changelog.rst ./docsrc/
+        cd ../ && mv ./changelog.rst ./docsrc/
     - name: Add and commit
       uses: EndBug/add-and-commit@v7
       with:
