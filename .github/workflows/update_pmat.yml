@@ -63,6 +63,7 @@ jobs:
             docsrc/pmat-reference.rst=docsrc/pmat-reference.rst
           TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
   update:
+    needs: docs
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Master Branch
