@@ -1,4 +1,4 @@
-name: Sphinx Build
+name: Sphinx Test
 on: workflow_dispatch
   
 jobs:
