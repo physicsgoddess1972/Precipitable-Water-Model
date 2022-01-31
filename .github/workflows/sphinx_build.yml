@@ -1,11 +1,8 @@
 name: Sphinx Build
 on:
   push:
-    branches:
-      - docs
     paths:
       - "docsrc/*"
-  workflow_dispatch:
 
 jobs:
   build-and-deploy:
