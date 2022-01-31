@@ -1,6 +1,8 @@
 name: Sphinx Build
-on: push
-
+on: 
+  push:
+    paths:
+      - "!util/changelog.yml"
 jobs:
   build-and-deploy:
     name: Build and gh-pages
