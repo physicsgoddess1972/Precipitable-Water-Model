@@ -87,7 +87,7 @@ changes:
   automation:
     - misc: This is a work in progress.
 ---
-name: Altocumulus T
+name: Altocumulus
 tagline: Initial Deployment of The Precipitable Water Model
 released: yes
 date: 10 Nov 2019
