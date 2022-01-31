@@ -1,6 +1,5 @@
 name: Sphinx Test
 on: 
-  push:
   workflow_dispatch:
   
 jobs:
