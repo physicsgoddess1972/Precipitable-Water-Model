@@ -32,35 +32,4 @@ jobs:
       with:
         github_token: '${{secrets.GITHUB_TOKEN}}'
         branch: '${{ github.ref }}'
-  build-and-deploy:
-    needs: branch
-    name: Build and gh-pages
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Docs
-        uses: actions/checkout@master
-      - name: Install Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.8
-      # Build
-      - name: Build Sphinx docs
-        run: |
-          sudo apt install latexmk texlive-latex-extra
-          pip3 install sphinx sphinx-rtd-theme
-          python3 -m sphinx -T -E -b html ./docsrc ./docs/pmat
-          python3 -m sphinx -T -E -b latex ./docsrc ./_pdf
-          cd ./_pdf/ && pdflatex pmat.tex && pdflatex pmat.tex
-          mv ./pmat.pdf ../ && cd ../ && rm -r _pdf
-      - name: stage changed files
-        run: git add docs/pmat/* pmat.pdf
-      - name: Commit files
-        run: |
-          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"          
-          git commit -m "Updates to changelog" -a
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: '${{secrets.GITHUB_TOKEN}}'
-          branch: '${{ github.ref }}'
+
