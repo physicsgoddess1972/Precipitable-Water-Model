@@ -1,0 +1,37 @@
+name: Sphinx Test
+on: 
+  push:
+    branch:
+      - 'docs'
+    paths:
+      - 'docsrc/*'
+  
+jobs:
+  build-and-deploy:
+    name: Build and gh-pages
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Docs
+        uses: actions/checkout@master
+        with:
+          ref: docs
+      - name: Install Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      # Build
+      - name: Build Sphinx docs
+        run: |
+          sudo apt install latexmk texlive-latex-extra
+          pip3 install sphinx sphinx-rtd-theme
+          python3 -m sphinx -T -E -b html ./docsrc ./docs/pmat
+          python3 -m sphinx -T -E -b latex ./docsrc ./_pdf
+          cd ./_pdf/ && pdflatex pmat.tex && pdflatex pmat.tex
+          mv ./pmat.pdf ../ && cd ../ && rm -r _pdf
+      - name: Add and commit
+        uses: EndBug/add-and-commit@v7
+        with:
+          default_author: github_actions
+          message: Updating docs
+          add: "['docs/pmat/*', 'pmat.pdf']"
+          branch: docs
