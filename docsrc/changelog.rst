@@ -68,9 +68,9 @@ Automation
 - [Misc] This is a work in progress.
 
 
-==================
-PMAT Altocumulus T
-==================
+================
+PMAT Altocumulus
+================
 
 :Version: 1.0
 :Date: 10 Nov 2019
