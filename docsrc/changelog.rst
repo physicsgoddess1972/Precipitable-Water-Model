@@ -87,7 +87,7 @@ Overall
 - [Added] Analytical plots showing the correlation between zenith sky temperature and precipitable water
 - [Added] Poster ready plots for presentations
 - [Added] A data set including the average temperature and precipitable water
-- [Added] The Pac-Man Residual.
+- [Added] The Pac-Man Residual...
 - [Updated] Documentation Page.....
 
 
