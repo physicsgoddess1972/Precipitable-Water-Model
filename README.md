@@ -8,6 +8,7 @@
             <p style="text-align: center">
             <a href="https://zenodo.org/badge/latestdoi/178975498"><img src="https://zenodo.org/badge/178975498.svg" alt="DOI"></a>
             <a href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/releases/tag/v2.0"><img alt="GitHub tag (latest by date)" src="https://img.shields.io/github/v/tag/physicsgoddess1972/Precipitable-Water-Model?label=PMAT"></a>
+	    <a href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/actions/workflows/sphinx_build.yml"><img src="https://github.com/physicsgoddess1972/Precipitable-Water-Model/actions/workflows/sphinx_build.yml/badge.svg"></a>
 		<p style="text-align: center"><a href="https://github.com/ellerbrock/open-source-badges/"><img src="https://badges.frapsoft.com/os/v1/open-source.svg?v=103" alt="Open Source Love svg1"></a></p>
             <h3>What is Precipitable Water?</h3>
             Precipitable water is the amount of condensed water vapor to be found in a vertical column of air, with a base of 1 meter-squared, that
