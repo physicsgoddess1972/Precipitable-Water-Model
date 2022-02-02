@@ -196,8 +196,9 @@ class PMAT_Import():
     @return 
     """
     def mesowest_import(end_date, station, in_time):
-        df_mw = MesoWest.request_data(end_date + datetime.timedelta(days=1), station.strip(" "))
+        df_mw = MesoWest.request_data(end_date + datetime.timedelta(days=1, hours=12), station.strip(" "))
         mw_header = df_mw.columns
+
         for i in range(len(mw_header)):
             if "time(" in mw_header[i]:
                 tau = i
@@ -208,18 +209,25 @@ class PMAT_Import():
             rh = "NaN"
             temp = "NaN"
             thyme = "NaT"
+            dwpt = "NaN"
+            return [thyme, rh, temp, dwpt]
         else:
-            df_tm = df_mw.loc[(df_mw[mw_header[tau]] == PMAT_Import.closest(df_mw[mw_header[tau]], in_time, end_date))]
+            df_tm = df_mw.loc[(df_mw[mw_header[tau]] == PMAT_Import.closest(df_mw[mw_header[tau]], datetime.time(12, 0), end_date))]
 
             thyme = df_tm[mw_header[tau]].values[0]
-            rh = int(df_tm['relative_humidity'].values[0])
-            temp = round((float(df_tm['temperature'].values[0]) * units.degF).to(units.degC).magnitude, 2)
-
-            if str(rh) == "nan":
-                rh = "NaN"
-            if str(temp) == "nan":
+            if str(df_tm['relative_humidity'].values[0]) == "nan":
+               rh = "NaN"
+            else:
+                rh = int(df_tm['relative_humidity'].values[0])
+            if str(float(df_tm['temperature'].values[0])) == "nan":
                 temp = "NaN"
-        return [thyme, rh, temp]
+            else:
+                temp = round((float(df_tm['temperature'].values[0]) * units.degF).to(units.degC).magnitude, 2)
+            if str(float(df_tm['dew_point'].values[0])) == "nan":
+                dwpt = "NaN"
+            else:
+                dwpt = round((float(df_tm['dew_point'].values[0]) * units.degF).to(units.degC).magnitude, 2)
+            return [thyme, rh, temp, dwpt]
 
     """
     @title impt
@@ -287,6 +295,7 @@ class PMAT_Import():
                     d[str(mw_station[i]).strip(" ") + "_" + "Time"] = mw_data[i][0].strftime("%H:%M")
                 d[str(mw_station[i]).strip(" ") + "_" + "RH"] = mw_data[i][1]
                 d[str(mw_station[i]).strip(" ") + "_" + "Temp"] = mw_data[i][2]
+                d[str(mw_station[i]).strip(" ") + "_" + "Dewpoint"] = mw_data[i][3]
 
         if "external" in keys:
             if "pw" in ext_bool:
@@ -315,7 +324,7 @@ class PMAT_Import():
         else:
             out.to_csv(wname, index=False, mode="a", header=False)
 
-dir = "./util/tests/data/"
+dir = "./util/tests/data_monsoon/"
 
 ## Data file used for configuration parameters
 cname = dir + "_pmat.yml"
@@ -376,9 +385,9 @@ except IndexError:
 for i in range(last, full_len - 1):
     filew = open(rname, "r")
     readw = csv.reader(filew, delimiter=",")
-    # print("Collecting {0:d} out of {1:d} days of data\t\t"
-    #       "Progress: {2:.2f}%".format(i, full_len - 1,
-    #                                   i / (full_len - 1) * 100), end='\r')
+    print("Collecting {0:d} out of {1:d} days of data\t\t"
+          "Progress: {2:.2f}%".format(i, full_len - 1,
+                                      i / (full_len - 1) * 100), end='\r')
 
     PMAT_Import.impt(dt.strptime(str(loadtxt(rname,
                                              delimiter=",",

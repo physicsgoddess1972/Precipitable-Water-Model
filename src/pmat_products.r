@@ -137,25 +137,27 @@ time_series.plots <- function(datetime, overcast){
                res$pw_loc,
                res$tmp_avg,
                res$loc_avg,
-               list(res$avg))
+               list(res$avg),
+               list(res$dew))
     t1 <- list("Sky Temperature Time Series",
                "Ground Temperature Time Series",
                "Difference Between Ground-Sky Temperature Time Series",
                "Total Precipitable Water Time Series",
                "Temporal Mean Precipitable Water Time Series",
                "Locational Mean Precipitable Water Time Series",
-               "Mean Total Precipitable Water Time Series")
+               "Mean Total Precipitable Water Time Series",
+               "Dewpoint Temperature Time Series")
 
     c1 <- unlist(list(rep(list(snsr_color), 3),
-                      rep(list(pw_color), 3), "blue"),
+                      rep(list(pw_color), 3), "blue", "black"),
                  recursive=FALSE)
     l1 <- unlist(list(rep(list(snsr_name), 3),
                       list(pw_name),
                       list(unique(pw_place)),
-                      list(paste(unique(pw_time), "Z")), NA),
+                      list(paste(unique(pw_time), "Z")), NA, NA),
                  recursive=FALSE)
     y1 <- unlist(list(rep(list("Temperature [C]"), 3),
-                      rep(list("TPW [mm]"), 4)),
+                      rep(list("TPW [mm]"), 4), "Temperature [C]"),
                  recursive=FALSE)
 
     r2 <- list(list(res$snsr_sky_calc, res$rh),
@@ -388,7 +390,7 @@ charts	<- function(...){
 
         for (count in 1:length(range)){
             h <- hist(range[[count]],
-                      main = title[count],
+                      main = paste("Distribution of", title[count], sep=" "),
                       prob = FALSE,
                       xlab = xlabel[count],
                       xlim=c(floor(min(range[[count]], na.rm = TRUE)),
@@ -406,17 +408,20 @@ charts	<- function(...){
         }
 
     }
-
     x <- list(c(cbind(overcast.results$wt_avg, clear_sky.results$wt_avg)),
               cbind(unlist(overcast.results$snsr_sky_calc),
                      unlist(clear_sky.results$snsr_sky_calc)),
-              cbind(overcast.results$rh, clear_sky.results$rh))
+              cbind(overcast.results$rh, clear_sky.results$rh),
+              cbind(overcast.results$dew, clear_sky.results$dew))
+
     xlab <- list("Precipitable Water [mm]",
                  "Temperature [C]",
-                "Relative Humidity [%]")
-    title <- list("Distribution of Weighted PWV",
-                  "Distribution of Average Temperature",
-                  "Distribution of Relative Humidity")
+                "Relative Humidity [%]",
+                "Temperature [C]")
+    title <- list("Weighted PWV",
+                  "Average Temperature",
+                  "Relative Humidity",
+                  "Dewpoint Temperature")
 
     for (i in 1:length(unique(pw_place))){
         x <- append(x, list(c(cbind(unlist(clear_sky.results$tmp_avg[i]),

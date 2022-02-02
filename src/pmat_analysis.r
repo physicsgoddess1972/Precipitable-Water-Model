@@ -5,10 +5,11 @@
 
 inf_counter <- function(bool, snsr_data, label){
 	#' :detail: identifies the -Inf values
-	#' :param bool: decides if -Inf is not replaced with NaN
-	#' :param snsr_data: the dataset
-	#' :param label: the identifer for the dataset (e.g. sky, gro, skyo, groo)
+	#' :param bool bool: decides if -Inf is not replaced with NaN
+	#' :param array snsr_data: the dataset
+	#' :param str label: the identifer for the dataset (e.g. sky, gro, skyo, groo)
 	#' :return: data set that replaces all -Infs for NaN (If bool == FALSE).
+	#' :rtype: array
     output <- list()
     for (i in seq(1, length(snsr_data))){
         if (bool == FALSE){
@@ -22,10 +23,11 @@ inf_counter <- function(bool, snsr_data, label){
 }
 
 lin_regression <- function(x,y){
-	#' :detail: Function includes all of the stuff to generate the linear regression model with intervals
-	#' :param x: the domain of the dataset
-	#' :param y: the range of the dataset
-	#' :return: A list of stat stuff
+	#' :detail: Linear regression function
+	#' :param array x: the domain of the dataset
+	#' :param array y: the range of the dataset
+	#' :return: returns the data series and model statistics
+	#' :rtype: list
 	nans <- c(grep("NaN", y)); nans <- append(nans, grep("NaN", x))
 	x <- x[-(nans)]; y <- y[-(nans)]
 
@@ -115,6 +117,7 @@ sky.analysis <- function(overcast){
 	comments    <- overcast$com
 ## Pulls relative humidity from filter function
 	rh <- as.numeric(overcast$rh)
+	dew <- as.numeric(overcast$dew)
 ## Initialize empty lists
 	snsr_del 	<- snsr_sky <- snsr_gro <- pw_loc <- loc_avg <- snsr_sky_calc <- tmp_avg <- list()
 ## Adds PW measurements for clear sky to list
@@ -187,6 +190,7 @@ sky.analysis <- function(overcast){
 				"snsr_gro"=snsr_gro,
 				"snsr_del"=snsr_del,
 				"rh"=rh,
+			 	"dewpoint"=dew,
 				"comments"=comments,
 				"pw_loc"=pw_loc,
 				"loc_avg"=loc_avg,
