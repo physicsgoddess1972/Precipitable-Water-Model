@@ -139,8 +139,9 @@ if(args$set == "i"){
 }
 if (args$dev){
 	source("./util/tests/analysis_feat.r")
-	# sname_pub 	<- sprintf("../figs/results/dev.pdf")
-	# save(c(heat.maps(date, args$overcast), dev.plots(date, args$overcast)), sname_pub)
+	source("./util/tests/plots_dev.r")
+
+	save(c(dev.temp(), dev.pw()), sprintf("%sdev.pdf", fig_dir))
 }
 if (args$set != FALSE){
 	suppress(message(green(sprintf("Plot set downloaded to %s\n", sname_pub))))
