@@ -1,0 +1,90 @@
+- |
+  seed: 1172570731
+  step: 1
+  analysis:
+    coeff:
+      A: 18.8792
+      B: 0.0358
+    rmse: 3.121
+    rstd: 3.1506
+- |
+  seed: 2139094895
+  step: 2
+  analysis:
+    coeff:
+      A: 18.8957
+      B: 0.0361
+    rmse: 3.5135
+    rstd: 3.5468
+- |
+  seed: 801143055
+  step: 3
+  analysis:
+    coeff:
+      A: 18.4247
+      B: 0.0356
+    rmse: 3.888
+    rstd: 3.9249
+- |
+  seed: 1469302052
+  step: 4
+  analysis:
+    coeff:
+      A: 18.738
+      B: 0.0351
+    rmse: 3.1569
+    rstd: 3.1869
+- |
+  seed: 71309881
+  step: 5
+  analysis:
+    coeff:
+      A: 18.615
+      B: 0.0355
+    rmse: 3.1784
+    rstd: 3.2085
+- |
+  seed: 1742284031
+  step: 6
+  analysis:
+    coeff:
+      A: 18.5585
+      B: 0.0356
+    rmse: 3.2099
+    rstd: 3.2404
+- |
+  seed: 487807215
+  step: 7
+  analysis:
+    coeff:
+      A: 19.012
+      B: 0.0361
+    rmse: 3.5288
+    rstd: 3.5622
+- |
+  seed: 1826415815
+  step: 8
+  analysis:
+    coeff:
+      A: 19.0441
+      B: 0.0367
+    rmse: 3.3156
+    rstd: 3.347
+- |
+  seed: 1392381379
+  step: 9
+  analysis:
+    coeff:
+      A: 19.0607
+      B: 0.0364
+    rmse: 3.3532
+    rstd: 3.385
+- |
+  seed: 1259639711
+  step: 10
+  analysis:
+    coeff:
+      A: 19.0246
+      B: 0.036
+    rmse: 3.6069
+    rstd: 3.6411

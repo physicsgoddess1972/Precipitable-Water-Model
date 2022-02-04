@@ -1,33 +1,25 @@
-- sensor:
-    name:
-    error:
-    color:
-    ratio:
-    range:
-    emissivity:
-    poster:
-    active:
+- instruments:
+  - sensor:
+      name:
+      error:
+      color:
+      ratio:
+      range:
+      emissivity:
+      poster:
+      active:
 - analysis:
-  - train_fraction: 0.8
-  - rel_difference: 2
+  - train_fraction:
+  - rel_difference:
   - iteration:
-      step: 10
+      step:
       seed:
 - logging:
-  - verbose: 0
+  - verbose:
 - import:
   - external:
-      - pw:
-          - id:
-            path:
-            weight:
-            date:
-            merge:
-            units:
   - mesowest:
     - id:
   - wyoming:
-    - id:
-      weight:
     - id:
       weight:

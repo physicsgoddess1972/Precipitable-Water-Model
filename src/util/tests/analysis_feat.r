@@ -24,7 +24,8 @@ bimodial.coeff <- function(x){
 # print(bimodality_coefficient(cbind(overcast.results$wt_avg, clear_sky.results$wt_avg), na.rm = TRUE))
 # print(bimodality_coefficient(cbind(overcast.results$snsr_sky_calc, clear_sky.results$snsr_sky_calc), na.rm = TRUE))
 #
-
+# exp.regression(clear_sky.results, 0.7)
+# index.norm(overcast.results$wt_avg)
 sin.regression <- function(y){
 	A <- (max(y, na.rm=TRUE) - min(y, na.rm=TRUE))/2
 	Q <- (max(y, na.rm=TRUE) + min(y, na.rm=TRUE))/2
