@@ -1,6 +1,7 @@
 #' :file: pmat_run.r
-#' :module: Precipitable Water Model Analysis Tool
-#' :synopsis: Documentation is available docs.pmat.app
+#' :module: Precipitable-Water Model Analysis Tool
+#' :author: Spencer Riley <sriley@pmat.app>
+#' :synopsis: The main file for PMAT. Documentation available at <https://docs.pmat.app>.
 #' :author: Spencer Riley
 
 ## Necessary Libraries for the script to run, for installation run install.sh
@@ -36,36 +37,27 @@ yellow 		<- make_style("gold2")
 green 		<- make_style("lawngreen")
 cloudblue 	<- make_style("lightskyblue")
 
-## Command Prompt "Start of Program" and 1st time user stuff
-if(args$first_time){
-	message(bold(cloudblue(" \t\t**** Welcome First Time Users ****\t\t\t")))
-	message(bold(cloudblue(paste(rep("\t   _  _\t\t\t", 2, collapse="")))))
-	message(bold(cloudblue(paste(rep("\t  ( `   )_\t\t", 2, collapse="")))))
-	message(bold(cloudblue(paste(rep("\t (     )   `)\t\t",2, collapse="")))))
-	message(bold(cloudblue(paste(rep("\t(_   (_ .  _) _)\t", 2, collapse="")))))
-	message(bold(cloudblue("Some Notes:")))
-	message((green("\t- Arguments: Rscript model.r -h or Rscript model.r --help.")))
-	message((yellow("\t- Issues/Bugs?: https://bugs.pmat.app")))
-	quit()
-}
 # Error/Warning definitions
-source("./pmat_logging.r")
+source("./pmat_utility.r")
+
+fig_dir <- paste(args$dir, "../figs/results/", sep="")
+
+if (args$first){first()}
+
 ## Imports sensor information from instruments.txt
 if(file.exists(paste(args$dir,"_pmat.yml", sep=""))){
 	config		<- yaml.load_file(paste(args$dir,"_pmat.yml", sep=""))
 } else {
 	error(F02)
 }
-fig_dir <- "../figs/results/"
-source("./pmat_utility.r")
 startup()
-
 ## Imports data from master_data.csv
 if (file.exists(paste(args$dir,"master_data.csv", sep=""))){
 	fname       <- read.table(paste(args$dir,"master_data.csv", sep=""), sep=",", header=TRUE, strip.white=TRUE)
 } else {
 	error(F01)
 }
+## Tries to read _output.yml
 if(file.exists(paste(args$dir,"_output.yml", sep=""))){
 	oname <- yaml.load_file(paste(args$dir,"_output.yml", sep=""))
 } else {

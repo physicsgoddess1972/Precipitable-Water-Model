@@ -34,10 +34,16 @@ jobs:
             j=${i##*/}
             echo -e "\n$(repeat "-" ${#j})\n$j\n$(repeat "-" ${#j})" >> $fname
             while read -r line; do
-              if [[ "$line" == *":module:"* ]]; then
+              case "$line" in 
+                *":module:"*)
+                *":module:"*)
+                *":module:"*)
+                *":module:"*)
+                  
+                  
+                  echo -e "\n${line:3:${#line}}" >> $fname
+              if [[ "$line" == *":module:"* ]] || [[ "$line" == *":synopsis:"* ]]; then
                 echo -e "\n${line:3:${#line}}" >> $fname
-              elif [[ "$line" == *":synopsis:"* ]]; then
-                echo -e "${line:3:${#line}}" >> $fname
               fi
           
               if [[ "$line" == *"<- function"* ]]; then
@@ -45,12 +51,11 @@ jobs:
                 func=${func/{/}
                 func=$(echo -e "${func}" | tr -d '[:space:]')
                 echo -e "\n.. function:: ${func}\n" >> $fname
-              elif [[ "$line" == *":detail:"* ]]; then
+              elif [[ "$line" == *":detail:"* ]] || [[ "$line" == *":param"* ]] || [[ "$line" == *":rtype:"* ]] || [[ "$line" == *":todo:"* ]] ; then
                 echo -e "\t${line:3:${#line}}\n" >> $fname
-              elif [[ "$line" == *":param"* ]]; then
-                echo -e "\t${line:3:${#line}}" >> $fname
               elif [[ "$line" == *":return:"* ]]; then
                 echo -e "\t:return: ${line:12:${#line}}" >> $fname
+              elif
               fi
             done < "$input"
           done
