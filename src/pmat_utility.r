@@ -1,8 +1,56 @@
 #' :file: pmat_utility.r
 #' :module: Precipitable Water Model Analysis Tool: Utility
 #' :synopsis: general functions for PMAT
-#' :author: Spencer Riley
-#' :todo: Organize the logging features
+#' :author: Spencer Riley <sriley@pmat.app>
+
+loglevels <- c(DEBUG = 10,  PASS = 15,
+               INFO = 20,   WARN = 30,
+               ERROR = 40,  FATAL = 50,
+               ALOHA = 60)
+## warning codes
+a01 <- "Insufficient data for accurate analysis"
+f01 <- "_output.yml is not found"
+## Error codes
+D01 <- "Insufficient clear sky/overcast data"
+
+F01 <- "master_data.csv is not found"
+F02 <- "_pmat.yml is not found"
+
+logg <- function(msglevel, msg) {
+      #' :details: creates log entries for _log.txt
+      #' :param character msglevel:
+      #' :param character msg:
+      crayon_env <- tryCatch(asNamespace("crayon"), error = function(e) NULL)
+
+      pos <- which(names(loglevels) == msglevel)
+      num <- which(names(loglevels) == level)
+
+      if (loglevels[[pos]] < loglevels[[num]]) {
+        return(invisible(FALSE))
+      }
+
+      record <- list()
+      record$msg <- msg
+      record$timestamp <- sprintf("%s", Sys.time())
+      record$level <- loglevels[[pos]]
+      record$levelname <- names(which(loglevels == record$level)[1])
+      record$color <- switch(record$levelname,
+                    "DEBUG" = crayon_env$make_style("deepskyblue4"),
+                    "PASS" = crayon_env$make_style("green3"),
+                    "INFO" = crayon_env$make_style("magenta"),
+                    "WARN" = crayon_env$make_style("darkorange"),
+                    "ERROR" = crayon_env$make_style("red4"),
+                    "ALOHA" = crayon_env$combine_styles(crayon_env$bold,
+                                                        crayon_env$make_style("lightskyblue")),
+                    "FATAL" =
+                      crayon_env$combine_styles(crayon_env$bold,
+                                                crayon_env$make_style("red1")),
+                    crayon_env$make_style("gray100"))
+      log_entry <- paste(record$color(record$levelname), record$msg)
+      fil_entry <- paste(record$timestamp, record$levelname, record$msg)
+      cat(log_entry, sep="\n")
+      cat(fil_entry, file=paste(args$dir, "_log.txt"), sep="\n", append=TRUE)
+}
 
 ## Command Prompt "Start of Program" and 1st time user stuff
 first <- function(){
@@ -19,12 +67,8 @@ first <- function(){
 
 startup <- function(){
     #' :details: shows title banner for program
-    suppress(message(bold(cloudblue(paste(replicate(65, "-"), collapse="")))))
-    suppress(message(bold(cloudblue("\t\t   Precipitable-water Model Analysis Tool   \t\t\t"))))
-    suppress(message(bold(cloudblue(paste(replicate(65, "-"), collapse="")))))
-    suppress(message(bold(green("First time users are recommended to run the program with the -1st argument"))))
-    suppress(message(bold(green("Ex: Rscript model.r -1st"))))
-    suppress(message(bold(cyan("\t\t>>>>>>>>> Program Start <<<<<<<<\n"))))
+    logg("ALOHA", "Precipitable-water Model Analysis Tool")
+    logg("ALOHA", "Program Start")
 }
 
 closing <- function(){
@@ -32,29 +76,31 @@ closing <- function(){
     ## Ends the script
     if(file.exists("Rplots.pdf")){file.remove("Rplots.pdf")}
 # End of program
-    suppress(message(bold(cyan("\n\t\t>>>>>>> Program Complete <<<<<<<")))); quit()
+    logg("ALOHA", "Program Complete"); quit()
 }
 
 save <- function(func, name){
     #' :details: A general function that will save plots
-    #' :param func: the plotting function that will be saved
-    #' :param name: the name of the file with the plots
-    #' :return: A pdf of the plots
+    #' :param list func: the plotting function that will be saved
+    #' :param character name: the name of the file with the plots
+    #' :return: A pdf of the plot set
 	pdf(name);func;invisible(graphics.off())
 }
 
 reset_time <- function(datetime){
     #' :details: A function that sets the time to 00:00:00
-    #' :param datetime: a Date or datetime object
+    #' :param character datetime: a Date or datetime object
     #' :return: A datetime object with time 00:00:00
+    #' :rtype: double
     return(as.POSIXct(paste(substr(datetime, 1, 11),"00:00:00",sep=" "), format="%Y-%m-%d %H:%M:%S"))
 }
 
 time_axis_init <- function(date){
     #' :details: A function that calculates the min, max, and position of the tick marks for
     #' the time series.
-    #' :param date: A date or datetime object
+    #' :param double date: A date or datetime object
     #' :return: The max, min, and tick mark positions
+    #' :rtype: list
     xmin <- reset_time(paste(substr(date[[1]], 1, 8),"01",sep=""))
     dm <- ifelse(round(as.integer(substr(date[[length(date)]], 9, 10))/20) > 1, 1, 0)
     xmax <- reset_time(paste(substr(date[[length(date)]], 1, 5),
@@ -69,7 +115,7 @@ time_axis_init <- function(date){
 
 time_axis <- function(datetime){
     #' :details: A function that sets the x-axis format for time series plots
-    #' :param date: A date or datetime object
+    #' :param double date: A date or datetime object
     # defines major and minor tick marks for the x-axis and their position
     ticks.at <- time_axis_init(datetime)[2][[1]]
     if (length(ticks.at) > 3){
@@ -88,41 +134,9 @@ time_axis <- function(datetime){
 stnd_title <- function(des, overcast){
     #' :details: A function that generates the title based on
     #' the sky condition and description of the plot
-    #' :param des: the description of the plot
-    #' :param overcast: the sky condition
+    #' :param character des: the description of the plot
+    #' :param logical overcast: the sky condition
     #' :return: a title string
+    #' :rtype: character
 	return(sprintf("%s\nCondition: %s", des, ifelse(overcast,"Overcast", "Clear Sky")))
-}
-
-
-## warning codes
-a01 <- "Warn a01: Insufficient data for accurate analysis"
-f01 <- "Warn f02: _output.yml is not found"
-## Error codes
-D01 <- "Error D01: Insufficient clear sky/overcast data"
-
-F01 <- "Error F01: master_data.csv is not found"
-F02 <- "Error F02: _pmat.yml is not found"
-
-suppress <- function(obj, verbose=config[[3]]$logging[[1]]$verbose){
-  #' :details: suppresses messages
-  #' :param obj:
-  #' :param verbose:
-  if (verbose == "none"){
-    suppressMessages(obj)
-  } else {
-    obj
-  }
-}
-
-error <- function(code){
-  #' :details: function designed to print error codes
-  #' :param string code: the error code
-  cat(red(paste(code, "\n"))); quit()
-}
-
-warning <- function(code){
-  #' :details: function designed to print warning codes
-  #' :param string code: the warning code
-  message(orange(paste(code, "\n")))
 }

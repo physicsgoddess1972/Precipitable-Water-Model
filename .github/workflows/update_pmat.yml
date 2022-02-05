@@ -4,7 +4,6 @@ on:
     paths:
       - "src/*.r"
       - "src/*.py"
-      - "src/run.sh"
   workflow_dispatch:
   
 jobs:
@@ -34,29 +33,24 @@ jobs:
             j=${i##*/}
             echo -e "\n$(repeat "-" ${#j})\n$j\n$(repeat "-" ${#j})" >> $fname
             while read -r line; do
-              case "$line" in 
-                *":module:"*)
-                *":module:"*)
-                *":module:"*)
-                *":module:"*)
-                  
-                  
-                  echo -e "\n${line:3:${#line}}" >> $fname
-              if [[ "$line" == *":module:"* ]] || [[ "$line" == *":synopsis:"* ]]; then
-                echo -e "\n${line:3:${#line}}" >> $fname
-              fi
-          
-              if [[ "$line" == *"<- function"* ]]; then
-                func=${line/<- function/}
-                func=${func/{/}
-                func=$(echo -e "${func}" | tr -d '[:space:]')
-                echo -e "\n.. function:: ${func}\n" >> $fname
-              elif [[ "$line" == *":detail:"* ]] || [[ "$line" == *":param"* ]] || [[ "$line" == *":rtype:"* ]] || [[ "$line" == *":todo:"* ]] ; then
-                echo -e "\t${line:3:${#line}}\n" >> $fname
-              elif [[ "$line" == *":return:"* ]]; then
-                echo -e "\t:return: ${line:12:${#line}}" >> $fname
-              elif
-              fi
+              case $line in
+                *":module:"* | \
+                *":synopsis:"* | \
+                *":detail:"* | \
+                *":param"* | \
+                *":rtype:"* | *":todo:"*)
+                 echo -e "\t${line:3:${#line}}" >> $fname
+                 ;;
+                *"<- function"*)
+                  func=${line/<- function/}
+                  func=${func/{/}
+                  func=$(echo -e "${func}" | tr -d '[:space:]')
+                  echo -e "\n.. function:: ${func}\n" >> $fname
+                ;;
+                *":return:"*)
+                  echo -e "\t:return: ${line:12:${#line}}" >> $fname
+                ;;
+              esac
             done < "$input"
           done
       - name: Run GitHub File Sync
@@ -85,10 +79,8 @@ jobs:
           src/pmat_analysis.r=src/pmat_analysis.r
           src/pmat_products.r=src/pmat_products.r
           src/pmat_utility.r=src/pmat_utility.r
-          src/pmat_logging.r=src/pmat_logging.r
           src/pmat_import.py=src/pmat_import.py
           src/pmat_run.r=src/pmat_run.r
-          src/run.sh=src/run.sh
         TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
   publish_pmat_package:
     needs: update

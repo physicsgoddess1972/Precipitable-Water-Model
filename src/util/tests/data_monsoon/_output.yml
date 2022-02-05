@@ -1,90 +1,90 @@
 - |
-  seed: 1172570731
+  seed: 591930281
   step: 1
   analysis:
     coeff:
-      A: 18.8792
-      B: 0.0358
-    rmse: 3.121
-    rstd: 3.1506
+      A: 19.1429
+      B: 0.0357
+    rmse: 3.0957
+    rstd: 3.125
 - |
-  seed: 2139094895
+  seed: 685001310
   step: 2
   analysis:
     coeff:
-      A: 18.8957
-      B: 0.0361
-    rmse: 3.5135
-    rstd: 3.5468
+      A: 18.7567
+      B: 0.0356
+    rmse: 3.6124
+    rstd: 3.6467
 - |
-  seed: 801143055
+  seed: 1099492420
   step: 3
   analysis:
     coeff:
-      A: 18.4247
-      B: 0.0356
-    rmse: 3.888
-    rstd: 3.9249
+      A: 18.9159
+      B: 0.0361
+    rmse: 3.7625
+    rstd: 3.7981
 - |
-  seed: 1469302052
+  seed: 1496590606
   step: 4
   analysis:
     coeff:
-      A: 18.738
-      B: 0.0351
-    rmse: 3.1569
-    rstd: 3.1869
+      A: 18.6823
+      B: 0.0355
+    rmse: 3.7422
+    rstd: 3.7777
 - |
-  seed: 71309881
+  seed: 2117668840
   step: 5
   analysis:
     coeff:
-      A: 18.615
-      B: 0.0355
-    rmse: 3.1784
-    rstd: 3.2085
+      A: 18.9253
+      B: 0.0359
+    rmse: 3.2379
+    rstd: 3.2686
 - |
-  seed: 1742284031
+  seed: 1802065565
   step: 6
   analysis:
     coeff:
-      A: 18.5585
-      B: 0.0356
-    rmse: 3.2099
-    rstd: 3.2404
+      A: 18.7648
+      B: 0.0353
+    rmse: 2.7234
+    rstd: 2.7492
 - |
-  seed: 487807215
+  seed: 387423853
   step: 7
   analysis:
     coeff:
-      A: 19.012
-      B: 0.0361
-    rmse: 3.5288
-    rstd: 3.5622
+      A: 18.4095
+      B: 0.0352
+    rmse: 3.6235
+    rstd: 3.6579
 - |
-  seed: 1826415815
+  seed: 1749724751
   step: 8
   analysis:
     coeff:
-      A: 19.0441
-      B: 0.0367
-    rmse: 3.3156
-    rstd: 3.347
+      A: 19.1378
+      B: 0.0363
+    rmse: 3.2758
+    rstd: 3.3069
 - |
-  seed: 1392381379
+  seed: 1000338581
   step: 9
   analysis:
     coeff:
-      A: 19.0607
-      B: 0.0364
-    rmse: 3.3532
-    rstd: 3.385
+      A: 18.3441
+      B: 0.0346
+    rmse: 3.4215
+    rstd: 3.454
 - |
-  seed: 1259639711
+  seed: 1012213318
   step: 10
   analysis:
     coeff:
-      A: 19.0246
-      B: 0.036
-    rmse: 3.6069
-    rstd: 3.6411
+      A: 19.2819
+      B: 0.0365
+    rmse: 2.9128
+    rstd: 2.9404
