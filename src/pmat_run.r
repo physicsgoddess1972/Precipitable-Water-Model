@@ -86,19 +86,19 @@ source("pmat_products.r")
 
 if(args$set != FALSE){
 	visual.products(args$set)
+	logg("PASS", sprintf("Plot set downloaded to %s", fig_dir))
 }
-
 
 if(length(args$data) > 0){
 	data.products(args$overcast, args$dir, args$data);
 }
-
 
 if (args$all){
 	opt <- c('t', 'a', 'i', 'c', 'o', 'p')
 	logg("INFO", paste("Condition:", ifelse(args$overcast, "Overcast", "Clear Sky"), sep=" "))
 	for (i in opt){
 		visual.products(i, args$overcast)
+		logg("PASS", sprintf("Plot set downloaded to %s", fig_dir))
 	}
 
 }

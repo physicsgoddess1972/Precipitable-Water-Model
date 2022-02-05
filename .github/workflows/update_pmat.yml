@@ -4,6 +4,8 @@ on:
     paths:
       - "src/*.r"
       - "src/*.py"
+      - "DESCRIPTION"
+      - "requirements.txt"
   workflow_dispatch:
   
 jobs:
@@ -81,6 +83,8 @@ jobs:
           src/pmat_utility.r=src/pmat_utility.r
           src/pmat_import.py=src/pmat_import.py
           src/pmat_run.r=src/pmat_run.r
+          DESCRIPTION
+          requirements.txt
         TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
   publish_pmat_package:
     needs: update
