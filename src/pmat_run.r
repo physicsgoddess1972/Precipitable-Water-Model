@@ -1,6 +1,7 @@
 #' :file: pmat_run.r
-#' :module: Precipitable Water Model Analysis Tool
-#' :synopsis: Documentation is available docs.pmat.app
+#' :module: Precipitable-Water Model Analysis Tool
+#' :author: Spencer Riley <sriley@pmat.app>
+#' :synopsis: The main file for PMAT. Documentation available at <https://docs.pmat.app>.
 #' :author: Spencer Riley
 
 ## Necessary Libraries for the script to run, for installation run install.sh
@@ -11,6 +12,7 @@ library(plotrix)
 suppressPackageStartupMessages(library(pacviz))
 suppressMessages(library(Hmisc))
 library(yaml)
+library(logging)
 options(warn=-1)
 
 ## Used for argument parsing run Rscript model.r --help
@@ -27,7 +29,10 @@ parser$add_argument("-1st", "--first_time", action="store_true", default=FALSE,
 parser$add_argument("-u", action="store_true", default=FALSE,
 	help="Determines whether to write a new _output.yml file for analysis")
 parser$add_argument("-z", "--dev", action="store_true", default=FALSE)
+parser$add_argument("-all", action="store_true", default=FALSE)
 args <- parser$parse_args()
+
+# addHandler(writeToFile, logger='', file=paste(args$dir, "testing.log", sep=""))
 
 ## Custom Colors for cmd line features
 red 		<- make_style("red1")
@@ -36,40 +41,32 @@ yellow 		<- make_style("gold2")
 green 		<- make_style("lawngreen")
 cloudblue 	<- make_style("lightskyblue")
 
-## Command Prompt "Start of Program" and 1st time user stuff
-if(args$first_time){
-	message(bold(cloudblue(" \t\t**** Welcome First Time Users ****\t\t\t")))
-	message(bold(cloudblue(paste(rep("\t   _  _\t\t\t", 2, collapse="")))))
-	message(bold(cloudblue(paste(rep("\t  ( `   )_\t\t", 2, collapse="")))))
-	message(bold(cloudblue(paste(rep("\t (     )   `)\t\t",2, collapse="")))))
-	message(bold(cloudblue(paste(rep("\t(_   (_ .  _) _)\t", 2, collapse="")))))
-	message(bold(cloudblue("Some Notes:")))
-	message((green("\t- Arguments: Rscript model.r -h or Rscript model.r --help.")))
-	message((yellow("\t- Issues/Bugs?: https://bugs.pmat.app")))
-	quit()
-}
 # Error/Warning definitions
-source("./pmat_logging.r")
+source("./pmat_utility.r")
+
+fig_dir <- paste(args$dir, "../figs/results/", sep="")
 ## Imports sensor information from instruments.txt
 if(file.exists(paste(args$dir,"_pmat.yml", sep=""))){
 	config		<- yaml.load_file(paste(args$dir,"_pmat.yml", sep=""))
+	assign("level", config[[3]]$logging[[1]]$verbose)
 } else {
-	error(F02)
+	logg("ERROR", F02); closing()
 }
-fig_dir <- "../figs/results/"
-source("./pmat_utility.r")
+
+if (args$first){first()}
 startup()
 
 ## Imports data from master_data.csv
 if (file.exists(paste(args$dir,"master_data.csv", sep=""))){
 	fname       <- read.table(paste(args$dir,"master_data.csv", sep=""), sep=",", header=TRUE, strip.white=TRUE)
 } else {
-	error(F01)
+	logg("ERROR", F01); closing()
 }
+## Tries to read _output.yml
 if(file.exists(paste(args$dir,"_output.yml", sep=""))){
 	oname <- yaml.load_file(paste(args$dir,"_output.yml", sep=""))
 } else {
-	warning(f01)
+	logg("WARN", f01)
 	oname <- file.create(paste(args$dir,"_output.yml", sep=""))
 	args$u <- TRUE
 }
@@ -84,65 +81,33 @@ clear_sky.results <- sky.analysis(overcast.filter(col_con, col_date, col_com,
 overcast.results <- sky.analysis(overcast.filter(col_con, col_date, col_com,
 												 pw_name, snsr_name, TRUE))
 
-if(args$set == "a" || args$set == "o"){
-	ifelse(args$overcast, 	len <- length(overcast.results$date),
-		   					len <- length(clear_sky.results$date))
-	if (len > 0){
-		iter.results <- iterative.analysis(args$overcast, args$dir, args$u)
-	} else {
-		error(D01)
-	}
-}
-
-if (args$set != "c" || args$set != FALSE){
-	suppress(message(magenta("Condition: "), ifelse(args$overcast, "Overcast", "Clear Sky")))
-}
-
 # Graphical and Data product functions
 source("pmat_products.r")
+
+if(args$set != FALSE){
+	visual.products(args$set)
+	logg("PASS", sprintf("Plot set downloaded to %s", fig_dir))
+}
 
 if(length(args$data) > 0){
 	data.products(args$overcast, args$dir, args$data);
 }
-if(args$set == "i"){
-	sname_pub <- sprintf("%ssensor%s.pdf", fig_dir, ifelse(args$overcast,"overcast", ""))
-	suppress(save(c(instr(overcast=args$overcast)), sname_pub))
-}else if(args$set == "t"){
-	ifelse(args$overcast, 	date <- overcast.results$date,
-		   					date <- clear_sky.results$date)
-	ifelse(args$overcast, 	time <- overcast.results$time,
-		   					time <- clear_sky.results$time)
 
-	datetime <- as.POSIXct(paste(as.Date(unlist(date), origin="1970-01-01"),
-							 	paste(unlist(time),":00", sep="")),
-                           format="%Y-%m-%d %H:%M:%S")
-
-	sname_pub <- sprintf("%stime_series%s.pdf", fig_dir, ifelse(args$overcast,"overcast", ""))
-
-	if (length(date) > 0){
-		suppress(save(c(time_series.plots(datetime, args$overcast)), sname_pub))
-	} else {
-		error(D01)
+if (args$all){
+	opt <- c('t', 'a', 'i', 'c', 'o', 'p')
+	logg("INFO", paste("Condition:", ifelse(args$overcast, "Overcast", "Clear Sky"), sep=" "))
+	for (i in opt){
+		visual.products(i, args$overcast)
+		logg("PASS", sprintf("Plot set downloaded to %s", fig_dir))
 	}
-}else if(args$set == "a"){
-	sname_pub <- sprintf("%sanalytics%s.pdf", fig_dir, ifelse(args$overcast,"overcast", ""))
-	suppress(save(c(analytical.plots(args$overcast)), sname_pub))
-}else if(args$set == "c"){
-	sname_pub 	<- sprintf("../figs/results/charts.pdf")
-	suppress(save(c(charts()), sname_pub))
-} else if (args$set == "p") {
-	sname_pub <- sprintf("%spacman%s.pdf", fig_dir, ifelse(args$overcast,"overcast", ""))
-	suppress(save(c(pac.plots(args$overcast)), sname_pub))
-} else if (args$set == "o"){
-	sname_pub <- sprintf("%sposter%s.pdf", fig_dir, ifelse(args$overcast,"overcast", ""))
-	suppress(save(c(poster.plots(args$overcast)), sname_pub))
+
 }
+
 if (args$dev){
 	source("./util/tests/analysis_feat.r")
-	# sname_pub 	<- sprintf("../figs/results/dev.pdf")
-	# save(c(heat.maps(date, args$overcast), dev.plots(date, args$overcast)), sname_pub)
+	source("./util/tests/plots_dev.r")
+
+	save(c(dev.temp(), dev.pw()), sprintf("%sdev.pdf", fig_dir))
 }
-if (args$set != FALSE){
-	suppress(message(green(sprintf("Plot set downloaded to %s\n", sname_pub))))
-}
+
 closing()
