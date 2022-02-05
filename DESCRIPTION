@@ -5,8 +5,8 @@ Authors@R:
     person(given = "Spencer",
            family = "Riley",
            role = c("aut", "cre"),
-           email = "spencer.riley@student.nmt.edu")
-Description: THis is a TEST
+           email = "sriley@pmat.app")
+Description: The Precipitable-Water Model Analysis Tool (PMAT) is an open-source software suite designed to study the correlation between atmospheric brightness temperature and precipitable water data. PMAT addresses the need for an easily integrated analysis workflow to quantitatively characterize the relationship between regional PWAT and localized atmospheric brightness temperature observations for areas that lack high to moderate-resolution data collection infrastructure.
 License: MIT + file LICENSE
 Depends:
     R (>= 4.0.0)
@@ -14,11 +14,9 @@ Imports:
     argparse,
     plotrix (== 3.5),
     RColorBrewer,
-    Metrics,
     pacviz,
     Hmisc,
-    yaml,
-    DiagrammeR,
+    yaml
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1

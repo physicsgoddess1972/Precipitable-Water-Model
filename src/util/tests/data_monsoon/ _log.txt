@@ -1,0 +1,242 @@
+2022-02-05 08:31:49 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 08:31:49 ALOHA Program Start
+2022-02-05 08:31:52 INFO Condition: Clear Sky
+2022-02-05 08:31:52 PASS Sky Temperature Time Series
+2022-02-05 08:31:53 PASS Ground Temperature Time Series
+2022-02-05 08:31:53 PASS Difference Between Ground-Sky Temperature Time Series
+2022-02-05 08:31:53 PASS Total Precipitable Water Time Series
+2022-02-05 08:31:53 PASS Temporal Mean Precipitable Water Time Series
+2022-02-05 08:31:53 PASS Locational Mean Precipitable Water Time Series
+2022-02-05 08:31:53 PASS Mean Total Precipitable Water Time Series
+2022-02-05 08:31:53 PASS Dewpoint Temperature Time Series
+2022-02-05 08:31:53 PASS Mean Sky Temperature and RH Time Series
+2022-02-05 08:31:53 PASS Mean TPW and RH Time Series
+2022-02-05 08:31:53 PASS Normalized Index for Weighted PWV Time Series
+2022-02-05 08:31:54 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/time_series.pdf
+2022-02-05 08:31:54 PASS Correlation between TPW and Temperature
+2022-02-05 08:31:54 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-05 08:31:54 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-05 08:33:45 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 08:33:45 ALOHA Program Start
+2022-02-05 08:33:48 INFO Condition: Clear Sky
+2022-02-05 08:33:48 PASS Sky Temperature Time Series
+2022-02-05 08:33:48 PASS Ground Temperature Time Series
+2022-02-05 08:33:48 PASS Difference Between Ground-Sky Temperature Time Series
+2022-02-05 08:33:48 PASS Total Precipitable Water Time Series
+2022-02-05 08:33:48 PASS Temporal Mean Precipitable Water Time Series
+2022-02-05 08:33:48 PASS Locational Mean Precipitable Water Time Series
+2022-02-05 08:33:49 PASS Mean Total Precipitable Water Time Series
+2022-02-05 08:33:49 PASS Dewpoint Temperature Time Series
+2022-02-05 08:33:49 PASS Mean Sky Temperature and RH Time Series
+2022-02-05 08:33:49 PASS Mean TPW and RH Time Series
+2022-02-05 08:33:49 PASS Normalized Index for Weighted PWV Time Series
+2022-02-05 08:33:49 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/time_series.pdf
+2022-02-05 08:33:49 PASS Correlation between TPW and Temperature
+2022-02-05 08:33:49 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-05 08:33:49 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-05 08:33:50 DEBUG Check here
+2022-02-05 08:35:45 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 08:35:45 ALOHA Program Start
+2022-02-05 08:35:48 DEBUG Check here
+2022-02-05 08:35:48 DEBUG Check here
+2022-02-05 08:35:48 DEBUG Check here
+2022-02-05 08:35:48 DEBUG Check here
+2022-02-05 08:35:49 DEBUG Check here
+2022-02-05 08:35:49 DEBUG Check here
+2022-02-05 08:35:49 DEBUG Check here
+2022-02-05 08:35:49 DEBUG Check here
+2022-02-05 08:35:49 DEBUG Check here
+2022-02-05 08:35:50 DEBUG Check here
+2022-02-05 08:35:50 INFO Condition: Clear Sky
+2022-02-05 08:35:50 ALOHA Program Complete
+2022-02-05 08:36:47 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 08:36:47 ALOHA Program Start
+2022-02-05 08:36:49 INFO Condition: Clear Sky
+2022-02-05 08:36:49 PASS Sky Temperature Time Series
+2022-02-05 08:36:50 PASS Ground Temperature Time Series
+2022-02-05 08:36:50 PASS Difference Between Ground-Sky Temperature Time Series
+2022-02-05 08:36:50 PASS Total Precipitable Water Time Series
+2022-02-05 08:36:50 PASS Temporal Mean Precipitable Water Time Series
+2022-02-05 08:36:50 PASS Locational Mean Precipitable Water Time Series
+2022-02-05 08:36:50 PASS Mean Total Precipitable Water Time Series
+2022-02-05 08:36:50 PASS Dewpoint Temperature Time Series
+2022-02-05 08:36:50 PASS Mean Sky Temperature and RH Time Series
+2022-02-05 08:36:50 PASS Mean TPW and RH Time Series
+2022-02-05 08:36:50 PASS Normalized Index for Weighted PWV Time Series
+2022-02-05 08:36:50 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/time_series.pdf
+2022-02-05 08:36:51 PASS Correlation between TPW and Temperature
+2022-02-05 08:36:51 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-05 08:36:51 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-05 08:38:51 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 08:38:51 ALOHA Program Start
+2022-02-05 08:38:54 INFO Condition: Clear Sky
+2022-02-05 08:38:54 PASS Sky Temperature Time Series
+2022-02-05 08:38:54 PASS Ground Temperature Time Series
+2022-02-05 08:38:54 PASS Difference Between Ground-Sky Temperature Time Series
+2022-02-05 08:38:54 PASS Total Precipitable Water Time Series
+2022-02-05 08:38:54 PASS Temporal Mean Precipitable Water Time Series
+2022-02-05 08:38:54 PASS Locational Mean Precipitable Water Time Series
+2022-02-05 08:38:54 PASS Mean Total Precipitable Water Time Series
+2022-02-05 08:38:54 PASS Dewpoint Temperature Time Series
+2022-02-05 08:38:54 PASS Mean Sky Temperature and RH Time Series
+2022-02-05 08:38:55 PASS Mean TPW and RH Time Series
+2022-02-05 08:38:55 PASS Normalized Index for Weighted PWV Time Series
+2022-02-05 08:38:55 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/time_series.pdf
+2022-02-05 08:38:57 INFO Condition: Clear Sky
+2022-02-05 08:38:57 PASS Correlation between TPW and Temperature
+2022-02-05 08:38:58 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-05 08:38:58 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-05 08:40:45 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 08:40:45 ALOHA Program Start
+2022-02-05 08:40:48 INFO Condition: Clear Sky
+2022-02-05 08:40:48 PASS Sky Temperature Time Series
+2022-02-05 08:40:48 PASS Ground Temperature Time Series
+2022-02-05 08:40:48 PASS Difference Between Ground-Sky Temperature Time Series
+2022-02-05 08:40:48 PASS Total Precipitable Water Time Series
+2022-02-05 08:40:49 PASS Temporal Mean Precipitable Water Time Series
+2022-02-05 08:40:49 PASS Locational Mean Precipitable Water Time Series
+2022-02-05 08:40:49 PASS Mean Total Precipitable Water Time Series
+2022-02-05 08:40:49 PASS Dewpoint Temperature Time Series
+2022-02-05 08:40:49 PASS Mean Sky Temperature and RH Time Series
+2022-02-05 08:40:49 PASS Mean TPW and RH Time Series
+2022-02-05 08:40:49 PASS Normalized Index for Weighted PWV Time Series
+2022-02-05 08:40:49 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/time_series.pdf
+2022-02-05 08:40:51 INFO Condition: Clear Sky
+2022-02-05 08:40:52 PASS Correlation between TPW and Temperature
+2022-02-05 08:40:52 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-05 08:40:52 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-05 08:40:52 PASS Correlation between Mean TPW and Temperature
+2022-02-05 08:40:53 PASS Correlation between Weighted Mean TPW and Temperature
+2022-02-05 08:40:53 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/analytics.pdf
+2022-02-05 08:40:53 INFO Condition: Clear Sky
+2022-02-05 08:40:53 PASS Overcast Condition Percentage: AMES 1
+2022-02-05 08:40:53 PASS Overcast Condition Percentage: AMES 2
+2022-02-05 08:40:53 PASS Overcast Condition Percentage: AMES 3
+2022-02-05 08:40:53 PASS Sky-Ground Time Series: AMES
+2022-02-05 08:40:53 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/sensor.pdf
+2022-02-05 08:40:53 PASS Weighted PWV
+2022-02-05 08:40:53 PASS Average Temperature
+2022-02-05 08:40:53 PASS Relative Humidity
+2022-02-05 08:40:53 PASS Dewpoint Temperature
+2022-02-05 08:40:53 PASS Distribution of PWV in ABQ
+2022-02-05 08:40:53 PASS Distribution of PWV in EPZ
+2022-02-05 08:40:54 PASS Plot set downloaded to ../figs/results/charts.pdf
+2022-02-05 08:40:56 INFO Condition: Clear Sky
+2022-02-05 08:42:12 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 08:42:12 ALOHA Program Start
+2022-02-05 08:42:15 ALOHA Program Complete
+2022-02-05 08:43:01 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 08:43:01 ALOHA Program Start
+2022-02-05 08:43:06 INFO Condition: Clear Sky
+2022-02-05 08:44:01 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 08:44:01 ALOHA Program Start
+2022-02-05 08:44:06 INFO Condition: Clear Sky
+2022-02-05 08:44:35 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 08:44:35 ALOHA Program Start
+2022-02-05 08:44:40 INFO Condition: Clear Sky
+2022-02-05 08:45:07 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 08:45:07 ALOHA Program Start
+2022-02-05 08:45:12 INFO Condition: Clear Sky
+2022-02-05 08:45:33 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 08:45:33 ALOHA Program Start
+2022-02-05 08:45:38 INFO Condition: Clear Sky
+2022-02-05 08:46:11 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 08:46:11 ALOHA Program Start
+2022-02-05 08:46:16 INFO Condition: Clear Sky
+2022-02-05 08:46:47 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 08:46:47 ALOHA Program Start
+2022-02-05 08:46:52 INFO Condition: Clear Sky
+2022-02-05 08:51:26 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 08:51:26 ALOHA Program Start
+2022-02-05 08:51:31 INFO Condition: Clear Sky
+2022-02-05 08:52:50 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 08:52:50 ALOHA Program Start
+2022-02-05 08:52:55 INFO Condition: Clear Sky
+2022-02-05 08:52:56 ALOHA Program Complete
+2022-02-05 08:54:59 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 08:54:59 ALOHA Program Start
+2022-02-05 08:55:04 INFO Condition: Clear Sky
+2022-02-05 08:55:05 ALOHA Program Complete
+2022-02-05 08:55:38 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 08:55:38 ALOHA Program Start
+2022-02-05 08:55:41 INFO Condition: Clear Sky
+2022-02-05 08:55:44 INFO Condition: Clear Sky
+2022-02-05 08:55:45 INFO Condition: Clear Sky
+2022-02-05 08:55:48 INFO Condition: Clear Sky
+2022-02-05 08:55:49 INFO Condition: Clear Sky
+2022-02-05 08:55:49 ALOHA Program Complete
+2022-02-05 08:57:17 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 08:57:17 ALOHA Program Start
+2022-02-05 08:57:20 INFO Condition: Clear Sky
+2022-02-05 08:57:23 INFO Condition: Clear Sky
+2022-02-05 08:57:25 INFO Condition: Clear Sky
+2022-02-05 08:57:27 INFO Condition: Clear Sky
+2022-02-05 08:57:29 INFO Condition: Clear Sky
+2022-02-05 08:57:29 ALOHA Program Complete
+2022-02-05 09:02:08 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 09:02:08 ALOHA Program Start
+2022-02-05 09:02:10 INFO Condition: Clear Sky
+2022-02-05 09:02:10 INFO Time Series Plot Set
+2022-02-05 09:02:14 INFO Analytics Plot Set
+2022-02-05 09:02:15 INFO Sensor Plot Set
+2022-02-05 09:02:15 INFO Chart Set
+2022-02-05 09:02:18 INFO Poster Plot Set
+2022-02-05 09:02:19 INFO Pac-Man Plot Set
+2022-02-05 09:02:19 ALOHA Program Complete
+2022-02-05 09:02:36 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 09:02:36 ALOHA Program Start
+2022-02-05 09:02:38 INFO Condition: Overcast
+2022-02-05 09:02:38 INFO Time Series Plot Set
+2022-02-05 09:02:40 INFO Analytics Plot Set
+2022-02-05 09:02:41 INFO Sensor Plot Set
+2022-02-05 09:02:41 INFO Chart Set
+2022-02-05 09:02:42 INFO Poster Plot Set
+2022-02-05 09:02:43 INFO Pac-Man Plot Set
+2022-02-05 09:02:43 ALOHA Program Complete
+2022-02-05 09:03:49 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 09:03:49 ALOHA Program Start
+2022-02-05 09:03:51 INFO Condition: Overcast
+2022-02-05 09:03:52 INFO Time Series Plot Set
+2022-02-05 09:03:52 PASS Sky Temperature Time Series
+2022-02-05 09:03:52 PASS Ground Temperature Time Series
+2022-02-05 09:03:52 PASS Difference Between Ground-Sky Temperature Time Series
+2022-02-05 09:03:52 PASS Total Precipitable Water Time Series
+2022-02-05 09:03:52 PASS Temporal Mean Precipitable Water Time Series
+2022-02-05 09:03:52 PASS Locational Mean Precipitable Water Time Series
+2022-02-05 09:03:52 PASS Mean Total Precipitable Water Time Series
+2022-02-05 09:03:52 PASS Dewpoint Temperature Time Series
+2022-02-05 09:03:52 PASS Mean Sky Temperature and RH Time Series
+2022-02-05 09:03:52 PASS Mean TPW and RH Time Series
+2022-02-05 09:03:52 PASS Normalized Index for Weighted PWV Time Series
+2022-02-05 09:03:53 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/time_series_overcast.pdf
+2022-02-05 09:03:53 INFO Analytics Plot Set
+2022-02-05 09:03:54 PASS Correlation between TPW and Temperature
+2022-02-05 09:03:54 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-05 09:03:54 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-05 09:03:54 PASS Correlation between Mean TPW and Temperature
+2022-02-05 09:03:54 PASS Correlation between Weighted Mean TPW and Temperature
+2022-02-05 09:03:54 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/analytics_overcast.pdf
+2022-02-05 09:03:54 INFO Sensor Plot Set
+2022-02-05 09:03:54 PASS Overcast Condition Percentage: AMES 1
+2022-02-05 09:03:54 PASS Overcast Condition Percentage: AMES 2
+2022-02-05 09:03:54 PASS Overcast Condition Percentage: AMES 3
+2022-02-05 09:03:54 PASS Sky-Ground Time Series: AMES
+2022-02-05 09:03:54 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/sensor_overcast.pdf
+2022-02-05 09:03:54 INFO Chart Set
+2022-02-05 09:03:54 PASS Weighted PWV
+2022-02-05 09:03:55 PASS Average Temperature
+2022-02-05 09:03:55 PASS Relative Humidity
+2022-02-05 09:03:55 PASS Dewpoint Temperature
+2022-02-05 09:03:55 PASS Distribution of PWV in ABQ
+2022-02-05 09:03:55 PASS Distribution of PWV in EPZ
+2022-02-05 09:03:55 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/charts.pdf
+2022-02-05 09:03:55 INFO Poster Plot Set
+2022-02-05 09:03:56 PASS Sky-Ground-Delta Temperature Time Series
+2022-02-05 09:03:56 PASS Analytical Plots
+2022-02-05 09:03:56 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/poster_overcast.pdf
+2022-02-05 09:03:56 INFO Pac-Man Plot Set
+2022-02-05 09:03:56 PASS Total Mean PW and Temperature
+
+2022-02-05 09:03:56 PASS Pac-Man Residual of the Mean TPW and Temperature Model
+2022-02-05 09:03:56 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/pacman_overcast.pdf
+2022-02-05 09:03:56 ALOHA Program Complete

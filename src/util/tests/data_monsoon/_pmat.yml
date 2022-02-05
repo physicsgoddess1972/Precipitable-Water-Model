@@ -51,7 +51,7 @@
       step: 10
       seed:
 - logging:
-  - verbose: 0
+  - verbose: DEBUG
 - import:
   - external:
 
