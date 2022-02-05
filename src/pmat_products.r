@@ -999,6 +999,9 @@ data.products <- function(overcast, dir, i){
 }
 
 visual.products <- function(set, overcast){
+    #' :details: saves plot sets
+    #' :param character set: the set identifier
+    #' :param logical overcast: ovecast boolean
     if(set == "a" || set == "o"){
         ifelse(overcast, len <- length(overcast.results$date),
                          len <- length(clear_sky.results$date))
@@ -1013,6 +1016,7 @@ visual.products <- function(set, overcast){
         logg("INFO", "Sensor Plot Set")
 		sname_pub <- sprintf("%ssensor_%s.pdf", fig_dir, ifelse(overcast,"overcast", ""))
 		save(c(instr(overcast)), sname_pub)
+        return(NULL)
 	}else if(set == "t"){
         logg("INFO", "Time Series Plot Set")
 		ifelse(overcast, 	date <- overcast.results$date,
@@ -1028,6 +1032,7 @@ visual.products <- function(set, overcast){
 
 		if (length(date) > 0){
 			save(c(time_series.plots(datetime, overcast)), sname_pub)
+            return(NULL)
 		} else {
 			logg("ERROR", D01); closing()
 		}
@@ -1035,21 +1040,21 @@ visual.products <- function(set, overcast){
         logg("INFO", "Analytics Plot Set")
 		sname_pub <- sprintf("%sanalytics_%s.pdf", fig_dir, ifelse(overcast,"overcast", ""))
 		save(c(analytical.plots(overcast, iter.results)), sname_pub)
+        return(NULL)
 	}else if(set == "c"){
         logg("INFO", "Chart Set")
 		sname_pub 	<-sprintf("%scharts.pdf", fig_dir)
 		save(c(charts()), sname_pub)
+        return(NULL)
 	} else if (set == "p") {
         logg("INFO", "Pac-Man Plot Set")
 		sname_pub <- sprintf("%spacman_%s.pdf", fig_dir, ifelse(overcast,"overcast", ""))
 		save(c(pac.plots(overcast)), sname_pub)
+        return(NULL)
 	} else if (set == "o"){
         logg("INFO", "Poster Plot Set")
 		sname_pub <- sprintf("%sposter_%s.pdf", fig_dir, ifelse(overcast,"overcast", ""))
 		save(c(poster.plots(overcast, iter.results)), sname_pub)
+        return(NULL)
 	}
-
-    if (set != FALSE){
-      logg("PASS", sprintf("Plot set downloaded to %s", sname_pub))
-    }
 }
