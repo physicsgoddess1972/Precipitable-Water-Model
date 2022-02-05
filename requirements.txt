@@ -2,7 +2,5 @@ numpy
 pandas
 metpy
 requests
-rich
 siphon
 pyyaml
-git+git://github.com/PharaohCola13/AtmosAccess.git

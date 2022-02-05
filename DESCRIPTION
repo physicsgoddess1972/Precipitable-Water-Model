@@ -14,7 +14,6 @@ Imports:
     argparse,
     plotrix (== 3.5),
     RColorBrewer,
-    Metrics,
     pacviz,
     Hmisc,
 Encoding: UTF-8

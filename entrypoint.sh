@@ -7,6 +7,7 @@ cd src/
 echo "Starting Data Aquistion"
 python3 pmat_import.py
 echo "Running PMAT"
-bash run.sh -a
+Rscript pmat_run.r --dir ./data/ -all
+Rscript pmat_run.r --dir ./data/ -all -o
 cd ../;  rm -r src/
 
