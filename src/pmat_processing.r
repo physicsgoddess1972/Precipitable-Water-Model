@@ -18,6 +18,8 @@ col_date 	<- grep("Date", colnames(fname))
 col_time 	<- grep("Time", colnames(fname))
 ## Pulls the column number of the Relative Humidity
 col_rh 		<- grep("RH", colnames(fname))
+## Pulls the column number of the Relative Humidity
+col_dew 	<- grep("Dewpoint", colnames(fname))
 ## Pulls the column number of the non-measurement temperature
 col_temp 	<- grep("Temp", colnames(fname))
 ## Pulls the column number of the Condition
@@ -184,8 +186,8 @@ dna.filter <- function(date, comments, snsr_sky, snsr_gro){
 #' @export
 overcast.filter <- function(col_con, col_date, col_com, pw_name, snsr_name, cloud_bool){
 	# Initializes the lists to store values
-	date_clear	<- snsr_sky		<- snsr_gro		<- pw_loc  <- rh <- time <- list()
-	date_over	<- snsr_skyo	<- snsr_groo	<- pw_loco <- rho <- timeo <- list()
+	date_clear	<- snsr_sky		<- snsr_gro		<- pw_loc  <- rh <- time <- dew <- list()
+	date_over	<- snsr_skyo	<- snsr_groo	<- pw_loco <- rho <- timeo <- dewo<- list()
 	com <- como <- list()
 	# Divides the data based on condition (Overcast/Clear Skies)
 	for (i in 1:length(t(fname[col_con]))){
@@ -201,6 +203,7 @@ overcast.filter <- function(col_con, col_date, col_com, pw_name, snsr_name, clou
 			rh <- append(x=rh, value=fname[i, col_rh[1]])
 			com <- append(x=com, value=fname[i, col_com[1]])
 			time <- append(x=time, value=fname[i, col_time[1]])
+			dew <- append(x=dew, value=fname[i, col_dew[1]])
 			filter.dna <-dna.filter(date_clear, com, snsr_sky, snsr_gro)
 			snsr_sky <- filter.dna$snsr_sky
 			snsr_gro <- filter.dna$snsr_gro
@@ -216,6 +219,7 @@ overcast.filter <- function(col_con, col_date, col_com, pw_name, snsr_name, clou
 			rho <- append(x=rho, value=fname[i, col_rh[1]])
 			como <- append(x=como, value=fname[i, col_com[1]])
 			timeo <- append(x=timeo, value=fname[i, col_time[1]])
+			dewo <- append(x=dewo, value=fname[i, col_dew[1]])
 			filter.dna <-dna.filter(date_over, como, snsr_skyo, snsr_groo)
 			snsr_skyo <- filter.dna$snsr_sky
 			snsr_groo <- filter.dna$snsr_gro
@@ -224,7 +228,7 @@ overcast.filter <- function(col_con, col_date, col_com, pw_name, snsr_name, clou
 	}
 	# Adds divided data into list to output from function
 	if (cloud_bool){
-		output1 <- list(date=date_over, time=timeo, rh=rho, com=como)
+		output1 <- list(date=date_over, time=timeo, rh=rho, com=como, dew=dewo)
 		for(j in 1:length(snsr_name)){
 			output1 <- append(x=output1, values=list("sky"=snsr_skyo[[ paste("snsr_sky",j,sep="") ]]))
 		}
@@ -235,7 +239,7 @@ overcast.filter <- function(col_con, col_date, col_com, pw_name, snsr_name, clou
 			output1 <- append(x=output1, values=list("pw"=pw_loco[[ paste("pw_loc", j, sep="")]]))
 		}
 	} else {
-		output1 <- list(date=date_clear, time=time, rh=rh, com=com)
+		output1 <- list(date=date_clear, time=time, rh=rh, com=com, dew=dew)
 		for(j in 1:length(snsr_name)){
 			output1 <- append(x=output1, values=list("gro"=snsr_gro[[ paste("snsr_gro",j,sep="") ]]))
 		}
