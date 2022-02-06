@@ -4,14 +4,14 @@
       total.count: 644
     overcast:
       total.count: 343
-    train.count: 230
-    nans: 33
-    fraction.kept: 0.47
+    train.count: 428
+    nans: 44
+    fraction.kept: 0.89
   analysis:
     coeff:
       A: 18.83612
       B: 0.03567
   rmse:
-    mims: 14.8360029
-    kelsey: 7.788979
+    mims: 4.6041046
+    kelsey: 3.3264256
     yours: 3.34077

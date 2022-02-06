@@ -17,7 +17,7 @@ sudo apt install libfreetype6-dev libpng-dev libtiff5-dev libjpeg-dev
 sudo python3 -m pip install -r ../requirements.txt
 curl -O https://cran.rstudio.com/src/base/R-${rvers:2:1}/${rvers}.tar.gz
 sudo tar -zxf ./R-*.tar.gz -C /opt/
-cd /opt/R-*/ && sudo ./configure --with-readline=no --with-x=no --with-cairo=yes --with-pcre1 && sudo make && sudo make install
+cd /opt/R-*/ && sudo ./configure --with-readline=no --with-x=no --with-cairo=yes --with-pcre1 --enable-R-shlib && sudo make && sudo make install
 sudo cp /opt/R-*/bin/R /bin/R && sudo cp /opt/R-*/bin/R /usr/bin/R && sudo cp /opt/R-*/bin/R /usr/local/bin/R
 sudo cp /opt/R-*/bin/Rscript /bin/Rscript && sudo cp /opt/R-*/bin/Rscript /usr/bin/Rscript && sudo cp /opt/R-*/bin/Rscript /usr/local/bin/Rscript
 cd - && rm R-*.tar.gz

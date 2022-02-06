@@ -1,15 +1,19 @@
-####
-# ' @title Precipitable Water Model Analysis Tool: Preprocessing
-# ' @author Spencer Riley
-# ' @docs https://docs.pmat.app
-####
-import csv, os, yaml
+"""
+#' :file: pmat_import.r
+#' :module: Precipitable Water Model Analysis Tool: Import
+#' :synopsis: data import script for PMAT
+#' :author: Spencer Riley <sriley@pmat.app>
+"""
+
+import csv, os, yaml, sys
 import requests
 from numpy import *
 import pandas as pd
 from io import StringIO
 from bs4 import BeautifulSoup
 import dateutil.parser
+
+import rpy2.robjects as robjects
 
 import time
 import datetime
@@ -127,12 +131,12 @@ class MesoWest(HTTPEndPoint):
 
 class PMAT_Import():
     """
-    @title closest
-    @brief A function that computes the closest value
-    @param lst The date of the desired observation.
-    @param K
-    @param d
-    @return
+    :title: closest
+    :detail: A function that computes the closest value
+    :param lst: The date of the desired observation
+    :param K:
+    :param d:
+    :return:
     """
     def closest(lst, K, d):
         lst = asarray(lst)
@@ -155,15 +159,22 @@ class PMAT_Import():
             df_12 = WyomingUpperAir.request_data(dt.combine(end_date, datetime.time(12, 0)), station)
             pw12 = df_12.pw[0]
         except (ValueError, IndexError):
+            logg("WARN", "Data not avialable for {} at {}".format(dt.combine(end_date, datetime.time(12, 0)), station), dir)
             pw12 = "NaN"
         except requests.exceptions.HTTPError:
+            logg("WARN", "Connection issue with Wyoming Upper-Air...", dir)
             pw12 = "Error"
         try:
             df_00 = WyomingUpperAir.request_data(end_date + datetime.timedelta(days=1), station)
-            pw00 = df_00.pw[0]
+            if df_00.pw[0] < 100:
+                pw00 = df_00.pw[0]
+            else:
+                pw00 = "NaN"
         except (ValueError, IndexError):
+            logg("WARN", "Data not avialable for {} at {}".format(end_date + datetime.timedelta(days=1), station), dir)
             pw00 = "NaN"
         except requests.exceptions.HTTPError:
+            logg("WARN", "Connection issue with Wyoming Upper-Air...", dir)
             pw00 = "Error"
         return [station, [end_date, pw12, pw00]]
 
@@ -216,14 +227,17 @@ class PMAT_Import():
 
             thyme = df_tm[mw_header[tau]].values[0]
             if str(df_tm['relative_humidity'].values[0]) == "nan":
-               rh = "NaN"
+                logg("WARN", "RH data not avialable for {} at {}".format(thyme, station), dir)
+                rh = "NaN"
             else:
                 rh = int(df_tm['relative_humidity'].values[0])
             if str(float(df_tm['temperature'].values[0])) == "nan":
+                logg("WARN", "Temperature data not avialable for {} at {}".format(thyme, station), dir)
                 temp = "NaN"
             else:
                 temp = round((float(df_tm['temperature'].values[0]) * units.degF).to(units.degC).magnitude, 2)
             if str(float(df_tm['dew_point'].values[0])) == "nan":
+                logg("WARN", "Dewpoint data not avialable for {} at {}".format(thyme, station), dir)
                 dwpt = "NaN"
             else:
                 dwpt = round((float(df_tm['dew_point'].values[0]) * units.degF).to(units.degC).magnitude, 2)
@@ -324,7 +338,11 @@ class PMAT_Import():
         else:
             out.to_csv(wname, index=False, mode="a", header=False)
 
-dir = "./util/tests/data_monsoon/"
+
+r = robjects.r
+r['source']('./pmat_utility.r')
+
+dir = sys.argv[1]
 
 ## Data file used for configuration parameters
 cname = dir + "_pmat.yml"
@@ -333,6 +351,13 @@ rname = dir + 'cool_data.csv'
 ## Data file used for model input
 wname = dir + 'master_data.csv'
 
+V = list(yaml.safe_load_all(open(cname)))[0][2]['logging'][0]
+level = robjects.r['assign']
+level("level", V['verbose'])
+
+logg = robjects.r['logg']
+logg("INFO", "Collecting Data from sources", dir)
+
 ## Hours to pull
 hour = [00, 12]
 
@@ -340,24 +365,26 @@ hour = [00, 12]
 cnfg = list(yaml.safe_load_all(open(cname)))[0][3]['import']
 ## Collects data from cname for PW data collection
 keys = [list(x.keys())[0] for x in cnfg]
-if ('external' in keys):
-    ext_bool = [list(x.keys())[0] for x in cnfg[0]['external']]
-    if ('pw' in ext_bool):
-        pw_cnfg = cnfg[0]['external'][ext_bool.index('pw')]['pw']
-        pw_data = list(map(lambda x: x['path'], pw_cnfg))
-        pw_id   = list(map(lambda x: x['id'], pw_cnfg))
-    if ('rh' in ext_bool):
-        rh_cnfg = cnfg[0]['external'][ext_bool.index('rh')]['rh']
-        rh_data = list(map(lambda x: x['path'], pw_cnfg))
-        rh_id   = list(map(lambda x: x['id'], pw_cnfg))
+if (len(keys) != 0):
+    if ('external' in keys):
+        ext_bool = [list(x.keys())[0] for x in cnfg[0]['external']]
+        if ('pw' in ext_bool):
+            pw_cnfg = cnfg[0]['external'][ext_bool.index('pw')]['pw']
+            pw_data = list(map(lambda x: x['path'], pw_cnfg))
+            pw_id   = list(map(lambda x: x['id'], pw_cnfg))
+        if ('rh' in ext_bool):
+            rh_cnfg = cnfg[0]['external'][ext_bool.index('rh')]['rh']
+            rh_data = list(map(lambda x: x['path'], pw_cnfg))
+            rh_id   = list(map(lambda x: x['id'], pw_cnfg))
 
-if ('wyoming' in keys):
-    wy_station = list(map(lambda x: x['id'], cnfg[keys.index('wyoming')]['wyoming']))
+    if ('wyoming' in keys):
+        wy_station = list(map(lambda x: x['id'], cnfg[keys.index('wyoming')]['wyoming']))
 
-## Collects data from cname for PW data collection
-if ('mesowest' in keys):
-    mw_station = list(map(lambda x: x['id'], cnfg[keys.index('mesowest')]['mesowest']))
-
+    ## Collects data from cname for PW data collection
+    if ('mesowest' in keys):
+        mw_station = list(map(lambda x: x['id'], cnfg[keys.index('mesowest')]['mesowest']))
+else:
+    logg("ERROR", "There are no sources avaliable", dir)
 ## Retrives column index for sensors
 headr = pd.read_csv(rname, delimiter=",").columns
 indx = [[], []]
@@ -385,11 +412,9 @@ except IndexError:
 for i in range(last, full_len - 1):
     filew = open(rname, "r")
     readw = csv.reader(filew, delimiter=",")
-    print("Collecting {0:d} out of {1:d} days of data\t\t"
-          "Progress: {2:.2f}%".format(i, full_len - 1,
-                                      i / (full_len - 1) * 100), end='\r')
+    day = dt.strptime(str(loadtxt(rname, delimiter=",", dtype=str,
+                                            usecols=(0))[i + 1]), "%Y-%m-%d")
+    logg("DEBUG", "Collecting data for {:}\t\t Progress: {:.2f}%".format(str(day.date()),
+                                      i / (full_len - 1) * 100), dir)
 
-    PMAT_Import.impt(dt.strptime(str(loadtxt(rname,
-                                             delimiter=",",
-                                             dtype=str,
-                                             usecols=(0))[i + 1]), "%Y-%m-%d"), i)
+    PMAT_Import.impt(day, i)

@@ -53,8 +53,6 @@
 - logging:
   - verbose: DEBUG
 - import:
-  - external:
-
   - mesowest:
     - id: KONM
   - wyoming:
