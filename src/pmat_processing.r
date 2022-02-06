@@ -3,6 +3,8 @@
 #' :synopsis: functions for preprocessing
 #' :author: Spencer Riley
 
+system(sprintf("python3 pmat_import.py %s", args$dir))
+
 ## Pulls most recent data stamp for the purpose of adding date stamps to file names when plots are saved
 recent 		<- t(fname[1])[length(t(fname[1]))]
 
@@ -33,10 +35,26 @@ rel_diff 	<-  config[[2]]$analysis[[2]]$rel_difference
 
 step 		<-  config[[2]]$analysis[[3]]$iteration$step
 
-weights 	<- c()
-for (i in 1:length(config[[4]]$import[[3]]$wyoming)){
-	weights <- append(weights, as.numeric(unlist(config[[4]]$import[[3]]$wyoming[[i]]$weight)))
+import_src 	<- list()
+for (i in 1:length(config[[4]]$import)){
+	import_src <- append(import_src, names(config[[4]]$import[[i]]))
 }
+
+weights 	<- c()
+if ("wyoming" %in% import_src){
+	wy_idx <- which(import_src == "wyoming")
+	for (i in 1:length(config[[4]]$import[[wy_idx]]$wyoming)){
+		weights <- append(weights, as.numeric(unlist(config[[4]]$import[[wy_idx]]$wyoming[[i]]$weight)))
+	}
+}
+
+if ("external" %in% import_src){
+	ex_idx <- which(import_src == "external")
+	for (i in 1:length(config[[4]]$import[[ex_idx]]$external)){
+		weights <- append(weights, as.numeric(unlist(config[[4]]$import[[ex_idx]]$external[[i]]$weight)))
+	}
+}
+
 ## Pulls sensor labels and colors from instruments.txt
 snsr_name 	<- list(); snsr_color <- snsr_sky_indx <- snsr_gro_indx  	<- unlist(list())
 for(i in 1:length(config[[1]]$instruments)){
