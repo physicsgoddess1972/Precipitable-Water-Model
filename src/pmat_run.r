@@ -12,7 +12,6 @@ library(plotrix)
 suppressPackageStartupMessages(library(pacviz))
 suppressMessages(library(Hmisc))
 library(yaml)
-library(logging)
 options(warn=-1)
 
 ## Used for argument parsing run Rscript model.r --help
@@ -31,8 +30,6 @@ parser$add_argument("-u", action="store_true", default=FALSE,
 parser$add_argument("-z", "--dev", action="store_true", default=FALSE)
 parser$add_argument("-all", action="store_true", default=FALSE)
 args <- parser$parse_args()
-
-# addHandler(writeToFile, logger='', file=paste(args$dir, "testing.log", sep=""))
 
 ## Custom Colors for cmd line features
 red 		<- make_style("red1")
@@ -80,27 +77,38 @@ clear_sky.results <- sky.analysis(overcast.filter(col_con, col_date, col_com,
 												  pw_name, snsr_name, FALSE))
 overcast.results <- sky.analysis(overcast.filter(col_con, col_date, col_com,
 												 pw_name, snsr_name, TRUE))
+if (args$overcast){
+	res <- overcast.results
+} else {
+	res <- clear_sky.results
+}
+
+datetime <- as.POSIXct(paste(as.Date(unlist(res$date), origin="1970-01-01"), paste(unlist(res$time),":00", sep="")),
+					   format="%Y-%m-%d %H:%M:%S")
 
 # Graphical and Data product functions
 source("pmat_products.r")
 
 if(args$set != FALSE){
-	visual.products(args$set)
+	visual.products(args$set, datetime)
 	logg("PASS", sprintf("Plot set downloaded to %s", fig_dir))
 }
 
 if(length(args$data) > 0){
-	data.products(args$overcast, args$dir, args$data);
+	if (args$data == 'a'){
+        data.gen(args$overcast, fig_dir)
+    } else if (args$data == 'm'){
+       data.ml(fig_dir)
+    }
 }
 
 if (args$all){
 	opt <- c('t', 'a', 'i', 'c', 'o', 'p')
 	logg("INFO", paste("Condition:", ifelse(args$overcast, "Overcast", "Clear Sky"), sep=" "))
 	for (i in opt){
-		visual.products(i, args$overcast)
+		visual.products(i, datetime, args$overcast)
 		logg("PASS", sprintf("Plot set downloaded to %s", fig_dir))
 	}
-
 }
 
 if (args$dev){
