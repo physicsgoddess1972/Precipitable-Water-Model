@@ -86,77 +86,65 @@ pmat_products.r
 	:module: Precipitable Water Model Analysis Tool: Products
 	:synopsis: plotting functions for PMAT
 
-.. function:: time_series.plots(datetime,overcast)
+.. function:: time9(datetime)
 
-	:param date: the datestamp of the data
-	:param bool overcast: the condition of data (clear sky/overcast)
-	:return: All available time series plots
-
-.. function:: time9()
-
+	:detail: Sky Temperature - RH Time Series
 	:param date: the datestamp of the data
 	:param bool overcast: the condition of data (clear sky/overcast)
 	:return: A sky temperature time series plot
 
-.. function:: time.nth_range(range,title,color,leg.lab,ylab)
+.. function:: time.nth_range(range,title,color,leg.lab,ylab,datetime,overcast)
 
+	:detail: Multirange Time Series plot series
+	:param date: the datestamp of the data
+	:param bool overcast: the condition of data (clear sky/overcast)
+
+.. function:: time.composite(range,title,color,ylab,datetime,overcast)
+
+	:detail: Time Series composite plot series
 	:param date: the datestamp of the data
 	:param bool overcast: the condition of data (clear sky/overcast)
 	:return: A sky temperature time series plot
-
-.. function:: time.composite(range,title,color,ylab)
-
-	:param date: the datestamp of the data
-	:param bool overcast: the condition of data (clear sky/overcast)
-	:return: A sky temperature time series plot
-
-.. function:: analytical.plots(overcast,iter)
-
-	:param bool overcast: the condition of data (clear sky/overcast)
-	:return: All available analytical plots
 
 .. function:: analysis.nth_range(overcast,x,y,title,label,color,leg.lab)
 
+	:detail: Super Average Plot with Exponential Fit
 	:param bool overcast: the condition of data (clear sky/overcast)
 	:return: A sky temperature time series plot
 
-.. function:: plots4(overcast,iter)
+.. function:: analysis.regression(overcast,x,y,des,label,iter,results)
 
+	:detail: Super Average Plot with Exponential Fit
 	:param bool overcast: the condition of data (clear sky/overcast)
 	:return: A sky temperature time series plot
 
-.. function:: plots5(overcast,iter)
+.. function:: pac.compare(overcast,des,x,y,angular,radial)
 
+	:detail: Pac-Man plot of Super Average Plot
 	:param bool overcast: the condition of data (clear sky/overcast)
 	:return: A sky temperature time series plot
 
-.. function:: pac.plots(overcast)
+.. function:: pac.regression(overcast)
 
-	:param bool overcast: the condition of data (clear sky / overcast)
-	:return: All available Pac-Man plots
-
-.. function:: pac1(overcast)
-
-	:param bool overcast: the condition of data (clear sky/overcast)
-	:return: A sky temperature time series plot
-
-.. function:: pac2(overcast)
-
+	:detail: Pac-Man residual plot
 	:param bool overcast: the condition of data (clear sky/overcast)
 	:return: A sky temperature time series plot
 
 .. function:: charts(...)
 
+	:detail: A collection of histograms and charts
 	:return: PDF of charts
 
 .. function:: chart1(range,xlabel,title)
 
+	:detail: Histograms of defined quantities
 	:param range: a data range
 	:param xlabel: the xaxis label
 	:param title: the title of the histogram
 
 .. function:: poster.plots(overcast,iter)
 
+	:detail: The set of all poster
 	:param bool overcast: the condition of data (clear sky/overcast)
 	:return: All available poster plots
 
@@ -165,34 +153,31 @@ pmat_products.r
 
 .. function:: poster2(overcast,iter)
 
+	:detail: The analytics poster plot
 	:param bool overcast: the condition of data (clear sky/overcast)
 
-.. function:: instr(overcast)
+.. function:: sensor.chart(...)
 
-	:param bool overcast: the condition of the data (clear sky/overcast)
-	:return: Instrumentation time series plots and overcast distribution charts
+	:detail: overcast distribution charts
 
-.. function:: chart(...)
+.. function:: sensor.time(overcast)
 
+	:detail: Instrumentation time series plots
 
-.. function:: time(...)
+.. function:: data.gen(overcast,dir)
 
-
-.. function:: data.products(overcast,dir,i)
-
-	:return: datafiles
-
-.. function:: data1(overcast,dir)
-
+	:detail: creates a datafile containing the date, avg temp, and avg pwv for a defined condition
 	:param bool overcast: the condition of the data (clear sky/overcast)
 	:param dir: directory path
 
-.. function:: data2(dir)
+.. function:: data.ml(dir)
 
+	:detail: creates a datafile containing the machine learning relavant information
 	:param dir: directory path
 
-.. function:: visual.products(set,overcast)
+.. function:: visual.products(set,datetime=datetime,overcast=args$overcast)
 
+	:detail: saves plot sets
 	:param character set: the set identifier
 	:param logical overcast: ovecast boolean
 
@@ -208,8 +193,9 @@ pmat_utility.r
 	:module: Precipitable Water Model Analysis Tool: Utility
 	:synopsis: general functions for PMAT
 
-.. function:: logg(msglevel,msg)
+.. function:: logg(msglevel,msg,dir=args$dir)
 
+	:detail: creates log entries for _log.txt
 	:param character msglevel:
 	:param character msg:
 
@@ -218,34 +204,34 @@ pmat_utility.r
 
 .. function:: startup()
 
+	:detail: shows title banner for program
 
 .. function:: closing()
 
-
-.. function:: save(func,name)
-
-	:param list func: the plotting function that will be saved
-	:param character name: the name of the file with the plots
-	:return: A pdf of the plot set
+	:detail: cleans up files and ends the program
 
 .. function:: reset_time(datetime)
 
+	:detail: A function that sets the time to 00:00:00
 	:param character datetime: a Date or datetime object
 	:return: A datetime object with time 00:00:00
 	:rtype: double
 
 .. function:: time_axis_init(date)
 
+	:detail: A function that calculates the min, max, and position of the tick marks for
 	:param double date: A date or datetime object
 	:return: The max, min, and tick mark positions
 	:rtype: list
 
 .. function:: time_axis(datetime)
 
+	:detail: A function that sets the x-axis format for time series plots
 	:param double date: A date or datetime object
 
 .. function:: stnd_title(des,overcast)
 
+	:detail: A function that generates the title based on
 	:param character des: the description of the plot
 	:param logical overcast: the sky condition
 	:return: a title string
