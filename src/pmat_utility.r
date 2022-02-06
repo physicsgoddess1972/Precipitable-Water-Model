@@ -3,6 +3,7 @@
 #' :synopsis: general functions for PMAT
 #' :author: Spencer Riley <sriley@pmat.app>
 
+
 loglevels <- c(DEBUG = 10,  PASS = 15,
                INFO = 20,   WARN = 30,
                ERROR = 40,  FATAL = 50,
