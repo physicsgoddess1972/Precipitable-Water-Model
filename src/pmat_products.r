@@ -1,7 +1,7 @@
 #' :file: pmat_products.r
 #' :module: Precipitable Water Model Analysis Tool: Products
 #' :synopsis: plotting functions for PMAT
-#' :author: Spencer Riley
+#' :author: Spencer Riley <sriley@pmat.app>
 
 time_series.plots <- function(datetime, overcast){
     #' :details: The set of all time series plots
@@ -53,7 +53,7 @@ time_series.plots <- function(datetime, overcast){
             points(x_sec, y_sec, pch=16)
         }
         # print statement when completed
-        message(green("[11]"), "Normalized Index for Weighted PWV Time Series")
+        logg("PASS","Normalized Index for Weighted PWV Time Series")
     }
 
     time.nth_range <- function(range, title, color, leg.lab, ylab){
@@ -92,7 +92,7 @@ time_series.plots <- function(datetime, overcast){
                                    pch=c(16,16, 16))
             }
             # print statement when completed
-            message(green(sprintf("[%s]", i)), title[[i]])
+            logg("PASS", title[[i]])
         }
     }
 
@@ -124,7 +124,7 @@ time_series.plots <- function(datetime, overcast){
                  pch=16,
                  xlim=time_axis_init(datetime)[[1]])
             axis(side = 4); mtext(side=4, line=3, ylab[[i]][[2]], col=color[[i]][[2]])
-            message(green(sprintf("[%s]", i)), title[[i]])
+            logg("PASS", title[[i]])
         }
     }
 
@@ -137,25 +137,28 @@ time_series.plots <- function(datetime, overcast){
                res$pw_loc,
                res$tmp_avg,
                res$loc_avg,
-               list(res$avg))
+               list(res$avg),
+               list(res$dew))
+
     t1 <- list("Sky Temperature Time Series",
                "Ground Temperature Time Series",
                "Difference Between Ground-Sky Temperature Time Series",
                "Total Precipitable Water Time Series",
                "Temporal Mean Precipitable Water Time Series",
                "Locational Mean Precipitable Water Time Series",
-               "Mean Total Precipitable Water Time Series")
+               "Mean Total Precipitable Water Time Series",
+               "Dewpoint Temperature Time Series")
 
     c1 <- unlist(list(rep(list(snsr_color), 3),
-                      rep(list(pw_color), 3), "blue"),
+                      rep(list(pw_color), 3), "blue", "black"),
                  recursive=FALSE)
     l1 <- unlist(list(rep(list(snsr_name), 3),
                       list(pw_name),
                       list(unique(pw_place)),
-                      list(paste(unique(pw_time), "Z")), NA),
+                      list(paste(unique(pw_time), "Z")), NA, NA),
                  recursive=FALSE)
     y1 <- unlist(list(rep(list("Temperature [C]"), 3),
-                      rep(list("TPW [mm]"), 4)),
+                      rep(list("TPW [mm]"), 4), "Temperature [C]"),
                  recursive=FALSE)
 
     r2 <- list(list(res$snsr_sky_calc, res$rh),
@@ -172,7 +175,7 @@ time_series.plots <- function(datetime, overcast){
                 "time9"=time9()))
 }
 
-analytical.plots <- function(overcast){
+analytical.plots <- function(overcast, iter){
     #' :details: The set of all analytical plots
     #' :param bool overcast: the condition of data (clear sky/overcast)
     #' :return: All available analytical plots
@@ -208,11 +211,11 @@ analytical.plots <- function(overcast){
                                     col=color[[i]],
                                     pch=c(16,16, 16))
             }
-            message(green("[2]"), title[[i]])
+            logg("PASS", title[[i]])
         }
     }
 
-    plots4 	<- function(overcast){
+    plots4 	<- function(overcast, iter){
         #' :details: Super Average Plot with Exponential Fit
         #' :param bool overcast: the condition of data (clear sky/overcast)
         #' :return: A sky temperature time series plot
@@ -239,7 +242,7 @@ analytical.plots <- function(overcast){
              ylab="TPW [mm]",
              main=stnd_title(des, overcast))
         # Best Fit
-        curve(iter.results$A*exp(iter.results$B*x), col="black", add=TRUE)
+        curve(iter$A*exp(iter$B*x), col="black", add=TRUE)
 
         polygon(c(exp_reg$newx, rev(exp_reg$newx)),
                 c(exp(exp_reg$predint[ ,3]), rev(exp(exp_reg$predint[ ,2]))),
@@ -248,17 +251,17 @@ analytical.plots <- function(overcast){
 
         minor.tick(nx=2, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
 
-        leg <- sprintf("%.2f*e^{%.3f*x}*\t\t(S == %.3f*mm)", iter.results$A,
-                                                             iter.results$B,
-                                                             iter.results$S)
+        leg <- sprintf("%.2f*e^{%.3f*x}*\t\t(S == %.3f*mm)", iter$A,
+                                                             iter$B,
+                                                             iter$S)
         legend("topleft",   col=c("black"),
                             lty=c(1),
                             legend=c(parse(text=leg)))
 
-        message(green("[4]"), des)
+        logg("PASS", des)
     }
 
-    plots5 	<- function(overcast){
+    plots5 	<- function(overcast, iter){
         #' :details: Individual PW Location plots
         #' :param bool overcast: the condition of data (clear sky/overcast)
         #' :return: A sky temperature time series plot
@@ -284,7 +287,7 @@ analytical.plots <- function(overcast){
              main=stnd_title(des, overcast))
 
         # Best Fit
-        curve(iter.results$A*exp(iter.results$B*x), col="black", add=TRUE)
+        curve(iter$A*exp(iter$B*x), col="black", add=TRUE)
 
         polygon(c(exp_reg$newx, rev(exp_reg$newx)),
                 c(exp(exp_reg$predint[ ,3]), rev(exp(exp_reg$predint[ ,2]))),
@@ -292,14 +295,14 @@ analytical.plots <- function(overcast){
                 border = NA)
 
         minor.tick(nx=2, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
-        leg <- sprintf("%.2f*e^{%.3f*x}*\t\t(S == %.3f*mm)", iter.results$A,
-                                                             iter.results$B,
-                                                             iter.results$S)
+        leg <- sprintf("%.2f*e^{%.3f*x}*\t\t(S == %.3f*mm)", iter$A,
+                                                             iter$B,
+                                                             iter$S)
         legend("topleft",   col=c("black"),
                             lty=c(1),
                             legend=c(parse(text=leg)))
 
-        message(green("[5]"), des)
+        logg("PASS", des)
 
     }
 
@@ -320,8 +323,8 @@ analytical.plots <- function(overcast){
                       recursive=FALSE)
 
     return(list(analysis.nth_range(overcast, x1, y1, t1, l1, c1, leg.lab),
-                plots4(overcast),
-                plots5(overcast)))
+                plots4(overcast, iter),
+                plots5(overcast, iter)))
 }
 
 pac.plots <- function(overcast){
@@ -346,7 +349,7 @@ pac.plots <- function(overcast){
                  c("Zenith Sky Temperature", "C"),
                  c("TPW", "mm"))
 
-        cat(green("[1]"), "Total Mean PW and Temperature\n")
+       logg("PASS", "Total Mean PW and Temperature")
     }
 
     pac2 <- function(overcast){
@@ -369,7 +372,7 @@ pac.plots <- function(overcast){
                   stnd_title(des, overcast),
                   c("Zenith Sky Temperature", "degC"))
 
-        message(green("[2]"), des)
+        logg("PASS", des)
     }
 
     return(list(pac1(overcast),
@@ -388,7 +391,7 @@ charts	<- function(...){
 
         for (count in 1:length(range)){
             h <- hist(range[[count]],
-                      main = title[count],
+                      main = paste("Distribution of", title[count], sep=" "),
                       prob = FALSE,
                       xlab = xlabel[count],
                       xlim=c(floor(min(range[[count]], na.rm = TRUE)),
@@ -402,21 +405,24 @@ charts	<- function(...){
 
             f <- (h$counts / h$density) * dnorm(x, mean = mean(range[[count]], na.rm = TRUE), sd = sd(range[[count]], na.rm=TRUE))
             lines(x,f, type="l", col="black", lwd=2, lty=1)
-            message(green(sprintf("[%s]", count)), sprintf("%s", title[count]))
+            logg("PASS", sprintf("%s", title[count]))
         }
 
     }
-
     x <- list(c(cbind(overcast.results$wt_avg, clear_sky.results$wt_avg)),
               cbind(unlist(overcast.results$snsr_sky_calc),
                      unlist(clear_sky.results$snsr_sky_calc)),
-              cbind(overcast.results$rh, clear_sky.results$rh))
+              cbind(overcast.results$rh, clear_sky.results$rh),
+              cbind(overcast.results$dew, clear_sky.results$dew))
+
     xlab <- list("Precipitable Water [mm]",
                  "Temperature [C]",
-                "Relative Humidity [%]")
-    title <- list("Distribution of Weighted PWV",
-                  "Distribution of Average Temperature",
-                  "Distribution of Relative Humidity")
+                "Relative Humidity [%]",
+                "Temperature [C]")
+    title <- list("Weighted PWV",
+                  "Average Temperature",
+                  "Relative Humidity",
+                  "Dewpoint Temperature")
 
     for (i in 1:length(unique(pw_place))){
         x <- append(x, list(c(cbind(unlist(clear_sky.results$tmp_avg[i]),
@@ -427,14 +433,14 @@ charts	<- function(...){
     return(list(chart1(x, xlab, title)))
 }
 
-poster.plots <- function(overcast){
+poster.plots <- function(overcast, iter){
     #' :details: The set of all poster
     #' :param bool overcast: the condition of data (clear sky/overcast)
     #' :return: All available poster plots
 
     force(date); force(overcast)
     for (i in 1:length(snsr_name)){
-        if(config[[i]]$sensor$poster == FALSE){
+        if(config[[1]]$instruments[[1]]$sensor$poster == FALSE){
             snsr_sky[[i]] <- NULL; snsr_skyo[[i]] <- NULL
             snsr_gro[[i]] <- NULL; snsr_groo[[i]] <- NULL
             snsr_del[[i]] <- NULL; snsr_delo[[i]] <- NULL
@@ -474,7 +480,7 @@ poster.plots <- function(overcast){
         axis(1, at=mn_ticks, labels=rep("", length(mn_ticks)), tck=-0.015)
         axis(1, at=mj_ticks, labels=format(mj_ticks, "%b %y"), tck=-0.03)
 
-        stnd_title("Sky Temperature",line=0.5)
+        mtext("Sky Temperature",line=0.5, cex=0.75)
         mtext("Temperature [C]", side=2, line=2.5, cex=0.65)
 
         if (length(range_index) >= 2){
@@ -504,7 +510,7 @@ poster.plots <- function(overcast){
         axis(1, at=mn_ticks, labels=rep("", length(mn_ticks)), tck=-0.015)
         axis(1, at=mj_ticks, labels=format(mj_ticks, "%b %y"), tck=-0.03)
 
-        stnd_title("Sky Temperature", line=0.5)
+        mtext("Sky Temperature", line=0.5, cex=0.75)
         if (length(range_index) >= 2){
             for(j in 2:length(range_index)){
                 points(over_date, range_index[[j]], pch=16, col=snsr_color[j])
@@ -534,7 +540,7 @@ poster.plots <- function(overcast){
         axis(1, at=mn_ticks, labels=rep("", length(mn_ticks)), tck=-0.015)
         axis(1, at=mj_ticks, labels=format(mj_ticks, "%b %y"), tck=-0.03)
 
-        stnd_title("Ground Temperature", line=0.5)
+        mtext("Ground Temperature", line=0.5, cex=0.75)
         mtext("Temperature [C]", side=2, line=2.5, cex=0.65)
         if (length(range_index) >= 2){
             for(j in 2:length(range_index)){
@@ -561,7 +567,7 @@ poster.plots <- function(overcast){
         axis(1, at=mn_ticks, labels=rep("", length(mn_ticks)), tck=-0.015)
         axis(1, at=mj_ticks, labels=format(mj_ticks, "%b %y"), tck=-0.03)
 
-        stnd_title("Ground Temperature", line=0.5)
+        mtext("Ground Temperature", line=0.5, cex=0.75)
         if (length(range_index) >= 2){
             for(j in 2:length(range_index)){
                 points(over_date,range_index[[j]], pch=16, col=snsr_color[j])
@@ -591,7 +597,7 @@ poster.plots <- function(overcast){
         axis(1, at=mn_ticks, labels=rep("", length(mn_ticks)), tck=-0.015)
         axis(1, at=mj_ticks, labels=format(mj_ticks, "%b %y"), tck=-0.03)
 
-        stnd_title("Difference in Temperature", line=0.5)
+        mtext("Difference in Temperature", line=0.5, cex=0.75)
         mtext("Temperature [C]", side=2, line=2.5, cex=0.65)
 
         if (length(range_index) >= 2){
@@ -619,7 +625,7 @@ poster.plots <- function(overcast){
         axis(1, at=mn_ticks, labels=rep("", length(mn_ticks)), tck=-0.015)
         axis(1, at=mj_ticks, labels=format(mj_ticks, "%b %y"), tck=-0.03)
 
-        stnd_title("Difference in Temperature", line=0.5)
+        mtext("Difference in Temperature", line=0.5, cex=0.75)
         if (length(range_index) >= 2){
             for(j in 2:length(range_index)){
                 points(over_date,range_index[[j]], pch=16, col=snsr_color[j])
@@ -627,10 +633,10 @@ poster.plots <- function(overcast){
         }
         mtext("Condition: Overcast", outer=TRUE, cex=0.75, line=-1.5, at=c(x=0.76))
         mtext("Condition: Clear Sky", outer=TRUE, cex=0.75, line=-1.5, at=c(x=0.26))
-        message(green("[1]"), "Sky-Ground-Delta Temperature Time Series")
+        logg("PASS", "Sky-Ground-Delta Temperature Time Series")
     }
 
-    poster2 <- function(overcast){
+    poster2 <- function(overcast, iter){
         #' :details: The analytics poster plot
         #' :param bool overcast: the condition of data (clear sky/overcast)
 
@@ -664,7 +670,7 @@ poster.plots <- function(overcast){
 
             minor.tick(nx=2, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
 
-            stnd_title("Locational Mean TPW and Temp",line=0.5)
+            mtext("Locational Mean TPW and Temp",line=0.5)
 
             mtext("TPW [mm]", side=2, line=2.25, cex=0.65)
             mtext("Zenith Sky Temperature [C]", side=1, line=2.25, cex=0.65)
@@ -695,7 +701,7 @@ poster.plots <- function(overcast){
                                           pch=16,
                                           col=colscheme(range)[1])
 
-            stnd_title("Temporal Mean TPW and Temp",line=0.5)
+            mtext("Temporal Mean TPW and Temp",line=0.5)
             mtext("Zenith Sky Temperature [C]", side=1, line=2.25, cex=0.65)
             minor.tick(nx=2, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
 
@@ -714,11 +720,11 @@ poster.plots <- function(overcast){
                                       ylab=NA,
                                       main=NA)
 
-            stnd_title("Mean TPW vs Temp",line=0.5)
+            mtext("Mean TPW vs Temp",line=0.5)
             mtext("TPW [mm]", side=2, line=2.25, cex=0.65)
             mtext("Zenith Sky Temperature [C]", side=1, line=2.25, cex=0.65)
         # Best Fit
-        curve(iter.results$A*exp(iter.results$B*x), col="black", add=TRUE)
+        curve(iter$A*exp(iter$B*x), col="black", add=TRUE)
 
         # Prediction Interval
             polygon(c(exp_reg$newx, rev(exp_reg$newx)), c(exp(exp_reg$predint[ ,3]),
@@ -729,14 +735,14 @@ poster.plots <- function(overcast){
 
         legend("topleft",col=c("black"), lty=c(1),
         legend=c(parse(text=sprintf("%.2f*e^{%.3f*x}*\t\t(S == %.3f*mm)",
-        iter.results$A,iter.results$B,iter.results$S))))
+        iter$A,iter$B,iter$S))))
         # Layout configuration for preceding plots
         layout(matrix(c(1), 2, 2, byrow=TRUE))
-        message(green("[2]"), "Analytical Plots")
+        logg("PASS", "Analytical Plots")
     }
 
     return(list(poster1(),
-                poster2(overcast)))
+                poster2(overcast, iter)))
 }
 
 instr 	<- function(overcast){
@@ -813,7 +819,7 @@ instr 	<- function(overcast){
                     }
 
                 }
-            message(green(sprintf("[%s]", count)), sprintf("Overcast Condition Percentage: %s", gsub("_", " ",snsr_name[count])))
+            logg("PASS", sprintf("Overcast Condition Percentage: %s", gsub("_", " ",snsr_name[count])))
         }
 	}
 
@@ -884,8 +890,7 @@ instr 	<- function(overcast){
                 }
             }
             # print(length(unique(snsr_tag)[!is.na(unique(snsr_tag))][count]))
-            message(green(sprintf("[%s]", count[1])),
-                      sprintf("Sky-Ground Time Series: %s", gsub("_", " ",unique(snsr_tag)[count][1])))
+            logg("PASS", sprintf("Sky-Ground Time Series: %s", gsub("_", " ",unique(snsr_tag)[count][1])))
         }
     }
     return(list(chart(), time()))
@@ -916,7 +921,7 @@ data.products <- function(overcast, dir, i){
           colnames(data) <- c("date", "avg_temp", "avg_pw")
         # Writes the data to a csv
           write.csv(data, file=sprintf("../data/data_overcast.csv"), row.names=FALSE)
-          message(green(sprintf("Data sent to data/data_overcast.csv")))
+          logg("PASS", sprintf("Data sent to data/data_overcast.csv"))
         }else{
         # Pulls the data
             avg_temp	<- as.numeric(unlist(clear_sky.results$snsr_sky_calc))
@@ -932,7 +937,7 @@ data.products <- function(overcast, dir, i){
             colnames(data) <- c("date", "avg_temp", "avg_pw")
         # Writes the data to a csv
             write.csv(data, file=sprintf("%sdata_clear.csv", dir), row.names=FALSE)
-            message(green(sprintf("Data sent to %sdata_clear.csv", dir)))
+            logg("PASS", sprintf("Data sent to %sdata_clear.csv", dir))
 
         }
 }
@@ -984,11 +989,72 @@ data.products <- function(overcast, dir, i){
         colnames(data) <- c("date", "avg_temp", "avg_pw", "avg_rh", "condition")
         # Writes the data to a csv
         write.csv(data, file=sprintf("%sml_data.csv", dir), row.names=FALSE)
-        message(green(sprintf("Data sent to %sml_data.csv", dir)))
+        logg("PASS", sprintf("Data sent to %sml_data.csv", dir))
         }
     if (i == 'a'){
         return(data1(overcast, dir))
     } else if (i == 'm'){
         return(data2(dir))
     }
+}
+
+visual.products <- function(set, overcast){
+    #' :details: saves plot sets
+    #' :param character set: the set identifier
+    #' :param logical overcast: ovecast boolean
+    if(set == "a" || set == "o"){
+        ifelse(overcast, len <- length(overcast.results$date),
+                         len <- length(clear_sky.results$date))
+        if (len > 0){
+            iter.results <- iterative.analysis(overcast, args$dir, args$u)
+        } else {
+            logg("ERROR", D01); closing()
+        }
+    }
+
+	if(set == "i"){
+        logg("INFO", "Sensor Plot Set")
+		sname_pub <- sprintf("%ssensor_%s.pdf", fig_dir, ifelse(overcast,"overcast", ""))
+		save(c(instr(overcast)), sname_pub)
+        return(NULL)
+	}else if(set == "t"){
+        logg("INFO", "Time Series Plot Set")
+		ifelse(overcast, 	date <- overcast.results$date,
+								date <- clear_sky.results$date)
+		ifelse(overcast, 	time <- overcast.results$time,
+								time <- clear_sky.results$time)
+
+		datetime <- as.POSIXct(paste(as.Date(unlist(date), origin="1970-01-01"),
+									paste(unlist(time),":00", sep="")),
+							   format="%Y-%m-%d %H:%M:%S")
+
+		sname_pub <- sprintf("%stime_series_%s.pdf", fig_dir, ifelse(overcast,"overcast", ""))
+
+		if (length(date) > 0){
+			save(c(time_series.plots(datetime, overcast)), sname_pub)
+            return(NULL)
+		} else {
+			logg("ERROR", D01); closing()
+		}
+	}else if(set == "a"){
+        logg("INFO", "Analytics Plot Set")
+		sname_pub <- sprintf("%sanalytics_%s.pdf", fig_dir, ifelse(overcast,"overcast", ""))
+		save(c(analytical.plots(overcast, iter.results)), sname_pub)
+        return(NULL)
+	}else if(set == "c"){
+        logg("INFO", "Chart Set")
+		sname_pub 	<-sprintf("%scharts.pdf", fig_dir)
+		save(c(charts()), sname_pub)
+        return(NULL)
+	} else if (set == "p") {
+        logg("INFO", "Pac-Man Plot Set")
+		sname_pub <- sprintf("%spacman_%s.pdf", fig_dir, ifelse(overcast,"overcast", ""))
+		save(c(pac.plots(overcast)), sname_pub)
+        return(NULL)
+	} else if (set == "o"){
+        logg("INFO", "Poster Plot Set")
+		sname_pub <- sprintf("%sposter_%s.pdf", fig_dir, ifelse(overcast,"overcast", ""))
+		save(c(poster.plots(overcast, iter.results)), sname_pub)
+        return(NULL)
+	}
 }
