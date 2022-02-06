@@ -2,5 +2,5 @@ numpy
 pandas
 metpy
 requests
-rich
 siphon
+rpy2
