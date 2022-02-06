@@ -3,6 +3,7 @@
 #' :synopsis: general functions for PMAT
 #' :author: Spencer Riley <sriley@pmat.app>
 
+
 loglevels <- c(DEBUG = 10,  PASS = 15,
                INFO = 20,   WARN = 30,
                ERROR = 40,  FATAL = 50,
@@ -16,8 +17,8 @@ D01 <- "Insufficient clear sky/overcast data"
 F01 <- "master_data.csv is not found"
 F02 <- "_pmat.yml is not found"
 
-logg <- function(msglevel, msg) {
-      #' :details: creates log entries for _log.txt
+logg <- function(msglevel, msg, dir=args$dir) {
+      #' :detail: creates log entries for _log.txt
       #' :param character msglevel:
       #' :param character msg:
       crayon_env <- tryCatch(asNamespace("crayon"), error = function(e) NULL)
@@ -49,7 +50,7 @@ logg <- function(msglevel, msg) {
       log_entry <- paste(record$color(record$levelname), record$msg)
       fil_entry <- paste(record$timestamp, record$levelname, record$msg)
       cat(log_entry, sep="\n")
-      cat(fil_entry, file=paste(args$dir, "_log.txt"), sep="\n", append=TRUE)
+      cat(fil_entry,file=paste(dir, "_log.txt"), sep="\n", append=TRUE)
 }
 
 ## Command Prompt "Start of Program" and 1st time user stuff
@@ -66,29 +67,22 @@ first <- function(){
 }
 
 startup <- function(){
-    #' :details: shows title banner for program
+    #' :detail: shows title banner for program
     logg("ALOHA", "Precipitable-water Model Analysis Tool")
     logg("ALOHA", "Program Start")
 }
 
 closing <- function(){
-    #' :details: cleans up files and ends the program
+    #' :detail: cleans up files and ends the program
     ## Ends the script
+    invisible(graphics.off())
     if(file.exists("Rplots.pdf")){file.remove("Rplots.pdf")}
 # End of program
     logg("ALOHA", "Program Complete"); quit()
 }
 
-save <- function(func, name){
-    #' :details: A general function that will save plots
-    #' :param list func: the plotting function that will be saved
-    #' :param character name: the name of the file with the plots
-    #' :return: A pdf of the plot set
-	pdf(name);func;invisible(graphics.off())
-}
-
 reset_time <- function(datetime){
-    #' :details: A function that sets the time to 00:00:00
+    #' :detail: A function that sets the time to 00:00:00
     #' :param character datetime: a Date or datetime object
     #' :return: A datetime object with time 00:00:00
     #' :rtype: double
@@ -96,7 +90,7 @@ reset_time <- function(datetime){
 }
 
 time_axis_init <- function(date){
-    #' :details: A function that calculates the min, max, and position of the tick marks for
+    #' :detail: A function that calculates the min, max, and position of the tick marks for
     #' the time series.
     #' :param double date: A date or datetime object
     #' :return: The max, min, and tick mark positions
@@ -114,7 +108,7 @@ time_axis_init <- function(date){
 }
 
 time_axis <- function(datetime){
-    #' :details: A function that sets the x-axis format for time series plots
+    #' :detail: A function that sets the x-axis format for time series plots
     #' :param double date: A date or datetime object
     # defines major and minor tick marks for the x-axis and their position
     ticks.at <- time_axis_init(datetime)[2][[1]]
@@ -132,7 +126,7 @@ time_axis <- function(datetime){
 }
 
 stnd_title <- function(des, overcast){
-    #' :details: A function that generates the title based on
+    #' :detail: A function that generates the title based on
     #' the sky condition and description of the plot
     #' :param character des: the description of the plot
     #' :param logical overcast: the sky condition
