@@ -1050,3 +1050,2097 @@
 2022-02-05 18:40:56 PASS Analytical Plots
 2022-02-05 18:40:56 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
 2022-02-05 18:40:56 ALOHA Program Complete
+2022-02-05 20:42:15 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 20:42:15 ALOHA Program Start
+2022-02-05 20:42:32 INFO Collecting Data from sources
+2022-02-05 20:43:47 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 20:43:47 ALOHA Program Start
+2022-02-05 20:43:49 INFO Collecting Data from sources
+2022-02-05 20:44:32 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 20:44:32 ALOHA Program Start
+2022-02-05 20:44:34 INFO Collecting Data from sources
+2022-02-05 20:45:05 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 20:45:05 ALOHA Program Start
+2022-02-05 20:45:07 INFO Collecting Data from sources
+2022-02-05 20:45:11 ALOHA Program Complete
+2022-02-05 20:46:41 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 20:46:41 ALOHA Program Start
+2022-02-05 20:46:43 INFO Collecting Data from sources
+2022-02-05 20:46:47 ALOHA Program Complete
+2022-02-05 20:47:18 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 20:47:18 ALOHA Program Start
+2022-02-05 20:47:21 INFO Collecting Data from sources
+2022-02-05 20:47:25 ALOHA Program Complete
+2022-02-05 20:48:03 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 20:48:03 ALOHA Program Start
+2022-02-05 20:48:06 INFO Collecting Data from sources
+2022-02-05 20:48:10 ALOHA Program Complete
+2022-02-05 20:50:12 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 20:50:12 ALOHA Program Start
+2022-02-05 20:50:14 INFO Collecting Data from sources
+2022-02-05 20:50:19 ALOHA Program Complete
+2022-02-05 20:50:56 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 20:50:56 ALOHA Program Start
+2022-02-05 20:50:59 INFO Collecting Data from sources
+2022-02-05 20:51:03 ALOHA Program Complete
+2022-02-05 20:51:52 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 20:51:52 ALOHA Program Start
+2022-02-05 20:51:55 INFO Collecting Data from sources
+2022-02-05 20:51:59 ALOHA Program Complete
+2022-02-05 20:52:21 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 20:52:21 ALOHA Program Start
+2022-02-05 20:52:24 INFO Collecting Data from sources
+2022-02-05 20:52:28 ALOHA Program Complete
+2022-02-05 20:53:17 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 20:53:17 ALOHA Program Start
+2022-02-05 20:53:20 INFO Collecting Data from sources
+2022-02-05 20:53:24 ALOHA Program Complete
+2022-02-05 20:54:09 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 20:54:09 ALOHA Program Start
+2022-02-05 20:54:12 INFO Collecting Data from sources
+2022-02-05 20:54:16 ALOHA Program Complete
+2022-02-05 20:54:36 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 20:54:36 ALOHA Program Start
+2022-02-05 20:54:39 INFO Collecting Data from sources
+2022-02-05 20:54:43 ALOHA Program Complete
+2022-02-05 20:55:22 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 20:55:22 ALOHA Program Start
+2022-02-05 20:55:25 INFO Collecting Data from sources
+2022-02-05 20:55:29 ALOHA Program Complete
+2022-02-05 20:57:37 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 20:57:37 ALOHA Program Start
+2022-02-05 20:57:39 INFO Collecting Data from sources
+2022-02-05 20:57:46 ALOHA Program Complete
+2022-02-05 20:59:21 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 20:59:21 ALOHA Program Start
+2022-02-05 20:59:24 INFO Collecting Data from sources
+2022-02-05 20:59:28 ALOHA Program Complete
+2022-02-05 20:59:53 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 20:59:53 ALOHA Program Start
+2022-02-05 20:59:56 INFO Collecting Data from sources
+2022-02-05 21:00:01 ALOHA Program Complete
+2022-02-05 21:00:31 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:00:31 ALOHA Program Start
+2022-02-05 21:00:34 INFO Collecting Data from sources
+2022-02-05 21:00:38 ALOHA Program Complete
+2022-02-05 21:01:14 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:01:14 ALOHA Program Start
+2022-02-05 21:01:17 INFO Collecting Data from sources
+2022-02-05 21:01:22 ALOHA Program Complete
+2022-02-05 21:01:44 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:01:44 ALOHA Program Start
+2022-02-05 21:01:47 INFO Collecting Data from sources
+2022-02-05 21:02:40 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:02:40 ALOHA Program Start
+2022-02-05 21:02:43 INFO Collecting Data from sources
+2022-02-05 21:03:13 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:03:13 ALOHA Program Start
+2022-02-05 21:03:15 INFO Collecting Data from sources
+2022-02-05 21:03:27 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:03:27 ALOHA Program Start
+2022-02-05 21:03:30 INFO Collecting Data from sources
+2022-02-05 21:03:34 ALOHA Program Complete
+2022-02-05 21:03:59 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:03:59 ALOHA Program Start
+2022-02-05 21:04:01 INFO Collecting Data from sources
+2022-02-05 21:04:06 ALOHA Program Complete
+2022-02-05 21:05:43 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:05:43 ALOHA Program Start
+2022-02-05 21:05:46 INFO Collecting Data from sources
+2022-02-05 21:07:40 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:07:40 ALOHA Program Start
+2022-02-05 21:07:43 INFO Collecting Data from sources
+2022-02-05 21:07:48 ALOHA Program Complete
+2022-02-05 21:08:20 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:08:20 ALOHA Program Start
+2022-02-05 21:08:23 INFO Collecting Data from sources
+2022-02-05 21:08:41 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:08:41 ALOHA Program Start
+2022-02-05 21:08:43 INFO Collecting Data from sources
+2022-02-05 21:08:48 ALOHA Program Complete
+2022-02-05 21:09:27 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:09:27 ALOHA Program Start
+2022-02-05 21:09:29 INFO Collecting Data from sources
+2022-02-05 21:09:33 ALOHA Program Complete
+2022-02-05 21:10:15 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:10:15 ALOHA Program Start
+2022-02-05 21:10:18 INFO Collecting Data from sources
+2022-02-05 21:10:22 ALOHA Program Complete
+2022-02-05 21:12:50 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:12:50 ALOHA Program Start
+2022-02-05 21:12:53 INFO Collecting Data from sources
+2022-02-05 21:12:57 ALOHA Program Complete
+2022-02-05 21:16:00 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:16:00 ALOHA Program Start
+2022-02-05 21:16:03 INFO Collecting Data from sources
+2022-02-05 21:16:23 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:16:23 ALOHA Program Start
+2022-02-05 21:16:25 INFO Collecting Data from sources
+2022-02-05 21:16:38 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:16:38 ALOHA Program Start
+2022-02-05 21:16:40 INFO Collecting Data from sources
+2022-02-05 21:16:45 ALOHA Program Complete
+2022-02-05 21:18:24 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:18:24 ALOHA Program Start
+2022-02-05 21:18:26 INFO Collecting Data from sources
+2022-02-05 21:18:31 ALOHA Program Complete
+2022-02-05 21:19:34 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:19:34 ALOHA Program Start
+2022-02-05 21:19:36 INFO Collecting Data from sources
+2022-02-05 21:20:38 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:20:38 ALOHA Program Start
+2022-02-05 21:20:41 INFO Collecting Data from sources
+2022-02-05 21:21:01 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:21:01 ALOHA Program Start
+2022-02-05 21:21:04 INFO Collecting Data from sources
+2022-02-05 21:21:08 ALOHA Program Complete
+2022-02-05 21:22:20 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:22:20 ALOHA Program Start
+2022-02-05 21:22:23 INFO Collecting Data from sources
+2022-02-05 21:22:27 ALOHA Program Complete
+2022-02-05 21:22:50 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:22:50 ALOHA Program Start
+2022-02-05 21:22:53 INFO Collecting Data from sources
+2022-02-05 21:22:57 ALOHA Program Complete
+2022-02-05 21:23:25 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:23:25 ALOHA Program Start
+2022-02-05 21:23:27 INFO Collecting Data from sources
+2022-02-05 21:23:32 ALOHA Program Complete
+2022-02-05 21:23:48 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:23:48 ALOHA Program Start
+2022-02-05 21:23:51 INFO Collecting Data from sources
+2022-02-05 21:23:55 ALOHA Program Complete
+2022-02-05 21:24:51 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:24:51 ALOHA Program Start
+2022-02-05 21:24:54 INFO Collecting Data from sources
+2022-02-05 21:24:58 ALOHA Program Complete
+2022-02-05 21:25:34 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:25:34 ALOHA Program Start
+2022-02-05 21:25:37 INFO Collecting Data from sources
+2022-02-05 21:25:41 ALOHA Program Complete
+2022-02-05 21:26:26 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:26:26 ALOHA Program Start
+2022-02-05 21:26:29 INFO Collecting Data from sources
+2022-02-05 21:26:33 ALOHA Program Complete
+2022-02-05 21:27:15 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:27:15 ALOHA Program Start
+2022-02-05 21:27:18 INFO Collecting Data from sources
+2022-02-05 21:27:22 ALOHA Program Complete
+2022-02-05 21:27:42 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:27:42 ALOHA Program Start
+2022-02-05 21:27:45 INFO Collecting Data from sources
+2022-02-05 21:27:49 ALOHA Program Complete
+2022-02-05 21:28:26 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:28:26 ALOHA Program Start
+2022-02-05 21:28:29 INFO Collecting Data from sources
+2022-02-05 21:28:49 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:28:50 ALOHA Program Start
+2022-02-05 21:28:52 INFO Collecting Data from sources
+2022-02-05 21:28:56 ALOHA Program Complete
+2022-02-05 21:29:53 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:29:53 ALOHA Program Start
+2022-02-05 21:29:55 INFO Collecting Data from sources
+2022-02-05 21:30:00 ALOHA Program Complete
+2022-02-05 21:30:54 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:30:54 ALOHA Program Start
+2022-02-05 21:30:57 INFO Collecting Data from sources
+2022-02-05 21:31:01 ALOHA Program Complete
+2022-02-05 21:31:30 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:31:30 ALOHA Program Start
+2022-02-05 21:31:32 INFO Collecting Data from sources
+2022-02-05 21:31:37 ALOHA Program Complete
+2022-02-05 21:32:58 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:32:58 ALOHA Program Start
+2022-02-05 21:33:00 INFO Collecting Data from sources
+2022-02-05 21:33:39 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:33:39 ALOHA Program Start
+2022-02-05 21:33:42 INFO Collecting Data from sources
+2022-02-05 21:33:54 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:33:54 ALOHA Program Start
+2022-02-05 21:33:56 INFO Collecting Data from sources
+2022-02-05 21:34:01 ALOHA Program Complete
+2022-02-05 21:36:08 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:36:08 ALOHA Program Start
+2022-02-05 21:36:11 INFO Collecting Data from sources
+2022-02-05 21:36:15 ALOHA Program Complete
+2022-02-05 21:37:08 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:37:08 ALOHA Program Start
+2022-02-05 21:37:10 INFO Collecting Data from sources
+2022-02-05 21:37:15 ALOHA Program Complete
+2022-02-05 21:37:56 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:37:56 ALOHA Program Start
+2022-02-05 21:37:59 INFO Collecting Data from sources
+2022-02-05 21:38:03 ALOHA Program Complete
+2022-02-05 21:38:35 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:38:36 ALOHA Program Start
+2022-02-05 21:38:38 INFO Collecting Data from sources
+2022-02-05 21:39:08 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:39:08 ALOHA Program Start
+2022-02-05 21:39:11 INFO Collecting Data from sources
+2022-02-05 21:39:15 ALOHA Program Complete
+2022-02-05 21:40:09 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:40:09 ALOHA Program Start
+2022-02-05 21:40:12 INFO Collecting Data from sources
+2022-02-05 21:40:16 ALOHA Program Complete
+2022-02-05 21:40:48 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:40:48 ALOHA Program Start
+2022-02-05 21:40:51 INFO Collecting Data from sources
+2022-02-05 21:41:09 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:41:09 ALOHA Program Start
+2022-02-05 21:41:12 INFO Collecting Data from sources
+2022-02-05 21:41:16 ALOHA Program Complete
+2022-02-05 21:41:53 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:41:53 ALOHA Program Start
+2022-02-05 21:41:56 INFO Collecting Data from sources
+2022-02-05 21:42:00 ALOHA Program Complete
+2022-02-05 21:42:36 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:42:36 ALOHA Program Start
+2022-02-05 21:42:38 INFO Collecting Data from sources
+2022-02-05 21:42:42 ALOHA Program Complete
+2022-02-05 21:43:18 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:43:18 ALOHA Program Start
+2022-02-05 21:43:20 INFO Collecting Data from sources
+2022-02-05 21:43:25 ALOHA Program Complete
+2022-02-05 21:43:53 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:43:53 ALOHA Program Start
+2022-02-05 21:43:55 INFO Collecting Data from sources
+2022-02-05 21:43:59 ALOHA Program Complete
+2022-02-05 21:44:20 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:44:20 ALOHA Program Start
+2022-02-05 21:44:22 INFO Collecting Data from sources
+2022-02-05 21:44:27 ALOHA Program Complete
+2022-02-05 21:44:52 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:44:52 ALOHA Program Start
+2022-02-05 21:44:55 INFO Collecting Data from sources
+2022-02-05 21:44:59 ALOHA Program Complete
+2022-02-05 21:45:21 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:45:21 ALOHA Program Start
+2022-02-05 21:45:23 INFO Collecting Data from sources
+2022-02-05 21:45:28 ALOHA Program Complete
+2022-02-05 21:45:48 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:45:48 ALOHA Program Start
+2022-02-05 21:45:50 INFO Collecting Data from sources
+2022-02-05 21:45:55 ALOHA Program Complete
+2022-02-05 21:47:19 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:47:19 ALOHA Program Start
+2022-02-05 21:47:21 INFO Collecting Data from sources
+2022-02-05 21:47:45 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:47:45 ALOHA Program Start
+2022-02-05 21:47:47 INFO Collecting Data from sources
+2022-02-05 21:48:19 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:48:19 ALOHA Program Start
+2022-02-05 21:48:21 INFO Collecting Data from sources
+2022-02-05 21:48:46 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:48:46 ALOHA Program Start
+2022-02-05 21:48:48 INFO Collecting Data from sources
+2022-02-05 21:49:06 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:49:06 ALOHA Program Start
+2022-02-05 21:49:09 INFO Collecting Data from sources
+2022-02-05 21:49:13 ALOHA Program Complete
+2022-02-05 21:50:38 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:50:38 ALOHA Program Start
+2022-02-05 21:50:41 INFO Collecting Data from sources
+2022-02-05 21:50:45 ALOHA Program Complete
+2022-02-05 21:51:14 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:51:14 ALOHA Program Start
+2022-02-05 21:51:16 INFO Collecting Data from sources
+2022-02-05 21:51:20 ALOHA Program Complete
+2022-02-05 21:51:42 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:51:42 ALOHA Program Start
+2022-02-05 21:51:44 INFO Collecting Data from sources
+2022-02-05 21:51:48 ALOHA Program Complete
+2022-02-05 21:52:22 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:52:22 ALOHA Program Start
+2022-02-05 21:52:25 INFO Collecting Data from sources
+2022-02-05 21:52:29 ALOHA Program Complete
+2022-02-05 21:52:50 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:52:50 ALOHA Program Start
+2022-02-05 21:52:53 INFO Collecting Data from sources
+2022-02-05 21:52:58 ALOHA Program Complete
+2022-02-05 21:54:00 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:54:00 ALOHA Program Start
+2022-02-05 21:54:03 INFO Collecting Data from sources
+2022-02-05 21:54:07 ALOHA Program Complete
+2022-02-05 21:55:14 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:55:14 ALOHA Program Start
+2022-02-05 21:55:17 INFO Collecting Data from sources
+2022-02-05 21:55:22 ALOHA Program Complete
+2022-02-05 21:56:34 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:56:34 ALOHA Program Start
+2022-02-05 21:56:37 INFO Collecting Data from sources
+2022-02-05 21:56:41 ALOHA Program Complete
+2022-02-05 21:56:54 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:56:54 ALOHA Program Start
+2022-02-05 21:56:56 INFO Collecting Data from sources
+2022-02-05 21:57:01 ALOHA Program Complete
+2022-02-05 21:59:08 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 21:59:08 ALOHA Program Start
+2022-02-05 21:59:10 INFO Collecting Data from sources
+2022-02-05 21:59:14 ALOHA Program Complete
+2022-02-05 22:04:40 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 22:04:40 ALOHA Program Start
+2022-02-05 22:04:43 INFO Collecting Data from sources
+2022-02-05 22:05:19 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 22:05:19 ALOHA Program Start
+2022-02-05 22:05:21 INFO Collecting Data from sources
+2022-02-05 22:05:41 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 22:05:41 ALOHA Program Start
+2022-02-05 22:05:43 INFO Collecting Data from sources
+2022-02-05 22:06:16 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 22:06:16 ALOHA Program Start
+2022-02-05 22:06:18 INFO Collecting Data from sources
+2022-02-05 22:06:30 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 22:06:30 ALOHA Program Start
+2022-02-05 22:06:33 INFO Collecting Data from sources
+2022-02-05 22:09:16 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 22:09:16 ALOHA Program Start
+2022-02-05 22:09:18 INFO Collecting Data from sources
+2022-02-05 22:09:32 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 22:09:32 ALOHA Program Start
+2022-02-05 22:09:34 INFO Collecting Data from sources
+2022-02-05 22:09:40 ALOHA Program Complete
+2022-02-05 22:11:18 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 22:11:18 ALOHA Program Start
+2022-02-05 22:11:20 INFO Collecting Data from sources
+2022-02-05 22:11:25 ALOHA Program Complete
+2022-02-05 22:11:57 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 22:11:57 ALOHA Program Start
+2022-02-05 22:11:59 INFO Collecting Data from sources
+2022-02-05 22:12:04 ALOHA Program Complete
+2022-02-05 22:12:26 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 22:12:26 ALOHA Program Start
+2022-02-05 22:12:28 INFO Collecting Data from sources
+2022-02-05 22:12:33 ALOHA Program Complete
+2022-02-05 22:13:02 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 22:13:02 ALOHA Program Start
+2022-02-05 22:13:05 INFO Collecting Data from sources
+2022-02-05 22:13:10 ALOHA Program Complete
+2022-02-05 22:13:39 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 22:13:39 ALOHA Program Start
+2022-02-05 22:13:42 INFO Collecting Data from sources
+2022-02-05 22:13:47 ALOHA Program Complete
+2022-02-05 22:14:25 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 22:14:25 ALOHA Program Start
+2022-02-05 22:14:28 INFO Collecting Data from sources
+2022-02-05 22:14:33 ALOHA Program Complete
+2022-02-05 22:15:22 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 22:15:22 ALOHA Program Start
+2022-02-05 22:15:25 INFO Collecting Data from sources
+2022-02-05 22:15:30 ALOHA Program Complete
+2022-02-05 22:16:32 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 22:16:32 ALOHA Program Start
+2022-02-05 22:16:35 INFO Collecting Data from sources
+2022-02-05 22:16:39 ALOHA Program Complete
+2022-02-05 22:19:25 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 22:19:25 ALOHA Program Start
+2022-02-05 22:19:27 INFO Collecting Data from sources
+2022-02-05 22:20:00 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 22:20:00 ALOHA Program Start
+2022-02-05 22:20:03 INFO Collecting Data from sources
+2022-02-05 22:20:56 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 22:20:56 ALOHA Program Start
+2022-02-05 22:20:59 INFO Collecting Data from sources
+2022-02-05 22:21:34 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 22:21:34 ALOHA Program Start
+2022-02-05 22:21:37 INFO Collecting Data from sources
+2022-02-05 22:22:27 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 22:22:27 ALOHA Program Start
+2022-02-05 22:22:29 INFO Collecting Data from sources
+2022-02-05 22:22:57 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 22:22:57 ALOHA Program Start
+2022-02-05 22:22:59 INFO Collecting Data from sources
+2022-02-05 22:23:22 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 22:23:22 ALOHA Program Start
+2022-02-05 22:23:24 INFO Collecting Data from sources
+2022-02-05 22:23:48 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 22:23:48 ALOHA Program Start
+2022-02-05 22:23:51 INFO Collecting Data from sources
+2022-02-05 22:23:56 ALOHA Program Complete
+2022-02-05 22:24:41 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 22:24:41 ALOHA Program Start
+2022-02-05 22:24:43 INFO Collecting Data from sources
+2022-02-05 22:24:49 ALOHA Program Complete
+2022-02-05 22:26:05 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 22:26:05 ALOHA Program Start
+2022-02-05 22:26:08 INFO Collecting Data from sources
+2022-02-05 22:27:47 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 22:27:47 ALOHA Program Start
+2022-02-05 22:27:50 INFO Collecting Data from sources
+2022-02-05 22:27:54 ALOHA Program Complete
+2022-02-05 22:28:29 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 22:28:29 ALOHA Program Start
+2022-02-05 22:28:32 INFO Collecting Data from sources
+2022-02-05 22:28:36 ALOHA Program Complete
+2022-02-05 22:29:33 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 22:29:33 ALOHA Program Start
+2022-02-05 22:29:36 INFO Collecting Data from sources
+2022-02-05 22:30:16 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 22:30:16 ALOHA Program Start
+2022-02-05 22:30:18 INFO Collecting Data from sources
+2022-02-05 22:30:56 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 22:30:56 ALOHA Program Start
+2022-02-05 22:30:58 INFO Collecting Data from sources
+2022-02-05 22:31:17 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 22:31:17 ALOHA Program Start
+2022-02-05 22:31:19 INFO Collecting Data from sources
+2022-02-05 22:31:24 ALOHA Program Complete
+2022-02-05 22:32:19 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 22:32:19 ALOHA Program Start
+2022-02-05 22:32:22 INFO Collecting Data from sources
+2022-02-05 22:32:26 ALOHA Program Complete
+2022-02-05 22:33:06 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 22:33:06 ALOHA Program Start
+2022-02-05 22:33:08 INFO Collecting Data from sources
+2022-02-05 22:33:13 ALOHA Program Complete
+2022-02-05 22:33:22 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 22:33:22 ALOHA Program Start
+2022-02-05 22:33:24 INFO Collecting Data from sources
+2022-02-05 22:33:29 ALOHA Program Complete
+2022-02-05 22:34:02 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 22:34:02 ALOHA Program Start
+2022-02-05 22:34:04 INFO Collecting Data from sources
+2022-02-05 22:34:10 ALOHA Program Complete
+2022-02-05 22:35:19 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 22:35:19 ALOHA Program Start
+2022-02-05 22:35:22 INFO Collecting Data from sources
+2022-02-05 22:35:26 ALOHA Program Complete
+2022-02-05 22:36:52 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 22:36:52 ALOHA Program Start
+2022-02-05 22:36:55 INFO Collecting Data from sources
+2022-02-05 22:36:59 ALOHA Program Complete
+2022-02-05 22:37:49 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 22:37:49 ALOHA Program Start
+2022-02-05 22:37:52 INFO Collecting Data from sources
+2022-02-05 22:37:56 ALOHA Program Complete
+2022-02-05 22:38:53 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 22:38:53 ALOHA Program Start
+2022-02-05 22:38:55 INFO Collecting Data from sources
+2022-02-05 22:39:00 ALOHA Program Complete
+2022-02-05 22:39:31 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 22:39:31 ALOHA Program Start
+2022-02-05 22:39:33 INFO Collecting Data from sources
+2022-02-05 22:39:38 ALOHA Program Complete
+2022-02-05 22:39:55 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 22:39:55 ALOHA Program Start
+2022-02-05 22:39:58 INFO Collecting Data from sources
+2022-02-05 22:40:02 ALOHA Program Complete
+2022-02-05 22:40:32 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 22:40:32 ALOHA Program Start
+2022-02-05 22:40:34 INFO Collecting Data from sources
+2022-02-05 22:40:39 ALOHA Program Complete
+2022-02-05 22:40:58 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 22:40:58 ALOHA Program Start
+2022-02-05 22:41:01 INFO Collecting Data from sources
+2022-02-05 22:41:05 ALOHA Program Complete
+2022-02-05 22:41:20 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 22:41:20 ALOHA Program Start
+2022-02-05 22:41:23 INFO Collecting Data from sources
+2022-02-05 22:41:27 ALOHA Program Complete
+2022-02-05 22:41:45 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 22:41:45 ALOHA Program Start
+2022-02-05 22:41:48 INFO Collecting Data from sources
+2022-02-05 22:41:52 ALOHA Program Complete
+2022-02-05 22:42:17 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 22:42:17 ALOHA Program Start
+2022-02-05 22:42:19 INFO Collecting Data from sources
+2022-02-05 22:42:24 ALOHA Program Complete
+2022-02-05 22:42:50 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 22:42:50 ALOHA Program Start
+2022-02-05 22:42:52 INFO Collecting Data from sources
+2022-02-05 22:42:57 ALOHA Program Complete
+2022-02-05 22:43:39 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 22:43:39 ALOHA Program Start
+2022-02-05 22:43:41 INFO Collecting Data from sources
+2022-02-05 22:43:45 ALOHA Program Complete
+2022-02-05 22:44:15 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 22:44:15 ALOHA Program Start
+2022-02-05 22:44:17 INFO Collecting Data from sources
+2022-02-05 22:44:21 ALOHA Program Complete
+2022-02-05 22:48:13 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 22:48:13 ALOHA Program Start
+2022-02-05 22:48:15 INFO Collecting Data from sources
+2022-02-05 22:48:20 ALOHA Program Complete
+2022-02-05 22:48:30 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 22:48:30 ALOHA Program Start
+2022-02-05 22:48:32 INFO Collecting Data from sources
+2022-02-05 22:48:37 ALOHA Program Complete
+2022-02-05 22:49:07 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 22:49:07 ALOHA Program Start
+2022-02-05 22:49:10 INFO Collecting Data from sources
+2022-02-05 22:49:15 ALOHA Program Complete
+2022-02-05 22:49:50 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 22:49:50 ALOHA Program Start
+2022-02-05 22:49:52 INFO Collecting Data from sources
+2022-02-05 22:49:57 ALOHA Program Complete
+2022-02-05 22:51:25 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 22:51:25 ALOHA Program Start
+2022-02-05 22:51:28 INFO Collecting Data from sources
+2022-02-05 22:51:32 ALOHA Program Complete
+2022-02-05 22:51:51 ALOHA Precipitable-water Model Analysis Tool
+2022-02-05 22:51:51 ALOHA Program Start
+2022-02-05 22:51:54 INFO Collecting Data from sources
+2022-02-05 22:51:58 ALOHA Program Complete
+2022-02-07 22:45:53 ALOHA Precipitable-water Model Analysis Tool
+2022-02-07 22:45:53 ALOHA Program Start
+2022-02-07 22:46:10 INFO Collecting Data from sources
+2022-02-07 22:46:14 INFO Time Series Plot Set
+2022-02-07 22:46:14 PASS Sky Temperature Time Series
+2022-02-07 22:46:14 PASS Ground Temperature Time Series
+2022-02-07 22:46:14 PASS Difference Between Ground-Sky Temperature Time Series
+2022-02-07 22:46:15 PASS Total Precipitable Water Time Series
+2022-02-07 22:46:15 PASS Temporal Mean Precipitable Water Time Series
+2022-02-07 22:46:15 PASS Locational Mean Precipitable Water Time Series
+2022-02-07 22:46:15 PASS Mean Total Precipitable Water Time Series
+2022-02-07 22:46:15 PASS Dewpoint Temperature Time Series
+2022-02-07 22:46:15 PASS Mean Sky Temperature and PWV Time Series
+2022-02-07 22:46:15 PASS Mean Sky Temperature and RH Time Series
+2022-02-07 22:46:15 PASS Mean TPW and RH Time Series
+2022-02-07 22:46:16 PASS Normalized Index for Weighted PWV Time Series
+2022-02-07 22:46:16 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-07 22:46:16 ALOHA Program Complete
+2022-02-07 22:56:24 ALOHA Precipitable-water Model Analysis Tool
+2022-02-07 22:56:24 ALOHA Program Start
+2022-02-07 22:56:40 INFO Collecting Data from sources
+2022-02-07 22:56:44 INFO Time Series Plot Set
+2022-02-07 22:56:44 PASS Sky Temperature Time Series
+2022-02-07 22:56:44 PASS Ground Temperature Time Series
+2022-02-07 22:56:44 PASS Difference Between Ground-Sky Temperature Time Series
+2022-02-07 22:56:44 PASS Total Precipitable Water Time Series
+2022-02-07 22:56:44 PASS Temporal Mean Precipitable Water Time Series
+2022-02-07 22:56:44 PASS Locational Mean Precipitable Water Time Series
+2022-02-07 22:56:44 PASS Mean Total Precipitable Water Time Series
+2022-02-07 22:56:44 PASS Dewpoint Temperature Time Series
+2022-02-07 22:56:45 PASS Mean Sky Temperature and PWV Time Series
+2022-02-07 22:56:45 PASS Mean Sky Temperature and RH Time Series
+2022-02-07 22:56:45 PASS Mean TPW and RH Time Series
+2022-02-07 22:56:45 PASS Normalized Index for Weighted PWV Time Series
+2022-02-07 22:56:45 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-07 22:56:45 ALOHA Program Complete
+2022-02-08 20:29:05 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 20:29:05 ALOHA Program Start
+2022-02-08 20:29:26 INFO Collecting Data from sources
+2022-02-08 20:29:30 INFO Time Series Plot Set
+2022-02-08 20:29:30 PASS Sky Temperature Time Series
+2022-02-08 20:29:30 PASS Ground Temperature Time Series
+2022-02-08 20:29:30 PASS Difference Between Ground-Sky Temperature Time Series
+2022-02-08 20:29:30 PASS Total Precipitable Water Time Series
+2022-02-08 20:29:30 PASS Temporal Mean Precipitable Water Time Series
+2022-02-08 20:29:30 PASS Locational Mean Precipitable Water Time Series
+2022-02-08 20:29:30 PASS Mean Total Precipitable Water Time Series
+2022-02-08 20:29:30 PASS Dewpoint Temperature Time Series
+2022-02-08 20:29:30 PASS Mean Sky Temperature and PWV Time Series
+2022-02-08 20:29:30 PASS Mean Sky Temperature and RH Time Series
+2022-02-08 20:29:30 PASS Mean TPW and RH Time Series
+2022-02-08 20:29:30 PASS Normalized Index for Weighted PWV Time Series
+2022-02-08 20:29:30 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-08 20:29:30 ALOHA Program Complete
+2022-02-08 20:30:07 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 20:30:07 ALOHA Program Start
+2022-02-08 20:30:09 INFO Collecting Data from sources
+2022-02-08 20:30:13 INFO Time Series Plot Set
+2022-02-08 20:30:13 PASS Sky Temperature Time Series
+2022-02-08 20:30:13 PASS Ground Temperature Time Series
+2022-02-08 20:30:13 PASS Difference Between Ground-Sky Temperature Time Series
+2022-02-08 20:30:13 PASS Total Precipitable Water Time Series
+2022-02-08 20:30:13 PASS Temporal Mean Precipitable Water Time Series
+2022-02-08 20:30:13 PASS Locational Mean Precipitable Water Time Series
+2022-02-08 20:30:13 PASS Mean Total Precipitable Water Time Series
+2022-02-08 20:30:13 PASS Dewpoint Temperature Time Series
+2022-02-08 20:30:13 PASS Mean Sky Temperature and PWV Time Series
+2022-02-08 20:30:13 PASS Mean Sky Temperature and RH Time Series
+2022-02-08 20:30:13 PASS Mean TPW and RH Time Series
+2022-02-08 20:30:13 PASS Normalized Index for Weighted PWV Time Series
+2022-02-08 20:30:13 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-08 20:30:13 ALOHA Program Complete
+2022-02-08 22:41:58 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 22:42:28 ALOHA Program Start
+2022-02-08 22:42:31 INFO Collecting Data from sources
+2022-02-08 22:42:57 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 22:42:57 ALOHA Program Start
+2022-02-08 22:42:59 INFO Collecting Data from sources
+2022-02-08 22:43:29 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 22:43:29 ALOHA Program Start
+2022-02-08 22:43:31 INFO Collecting Data from sources
+2022-02-08 22:44:06 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 22:44:06 ALOHA Program Start
+2022-02-08 22:44:08 INFO Collecting Data from sources
+2022-02-08 22:44:34 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 22:44:34 ALOHA Program Start
+2022-02-08 22:44:37 INFO Collecting Data from sources
+2022-02-08 22:45:37 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 22:45:37 ALOHA Program Start
+2022-02-08 22:45:39 INFO Collecting Data from sources
+2022-02-08 22:46:56 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 22:46:56 ALOHA Program Start
+2022-02-08 22:46:58 INFO Collecting Data from sources
+2022-02-08 22:47:37 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 22:47:37 ALOHA Program Start
+2022-02-08 22:47:40 INFO Collecting Data from sources
+2022-02-08 22:48:10 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 22:48:10 ALOHA Program Start
+2022-02-08 22:48:13 INFO Collecting Data from sources
+2022-02-08 22:48:38 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 22:48:38 ALOHA Program Start
+2022-02-08 22:48:41 INFO Collecting Data from sources
+2022-02-08 22:49:12 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 22:49:12 ALOHA Program Start
+2022-02-08 22:49:15 INFO Collecting Data from sources
+2022-02-08 22:49:46 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 22:49:46 ALOHA Program Start
+2022-02-08 22:49:48 INFO Collecting Data from sources
+2022-02-08 22:50:23 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 22:50:23 ALOHA Program Start
+2022-02-08 22:50:25 INFO Collecting Data from sources
+2022-02-08 22:51:48 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 22:51:48 ALOHA Program Start
+2022-02-08 22:51:51 INFO Collecting Data from sources
+2022-02-08 22:52:48 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 22:52:48 ALOHA Program Start
+2022-02-08 22:52:51 INFO Collecting Data from sources
+2022-02-08 22:54:07 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 22:54:07 ALOHA Program Start
+2022-02-08 22:54:10 INFO Collecting Data from sources
+2022-02-08 22:56:11 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 22:56:11 ALOHA Program Start
+2022-02-08 22:56:13 INFO Collecting Data from sources
+2022-02-08 22:56:42 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 22:56:42 ALOHA Program Start
+2022-02-08 22:56:44 INFO Collecting Data from sources
+2022-02-08 22:57:05 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 22:57:05 ALOHA Program Start
+2022-02-08 22:57:08 INFO Collecting Data from sources
+2022-02-08 22:57:29 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 22:57:29 ALOHA Program Start
+2022-02-08 22:57:31 INFO Collecting Data from sources
+2022-02-08 22:57:49 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 22:57:49 ALOHA Program Start
+2022-02-08 22:57:51 INFO Collecting Data from sources
+2022-02-08 22:58:14 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 22:58:14 ALOHA Program Start
+2022-02-08 22:58:17 INFO Collecting Data from sources
+2022-02-08 23:00:35 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 23:00:35 ALOHA Program Start
+2022-02-08 23:00:37 INFO Collecting Data from sources
+2022-02-08 23:01:05 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 23:01:05 ALOHA Program Start
+2022-02-08 23:01:08 INFO Collecting Data from sources
+2022-02-08 23:01:38 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 23:01:38 ALOHA Program Start
+2022-02-08 23:01:40 INFO Collecting Data from sources
+2022-02-08 23:03:08 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 23:03:08 ALOHA Program Start
+2022-02-08 23:03:11 INFO Collecting Data from sources
+2022-02-08 23:03:34 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 23:03:34 ALOHA Program Start
+2022-02-08 23:03:36 INFO Collecting Data from sources
+2022-02-08 23:04:14 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 23:04:14 ALOHA Program Start
+2022-02-08 23:04:16 INFO Collecting Data from sources
+2022-02-08 23:04:45 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 23:04:45 ALOHA Program Start
+2022-02-08 23:04:47 INFO Collecting Data from sources
+2022-02-08 23:06:03 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 23:06:03 ALOHA Program Start
+2022-02-08 23:06:05 INFO Collecting Data from sources
+2022-02-08 23:06:26 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 23:06:26 ALOHA Program Start
+2022-02-08 23:06:28 INFO Collecting Data from sources
+2022-02-08 23:06:53 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 23:06:53 ALOHA Program Start
+2022-02-08 23:06:55 INFO Collecting Data from sources
+2022-02-08 23:07:14 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 23:07:14 ALOHA Program Start
+2022-02-08 23:07:16 INFO Collecting Data from sources
+2022-02-08 23:07:37 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 23:07:37 ALOHA Program Start
+2022-02-08 23:07:39 INFO Collecting Data from sources
+2022-02-08 23:08:14 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 23:08:14 ALOHA Program Start
+2022-02-08 23:08:16 INFO Collecting Data from sources
+2022-02-08 23:08:41 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 23:08:41 ALOHA Program Start
+2022-02-08 23:08:44 INFO Collecting Data from sources
+2022-02-08 23:09:04 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 23:09:04 ALOHA Program Start
+2022-02-08 23:09:07 INFO Collecting Data from sources
+2022-02-08 23:09:44 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 23:09:44 ALOHA Program Start
+2022-02-08 23:09:46 INFO Collecting Data from sources
+2022-02-08 23:11:41 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 23:11:41 ALOHA Program Start
+2022-02-08 23:11:44 INFO Collecting Data from sources
+2022-02-08 23:12:58 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 23:12:58 ALOHA Program Start
+2022-02-08 23:13:01 INFO Collecting Data from sources
+2022-02-08 23:15:12 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 23:15:12 ALOHA Program Start
+2022-02-08 23:15:14 INFO Collecting Data from sources
+2022-02-08 23:16:45 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 23:16:45 ALOHA Program Start
+2022-02-08 23:16:47 INFO Collecting Data from sources
+2022-02-08 23:32:07 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 23:32:07 ALOHA Program Start
+2022-02-08 23:32:09 INFO Collecting Data from sources
+2022-02-08 23:32:13 ERROR Insufficient clear sky/overcast data
+2022-02-08 23:32:13 ALOHA Program Complete
+2022-02-08 23:32:44 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 23:32:44 ALOHA Program Start
+2022-02-08 23:32:46 INFO Collecting Data from sources
+2022-02-08 23:32:53 ERROR Insufficient clear sky/overcast data
+2022-02-08 23:32:53 ALOHA Program Complete
+2022-02-08 23:33:39 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 23:33:39 ALOHA Program Start
+2022-02-08 23:33:42 INFO Collecting Data from sources
+2022-02-08 23:34:36 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 23:34:36 ALOHA Program Start
+2022-02-08 23:34:39 INFO Collecting Data from sources
+2022-02-08 23:35:17 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 23:35:17 ALOHA Program Start
+2022-02-08 23:35:20 INFO Collecting Data from sources
+2022-02-08 23:35:23 ERROR Insufficient clear sky/overcast data
+2022-02-08 23:35:23 ALOHA Program Complete
+2022-02-08 23:35:51 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 23:35:51 ALOHA Program Start
+2022-02-08 23:35:53 INFO Collecting Data from sources
+2022-02-08 23:35:57 ERROR Insufficient clear sky/overcast data
+2022-02-08 23:35:57 ALOHA Program Complete
+2022-02-08 23:36:12 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 23:36:12 ALOHA Program Start
+2022-02-08 23:36:14 INFO Collecting Data from sources
+2022-02-08 23:36:18 ERROR Insufficient clear sky/overcast data
+2022-02-08 23:36:18 ALOHA Program Complete
+2022-02-08 23:36:47 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 23:36:47 ALOHA Program Start
+2022-02-08 23:36:50 INFO Collecting Data from sources
+2022-02-08 23:37:24 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 23:37:24 ALOHA Program Start
+2022-02-08 23:37:27 INFO Collecting Data from sources
+2022-02-08 23:37:49 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 23:37:49 ALOHA Program Start
+2022-02-08 23:37:51 INFO Collecting Data from sources
+2022-02-08 23:38:07 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 23:38:07 ALOHA Program Start
+2022-02-08 23:38:10 INFO Collecting Data from sources
+2022-02-08 23:38:17 ERROR Insufficient clear sky/overcast data
+2022-02-08 23:38:17 ALOHA Program Complete
+2022-02-08 23:39:02 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 23:39:02 ALOHA Program Start
+2022-02-08 23:39:05 INFO Collecting Data from sources
+2022-02-08 23:39:47 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 23:39:47 ALOHA Program Start
+2022-02-08 23:39:49 INFO Collecting Data from sources
+2022-02-08 23:39:54 ERROR Insufficient clear sky/overcast data
+2022-02-08 23:39:54 ALOHA Program Complete
+2022-02-08 23:40:29 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 23:40:29 ALOHA Program Start
+2022-02-08 23:40:32 INFO Collecting Data from sources
+2022-02-08 23:40:39 ERROR Insufficient clear sky/overcast data
+2022-02-08 23:40:39 ALOHA Program Complete
+2022-02-08 23:42:23 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 23:42:23 ALOHA Program Start
+2022-02-08 23:42:25 INFO Collecting Data from sources
+2022-02-08 23:42:30 ERROR Insufficient clear sky/overcast data
+2022-02-08 23:42:30 ALOHA Program Complete
+2022-02-08 23:42:53 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 23:42:53 ALOHA Program Start
+2022-02-08 23:42:56 INFO Collecting Data from sources
+2022-02-08 23:42:59 ERROR Insufficient clear sky/overcast data
+2022-02-08 23:42:59 ALOHA Program Complete
+2022-02-08 23:46:56 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 23:46:56 ALOHA Program Start
+2022-02-08 23:46:59 INFO Collecting Data from sources
+2022-02-08 23:47:10 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 23:47:10 ALOHA Program Start
+2022-02-08 23:47:13 INFO Collecting Data from sources
+2022-02-08 23:49:17 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 23:49:17 ALOHA Program Start
+2022-02-08 23:49:19 INFO Collecting Data from sources
+2022-02-08 23:49:35 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 23:49:35 ALOHA Program Start
+2022-02-08 23:49:37 INFO Collecting Data from sources
+2022-02-08 23:50:16 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 23:50:16 ALOHA Program Start
+2022-02-08 23:50:19 INFO Collecting Data from sources
+2022-02-08 23:50:29 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 23:50:29 ALOHA Program Start
+2022-02-08 23:50:32 INFO Collecting Data from sources
+2022-02-08 23:51:07 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 23:51:07 ALOHA Program Start
+2022-02-08 23:51:09 INFO Collecting Data from sources
+2022-02-08 23:51:27 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 23:51:27 ALOHA Program Start
+2022-02-08 23:51:30 INFO Collecting Data from sources
+2022-02-08 23:51:53 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 23:51:53 ALOHA Program Start
+2022-02-08 23:51:55 INFO Collecting Data from sources
+2022-02-08 23:52:47 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 23:52:47 ALOHA Program Start
+2022-02-08 23:52:49 INFO Collecting Data from sources
+2022-02-08 23:53:31 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 23:53:31 ALOHA Program Start
+2022-02-08 23:53:34 INFO Collecting Data from sources
+2022-02-08 23:54:24 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 23:54:24 ALOHA Program Start
+2022-02-08 23:54:26 INFO Collecting Data from sources
+2022-02-08 23:55:37 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 23:55:37 ALOHA Program Start
+2022-02-08 23:55:40 INFO Collecting Data from sources
+2022-02-08 23:56:35 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 23:56:35 ALOHA Program Start
+2022-02-08 23:56:37 INFO Collecting Data from sources
+2022-02-08 23:57:01 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 23:57:01 ALOHA Program Start
+2022-02-08 23:57:03 INFO Collecting Data from sources
+2022-02-08 23:57:18 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 23:57:18 ALOHA Program Start
+2022-02-08 23:57:21 INFO Collecting Data from sources
+2022-02-08 23:58:43 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 23:58:43 ALOHA Program Start
+2022-02-08 23:59:06 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 23:59:06 ALOHA Program Start
+2022-02-08 23:59:09 INFO Collecting Data from sources
+2022-02-08 23:59:50 ALOHA Precipitable-water Model Analysis Tool
+2022-02-08 23:59:50 ALOHA Program Start
+2022-02-08 23:59:53 INFO Collecting Data from sources
+2022-02-09 00:00:47 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 00:00:47 ALOHA Program Start
+2022-02-09 00:00:55 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 00:00:55 ALOHA Program Start
+2022-02-09 00:00:57 INFO Collecting Data from sources
+2022-02-09 00:01:21 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 00:01:21 ALOHA Program Start
+2022-02-09 00:01:23 INFO Collecting Data from sources
+2022-02-09 00:02:46 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 00:02:46 ALOHA Program Start
+2022-02-09 00:02:49 INFO Collecting Data from sources
+2022-02-09 00:03:43 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 00:03:43 ALOHA Program Start
+2022-02-09 00:03:46 INFO Collecting Data from sources
+2022-02-09 00:04:27 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 00:04:27 ALOHA Program Start
+2022-02-09 00:04:29 INFO Collecting Data from sources
+2022-02-09 00:05:05 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 00:05:05 ALOHA Program Start
+2022-02-09 00:05:07 INFO Collecting Data from sources
+2022-02-09 00:05:32 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 00:05:32 ALOHA Program Start
+2022-02-09 00:05:35 INFO Collecting Data from sources
+2022-02-09 00:06:04 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 00:06:04 ALOHA Program Start
+2022-02-09 00:06:07 INFO Collecting Data from sources
+2022-02-09 00:06:23 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 00:06:23 ALOHA Program Start
+2022-02-09 00:06:25 INFO Collecting Data from sources
+2022-02-09 00:06:45 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 00:06:45 ALOHA Program Start
+2022-02-09 00:06:47 INFO Collecting Data from sources
+2022-02-09 00:07:29 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 00:07:29 ALOHA Program Start
+2022-02-09 00:07:31 INFO Collecting Data from sources
+2022-02-09 00:07:51 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 00:07:51 ALOHA Program Start
+2022-02-09 00:07:54 INFO Collecting Data from sources
+2022-02-09 00:08:12 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 00:08:12 ALOHA Program Start
+2022-02-09 00:08:15 INFO Collecting Data from sources
+2022-02-09 00:09:29 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 00:09:29 ALOHA Program Start
+2022-02-09 00:09:31 INFO Collecting Data from sources
+2022-02-09 00:09:50 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 00:09:50 ALOHA Program Start
+2022-02-09 00:09:52 INFO Collecting Data from sources
+2022-02-09 00:11:03 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 00:11:03 ALOHA Program Start
+2022-02-09 00:11:06 INFO Collecting Data from sources
+2022-02-09 00:11:53 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 00:11:53 ALOHA Program Start
+2022-02-09 00:11:55 INFO Collecting Data from sources
+2022-02-09 10:46:45 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 10:46:45 ALOHA Program Start
+2022-02-09 10:47:04 INFO Collecting Data from sources
+2022-02-09 10:47:47 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 10:47:47 ALOHA Program Start
+2022-02-09 10:47:50 INFO Collecting Data from sources
+2022-02-09 10:50:04 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 10:50:04 ALOHA Program Start
+2022-02-09 10:50:06 INFO Collecting Data from sources
+2022-02-09 10:50:27 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 10:50:27 ALOHA Program Start
+2022-02-09 10:50:30 INFO Collecting Data from sources
+2022-02-09 10:50:42 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 10:50:42 ALOHA Program Start
+2022-02-09 10:50:45 INFO Collecting Data from sources
+2022-02-09 10:51:54 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 10:51:54 ALOHA Program Start
+2022-02-09 10:51:56 INFO Collecting Data from sources
+2022-02-09 10:52:44 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 10:52:44 ALOHA Program Start
+2022-02-09 10:52:46 INFO Collecting Data from sources
+2022-02-09 10:55:29 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 10:55:29 ALOHA Program Start
+2022-02-09 10:55:31 INFO Collecting Data from sources
+2022-02-09 10:55:47 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 10:55:47 ALOHA Program Start
+2022-02-09 10:55:50 INFO Collecting Data from sources
+2022-02-09 10:56:32 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 10:56:32 ALOHA Program Start
+2022-02-09 10:56:34 INFO Collecting Data from sources
+2022-02-09 10:57:36 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 10:57:36 ALOHA Program Start
+2022-02-09 10:57:39 INFO Collecting Data from sources
+2022-02-09 10:58:35 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 10:58:35 ALOHA Program Start
+2022-02-09 10:58:38 INFO Collecting Data from sources
+2022-02-09 11:00:05 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 11:00:05 ALOHA Program Start
+2022-02-09 11:00:08 INFO Collecting Data from sources
+2022-02-09 11:00:38 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 11:00:38 ALOHA Program Start
+2022-02-09 11:00:40 INFO Collecting Data from sources
+2022-02-09 11:01:31 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 11:01:31 ALOHA Program Start
+2022-02-09 11:01:34 INFO Collecting Data from sources
+2022-02-09 11:02:52 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 11:02:52 ALOHA Program Start
+2022-02-09 11:02:54 INFO Collecting Data from sources
+2022-02-09 11:04:05 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 11:04:05 ALOHA Program Start
+2022-02-09 11:04:08 INFO Collecting Data from sources
+2022-02-09 11:09:56 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 11:09:56 ALOHA Program Start
+2022-02-09 11:09:59 INFO Collecting Data from sources
+2022-02-09 11:12:51 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 11:12:51 ALOHA Program Start
+2022-02-09 11:12:53 INFO Collecting Data from sources
+2022-02-09 11:13:28 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 11:13:28 ALOHA Program Start
+2022-02-09 11:13:30 INFO Collecting Data from sources
+2022-02-09 11:13:56 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 11:13:56 ALOHA Program Start
+2022-02-09 11:13:58 INFO Collecting Data from sources
+2022-02-09 11:14:26 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 11:14:26 ALOHA Program Start
+2022-02-09 11:14:29 INFO Collecting Data from sources
+2022-02-09 11:17:21 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 11:17:21 ALOHA Program Start
+2022-02-09 11:17:23 INFO Collecting Data from sources
+2022-02-09 11:17:40 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 11:17:40 ALOHA Program Start
+2022-02-09 11:17:42 INFO Collecting Data from sources
+2022-02-09 11:17:57 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 11:17:57 ALOHA Program Start
+2022-02-09 11:18:00 INFO Collecting Data from sources
+2022-02-09 11:19:07 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 11:19:07 ALOHA Program Start
+2022-02-09 11:19:10 INFO Collecting Data from sources
+2022-02-09 11:20:00 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 11:20:00 ALOHA Program Start
+2022-02-09 11:20:03 INFO Collecting Data from sources
+2022-02-09 11:20:17 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 11:20:17 ALOHA Program Start
+2022-02-09 11:20:19 INFO Collecting Data from sources
+2022-02-09 11:26:22 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 11:26:22 ALOHA Program Start
+2022-02-09 11:26:25 INFO Collecting Data from sources
+2022-02-09 11:26:47 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 11:26:47 ALOHA Program Start
+2022-02-09 11:26:50 INFO Collecting Data from sources
+2022-02-09 11:28:30 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 11:28:30 ALOHA Program Start
+2022-02-09 11:28:33 INFO Collecting Data from sources
+2022-02-09 11:29:49 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 11:29:49 ALOHA Program Start
+2022-02-09 11:29:52 INFO Collecting Data from sources
+2022-02-09 11:30:13 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 11:30:13 ALOHA Program Start
+2022-02-09 11:30:16 INFO Collecting Data from sources
+2022-02-09 11:31:45 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 11:31:45 ALOHA Program Start
+2022-02-09 11:31:48 INFO Collecting Data from sources
+2022-02-09 11:33:46 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 11:33:46 ALOHA Program Start
+2022-02-09 11:33:49 INFO Collecting Data from sources
+2022-02-09 11:34:45 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 11:34:45 ALOHA Program Start
+2022-02-09 11:34:47 INFO Collecting Data from sources
+2022-02-09 11:41:39 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 11:41:39 ALOHA Program Start
+2022-02-09 11:41:41 INFO Collecting Data from sources
+2022-02-09 11:42:18 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 11:42:18 ALOHA Program Start
+2022-02-09 11:42:20 INFO Collecting Data from sources
+2022-02-09 11:42:49 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 11:42:49 ALOHA Program Start
+2022-02-09 11:42:51 INFO Collecting Data from sources
+2022-02-09 11:43:11 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 11:43:11 ALOHA Program Start
+2022-02-09 11:43:13 INFO Collecting Data from sources
+2022-02-09 11:43:38 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 11:43:50 ALOHA Program Start
+2022-02-09 11:43:53 INFO Collecting Data from sources
+2022-02-09 11:45:20 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 11:45:20 ALOHA Program Start
+2022-02-09 11:45:22 INFO Collecting Data from sources
+2022-02-09 11:45:37 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 11:45:37 ALOHA Program Start
+2022-02-09 11:45:39 INFO Collecting Data from sources
+2022-02-09 11:46:03 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 11:46:03 ALOHA Program Start
+2022-02-09 11:46:05 INFO Collecting Data from sources
+2022-02-09 11:47:10 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 11:47:10 ALOHA Program Start
+2022-02-09 11:47:12 INFO Collecting Data from sources
+2022-02-09 11:48:16 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 11:48:16 ALOHA Program Start
+2022-02-09 11:48:32 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 11:48:32 ALOHA Program Start
+2022-02-09 11:48:35 INFO Collecting Data from sources
+2022-02-09 11:48:51 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 11:49:02 ALOHA Program Start
+2022-02-09 11:49:05 INFO Collecting Data from sources
+2022-02-09 11:50:00 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 11:50:00 ALOHA Program Start
+2022-02-09 11:50:03 INFO Collecting Data from sources
+2022-02-09 11:50:40 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 11:50:40 ALOHA Program Start
+2022-02-09 11:50:43 INFO Collecting Data from sources
+2022-02-09 11:51:40 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 11:51:40 ALOHA Program Start
+2022-02-09 11:51:43 INFO Collecting Data from sources
+2022-02-09 11:52:10 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 11:52:10 ALOHA Program Start
+2022-02-09 11:52:12 INFO Collecting Data from sources
+2022-02-09 11:52:55 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 11:52:55 ALOHA Program Start
+2022-02-09 11:52:57 INFO Collecting Data from sources
+2022-02-09 11:54:35 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 11:54:35 ALOHA Program Start
+2022-02-09 11:54:37 INFO Collecting Data from sources
+2022-02-09 11:54:57 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 11:54:57 ALOHA Program Start
+2022-02-09 11:55:00 INFO Collecting Data from sources
+2022-02-09 11:59:05 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 11:59:05 ALOHA Program Start
+2022-02-09 11:59:07 INFO Collecting Data from sources
+2022-02-09 12:01:10 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:01:10 ALOHA Program Start
+2022-02-09 12:01:13 INFO Collecting Data from sources
+2022-02-09 12:01:30 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:01:30 ALOHA Program Start
+2022-02-09 12:01:32 INFO Collecting Data from sources
+2022-02-09 12:02:27 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:02:27 ALOHA Program Start
+2022-02-09 12:02:29 INFO Collecting Data from sources
+2022-02-09 12:02:57 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:02:57 ALOHA Program Start
+2022-02-09 12:02:59 INFO Collecting Data from sources
+2022-02-09 12:03:23 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:03:23 ALOHA Program Start
+2022-02-09 12:03:25 INFO Collecting Data from sources
+2022-02-09 12:04:03 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:04:03 ALOHA Program Start
+2022-02-09 12:04:05 INFO Collecting Data from sources
+2022-02-09 12:05:46 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:05:46 ALOHA Program Start
+2022-02-09 12:05:49 INFO Collecting Data from sources
+2022-02-09 12:07:08 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:07:08 ALOHA Program Start
+2022-02-09 12:07:10 INFO Collecting Data from sources
+2022-02-09 12:07:24 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:07:24 ALOHA Program Start
+2022-02-09 12:07:27 INFO Collecting Data from sources
+2022-02-09 12:07:46 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:07:46 ALOHA Program Start
+2022-02-09 12:07:48 INFO Collecting Data from sources
+2022-02-09 12:09:23 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:09:23 ALOHA Program Start
+2022-02-09 12:09:25 INFO Collecting Data from sources
+2022-02-09 12:09:59 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:09:59 ALOHA Program Start
+2022-02-09 12:10:02 INFO Collecting Data from sources
+2022-02-09 12:11:29 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:11:29 ALOHA Program Start
+2022-02-09 12:11:32 INFO Collecting Data from sources
+2022-02-09 12:14:48 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:14:48 ALOHA Program Start
+2022-02-09 12:14:51 INFO Collecting Data from sources
+2022-02-09 12:15:15 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:15:15 ALOHA Program Start
+2022-02-09 12:15:17 INFO Collecting Data from sources
+2022-02-09 12:15:54 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:15:54 ALOHA Program Start
+2022-02-09 12:15:57 INFO Collecting Data from sources
+2022-02-09 12:16:31 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:16:31 ALOHA Program Start
+2022-02-09 12:16:34 INFO Collecting Data from sources
+2022-02-09 12:18:04 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:18:04 ALOHA Program Start
+2022-02-09 12:18:06 INFO Collecting Data from sources
+2022-02-09 12:18:23 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:18:23 ALOHA Program Start
+2022-02-09 12:18:26 INFO Collecting Data from sources
+2022-02-09 12:18:59 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:18:59 ALOHA Program Start
+2022-02-09 12:19:02 INFO Collecting Data from sources
+2022-02-09 12:19:47 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:19:47 ALOHA Program Start
+2022-02-09 12:19:49 INFO Collecting Data from sources
+2022-02-09 12:20:19 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:20:19 ALOHA Program Start
+2022-02-09 12:20:21 INFO Collecting Data from sources
+2022-02-09 12:28:17 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:28:17 ALOHA Program Start
+2022-02-09 12:28:19 INFO Collecting Data from sources
+2022-02-09 12:28:59 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:28:59 ALOHA Program Start
+2022-02-09 12:29:02 INFO Collecting Data from sources
+2022-02-09 12:29:25 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:29:25 ALOHA Program Start
+2022-02-09 12:29:28 INFO Collecting Data from sources
+2022-02-09 12:30:28 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:30:28 ALOHA Program Start
+2022-02-09 12:30:30 INFO Collecting Data from sources
+2022-02-09 12:31:11 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:31:11 ALOHA Program Start
+2022-02-09 12:31:13 INFO Collecting Data from sources
+2022-02-09 12:33:44 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:33:44 ALOHA Program Start
+2022-02-09 12:33:46 INFO Collecting Data from sources
+2022-02-09 12:34:20 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:34:20 ALOHA Program Start
+2022-02-09 12:34:23 INFO Collecting Data from sources
+2022-02-09 12:35:30 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:35:30 ALOHA Program Start
+2022-02-09 12:35:32 INFO Collecting Data from sources
+2022-02-09 12:36:04 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:36:04 ALOHA Program Start
+2022-02-09 12:36:07 INFO Collecting Data from sources
+2022-02-09 12:36:40 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:36:49 ALOHA Program Start
+2022-02-09 12:36:52 INFO Collecting Data from sources
+2022-02-09 12:37:11 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:37:11 ALOHA Program Start
+2022-02-09 12:37:14 INFO Collecting Data from sources
+2022-02-09 12:37:24 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:37:24 ALOHA Program Start
+2022-02-09 12:37:27 INFO Collecting Data from sources
+2022-02-09 12:37:58 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:37:58 ALOHA Program Start
+2022-02-09 12:38:01 INFO Collecting Data from sources
+2022-02-09 12:39:22 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:39:22 ALOHA Program Start
+2022-02-09 12:39:25 INFO Collecting Data from sources
+2022-02-09 12:40:49 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:40:49 ALOHA Program Start
+2022-02-09 12:40:51 INFO Collecting Data from sources
+2022-02-09 12:42:28 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:42:28 ALOHA Program Start
+2022-02-09 12:42:30 INFO Collecting Data from sources
+2022-02-09 12:42:44 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:42:44 ALOHA Program Start
+2022-02-09 12:42:46 INFO Collecting Data from sources
+2022-02-09 12:43:17 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:43:17 ALOHA Program Start
+2022-02-09 12:43:20 INFO Collecting Data from sources
+2022-02-09 12:44:03 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:44:03 ALOHA Program Start
+2022-02-09 12:44:06 INFO Collecting Data from sources
+2022-02-09 12:44:54 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:44:54 ALOHA Program Start
+2022-02-09 12:44:56 INFO Collecting Data from sources
+2022-02-09 12:45:19 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:45:19 ALOHA Program Start
+2022-02-09 12:45:22 INFO Collecting Data from sources
+2022-02-09 12:45:55 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:45:55 ALOHA Program Start
+2022-02-09 12:45:58 INFO Collecting Data from sources
+2022-02-09 12:46:50 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:46:50 ALOHA Program Start
+2022-02-09 12:46:53 INFO Collecting Data from sources
+2022-02-09 12:47:15 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:47:15 ALOHA Program Start
+2022-02-09 12:47:17 INFO Collecting Data from sources
+2022-02-09 12:47:48 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:47:48 ALOHA Program Start
+2022-02-09 12:47:51 INFO Collecting Data from sources
+2022-02-09 12:48:01 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:48:01 ALOHA Program Start
+2022-02-09 12:48:03 INFO Collecting Data from sources
+2022-02-09 12:48:18 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:48:18 ALOHA Program Start
+2022-02-09 12:48:21 INFO Collecting Data from sources
+2022-02-09 12:49:35 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:49:35 ALOHA Program Start
+2022-02-09 12:49:37 INFO Collecting Data from sources
+2022-02-09 12:49:56 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:49:56 ALOHA Program Start
+2022-02-09 12:49:58 INFO Collecting Data from sources
+2022-02-09 12:50:23 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:50:23 ALOHA Program Start
+2022-02-09 12:50:25 INFO Collecting Data from sources
+2022-02-09 12:50:44 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:50:44 ALOHA Program Start
+2022-02-09 12:50:46 INFO Collecting Data from sources
+2022-02-09 12:51:11 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:51:11 ALOHA Program Start
+2022-02-09 12:51:13 INFO Collecting Data from sources
+2022-02-09 12:52:03 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:52:03 ALOHA Program Start
+2022-02-09 12:52:06 INFO Collecting Data from sources
+2022-02-09 12:53:02 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:53:02 ALOHA Program Start
+2022-02-09 12:53:04 INFO Collecting Data from sources
+2022-02-09 12:53:16 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:53:16 ALOHA Program Start
+2022-02-09 12:53:19 INFO Collecting Data from sources
+2022-02-09 12:54:03 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:54:03 ALOHA Program Start
+2022-02-09 12:54:05 INFO Collecting Data from sources
+2022-02-09 12:54:18 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:54:18 ALOHA Program Start
+2022-02-09 12:54:21 INFO Collecting Data from sources
+2022-02-09 12:55:24 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:55:24 ALOHA Program Start
+2022-02-09 12:55:35 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:55:35 ALOHA Program Start
+2022-02-09 12:55:37 INFO Collecting Data from sources
+2022-02-09 12:58:45 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 12:58:45 ALOHA Program Start
+2022-02-09 12:58:47 INFO Collecting Data from sources
+2022-02-09 13:00:01 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 13:00:01 ALOHA Program Start
+2022-02-09 13:00:04 INFO Collecting Data from sources
+2022-02-09 14:28:09 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 14:28:09 ALOHA Program Start
+2022-02-09 14:28:12 INFO Collecting Data from sources
+2022-02-09 14:28:51 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 14:28:51 ALOHA Program Start
+2022-02-09 14:28:53 INFO Collecting Data from sources
+2022-02-09 14:29:38 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 14:29:38 ALOHA Program Start
+2022-02-09 14:29:41 INFO Collecting Data from sources
+2022-02-09 14:30:02 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 14:30:02 ALOHA Program Start
+2022-02-09 14:30:05 INFO Collecting Data from sources
+2022-02-09 14:30:33 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 14:30:33 ALOHA Program Start
+2022-02-09 14:30:35 INFO Collecting Data from sources
+2022-02-09 14:31:17 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 14:31:17 ALOHA Program Start
+2022-02-09 14:31:19 INFO Collecting Data from sources
+2022-02-09 14:32:04 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 14:32:04 ALOHA Program Start
+2022-02-09 14:32:07 INFO Collecting Data from sources
+2022-02-09 14:32:58 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 14:32:58 ALOHA Program Start
+2022-02-09 14:33:00 INFO Collecting Data from sources
+2022-02-09 14:33:31 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 14:33:31 ALOHA Program Start
+2022-02-09 14:33:34 INFO Collecting Data from sources
+2022-02-09 14:34:22 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 14:34:22 ALOHA Program Start
+2022-02-09 14:34:24 INFO Collecting Data from sources
+2022-02-09 14:34:46 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 14:34:46 ALOHA Program Start
+2022-02-09 14:34:49 INFO Collecting Data from sources
+2022-02-09 14:35:07 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 14:35:07 ALOHA Program Start
+2022-02-09 14:35:09 INFO Collecting Data from sources
+2022-02-09 14:36:45 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 14:36:45 ALOHA Program Start
+2022-02-09 14:36:47 INFO Collecting Data from sources
+2022-02-09 14:37:24 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 14:37:24 ALOHA Program Start
+2022-02-09 14:37:26 INFO Collecting Data from sources
+2022-02-09 14:38:00 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 14:38:00 ALOHA Program Start
+2022-02-09 14:38:02 INFO Collecting Data from sources
+2022-02-09 14:40:18 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 14:40:18 ALOHA Program Start
+2022-02-09 14:40:20 INFO Collecting Data from sources
+2022-02-09 14:41:37 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 14:41:37 ALOHA Program Start
+2022-02-09 14:41:39 INFO Collecting Data from sources
+2022-02-09 14:42:16 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 14:42:16 ALOHA Program Start
+2022-02-09 14:42:19 INFO Collecting Data from sources
+2022-02-09 14:43:27 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 14:43:27 ALOHA Program Start
+2022-02-09 14:43:29 INFO Collecting Data from sources
+2022-02-09 14:47:21 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 14:47:21 ALOHA Program Start
+2022-02-09 14:47:23 INFO Collecting Data from sources
+2022-02-09 14:47:54 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 14:47:54 ALOHA Program Start
+2022-02-09 14:47:57 INFO Collecting Data from sources
+2022-02-09 14:48:08 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 14:48:08 ALOHA Program Start
+2022-02-09 14:48:10 INFO Collecting Data from sources
+2022-02-09 14:48:25 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 14:48:25 ALOHA Program Start
+2022-02-09 14:48:27 INFO Collecting Data from sources
+2022-02-09 14:48:54 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 14:48:54 ALOHA Program Start
+2022-02-09 14:48:56 INFO Collecting Data from sources
+2022-02-09 14:49:21 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 14:49:21 ALOHA Program Start
+2022-02-09 14:49:24 INFO Collecting Data from sources
+2022-02-09 14:50:14 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 14:50:14 ALOHA Program Start
+2022-02-09 14:50:16 INFO Collecting Data from sources
+2022-02-09 14:50:41 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 14:50:41 ALOHA Program Start
+2022-02-09 14:50:44 INFO Collecting Data from sources
+2022-02-09 14:51:12 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 14:51:12 ALOHA Program Start
+2022-02-09 14:51:15 INFO Collecting Data from sources
+2022-02-09 14:52:49 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 14:52:49 ALOHA Program Start
+2022-02-09 14:52:52 INFO Collecting Data from sources
+2022-02-09 14:53:23 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 14:53:23 ALOHA Program Start
+2022-02-09 14:53:26 INFO Collecting Data from sources
+2022-02-09 14:53:47 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 14:53:47 ALOHA Program Start
+2022-02-09 14:53:49 INFO Collecting Data from sources
+2022-02-09 14:54:14 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 14:54:14 ALOHA Program Start
+2022-02-09 14:54:17 INFO Collecting Data from sources
+2022-02-09 14:54:56 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 14:54:56 ALOHA Program Start
+2022-02-09 14:54:59 INFO Collecting Data from sources
+2022-02-09 14:55:32 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 14:55:32 ALOHA Program Start
+2022-02-09 14:55:35 INFO Collecting Data from sources
+2022-02-09 15:07:09 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 15:07:09 ALOHA Program Start
+2022-02-09 15:07:12 INFO Collecting Data from sources
+2022-02-09 15:07:58 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 15:07:58 ALOHA Program Start
+2022-02-09 15:08:00 INFO Collecting Data from sources
+2022-02-09 15:08:23 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 15:08:23 ALOHA Program Start
+2022-02-09 15:08:25 INFO Collecting Data from sources
+2022-02-09 15:08:38 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 15:08:38 ALOHA Program Start
+2022-02-09 15:08:40 INFO Collecting Data from sources
+2022-02-09 15:09:41 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 15:09:41 ALOHA Program Start
+2022-02-09 15:09:43 INFO Collecting Data from sources
+2022-02-09 15:10:27 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 15:10:27 ALOHA Program Start
+2022-02-09 15:10:29 INFO Collecting Data from sources
+2022-02-09 15:10:50 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 15:10:50 ALOHA Program Start
+2022-02-09 15:10:53 INFO Collecting Data from sources
+2022-02-09 15:11:44 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 15:11:44 ALOHA Program Start
+2022-02-09 15:11:47 INFO Collecting Data from sources
+2022-02-09 15:12:05 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 15:12:05 ALOHA Program Start
+2022-02-09 15:12:07 INFO Collecting Data from sources
+2022-02-09 15:12:48 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 15:12:48 ALOHA Program Start
+2022-02-09 15:12:50 INFO Collecting Data from sources
+2022-02-09 15:13:11 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 15:13:11 ALOHA Program Start
+2022-02-09 15:13:13 INFO Collecting Data from sources
+2022-02-09 15:23:02 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 15:23:02 ALOHA Program Start
+2022-02-09 15:23:05 INFO Collecting Data from sources
+2022-02-09 15:23:23 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 15:23:23 ALOHA Program Start
+2022-02-09 15:23:26 INFO Collecting Data from sources
+2022-02-09 15:23:55 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 15:23:55 ALOHA Program Start
+2022-02-09 15:23:57 INFO Collecting Data from sources
+2022-02-09 15:24:33 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 15:24:33 ALOHA Program Start
+2022-02-09 15:24:35 INFO Collecting Data from sources
+2022-02-09 15:25:12 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 15:25:12 ALOHA Program Start
+2022-02-09 15:25:15 INFO Collecting Data from sources
+2022-02-09 15:25:42 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 15:25:42 ALOHA Program Start
+2022-02-09 15:25:45 INFO Collecting Data from sources
+2022-02-09 15:26:59 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 15:26:59 ALOHA Program Start
+2022-02-09 15:27:02 INFO Collecting Data from sources
+2022-02-09 15:27:23 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 15:27:23 ALOHA Program Start
+2022-02-09 15:27:26 INFO Collecting Data from sources
+2022-02-09 15:27:44 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 15:27:44 ALOHA Program Start
+2022-02-09 15:27:46 INFO Collecting Data from sources
+2022-02-09 15:28:25 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 15:28:25 ALOHA Program Start
+2022-02-09 15:28:28 INFO Collecting Data from sources
+2022-02-09 15:28:58 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 15:28:58 ALOHA Program Start
+2022-02-09 15:29:01 INFO Collecting Data from sources
+2022-02-09 15:29:47 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 15:29:47 ALOHA Program Start
+2022-02-09 15:29:50 INFO Collecting Data from sources
+2022-02-09 15:30:56 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 15:30:56 ALOHA Program Start
+2022-02-09 15:30:59 INFO Collecting Data from sources
+2022-02-09 15:31:35 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 15:31:35 ALOHA Program Start
+2022-02-09 15:31:38 INFO Collecting Data from sources
+2022-02-09 15:33:44 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 15:33:44 ALOHA Program Start
+2022-02-09 15:33:47 INFO Collecting Data from sources
+2022-02-09 15:34:09 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 15:34:09 ALOHA Program Start
+2022-02-09 15:34:12 INFO Collecting Data from sources
+2022-02-09 18:34:03 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 18:34:03 ALOHA Program Start
+2022-02-09 18:34:06 INFO Collecting Data from sources
+2022-02-09 18:45:05 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 18:45:05 ALOHA Program Start
+2022-02-09 18:45:08 INFO Collecting Data from sources
+2022-02-09 18:45:20 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 18:45:20 ALOHA Program Start
+2022-02-09 18:45:23 INFO Collecting Data from sources
+2022-02-09 18:45:49 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 18:45:49 ALOHA Program Start
+2022-02-09 18:45:51 INFO Collecting Data from sources
+2022-02-09 18:46:10 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 18:46:10 ALOHA Program Start
+2022-02-09 18:46:13 INFO Collecting Data from sources
+2022-02-09 18:46:42 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 18:46:42 ALOHA Program Start
+2022-02-09 18:46:45 INFO Collecting Data from sources
+2022-02-09 18:47:48 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 18:47:48 ALOHA Program Start
+2022-02-09 18:47:50 INFO Collecting Data from sources
+2022-02-09 18:48:32 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 18:48:32 ALOHA Program Start
+2022-02-09 18:48:35 INFO Collecting Data from sources
+2022-02-09 18:48:48 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 18:48:48 ALOHA Program Start
+2022-02-09 18:48:51 INFO Collecting Data from sources
+2022-02-09 18:49:09 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 18:49:09 ALOHA Program Start
+2022-02-09 18:49:12 INFO Collecting Data from sources
+2022-02-09 18:52:36 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 18:52:36 ALOHA Program Start
+2022-02-09 18:52:39 INFO Collecting Data from sources
+2022-02-09 18:52:59 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 18:52:59 ALOHA Program Start
+2022-02-09 18:53:02 INFO Collecting Data from sources
+2022-02-09 18:53:27 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 18:53:27 ALOHA Program Start
+2022-02-09 18:53:30 INFO Collecting Data from sources
+2022-02-09 18:54:37 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 18:54:37 ALOHA Program Start
+2022-02-09 18:54:40 INFO Collecting Data from sources
+2022-02-09 18:55:48 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 18:55:48 ALOHA Program Start
+2022-02-09 18:55:51 INFO Collecting Data from sources
+2022-02-09 18:56:44 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 18:56:44 ALOHA Program Start
+2022-02-09 18:56:47 INFO Collecting Data from sources
+2022-02-09 19:00:55 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 19:00:55 ALOHA Program Start
+2022-02-09 19:00:58 INFO Collecting Data from sources
+2022-02-09 19:01:31 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 19:01:31 ALOHA Program Start
+2022-02-09 19:01:34 INFO Collecting Data from sources
+2022-02-09 19:01:37 INFO Time Series Plot Set
+2022-02-09 19:02:04 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 19:02:04 ALOHA Program Start
+2022-02-09 19:02:07 INFO Collecting Data from sources
+2022-02-09 19:02:10 INFO Time Series Plot Set
+2022-02-09 19:02:38 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 19:02:38 ALOHA Program Start
+2022-02-09 19:02:41 INFO Collecting Data from sources
+2022-02-09 19:02:44 INFO Time Series Plot Set
+2022-02-09 19:03:58 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 19:03:58 ALOHA Program Start
+2022-02-09 19:04:01 INFO Collecting Data from sources
+2022-02-09 19:04:04 INFO Time Series Plot Set
+2022-02-09 19:04:23 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 19:04:23 ALOHA Program Start
+2022-02-09 19:04:25 INFO Collecting Data from sources
+2022-02-09 19:04:28 INFO Time Series Plot Set
+2022-02-09 19:05:01 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 19:05:01 ALOHA Program Start
+2022-02-09 19:05:03 INFO Collecting Data from sources
+2022-02-09 19:05:06 INFO Time Series Plot Set
+2022-02-09 19:05:39 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 19:05:39 ALOHA Program Start
+2022-02-09 19:05:42 INFO Collecting Data from sources
+2022-02-09 19:05:45 INFO Time Series Plot Set
+2022-02-09 19:05:59 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 19:05:59 ALOHA Program Start
+2022-02-09 19:06:02 INFO Collecting Data from sources
+2022-02-09 19:06:05 INFO Time Series Plot Set
+2022-02-09 19:06:21 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 19:06:21 ALOHA Program Start
+2022-02-09 19:06:23 INFO Collecting Data from sources
+2022-02-09 19:06:26 INFO Time Series Plot Set
+2022-02-09 19:06:40 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 19:06:40 ALOHA Program Start
+2022-02-09 19:06:43 INFO Collecting Data from sources
+2022-02-09 19:07:03 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 19:07:03 ALOHA Program Start
+2022-02-09 19:07:06 INFO Collecting Data from sources
+2022-02-09 19:07:08 INFO Time Series Plot Set
+2022-02-09 19:07:35 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 19:07:35 ALOHA Program Start
+2022-02-09 19:07:38 INFO Collecting Data from sources
+2022-02-09 19:07:41 INFO Time Series Plot Set
+2022-02-09 19:08:07 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 19:08:07 ALOHA Program Start
+2022-02-09 19:08:09 INFO Collecting Data from sources
+2022-02-09 19:08:12 INFO Time Series Plot Set
+2022-02-09 19:08:37 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 19:08:37 ALOHA Program Start
+2022-02-09 19:08:40 INFO Collecting Data from sources
+2022-02-09 19:08:42 INFO Time Series Plot Set
+2022-02-09 19:09:20 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 19:09:20 ALOHA Program Start
+2022-02-09 19:09:23 INFO Collecting Data from sources
+2022-02-09 19:09:26 INFO Time Series Plot Set
+2022-02-09 19:09:42 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 19:09:42 ALOHA Program Start
+2022-02-09 19:09:44 INFO Collecting Data from sources
+2022-02-09 19:09:48 INFO Time Series Plot Set
+2022-02-09 19:09:48 PASS Sky Temperature Time Series
+2022-02-09 19:09:48 PASS Ground Temperature Time Series
+2022-02-09 19:09:48 PASS Difference Between Ground-Sky Temperature Time Series
+2022-02-09 19:09:48 PASS Total Precipitable Water Time Series
+2022-02-09 19:09:49 PASS Temporal Mean Precipitable Water Time Series
+2022-02-09 19:09:49 PASS Locational Mean Precipitable Water Time Series
+2022-02-09 19:10:10 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 19:10:10 ALOHA Program Start
+2022-02-09 19:10:12 INFO Collecting Data from sources
+2022-02-09 19:10:16 INFO Time Series Plot Set
+2022-02-09 19:10:16 PASS Sky Temperature Time Series
+2022-02-09 19:10:16 PASS Ground Temperature Time Series
+2022-02-09 19:10:16 PASS Difference Between Ground-Sky Temperature Time Series
+2022-02-09 19:10:16 PASS Total Precipitable Water Time Series
+2022-02-09 19:10:17 PASS Temporal Mean Precipitable Water Time Series
+2022-02-09 19:10:17 PASS Locational Mean Precipitable Water Time Series
+2022-02-09 19:12:12 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 19:12:12 ALOHA Program Start
+2022-02-09 19:12:14 INFO Collecting Data from sources
+2022-02-09 19:12:17 INFO Time Series Plot Set
+2022-02-09 19:12:17 PASS Sky Temperature Time Series
+2022-02-09 19:12:17 PASS Ground Temperature Time Series
+2022-02-09 19:12:17 PASS Difference Between Ground-Sky Temperature Time Series
+2022-02-09 19:12:17 PASS Total Precipitable Water Time Series
+2022-02-09 19:12:17 PASS Temporal Mean Precipitable Water Time Series
+2022-02-09 19:12:17 PASS Locational Mean Precipitable Water Time Series
+2022-02-09 19:12:39 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 19:12:39 ALOHA Program Start
+2022-02-09 19:12:42 INFO Collecting Data from sources
+2022-02-09 19:12:45 INFO Time Series Plot Set
+2022-02-09 19:12:45 PASS Sky Temperature Time Series
+2022-02-09 19:12:45 PASS Ground Temperature Time Series
+2022-02-09 19:12:45 PASS Difference Between Ground-Sky Temperature Time Series
+2022-02-09 19:12:45 PASS Total Precipitable Water Time Series
+2022-02-09 19:12:46 PASS Temporal Mean Precipitable Water Time Series
+2022-02-09 19:12:46 PASS Locational Mean Precipitable Water Time Series
+2022-02-09 19:13:14 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 19:13:14 ALOHA Program Start
+2022-02-09 19:13:16 INFO Collecting Data from sources
+2022-02-09 19:13:19 INFO Time Series Plot Set
+2022-02-09 19:13:19 PASS Sky Temperature Time Series
+2022-02-09 19:13:19 PASS Ground Temperature Time Series
+2022-02-09 19:13:19 PASS Difference Between Ground-Sky Temperature Time Series
+2022-02-09 19:13:19 PASS Total Precipitable Water Time Series
+2022-02-09 19:13:20 PASS Temporal Mean Precipitable Water Time Series
+2022-02-09 19:13:20 PASS Locational Mean Precipitable Water Time Series
+2022-02-09 19:14:28 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 19:14:28 ALOHA Program Start
+2022-02-09 19:14:31 INFO Collecting Data from sources
+2022-02-09 19:14:34 INFO Time Series Plot Set
+2022-02-09 19:14:34 PASS Sky Temperature Time Series
+2022-02-09 19:14:34 PASS Ground Temperature Time Series
+2022-02-09 19:14:34 PASS Difference Between Ground-Sky Temperature Time Series
+2022-02-09 19:14:34 PASS Total Precipitable Water Time Series
+2022-02-09 19:14:34 PASS Temporal Mean Precipitable Water Time Series
+2022-02-09 19:14:34 PASS Locational Mean Precipitable Water Time Series
+2022-02-09 19:14:50 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 19:14:50 ALOHA Program Start
+2022-02-09 19:14:52 INFO Collecting Data from sources
+2022-02-09 19:14:55 INFO Time Series Plot Set
+2022-02-09 19:14:55 PASS Sky Temperature Time Series
+2022-02-09 19:14:55 PASS Ground Temperature Time Series
+2022-02-09 19:14:55 PASS Difference Between Ground-Sky Temperature Time Series
+2022-02-09 19:14:55 PASS Total Precipitable Water Time Series
+2022-02-09 19:14:56 PASS Temporal Mean Precipitable Water Time Series
+2022-02-09 19:14:56 PASS Locational Mean Precipitable Water Time Series
+2022-02-09 19:15:38 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 19:15:38 ALOHA Program Start
+2022-02-09 19:15:41 INFO Collecting Data from sources
+2022-02-09 19:15:44 INFO Time Series Plot Set
+2022-02-09 19:15:44 PASS Sky Temperature Time Series
+2022-02-09 19:15:44 PASS Ground Temperature Time Series
+2022-02-09 19:15:44 PASS Difference Between Ground-Sky Temperature Time Series
+2022-02-09 19:15:44 PASS Total Precipitable Water Time Series
+2022-02-09 19:15:44 PASS Temporal Mean Precipitable Water Time Series
+2022-02-09 19:15:44 PASS Locational Mean Precipitable Water Time Series
+2022-02-09 19:15:44 PASS Mean Total Precipitable Water Time Series
+2022-02-09 19:15:44 PASS Dewpoint Temperature Time Series
+2022-02-09 19:15:44 PASS Mean Sky Temperature and PWV Time Series
+2022-02-09 19:15:45 PASS Mean Sky Temperature and RH Time Series
+2022-02-09 19:15:45 PASS Mean TPW and RH Time Series
+2022-02-09 19:15:45 PASS Normalized Index for Weighted PWV Time Series
+2022-02-09 19:15:45 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-09 19:15:45 ALOHA Program Complete
+2022-02-09 19:16:44 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 19:16:44 ALOHA Program Start
+2022-02-09 19:16:47 INFO Collecting Data from sources
+2022-02-09 19:16:50 INFO Time Series Plot Set
+2022-02-09 19:16:50 PASS Sky Temperature Time Series
+2022-02-09 19:16:51 PASS Ground Temperature Time Series
+2022-02-09 19:16:51 PASS Difference Between Ground-Sky Temperature Time Series
+2022-02-09 19:16:51 PASS Total Precipitable Water Time Series
+2022-02-09 19:16:51 PASS Temporal Mean Precipitable Water Time Series
+2022-02-09 19:16:51 PASS Locational Mean Precipitable Water Time Series
+2022-02-09 19:16:51 PASS Mean Total Precipitable Water Time Series
+2022-02-09 19:16:51 PASS Dewpoint Temperature Time Series
+2022-02-09 19:16:51 PASS Mean Sky Temperature and PWV Time Series
+2022-02-09 19:16:51 PASS Mean Sky Temperature and RH Time Series
+2022-02-09 19:16:51 PASS Mean TPW and RH Time Series
+2022-02-09 19:16:52 PASS Normalized Index for Weighted PWV Time Series
+2022-02-09 19:16:52 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-09 19:16:52 ALOHA Program Complete
+2022-02-09 19:17:06 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 19:17:06 ALOHA Program Start
+2022-02-09 19:17:09 INFO Collecting Data from sources
+2022-02-09 19:17:11 INFO Analytics Plot Set
+2022-02-09 19:17:12 PASS Correlation between TPW and Temperature
+2022-02-09 19:17:12 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-09 19:17:12 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-09 19:21:26 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 19:21:26 ALOHA Program Start
+2022-02-09 19:21:29 INFO Collecting Data from sources
+2022-02-09 19:21:31 INFO Analytics Plot Set
+2022-02-09 19:21:32 PASS Correlation between TPW and Temperature
+2022-02-09 19:21:32 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-09 19:21:32 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-09 19:22:18 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 19:22:18 ALOHA Program Start
+2022-02-09 19:22:20 INFO Collecting Data from sources
+2022-02-09 19:22:23 INFO Analytics Plot Set
+2022-02-09 19:22:23 PASS Correlation between TPW and Temperature
+2022-02-09 19:22:23 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-09 19:22:23 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-09 19:24:06 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 19:24:06 ALOHA Program Start
+2022-02-09 19:24:08 INFO Collecting Data from sources
+2022-02-09 19:24:11 INFO Analytics Plot Set
+2022-02-09 19:24:11 PASS Correlation between TPW and Temperature
+2022-02-09 19:24:11 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-09 19:24:11 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-09 19:25:39 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 19:25:39 ALOHA Program Start
+2022-02-09 19:25:58 INFO Collecting Data from sources
+2022-02-09 19:26:30 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 19:26:30 ALOHA Program Start
+2022-02-09 19:26:32 INFO Collecting Data from sources
+2022-02-09 19:26:35 INFO Analytics Plot Set
+2022-02-09 19:26:35 PASS Correlation between TPW and Temperature
+2022-02-09 19:26:35 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-09 19:26:35 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-09 19:26:35 PASS Regression between Mean TPW and Temperature
+2022-02-09 19:26:35 PASS Regression between Weighted TPW and Temperature
+2022-02-09 19:26:35 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-09 19:26:35 ALOHA Program Complete
+2022-02-09 19:28:47 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 19:28:47 ALOHA Program Start
+2022-02-09 19:28:50 INFO Collecting Data from sources
+2022-02-09 19:28:52 INFO Analytics Plot Set
+2022-02-09 19:28:52 PASS Correlation between TPW and Temperature
+2022-02-09 19:28:53 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-09 19:28:53 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-09 19:28:53 PASS Regression between Mean TPW and Temperature
+2022-02-09 19:28:53 PASS Regression between Weighted TPW and Temperature
+2022-02-09 19:28:53 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-09 19:29:10 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 19:29:10 ALOHA Program Start
+2022-02-09 19:29:13 INFO Collecting Data from sources
+2022-02-09 19:29:15 INFO Analytics Plot Set
+2022-02-09 19:29:15 PASS Correlation between TPW and Temperature
+2022-02-09 19:29:16 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-09 19:29:16 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-09 19:29:16 PASS Regression between Mean TPW and Temperature
+2022-02-09 19:29:16 PASS Regression between Weighted TPW and Temperature
+2022-02-09 19:29:16 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-09 19:29:16 ALOHA Program Complete
+2022-02-09 19:29:37 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 19:29:37 ALOHA Program Start
+2022-02-09 19:29:40 INFO Collecting Data from sources
+2022-02-09 19:29:42 INFO Analytics Plot Set
+2022-02-09 19:29:43 PASS Correlation between TPW and Temperature
+2022-02-09 19:29:43 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-09 19:29:43 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-09 19:29:43 PASS Regression between Mean TPW and Temperature
+2022-02-09 19:29:43 PASS Regression between Weighted TPW and Temperature
+2022-02-09 19:29:43 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-09 19:29:43 ALOHA Program Complete
+2022-02-09 19:32:08 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 19:32:08 ALOHA Program Start
+2022-02-09 19:32:10 INFO Collecting Data from sources
+2022-02-09 19:32:13 INFO Analytics Plot Set
+2022-02-09 19:32:13 PASS Correlation between TPW and Temperature
+2022-02-09 19:32:13 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-09 19:32:13 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-09 19:32:13 PASS Regression between Mean TPW and Temperature
+2022-02-09 19:32:14 PASS Regression between Weighted TPW and Temperature
+2022-02-09 19:32:14 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-09 19:32:14 ALOHA Program Complete
+2022-02-09 19:33:35 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 19:33:35 ALOHA Program Start
+2022-02-09 19:33:37 INFO Collecting Data from sources
+2022-02-09 19:33:56 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 19:33:56 ALOHA Program Start
+2022-02-09 19:33:58 INFO Collecting Data from sources
+2022-02-09 19:34:18 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 19:34:18 ALOHA Program Start
+2022-02-09 19:34:21 INFO Collecting Data from sources
+2022-02-09 19:34:45 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 19:34:45 ALOHA Program Start
+2022-02-09 19:34:47 INFO Collecting Data from sources
+2022-02-09 19:35:45 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 19:35:45 ALOHA Program Start
+2022-02-09 19:35:48 INFO Collecting Data from sources
+2022-02-09 19:35:50 INFO Analytics Plot Set
+2022-02-09 19:35:50 PASS Correlation between TPW and Temperature
+2022-02-09 19:35:51 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-09 19:35:51 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-09 19:35:51 PASS Regression between Mean TPW and Temperature
+2022-02-09 19:35:51 PASS Regression between Weighted TPW and Temperature
+2022-02-09 19:35:51 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-09 19:35:51 ALOHA Program Complete
+2022-02-09 19:36:41 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 19:36:41 ALOHA Program Start
+2022-02-09 19:36:43 INFO Collecting Data from sources
+2022-02-09 19:36:46 INFO Analytics Plot Set
+2022-02-09 19:36:46 PASS Correlation between TPW and Temperature
+2022-02-09 19:36:46 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-09 19:36:46 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-09 19:36:46 PASS Regression between Mean TPW and Temperature
+2022-02-09 19:36:46 PASS Regression between Weighted TPW and Temperature
+2022-02-09 19:36:46 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-09 19:36:46 ALOHA Program Complete
+2022-02-09 19:37:26 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 19:37:26 ALOHA Program Start
+2022-02-09 19:37:28 INFO Collecting Data from sources
+2022-02-09 19:37:31 INFO Analytics Plot Set
+2022-02-09 19:37:31 PASS Correlation between TPW and Temperature
+2022-02-09 19:37:31 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-09 19:37:31 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-09 19:37:31 PASS Regression between Mean TPW and Temperature
+2022-02-09 19:37:31 PASS Regression between Weighted TPW and Temperature
+2022-02-09 19:37:31 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-09 19:37:31 ALOHA Program Complete
+2022-02-09 19:39:48 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 19:39:48 ALOHA Program Start
+2022-02-09 19:39:50 INFO Collecting Data from sources
+2022-02-09 19:41:33 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 19:41:33 ALOHA Program Start
+2022-02-09 19:41:35 INFO Collecting Data from sources
+2022-02-09 19:41:38 INFO Analytics Plot Set
+2022-02-09 19:41:38 PASS Correlation between TPW and Temperature
+2022-02-09 19:41:38 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-09 19:41:38 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-09 19:41:39 PASS Regression between Mean TPW and Temperature
+2022-02-09 19:41:39 PASS Regression between Weighted TPW and Temperature
+2022-02-09 19:41:39 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-09 19:41:39 ALOHA Program Complete
+2022-02-09 19:43:41 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 19:43:41 ALOHA Program Start
+2022-02-09 19:43:44 INFO Collecting Data from sources
+2022-02-09 19:43:46 INFO Analytics Plot Set
+2022-02-09 19:43:47 PASS Correlation between TPW and Temperature
+2022-02-09 19:43:47 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-09 19:43:47 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-09 19:43:47 PASS Regression between Mean TPW and Temperature
+2022-02-09 19:43:47 PASS Regression between Weighted TPW and Temperature
+2022-02-09 19:43:47 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-09 19:43:47 ALOHA Program Complete
+2022-02-09 19:44:10 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 19:44:10 ALOHA Program Start
+2022-02-09 19:44:13 INFO Collecting Data from sources
+2022-02-09 19:44:15 INFO Analytics Plot Set
+2022-02-09 19:44:16 PASS Correlation between TPW and Temperature
+2022-02-09 19:44:17 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-09 19:44:17 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-09 19:44:17 PASS Regression between Mean TPW and Temperature
+2022-02-09 19:44:17 PASS Regression between Weighted TPW and Temperature
+2022-02-09 19:44:17 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-09 19:44:17 ALOHA Program Complete
+2022-02-09 19:45:17 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 19:45:17 ALOHA Program Start
+2022-02-09 19:45:20 INFO Collecting Data from sources
+2022-02-09 19:45:23 INFO Analytics Plot Set
+2022-02-09 19:45:47 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 19:45:47 ALOHA Program Start
+2022-02-09 19:45:50 INFO Collecting Data from sources
+2022-02-09 19:45:52 INFO Analytics Plot Set
+2022-02-09 19:46:11 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 19:46:11 ALOHA Program Start
+2022-02-09 19:46:14 INFO Collecting Data from sources
+2022-02-09 19:46:16 INFO Analytics Plot Set
+2022-02-09 19:47:11 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 19:47:11 ALOHA Program Start
+2022-02-09 19:47:14 INFO Collecting Data from sources
+2022-02-09 19:47:41 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 19:47:41 ALOHA Program Start
+2022-02-09 19:47:44 INFO Collecting Data from sources
+2022-02-09 19:47:46 INFO Analytics Plot Set
+2022-02-09 19:47:46 PASS Correlation between TPW and Temperature
+2022-02-09 19:47:46 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-09 19:47:46 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-09 19:47:47 PASS Regression between Mean TPW and Temperature
+2022-02-09 19:47:47 PASS Regression between Weighted TPW and Temperature
+2022-02-09 19:47:47 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-09 19:47:47 ALOHA Program Complete
+2022-02-09 19:49:03 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 19:49:03 ALOHA Program Start
+2022-02-09 19:49:05 INFO Collecting Data from sources
+2022-02-09 19:49:08 INFO Time Series Plot Set
+2022-02-09 19:49:56 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 19:49:56 ALOHA Program Start
+2022-02-09 19:49:58 INFO Collecting Data from sources
+2022-02-09 19:50:01 INFO Time Series Plot Set
+2022-02-09 19:51:05 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 19:51:05 ALOHA Program Start
+2022-02-09 19:51:08 INFO Collecting Data from sources
+2022-02-09 19:51:11 INFO Time Series Plot Set
+2022-02-09 19:51:11 PASS Sky Temperature Time Series
+2022-02-09 19:51:11 PASS Ground Temperature Time Series
+2022-02-09 19:51:11 PASS Difference Between Ground-Sky Temperature Time Series
+2022-02-09 19:51:11 PASS Total Precipitable Water Time Series
+2022-02-09 19:51:11 PASS Temporal Mean Precipitable Water Time Series
+2022-02-09 19:51:11 PASS Locational Mean Precipitable Water Time Series
+2022-02-09 19:51:11 PASS Mean Total Precipitable Water Time Series
+2022-02-09 19:51:11 PASS Dewpoint Temperature Time Series
+2022-02-09 19:51:11 PASS Mean Sky Temperature and PWV Time Series
+2022-02-09 19:51:11 PASS Mean Sky Temperature and RH Time Series
+2022-02-09 19:51:11 PASS Mean TPW and RH Time Series
+2022-02-09 19:51:12 PASS Normalized Index for Weighted PWV Time Series
+2022-02-09 19:51:12 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-09 19:51:12 ALOHA Program Complete
+2022-02-09 19:52:37 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 19:52:37 ALOHA Program Start
+2022-02-09 19:52:39 INFO Collecting Data from sources
+2022-02-09 19:52:42 INFO Analytics Plot Set
+2022-02-09 19:52:42 PASS Correlation between TPW and Temperature
+2022-02-09 19:52:42 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-09 19:52:42 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-09 19:52:42 PASS Regression between Mean TPW and Temperature
+2022-02-09 19:52:43 PASS Regression between Weighted TPW and Temperature
+2022-02-09 19:52:43 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-09 19:52:43 ALOHA Program Complete
+2022-02-09 20:08:15 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 20:08:15 ALOHA Program Start
+2022-02-09 20:08:18 INFO Collecting Data from sources
+2022-02-09 20:08:21 INFO Analytics Plot Set
+2022-02-09 20:08:21 PASS Correlation between TPW and Temperature
+2022-02-09 20:08:21 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-09 20:08:21 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-09 20:08:21 PASS Regression between Mean TPW and Temperature
+2022-02-09 20:08:21 PASS Regression between Weighted TPW and Temperature
+2022-02-09 20:08:21 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-09 20:08:21 ALOHA Program Complete
+2022-02-09 20:09:18 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 20:09:18 ALOHA Program Start
+2022-02-09 20:09:20 INFO Collecting Data from sources
+2022-02-09 20:09:23 INFO Analytics Plot Set
+2022-02-09 20:09:23 PASS Correlation between TPW and Temperature
+2022-02-09 20:09:24 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-09 20:09:24 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-09 20:09:24 PASS Regression between Mean TPW and Temperature
+2022-02-09 20:09:25 PASS Regression between Weighted TPW and Temperature
+2022-02-09 20:09:25 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-09 20:09:25 ALOHA Program Complete
+2022-02-09 20:09:44 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 20:09:44 ALOHA Program Start
+2022-02-09 20:09:47 INFO Collecting Data from sources
+2022-02-09 20:09:49 INFO Analytics Plot Set
+2022-02-09 20:09:50 PASS Correlation between TPW and Temperature
+2022-02-09 20:09:50 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-09 20:09:50 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-09 20:09:50 PASS Regression between Mean TPW and Temperature
+2022-02-09 20:09:50 PASS Regression between Weighted TPW and Temperature
+2022-02-09 20:09:50 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-09 20:09:50 ALOHA Program Complete
+2022-02-09 20:10:52 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 20:10:52 ALOHA Program Start
+2022-02-09 20:10:55 INFO Collecting Data from sources
+2022-02-09 20:10:57 INFO Analytics Plot Set
+2022-02-09 20:10:57 PASS Correlation between TPW and Temperature
+2022-02-09 20:10:57 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-09 20:10:57 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-09 20:10:58 PASS Regression between Mean TPW and Temperature
+2022-02-09 20:10:58 PASS Regression between Weighted TPW and Temperature
+2022-02-09 20:10:58 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-09 20:10:58 ALOHA Program Complete
+2022-02-09 20:11:32 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 20:11:32 ALOHA Program Start
+2022-02-09 20:11:35 INFO Collecting Data from sources
+2022-02-09 20:11:38 INFO Analytics Plot Set
+2022-02-09 20:11:38 PASS Correlation between TPW and Temperature
+2022-02-09 20:11:38 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-09 20:11:38 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-09 20:11:38 PASS Regression between Mean TPW and Temperature
+2022-02-09 20:11:38 PASS Regression between Weighted TPW and Temperature
+2022-02-09 20:11:38 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-09 20:11:38 ALOHA Program Complete
+2022-02-09 20:12:12 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 20:12:12 ALOHA Program Start
+2022-02-09 20:12:14 INFO Collecting Data from sources
+2022-02-09 20:12:17 INFO Analytics Plot Set
+2022-02-09 20:12:17 PASS Correlation between TPW and Temperature
+2022-02-09 20:12:17 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-09 20:12:17 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-09 20:12:18 PASS Regression between Mean TPW and Temperature
+2022-02-09 20:12:18 PASS Regression between Weighted TPW and Temperature
+2022-02-09 20:12:18 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-09 20:12:18 ALOHA Program Complete
+2022-02-09 20:13:47 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 20:13:47 ALOHA Program Start
+2022-02-09 20:13:50 INFO Collecting Data from sources
+2022-02-09 20:13:53 INFO Analytics Plot Set
+2022-02-09 20:13:53 PASS Correlation between TPW and Temperature
+2022-02-09 20:13:53 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-09 20:13:53 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-09 20:14:24 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 20:14:24 ALOHA Program Start
+2022-02-09 20:14:27 INFO Collecting Data from sources
+2022-02-09 20:14:29 INFO Analytics Plot Set
+2022-02-09 20:14:29 PASS Correlation between TPW and Temperature
+2022-02-09 20:14:30 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-09 20:14:30 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-09 20:14:30 PASS Regression between Mean TPW and Temperature
+2022-02-09 20:14:30 PASS Regression between Weighted TPW and Temperature
+2022-02-09 20:14:30 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-09 20:14:30 ALOHA Program Complete
+2022-02-09 20:14:55 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 20:14:55 ALOHA Program Start
+2022-02-09 20:14:58 INFO Collecting Data from sources
+2022-02-09 20:15:00 INFO Analytics Plot Set
+2022-02-09 20:15:00 PASS Correlation between TPW and Temperature
+2022-02-09 20:15:00 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-09 20:15:01 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-09 20:15:01 PASS Regression between Mean TPW and Temperature
+2022-02-09 20:15:01 PASS Regression between Weighted TPW and Temperature
+2022-02-09 20:15:01 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-09 20:15:01 ALOHA Program Complete
+2022-02-09 20:15:34 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 20:15:34 ALOHA Program Start
+2022-02-09 20:15:36 INFO Collecting Data from sources
+2022-02-09 20:15:39 INFO Analytics Plot Set
+2022-02-09 20:15:39 PASS Correlation between TPW and Temperature
+2022-02-09 20:15:39 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-09 20:15:39 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-09 20:15:39 PASS Regression between Mean TPW and Temperature
+2022-02-09 20:15:39 PASS Regression between Weighted TPW and Temperature
+2022-02-09 20:15:39 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-09 20:15:39 ALOHA Program Complete
+2022-02-09 20:16:41 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 20:16:41 ALOHA Program Start
+2022-02-09 20:16:43 INFO Collecting Data from sources
+2022-02-09 20:16:46 INFO Analytics Plot Set
+2022-02-09 20:16:46 PASS Correlation between TPW and Temperature
+2022-02-09 20:16:46 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-09 20:16:46 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-09 20:16:46 PASS Regression between Mean TPW and Temperature
+2022-02-09 20:16:46 PASS Regression between Weighted TPW and Temperature
+2022-02-09 20:16:46 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-09 20:16:46 ALOHA Program Complete
+2022-02-09 20:17:32 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 20:17:32 ALOHA Program Start
+2022-02-09 20:17:35 INFO Collecting Data from sources
+2022-02-09 20:17:38 INFO Analytics Plot Set
+2022-02-09 20:17:38 PASS Correlation between TPW and Temperature
+2022-02-09 20:17:39 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-09 20:17:39 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-09 20:17:39 PASS Regression between Mean TPW and Temperature
+2022-02-09 20:17:39 PASS Regression between Weighted TPW and Temperature
+2022-02-09 20:17:39 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-09 20:17:39 ALOHA Program Complete
+2022-02-09 20:18:10 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 20:18:10 ALOHA Program Start
+2022-02-09 20:18:13 INFO Collecting Data from sources
+2022-02-09 20:18:15 INFO Analytics Plot Set
+2022-02-09 20:18:15 PASS Correlation between TPW and Temperature
+2022-02-09 20:18:15 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-09 20:18:15 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-09 20:18:15 PASS Regression between Mean TPW and Temperature
+2022-02-09 20:18:16 PASS Regression between Weighted TPW and Temperature
+2022-02-09 20:18:16 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-09 20:18:16 ALOHA Program Complete
+2022-02-09 21:07:57 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 21:07:57 ALOHA Program Start
+2022-02-09 21:07:59 INFO Collecting Data from sources
+2022-02-09 21:08:28 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 21:08:28 ALOHA Program Start
+2022-02-09 21:08:31 INFO Collecting Data from sources
+2022-02-09 21:09:09 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 21:09:09 ALOHA Program Start
+2022-02-09 21:09:11 INFO Collecting Data from sources
+2022-02-09 21:10:18 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 21:10:18 ALOHA Program Start
+2022-02-09 21:10:20 INFO Collecting Data from sources
+2022-02-09 21:11:14 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 21:11:14 ALOHA Program Start
+2022-02-09 21:11:17 INFO Collecting Data from sources
+2022-02-09 21:12:12 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 21:12:12 ALOHA Program Start
+2022-02-09 21:12:15 INFO Collecting Data from sources
+2022-02-09 21:12:17 INFO Analytics Plot Set
+2022-02-09 21:12:17 PASS Correlation between TPW and Temperature
+2022-02-09 21:12:18 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-09 21:12:18 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-09 21:12:48 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 21:12:48 ALOHA Program Start
+2022-02-09 21:12:50 INFO Collecting Data from sources
+2022-02-09 21:12:53 INFO Analytics Plot Set
+2022-02-09 21:12:53 PASS Correlation between TPW and Temperature
+2022-02-09 21:12:53 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-09 21:12:53 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-09 21:12:53 PASS Regression between Mean TPW and Temperature
+2022-02-09 21:12:53 PASS Regression between Weighted TPW and Temperature
+2022-02-09 21:12:54 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-09 21:12:54 ALOHA Program Complete
+2022-02-09 21:18:44 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 21:18:44 ALOHA Program Start
+2022-02-09 21:18:47 INFO Collecting Data from sources
+2022-02-09 21:18:49 INFO Analytics Plot Set
+2022-02-09 21:18:50 PASS Correlation between TPW and Temperature
+2022-02-09 21:18:50 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-09 21:18:50 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-09 21:18:50 PASS Regression between Mean TPW and Temperature
+2022-02-09 21:18:51 PASS Regression between Weighted TPW and Temperature
+2022-02-09 21:18:51 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-09 21:18:51 ALOHA Program Complete
+2022-02-09 21:20:06 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 21:20:06 ALOHA Program Start
+2022-02-09 21:20:09 INFO Collecting Data from sources
+2022-02-09 21:20:11 INFO Analytics Plot Set
+2022-02-09 21:20:12 PASS Correlation between TPW and Temperature
+2022-02-09 21:20:12 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-09 21:20:12 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-09 21:20:12 PASS Regression between Mean TPW and Temperature
+2022-02-09 21:20:12 PASS Regression between Weighted TPW and Temperature
+2022-02-09 21:20:12 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-09 21:20:12 ALOHA Program Complete
+2022-02-09 21:21:36 ALOHA Precipitable-water Model Analysis Tool
+2022-02-09 21:21:36 ALOHA Program Start
+2022-02-09 21:21:39 INFO Collecting Data from sources
+2022-02-09 21:21:42 INFO Chart Set
+2022-02-09 21:21:42 PASS Weighted PWV
+2022-02-09 21:21:43 PASS Average Temperature
+2022-02-09 21:21:43 PASS Relative Humidity
+2022-02-09 21:21:43 PASS Dewpoint Temperature
+2022-02-09 21:21:43 PASS Distribution of PWV in ABQ
+2022-02-09 21:21:43 PASS Distribution of PWV in EPZ
+2022-02-09 21:21:43 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-09 21:21:43 ALOHA Program Complete
