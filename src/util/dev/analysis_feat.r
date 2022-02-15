@@ -1,7 +1,7 @@
-library(mousetrap)
-library(e1071)
-library(psych)
-
+suppressPackageStartupMessages(library(mousetrap))
+suppressPackageStartupMessages(library(e1071))
+suppressPackageStartupMessages(library(psych))
+library(stats)
 #' @title bimodial.coeff
 #' @description computes the bimodiality coefficient
 #' @param x the dataset
@@ -27,14 +27,14 @@ bimodial.coeff <- function(x){
 # exp.regression(clear_sky.results, 0.7)
 # index.norm(overcast.results$wt_avg)
 sin.regression <- function(y){
+	y <- y[!is.na(y)]
 	A <- (max(y, na.rm=TRUE) - min(y, na.rm=TRUE))/2
-	Q <- (max(y, na.rm=TRUE) + min(y, na.rm=TRUE))/2
+	B <- (max(y, na.rm=TRUE) + min(y, na.rm=TRUE))/2
 
-	dt <- seq(1, length(y), length.out=length(y))
-	model <- nls(y ~ A * sin(x + phi) + Q,
-	             data=data.frame(x=dt, y),
-				 start=list(A=A, phi=0, Q=Q))
-	print(model)
+	dt <- seq(1, length(y), length.out=length(y))[!is.na(y)]
+	model <- nls(y ~ (A * sin((w*x) + phi)) + B,
+	             data=data.frame(x=dt, y=y),
+				 start=list(A=A, phi=0, B=B, w=6))
 	output <- list("y"=y, "model"=model)
 	return(output)
 }

@@ -3,7 +3,7 @@
 #' :author: Spencer Riley <sriley@pmat.app>
 #' :synopsis: The main file for PMAT. Documentation available at <https://docs.pmat.app>.
 #' :author: Spencer Riley
-
+#' :todo: organize the mean.filter and nan.filter so that everything works
 ## Necessary Libraries for the script to run, for installation run install.sh
 library(argparse)
 library(crayon)
@@ -70,24 +70,58 @@ if(file.exists(paste(args$dir,"_output.yml", sep=""))){
 
 # Processing functions
 source("./pmat_processing.r")
-# Analysis functions
-source("./pmat_analysis.r")
+filter.overcast.clear <- overcast.filter(col_con,
+								col_date,
+								col_com,
+							  	pw_name,
+								snsr_name,
+								FALSE)
+filter.dna.clear	 <- dna.filter(filter.overcast.clear)
 
-clear_sky.results <- sky.analysis(overcast.filter(col_con, col_date, col_com,
-												  pw_name, snsr_name, FALSE))
-overcast.results <- sky.analysis(overcast.filter(col_con, col_date, col_com,
-												 pw_name, snsr_name, TRUE))
+filter.overcast.over <- overcast.filter(col_con,
+								col_date,
+								col_com,
+							  	pw_name,
+								snsr_name,
+								TRUE)
+filter.dna.over 	<- dna.filter(filter.overcast.over)
+
+# Analysis functions
+source("pmat_analysis.r")
+source("pmat_products.r")
+
+clear_sky.results 	<- sky.analysis(filter.dna.clear)
+overcast.results 	<- sky.analysis(filter.dna.over)
+
 if (args$overcast){
+	filter.mean 	<- mean.filter(filter.dna.over, rel_diff)
 	res <- overcast.results
 } else {
+	filter.mean	<- mean.filter(filter.dna.clear, rel_diff)
 	res <- clear_sky.results
+
 }
 
-datetime <- as.POSIXct(paste(as.Date(unlist(res$date), origin="1970-01-01"), paste(unlist(res$time),":00", sep="")),
-					   format="%Y-%m-%d %H:%M:%S")
+datetime <- as.POSIXct(paste(as.Date(unlist(res$date), origin="1970-01-01"), paste(unlist(res$time),":00", sep="")), format="%Y-%m-%d %H:%M:%S")
 
-# Graphical and Data product functions
-source("pmat_products.r")
+if (length(res$date) > 0){
+	iter.results <- iterative.analysis(results=res,
+									   dir=args$dir,
+									   obool=args$u,
+									   filter.mean = filter.mean)
+
+	data.final(fig_dir,
+				length(clear_sky.results$date),
+				length(overcast.results$date),
+				iter.results$train.len,
+				"NaN",
+				round(length(iter.results$filter.mean)/(length(clear_sky.results$date) - nans), 2),
+				list(A=iter.results$A, B=iter.results$B),
+				list(M=iter.results$M, K=iter.results$K, R=iter.results$R))
+} else {
+	logg("ERROR", D01); closing()
+}
+
 
 if(args$set != FALSE){
 	visual.products(args$set, datetime)
@@ -101,7 +135,6 @@ if(length(args$data) > 0){
        data.ml(fig_dir)
     }
 }
-
 if (args$all){
 	opt <- c('t', 'a', 'i', 'c', 'o', 'p')
 	logg("INFO", paste("Condition:", ifelse(args$overcast, "Overcast", "Clear Sky"), sep=" "))
@@ -112,10 +145,10 @@ if (args$all){
 }
 
 if (args$dev){
-	source("./util/tests/analysis_feat.r")
-	source("./util/tests/plots_dev.r")
-
-	save(c(dev.temp(), dev.pw()), sprintf("%sdev.pdf", fig_dir))
+	source("./util/dev/analysis_feat.r")
+	source("./util/dev/plots_dev.r")
+	pdf(sprintf("%sdev.pdf", fig_dir))
+	dev.plots()
 }
 
 closing()

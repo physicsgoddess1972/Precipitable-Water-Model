@@ -3,11 +3,9 @@
 #' :synopsis: plotting functions for PMAT
 #' :author: Spencer Riley <sriley@pmat.app>
 
-time9 	<- function(datetime){
-    #' :detail: Sky Temperature - RH Time Series
+time.pwindex <- function(datetime){
+    #' :detail: Normalized PWV index for both clear sky and overcast data
     #' :param date: the datestamp of the data
-    #' :param bool overcast: the condition of data (clear sky/overcast)
-    #' :return: A sky temperature time series plot
 
     par(mar = c(3,4, 3, 3), oma = c(1, 1, 0, 0), mfrow=c(1, 1), xpd=TRUE)
     # Plotting margin
@@ -57,6 +55,7 @@ time.nth_range <- function(range, title, color, leg.lab, ylab, datetime,overcast
     # defines the max and min of the y-axis
     ymin <- min(as.numeric(unlist(test)), na.rm=TRUE)
     ymax <- max(as.numeric(unlist(test)), na.rm=TRUE)
+
     plot(datetime, range[[1]],
          ylab=ylab[1],
          xaxt='n',
@@ -150,16 +149,11 @@ analysis.regression	<- function(overcast, x, y, des, label, iter, results){
     #' :detail: Super Average Plot with Exponential Fit
     #' :param bool overcast: the condition of data (clear sky/overcast)
     #' :return: A sky temperature time series plot
-
-    xmax	<- max(unlist(x), na.rm=TRUE)
-    xmin	<- min(unlist(x), na.rm=TRUE)
-    newx <- seq(xmin, xmax, length.out=length(x))
-
-    ymax	<- max(unlist(y), na.rm=TRUE)
-    ymin	<- min(unlist(y), na.rm=TRUE)
+    exp_reg <- exp.regression(results, data_index=iter[["filter.mean"]])
+    ymax	<- max(unlist(exp_reg$y), na.rm=TRUE)
+    ymin	<- min(unlist(exp_reg$y), na.rm=TRUE)
 
     # Non-linear model (exponential)
-    exp_reg <- exp.regression(results, 1)
     plot(x,  y,
          xlab=label[[1]],
          ylab=label[[2]],
@@ -534,7 +528,7 @@ poster.plots <- function(overcast, iter){
                 range 	<- clear_sky.results$loc_avg
                 results <- clear_sky.results
             }
-            exp_reg <- exp.regression(results, 1)
+            exp_reg <- exp.regression(results)
             ymax	<- max(as.numeric(unlist(range)), na.rm=TRUE)
             ymin	<- min(as.numeric(unlist(range)), na.rm=TRUE)
 
@@ -809,20 +803,39 @@ data.ml <- function(dir){
         logg("PASS", sprintf("Data sent to %sml_data.csv", dir))
 }
 
-visual.products <- function(set, datetime=datetime, overcast=args$overcast){
+data.step <- function(seed, i, coef, r, S){
+    yml.out <- as.yaml(list(
+                    seed=c(seed),
+                    step=c(i),
+                    analysis=list(coeff=list(A=c(round(coef$A, 4)),
+                                             B=c(round(coef$B,4))),
+                                  rmse=c(round(r, 4)),
+                                rstd=c(round(S, 4))
+                              )), indent.mapping.sequence=TRUE)
+    return(yml.out)
+}
+
+data.final <- function(dir, clear.len, over.len, train.len, nan.len, frac.kept, coef, rsme){
+  	yml <- as.yaml(list(data=list(clear=list(total.count=c(clear.len)),
+									overcast=list(total.count=c(over.len)),
+									train.count=c(train.len),
+									nans=c(nan.len),
+									fraction.kept=c(frac.kept)),
+
+							analysis=list(coeff=list(A=c(coef$A),
+													 B=c(coef$B))),
+							rmse=list(mims=c(rsme$M),
+							             kelsey=c(rsme$K),
+										 yours=c(rmse$R))))
+  write_yaml(yml, paste(dir,"_results.yml", sep=""),
+             indent.mapping.sequence=TRUE)
+
+}
+
+visual.products <- function(set, datetime=datetime, overcast=args$overcast, filter=filter.mean){
     #' :detail: saves plot sets
     #' :param character set: the set identifier
     #' :param logical overcast: ovecast boolean
-    if(set == "a" || set == "o"){
-        ifelse(overcast, len <- length(overcast.results$date),
-                              len <- length(clear_sky.results$date))
-        if (len > 0){
-            iter.results <- iterative.analysis(overcast, args$dir, args$u)
-        } else {
-            logg("ERROR", D01); closing()
-        }
-    }
-
 
 	if(set == "i"){
         logg("INFO", "Sensor Plot Set")
@@ -832,10 +845,8 @@ visual.products <- function(set, datetime=datetime, overcast=args$overcast){
         return(NULL)
 	}else if(set == "t"){
         logg("INFO", "Time Series Plot Set")
-
 		pdf(sprintf("%stime_series%s.pdf", fig_dir, ifelse(overcast,"_overcast", "")))
         if (length(datetime) > 0){
-
           r1 <- list(res$snsr_sky,
                      res$snsr_gro,
                      res$snsr_del,
@@ -868,14 +879,19 @@ visual.products <- function(set, datetime=datetime, overcast=args$overcast){
             for (i in 1:length(r1)){
               time.nth_range(r1[[i]], t1[[i]], c1[[i]], l1[[i]], y1[[i]], datetime, overcast)
             }
-            r2 <- list(list(res$snsr_sky_calc, res$rh),
+            r2 <- list(list(res$snsr_sky_calc, res$avg),
+                       list(res$snsr_sky_calc, res$rh),
                        list(res$avg, res$rh))
-            t2 <- list("Mean Sky Temperature and RH Time Series",
+            t2 <- list("Mean Sky Temperature and PWV Time Series",
+                        "Mean Sky Temperature and RH Time Series",
                        "Mean TPW and RH Time Series")
-            c2 <- list(list("red", "green3"),
+            c2 <- list(list("red", "blue"),
+                       list("red", "green3"),
                        list("blue", "green3"))
-            y2 <- list(list("Temperature [C]", "RH [%]"),
+            y2 <- list(list("Temperature [C}", "TPW [mm]"),
+                       list("Temperature [C]", "RH [%]"),
                        list("TPW [mm]", "RH [%]"))
+            par(mar=c(5.1, 5.1, 5.1, 5.3), xpd=TRUE)
             for (i in 1:length(r2)){
               time.composite(r2[[i]], t2[[i]], c2[[i]], y2[[i]], datetime, overcast)
             }
@@ -914,7 +930,6 @@ visual.products <- function(set, datetime=datetime, overcast=args$overcast){
         t2 <- list("Regression between Mean TPW and Temperature",
                    "Regression between Weighted TPW and Temperature")
         l2 <- rep(list(list("Zenith Sky Temperature [C]", "TPW [mm]")), 2)
-
         for (i in 1:length(x2)){
           analysis.regression(overcast, x2[[i]], y2[[i]], t2[[i]], l2[[i]], iter.results, res)
         }
