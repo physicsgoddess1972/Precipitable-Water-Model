@@ -1,90 +1,90 @@
 - |
-  seed: 591930281
+  seed: 594695483
   step: 1
   analysis:
     coeff:
-      A: 19.1429
-      B: 0.0357
-    rmse: 3.0957
-    rstd: 3.125
+      A: 18.972
+      B: 1.0365
+    rmse: .na.real
+    rstd: .na.real
 - |
-  seed: 685001310
+  seed: 406414290
   step: 2
   analysis:
     coeff:
-      A: 18.7567
-      B: 0.0356
-    rmse: 3.6124
-    rstd: 3.6467
+      A: 19.0327
+      B: 1.0366
+    rmse: .na.real
+    rstd: .na.real
 - |
-  seed: 1099492420
+  seed: 2101206569
   step: 3
   analysis:
     coeff:
-      A: 18.9159
-      B: 0.0361
-    rmse: 3.7625
-    rstd: 3.7981
+      A: 18.8973
+      B: 1.0359
+    rmse: .na.real
+    rstd: .na.real
 - |
-  seed: 1496590606
+  seed: 761413458
   step: 4
   analysis:
     coeff:
-      A: 18.6823
-      B: 0.0355
-    rmse: 3.7422
-    rstd: 3.7777
+      A: 18.8043
+      B: 1.0367
+    rmse: .na.real
+    rstd: .na.real
 - |
-  seed: 2117668840
+  seed: 1957551
   step: 5
   analysis:
     coeff:
-      A: 18.9253
-      B: 0.0359
-    rmse: 3.2379
-    rstd: 3.2686
+      A: 18.9447
+      B: 1.0368
+    rmse: .na.real
+    rstd: .na.real
 - |
-  seed: 1802065565
+  seed: 1726468385
   step: 6
   analysis:
     coeff:
-      A: 18.7648
-      B: 0.0353
-    rmse: 2.7234
-    rstd: 2.7492
+      A: 19.1867
+      B: 1.0369
+    rmse: .na.real
+    rstd: .na.real
 - |
-  seed: 387423853
+  seed: 1312897930
   step: 7
   analysis:
     coeff:
-      A: 18.4095
-      B: 0.0352
-    rmse: 3.6235
-    rstd: 3.6579
+      A: 19.2126
+      B: 1.0365
+    rmse: .na.real
+    rstd: .na.real
 - |
-  seed: 1749724751
+  seed: 1492207598
   step: 8
   analysis:
     coeff:
-      A: 19.1378
-      B: 0.0363
-    rmse: 3.2758
-    rstd: 3.3069
+      A: 19.0255
+      B: 1.0366
+    rmse: .na.real
+    rstd: .na.real
 - |
-  seed: 1000338581
+  seed: 131138947
   step: 9
   analysis:
     coeff:
-      A: 18.3441
-      B: 0.0346
-    rmse: 3.4215
-    rstd: 3.454
+      A: 18.577
+      B: 1.0359
+    rmse: .na.real
+    rstd: .na.real
 - |
-  seed: 1012213318
+  seed: 1218234662
   step: 10
   analysis:
     coeff:
-      A: 19.2819
-      B: 0.0365
-    rmse: 2.9128
-    rstd: 2.9404
+      A: 19.0008
+      B: 1.0368
+    rmse: .na.real
+    rstd: .na.real

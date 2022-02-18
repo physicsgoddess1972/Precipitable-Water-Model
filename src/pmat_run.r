@@ -93,14 +93,17 @@ source("pmat_products.r")
 clear_sky.results 	<- sky.analysis(filter.dna.clear)
 overcast.results 	<- sky.analysis(filter.dna.over)
 
+
 if (args$overcast){
 	filter.mean 	<- mean.filter(filter.dna.over, rel_diff)
 	res <- overcast.results
 } else {
 	filter.mean	<- mean.filter(filter.dna.clear, rel_diff)
 	res <- clear_sky.results
-
 }
+nan.out <- nan.filter(list(x=res$snsr_sky_calc,
+						   y=res$wt_avg,
+						   z=res$pw_loc), filter.mean)
 
 datetime <- as.POSIXct(paste(as.Date(unlist(res$date), origin="1970-01-01"), paste(unlist(res$time),":00", sep="")), format="%Y-%m-%d %H:%M:%S")
 
@@ -108,14 +111,16 @@ if (length(res$date) > 0){
 	iter.results <- iterative.analysis(results=res,
 									   dir=args$dir,
 									   obool=args$u,
-									   filter.mean = filter.mean)
-
+									   nan.out = nan.out,
+									   data_index = filter.mean)
+	# print(nan.out[[2]])
+	# print(round(length(filter.mean)/(length(clear_sky.results$date) - length(nan.out[[2]])), 2))
 	data.final(fig_dir,
 				length(clear_sky.results$date),
 				length(overcast.results$date),
 				iter.results$train.len,
-				"NaN",
-				round(length(iter.results$filter.mean)/(length(clear_sky.results$date) - nans), 2),
+				length(nan.out[[2]]),
+				round(length(filter.mean)/(length(clear_sky.results$date) - length(nan.out[[2]])), 2),
 				list(A=iter.results$A, B=iter.results$B),
 				list(M=iter.results$M, K=iter.results$K, R=iter.results$R))
 } else {

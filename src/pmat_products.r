@@ -149,7 +149,7 @@ analysis.regression	<- function(overcast, x, y, des, label, iter, results){
     #' :detail: Super Average Plot with Exponential Fit
     #' :param bool overcast: the condition of data (clear sky/overcast)
     #' :return: A sky temperature time series plot
-    exp_reg <- exp.regression(results, data_index=iter[["filter.mean"]])
+    exp_reg <- exp.regression(results, nan.out=iter[["filter.mean"]])
     ymax	<- max(unlist(exp_reg$y), na.rm=TRUE)
     ymin	<- min(unlist(exp_reg$y), na.rm=TRUE)
 
@@ -815,18 +815,18 @@ data.step <- function(seed, i, coef, r, S){
     return(yml.out)
 }
 
-data.final <- function(dir, clear.len, over.len, train.len, nan.len, frac.kept, coef, rsme){
-  	yml <- as.yaml(list(data=list(clear=list(total.count=c(clear.len)),
+data.final <- function(dir, clear.len, over.len, train.len, nan.len, frac.kept, coef, rmse){
+  yml <- as.yaml(list(data=list(clear=list(total.count=c(clear.len)),
 									overcast=list(total.count=c(over.len)),
 									train.count=c(train.len),
-									nans=c(nan.len),
 									fraction.kept=c(frac.kept)),
-
+                            nans=c(nan.len),
 							analysis=list(coeff=list(A=c(coef$A),
 													 B=c(coef$B))),
-							rmse=list(mims=c(rsme$M),
-							             kelsey=c(rsme$K),
+							rmse=list(mims=c(rmse$M),
+							             kelsey=c(rmse$K),
 										 yours=c(rmse$R))))
+
   write_yaml(yml, paste(dir,"_results.yml", sep=""),
              indent.mapping.sequence=TRUE)
 
