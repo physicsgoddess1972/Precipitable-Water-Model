@@ -198,19 +198,22 @@ dna.filter <- function(fover){
 	return(fover)
 }
 
-nan.filter <- function(stuff){
+nan.filter <- function(stuff, range){
 	#' :detail: removes nan values from a set of lists
 	#' :param list stuff: list of arrays
 	#' :return: returns list with filtered data and the indicies with nans
 	#' :rtype: list
+
 	nans <- list()
 	for (i in 1:length(stuff)){
 		if (length(stuff[[i]][[1]]) > length(lengths(stuff[[i]]))){
-			for (j in stuff[[i]]){
-				nans <- append(nans, grep(NaN, j))
+			for (j in 1:length(stuff[[i]])){
+				stuff[[i]][[j]] <- stuff[[i]][[j]][range]
+				nans <- append(nans, which(is.na(stuff[[i]][[j]])))
 			}
 		} else {
-			nans <- append(nans, grep(NaN,  stuff[[i]]))
+			stuff[[i]] <- stuff[[i]][range]
+			nans <- append(nans, which(is.na(stuff[[i]])))
 		}
 	}
 	nans <- unique(unlist(nans))

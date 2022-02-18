@@ -3,7 +3,7 @@
 #' :synopsis: This module contains analysis functions
 #' :author: Spencer Riley <sriley@pmat.app>
 
-exp.regression 	<- function(r,t=NULL,data_index,range=c(1:length(r$date))){
+exp.regression 	<- function(r,t=NULL,nan.out, data_index,range=c(1:length(r$date))){
 	#' :detail: Function includes all of the stuff to generate the exponential regression model with intervals
 	#' :param list r: output of sky.analysis
 	#' :param double t: training fraction
@@ -11,19 +11,20 @@ exp.regression 	<- function(r,t=NULL,data_index,range=c(1:length(r$date))){
 	#' :return: returns the data series and model statistics
 	#' :rtype: list
 	# Finds and removes NaNed values from the dataset
-	z <- r$pw_loc
-	for (i in 1:length(z)){
-		z[[ paste("pw_loc",i,sep="") ]] <- z[[ paste("pw_loc",i,sep="") ]][range]
-	}
-	nan.out <- nan.filter(list(x=r$snsr_sky_calc[range],
-							   y=r$wt_avg[range], z=z))
+	# z <- r$pw_loc
+	# for (i in 1:length(z)){
+	# 	z[[ paste("pw_loc",i,sep="") ]] <- z[[ paste("pw_loc",i,sep="") ]][range]
+	# }
+	# nan.out <- nan.filter(list(x=r$snsr_sky_calc[range],
+	# 						   y=r$wt_avg[range], z=z))
 	dat 	<- nan.out[[1]]
 	nans 	<- nan.out[[2]]
 	x <- dat$x
 	y <- dat$y
 	# creates a uniform sequence of numbers that fit within the limits of x
 	if (!is.null(t)){
-		data_sep <- data.partition(x[data_index], y[data_index], t)
+		# data_sep <- data.partition(x[data_index], y[data_index], t)
+		data_sep <- data.partition(x, y, t)
 		train <- data_sep$train
 		test <- data_sep$test
 		x <- train$x
@@ -92,7 +93,7 @@ inf.counter <- function(bool, snsr_data, label){
     return(output)
 }
 
-iterative.analysis <- function(results, dir, obool, filter.mean){
+iterative.analysis <- function(results, dir, obool, nan.out, data_index){
 	#' :detail: computes regression statistics and outputs to a yaml file
 	#' :param logical overcast: boolean to determine label
 	#' :param string dir: directory file path for _output.yml
@@ -109,11 +110,12 @@ iterative.analysis <- function(results, dir, obool, filter.mean){
 				def_seed <- sample(1:.Machine$integer.max, 1, replace=FALSE)
 				seeds <- append(seeds, def_seed)
 			}
+			logg("DEBUG", sprintf("Step %d out of %d", i,step))
 			set.seed(def_seed)
-			exp_reg <- exp.regression(results,train_frac, data_index = filter.mean)
+			exp_reg <- exp.regression(results,train_frac, nan.out = nan.out)
 			out 	<- append(out, data.step(def_seed, i,
 											list(A=exp(coef(exp_reg$model)[1]),
-												 B=exp(coef(exp_reg$model)[2])),
+												 B=coef(exp_reg$model)[2]),
 											exp_reg$rmse, exp_reg$S))
 			resids 	<- append(resids, resid(exp_reg$model.0))
 			mims_y  <- (30.55 * exp(exp_reg$x/28.725) - 2.63)
@@ -126,11 +128,12 @@ iterative.analysis <- function(results, dir, obool, filter.mean){
 		write_yaml(out, paste(dir,"_output.yml", sep=""))
 	} else {
 		for (i in 1:length(oname)){
+			logg("DEBUG", sprintf("Step %d out of %d", i,step))
 			yml 	<- read_yaml(text=oname[[i]])
 			seeds 	<- append(seeds, yml$seed)
 			set.seed(yml$seed)
 
-			exp_reg <- exp.regression(results,train_frac, data_index = filter.mean)
+			exp_reg <- exp.regression(results,train_frac, nan.out = nan.out)
 			resids 	<- append(resids, resid(exp_reg$model.0))
 			mims_y  <- (30.55 * exp(exp_reg$x/28.725) - 2.63)
 			mims <- append(mims, sqrt(sum((mims_y - exp_reg$y)^2)/length(exp_reg$y)))
@@ -165,7 +168,8 @@ iterative.analysis <- function(results, dir, obool, filter.mean){
 	output[["R"]] 	<- Reduce("+", rmse)/length(rmse)
 	output[["K"]] 	<- Reduce("+", kelsey)/length(kelsey)
 	output[["train.len"]] <- length(exp_reg$x)
-	output[["filter.mean"]] <- filter.mean
+	output[["filter.mean"]] <- nan.out
+	output[["nans"]]	<- length(exp_reg$nans)
 	if (is.na(output$S)){
 		warning(a01)
 	}

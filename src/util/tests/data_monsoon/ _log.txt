@@ -3144,3 +3144,346 @@
 2022-02-09 21:21:43 PASS Distribution of PWV in EPZ
 2022-02-09 21:21:43 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
 2022-02-09 21:21:43 ALOHA Program Complete
+2022-02-17 11:28:46 ALOHA Precipitable-water Model Analysis Tool
+2022-02-17 11:28:46 ALOHA Program Start
+2022-02-17 11:29:17 INFO Collecting Data from sources
+2022-02-17 11:32:04 ALOHA Precipitable-water Model Analysis Tool
+2022-02-17 11:32:04 ALOHA Program Start
+2022-02-17 11:32:07 INFO Collecting Data from sources
+2022-02-17 11:33:45 ALOHA Precipitable-water Model Analysis Tool
+2022-02-17 11:33:45 ALOHA Program Start
+2022-02-17 11:33:47 INFO Collecting Data from sources
+2022-02-17 11:34:39 ALOHA Precipitable-water Model Analysis Tool
+2022-02-17 11:34:39 ALOHA Program Start
+2022-02-17 11:34:42 INFO Collecting Data from sources
+2022-02-17 11:35:26 ALOHA Precipitable-water Model Analysis Tool
+2022-02-17 11:35:26 ALOHA Program Start
+2022-02-17 11:35:29 INFO Collecting Data from sources
+2022-02-17 11:36:08 ALOHA Precipitable-water Model Analysis Tool
+2022-02-17 11:36:08 ALOHA Program Start
+2022-02-17 11:36:11 INFO Collecting Data from sources
+2022-02-17 11:36:15 INFO Analytics Plot Set
+2022-02-17 11:36:15 PASS Correlation between TPW and Temperature
+2022-02-17 11:36:15 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-17 11:36:15 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-17 11:36:15 PASS Regression between Mean TPW and Temperature
+2022-02-17 11:36:16 PASS Regression between Weighted TPW and Temperature
+2022-02-17 11:36:16 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-17 11:36:16 ALOHA Program Complete
+2022-02-17 11:39:36 ALOHA Precipitable-water Model Analysis Tool
+2022-02-17 11:39:36 ALOHA Program Start
+2022-02-17 11:39:38 INFO Collecting Data from sources
+2022-02-17 11:39:41 INFO Analytics Plot Set
+2022-02-17 11:39:41 PASS Correlation between TPW and Temperature
+2022-02-17 11:39:41 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-17 11:39:42 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-17 11:39:42 PASS Regression between Mean TPW and Temperature
+2022-02-17 11:39:42 PASS Regression between Weighted TPW and Temperature
+2022-02-17 11:39:42 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-17 11:39:42 ALOHA Program Complete
+2022-02-17 11:40:39 ALOHA Precipitable-water Model Analysis Tool
+2022-02-17 11:40:39 ALOHA Program Start
+2022-02-17 11:40:41 INFO Collecting Data from sources
+2022-02-17 11:40:45 INFO Analytics Plot Set
+2022-02-17 11:40:45 PASS Correlation between TPW and Temperature
+2022-02-17 11:40:45 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-17 11:40:45 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-17 11:40:45 PASS Regression between Mean TPW and Temperature
+2022-02-17 11:40:45 PASS Regression between Weighted TPW and Temperature
+2022-02-17 11:40:45 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-17 11:40:45 ALOHA Program Complete
+2022-02-17 11:41:27 ALOHA Precipitable-water Model Analysis Tool
+2022-02-17 11:41:27 ALOHA Program Start
+2022-02-17 11:41:30 INFO Collecting Data from sources
+2022-02-17 11:41:32 INFO Analytics Plot Set
+2022-02-17 11:41:33 PASS Correlation between TPW and Temperature
+2022-02-17 11:41:33 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-17 11:41:33 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-17 11:41:33 PASS Regression between Mean TPW and Temperature
+2022-02-17 11:41:33 PASS Regression between Weighted TPW and Temperature
+2022-02-17 11:41:33 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-17 11:41:33 ALOHA Program Complete
+2022-02-17 11:42:50 ALOHA Precipitable-water Model Analysis Tool
+2022-02-17 11:42:50 ALOHA Program Start
+2022-02-17 11:42:53 INFO Collecting Data from sources
+2022-02-17 11:42:55 INFO Analytics Plot Set
+2022-02-17 11:42:55 PASS Correlation between TPW and Temperature
+2022-02-17 11:42:56 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-17 11:42:56 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-17 11:42:56 PASS Regression between Mean TPW and Temperature
+2022-02-17 11:42:56 PASS Regression between Weighted TPW and Temperature
+2022-02-17 11:42:56 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-17 11:42:56 ALOHA Program Complete
+2022-02-17 11:43:52 ALOHA Precipitable-water Model Analysis Tool
+2022-02-17 11:43:52 ALOHA Program Start
+2022-02-17 11:43:54 INFO Collecting Data from sources
+2022-02-17 11:43:57 INFO Analytics Plot Set
+2022-02-17 11:43:57 PASS Correlation between TPW and Temperature
+2022-02-17 11:43:57 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-17 11:43:58 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-17 11:43:58 PASS Regression between Mean TPW and Temperature
+2022-02-17 11:43:58 PASS Regression between Weighted TPW and Temperature
+2022-02-17 11:43:58 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-17 11:43:58 ALOHA Program Complete
+2022-02-17 11:45:23 ALOHA Precipitable-water Model Analysis Tool
+2022-02-17 11:45:23 ALOHA Program Start
+2022-02-17 11:45:26 INFO Collecting Data from sources
+2022-02-17 11:45:44 ALOHA Precipitable-water Model Analysis Tool
+2022-02-17 11:45:44 ALOHA Program Start
+2022-02-17 11:45:47 INFO Collecting Data from sources
+2022-02-17 11:45:49 INFO Analytics Plot Set
+2022-02-17 11:46:52 ALOHA Precipitable-water Model Analysis Tool
+2022-02-17 11:46:52 ALOHA Program Start
+2022-02-17 11:46:55 INFO Collecting Data from sources
+2022-02-17 11:46:58 INFO Analytics Plot Set
+2022-02-17 11:46:58 PASS Correlation between TPW and Temperature
+2022-02-17 11:46:58 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-17 11:46:58 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-17 11:46:58 PASS Regression between Mean TPW and Temperature
+2022-02-17 11:46:58 PASS Regression between Weighted TPW and Temperature
+2022-02-17 11:46:58 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-17 11:46:59 ALOHA Program Complete
+2022-02-17 11:47:36 ALOHA Precipitable-water Model Analysis Tool
+2022-02-17 11:47:36 ALOHA Program Start
+2022-02-17 11:47:39 INFO Collecting Data from sources
+2022-02-17 11:47:57 ALOHA Precipitable-water Model Analysis Tool
+2022-02-17 11:47:57 ALOHA Program Start
+2022-02-17 11:48:00 INFO Collecting Data from sources
+2022-02-17 11:48:03 INFO Analytics Plot Set
+2022-02-17 11:48:03 PASS Correlation between TPW and Temperature
+2022-02-17 11:48:03 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-17 11:48:03 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-17 11:48:03 PASS Regression between Mean TPW and Temperature
+2022-02-17 11:48:03 PASS Regression between Weighted TPW and Temperature
+2022-02-17 11:48:03 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-17 11:48:03 ALOHA Program Complete
+2022-02-17 11:48:27 ALOHA Precipitable-water Model Analysis Tool
+2022-02-17 11:48:27 ALOHA Program Start
+2022-02-17 11:48:30 INFO Collecting Data from sources
+2022-02-17 11:48:32 INFO Analytics Plot Set
+2022-02-17 11:48:33 PASS Correlation between TPW and Temperature
+2022-02-17 11:48:33 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-17 11:48:33 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-17 11:48:33 PASS Regression between Mean TPW and Temperature
+2022-02-17 11:48:33 PASS Regression between Weighted TPW and Temperature
+2022-02-17 11:48:33 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-17 11:48:33 ALOHA Program Complete
+2022-02-17 11:49:59 ALOHA Precipitable-water Model Analysis Tool
+2022-02-17 11:49:59 ALOHA Program Start
+2022-02-17 11:50:01 INFO Collecting Data from sources
+2022-02-17 11:50:04 INFO Analytics Plot Set
+2022-02-17 11:50:17 ALOHA Precipitable-water Model Analysis Tool
+2022-02-17 11:50:17 ALOHA Program Start
+2022-02-17 11:50:20 INFO Collecting Data from sources
+2022-02-17 11:50:23 INFO Analytics Plot Set
+2022-02-17 11:50:23 PASS Correlation between TPW and Temperature
+2022-02-17 11:50:23 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-17 11:50:23 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-17 11:50:23 PASS Regression between Mean TPW and Temperature
+2022-02-17 11:50:23 PASS Regression between Weighted TPW and Temperature
+2022-02-17 11:50:23 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-17 11:50:23 ALOHA Program Complete
+2022-02-17 11:50:36 ALOHA Precipitable-water Model Analysis Tool
+2022-02-17 11:50:36 ALOHA Program Start
+2022-02-17 11:50:39 INFO Collecting Data from sources
+2022-02-17 11:50:41 INFO Analytics Plot Set
+2022-02-17 11:50:42 PASS Correlation between TPW and Temperature
+2022-02-17 11:50:42 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-17 11:50:42 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-17 11:50:42 PASS Regression between Mean TPW and Temperature
+2022-02-17 11:50:42 PASS Regression between Weighted TPW and Temperature
+2022-02-17 11:50:42 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-17 11:50:42 ALOHA Program Complete
+2022-02-17 11:52:02 ALOHA Precipitable-water Model Analysis Tool
+2022-02-17 11:52:02 ALOHA Program Start
+2022-02-17 11:52:04 INFO Collecting Data from sources
+2022-02-17 11:52:29 INFO Analytics Plot Set
+2022-02-17 11:52:29 PASS Correlation between TPW and Temperature
+2022-02-17 11:52:29 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-17 11:52:29 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-17 11:52:29 PASS Regression between Mean TPW and Temperature
+2022-02-17 11:52:29 PASS Regression between Weighted TPW and Temperature
+2022-02-17 11:52:29 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-17 11:52:29 ALOHA Program Complete
+2022-02-17 11:53:12 ALOHA Precipitable-water Model Analysis Tool
+2022-02-17 11:53:12 ALOHA Program Start
+2022-02-17 11:53:15 INFO Collecting Data from sources
+2022-02-17 11:53:17 INFO Analytics Plot Set
+2022-02-17 11:53:17 PASS Correlation between TPW and Temperature
+2022-02-17 11:53:18 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-17 11:53:18 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-17 11:53:18 PASS Regression between Mean TPW and Temperature
+2022-02-17 11:53:18 PASS Regression between Weighted TPW and Temperature
+2022-02-17 11:53:18 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-17 11:53:18 ALOHA Program Complete
+2022-02-17 11:53:38 ALOHA Precipitable-water Model Analysis Tool
+2022-02-17 11:53:38 ALOHA Program Start
+2022-02-17 11:53:40 INFO Collecting Data from sources
+2022-02-17 11:53:43 INFO Analytics Plot Set
+2022-02-17 11:53:43 PASS Correlation between TPW and Temperature
+2022-02-17 11:53:43 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-17 11:53:43 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-17 11:53:44 PASS Regression between Mean TPW and Temperature
+2022-02-17 11:53:44 PASS Regression between Weighted TPW and Temperature
+2022-02-17 11:53:44 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-17 11:53:44 ALOHA Program Complete
+2022-02-17 11:54:03 ALOHA Precipitable-water Model Analysis Tool
+2022-02-17 11:54:03 ALOHA Program Start
+2022-02-17 11:54:06 INFO Collecting Data from sources
+2022-02-17 11:54:09 INFO Analytics Plot Set
+2022-02-17 11:54:09 PASS Correlation between TPW and Temperature
+2022-02-17 11:54:09 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-17 11:54:09 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-17 11:54:09 PASS Regression between Mean TPW and Temperature
+2022-02-17 11:54:09 PASS Regression between Weighted TPW and Temperature
+2022-02-17 11:54:09 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-17 11:54:09 ALOHA Program Complete
+2022-02-17 11:54:27 ALOHA Precipitable-water Model Analysis Tool
+2022-02-17 11:54:27 ALOHA Program Start
+2022-02-17 11:54:30 INFO Collecting Data from sources
+2022-02-17 11:54:33 INFO Analytics Plot Set
+2022-02-17 11:54:33 PASS Correlation between TPW and Temperature
+2022-02-17 11:54:33 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-17 11:54:33 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-17 11:54:33 PASS Regression between Mean TPW and Temperature
+2022-02-17 11:54:33 PASS Regression between Weighted TPW and Temperature
+2022-02-17 11:54:33 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-17 11:54:34 ALOHA Program Complete
+2022-02-17 11:55:12 ALOHA Precipitable-water Model Analysis Tool
+2022-02-17 11:55:12 ALOHA Program Start
+2022-02-17 11:55:15 INFO Collecting Data from sources
+2022-02-17 11:55:17 INFO Analytics Plot Set
+2022-02-17 11:55:18 PASS Correlation between TPW and Temperature
+2022-02-17 11:55:19 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-17 11:55:19 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-17 11:55:19 PASS Regression between Mean TPW and Temperature
+2022-02-17 11:55:19 PASS Regression between Weighted TPW and Temperature
+2022-02-17 11:55:19 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-17 11:55:19 ALOHA Program Complete
+2022-02-17 11:56:03 ALOHA Precipitable-water Model Analysis Tool
+2022-02-17 11:56:03 ALOHA Program Start
+2022-02-17 11:56:06 INFO Collecting Data from sources
+2022-02-17 11:56:22 ALOHA Precipitable-water Model Analysis Tool
+2022-02-17 11:56:22 ALOHA Program Start
+2022-02-17 11:56:24 INFO Collecting Data from sources
+2022-02-17 11:56:27 INFO Analytics Plot Set
+2022-02-17 11:56:27 PASS Correlation between TPW and Temperature
+2022-02-17 11:56:27 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-17 11:56:28 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-17 11:56:28 PASS Regression between Mean TPW and Temperature
+2022-02-17 11:56:28 PASS Regression between Weighted TPW and Temperature
+2022-02-17 11:56:28 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-17 11:56:28 ALOHA Program Complete
+2022-02-17 11:56:54 ALOHA Precipitable-water Model Analysis Tool
+2022-02-17 11:56:54 ALOHA Program Start
+2022-02-17 11:56:57 INFO Collecting Data from sources
+2022-02-17 11:57:28 ALOHA Precipitable-water Model Analysis Tool
+2022-02-17 11:57:28 ALOHA Program Start
+2022-02-17 11:57:31 INFO Collecting Data from sources
+2022-02-17 11:57:34 INFO Analytics Plot Set
+2022-02-17 11:57:34 PASS Correlation between TPW and Temperature
+2022-02-17 11:57:35 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-17 11:57:35 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-17 11:57:35 PASS Regression between Mean TPW and Temperature
+2022-02-17 11:57:35 PASS Regression between Weighted TPW and Temperature
+2022-02-17 11:57:35 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-17 11:57:35 ALOHA Program Complete
+2022-02-17 11:57:58 ALOHA Precipitable-water Model Analysis Tool
+2022-02-17 11:57:58 ALOHA Program Start
+2022-02-17 11:58:00 INFO Collecting Data from sources
+2022-02-17 11:58:03 INFO Analytics Plot Set
+2022-02-17 11:58:03 PASS Correlation between TPW and Temperature
+2022-02-17 11:58:03 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-17 11:58:04 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-17 11:58:04 PASS Regression between Mean TPW and Temperature
+2022-02-17 11:58:04 PASS Regression between Weighted TPW and Temperature
+2022-02-17 11:58:04 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-17 11:58:04 ALOHA Program Complete
+2022-02-17 11:59:29 ALOHA Precipitable-water Model Analysis Tool
+2022-02-17 11:59:29 ALOHA Program Start
+2022-02-17 11:59:32 INFO Collecting Data from sources
+2022-02-17 11:59:35 INFO Analytics Plot Set
+2022-02-17 11:59:36 PASS Correlation between TPW and Temperature
+2022-02-17 11:59:36 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-17 11:59:36 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-17 11:59:36 PASS Regression between Mean TPW and Temperature
+2022-02-17 11:59:36 PASS Regression between Weighted TPW and Temperature
+2022-02-17 11:59:36 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-17 11:59:36 ALOHA Program Complete
+2022-02-17 11:59:59 ALOHA Precipitable-water Model Analysis Tool
+2022-02-17 11:59:59 ALOHA Program Start
+2022-02-17 12:00:02 INFO Collecting Data from sources
+2022-02-17 12:00:06 INFO Analytics Plot Set
+2022-02-17 12:00:06 PASS Correlation between TPW and Temperature
+2022-02-17 12:00:06 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-17 12:00:06 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-17 12:00:07 PASS Regression between Mean TPW and Temperature
+2022-02-17 12:00:07 PASS Regression between Weighted TPW and Temperature
+2022-02-17 12:00:07 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-17 12:00:07 ALOHA Program Complete
+2022-02-17 12:00:44 ALOHA Precipitable-water Model Analysis Tool
+2022-02-17 12:00:44 ALOHA Program Start
+2022-02-17 12:00:47 INFO Collecting Data from sources
+2022-02-17 12:00:50 INFO Analytics Plot Set
+2022-02-17 12:00:50 PASS Correlation between TPW and Temperature
+2022-02-17 12:00:50 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-17 12:00:50 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-17 12:00:50 PASS Regression between Mean TPW and Temperature
+2022-02-17 12:00:50 PASS Regression between Weighted TPW and Temperature
+2022-02-17 12:00:50 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-17 12:00:50 ALOHA Program Complete
+2022-02-17 12:02:30 ALOHA Precipitable-water Model Analysis Tool
+2022-02-17 12:02:30 ALOHA Program Start
+2022-02-17 12:02:33 INFO Collecting Data from sources
+2022-02-17 12:02:35 INFO Analytics Plot Set
+2022-02-17 12:02:35 PASS Correlation between TPW and Temperature
+2022-02-17 12:02:36 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-17 12:02:36 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-17 12:02:36 PASS Regression between Mean TPW and Temperature
+2022-02-17 12:02:36 PASS Regression between Weighted TPW and Temperature
+2022-02-17 12:02:36 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-17 12:02:36 ALOHA Program Complete
+2022-02-17 12:02:53 ALOHA Precipitable-water Model Analysis Tool
+2022-02-17 12:02:53 ALOHA Program Start
+2022-02-17 12:02:56 INFO Collecting Data from sources
+2022-02-17 12:02:59 INFO Analytics Plot Set
+2022-02-17 12:02:59 PASS Correlation between TPW and Temperature
+2022-02-17 12:02:59 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-17 12:02:59 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-17 12:02:59 PASS Regression between Mean TPW and Temperature
+2022-02-17 12:02:59 PASS Regression between Weighted TPW and Temperature
+2022-02-17 12:02:59 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-17 12:02:59 ALOHA Program Complete
+2022-02-17 12:04:03 ALOHA Precipitable-water Model Analysis Tool
+2022-02-17 12:04:03 ALOHA Program Start
+2022-02-17 12:04:06 INFO Collecting Data from sources
+2022-02-17 12:04:10 INFO Analytics Plot Set
+2022-02-17 12:04:10 PASS Correlation between TPW and Temperature
+2022-02-17 12:04:11 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-17 12:04:11 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-17 12:04:11 PASS Regression between Mean TPW and Temperature
+2022-02-17 12:04:12 PASS Regression between Weighted TPW and Temperature
+2022-02-17 12:04:12 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-17 12:04:12 ALOHA Program Complete
+2022-02-17 12:06:01 ALOHA Precipitable-water Model Analysis Tool
+2022-02-17 12:06:01 ALOHA Program Start
+2022-02-17 12:06:04 INFO Collecting Data from sources
+2022-02-17 12:06:07 INFO Analytics Plot Set
+2022-02-17 12:06:07 PASS Correlation between TPW and Temperature
+2022-02-17 12:06:07 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-17 12:06:07 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-17 12:06:08 PASS Regression between Mean TPW and Temperature
+2022-02-17 12:06:08 PASS Regression between Weighted TPW and Temperature
+2022-02-17 12:06:08 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-17 12:06:08 ALOHA Program Complete
+2022-02-17 12:07:05 ALOHA Precipitable-water Model Analysis Tool
+2022-02-17 12:07:05 ALOHA Program Start
+2022-02-17 12:07:07 INFO Collecting Data from sources
+2022-02-17 12:07:10 INFO Analytics Plot Set
+2022-02-17 12:07:10 PASS Correlation between TPW and Temperature
+2022-02-17 12:07:10 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-17 12:07:10 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-17 12:07:11 PASS Regression between Mean TPW and Temperature
+2022-02-17 12:07:11 PASS Regression between Weighted TPW and Temperature
+2022-02-17 12:07:11 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-17 12:07:11 ALOHA Program Complete
