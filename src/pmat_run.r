@@ -51,7 +51,7 @@ if(file.exists(paste(args$dir,"_pmat.yml", sep=""))){
 } else {
 	logg("ERROR", F02, lev = level); closing()
 }
-
+print(level)
 if (args$first){first()}
 startup()
 
