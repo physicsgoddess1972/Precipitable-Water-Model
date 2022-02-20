@@ -159,10 +159,10 @@ class PMAT_Import():
             df_12 = WyomingUpperAir.request_data(dt.combine(end_date, datetime.time(12, 0)), station)
             pw12 = df_12.pw[0]
         except (ValueError, IndexError):
-            logg("WARN", "Data not avialable for {} at {}".format(dt.combine(end_date, datetime.time(12, 0)), station), dir)
+            logg("WARN", "Data not avialable for {} at {}".format(dt.combine(end_date, datetime.time(12, 0)), station), out_dir)
             pw12 = "NaN"
         except requests.exceptions.HTTPError:
-            logg("WARN", "Connection issue with Wyoming Upper-Air...", dir)
+            logg("WARN", "Connection issue with Wyoming Upper-Air...", out_dir)
             pw12 = "Error"
         try:
             df_00 = WyomingUpperAir.request_data(end_date + datetime.timedelta(days=1), station)
@@ -171,10 +171,10 @@ class PMAT_Import():
             else:
                 pw00 = "NaN"
         except (ValueError, IndexError):
-            logg("WARN", "Data not avialable for {} at {}".format(end_date + datetime.timedelta(days=1), station), dir)
+            logg("WARN", "Data not avialable for {} at {}".format(end_date + datetime.timedelta(days=1), station), out_dir)
             pw00 = "NaN"
         except requests.exceptions.HTTPError:
-            logg("WARN", "Connection issue with Wyoming Upper-Air...", dir)
+            logg("WARN", "Connection issue with Wyoming Upper-Air...", out_dir)
             pw00 = "Error"
         return [station, [end_date, pw12, pw00]]
 
@@ -227,17 +227,17 @@ class PMAT_Import():
 
             thyme = df_tm[mw_header[tau]].values[0]
             if str(df_tm['relative_humidity'].values[0]) == "nan":
-                logg("WARN", "RH data not avialable for {} at {}".format(thyme, station), dir)
+                logg("WARN", "RH data not avialable for {} at {}".format(thyme, station), out_dir)
                 rh = "NaN"
             else:
                 rh = int(df_tm['relative_humidity'].values[0])
             if str(float(df_tm['temperature'].values[0])) == "nan":
-                logg("WARN", "Temperature data not avialable for {} at {}".format(thyme, station), dir)
+                logg("WARN", "Temperature data not avialable for {} at {}".format(thyme, station), out_dir)
                 temp = "NaN"
             else:
                 temp = round((float(df_tm['temperature'].values[0]) * units.degF).to(units.degC).magnitude, 2)
             if str(float(df_tm['dew_point'].values[0])) == "nan":
-                logg("WARN", "Dewpoint data not avialable for {} at {}".format(thyme, station), dir)
+                logg("WARN", "Dewpoint data not avialable for {} at {}".format(thyme, station), out_dir)
                 dwpt = "NaN"
             else:
                 dwpt = round((float(df_tm['dew_point'].values[0]) * units.degF).to(units.degC).magnitude, 2)
@@ -343,6 +343,7 @@ r = robjects.r
 r['source']('./pmat_utility.r')
 
 dir = sys.argv[1]
+out_dir = sys.argv[2]
 
 ## Data file used for configuration parameters
 cname = dir + "_pmat.yml"
@@ -356,7 +357,7 @@ level = robjects.r['assign']
 level("level", V['verbose'])
 
 logg = robjects.r['logg']
-logg("INFO", "Collecting Data from sources", dir)
+logg("INFO", "Collecting Data from sources", out_dir)
 
 ## Hours to pull
 hour = [00, 12]
@@ -384,7 +385,7 @@ if (len(keys) != 0):
     if ('mesowest' in keys):
         mw_station = list(map(lambda x: x['id'], cnfg[keys.index('mesowest')]['mesowest']))
 else:
-    logg("ERROR", "There are no sources avaliable", dir)
+    logg("ERROR", "There are no sources avaliable", out_dir)
 ## Retrives column index for sensors
 headr = pd.read_csv(rname, delimiter=",").columns
 indx = [[], []]
@@ -408,7 +409,7 @@ try:
 except IndexError:
     last = 0
 except ValueError:
-    logg("WARN", "Raw data mix match. No Data will be collected", dir)
+    logg("WARN", "Raw data mix match. No Data will be collected", out_dir)
     quit()
 
 
@@ -418,6 +419,6 @@ for i in range(last, full_len - 1):
     day = dt.strptime(str(loadtxt(rname, delimiter=",", dtype=str,
                                             usecols=(0))[i + 1]), "%Y-%m-%d")
     logg("DEBUG", "Collecting data for {:}\t\t Progress: {:.2f}%".format(str(day.date()),
-                                      i / (full_len - 1) * 100), dir)
+                                      i / (full_len - 1) * 100), out_dir)
 
     PMAT_Import.impt(day, i)
