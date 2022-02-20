@@ -3,7 +3,7 @@
 #' :synopsis: functions for preprocessing
 #' :author: Spencer Riley
 
-system(sprintf("python3 pmat_import.py %s", args$dir))
+system(sprintf("python3 pmat_import.py %s %s", args$dir, out.dir))
 
 ## Pulls most recent data stamp for the purpose of adding date stamps to file names when plots are saved
 recent 		<- t(fname[1])[length(t(fname[1]))]
