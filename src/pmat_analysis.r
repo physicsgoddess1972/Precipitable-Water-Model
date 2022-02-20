@@ -132,14 +132,13 @@ iterative.analysis <- function(results, dir, obool, nan.out, mean.out){
 			kelsey_y <- (19.71 * exp(exp_reg$x * 0.036))
 			kelsey 	 <- append(kelsey, sqrt(sum((kelsey_y - exp_reg$y)^2)/length(exp_reg$y)))
 		}
-		write(as.yaml(out, precision=4), file = paste(dir,"_output.yml", sep=""))
+		write(as.yaml(out, precision=4), file = paste(dir,"data/_output.yml", sep=""))
 	} else {
 		for (i in 1:length(oname)){
 			logg("DEBUG", sprintf("Step %d out of %d", i,step))
 			yml 	<- read_yaml(text=as.yaml(oname[[i]]))
 			seeds 	<- append(seeds, yml$seed)
 			set.seed(yml$seed)
-
 			exp_reg <- exp.regression(results,train_frac,
 									  nan.out = nan.out,
 									  data_indx = mean.out)
@@ -180,7 +179,7 @@ iterative.analysis <- function(results, dir, obool, nan.out, mean.out){
 	output[["filter.mean"]] <- mean.out
 	output[["nan.out"]]	<- nan.out
 	if (is.na(output$S)){
-		warning(a01)
+		logg("WARN", a01)
 	}
 	return(output)
 }
