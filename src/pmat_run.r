@@ -49,7 +49,7 @@ if(file.exists(paste(args$dir,"_pmat.yml", sep=""))){
 	config	<- yaml.load_file(paste(args$dir,"_pmat.yml", sep=""))
 	level 	<- config[[3]]$logging[[1]]$verbose
 } else {
-	logg("ERROR", F02, level = level); closing()
+	logg("ERROR", F02, lev = level); closing()
 }
 
 if (args$first){first()}
@@ -59,13 +59,13 @@ startup()
 if (file.exists(paste(args$dir,"master_data.csv", sep=""))){
 	fname       <- read.table(paste(args$dir,"master_data.csv", sep=""), sep=",", header=TRUE, strip.white=TRUE)
 } else {
-	logg("ERROR", F01, level = level); closing()
+	logg("ERROR", F01, lev = level); closing()
 }
 ## Tries to read _output.yml
 if(file.exists(paste(out.dir,"data/_output.yml", sep=""))){
 	oname <- yaml.load_file(paste(out.dir,"data/_output.yml", sep=""))
 } else {
-	logg("WARN", f01, level = level)
+	logg("WARN", f01, lev = level)
 	oname <- file.create(paste(out.dir,"data/_output.yml", sep=""))
 	args$u <- TRUE
 }
@@ -122,13 +122,13 @@ if (length(res$date) > 0){
 			   	iter.results$S,
 				list(M=iter.results$M, K=iter.results$K, R=iter.results$R))
 } else {
-	logg("ERROR", D01, level = level); closing()
+	logg("ERROR", D01, lev = level); closing()
 }
 
 
 if(args$set != FALSE){
 	visual.products(args$set, nan.out, filter.mean, datetime)
-	logg("PASS", sprintf("Plot set downloaded to %s", fig.dir), level = level)
+	logg("PASS", sprintf("Plot set downloaded to %s", fig.dir), lev = level)
 }
 
 if(length(args$data) > 0){
@@ -143,7 +143,7 @@ if (args$all){
 	logg("INFO", paste("Condition:", ifelse(args$overcast, "Overcast", "Clear Sky"), sep=" "))
 	for (i in opt){
 		visual.products(i, nan.out, filter.mean, datetime, args$overcast)
-		logg("PASS", sprintf("Plot set downloaded to %s", fig.dir), level = level)
+		logg("PASS", sprintf("Plot set downloaded to %s", fig.dir), lev = level)
 	}
 	data.gen(args$overcast, dat.dir)
 	data.ml(dat.dir)
