@@ -1,5 +1,5 @@
-datetime <- as.POSIXct(paste(as.Date(unlist(clear_sky.results$date), origin="1970-01-01"),
-                            paste(unlist(clear_sky.results$time),":00", sep="")),
+datetime <- as.POSIXct(paste(as.Date(unlist(clear_sky.data$date), origin="1970-01-01"),
+                            paste(unlist(clear_sky.data$time),":00", sep="")),
                        format="%Y-%m-%d %H:%M:%S")
 
 
@@ -9,8 +9,8 @@ dev.plots <- function(){
           #' :param date: the datestamp of the data
           #' :param bool overcast: the condition of data (clear sky/overcast)
           #' :return: A sky temperature time series plot
-          range <- list(list(clear_sky.results$snsr_sky_calc))
-          title <- list("Sin fitting test")
+          range <- list(list(clear_sky.data$snsr_sky_calc))
+          title <- list("Temperature Sin fitting test")
           color <- list("black")
           leg.lab <- list(NA)
           ylab <- list(NA)
@@ -33,10 +33,7 @@ dev.plots <- function(){
               time_axis(datetime)
               #
               s <- coef(sin.regression(range[[i]][[1]])$model)
-              curve((s[1] * s[3] * cos(x-s[2]) + s[3]), col="black", add=TRUE)
-              # A <- (max(range[[i]][[1]], na.rm=TRUE) - min(range[[i]][[1]], na.rm=TRUE))/2
-              # B <- (max(range[[i]][[1]], na.rm=TRUE) + min(range[[i]][[1]], na.rm=TRUE))/2
-              # curve(A * sin(x+s[2]) + B, col="red", add=TRUE)
+              curve((s[1] * sin((s[4]*x)+s[2])) + s[3], col="red", add=TRUE)
               # plots all other ranges in the list if the length of range is greater than 1
               if (length(range[[i]]) > 1){
                   for(j in 2:length(range[[i]])){
@@ -50,8 +47,7 @@ dev.plots <- function(){
                                      col=c(color[[i]]),
                                      pch=c(16,16, 16))
               }
-              # print statement when completed
-              message(green(sprintf("[%s]", i)), title[[i]])
+            logg("PASS", title[[i]])
           }
       }
 
@@ -60,8 +56,8 @@ dev.plots <- function(){
           #' :param date: the datestamp of the data
           #' :param bool overcast: the condition of data (clear sky/overcast)
           #' :return: A sky temperature time series plot
-          range <- list(list(clear_sky.results$wt_avg))
-          title <- list("Sin fitting test")
+          range <- list(list(clear_sky.data$wt_avg))
+          title <- list("TPW Sin fitting test")
           color <- list("black")
           leg.lab <- list(NA)
           ylab <- list(NA)
@@ -82,9 +78,10 @@ dev.plots <- function(){
                    col=color[[i]][1])
 
               time_axis(datetime)
-              s <- coef(sin.regression(clear_sky.results$snsr_sky_calc)$model)
+              s <- coef(sin.regression(clear_sky.data$snsr_sky_calc)$model)
 
-              curve(18.48 * exp(0.034 * (s[1] * s[3] * cos(x-s[2]) + s[3])), col="black", add=TRUE)
+              curve(18.48 * exp(0.034 * ((s[1] * sin((s[4]*x)+s[2])) + s[3])),
+                    col="black", add=TRUE)
               # plots all other ranges in the list if the length of range is greater than 1
               if (length(range[[i]]) > 1){
                   for(j in 2:length(range[[i]])){
@@ -99,35 +96,34 @@ dev.plots <- function(){
                                      pch=c(16,16, 16))
               }
               # print statement when completed
-              message(green(sprintf("[%s]", i)), title[[i]])
+               logg("PASS", title[[i]])
           }
       }
 
   dev.agg_temp <- function(...){
-    datetime1 <- unclass(as.POSIXlt(paste(as.Date(unlist(clear_sky.results$date), origin="1970-01-01")),
+    datetime1 <- unclass(as.POSIXlt(paste(as.Date(unlist(clear_sky.data$date), origin="1970-01-01")),
                        format="%Y-%m-%d"))$yday
     # print(unclass(datetime1))
     x <- datetime1
-    y <- clear_sky.results$snsr_sky_calc
+    y <- clear_sky.data$snsr_sky_calc
     t1 <- with(data.frame(x=x,y=y), aggregate(list(y=y), list(x = x), mean))
     plot(t1$x, t1$y,
          xaxt='n',
          pch=16,
          col="black")
     s <- coef(sin.regression(t1$y)$model)
-    print(s)
     A <- (max(t1$y, na.rm=TRUE) - min(t1$y, na.rm=TRUE))/2
 	B <- (max(t1$y, na.rm=TRUE) + min(t1$y, na.rm=TRUE))/2
     curve(A * sin((2*pi * x/365) - (5*pi/8)) + B, col="black", add=TRUE)
-
+    curve(s[1] * sin((s[4]*x) + s[2]) + s[3], col="red", add=TRUE)
+   logg("PASS", "Time series of aggregated temperature")
   }
 
   dev.agg_deiv <- function(...){
-    datetime1 <- unclass(as.POSIXlt(paste(as.Date(unlist(clear_sky.results$date), origin="1970-01-01")),
+    datetime1 <- unclass(as.POSIXlt(paste(as.Date(unlist(clear_sky.data$date), origin="1970-01-01")),
                        format="%Y-%m-%d"))$yday
-    # print(unclass(datetime1))
     x <- datetime1
-    y <- clear_sky.results$snsr_sky_calc
+    y <- clear_sky.data$snsr_sky_calc
     t1 <- with(data.frame(x=x,y=y), aggregate(list(y=y), list(x = x), mean))
     A <- (max(t1$y, na.rm=TRUE) - min(t1$y, na.rm=TRUE))/2
 	B <- (max(t1$y, na.rm=TRUE) + min(t1$y, na.rm=TRUE))/2
@@ -137,12 +133,12 @@ dev.plots <- function(){
          pch=16,
          col="black")
 
-
+    logg("PASS", "Best fit deviation difference")
   }
 
   fft.test <- function(){
-    range <- clear_sky.results$avg
-    title <- list("Sin fitting test")
+    range <- clear_sky.data$avg
+    title <- list("FFT Temperature Time Series test")
     color <- list("black")
     leg.lab <- list(NA)
     ylab <- list(NA)
@@ -157,7 +153,43 @@ dev.plots <- function(){
          main=stnd_title(title, FALSE),
          pch=16,
          col="black")
+     logg("PASS", title[[1]])
   }
-  return(c(dev.temp(), dev.pw(), dev.agg_temp(), dev.agg_deiv(), fft.test()))
+
+  ml.plot <- function(model){
+    cf <- model$cf
+    print(model$con.mat)
+    A <- -cf[2]/cf[3]
+    plot(model$x,model$y,
+         pch=16, col=model$color,
+         xlab="Temperature [C]",
+         ylab="log(TPW)",
+         main="SVM Analysis between Sky Temperature and TPW")
+    curve(A*x + (-cf[1]/cf[3]), add=TRUE, col="black")
+    curve(A*x + (-(cf[1] + 1)/cf[3]), col="black", add=TRUE, lty="dashed")
+    curve(A*x + (-(cf[1] - 1)/cf[3]), col="black", add=TRUE, lty="dashed")
+    minor.tick(nx=2, ny=2, tick.ratio=0.5,
+               x.args = list(), y.args = list())
+
+    leg <- sprintf("%.2f*x + %.2f",A, (-cf[1]/cf[3]))
+	legend("topleft",
+           col=c("black", "blue", "red"),
+           pch=c(NA, 16, 16),
+           lty=c(1, NA, NA),
+           legend=c(parse(text=leg), "clear-sky", "overcast"))
+    logg("PASS", "ML Test")
+  }
+
+  ml.x <- c(clear_sky.data$snsr_sky_calc, overcast.data$snsr_sky_calc)
+  ml.y <- c(clear_sky.data$wt_avg, overcast.data$wt_avg)
+  ml.l <- c(clear_sky.data$label, overcast.data$label)
+  nan.ml <- nan.filter(list(x=ml.x, y=ml.y, l=ml.l))[[1]]
+  ml <- lsvm(nan.ml$x, log(nan.ml$y, base=exp(1)), nan.ml$l)
+  return(c(dev.temp(),
+           dev.pw(),
+           dev.agg_temp(),
+           dev.agg_deiv(),
+           fft.test(),
+           ml.plot(ml)))
 }
 

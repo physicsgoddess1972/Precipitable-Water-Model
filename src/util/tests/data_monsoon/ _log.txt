@@ -3487,3 +3487,1973 @@
 2022-02-17 12:07:11 PASS Regression between Weighted TPW and Temperature
 2022-02-17 12:07:11 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
 2022-02-17 12:07:11 ALOHA Program Complete
+2022-02-18 17:19:11 ALOHA Precipitable-water Model Analysis Tool
+2022-02-18 17:19:11 ALOHA Program Start
+2022-02-18 17:19:11 WARN _output.yml is not found
+2022-02-18 17:19:13 INFO Collecting Data from sources
+2022-02-18 17:19:16 DEBUG Step 1 out of 10
+2022-02-18 17:19:16 DEBUG Step 2 out of 10
+2022-02-18 17:19:16 DEBUG Step 3 out of 10
+2022-02-18 17:19:16 DEBUG Step 4 out of 10
+2022-02-18 17:19:16 DEBUG Step 5 out of 10
+2022-02-18 17:19:16 DEBUG Step 6 out of 10
+2022-02-18 17:19:16 DEBUG Step 7 out of 10
+2022-02-18 17:19:16 DEBUG Step 8 out of 10
+2022-02-18 17:19:16 DEBUG Step 9 out of 10
+2022-02-18 17:19:16 DEBUG Step 10 out of 10
+2022-02-18 17:19:16 INFO Analytics Plot Set
+2022-02-18 17:19:16 PASS Correlation between TPW and Temperature
+2022-02-18 17:19:16 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-18 17:19:16 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-18 17:19:16 PASS Regression between Mean TPW and Temperature
+2022-02-18 17:19:16 PASS Regression between Weighted TPW and Temperature
+2022-02-18 17:19:16 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-18 17:19:16 ALOHA Program Complete
+2022-02-18 17:21:36 ALOHA Precipitable-water Model Analysis Tool
+2022-02-18 17:21:36 ALOHA Program Start
+2022-02-18 17:21:38 INFO Collecting Data from sources
+2022-02-18 17:21:41 DEBUG Step 1 out of 10
+2022-02-18 17:21:41 DEBUG Step 2 out of 10
+2022-02-18 17:21:41 DEBUG Step 3 out of 10
+2022-02-18 17:21:41 DEBUG Step 4 out of 10
+2022-02-18 17:21:41 DEBUG Step 5 out of 10
+2022-02-18 17:21:41 DEBUG Step 6 out of 10
+2022-02-18 17:21:41 DEBUG Step 7 out of 10
+2022-02-18 17:21:41 DEBUG Step 8 out of 10
+2022-02-18 17:21:41 DEBUG Step 9 out of 10
+2022-02-18 17:21:41 DEBUG Step 10 out of 10
+2022-02-18 17:21:41 INFO Analytics Plot Set
+2022-02-18 17:21:42 PASS Correlation between TPW and Temperature
+2022-02-18 17:21:42 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-18 17:21:42 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-18 17:21:42 PASS Regression between Mean TPW and Temperature
+2022-02-18 17:21:42 PASS Regression between Weighted TPW and Temperature
+2022-02-18 17:21:42 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-18 17:21:42 ALOHA Program Complete
+2022-02-18 17:24:59 ALOHA Precipitable-water Model Analysis Tool
+2022-02-18 17:24:59 ALOHA Program Start
+2022-02-18 17:25:01 INFO Collecting Data from sources
+2022-02-18 17:25:04 DEBUG Step 1 out of 10
+2022-02-18 17:25:04 DEBUG Step 2 out of 10
+2022-02-18 17:25:04 DEBUG Step 3 out of 10
+2022-02-18 17:25:04 DEBUG Step 4 out of 10
+2022-02-18 17:25:04 DEBUG Step 5 out of 10
+2022-02-18 17:25:04 DEBUG Step 6 out of 10
+2022-02-18 17:25:04 DEBUG Step 7 out of 10
+2022-02-18 17:25:04 DEBUG Step 8 out of 10
+2022-02-18 17:25:04 DEBUG Step 9 out of 10
+2022-02-18 17:25:04 DEBUG Step 10 out of 10
+2022-02-18 17:25:04 INFO Analytics Plot Set
+2022-02-18 17:25:04 PASS Correlation between TPW and Temperature
+2022-02-18 17:25:04 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-18 17:25:04 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-18 17:25:04 PASS Regression between Mean TPW and Temperature
+2022-02-18 17:25:04 PASS Regression between Weighted TPW and Temperature
+2022-02-18 17:25:04 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-18 17:25:04 ALOHA Program Complete
+2022-02-18 17:26:35 ALOHA Precipitable-water Model Analysis Tool
+2022-02-18 17:26:35 ALOHA Program Start
+2022-02-18 17:26:37 INFO Collecting Data from sources
+2022-02-18 17:27:43 ALOHA Precipitable-water Model Analysis Tool
+2022-02-18 17:27:43 ALOHA Program Start
+2022-02-18 17:27:45 INFO Collecting Data from sources
+2022-02-18 17:28:18 ALOHA Precipitable-water Model Analysis Tool
+2022-02-18 17:28:18 ALOHA Program Start
+2022-02-18 17:28:20 INFO Collecting Data from sources
+2022-02-18 17:28:23 DEBUG Step 1 out of 10
+2022-02-18 17:28:23 DEBUG Step 2 out of 10
+2022-02-18 17:28:23 DEBUG Step 3 out of 10
+2022-02-18 17:28:23 DEBUG Step 4 out of 10
+2022-02-18 17:28:23 DEBUG Step 5 out of 10
+2022-02-18 17:28:23 DEBUG Step 6 out of 10
+2022-02-18 17:28:23 DEBUG Step 7 out of 10
+2022-02-18 17:28:23 DEBUG Step 8 out of 10
+2022-02-18 17:28:23 DEBUG Step 9 out of 10
+2022-02-18 17:28:23 DEBUG Step 10 out of 10
+2022-02-18 17:28:23 INFO Analytics Plot Set
+2022-02-18 17:28:23 PASS Correlation between TPW and Temperature
+2022-02-18 17:28:23 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-18 17:28:23 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-18 17:28:23 PASS Regression between Mean TPW and Temperature
+2022-02-18 17:28:23 PASS Regression between Weighted TPW and Temperature
+2022-02-18 17:28:23 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-18 17:28:23 ALOHA Program Complete
+2022-02-18 17:29:36 ALOHA Precipitable-water Model Analysis Tool
+2022-02-18 17:29:36 ALOHA Program Start
+2022-02-18 17:29:39 INFO Collecting Data from sources
+2022-02-18 17:29:41 DEBUG Step 1 out of 10
+2022-02-18 17:29:41 DEBUG Step 2 out of 10
+2022-02-18 17:29:41 DEBUG Step 3 out of 10
+2022-02-18 17:29:41 DEBUG Step 4 out of 10
+2022-02-18 17:29:41 DEBUG Step 5 out of 10
+2022-02-18 17:29:41 DEBUG Step 6 out of 10
+2022-02-18 17:29:41 DEBUG Step 7 out of 10
+2022-02-18 17:29:41 DEBUG Step 8 out of 10
+2022-02-18 17:29:41 DEBUG Step 9 out of 10
+2022-02-18 17:29:41 DEBUG Step 10 out of 10
+2022-02-18 17:29:42 INFO Analytics Plot Set
+2022-02-18 17:29:42 PASS Correlation between TPW and Temperature
+2022-02-18 17:29:42 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-18 17:29:42 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-18 17:29:42 PASS Regression between Mean TPW and Temperature
+2022-02-18 17:29:42 PASS Regression between Weighted TPW and Temperature
+2022-02-18 17:29:42 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-18 17:29:42 ALOHA Program Complete
+2022-02-19 16:50:17 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 16:50:17 ALOHA Program Start
+2022-02-19 16:50:47 INFO Collecting Data from sources
+2022-02-19 16:50:49 DEBUG Step 1 out of 10
+2022-02-19 16:50:49 DEBUG Step 2 out of 10
+2022-02-19 16:50:49 DEBUG Step 3 out of 10
+2022-02-19 16:50:49 DEBUG Step 4 out of 10
+2022-02-19 16:50:49 DEBUG Step 5 out of 10
+2022-02-19 16:50:49 DEBUG Step 6 out of 10
+2022-02-19 16:50:49 DEBUG Step 7 out of 10
+2022-02-19 16:50:49 DEBUG Step 8 out of 10
+2022-02-19 16:50:49 DEBUG Step 9 out of 10
+2022-02-19 16:50:49 DEBUG Step 10 out of 10
+2022-02-19 16:52:00 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 16:52:00 ALOHA Program Start
+2022-02-19 16:52:03 INFO Collecting Data from sources
+2022-02-19 16:52:06 DEBUG Step 1 out of 10
+2022-02-19 16:52:06 DEBUG Step 2 out of 10
+2022-02-19 16:52:06 DEBUG Step 3 out of 10
+2022-02-19 16:52:06 DEBUG Step 4 out of 10
+2022-02-19 16:52:06 DEBUG Step 5 out of 10
+2022-02-19 16:52:06 DEBUG Step 6 out of 10
+2022-02-19 16:52:06 DEBUG Step 7 out of 10
+2022-02-19 16:52:06 DEBUG Step 8 out of 10
+2022-02-19 16:52:06 DEBUG Step 9 out of 10
+2022-02-19 16:52:06 DEBUG Step 10 out of 10
+2022-02-19 16:52:08 ALOHA Program Complete
+2022-02-19 16:53:17 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 16:53:17 ALOHA Program Start
+2022-02-19 16:53:20 INFO Collecting Data from sources
+2022-02-19 16:53:22 DEBUG Step 1 out of 10
+2022-02-19 16:53:22 DEBUG Step 2 out of 10
+2022-02-19 16:53:22 DEBUG Step 3 out of 10
+2022-02-19 16:53:22 DEBUG Step 4 out of 10
+2022-02-19 16:53:22 DEBUG Step 5 out of 10
+2022-02-19 16:53:22 DEBUG Step 6 out of 10
+2022-02-19 16:53:22 DEBUG Step 7 out of 10
+2022-02-19 16:53:22 DEBUG Step 8 out of 10
+2022-02-19 16:53:22 DEBUG Step 9 out of 10
+2022-02-19 16:53:22 DEBUG Step 10 out of 10
+2022-02-19 16:53:23 ALOHA Program Complete
+2022-02-19 17:03:34 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 17:03:34 ALOHA Program Start
+2022-02-19 17:03:37 INFO Collecting Data from sources
+2022-02-19 17:03:39 DEBUG Step 1 out of 10
+2022-02-19 17:03:39 DEBUG Step 2 out of 10
+2022-02-19 17:03:39 DEBUG Step 3 out of 10
+2022-02-19 17:03:39 DEBUG Step 4 out of 10
+2022-02-19 17:03:39 DEBUG Step 5 out of 10
+2022-02-19 17:03:39 DEBUG Step 6 out of 10
+2022-02-19 17:03:39 DEBUG Step 7 out of 10
+2022-02-19 17:03:39 DEBUG Step 8 out of 10
+2022-02-19 17:03:39 DEBUG Step 9 out of 10
+2022-02-19 17:03:39 DEBUG Step 10 out of 10
+2022-02-19 17:03:40 PASS Temperature Sin fitting test
+2022-02-19 17:03:40 PASS TPW Sin fitting test
+2022-02-19 17:03:40 PASS Time series of aggregated temperature
+2022-02-19 17:03:40 PASS Best fit deviation difference
+2022-02-19 17:04:16 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 17:04:16 ALOHA Program Start
+2022-02-19 17:04:19 INFO Collecting Data from sources
+2022-02-19 17:04:21 DEBUG Step 1 out of 10
+2022-02-19 17:04:21 DEBUG Step 2 out of 10
+2022-02-19 17:04:21 DEBUG Step 3 out of 10
+2022-02-19 17:04:21 DEBUG Step 4 out of 10
+2022-02-19 17:04:21 DEBUG Step 5 out of 10
+2022-02-19 17:04:21 DEBUG Step 6 out of 10
+2022-02-19 17:04:21 DEBUG Step 7 out of 10
+2022-02-19 17:04:21 DEBUG Step 8 out of 10
+2022-02-19 17:04:21 DEBUG Step 9 out of 10
+2022-02-19 17:04:21 DEBUG Step 10 out of 10
+2022-02-19 17:04:22 PASS Temperature Sin fitting test
+2022-02-19 17:04:22 PASS TPW Sin fitting test
+2022-02-19 17:04:22 PASS Time series of aggregated temperature
+2022-02-19 17:04:22 PASS Best fit deviation difference
+2022-02-19 17:04:22 PASS FFT Temperature Time Series test
+2022-02-19 17:04:22 ALOHA Program Complete
+2022-02-19 17:07:37 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 17:07:37 ALOHA Program Start
+2022-02-19 17:07:40 INFO Collecting Data from sources
+2022-02-19 17:07:42 DEBUG Step 1 out of 10
+2022-02-19 17:07:42 DEBUG Step 2 out of 10
+2022-02-19 17:07:42 DEBUG Step 3 out of 10
+2022-02-19 17:07:42 DEBUG Step 4 out of 10
+2022-02-19 17:07:42 DEBUG Step 5 out of 10
+2022-02-19 17:07:42 DEBUG Step 6 out of 10
+2022-02-19 17:07:42 DEBUG Step 7 out of 10
+2022-02-19 17:07:42 DEBUG Step 8 out of 10
+2022-02-19 17:07:42 DEBUG Step 9 out of 10
+2022-02-19 17:07:42 DEBUG Step 10 out of 10
+2022-02-19 17:07:43 PASS Temperature Sin fitting test
+2022-02-19 17:07:44 PASS TPW Sin fitting test
+2022-02-19 17:07:44 PASS Time series of aggregated temperature
+2022-02-19 17:07:44 PASS Best fit deviation difference
+2022-02-19 17:07:44 PASS FFT Temperature Time Series test
+2022-02-19 17:07:44 ALOHA Program Complete
+2022-02-19 17:10:14 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 17:10:14 ALOHA Program Start
+2022-02-19 17:10:16 INFO Collecting Data from sources
+2022-02-19 17:10:19 DEBUG Step 1 out of 10
+2022-02-19 17:10:19 DEBUG Step 2 out of 10
+2022-02-19 17:10:19 DEBUG Step 3 out of 10
+2022-02-19 17:10:19 DEBUG Step 4 out of 10
+2022-02-19 17:10:19 DEBUG Step 5 out of 10
+2022-02-19 17:10:19 DEBUG Step 6 out of 10
+2022-02-19 17:10:19 DEBUG Step 7 out of 10
+2022-02-19 17:10:19 DEBUG Step 8 out of 10
+2022-02-19 17:10:19 DEBUG Step 9 out of 10
+2022-02-19 17:10:19 DEBUG Step 10 out of 10
+2022-02-19 17:10:20 PASS Temperature Sin fitting test
+2022-02-19 17:10:20 PASS TPW Sin fitting test
+2022-02-19 17:10:20 PASS Time series of aggregated temperature
+2022-02-19 17:10:20 PASS Best fit deviation difference
+2022-02-19 17:10:20 PASS FFT Temperature Time Series test
+2022-02-19 17:10:20 ALOHA Program Complete
+2022-02-19 17:11:35 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 17:11:35 ALOHA Program Start
+2022-02-19 17:11:38 INFO Collecting Data from sources
+2022-02-19 17:11:40 DEBUG Step 1 out of 10
+2022-02-19 17:11:40 DEBUG Step 2 out of 10
+2022-02-19 17:11:40 DEBUG Step 3 out of 10
+2022-02-19 17:11:40 DEBUG Step 4 out of 10
+2022-02-19 17:11:40 DEBUG Step 5 out of 10
+2022-02-19 17:11:40 DEBUG Step 6 out of 10
+2022-02-19 17:11:40 DEBUG Step 7 out of 10
+2022-02-19 17:11:40 DEBUG Step 8 out of 10
+2022-02-19 17:11:40 DEBUG Step 9 out of 10
+2022-02-19 17:11:40 DEBUG Step 10 out of 10
+2022-02-19 17:11:41 PASS Temperature Sin fitting test
+2022-02-19 17:11:41 PASS TPW Sin fitting test
+2022-02-19 17:11:41 PASS Time series of aggregated temperature
+2022-02-19 17:11:41 PASS Best fit deviation difference
+2022-02-19 17:11:41 PASS FFT Temperature Time Series test
+2022-02-19 17:11:41 ALOHA Program Complete
+2022-02-19 17:12:13 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 17:12:13 ALOHA Program Start
+2022-02-19 17:12:16 INFO Collecting Data from sources
+2022-02-19 17:12:18 DEBUG Step 1 out of 10
+2022-02-19 17:12:18 DEBUG Step 2 out of 10
+2022-02-19 17:12:18 DEBUG Step 3 out of 10
+2022-02-19 17:12:18 DEBUG Step 4 out of 10
+2022-02-19 17:12:18 DEBUG Step 5 out of 10
+2022-02-19 17:12:18 DEBUG Step 6 out of 10
+2022-02-19 17:12:18 DEBUG Step 7 out of 10
+2022-02-19 17:12:18 DEBUG Step 8 out of 10
+2022-02-19 17:12:18 DEBUG Step 9 out of 10
+2022-02-19 17:12:18 DEBUG Step 10 out of 10
+2022-02-19 17:12:19 PASS Temperature Sin fitting test
+2022-02-19 17:12:19 PASS TPW Sin fitting test
+2022-02-19 17:12:19 PASS Time series of aggregated temperature
+2022-02-19 17:12:19 PASS Best fit deviation difference
+2022-02-19 17:12:19 PASS FFT Temperature Time Series test
+2022-02-19 17:12:19 ALOHA Program Complete
+2022-02-19 17:13:42 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 17:13:42 ALOHA Program Start
+2022-02-19 17:13:44 INFO Collecting Data from sources
+2022-02-19 17:13:47 DEBUG Step 1 out of 10
+2022-02-19 17:13:47 DEBUG Step 2 out of 10
+2022-02-19 17:13:47 DEBUG Step 3 out of 10
+2022-02-19 17:13:47 DEBUG Step 4 out of 10
+2022-02-19 17:13:47 DEBUG Step 5 out of 10
+2022-02-19 17:13:47 DEBUG Step 6 out of 10
+2022-02-19 17:13:47 DEBUG Step 7 out of 10
+2022-02-19 17:13:47 DEBUG Step 8 out of 10
+2022-02-19 17:13:47 DEBUG Step 9 out of 10
+2022-02-19 17:13:47 DEBUG Step 10 out of 10
+2022-02-19 17:13:47 PASS Temperature Sin fitting test
+2022-02-19 17:13:47 PASS TPW Sin fitting test
+2022-02-19 17:13:47 PASS Time series of aggregated temperature
+2022-02-19 17:13:48 PASS Best fit deviation difference
+2022-02-19 17:13:48 PASS FFT Temperature Time Series test
+2022-02-19 17:13:48 ALOHA Program Complete
+2022-02-19 17:14:52 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 17:14:52 ALOHA Program Start
+2022-02-19 17:14:54 INFO Collecting Data from sources
+2022-02-19 17:14:57 DEBUG Step 1 out of 10
+2022-02-19 17:14:57 DEBUG Step 2 out of 10
+2022-02-19 17:14:57 DEBUG Step 3 out of 10
+2022-02-19 17:14:57 DEBUG Step 4 out of 10
+2022-02-19 17:14:57 DEBUG Step 5 out of 10
+2022-02-19 17:14:57 DEBUG Step 6 out of 10
+2022-02-19 17:14:57 DEBUG Step 7 out of 10
+2022-02-19 17:14:57 DEBUG Step 8 out of 10
+2022-02-19 17:14:57 DEBUG Step 9 out of 10
+2022-02-19 17:14:57 DEBUG Step 10 out of 10
+2022-02-19 17:14:57 PASS Temperature Sin fitting test
+2022-02-19 17:14:57 PASS TPW Sin fitting test
+2022-02-19 17:14:58 PASS Time series of aggregated temperature
+2022-02-19 17:14:58 PASS Best fit deviation difference
+2022-02-19 17:14:58 PASS FFT Temperature Time Series test
+2022-02-19 17:14:58 ALOHA Program Complete
+2022-02-19 17:15:30 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 17:15:30 ALOHA Program Start
+2022-02-19 17:15:32 INFO Collecting Data from sources
+2022-02-19 17:15:35 DEBUG Step 1 out of 10
+2022-02-19 17:15:35 DEBUG Step 2 out of 10
+2022-02-19 17:15:35 DEBUG Step 3 out of 10
+2022-02-19 17:15:35 DEBUG Step 4 out of 10
+2022-02-19 17:15:35 DEBUG Step 5 out of 10
+2022-02-19 17:15:35 DEBUG Step 6 out of 10
+2022-02-19 17:15:35 DEBUG Step 7 out of 10
+2022-02-19 17:15:35 DEBUG Step 8 out of 10
+2022-02-19 17:15:35 DEBUG Step 9 out of 10
+2022-02-19 17:15:35 DEBUG Step 10 out of 10
+2022-02-19 17:15:35 PASS Temperature Sin fitting test
+2022-02-19 17:15:36 PASS TPW Sin fitting test
+2022-02-19 17:15:36 PASS Time series of aggregated temperature
+2022-02-19 17:15:36 PASS Best fit deviation difference
+2022-02-19 17:15:36 PASS FFT Temperature Time Series test
+2022-02-19 17:15:36 ALOHA Program Complete
+2022-02-19 17:18:02 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 17:18:02 ALOHA Program Start
+2022-02-19 17:18:04 INFO Collecting Data from sources
+2022-02-19 17:18:07 DEBUG Step 1 out of 10
+2022-02-19 17:18:07 DEBUG Step 2 out of 10
+2022-02-19 17:18:07 DEBUG Step 3 out of 10
+2022-02-19 17:18:07 DEBUG Step 4 out of 10
+2022-02-19 17:18:07 DEBUG Step 5 out of 10
+2022-02-19 17:18:07 DEBUG Step 6 out of 10
+2022-02-19 17:18:07 DEBUG Step 7 out of 10
+2022-02-19 17:18:07 DEBUG Step 8 out of 10
+2022-02-19 17:18:07 DEBUG Step 9 out of 10
+2022-02-19 17:18:07 DEBUG Step 10 out of 10
+2022-02-19 17:18:07 PASS Temperature Sin fitting test
+2022-02-19 17:18:07 PASS TPW Sin fitting test
+2022-02-19 17:18:08 PASS Time series of aggregated temperature
+2022-02-19 17:18:08 PASS Best fit deviation difference
+2022-02-19 17:18:08 PASS FFT Temperature Time Series test
+2022-02-19 17:18:08 ALOHA Program Complete
+2022-02-19 17:18:42 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 17:18:42 ALOHA Program Start
+2022-02-19 17:18:45 INFO Collecting Data from sources
+2022-02-19 17:18:47 DEBUG Step 1 out of 10
+2022-02-19 17:18:47 DEBUG Step 2 out of 10
+2022-02-19 17:18:47 DEBUG Step 3 out of 10
+2022-02-19 17:18:47 DEBUG Step 4 out of 10
+2022-02-19 17:18:47 DEBUG Step 5 out of 10
+2022-02-19 17:18:47 DEBUG Step 6 out of 10
+2022-02-19 17:18:47 DEBUG Step 7 out of 10
+2022-02-19 17:18:47 DEBUG Step 8 out of 10
+2022-02-19 17:18:47 DEBUG Step 9 out of 10
+2022-02-19 17:18:47 DEBUG Step 10 out of 10
+2022-02-19 17:18:48 PASS Temperature Sin fitting test
+2022-02-19 17:18:48 PASS TPW Sin fitting test
+2022-02-19 17:18:48 PASS Time series of aggregated temperature
+2022-02-19 17:18:48 PASS Best fit deviation difference
+2022-02-19 17:18:48 PASS FFT Temperature Time Series test
+2022-02-19 17:18:48 ALOHA Program Complete
+2022-02-19 17:19:14 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 17:19:14 ALOHA Program Start
+2022-02-19 17:19:16 INFO Collecting Data from sources
+2022-02-19 17:19:19 DEBUG Step 1 out of 10
+2022-02-19 17:19:19 DEBUG Step 2 out of 10
+2022-02-19 17:19:19 DEBUG Step 3 out of 10
+2022-02-19 17:19:19 DEBUG Step 4 out of 10
+2022-02-19 17:19:19 DEBUG Step 5 out of 10
+2022-02-19 17:19:19 DEBUG Step 6 out of 10
+2022-02-19 17:19:19 DEBUG Step 7 out of 10
+2022-02-19 17:19:19 DEBUG Step 8 out of 10
+2022-02-19 17:19:19 DEBUG Step 9 out of 10
+2022-02-19 17:19:19 DEBUG Step 10 out of 10
+2022-02-19 17:19:19 PASS Temperature Sin fitting test
+2022-02-19 17:19:20 PASS TPW Sin fitting test
+2022-02-19 17:19:20 PASS Time series of aggregated temperature
+2022-02-19 17:19:20 PASS Best fit deviation difference
+2022-02-19 17:19:20 PASS FFT Temperature Time Series test
+2022-02-19 17:19:20 ALOHA Program Complete
+2022-02-19 17:19:56 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 17:19:56 ALOHA Program Start
+2022-02-19 17:19:58 INFO Collecting Data from sources
+2022-02-19 17:20:01 DEBUG Step 1 out of 10
+2022-02-19 17:20:01 DEBUG Step 2 out of 10
+2022-02-19 17:20:01 DEBUG Step 3 out of 10
+2022-02-19 17:20:01 DEBUG Step 4 out of 10
+2022-02-19 17:20:01 DEBUG Step 5 out of 10
+2022-02-19 17:20:01 DEBUG Step 6 out of 10
+2022-02-19 17:20:01 DEBUG Step 7 out of 10
+2022-02-19 17:20:01 DEBUG Step 8 out of 10
+2022-02-19 17:20:01 DEBUG Step 9 out of 10
+2022-02-19 17:20:01 DEBUG Step 10 out of 10
+2022-02-19 17:20:02 PASS Temperature Sin fitting test
+2022-02-19 17:20:02 PASS TPW Sin fitting test
+2022-02-19 17:20:02 PASS Time series of aggregated temperature
+2022-02-19 17:20:02 PASS Best fit deviation difference
+2022-02-19 17:20:02 PASS FFT Temperature Time Series test
+2022-02-19 17:20:02 ALOHA Program Complete
+2022-02-19 17:20:23 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 17:20:23 ALOHA Program Start
+2022-02-19 17:20:25 INFO Collecting Data from sources
+2022-02-19 17:20:28 DEBUG Step 1 out of 10
+2022-02-19 17:20:28 DEBUG Step 2 out of 10
+2022-02-19 17:20:28 DEBUG Step 3 out of 10
+2022-02-19 17:20:28 DEBUG Step 4 out of 10
+2022-02-19 17:20:28 DEBUG Step 5 out of 10
+2022-02-19 17:20:28 DEBUG Step 6 out of 10
+2022-02-19 17:20:28 DEBUG Step 7 out of 10
+2022-02-19 17:20:28 DEBUG Step 8 out of 10
+2022-02-19 17:20:28 DEBUG Step 9 out of 10
+2022-02-19 17:20:28 DEBUG Step 10 out of 10
+2022-02-19 17:20:28 PASS Temperature Sin fitting test
+2022-02-19 17:20:30 PASS TPW Sin fitting test
+2022-02-19 17:20:30 PASS Time series of aggregated temperature
+2022-02-19 17:20:30 PASS Best fit deviation difference
+2022-02-19 17:20:30 PASS FFT Temperature Time Series test
+2022-02-19 17:20:30 ALOHA Program Complete
+2022-02-19 17:21:31 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 17:21:31 ALOHA Program Start
+2022-02-19 17:21:34 INFO Collecting Data from sources
+2022-02-19 17:21:36 DEBUG Step 1 out of 10
+2022-02-19 17:21:36 DEBUG Step 2 out of 10
+2022-02-19 17:21:36 DEBUG Step 3 out of 10
+2022-02-19 17:21:36 DEBUG Step 4 out of 10
+2022-02-19 17:21:36 DEBUG Step 5 out of 10
+2022-02-19 17:21:36 DEBUG Step 6 out of 10
+2022-02-19 17:21:36 DEBUG Step 7 out of 10
+2022-02-19 17:21:36 DEBUG Step 8 out of 10
+2022-02-19 17:21:36 DEBUG Step 9 out of 10
+2022-02-19 17:21:36 DEBUG Step 10 out of 10
+2022-02-19 17:22:04 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 17:22:04 ALOHA Program Start
+2022-02-19 17:22:07 INFO Collecting Data from sources
+2022-02-19 17:22:09 DEBUG Step 1 out of 10
+2022-02-19 17:22:09 DEBUG Step 2 out of 10
+2022-02-19 17:22:09 DEBUG Step 3 out of 10
+2022-02-19 17:22:09 DEBUG Step 4 out of 10
+2022-02-19 17:22:09 DEBUG Step 5 out of 10
+2022-02-19 17:22:09 DEBUG Step 6 out of 10
+2022-02-19 17:22:10 DEBUG Step 7 out of 10
+2022-02-19 17:22:10 DEBUG Step 8 out of 10
+2022-02-19 17:22:10 DEBUG Step 9 out of 10
+2022-02-19 17:22:10 DEBUG Step 10 out of 10
+2022-02-19 17:22:10 PASS Temperature Sin fitting test
+2022-02-19 17:22:10 PASS TPW Sin fitting test
+2022-02-19 17:22:10 PASS Time series of aggregated temperature
+2022-02-19 17:22:10 PASS Best fit deviation difference
+2022-02-19 17:22:10 PASS FFT Temperature Time Series test
+2022-02-19 17:22:10 ALOHA Program Complete
+2022-02-19 17:26:10 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 17:26:10 ALOHA Program Start
+2022-02-19 17:26:12 INFO Collecting Data from sources
+2022-02-19 17:26:16 DEBUG Step 1 out of 10
+2022-02-19 17:26:16 DEBUG Step 2 out of 10
+2022-02-19 17:26:16 DEBUG Step 3 out of 10
+2022-02-19 17:26:16 DEBUG Step 4 out of 10
+2022-02-19 17:26:16 DEBUG Step 5 out of 10
+2022-02-19 17:26:16 DEBUG Step 6 out of 10
+2022-02-19 17:26:16 DEBUG Step 7 out of 10
+2022-02-19 17:26:16 DEBUG Step 8 out of 10
+2022-02-19 17:26:16 DEBUG Step 9 out of 10
+2022-02-19 17:26:16 DEBUG Step 10 out of 10
+2022-02-19 17:26:16 PASS Temperature Sin fitting test
+2022-02-19 17:26:16 PASS TPW Sin fitting test
+2022-02-19 17:26:17 PASS Time series of aggregated temperature
+2022-02-19 17:26:17 PASS Best fit deviation difference
+2022-02-19 17:26:17 PASS FFT Temperature Time Series test
+2022-02-19 17:26:17 ALOHA Program Complete
+2022-02-19 17:27:07 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 17:27:07 ALOHA Program Start
+2022-02-19 17:27:10 INFO Collecting Data from sources
+2022-02-19 17:27:12 DEBUG Step 1 out of 10
+2022-02-19 17:27:12 DEBUG Step 2 out of 10
+2022-02-19 17:27:12 DEBUG Step 3 out of 10
+2022-02-19 17:27:12 DEBUG Step 4 out of 10
+2022-02-19 17:27:12 DEBUG Step 5 out of 10
+2022-02-19 17:27:12 DEBUG Step 6 out of 10
+2022-02-19 17:27:12 DEBUG Step 7 out of 10
+2022-02-19 17:27:12 DEBUG Step 8 out of 10
+2022-02-19 17:27:12 DEBUG Step 9 out of 10
+2022-02-19 17:27:12 DEBUG Step 10 out of 10
+2022-02-19 17:27:13 PASS Temperature Sin fitting test
+2022-02-19 17:27:13 PASS TPW Sin fitting test
+2022-02-19 17:27:13 PASS Time series of aggregated temperature
+2022-02-19 17:27:13 PASS Best fit deviation difference
+2022-02-19 17:27:13 PASS FFT Temperature Time Series test
+2022-02-19 17:27:13 ALOHA Program Complete
+2022-02-19 17:33:05 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 17:33:05 ALOHA Program Start
+2022-02-19 17:33:07 INFO Collecting Data from sources
+2022-02-19 17:33:10 DEBUG Step 1 out of 10
+2022-02-19 17:33:10 DEBUG Step 2 out of 10
+2022-02-19 17:33:10 DEBUG Step 3 out of 10
+2022-02-19 17:33:10 DEBUG Step 4 out of 10
+2022-02-19 17:33:10 DEBUG Step 5 out of 10
+2022-02-19 17:33:10 DEBUG Step 6 out of 10
+2022-02-19 17:33:10 DEBUG Step 7 out of 10
+2022-02-19 17:33:10 DEBUG Step 8 out of 10
+2022-02-19 17:33:10 DEBUG Step 9 out of 10
+2022-02-19 17:33:10 DEBUG Step 10 out of 10
+2022-02-19 17:33:10 PASS Temperature Sin fitting test
+2022-02-19 17:33:10 PASS TPW Sin fitting test
+2022-02-19 17:33:10 PASS Time series of aggregated temperature
+2022-02-19 17:33:11 PASS Best fit deviation difference
+2022-02-19 17:33:11 PASS FFT Temperature Time Series test
+2022-02-19 17:33:11 ALOHA Program Complete
+2022-02-19 19:24:33 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 19:24:33 ALOHA Program Start
+2022-02-19 19:24:52 INFO Collecting Data from sources
+2022-02-19 19:24:55 DEBUG Step 1 out of 10
+2022-02-19 19:24:55 DEBUG Step 2 out of 10
+2022-02-19 19:24:55 DEBUG Step 3 out of 10
+2022-02-19 19:24:55 DEBUG Step 4 out of 10
+2022-02-19 19:24:55 DEBUG Step 5 out of 10
+2022-02-19 19:24:55 DEBUG Step 6 out of 10
+2022-02-19 19:24:55 DEBUG Step 7 out of 10
+2022-02-19 19:24:55 DEBUG Step 8 out of 10
+2022-02-19 19:24:55 DEBUG Step 9 out of 10
+2022-02-19 19:24:55 DEBUG Step 10 out of 10
+2022-02-19 19:24:57 PASS Temperature Sin fitting test
+2022-02-19 19:24:57 PASS TPW Sin fitting test
+2022-02-19 19:24:57 PASS Time series of aggregated temperature
+2022-02-19 19:24:57 PASS Best fit deviation difference
+2022-02-19 19:24:57 PASS FFT Temperature Time Series test
+2022-02-19 19:25:57 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 19:25:57 ALOHA Program Start
+2022-02-19 19:26:00 INFO Collecting Data from sources
+2022-02-19 19:26:03 DEBUG Step 1 out of 10
+2022-02-19 19:26:03 DEBUG Step 2 out of 10
+2022-02-19 19:26:03 DEBUG Step 3 out of 10
+2022-02-19 19:26:03 DEBUG Step 4 out of 10
+2022-02-19 19:26:03 DEBUG Step 5 out of 10
+2022-02-19 19:26:03 DEBUG Step 6 out of 10
+2022-02-19 19:26:03 DEBUG Step 7 out of 10
+2022-02-19 19:26:03 DEBUG Step 8 out of 10
+2022-02-19 19:26:03 DEBUG Step 9 out of 10
+2022-02-19 19:26:03 DEBUG Step 10 out of 10
+2022-02-19 19:26:04 PASS Temperature Sin fitting test
+2022-02-19 19:26:04 PASS TPW Sin fitting test
+2022-02-19 19:26:04 PASS Time series of aggregated temperature
+2022-02-19 19:26:04 PASS Best fit deviation difference
+2022-02-19 19:26:04 PASS FFT Temperature Time Series test
+2022-02-19 19:26:46 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 19:26:46 ALOHA Program Start
+2022-02-19 19:26:49 INFO Collecting Data from sources
+2022-02-19 19:26:51 DEBUG Step 1 out of 10
+2022-02-19 19:26:52 DEBUG Step 2 out of 10
+2022-02-19 19:26:52 DEBUG Step 3 out of 10
+2022-02-19 19:26:52 DEBUG Step 4 out of 10
+2022-02-19 19:26:52 DEBUG Step 5 out of 10
+2022-02-19 19:26:52 DEBUG Step 6 out of 10
+2022-02-19 19:26:52 DEBUG Step 7 out of 10
+2022-02-19 19:26:52 DEBUG Step 8 out of 10
+2022-02-19 19:26:52 DEBUG Step 9 out of 10
+2022-02-19 19:26:52 DEBUG Step 10 out of 10
+2022-02-19 19:26:52 PASS Temperature Sin fitting test
+2022-02-19 19:26:52 PASS TPW Sin fitting test
+2022-02-19 19:26:52 PASS Time series of aggregated temperature
+2022-02-19 19:26:52 PASS Best fit deviation difference
+2022-02-19 19:26:52 PASS FFT Temperature Time Series test
+2022-02-19 19:27:22 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 19:27:22 ALOHA Program Start
+2022-02-19 19:27:24 INFO Collecting Data from sources
+2022-02-19 19:27:27 DEBUG Step 1 out of 10
+2022-02-19 19:27:27 DEBUG Step 2 out of 10
+2022-02-19 19:27:27 DEBUG Step 3 out of 10
+2022-02-19 19:27:27 DEBUG Step 4 out of 10
+2022-02-19 19:27:27 DEBUG Step 5 out of 10
+2022-02-19 19:27:27 DEBUG Step 6 out of 10
+2022-02-19 19:27:27 DEBUG Step 7 out of 10
+2022-02-19 19:27:27 DEBUG Step 8 out of 10
+2022-02-19 19:27:27 DEBUG Step 9 out of 10
+2022-02-19 19:27:27 DEBUG Step 10 out of 10
+2022-02-19 19:27:27 PASS Temperature Sin fitting test
+2022-02-19 19:27:28 PASS TPW Sin fitting test
+2022-02-19 19:27:29 PASS Time series of aggregated temperature
+2022-02-19 19:27:29 PASS Best fit deviation difference
+2022-02-19 19:27:29 PASS FFT Temperature Time Series test
+2022-02-19 19:30:55 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 19:30:55 ALOHA Program Start
+2022-02-19 19:30:57 INFO Collecting Data from sources
+2022-02-19 19:31:00 DEBUG Step 1 out of 10
+2022-02-19 19:31:00 DEBUG Step 2 out of 10
+2022-02-19 19:31:00 DEBUG Step 3 out of 10
+2022-02-19 19:31:00 DEBUG Step 4 out of 10
+2022-02-19 19:31:00 DEBUG Step 5 out of 10
+2022-02-19 19:31:00 DEBUG Step 6 out of 10
+2022-02-19 19:31:00 DEBUG Step 7 out of 10
+2022-02-19 19:31:00 DEBUG Step 8 out of 10
+2022-02-19 19:31:00 DEBUG Step 9 out of 10
+2022-02-19 19:31:00 DEBUG Step 10 out of 10
+2022-02-19 19:31:00 PASS Temperature Sin fitting test
+2022-02-19 19:31:00 PASS TPW Sin fitting test
+2022-02-19 19:31:01 PASS Time series of aggregated temperature
+2022-02-19 19:31:01 PASS Best fit deviation difference
+2022-02-19 19:31:01 PASS FFT Temperature Time Series test
+2022-02-19 19:32:25 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 19:32:25 ALOHA Program Start
+2022-02-19 19:32:28 INFO Collecting Data from sources
+2022-02-19 19:32:30 DEBUG Step 1 out of 10
+2022-02-19 19:32:30 DEBUG Step 2 out of 10
+2022-02-19 19:32:30 DEBUG Step 3 out of 10
+2022-02-19 19:32:30 DEBUG Step 4 out of 10
+2022-02-19 19:32:30 DEBUG Step 5 out of 10
+2022-02-19 19:32:30 DEBUG Step 6 out of 10
+2022-02-19 19:32:30 DEBUG Step 7 out of 10
+2022-02-19 19:32:30 DEBUG Step 8 out of 10
+2022-02-19 19:32:30 DEBUG Step 9 out of 10
+2022-02-19 19:32:30 DEBUG Step 10 out of 10
+2022-02-19 19:32:31 PASS Temperature Sin fitting test
+2022-02-19 19:32:31 PASS TPW Sin fitting test
+2022-02-19 19:32:31 PASS Time series of aggregated temperature
+2022-02-19 19:32:31 PASS Best fit deviation difference
+2022-02-19 19:32:31 PASS FFT Temperature Time Series test
+2022-02-19 19:32:59 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 19:32:59 ALOHA Program Start
+2022-02-19 19:33:02 INFO Collecting Data from sources
+2022-02-19 19:33:04 DEBUG Step 1 out of 10
+2022-02-19 19:33:04 DEBUG Step 2 out of 10
+2022-02-19 19:33:04 DEBUG Step 3 out of 10
+2022-02-19 19:33:04 DEBUG Step 4 out of 10
+2022-02-19 19:33:04 DEBUG Step 5 out of 10
+2022-02-19 19:33:04 DEBUG Step 6 out of 10
+2022-02-19 19:33:04 DEBUG Step 7 out of 10
+2022-02-19 19:33:04 DEBUG Step 8 out of 10
+2022-02-19 19:33:04 DEBUG Step 9 out of 10
+2022-02-19 19:33:04 DEBUG Step 10 out of 10
+2022-02-19 19:33:05 PASS Temperature Sin fitting test
+2022-02-19 19:33:05 PASS TPW Sin fitting test
+2022-02-19 19:33:05 PASS Time series of aggregated temperature
+2022-02-19 19:33:05 PASS Best fit deviation difference
+2022-02-19 19:33:05 PASS FFT Temperature Time Series test
+2022-02-19 19:33:36 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 19:33:36 ALOHA Program Start
+2022-02-19 19:33:39 INFO Collecting Data from sources
+2022-02-19 19:33:41 DEBUG Step 1 out of 10
+2022-02-19 19:33:41 DEBUG Step 2 out of 10
+2022-02-19 19:33:41 DEBUG Step 3 out of 10
+2022-02-19 19:33:41 DEBUG Step 4 out of 10
+2022-02-19 19:33:41 DEBUG Step 5 out of 10
+2022-02-19 19:33:41 DEBUG Step 6 out of 10
+2022-02-19 19:33:41 DEBUG Step 7 out of 10
+2022-02-19 19:33:41 DEBUG Step 8 out of 10
+2022-02-19 19:33:41 DEBUG Step 9 out of 10
+2022-02-19 19:33:41 DEBUG Step 10 out of 10
+2022-02-19 19:33:42 PASS Temperature Sin fitting test
+2022-02-19 19:33:42 PASS TPW Sin fitting test
+2022-02-19 19:33:42 PASS Time series of aggregated temperature
+2022-02-19 19:33:42 PASS Best fit deviation difference
+2022-02-19 19:33:42 PASS FFT Temperature Time Series test
+2022-02-19 19:34:02 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 19:34:02 ALOHA Program Start
+2022-02-19 19:34:05 INFO Collecting Data from sources
+2022-02-19 19:34:07 DEBUG Step 1 out of 10
+2022-02-19 19:34:07 DEBUG Step 2 out of 10
+2022-02-19 19:34:07 DEBUG Step 3 out of 10
+2022-02-19 19:34:07 DEBUG Step 4 out of 10
+2022-02-19 19:34:07 DEBUG Step 5 out of 10
+2022-02-19 19:34:07 DEBUG Step 6 out of 10
+2022-02-19 19:34:07 DEBUG Step 7 out of 10
+2022-02-19 19:34:07 DEBUG Step 8 out of 10
+2022-02-19 19:34:07 DEBUG Step 9 out of 10
+2022-02-19 19:34:07 DEBUG Step 10 out of 10
+2022-02-19 19:34:08 PASS Temperature Sin fitting test
+2022-02-19 19:34:08 PASS TPW Sin fitting test
+2022-02-19 19:34:08 PASS Time series of aggregated temperature
+2022-02-19 19:34:08 PASS Best fit deviation difference
+2022-02-19 19:34:08 PASS FFT Temperature Time Series test
+2022-02-19 19:35:36 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 19:35:36 ALOHA Program Start
+2022-02-19 19:35:39 INFO Collecting Data from sources
+2022-02-19 19:35:42 DEBUG Step 1 out of 10
+2022-02-19 19:35:42 DEBUG Step 2 out of 10
+2022-02-19 19:35:42 DEBUG Step 3 out of 10
+2022-02-19 19:35:42 DEBUG Step 4 out of 10
+2022-02-19 19:35:42 DEBUG Step 5 out of 10
+2022-02-19 19:35:42 DEBUG Step 6 out of 10
+2022-02-19 19:35:42 DEBUG Step 7 out of 10
+2022-02-19 19:35:42 DEBUG Step 8 out of 10
+2022-02-19 19:35:42 DEBUG Step 9 out of 10
+2022-02-19 19:35:42 DEBUG Step 10 out of 10
+2022-02-19 19:35:45 PASS Temperature Sin fitting test
+2022-02-19 19:35:45 PASS TPW Sin fitting test
+2022-02-19 19:35:45 PASS Time series of aggregated temperature
+2022-02-19 19:35:45 PASS Best fit deviation difference
+2022-02-19 19:35:45 PASS FFT Temperature Time Series test
+2022-02-19 19:36:16 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 19:36:16 ALOHA Program Start
+2022-02-19 19:36:18 INFO Collecting Data from sources
+2022-02-19 19:36:21 DEBUG Step 1 out of 10
+2022-02-19 19:36:21 DEBUG Step 2 out of 10
+2022-02-19 19:36:21 DEBUG Step 3 out of 10
+2022-02-19 19:36:21 DEBUG Step 4 out of 10
+2022-02-19 19:36:21 DEBUG Step 5 out of 10
+2022-02-19 19:36:21 DEBUG Step 6 out of 10
+2022-02-19 19:36:21 DEBUG Step 7 out of 10
+2022-02-19 19:36:21 DEBUG Step 8 out of 10
+2022-02-19 19:36:21 DEBUG Step 9 out of 10
+2022-02-19 19:36:21 DEBUG Step 10 out of 10
+2022-02-19 19:36:21 PASS Temperature Sin fitting test
+2022-02-19 19:36:21 PASS TPW Sin fitting test
+2022-02-19 19:36:22 PASS Time series of aggregated temperature
+2022-02-19 19:36:22 PASS Best fit deviation difference
+2022-02-19 19:36:22 PASS FFT Temperature Time Series test
+2022-02-19 19:36:22 ALOHA Program Complete
+2022-02-19 19:37:04 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 19:37:04 ALOHA Program Start
+2022-02-19 19:37:06 INFO Collecting Data from sources
+2022-02-19 19:37:09 DEBUG Step 1 out of 10
+2022-02-19 19:37:09 DEBUG Step 2 out of 10
+2022-02-19 19:37:09 DEBUG Step 3 out of 10
+2022-02-19 19:37:09 DEBUG Step 4 out of 10
+2022-02-19 19:37:09 DEBUG Step 5 out of 10
+2022-02-19 19:37:09 DEBUG Step 6 out of 10
+2022-02-19 19:37:09 DEBUG Step 7 out of 10
+2022-02-19 19:37:09 DEBUG Step 8 out of 10
+2022-02-19 19:37:09 DEBUG Step 9 out of 10
+2022-02-19 19:37:09 DEBUG Step 10 out of 10
+2022-02-19 19:37:09 PASS Temperature Sin fitting test
+2022-02-19 19:37:10 PASS TPW Sin fitting test
+2022-02-19 19:37:10 PASS Time series of aggregated temperature
+2022-02-19 19:37:10 PASS Best fit deviation difference
+2022-02-19 19:37:10 PASS FFT Temperature Time Series test
+2022-02-19 19:37:10 ALOHA Program Complete
+2022-02-19 19:40:35 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 19:40:35 ALOHA Program Start
+2022-02-19 19:40:37 INFO Collecting Data from sources
+2022-02-19 19:40:40 DEBUG Step 1 out of 10
+2022-02-19 19:40:40 DEBUG Step 2 out of 10
+2022-02-19 19:40:40 DEBUG Step 3 out of 10
+2022-02-19 19:40:40 DEBUG Step 4 out of 10
+2022-02-19 19:40:40 DEBUG Step 5 out of 10
+2022-02-19 19:40:40 DEBUG Step 6 out of 10
+2022-02-19 19:40:40 DEBUG Step 7 out of 10
+2022-02-19 19:40:40 DEBUG Step 8 out of 10
+2022-02-19 19:40:40 DEBUG Step 9 out of 10
+2022-02-19 19:40:40 DEBUG Step 10 out of 10
+2022-02-19 19:40:41 PASS Temperature Sin fitting test
+2022-02-19 19:40:41 PASS TPW Sin fitting test
+2022-02-19 19:40:41 PASS Time series of aggregated temperature
+2022-02-19 19:40:41 PASS Best fit deviation difference
+2022-02-19 19:40:41 PASS FFT Temperature Time Series test
+2022-02-19 19:40:41 ALOHA Program Complete
+2022-02-19 19:42:11 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 19:42:11 ALOHA Program Start
+2022-02-19 19:42:14 INFO Collecting Data from sources
+2022-02-19 19:42:16 DEBUG Step 1 out of 10
+2022-02-19 19:42:16 DEBUG Step 2 out of 10
+2022-02-19 19:42:16 DEBUG Step 3 out of 10
+2022-02-19 19:42:16 DEBUG Step 4 out of 10
+2022-02-19 19:42:16 DEBUG Step 5 out of 10
+2022-02-19 19:42:16 DEBUG Step 6 out of 10
+2022-02-19 19:42:16 DEBUG Step 7 out of 10
+2022-02-19 19:42:16 DEBUG Step 8 out of 10
+2022-02-19 19:42:16 DEBUG Step 9 out of 10
+2022-02-19 19:42:16 DEBUG Step 10 out of 10
+2022-02-19 19:42:17 PASS Temperature Sin fitting test
+2022-02-19 19:42:17 PASS TPW Sin fitting test
+2022-02-19 19:42:17 PASS Time series of aggregated temperature
+2022-02-19 19:42:17 PASS Best fit deviation difference
+2022-02-19 19:42:18 PASS FFT Temperature Time Series test
+2022-02-19 19:42:18 ALOHA Program Complete
+2022-02-19 19:47:03 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 19:47:03 ALOHA Program Start
+2022-02-19 19:47:05 INFO Collecting Data from sources
+2022-02-19 19:47:08 DEBUG Step 1 out of 10
+2022-02-19 19:47:08 DEBUG Step 2 out of 10
+2022-02-19 19:47:08 DEBUG Step 3 out of 10
+2022-02-19 19:47:08 DEBUG Step 4 out of 10
+2022-02-19 19:47:08 DEBUG Step 5 out of 10
+2022-02-19 19:47:08 DEBUG Step 6 out of 10
+2022-02-19 19:47:08 DEBUG Step 7 out of 10
+2022-02-19 19:47:08 DEBUG Step 8 out of 10
+2022-02-19 19:47:08 DEBUG Step 9 out of 10
+2022-02-19 19:47:08 DEBUG Step 10 out of 10
+2022-02-19 19:47:09 PASS Temperature Sin fitting test
+2022-02-19 19:47:09 PASS TPW Sin fitting test
+2022-02-19 19:47:10 PASS Time series of aggregated temperature
+2022-02-19 19:47:10 PASS Best fit deviation difference
+2022-02-19 19:47:10 PASS FFT Temperature Time Series test
+2022-02-19 19:48:35 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 19:48:35 ALOHA Program Start
+2022-02-19 19:48:38 INFO Collecting Data from sources
+2022-02-19 19:48:40 DEBUG Step 1 out of 10
+2022-02-19 19:48:40 DEBUG Step 2 out of 10
+2022-02-19 19:48:40 DEBUG Step 3 out of 10
+2022-02-19 19:48:40 DEBUG Step 4 out of 10
+2022-02-19 19:48:40 DEBUG Step 5 out of 10
+2022-02-19 19:48:40 DEBUG Step 6 out of 10
+2022-02-19 19:48:40 DEBUG Step 7 out of 10
+2022-02-19 19:48:40 DEBUG Step 8 out of 10
+2022-02-19 19:48:40 DEBUG Step 9 out of 10
+2022-02-19 19:48:40 DEBUG Step 10 out of 10
+2022-02-19 19:48:41 PASS Temperature Sin fitting test
+2022-02-19 19:48:41 PASS TPW Sin fitting test
+2022-02-19 19:48:41 PASS Time series of aggregated temperature
+2022-02-19 19:48:41 PASS Best fit deviation difference
+2022-02-19 19:48:41 PASS FFT Temperature Time Series test
+2022-02-19 19:48:41 ALOHA Program Complete
+2022-02-19 19:52:15 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 19:52:15 ALOHA Program Start
+2022-02-19 19:52:18 INFO Collecting Data from sources
+2022-02-19 19:52:20 DEBUG Step 1 out of 10
+2022-02-19 19:52:20 DEBUG Step 2 out of 10
+2022-02-19 19:52:20 DEBUG Step 3 out of 10
+2022-02-19 19:52:20 DEBUG Step 4 out of 10
+2022-02-19 19:52:20 DEBUG Step 5 out of 10
+2022-02-19 19:52:20 DEBUG Step 6 out of 10
+2022-02-19 19:52:20 DEBUG Step 7 out of 10
+2022-02-19 19:52:20 DEBUG Step 8 out of 10
+2022-02-19 19:52:20 DEBUG Step 9 out of 10
+2022-02-19 19:52:20 DEBUG Step 10 out of 10
+2022-02-19 19:52:20 INFO Time Series Plot Set
+2022-02-19 19:52:20 PASS Sky Temperature Time Series
+2022-02-19 19:52:20 PASS Ground Temperature Time Series
+2022-02-19 19:52:20 PASS Difference Between Ground-Sky Temperature Time Series
+2022-02-19 19:52:20 PASS Total Precipitable Water Time Series
+2022-02-19 19:52:20 PASS Temporal Mean Precipitable Water Time Series
+2022-02-19 19:52:20 PASS Locational Mean Precipitable Water Time Series
+2022-02-19 19:52:21 PASS Mean Total Precipitable Water Time Series
+2022-02-19 19:52:21 PASS Dewpoint Temperature Time Series
+2022-02-19 19:52:21 PASS Mean Sky Temperature and PWV Time Series
+2022-02-19 19:52:21 PASS Mean Sky Temperature and RH Time Series
+2022-02-19 19:52:21 PASS Mean TPW and RH Time Series
+2022-02-19 19:52:47 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 19:52:47 ALOHA Program Start
+2022-02-19 19:52:50 INFO Collecting Data from sources
+2022-02-19 19:52:52 DEBUG Step 1 out of 10
+2022-02-19 19:52:52 DEBUG Step 2 out of 10
+2022-02-19 19:52:52 DEBUG Step 3 out of 10
+2022-02-19 19:52:52 DEBUG Step 4 out of 10
+2022-02-19 19:52:52 DEBUG Step 5 out of 10
+2022-02-19 19:52:52 DEBUG Step 6 out of 10
+2022-02-19 19:52:52 DEBUG Step 7 out of 10
+2022-02-19 19:52:52 DEBUG Step 8 out of 10
+2022-02-19 19:52:52 DEBUG Step 9 out of 10
+2022-02-19 19:52:52 DEBUG Step 10 out of 10
+2022-02-19 19:52:52 INFO Time Series Plot Set
+2022-02-19 19:52:52 PASS Sky Temperature Time Series
+2022-02-19 19:52:52 PASS Ground Temperature Time Series
+2022-02-19 19:52:52 PASS Difference Between Ground-Sky Temperature Time Series
+2022-02-19 19:52:53 PASS Total Precipitable Water Time Series
+2022-02-19 19:52:53 PASS Temporal Mean Precipitable Water Time Series
+2022-02-19 19:52:53 PASS Locational Mean Precipitable Water Time Series
+2022-02-19 19:52:53 PASS Mean Total Precipitable Water Time Series
+2022-02-19 19:52:53 PASS Dewpoint Temperature Time Series
+2022-02-19 19:52:53 PASS Mean Sky Temperature and PWV Time Series
+2022-02-19 19:52:53 PASS Mean Sky Temperature and RH Time Series
+2022-02-19 19:52:53 PASS Mean TPW and RH Time Series
+2022-02-19 19:52:53 PASS Normalized Index for Weighted PWV Time Series
+2022-02-19 19:52:53 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-19 19:52:53 ALOHA Program Complete
+2022-02-19 19:53:26 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 19:53:26 ALOHA Program Start
+2022-02-19 19:53:29 INFO Collecting Data from sources
+2022-02-19 19:53:31 DEBUG Step 1 out of 10
+2022-02-19 19:53:31 DEBUG Step 2 out of 10
+2022-02-19 19:53:31 DEBUG Step 3 out of 10
+2022-02-19 19:53:31 DEBUG Step 4 out of 10
+2022-02-19 19:53:31 DEBUG Step 5 out of 10
+2022-02-19 19:53:31 DEBUG Step 6 out of 10
+2022-02-19 19:53:31 DEBUG Step 7 out of 10
+2022-02-19 19:53:31 DEBUG Step 8 out of 10
+2022-02-19 19:53:31 DEBUG Step 9 out of 10
+2022-02-19 19:53:31 DEBUG Step 10 out of 10
+2022-02-19 19:53:32 PASS Temperature Sin fitting test
+2022-02-19 19:53:32 PASS TPW Sin fitting test
+2022-02-19 19:53:32 PASS Time series of aggregated temperature
+2022-02-19 19:53:32 PASS Best fit deviation difference
+2022-02-19 19:53:32 PASS FFT Temperature Time Series test
+2022-02-19 19:53:32 ALOHA Program Complete
+2022-02-19 19:57:02 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 19:57:02 ALOHA Program Start
+2022-02-19 19:57:04 INFO Collecting Data from sources
+2022-02-19 19:57:07 DEBUG Step 1 out of 10
+2022-02-19 19:57:07 DEBUG Step 2 out of 10
+2022-02-19 19:57:07 DEBUG Step 3 out of 10
+2022-02-19 19:57:07 DEBUG Step 4 out of 10
+2022-02-19 19:57:07 DEBUG Step 5 out of 10
+2022-02-19 19:57:07 DEBUG Step 6 out of 10
+2022-02-19 19:57:07 DEBUG Step 7 out of 10
+2022-02-19 19:57:07 DEBUG Step 8 out of 10
+2022-02-19 19:57:07 DEBUG Step 9 out of 10
+2022-02-19 19:57:07 DEBUG Step 10 out of 10
+2022-02-19 19:57:07 PASS Temperature Sin fitting test
+2022-02-19 19:57:07 PASS TPW Sin fitting test
+2022-02-19 19:57:08 PASS Time series of aggregated temperature
+2022-02-19 19:57:08 PASS Best fit deviation difference
+2022-02-19 19:57:08 PASS FFT Temperature Time Series test
+2022-02-19 19:57:08 ALOHA Program Complete
+2022-02-19 19:57:58 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 19:57:58 ALOHA Program Start
+2022-02-19 19:58:01 INFO Collecting Data from sources
+2022-02-19 19:58:04 DEBUG Step 1 out of 10
+2022-02-19 19:58:04 DEBUG Step 2 out of 10
+2022-02-19 19:58:04 DEBUG Step 3 out of 10
+2022-02-19 19:58:04 DEBUG Step 4 out of 10
+2022-02-19 19:58:04 DEBUG Step 5 out of 10
+2022-02-19 19:58:04 DEBUG Step 6 out of 10
+2022-02-19 19:58:04 DEBUG Step 7 out of 10
+2022-02-19 19:58:04 DEBUG Step 8 out of 10
+2022-02-19 19:58:04 DEBUG Step 9 out of 10
+2022-02-19 19:58:04 DEBUG Step 10 out of 10
+2022-02-19 19:58:05 PASS Temperature Sin fitting test
+2022-02-19 19:58:05 PASS TPW Sin fitting test
+2022-02-19 19:58:05 PASS Time series of aggregated temperature
+2022-02-19 19:58:05 PASS Best fit deviation difference
+2022-02-19 19:58:05 PASS FFT Temperature Time Series test
+2022-02-19 19:58:05 ALOHA Program Complete
+2022-02-19 19:59:09 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 19:59:09 ALOHA Program Start
+2022-02-19 19:59:11 INFO Collecting Data from sources
+2022-02-19 19:59:14 DEBUG Step 1 out of 10
+2022-02-19 19:59:14 DEBUG Step 2 out of 10
+2022-02-19 19:59:14 DEBUG Step 3 out of 10
+2022-02-19 19:59:14 DEBUG Step 4 out of 10
+2022-02-19 19:59:14 DEBUG Step 5 out of 10
+2022-02-19 19:59:14 DEBUG Step 6 out of 10
+2022-02-19 19:59:14 DEBUG Step 7 out of 10
+2022-02-19 19:59:14 DEBUG Step 8 out of 10
+2022-02-19 19:59:14 DEBUG Step 9 out of 10
+2022-02-19 19:59:14 DEBUG Step 10 out of 10
+2022-02-19 19:59:15 PASS Temperature Sin fitting test
+2022-02-19 19:59:15 PASS TPW Sin fitting test
+2022-02-19 19:59:15 PASS Time series of aggregated temperature
+2022-02-19 19:59:15 PASS Best fit deviation difference
+2022-02-19 19:59:15 PASS FFT Temperature Time Series test
+2022-02-19 19:59:15 ALOHA Program Complete
+2022-02-19 20:00:57 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 20:00:57 ALOHA Program Start
+2022-02-19 20:01:00 INFO Collecting Data from sources
+2022-02-19 20:01:02 DEBUG Step 1 out of 10
+2022-02-19 20:01:02 DEBUG Step 2 out of 10
+2022-02-19 20:01:02 DEBUG Step 3 out of 10
+2022-02-19 20:01:02 DEBUG Step 4 out of 10
+2022-02-19 20:01:02 DEBUG Step 5 out of 10
+2022-02-19 20:01:02 DEBUG Step 6 out of 10
+2022-02-19 20:01:02 DEBUG Step 7 out of 10
+2022-02-19 20:01:02 DEBUG Step 8 out of 10
+2022-02-19 20:01:02 DEBUG Step 9 out of 10
+2022-02-19 20:01:02 DEBUG Step 10 out of 10
+2022-02-19 20:01:03 PASS Temperature Sin fitting test
+2022-02-19 20:01:03 PASS TPW Sin fitting test
+2022-02-19 20:01:03 PASS Time series of aggregated temperature
+2022-02-19 20:01:03 PASS Best fit deviation difference
+2022-02-19 20:01:03 PASS FFT Temperature Time Series test
+2022-02-19 20:01:03 ALOHA Program Complete
+2022-02-19 20:05:34 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 20:05:34 ALOHA Program Start
+2022-02-19 20:05:36 INFO Collecting Data from sources
+2022-02-19 20:05:39 DEBUG Step 1 out of 10
+2022-02-19 20:05:39 DEBUG Step 2 out of 10
+2022-02-19 20:05:39 DEBUG Step 3 out of 10
+2022-02-19 20:05:39 DEBUG Step 4 out of 10
+2022-02-19 20:05:39 DEBUG Step 5 out of 10
+2022-02-19 20:05:39 DEBUG Step 6 out of 10
+2022-02-19 20:05:39 DEBUG Step 7 out of 10
+2022-02-19 20:05:39 DEBUG Step 8 out of 10
+2022-02-19 20:05:39 DEBUG Step 9 out of 10
+2022-02-19 20:05:39 DEBUG Step 10 out of 10
+2022-02-19 20:05:40 PASS Temperature Sin fitting test
+2022-02-19 20:05:40 PASS TPW Sin fitting test
+2022-02-19 20:05:40 PASS Time series of aggregated temperature
+2022-02-19 20:05:40 PASS Best fit deviation difference
+2022-02-19 20:05:40 PASS FFT Temperature Time Series test
+2022-02-19 20:06:11 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 20:06:11 ALOHA Program Start
+2022-02-19 20:06:14 INFO Collecting Data from sources
+2022-02-19 20:06:16 DEBUG Step 1 out of 10
+2022-02-19 20:06:16 DEBUG Step 2 out of 10
+2022-02-19 20:06:16 DEBUG Step 3 out of 10
+2022-02-19 20:06:16 DEBUG Step 4 out of 10
+2022-02-19 20:06:16 DEBUG Step 5 out of 10
+2022-02-19 20:06:16 DEBUG Step 6 out of 10
+2022-02-19 20:06:16 DEBUG Step 7 out of 10
+2022-02-19 20:06:16 DEBUG Step 8 out of 10
+2022-02-19 20:06:16 DEBUG Step 9 out of 10
+2022-02-19 20:06:16 DEBUG Step 10 out of 10
+2022-02-19 20:06:17 PASS Temperature Sin fitting test
+2022-02-19 20:06:17 PASS TPW Sin fitting test
+2022-02-19 20:06:17 PASS Time series of aggregated temperature
+2022-02-19 20:06:17 PASS Best fit deviation difference
+2022-02-19 20:06:17 PASS FFT Temperature Time Series test
+2022-02-19 20:06:17 ALOHA Program Complete
+2022-02-19 20:07:30 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 20:07:30 ALOHA Program Start
+2022-02-19 20:07:33 INFO Collecting Data from sources
+2022-02-19 20:07:37 DEBUG Step 1 out of 10
+2022-02-19 20:07:37 DEBUG Step 2 out of 10
+2022-02-19 20:07:37 DEBUG Step 3 out of 10
+2022-02-19 20:07:37 DEBUG Step 4 out of 10
+2022-02-19 20:07:37 DEBUG Step 5 out of 10
+2022-02-19 20:07:37 DEBUG Step 6 out of 10
+2022-02-19 20:07:37 DEBUG Step 7 out of 10
+2022-02-19 20:07:37 DEBUG Step 8 out of 10
+2022-02-19 20:07:37 DEBUG Step 9 out of 10
+2022-02-19 20:07:37 DEBUG Step 10 out of 10
+2022-02-19 20:07:38 PASS Temperature Sin fitting test
+2022-02-19 20:07:38 PASS TPW Sin fitting test
+2022-02-19 20:07:38 PASS Time series of aggregated temperature
+2022-02-19 20:07:38 PASS Best fit deviation difference
+2022-02-19 20:07:38 PASS FFT Temperature Time Series test
+2022-02-19 20:07:38 ALOHA Program Complete
+2022-02-19 20:09:05 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 20:09:05 ALOHA Program Start
+2022-02-19 20:09:08 INFO Collecting Data from sources
+2022-02-19 20:09:10 DEBUG Step 1 out of 10
+2022-02-19 20:09:11 DEBUG Step 2 out of 10
+2022-02-19 20:09:11 DEBUG Step 3 out of 10
+2022-02-19 20:09:11 DEBUG Step 4 out of 10
+2022-02-19 20:09:11 DEBUG Step 5 out of 10
+2022-02-19 20:09:11 DEBUG Step 6 out of 10
+2022-02-19 20:09:11 DEBUG Step 7 out of 10
+2022-02-19 20:09:11 DEBUG Step 8 out of 10
+2022-02-19 20:09:11 DEBUG Step 9 out of 10
+2022-02-19 20:09:11 DEBUG Step 10 out of 10
+2022-02-19 20:09:11 PASS Temperature Sin fitting test
+2022-02-19 20:09:11 PASS TPW Sin fitting test
+2022-02-19 20:09:11 PASS Time series of aggregated temperature
+2022-02-19 20:09:11 PASS Best fit deviation difference
+2022-02-19 20:09:11 PASS FFT Temperature Time Series test
+2022-02-19 20:09:12 ALOHA Program Complete
+2022-02-19 20:12:25 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 20:12:25 ALOHA Program Start
+2022-02-19 20:12:27 INFO Collecting Data from sources
+2022-02-19 20:12:30 DEBUG Step 1 out of 10
+2022-02-19 20:12:30 DEBUG Step 2 out of 10
+2022-02-19 20:12:30 DEBUG Step 3 out of 10
+2022-02-19 20:12:30 DEBUG Step 4 out of 10
+2022-02-19 20:12:30 DEBUG Step 5 out of 10
+2022-02-19 20:12:30 DEBUG Step 6 out of 10
+2022-02-19 20:12:30 DEBUG Step 7 out of 10
+2022-02-19 20:12:30 DEBUG Step 8 out of 10
+2022-02-19 20:12:30 DEBUG Step 9 out of 10
+2022-02-19 20:12:30 DEBUG Step 10 out of 10
+2022-02-19 20:12:30 PASS Temperature Sin fitting test
+2022-02-19 20:12:30 PASS TPW Sin fitting test
+2022-02-19 20:12:30 PASS Time series of aggregated temperature
+2022-02-19 20:12:31 PASS Best fit deviation difference
+2022-02-19 20:12:31 PASS FFT Temperature Time Series test
+2022-02-19 20:14:20 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 20:14:20 ALOHA Program Start
+2022-02-19 20:14:22 INFO Collecting Data from sources
+2022-02-19 20:14:25 DEBUG Step 1 out of 10
+2022-02-19 20:14:25 DEBUG Step 2 out of 10
+2022-02-19 20:14:25 DEBUG Step 3 out of 10
+2022-02-19 20:14:25 DEBUG Step 4 out of 10
+2022-02-19 20:14:25 DEBUG Step 5 out of 10
+2022-02-19 20:14:25 DEBUG Step 6 out of 10
+2022-02-19 20:14:25 DEBUG Step 7 out of 10
+2022-02-19 20:14:25 DEBUG Step 8 out of 10
+2022-02-19 20:14:25 DEBUG Step 9 out of 10
+2022-02-19 20:14:25 DEBUG Step 10 out of 10
+2022-02-19 20:14:25 PASS Temperature Sin fitting test
+2022-02-19 20:14:26 PASS TPW Sin fitting test
+2022-02-19 20:14:26 PASS Time series of aggregated temperature
+2022-02-19 20:14:26 PASS Best fit deviation difference
+2022-02-19 20:14:26 PASS FFT Temperature Time Series test
+2022-02-19 20:14:45 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 20:14:45 ALOHA Program Start
+2022-02-19 20:14:48 INFO Collecting Data from sources
+2022-02-19 20:14:50 DEBUG Step 1 out of 10
+2022-02-19 20:14:50 DEBUG Step 2 out of 10
+2022-02-19 20:14:50 DEBUG Step 3 out of 10
+2022-02-19 20:14:50 DEBUG Step 4 out of 10
+2022-02-19 20:14:50 DEBUG Step 5 out of 10
+2022-02-19 20:14:50 DEBUG Step 6 out of 10
+2022-02-19 20:14:50 DEBUG Step 7 out of 10
+2022-02-19 20:14:50 DEBUG Step 8 out of 10
+2022-02-19 20:14:50 DEBUG Step 9 out of 10
+2022-02-19 20:14:50 DEBUG Step 10 out of 10
+2022-02-19 20:14:51 PASS Temperature Sin fitting test
+2022-02-19 20:14:51 PASS TPW Sin fitting test
+2022-02-19 20:14:51 PASS Time series of aggregated temperature
+2022-02-19 20:14:51 PASS Best fit deviation difference
+2022-02-19 20:14:51 PASS FFT Temperature Time Series test
+2022-02-19 20:14:52 ALOHA Program Complete
+2022-02-19 20:15:27 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 20:15:27 ALOHA Program Start
+2022-02-19 20:15:30 INFO Collecting Data from sources
+2022-02-19 20:15:32 DEBUG Step 1 out of 10
+2022-02-19 20:15:32 DEBUG Step 2 out of 10
+2022-02-19 20:15:32 DEBUG Step 3 out of 10
+2022-02-19 20:15:32 DEBUG Step 4 out of 10
+2022-02-19 20:15:32 DEBUG Step 5 out of 10
+2022-02-19 20:15:32 DEBUG Step 6 out of 10
+2022-02-19 20:15:32 DEBUG Step 7 out of 10
+2022-02-19 20:15:32 DEBUG Step 8 out of 10
+2022-02-19 20:15:32 DEBUG Step 9 out of 10
+2022-02-19 20:15:32 DEBUG Step 10 out of 10
+2022-02-19 20:15:33 PASS Temperature Sin fitting test
+2022-02-19 20:15:33 PASS TPW Sin fitting test
+2022-02-19 20:15:33 PASS Time series of aggregated temperature
+2022-02-19 20:15:33 PASS Best fit deviation difference
+2022-02-19 20:15:33 PASS FFT Temperature Time Series test
+2022-02-19 20:15:33 ALOHA Program Complete
+2022-02-19 20:18:12 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 20:18:12 ALOHA Program Start
+2022-02-19 20:18:15 INFO Collecting Data from sources
+2022-02-19 20:18:17 DEBUG Step 1 out of 10
+2022-02-19 20:18:17 DEBUG Step 2 out of 10
+2022-02-19 20:18:17 DEBUG Step 3 out of 10
+2022-02-19 20:18:17 DEBUG Step 4 out of 10
+2022-02-19 20:18:17 DEBUG Step 5 out of 10
+2022-02-19 20:18:17 DEBUG Step 6 out of 10
+2022-02-19 20:18:17 DEBUG Step 7 out of 10
+2022-02-19 20:18:17 DEBUG Step 8 out of 10
+2022-02-19 20:18:17 DEBUG Step 9 out of 10
+2022-02-19 20:18:17 DEBUG Step 10 out of 10
+2022-02-19 20:18:18 PASS Temperature Sin fitting test
+2022-02-19 20:18:19 PASS TPW Sin fitting test
+2022-02-19 20:18:19 PASS Time series of aggregated temperature
+2022-02-19 20:18:19 PASS Best fit deviation difference
+2022-02-19 20:18:19 PASS FFT Temperature Time Series test
+2022-02-19 20:18:20 ALOHA Program Complete
+2022-02-19 20:20:24 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 20:20:24 ALOHA Program Start
+2022-02-19 20:20:27 INFO Collecting Data from sources
+2022-02-19 20:20:29 DEBUG Step 1 out of 10
+2022-02-19 20:20:29 DEBUG Step 2 out of 10
+2022-02-19 20:20:29 DEBUG Step 3 out of 10
+2022-02-19 20:20:29 DEBUG Step 4 out of 10
+2022-02-19 20:20:29 DEBUG Step 5 out of 10
+2022-02-19 20:20:29 DEBUG Step 6 out of 10
+2022-02-19 20:20:29 DEBUG Step 7 out of 10
+2022-02-19 20:20:29 DEBUG Step 8 out of 10
+2022-02-19 20:20:29 DEBUG Step 9 out of 10
+2022-02-19 20:20:29 DEBUG Step 10 out of 10
+2022-02-19 20:21:10 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 20:21:10 ALOHA Program Start
+2022-02-19 20:21:13 INFO Collecting Data from sources
+2022-02-19 20:21:15 DEBUG Step 1 out of 10
+2022-02-19 20:21:15 DEBUG Step 2 out of 10
+2022-02-19 20:21:15 DEBUG Step 3 out of 10
+2022-02-19 20:21:15 DEBUG Step 4 out of 10
+2022-02-19 20:21:15 DEBUG Step 5 out of 10
+2022-02-19 20:21:15 DEBUG Step 6 out of 10
+2022-02-19 20:21:15 DEBUG Step 7 out of 10
+2022-02-19 20:21:15 DEBUG Step 8 out of 10
+2022-02-19 20:21:15 DEBUG Step 9 out of 10
+2022-02-19 20:21:15 DEBUG Step 10 out of 10
+2022-02-19 20:21:16 PASS Temperature Sin fitting test
+2022-02-19 20:21:16 PASS TPW Sin fitting test
+2022-02-19 20:21:16 PASS Time series of aggregated temperature
+2022-02-19 20:21:16 PASS Best fit deviation difference
+2022-02-19 20:21:16 PASS FFT Temperature Time Series test
+2022-02-19 20:21:30 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 20:21:30 ALOHA Program Start
+2022-02-19 20:21:32 INFO Collecting Data from sources
+2022-02-19 20:21:35 DEBUG Step 1 out of 10
+2022-02-19 20:21:35 DEBUG Step 2 out of 10
+2022-02-19 20:21:35 DEBUG Step 3 out of 10
+2022-02-19 20:21:35 DEBUG Step 4 out of 10
+2022-02-19 20:21:35 DEBUG Step 5 out of 10
+2022-02-19 20:21:35 DEBUG Step 6 out of 10
+2022-02-19 20:21:35 DEBUG Step 7 out of 10
+2022-02-19 20:21:35 DEBUG Step 8 out of 10
+2022-02-19 20:21:35 DEBUG Step 9 out of 10
+2022-02-19 20:21:35 DEBUG Step 10 out of 10
+2022-02-19 20:21:35 PASS Temperature Sin fitting test
+2022-02-19 20:21:35 PASS TPW Sin fitting test
+2022-02-19 20:21:35 PASS Time series of aggregated temperature
+2022-02-19 20:21:36 PASS Best fit deviation difference
+2022-02-19 20:21:36 PASS FFT Temperature Time Series test
+2022-02-19 20:21:36 ALOHA Program Complete
+2022-02-19 20:22:36 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 20:22:36 ALOHA Program Start
+2022-02-19 20:22:38 INFO Collecting Data from sources
+2022-02-19 20:22:41 DEBUG Step 1 out of 10
+2022-02-19 20:22:41 DEBUG Step 2 out of 10
+2022-02-19 20:22:41 DEBUG Step 3 out of 10
+2022-02-19 20:22:41 DEBUG Step 4 out of 10
+2022-02-19 20:22:41 DEBUG Step 5 out of 10
+2022-02-19 20:22:41 DEBUG Step 6 out of 10
+2022-02-19 20:22:41 DEBUG Step 7 out of 10
+2022-02-19 20:22:41 DEBUG Step 8 out of 10
+2022-02-19 20:22:41 DEBUG Step 9 out of 10
+2022-02-19 20:22:41 DEBUG Step 10 out of 10
+2022-02-19 20:22:41 PASS Temperature Sin fitting test
+2022-02-19 20:22:41 PASS TPW Sin fitting test
+2022-02-19 20:22:41 PASS Time series of aggregated temperature
+2022-02-19 20:22:42 PASS Best fit deviation difference
+2022-02-19 20:22:42 PASS FFT Temperature Time Series test
+2022-02-19 20:22:42 ALOHA Program Complete
+2022-02-19 20:23:30 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 20:23:30 ALOHA Program Start
+2022-02-19 20:23:32 INFO Collecting Data from sources
+2022-02-19 20:23:36 DEBUG Step 1 out of 10
+2022-02-19 20:23:36 DEBUG Step 2 out of 10
+2022-02-19 20:23:36 DEBUG Step 3 out of 10
+2022-02-19 20:23:36 DEBUG Step 4 out of 10
+2022-02-19 20:23:36 DEBUG Step 5 out of 10
+2022-02-19 20:23:36 DEBUG Step 6 out of 10
+2022-02-19 20:23:36 DEBUG Step 7 out of 10
+2022-02-19 20:23:36 DEBUG Step 8 out of 10
+2022-02-19 20:23:36 DEBUG Step 9 out of 10
+2022-02-19 20:23:36 DEBUG Step 10 out of 10
+2022-02-19 20:23:37 PASS Temperature Sin fitting test
+2022-02-19 20:23:37 PASS TPW Sin fitting test
+2022-02-19 20:23:37 PASS Time series of aggregated temperature
+2022-02-19 20:23:37 PASS Best fit deviation difference
+2022-02-19 20:23:37 PASS FFT Temperature Time Series test
+2022-02-19 20:23:37 PASS ML Test
+2022-02-19 20:23:37 ALOHA Program Complete
+2022-02-19 20:24:10 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 20:24:10 ALOHA Program Start
+2022-02-19 20:24:12 INFO Collecting Data from sources
+2022-02-19 20:24:14 DEBUG Step 1 out of 10
+2022-02-19 20:24:14 DEBUG Step 2 out of 10
+2022-02-19 20:24:14 DEBUG Step 3 out of 10
+2022-02-19 20:24:15 DEBUG Step 4 out of 10
+2022-02-19 20:24:15 DEBUG Step 5 out of 10
+2022-02-19 20:24:15 DEBUG Step 6 out of 10
+2022-02-19 20:24:15 DEBUG Step 7 out of 10
+2022-02-19 20:24:15 DEBUG Step 8 out of 10
+2022-02-19 20:24:15 DEBUG Step 9 out of 10
+2022-02-19 20:24:15 DEBUG Step 10 out of 10
+2022-02-19 20:24:15 PASS Temperature Sin fitting test
+2022-02-19 20:24:15 PASS TPW Sin fitting test
+2022-02-19 20:24:15 PASS Time series of aggregated temperature
+2022-02-19 20:24:15 PASS Best fit deviation difference
+2022-02-19 20:24:15 PASS FFT Temperature Time Series test
+2022-02-19 20:24:16 PASS ML Test
+2022-02-19 20:24:16 ALOHA Program Complete
+2022-02-19 20:25:12 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 20:25:12 ALOHA Program Start
+2022-02-19 20:25:15 INFO Collecting Data from sources
+2022-02-19 20:25:17 DEBUG Step 1 out of 10
+2022-02-19 20:25:17 DEBUG Step 2 out of 10
+2022-02-19 20:25:17 DEBUG Step 3 out of 10
+2022-02-19 20:25:17 DEBUG Step 4 out of 10
+2022-02-19 20:25:17 DEBUG Step 5 out of 10
+2022-02-19 20:25:17 DEBUG Step 6 out of 10
+2022-02-19 20:25:17 DEBUG Step 7 out of 10
+2022-02-19 20:25:17 DEBUG Step 8 out of 10
+2022-02-19 20:25:17 DEBUG Step 9 out of 10
+2022-02-19 20:25:17 DEBUG Step 10 out of 10
+2022-02-19 20:25:18 PASS Temperature Sin fitting test
+2022-02-19 20:25:18 PASS TPW Sin fitting test
+2022-02-19 20:25:18 PASS Time series of aggregated temperature
+2022-02-19 20:25:18 PASS Best fit deviation difference
+2022-02-19 20:25:18 PASS FFT Temperature Time Series test
+2022-02-19 20:25:18 PASS ML Test
+2022-02-19 20:25:18 ALOHA Program Complete
+2022-02-19 20:25:44 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 20:25:44 ALOHA Program Start
+2022-02-19 20:25:47 INFO Collecting Data from sources
+2022-02-19 20:25:50 DEBUG Step 1 out of 10
+2022-02-19 20:25:50 DEBUG Step 2 out of 10
+2022-02-19 20:25:50 DEBUG Step 3 out of 10
+2022-02-19 20:25:50 DEBUG Step 4 out of 10
+2022-02-19 20:25:50 DEBUG Step 5 out of 10
+2022-02-19 20:25:50 DEBUG Step 6 out of 10
+2022-02-19 20:25:50 DEBUG Step 7 out of 10
+2022-02-19 20:25:50 DEBUG Step 8 out of 10
+2022-02-19 20:25:50 DEBUG Step 9 out of 10
+2022-02-19 20:25:50 DEBUG Step 10 out of 10
+2022-02-19 20:25:51 PASS Temperature Sin fitting test
+2022-02-19 20:25:51 PASS TPW Sin fitting test
+2022-02-19 20:25:51 PASS Time series of aggregated temperature
+2022-02-19 20:25:51 PASS Best fit deviation difference
+2022-02-19 20:25:51 PASS FFT Temperature Time Series test
+2022-02-19 20:25:51 PASS ML Test
+2022-02-19 20:25:51 ALOHA Program Complete
+2022-02-19 20:29:47 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 20:29:47 ALOHA Program Start
+2022-02-19 20:29:50 INFO Collecting Data from sources
+2022-02-19 20:29:52 DEBUG Step 1 out of 10
+2022-02-19 20:29:52 DEBUG Step 2 out of 10
+2022-02-19 20:29:52 DEBUG Step 3 out of 10
+2022-02-19 20:29:52 DEBUG Step 4 out of 10
+2022-02-19 20:29:52 DEBUG Step 5 out of 10
+2022-02-19 20:29:52 DEBUG Step 6 out of 10
+2022-02-19 20:29:52 DEBUG Step 7 out of 10
+2022-02-19 20:29:52 DEBUG Step 8 out of 10
+2022-02-19 20:29:52 DEBUG Step 9 out of 10
+2022-02-19 20:29:52 DEBUG Step 10 out of 10
+2022-02-19 20:29:53 PASS Temperature Sin fitting test
+2022-02-19 20:29:53 PASS TPW Sin fitting test
+2022-02-19 20:29:53 PASS Time series of aggregated temperature
+2022-02-19 20:29:53 PASS Best fit deviation difference
+2022-02-19 20:29:53 PASS FFT Temperature Time Series test
+2022-02-19 20:29:53 PASS ML Test
+2022-02-19 20:29:54 ALOHA Program Complete
+2022-02-19 20:31:14 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 20:31:14 ALOHA Program Start
+2022-02-19 20:31:17 INFO Collecting Data from sources
+2022-02-19 20:31:19 DEBUG Step 1 out of 10
+2022-02-19 20:31:20 DEBUG Step 2 out of 10
+2022-02-19 20:31:20 DEBUG Step 3 out of 10
+2022-02-19 20:31:20 DEBUG Step 4 out of 10
+2022-02-19 20:31:20 DEBUG Step 5 out of 10
+2022-02-19 20:31:20 DEBUG Step 6 out of 10
+2022-02-19 20:31:20 DEBUG Step 7 out of 10
+2022-02-19 20:31:20 DEBUG Step 8 out of 10
+2022-02-19 20:31:20 DEBUG Step 9 out of 10
+2022-02-19 20:31:20 DEBUG Step 10 out of 10
+2022-02-19 20:31:20 PASS Temperature Sin fitting test
+2022-02-19 20:31:20 PASS TPW Sin fitting test
+2022-02-19 20:31:20 PASS Time series of aggregated temperature
+2022-02-19 20:31:20 PASS Best fit deviation difference
+2022-02-19 20:31:20 PASS FFT Temperature Time Series test
+2022-02-19 20:31:20 PASS ML Test
+2022-02-19 20:31:21 ALOHA Program Complete
+2022-02-19 20:33:33 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 20:33:33 ALOHA Program Start
+2022-02-19 20:33:35 INFO Collecting Data from sources
+2022-02-19 20:33:39 DEBUG Step 1 out of 10
+2022-02-19 20:33:39 DEBUG Step 2 out of 10
+2022-02-19 20:33:39 DEBUG Step 3 out of 10
+2022-02-19 20:33:39 DEBUG Step 4 out of 10
+2022-02-19 20:33:39 DEBUG Step 5 out of 10
+2022-02-19 20:33:39 DEBUG Step 6 out of 10
+2022-02-19 20:33:39 DEBUG Step 7 out of 10
+2022-02-19 20:33:39 DEBUG Step 8 out of 10
+2022-02-19 20:33:39 DEBUG Step 9 out of 10
+2022-02-19 20:33:39 DEBUG Step 10 out of 10
+2022-02-19 20:33:40 PASS Temperature Sin fitting test
+2022-02-19 20:33:40 PASS TPW Sin fitting test
+2022-02-19 20:33:40 PASS Time series of aggregated temperature
+2022-02-19 20:33:40 PASS Best fit deviation difference
+2022-02-19 20:33:40 PASS FFT Temperature Time Series test
+2022-02-19 20:33:40 PASS ML Test
+2022-02-19 20:33:40 ALOHA Program Complete
+2022-02-19 20:35:20 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 20:35:20 ALOHA Program Start
+2022-02-19 20:35:23 INFO Collecting Data from sources
+2022-02-19 20:35:26 DEBUG Step 1 out of 10
+2022-02-19 20:35:26 DEBUG Step 2 out of 10
+2022-02-19 20:35:26 DEBUG Step 3 out of 10
+2022-02-19 20:35:26 DEBUG Step 4 out of 10
+2022-02-19 20:35:26 DEBUG Step 5 out of 10
+2022-02-19 20:35:26 DEBUG Step 6 out of 10
+2022-02-19 20:35:26 DEBUG Step 7 out of 10
+2022-02-19 20:35:26 DEBUG Step 8 out of 10
+2022-02-19 20:35:26 DEBUG Step 9 out of 10
+2022-02-19 20:35:26 DEBUG Step 10 out of 10
+2022-02-19 20:35:27 PASS Temperature Sin fitting test
+2022-02-19 20:35:27 PASS TPW Sin fitting test
+2022-02-19 20:35:27 PASS Time series of aggregated temperature
+2022-02-19 20:35:27 PASS Best fit deviation difference
+2022-02-19 20:35:27 PASS FFT Temperature Time Series test
+2022-02-19 20:35:27 PASS ML Test
+2022-02-19 20:35:27 ALOHA Program Complete
+2022-02-19 20:36:17 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 20:36:17 ALOHA Program Start
+2022-02-19 20:36:19 INFO Collecting Data from sources
+2022-02-19 20:36:22 DEBUG Step 1 out of 10
+2022-02-19 20:36:22 DEBUG Step 2 out of 10
+2022-02-19 20:36:22 DEBUG Step 3 out of 10
+2022-02-19 20:36:22 DEBUG Step 4 out of 10
+2022-02-19 20:36:22 DEBUG Step 5 out of 10
+2022-02-19 20:36:22 DEBUG Step 6 out of 10
+2022-02-19 20:36:22 DEBUG Step 7 out of 10
+2022-02-19 20:36:22 DEBUG Step 8 out of 10
+2022-02-19 20:36:22 DEBUG Step 9 out of 10
+2022-02-19 20:36:22 DEBUG Step 10 out of 10
+2022-02-19 20:36:47 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 20:36:47 ALOHA Program Start
+2022-02-19 20:36:49 INFO Collecting Data from sources
+2022-02-19 20:36:52 DEBUG Step 1 out of 10
+2022-02-19 20:36:52 DEBUG Step 2 out of 10
+2022-02-19 20:36:52 DEBUG Step 3 out of 10
+2022-02-19 20:36:52 DEBUG Step 4 out of 10
+2022-02-19 20:36:52 DEBUG Step 5 out of 10
+2022-02-19 20:36:52 DEBUG Step 6 out of 10
+2022-02-19 20:36:52 DEBUG Step 7 out of 10
+2022-02-19 20:36:52 DEBUG Step 8 out of 10
+2022-02-19 20:36:52 DEBUG Step 9 out of 10
+2022-02-19 20:36:52 DEBUG Step 10 out of 10
+2022-02-19 20:37:33 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 20:37:33 ALOHA Program Start
+2022-02-19 20:37:35 INFO Collecting Data from sources
+2022-02-19 20:37:39 DEBUG Step 1 out of 10
+2022-02-19 20:37:39 DEBUG Step 2 out of 10
+2022-02-19 20:37:39 DEBUG Step 3 out of 10
+2022-02-19 20:37:39 DEBUG Step 4 out of 10
+2022-02-19 20:37:39 DEBUG Step 5 out of 10
+2022-02-19 20:37:39 DEBUG Step 6 out of 10
+2022-02-19 20:37:39 DEBUG Step 7 out of 10
+2022-02-19 20:37:39 DEBUG Step 8 out of 10
+2022-02-19 20:37:39 DEBUG Step 9 out of 10
+2022-02-19 20:37:39 DEBUG Step 10 out of 10
+2022-02-19 20:37:59 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 20:37:59 ALOHA Program Start
+2022-02-19 20:38:02 INFO Collecting Data from sources
+2022-02-19 20:38:04 DEBUG Step 1 out of 10
+2022-02-19 20:38:04 DEBUG Step 2 out of 10
+2022-02-19 20:38:04 DEBUG Step 3 out of 10
+2022-02-19 20:38:04 DEBUG Step 4 out of 10
+2022-02-19 20:38:04 DEBUG Step 5 out of 10
+2022-02-19 20:38:04 DEBUG Step 6 out of 10
+2022-02-19 20:38:04 DEBUG Step 7 out of 10
+2022-02-19 20:38:04 DEBUG Step 8 out of 10
+2022-02-19 20:38:04 DEBUG Step 9 out of 10
+2022-02-19 20:38:04 DEBUG Step 10 out of 10
+2022-02-19 20:38:32 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 20:38:32 ALOHA Program Start
+2022-02-19 20:38:35 INFO Collecting Data from sources
+2022-02-19 20:38:37 DEBUG Step 1 out of 10
+2022-02-19 20:38:37 DEBUG Step 2 out of 10
+2022-02-19 20:38:37 DEBUG Step 3 out of 10
+2022-02-19 20:38:37 DEBUG Step 4 out of 10
+2022-02-19 20:38:37 DEBUG Step 5 out of 10
+2022-02-19 20:38:37 DEBUG Step 6 out of 10
+2022-02-19 20:38:37 DEBUG Step 7 out of 10
+2022-02-19 20:38:37 DEBUG Step 8 out of 10
+2022-02-19 20:38:37 DEBUG Step 9 out of 10
+2022-02-19 20:38:37 DEBUG Step 10 out of 10
+2022-02-19 20:39:09 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 20:39:09 ALOHA Program Start
+2022-02-19 20:39:12 INFO Collecting Data from sources
+2022-02-19 20:39:14 DEBUG Step 1 out of 10
+2022-02-19 20:39:14 DEBUG Step 2 out of 10
+2022-02-19 20:39:14 DEBUG Step 3 out of 10
+2022-02-19 20:39:14 DEBUG Step 4 out of 10
+2022-02-19 20:39:14 DEBUG Step 5 out of 10
+2022-02-19 20:39:14 DEBUG Step 6 out of 10
+2022-02-19 20:39:14 DEBUG Step 7 out of 10
+2022-02-19 20:39:14 DEBUG Step 8 out of 10
+2022-02-19 20:39:14 DEBUG Step 9 out of 10
+2022-02-19 20:39:14 DEBUG Step 10 out of 10
+2022-02-19 20:39:40 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 20:39:40 ALOHA Program Start
+2022-02-19 20:39:43 INFO Collecting Data from sources
+2022-02-19 20:39:45 DEBUG Step 1 out of 10
+2022-02-19 20:39:45 DEBUG Step 2 out of 10
+2022-02-19 20:39:45 DEBUG Step 3 out of 10
+2022-02-19 20:39:45 DEBUG Step 4 out of 10
+2022-02-19 20:39:45 DEBUG Step 5 out of 10
+2022-02-19 20:39:45 DEBUG Step 6 out of 10
+2022-02-19 20:39:45 DEBUG Step 7 out of 10
+2022-02-19 20:39:45 DEBUG Step 8 out of 10
+2022-02-19 20:39:45 DEBUG Step 9 out of 10
+2022-02-19 20:39:45 DEBUG Step 10 out of 10
+2022-02-19 20:42:15 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 20:42:15 ALOHA Program Start
+2022-02-19 20:42:17 INFO Collecting Data from sources
+2022-02-19 20:42:20 DEBUG Step 1 out of 10
+2022-02-19 20:42:20 DEBUG Step 2 out of 10
+2022-02-19 20:42:20 DEBUG Step 3 out of 10
+2022-02-19 20:42:20 DEBUG Step 4 out of 10
+2022-02-19 20:42:20 DEBUG Step 5 out of 10
+2022-02-19 20:42:20 DEBUG Step 6 out of 10
+2022-02-19 20:42:20 DEBUG Step 7 out of 10
+2022-02-19 20:42:20 DEBUG Step 8 out of 10
+2022-02-19 20:42:20 DEBUG Step 9 out of 10
+2022-02-19 20:42:20 DEBUG Step 10 out of 10
+2022-02-19 20:42:21 PASS Temperature Sin fitting test
+2022-02-19 20:42:21 PASS TPW Sin fitting test
+2022-02-19 20:42:21 PASS Time series of aggregated temperature
+2022-02-19 20:42:21 PASS Best fit deviation difference
+2022-02-19 20:42:21 PASS FFT Temperature Time Series test
+2022-02-19 20:42:21 PASS ML Test
+2022-02-19 20:42:21 ALOHA Program Complete
+2022-02-19 20:43:39 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 20:43:39 ALOHA Program Start
+2022-02-19 20:43:42 INFO Collecting Data from sources
+2022-02-19 20:43:44 DEBUG Step 1 out of 10
+2022-02-19 20:43:44 DEBUG Step 2 out of 10
+2022-02-19 20:43:44 DEBUG Step 3 out of 10
+2022-02-19 20:43:44 DEBUG Step 4 out of 10
+2022-02-19 20:43:44 DEBUG Step 5 out of 10
+2022-02-19 20:43:44 DEBUG Step 6 out of 10
+2022-02-19 20:43:44 DEBUG Step 7 out of 10
+2022-02-19 20:43:44 DEBUG Step 8 out of 10
+2022-02-19 20:43:44 DEBUG Step 9 out of 10
+2022-02-19 20:43:44 DEBUG Step 10 out of 10
+2022-02-19 20:43:45 PASS Temperature Sin fitting test
+2022-02-19 20:43:46 PASS TPW Sin fitting test
+2022-02-19 20:43:46 PASS Time series of aggregated temperature
+2022-02-19 20:43:46 PASS Best fit deviation difference
+2022-02-19 20:43:46 PASS FFT Temperature Time Series test
+2022-02-19 20:43:46 PASS ML Test
+2022-02-19 20:43:46 ALOHA Program Complete
+2022-02-19 20:44:17 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 20:44:17 ALOHA Program Start
+2022-02-19 20:44:19 INFO Collecting Data from sources
+2022-02-19 20:44:21 DEBUG Step 1 out of 10
+2022-02-19 20:44:22 DEBUG Step 2 out of 10
+2022-02-19 20:44:22 DEBUG Step 3 out of 10
+2022-02-19 20:44:22 DEBUG Step 4 out of 10
+2022-02-19 20:44:22 DEBUG Step 5 out of 10
+2022-02-19 20:44:22 DEBUG Step 6 out of 10
+2022-02-19 20:44:22 DEBUG Step 7 out of 10
+2022-02-19 20:44:22 DEBUG Step 8 out of 10
+2022-02-19 20:44:22 DEBUG Step 9 out of 10
+2022-02-19 20:44:22 DEBUG Step 10 out of 10
+2022-02-19 20:45:16 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 20:45:16 ALOHA Program Start
+2022-02-19 20:45:19 INFO Collecting Data from sources
+2022-02-19 20:45:21 DEBUG Step 1 out of 10
+2022-02-19 20:45:21 DEBUG Step 2 out of 10
+2022-02-19 20:45:21 DEBUG Step 3 out of 10
+2022-02-19 20:45:21 DEBUG Step 4 out of 10
+2022-02-19 20:45:21 DEBUG Step 5 out of 10
+2022-02-19 20:45:21 DEBUG Step 6 out of 10
+2022-02-19 20:45:21 DEBUG Step 7 out of 10
+2022-02-19 20:45:21 DEBUG Step 8 out of 10
+2022-02-19 20:45:21 DEBUG Step 9 out of 10
+2022-02-19 20:45:21 DEBUG Step 10 out of 10
+2022-02-19 20:45:41 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 20:45:41 ALOHA Program Start
+2022-02-19 20:45:44 INFO Collecting Data from sources
+2022-02-19 20:45:46 DEBUG Step 1 out of 10
+2022-02-19 20:45:46 DEBUG Step 2 out of 10
+2022-02-19 20:45:46 DEBUG Step 3 out of 10
+2022-02-19 20:45:46 DEBUG Step 4 out of 10
+2022-02-19 20:45:46 DEBUG Step 5 out of 10
+2022-02-19 20:45:46 DEBUG Step 6 out of 10
+2022-02-19 20:45:46 DEBUG Step 7 out of 10
+2022-02-19 20:45:46 DEBUG Step 8 out of 10
+2022-02-19 20:45:46 DEBUG Step 9 out of 10
+2022-02-19 20:45:46 DEBUG Step 10 out of 10
+2022-02-19 20:46:54 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 20:46:54 ALOHA Program Start
+2022-02-19 20:46:57 INFO Collecting Data from sources
+2022-02-19 20:46:59 DEBUG Step 1 out of 10
+2022-02-19 20:46:59 DEBUG Step 2 out of 10
+2022-02-19 20:46:59 DEBUG Step 3 out of 10
+2022-02-19 20:46:59 DEBUG Step 4 out of 10
+2022-02-19 20:46:59 DEBUG Step 5 out of 10
+2022-02-19 20:46:59 DEBUG Step 6 out of 10
+2022-02-19 20:46:59 DEBUG Step 7 out of 10
+2022-02-19 20:46:59 DEBUG Step 8 out of 10
+2022-02-19 20:46:59 DEBUG Step 9 out of 10
+2022-02-19 20:46:59 DEBUG Step 10 out of 10
+2022-02-19 20:47:00 PASS Temperature Sin fitting test
+2022-02-19 20:47:00 PASS TPW Sin fitting test
+2022-02-19 20:47:00 PASS Time series of aggregated temperature
+2022-02-19 20:47:00 PASS Best fit deviation difference
+2022-02-19 20:47:01 PASS FFT Temperature Time Series test
+2022-02-19 20:47:01 PASS ML Test
+2022-02-19 20:47:01 ALOHA Program Complete
+2022-02-19 20:47:41 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 20:47:41 ALOHA Program Start
+2022-02-19 20:47:43 INFO Collecting Data from sources
+2022-02-19 20:47:46 DEBUG Step 1 out of 10
+2022-02-19 20:47:46 DEBUG Step 2 out of 10
+2022-02-19 20:47:46 DEBUG Step 3 out of 10
+2022-02-19 20:47:46 DEBUG Step 4 out of 10
+2022-02-19 20:47:46 DEBUG Step 5 out of 10
+2022-02-19 20:47:46 DEBUG Step 6 out of 10
+2022-02-19 20:47:46 DEBUG Step 7 out of 10
+2022-02-19 20:47:46 DEBUG Step 8 out of 10
+2022-02-19 20:47:46 DEBUG Step 9 out of 10
+2022-02-19 20:47:46 DEBUG Step 10 out of 10
+2022-02-19 20:47:47 PASS Temperature Sin fitting test
+2022-02-19 20:47:47 PASS TPW Sin fitting test
+2022-02-19 20:47:47 PASS Time series of aggregated temperature
+2022-02-19 20:47:47 PASS Best fit deviation difference
+2022-02-19 20:47:47 PASS FFT Temperature Time Series test
+2022-02-19 20:47:47 PASS ML Test
+2022-02-19 20:47:47 ALOHA Program Complete
+2022-02-19 20:48:18 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 20:48:18 ALOHA Program Start
+2022-02-19 20:48:21 INFO Collecting Data from sources
+2022-02-19 20:48:23 DEBUG Step 1 out of 10
+2022-02-19 20:48:24 DEBUG Step 2 out of 10
+2022-02-19 20:48:24 DEBUG Step 3 out of 10
+2022-02-19 20:48:24 DEBUG Step 4 out of 10
+2022-02-19 20:48:24 DEBUG Step 5 out of 10
+2022-02-19 20:48:24 DEBUG Step 6 out of 10
+2022-02-19 20:48:24 DEBUG Step 7 out of 10
+2022-02-19 20:48:24 DEBUG Step 8 out of 10
+2022-02-19 20:48:24 DEBUG Step 9 out of 10
+2022-02-19 20:48:24 DEBUG Step 10 out of 10
+2022-02-19 20:48:24 PASS Temperature Sin fitting test
+2022-02-19 20:48:24 PASS TPW Sin fitting test
+2022-02-19 20:48:24 PASS Time series of aggregated temperature
+2022-02-19 20:48:25 PASS Best fit deviation difference
+2022-02-19 20:48:25 PASS FFT Temperature Time Series test
+2022-02-19 20:48:25 PASS ML Test
+2022-02-19 20:48:25 ALOHA Program Complete
+2022-02-19 20:49:55 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 20:49:55 ALOHA Program Start
+2022-02-19 20:49:57 INFO Collecting Data from sources
+2022-02-19 20:49:59 DEBUG Step 1 out of 10
+2022-02-19 20:50:00 DEBUG Step 2 out of 10
+2022-02-19 20:50:00 DEBUG Step 3 out of 10
+2022-02-19 20:50:00 DEBUG Step 4 out of 10
+2022-02-19 20:50:00 DEBUG Step 5 out of 10
+2022-02-19 20:50:00 DEBUG Step 6 out of 10
+2022-02-19 20:50:00 DEBUG Step 7 out of 10
+2022-02-19 20:50:00 DEBUG Step 8 out of 10
+2022-02-19 20:50:00 DEBUG Step 9 out of 10
+2022-02-19 20:50:00 DEBUG Step 10 out of 10
+2022-02-19 20:50:39 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 20:50:39 ALOHA Program Start
+2022-02-19 20:50:41 INFO Collecting Data from sources
+2022-02-19 20:50:44 DEBUG Step 1 out of 10
+2022-02-19 20:50:44 DEBUG Step 2 out of 10
+2022-02-19 20:50:44 DEBUG Step 3 out of 10
+2022-02-19 20:50:44 DEBUG Step 4 out of 10
+2022-02-19 20:50:44 DEBUG Step 5 out of 10
+2022-02-19 20:50:44 DEBUG Step 6 out of 10
+2022-02-19 20:50:44 DEBUG Step 7 out of 10
+2022-02-19 20:50:44 DEBUG Step 8 out of 10
+2022-02-19 20:50:44 DEBUG Step 9 out of 10
+2022-02-19 20:50:44 DEBUG Step 10 out of 10
+2022-02-19 20:50:45 PASS Temperature Sin fitting test
+2022-02-19 20:50:45 PASS TPW Sin fitting test
+2022-02-19 20:50:45 PASS Time series of aggregated temperature
+2022-02-19 20:50:45 PASS Best fit deviation difference
+2022-02-19 20:50:45 PASS FFT Temperature Time Series test
+2022-02-19 20:50:45 PASS ML Test
+2022-02-19 20:50:45 ALOHA Program Complete
+2022-02-19 20:52:26 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 20:52:26 ALOHA Program Start
+2022-02-19 20:52:29 INFO Collecting Data from sources
+2022-02-19 20:52:31 DEBUG Step 1 out of 10
+2022-02-19 20:52:31 DEBUG Step 2 out of 10
+2022-02-19 20:52:31 DEBUG Step 3 out of 10
+2022-02-19 20:52:31 DEBUG Step 4 out of 10
+2022-02-19 20:52:31 DEBUG Step 5 out of 10
+2022-02-19 20:52:31 DEBUG Step 6 out of 10
+2022-02-19 20:52:31 DEBUG Step 7 out of 10
+2022-02-19 20:52:31 DEBUG Step 8 out of 10
+2022-02-19 20:52:31 DEBUG Step 9 out of 10
+2022-02-19 20:52:31 DEBUG Step 10 out of 10
+2022-02-19 20:52:32 PASS Temperature Sin fitting test
+2022-02-19 20:52:32 PASS TPW Sin fitting test
+2022-02-19 20:52:32 PASS Time series of aggregated temperature
+2022-02-19 20:52:32 PASS Best fit deviation difference
+2022-02-19 20:52:32 PASS FFT Temperature Time Series test
+2022-02-19 20:52:32 PASS ML Test
+2022-02-19 20:52:32 ALOHA Program Complete
+2022-02-19 20:52:56 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 20:52:56 ALOHA Program Start
+2022-02-19 20:52:59 INFO Collecting Data from sources
+2022-02-19 20:53:01 DEBUG Step 1 out of 10
+2022-02-19 20:53:01 DEBUG Step 2 out of 10
+2022-02-19 20:53:01 DEBUG Step 3 out of 10
+2022-02-19 20:53:01 DEBUG Step 4 out of 10
+2022-02-19 20:53:01 DEBUG Step 5 out of 10
+2022-02-19 20:53:01 DEBUG Step 6 out of 10
+2022-02-19 20:53:01 DEBUG Step 7 out of 10
+2022-02-19 20:53:01 DEBUG Step 8 out of 10
+2022-02-19 20:53:01 DEBUG Step 9 out of 10
+2022-02-19 20:53:01 DEBUG Step 10 out of 10
+2022-02-19 20:53:02 PASS Temperature Sin fitting test
+2022-02-19 20:53:02 PASS TPW Sin fitting test
+2022-02-19 20:53:02 PASS Time series of aggregated temperature
+2022-02-19 20:53:02 PASS Best fit deviation difference
+2022-02-19 20:53:02 PASS FFT Temperature Time Series test
+2022-02-19 20:53:02 PASS ML Test
+2022-02-19 20:53:02 ALOHA Program Complete
+2022-02-19 20:56:54 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 20:56:54 ALOHA Program Start
+2022-02-19 20:56:56 INFO Collecting Data from sources
+2022-02-19 20:56:59 DEBUG Step 1 out of 10
+2022-02-19 20:56:59 DEBUG Step 2 out of 10
+2022-02-19 20:56:59 DEBUG Step 3 out of 10
+2022-02-19 20:56:59 DEBUG Step 4 out of 10
+2022-02-19 20:56:59 DEBUG Step 5 out of 10
+2022-02-19 20:56:59 DEBUG Step 6 out of 10
+2022-02-19 20:56:59 DEBUG Step 7 out of 10
+2022-02-19 20:56:59 DEBUG Step 8 out of 10
+2022-02-19 20:56:59 DEBUG Step 9 out of 10
+2022-02-19 20:56:59 DEBUG Step 10 out of 10
+2022-02-19 20:57:00 PASS Temperature Sin fitting test
+2022-02-19 20:57:00 PASS TPW Sin fitting test
+2022-02-19 20:57:00 PASS Time series of aggregated temperature
+2022-02-19 20:57:00 PASS Best fit deviation difference
+2022-02-19 20:57:00 PASS FFT Temperature Time Series test
+2022-02-19 20:57:00 PASS ML Test
+2022-02-19 20:57:00 ALOHA Program Complete
+2022-02-19 20:57:28 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 20:57:28 ALOHA Program Start
+2022-02-19 20:57:31 INFO Collecting Data from sources
+2022-02-19 20:57:33 DEBUG Step 1 out of 10
+2022-02-19 20:57:33 DEBUG Step 2 out of 10
+2022-02-19 20:57:33 DEBUG Step 3 out of 10
+2022-02-19 20:57:33 DEBUG Step 4 out of 10
+2022-02-19 20:57:33 DEBUG Step 5 out of 10
+2022-02-19 20:57:33 DEBUG Step 6 out of 10
+2022-02-19 20:57:33 DEBUG Step 7 out of 10
+2022-02-19 20:57:33 DEBUG Step 8 out of 10
+2022-02-19 20:57:33 DEBUG Step 9 out of 10
+2022-02-19 20:57:33 DEBUG Step 10 out of 10
+2022-02-19 20:57:34 PASS Temperature Sin fitting test
+2022-02-19 20:57:35 PASS TPW Sin fitting test
+2022-02-19 20:57:35 PASS Time series of aggregated temperature
+2022-02-19 20:57:35 PASS Best fit deviation difference
+2022-02-19 20:57:35 PASS FFT Temperature Time Series test
+2022-02-19 20:57:35 PASS ML Test
+2022-02-19 20:57:35 ALOHA Program Complete
+2022-02-19 20:58:11 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 20:58:11 ALOHA Program Start
+2022-02-19 20:58:14 INFO Collecting Data from sources
+2022-02-19 20:58:17 DEBUG Step 1 out of 10
+2022-02-19 20:58:17 DEBUG Step 2 out of 10
+2022-02-19 20:58:17 DEBUG Step 3 out of 10
+2022-02-19 20:58:17 DEBUG Step 4 out of 10
+2022-02-19 20:58:17 DEBUG Step 5 out of 10
+2022-02-19 20:58:17 DEBUG Step 6 out of 10
+2022-02-19 20:58:17 DEBUG Step 7 out of 10
+2022-02-19 20:58:17 DEBUG Step 8 out of 10
+2022-02-19 20:58:17 DEBUG Step 9 out of 10
+2022-02-19 20:58:17 DEBUG Step 10 out of 10
+2022-02-19 20:58:17 PASS Temperature Sin fitting test
+2022-02-19 20:58:17 PASS TPW Sin fitting test
+2022-02-19 20:58:17 PASS Time series of aggregated temperature
+2022-02-19 20:58:17 PASS Best fit deviation difference
+2022-02-19 20:58:18 PASS FFT Temperature Time Series test
+2022-02-19 20:58:18 PASS ML Test
+2022-02-19 20:58:18 ALOHA Program Complete
+2022-02-19 20:59:46 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 20:59:46 ALOHA Program Start
+2022-02-19 20:59:48 INFO Collecting Data from sources
+2022-02-19 20:59:51 DEBUG Step 1 out of 10
+2022-02-19 20:59:51 DEBUG Step 2 out of 10
+2022-02-19 20:59:51 DEBUG Step 3 out of 10
+2022-02-19 20:59:51 DEBUG Step 4 out of 10
+2022-02-19 20:59:51 DEBUG Step 5 out of 10
+2022-02-19 20:59:51 DEBUG Step 6 out of 10
+2022-02-19 20:59:51 DEBUG Step 7 out of 10
+2022-02-19 20:59:51 DEBUG Step 8 out of 10
+2022-02-19 20:59:51 DEBUG Step 9 out of 10
+2022-02-19 20:59:51 DEBUG Step 10 out of 10
+2022-02-19 20:59:52 PASS Temperature Sin fitting test
+2022-02-19 20:59:52 PASS TPW Sin fitting test
+2022-02-19 20:59:52 PASS Time series of aggregated temperature
+2022-02-19 20:59:52 PASS Best fit deviation difference
+2022-02-19 20:59:52 PASS FFT Temperature Time Series test
+2022-02-19 20:59:52 PASS ML Test
+2022-02-19 20:59:52 ALOHA Program Complete
+2022-02-19 21:00:45 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 21:00:45 ALOHA Program Start
+2022-02-19 21:00:48 INFO Collecting Data from sources
+2022-02-19 21:00:51 DEBUG Step 1 out of 10
+2022-02-19 21:00:51 DEBUG Step 2 out of 10
+2022-02-19 21:00:51 DEBUG Step 3 out of 10
+2022-02-19 21:00:51 DEBUG Step 4 out of 10
+2022-02-19 21:00:51 DEBUG Step 5 out of 10
+2022-02-19 21:00:51 DEBUG Step 6 out of 10
+2022-02-19 21:00:51 DEBUG Step 7 out of 10
+2022-02-19 21:00:51 DEBUG Step 8 out of 10
+2022-02-19 21:00:51 DEBUG Step 9 out of 10
+2022-02-19 21:00:51 DEBUG Step 10 out of 10
+2022-02-19 21:00:52 PASS Temperature Sin fitting test
+2022-02-19 21:00:52 PASS TPW Sin fitting test
+2022-02-19 21:00:52 PASS Time series of aggregated temperature
+2022-02-19 21:00:52 PASS Best fit deviation difference
+2022-02-19 21:00:52 PASS FFT Temperature Time Series test
+2022-02-19 21:00:52 PASS ML Test
+2022-02-19 21:00:52 ALOHA Program Complete
+2022-02-19 21:02:38 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 21:02:38 ALOHA Program Start
+2022-02-19 21:02:40 INFO Collecting Data from sources
+2022-02-19 21:02:43 DEBUG Step 1 out of 10
+2022-02-19 21:02:43 DEBUG Step 2 out of 10
+2022-02-19 21:02:43 DEBUG Step 3 out of 10
+2022-02-19 21:02:43 DEBUG Step 4 out of 10
+2022-02-19 21:02:43 DEBUG Step 5 out of 10
+2022-02-19 21:02:43 DEBUG Step 6 out of 10
+2022-02-19 21:02:43 DEBUG Step 7 out of 10
+2022-02-19 21:02:43 DEBUG Step 8 out of 10
+2022-02-19 21:02:43 DEBUG Step 9 out of 10
+2022-02-19 21:02:43 DEBUG Step 10 out of 10
+2022-02-19 21:02:43 PASS Temperature Sin fitting test
+2022-02-19 21:02:44 PASS TPW Sin fitting test
+2022-02-19 21:02:44 PASS Time series of aggregated temperature
+2022-02-19 21:02:44 PASS Best fit deviation difference
+2022-02-19 21:02:44 PASS FFT Temperature Time Series test
+2022-02-19 21:02:44 PASS ML Test
+2022-02-19 21:02:44 ALOHA Program Complete
+2022-02-19 21:06:10 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 21:06:10 ALOHA Program Start
+2022-02-19 21:06:12 INFO Collecting Data from sources
+2022-02-19 21:06:15 DEBUG Step 1 out of 10
+2022-02-19 21:06:15 DEBUG Step 2 out of 10
+2022-02-19 21:06:15 DEBUG Step 3 out of 10
+2022-02-19 21:06:15 DEBUG Step 4 out of 10
+2022-02-19 21:06:15 DEBUG Step 5 out of 10
+2022-02-19 21:06:15 DEBUG Step 6 out of 10
+2022-02-19 21:06:15 DEBUG Step 7 out of 10
+2022-02-19 21:06:15 DEBUG Step 8 out of 10
+2022-02-19 21:06:15 DEBUG Step 9 out of 10
+2022-02-19 21:06:15 DEBUG Step 10 out of 10
+2022-02-19 21:06:16 PASS Temperature Sin fitting test
+2022-02-19 21:06:16 PASS TPW Sin fitting test
+2022-02-19 21:06:16 PASS Time series of aggregated temperature
+2022-02-19 21:06:16 PASS Best fit deviation difference
+2022-02-19 21:06:16 PASS FFT Temperature Time Series test
+2022-02-19 21:06:16 PASS ML Test
+2022-02-19 21:06:16 ALOHA Program Complete
+2022-02-19 21:09:14 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 21:09:14 ALOHA Program Start
+2022-02-19 21:09:17 INFO Collecting Data from sources
+2022-02-19 21:09:19 DEBUG Step 1 out of 10
+2022-02-19 21:09:19 DEBUG Step 2 out of 10
+2022-02-19 21:09:19 DEBUG Step 3 out of 10
+2022-02-19 21:09:19 DEBUG Step 4 out of 10
+2022-02-19 21:09:19 DEBUG Step 5 out of 10
+2022-02-19 21:09:19 DEBUG Step 6 out of 10
+2022-02-19 21:09:19 DEBUG Step 7 out of 10
+2022-02-19 21:09:19 DEBUG Step 8 out of 10
+2022-02-19 21:09:19 DEBUG Step 9 out of 10
+2022-02-19 21:09:19 DEBUG Step 10 out of 10
+2022-02-19 21:09:20 PASS Temperature Sin fitting test
+2022-02-19 21:09:20 PASS TPW Sin fitting test
+2022-02-19 21:09:20 PASS Time series of aggregated temperature
+2022-02-19 21:09:20 PASS Best fit deviation difference
+2022-02-19 21:09:20 PASS FFT Temperature Time Series test
+2022-02-19 21:09:20 PASS ML Test
+2022-02-19 21:09:20 ALOHA Program Complete
+2022-02-19 21:15:52 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 21:15:52 ALOHA Program Start
+2022-02-19 21:15:55 INFO Collecting Data from sources
+2022-02-19 21:15:57 DEBUG Step 1 out of 10
+2022-02-19 21:15:57 DEBUG Step 2 out of 10
+2022-02-19 21:15:57 DEBUG Step 3 out of 10
+2022-02-19 21:15:57 DEBUG Step 4 out of 10
+2022-02-19 21:15:57 DEBUG Step 5 out of 10
+2022-02-19 21:15:57 DEBUG Step 6 out of 10
+2022-02-19 21:15:57 DEBUG Step 7 out of 10
+2022-02-19 21:15:57 DEBUG Step 8 out of 10
+2022-02-19 21:15:57 DEBUG Step 9 out of 10
+2022-02-19 21:15:57 DEBUG Step 10 out of 10
+2022-02-19 21:15:58 PASS Temperature Sin fitting test
+2022-02-19 21:15:58 PASS TPW Sin fitting test
+2022-02-19 21:15:58 PASS Time series of aggregated temperature
+2022-02-19 21:15:58 PASS Best fit deviation difference
+2022-02-19 21:15:58 PASS FFT Temperature Time Series test
+2022-02-19 21:15:58 PASS ML Test
+2022-02-19 21:15:58 ALOHA Program Complete
+2022-02-19 21:16:56 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 21:16:56 ALOHA Program Start
+2022-02-19 21:16:59 INFO Collecting Data from sources
+2022-02-19 21:17:01 DEBUG Step 1 out of 10
+2022-02-19 21:17:01 DEBUG Step 2 out of 10
+2022-02-19 21:17:01 DEBUG Step 3 out of 10
+2022-02-19 21:17:01 DEBUG Step 4 out of 10
+2022-02-19 21:17:01 DEBUG Step 5 out of 10
+2022-02-19 21:17:01 DEBUG Step 6 out of 10
+2022-02-19 21:17:01 DEBUG Step 7 out of 10
+2022-02-19 21:17:01 DEBUG Step 8 out of 10
+2022-02-19 21:17:01 DEBUG Step 9 out of 10
+2022-02-19 21:17:01 DEBUG Step 10 out of 10
+2022-02-19 21:17:02 PASS Temperature Sin fitting test
+2022-02-19 21:17:02 PASS TPW Sin fitting test
+2022-02-19 21:17:02 PASS Time series of aggregated temperature
+2022-02-19 21:17:02 PASS Best fit deviation difference
+2022-02-19 21:17:02 PASS FFT Temperature Time Series test
+2022-02-19 21:17:02 PASS ML Test
+2022-02-19 21:17:02 ALOHA Program Complete
+2022-02-19 21:19:38 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 21:19:38 ALOHA Program Start
+2022-02-19 21:19:40 INFO Collecting Data from sources
+2022-02-19 21:19:43 DEBUG Step 1 out of 10
+2022-02-19 21:19:43 DEBUG Step 2 out of 10
+2022-02-19 21:19:43 DEBUG Step 3 out of 10
+2022-02-19 21:19:43 DEBUG Step 4 out of 10
+2022-02-19 21:19:43 DEBUG Step 5 out of 10
+2022-02-19 21:19:43 DEBUG Step 6 out of 10
+2022-02-19 21:19:43 DEBUG Step 7 out of 10
+2022-02-19 21:19:43 DEBUG Step 8 out of 10
+2022-02-19 21:19:43 DEBUG Step 9 out of 10
+2022-02-19 21:19:43 DEBUG Step 10 out of 10
+2022-02-19 21:19:43 PASS Temperature Sin fitting test
+2022-02-19 21:19:44 PASS TPW Sin fitting test
+2022-02-19 21:19:44 PASS Time series of aggregated temperature
+2022-02-19 21:19:44 PASS Best fit deviation difference
+2022-02-19 21:19:44 PASS FFT Temperature Time Series test
+2022-02-19 21:19:44 PASS ML Test
+2022-02-19 21:19:44 ALOHA Program Complete
+2022-02-19 21:24:27 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 21:24:27 ALOHA Program Start
+2022-02-19 21:24:29 INFO Collecting Data from sources
+2022-02-19 21:24:32 DEBUG Step 1 out of 10
+2022-02-19 21:24:32 DEBUG Step 2 out of 10
+2022-02-19 21:24:32 DEBUG Step 3 out of 10
+2022-02-19 21:24:32 DEBUG Step 4 out of 10
+2022-02-19 21:24:32 DEBUG Step 5 out of 10
+2022-02-19 21:24:32 DEBUG Step 6 out of 10
+2022-02-19 21:24:32 DEBUG Step 7 out of 10
+2022-02-19 21:24:32 DEBUG Step 8 out of 10
+2022-02-19 21:24:32 DEBUG Step 9 out of 10
+2022-02-19 21:24:32 DEBUG Step 10 out of 10
+2022-02-19 21:24:33 PASS Temperature Sin fitting test
+2022-02-19 21:24:33 PASS TPW Sin fitting test
+2022-02-19 21:24:33 PASS Time series of aggregated temperature
+2022-02-19 21:24:33 PASS Best fit deviation difference
+2022-02-19 21:24:33 PASS FFT Temperature Time Series test
+2022-02-19 21:24:33 PASS ML Test
+2022-02-19 21:24:33 ALOHA Program Complete
+2022-02-19 21:24:46 ALOHA Precipitable-water Model Analysis Tool
+2022-02-19 21:24:46 ALOHA Program Start
+2022-02-19 21:24:48 INFO Collecting Data from sources
+2022-02-19 21:24:51 DEBUG Step 1 out of 10
+2022-02-19 21:24:51 DEBUG Step 2 out of 10
+2022-02-19 21:24:51 DEBUG Step 3 out of 10
+2022-02-19 21:24:51 DEBUG Step 4 out of 10
+2022-02-19 21:24:51 DEBUG Step 5 out of 10
+2022-02-19 21:24:51 DEBUG Step 6 out of 10
+2022-02-19 21:24:51 DEBUG Step 7 out of 10
+2022-02-19 21:24:51 DEBUG Step 8 out of 10
+2022-02-19 21:24:51 DEBUG Step 9 out of 10
+2022-02-19 21:24:51 DEBUG Step 10 out of 10
+2022-02-19 21:24:52 PASS Temperature Sin fitting test
+2022-02-19 21:24:52 PASS TPW Sin fitting test
+2022-02-19 21:24:52 PASS Time series of aggregated temperature
+2022-02-19 21:24:52 PASS Best fit deviation difference
+2022-02-19 21:24:52 PASS FFT Temperature Time Series test
+2022-02-19 21:24:52 PASS ML Test
+2022-02-19 21:24:52 ALOHA Program Complete
+2022-02-20 10:51:40 ALOHA Precipitable-water Model Analysis Tool
+2022-02-20 10:51:40 ALOHA Program Start
+2022-02-20 10:52:02 INFO Collecting Data from sources
+2022-02-20 10:52:04 DEBUG Step 1 out of 10
+2022-02-20 10:52:04 DEBUG Step 2 out of 10
+2022-02-20 10:52:04 DEBUG Step 3 out of 10
+2022-02-20 10:52:04 DEBUG Step 4 out of 10
+2022-02-20 10:52:04 DEBUG Step 5 out of 10
+2022-02-20 10:52:04 DEBUG Step 6 out of 10
+2022-02-20 10:52:04 DEBUG Step 7 out of 10
+2022-02-20 10:52:04 DEBUG Step 8 out of 10
+2022-02-20 10:52:04 DEBUG Step 9 out of 10
+2022-02-20 10:52:04 DEBUG Step 10 out of 10
+2022-02-20 10:52:05 INFO Analytics Plot Set
+2022-02-20 10:52:05 PASS Correlation between TPW and Temperature
+2022-02-20 10:52:05 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-20 10:52:05 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-20 10:52:05 PASS Regression between Mean TPW and Temperature
+2022-02-20 10:52:05 PASS Regression between Weighted TPW and Temperature
+2022-02-20 10:52:47 ALOHA Precipitable-water Model Analysis Tool
+2022-02-20 10:52:47 ALOHA Program Start
+2022-02-20 10:52:50 INFO Collecting Data from sources
+2022-02-20 10:52:52 DEBUG Step 1 out of 10
+2022-02-20 10:52:52 DEBUG Step 2 out of 10
+2022-02-20 10:52:52 DEBUG Step 3 out of 10
+2022-02-20 10:52:52 DEBUG Step 4 out of 10
+2022-02-20 10:52:52 DEBUG Step 5 out of 10
+2022-02-20 10:52:52 DEBUG Step 6 out of 10
+2022-02-20 10:52:52 DEBUG Step 7 out of 10
+2022-02-20 10:52:52 DEBUG Step 8 out of 10
+2022-02-20 10:52:52 DEBUG Step 9 out of 10
+2022-02-20 10:52:52 DEBUG Step 10 out of 10
+2022-02-20 10:52:52 INFO Analytics Plot Set
+2022-02-20 10:52:52 PASS Correlation between TPW and Temperature
+2022-02-20 10:52:53 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-20 10:52:53 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-20 10:52:53 PASS Regression between Mean TPW and Temperature
+2022-02-20 10:52:53 PASS Regression between Weighted TPW and Temperature
+2022-02-20 10:52:53 PASS ML Test
+2022-02-20 10:52:53 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-20 10:52:53 ALOHA Program Complete
+2022-02-20 10:53:36 ALOHA Precipitable-water Model Analysis Tool
+2022-02-20 10:53:36 ALOHA Program Start
+2022-02-20 10:53:38 INFO Collecting Data from sources
+2022-02-20 10:53:41 DEBUG Step 1 out of 10
+2022-02-20 10:53:41 DEBUG Step 2 out of 10
+2022-02-20 10:53:41 DEBUG Step 3 out of 10
+2022-02-20 10:53:41 DEBUG Step 4 out of 10
+2022-02-20 10:53:41 DEBUG Step 5 out of 10
+2022-02-20 10:53:41 DEBUG Step 6 out of 10
+2022-02-20 10:53:41 DEBUG Step 7 out of 10
+2022-02-20 10:53:41 DEBUG Step 8 out of 10
+2022-02-20 10:53:41 DEBUG Step 9 out of 10
+2022-02-20 10:53:41 DEBUG Step 10 out of 10
+2022-02-20 10:53:41 INFO Analytics Plot Set
+2022-02-20 10:53:41 PASS Correlation between TPW and Temperature
+2022-02-20 10:53:42 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-20 10:53:42 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-20 10:53:42 PASS Regression between Mean TPW and Temperature
+2022-02-20 10:53:42 PASS Regression between Weighted TPW and Temperature
+2022-02-20 10:53:42 PASS SVM Analysis between Sky Temperature and TPW
+2022-02-20 10:53:42 PASS Plot set downloaded to ./util/tests/data_monsoon/../figs/results/
+2022-02-20 10:53:42 ALOHA Program Complete
