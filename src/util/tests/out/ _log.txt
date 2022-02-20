@@ -743,3 +743,6 @@
 2022-02-20 13:17:54 PASS SVM Analysis between Sky Temperature and TPW
 2022-02-20 13:17:54 PASS Plot set downloaded to ./util/tests/data_monsoon/../out/figs/
 2022-02-20 13:17:54 ALOHA Program Complete
+2022-02-20 13:39:39 ERROR _pmat.yml is not found
+2022-02-20 13:40:29 ERROR _pmat.yml is not found
+2022-02-20 13:40:29 ALOHA Program Complete

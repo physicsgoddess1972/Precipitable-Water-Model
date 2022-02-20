@@ -42,7 +42,6 @@ out.dir <- paste(args$dir, "../out/", sep="")
 fig.dir <- paste(out.dir, "figs/", sep="")
 dat.dir <- paste(out.dir, "data/", sep="")
 # Error/Warning definitions
-# level 	<- "DEBUG"
 source("./pmat_utility.r")
 
 ## Imports sensor information from instruments.txt
@@ -52,7 +51,6 @@ if(file.exists(paste(args$dir,"_pmat.yml", sep=""))){
 } else {
 	logg("ERROR", F02, lev = "DEBUG"); closing()
 }
-print(level)
 if (args$first){first()}
 startup()
 
