@@ -43,7 +43,7 @@ time.pwindex <- function(datetime){
         points(x_sec, y_sec, pch=16)
     }
     # print statement when completed
-    logg("PASS","Normalized Index for Weighted PWV Time Series", level = level)
+    logg("PASS","Normalized Index for Weighted PWV Time Series", lev = level)
 }
 
 time.nth_range <- function(range, title, color, leg.lab, ylab, datetime,overcast){
@@ -80,7 +80,7 @@ time.nth_range <- function(range, title, color, leg.lab, ylab, datetime,overcast
                            pch=c(16,16, 16))
     }
     # print statement when completed
-    logg("PASS", title, level = level)
+    logg("PASS", title, lev = level)
 }
 
 time.composite <- function(range, title, color, ylab, datetime, overcast){
@@ -110,7 +110,7 @@ time.composite <- function(range, title, color, ylab, datetime, overcast){
          pch=16,
          xlim=time_axis_init(datetime)[[1]])
     axis(side = 4); mtext(side=4, line=3, ylab[[2]], col=color[[2]])
-    logg("PASS", title, level = level)
+    logg("PASS", title, lev = level)
 }
 
 analysis.nth_range <- function(overcast, x, y, title, label, color, leg.lab){
@@ -142,7 +142,7 @@ analysis.nth_range <- function(overcast, x, y, title, label, color, leg.lab){
                           col=color,
                           pch=c(16,16, 16))
   }
-  logg("PASS", title, level = level)
+  logg("PASS", title, lev = level)
 }
 
 analysis.regression	<- function(overcast, x, y, des, label, iter, results){
@@ -178,7 +178,7 @@ analysis.regression	<- function(overcast, x, y, des, label, iter, results){
                         lty=c(1),
                         legend=c(parse(text=leg)))
 
-    logg("PASS", des, level = level)
+    logg("PASS", des, lev = level)
 }
 
 analysis.svm <- function(model){
@@ -201,7 +201,7 @@ analysis.svm <- function(model){
            pch=c(NA, 16, 16),
            lty=c(1, NA, NA),
            legend=c(parse(text=leg), "clear-sky", "overcast"))
-    logg("PASS", "SVM Analysis between Sky Temperature and TPW", level = level)
+    logg("PASS", "SVM Analysis between Sky Temperature and TPW", lev = level)
   }
 
 pac.compare <- function(overcast, des, x, y, angular, radial){
@@ -217,7 +217,7 @@ pac.compare <- function(overcast, des, x, y, angular, radial){
              angular,
              radial)
 
-   logg("PASS", des, level = level)
+   logg("PASS", des, lev = level)
 }
 
 pac.regression <- function(overcast){
@@ -240,7 +240,7 @@ pac.regression <- function(overcast){
               stnd_title(des, overcast),
               c("Zenith Sky Temperature", "degC"))
 
-    logg("PASS", des, level = level)
+    logg("PASS", des, lev = level)
 }
 
 charts	<- function(...){
@@ -269,7 +269,7 @@ charts	<- function(...){
 
             f <- (h$counts / h$density) * dnorm(x, mean = mean(range[[count]], na.rm = TRUE), sd = sd(range[[count]], na.rm=TRUE))
             lines(x,f, type="l", col="black", lwd=2, lty=1)
-            logg("PASS", sprintf("%s", title[count]), level = level)
+            logg("PASS", sprintf("%s", title[count]), lev = level)
         }
 
     }
@@ -497,7 +497,7 @@ poster.plots <- function(overcast, iter, nan.out, mean.out){
         }
         mtext("Condition: Overcast", outer=TRUE, cex=0.75, line=-1.5, at=c(x=0.76))
         mtext("Condition: Clear Sky", outer=TRUE, cex=0.75, line=-1.5, at=c(x=0.26))
-        logg("PASS", "Sky-Ground-Delta Temperature Time Series", level = level)
+        logg("PASS", "Sky-Ground-Delta Temperature Time Series", lev = level)
     }
 
     poster2 <- function(overcast, iter, nan.out, mean.out){
@@ -604,7 +604,7 @@ poster.plots <- function(overcast, iter, nan.out, mean.out){
         iter$A,iter$B,iter$S))))
         # Layout configuration for preceding plots
         layout(matrix(c(1), 2, 2, byrow=TRUE))
-        logg("PASS", "Analytical Plots", level = level)
+        logg("PASS", "Analytical Plots", lev = level)
     }
 
     return(list(poster1(),
@@ -680,7 +680,7 @@ sensor.chart <- function(...){
                 }
 
             }
-        logg("PASS", sprintf("Overcast Condition Percentage: %s", gsub("_", " ",snsr_name[count])), level = level)
+        logg("PASS", sprintf("Overcast Condition Percentage: %s", gsub("_", " ",snsr_name[count])), lev = level)
     }
 }
 
@@ -751,7 +751,7 @@ sensor.time <- function(overcast){
                 }
             }
             # print(length(unique(snsr_tag)[!is.na(unique(snsr_tag))][count]))
-            logg("PASS", sprintf("Sky-Ground Time Series: %s", gsub("_", " ",unique(snsr_tag)[count][1])), level = level)
+            logg("PASS", sprintf("Sky-Ground Time Series: %s", gsub("_", " ",unique(snsr_tag)[count][1])), lev = level)
         }
     }
 
@@ -777,7 +777,7 @@ data.gen <- function(overcast, dir){
         colnames(data) <- c("date", "avg_temp", "avg_pw")
       # Writes the data to a csv
         write.csv(data, file=paste(dir, sprintf("data%s.csv", ifelse(overcast,"_overcast", "")), sep=""), row.names=FALSE)
-        logg("PASS", sprintf("Data sent to data/data%s.csv", ifelse(overcast,"_overcast", "")), level = level)
+        logg("PASS", sprintf("Data sent to data/data%s.csv", ifelse(overcast,"_overcast", "")), lev = level)
 }
 
 data.ml <- function(dir){
@@ -827,7 +827,7 @@ data.ml <- function(dir){
         colnames(data) <- c("date", "avg_temp", "avg_pw", "avg_rh", "condition")
         # Writes the data to a csv
         write.csv(data, file=sprintf("%sml_data.csv", dir), row.names=FALSE)
-        logg("PASS", sprintf("Data sent to %sml_data.csv", dir), level = level)
+        logg("PASS", sprintf("Data sent to %sml_data.csv", dir), lev = level)
 }
 
 data.step <- function(seed, i, coef, r, S){
@@ -863,13 +863,13 @@ visual.products <- function(set, nan.out, mean.out, datetime=datetime, overcast=
     #' :param logical overcast: ovecast boolean
 
 	if(set == "i"){
-        logg("INFO", "Sensor Plot Set", level = level)
+        logg("INFO", "Sensor Plot Set", lev = level)
 		pdf(sprintf("%ssensor%s.pdf", fig.dir, ifelse(overcast,"_overcast", "")))
 	    sensor.chart()
         sensor.time(overcast)
         return(NULL)
 	}else if(set == "t"){
-        logg("INFO", "Time Series Plot Set", level = level)
+        logg("INFO", "Time Series Plot Set", lev = level)
 		pdf(sprintf("%stime_series%s.pdf", fig.dir, ifelse(overcast,"_overcast", "")))
         if (length(datetime) > 0){
           r1 <- list(res$snsr_sky,
@@ -924,7 +924,7 @@ visual.products <- function(set, nan.out, mean.out, datetime=datetime, overcast=
             time.pwindex(datetime)
             return(NULL)
 		} else {
-			logg("ERROR", D01, level = level); closing()
+			logg("ERROR", D01, lev = level); closing()
 		}
 	}else if(set == "a"){
         logg("INFO", "Analytics Plot Set")
@@ -967,12 +967,12 @@ visual.products <- function(set, nan.out, mean.out, datetime=datetime, overcast=
         ml <- lsvm(nan.ml$x, log(nan.ml$y, base=exp(1)), nan.ml$l)
         analysis.svm(ml)
 	}else if(set == "c"){
-        logg("INFO", "Chart Set", level = level)
+        logg("INFO", "Chart Set", lev = level)
 		pdf(sprintf("%scharts.pdf", fig.dir))
         charts()
         return(NULL)
 	} else if (set == "p") {
-        logg("INFO", "Pac-Man Plot Set", level = level)
+        logg("INFO", "Pac-Man Plot Set", lev = level)
 		pdf(sprintf("%spacman%s.pdf", fig.dir, ifelse(overcast,"_overcast", "")))
         ifelse(overcast, results <- overcast.data,
                          results <- clear_sky.data)
@@ -990,7 +990,7 @@ visual.products <- function(set, nan.out, mean.out, datetime=datetime, overcast=
         pac.regression(overcast)
         return(NULL)
 	} else if (set == "o"){
-        logg("INFO", "Poster Plot Set", level = level)
+        logg("INFO", "Poster Plot Set", lev = level)
 		pdf(sprintf("%sposter%s.pdf", fig.dir, ifelse(overcast,"_overcast", "")))
         poster.plots(overcast, iter.results, nan.out, mean.out)
         return(NULL)

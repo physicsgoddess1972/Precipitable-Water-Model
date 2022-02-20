@@ -17,13 +17,13 @@ D01 <- "Insufficient clear sky/overcast data"
 F01 <- "master_data.csv is not found"
 F02 <- "_pmat.yml is not found"
 
-logg <- function(msglevel, msg, dir=out.dir, level="INFO") {
+logg <- function(msglevel, msg, dir=out.dir, lev="INFO") {
       #' :detail: creates log entries for _log.txt
       #' :param character msglevel:
       #' :param character msg:
       crayon_env <- tryCatch(asNamespace("crayon"), error = function(e) NULL)
       pos <- which(names(loglevels) == msglevel)
-      num <- which(names(loglevels) == level)
+      num <- which(names(loglevels) == lev)
 
       if (loglevels[[pos]] < loglevels[[num]]) {
         return(invisible(FALSE))
@@ -67,8 +67,8 @@ first <- function(){
 
 startup <- function(){
     #' :detail: shows title banner for program
-    logg("ALOHA", "Precipitable-water Model Analysis Tool", level = level)
-    logg("ALOHA", "Program Start", level = level)
+    logg("ALOHA", "Precipitable-water Model Analysis Tool", lev = level)
+    logg("ALOHA", "Program Start", lev = level)
 }
 
 closing <- function(){
@@ -77,7 +77,7 @@ closing <- function(){
     invisible(graphics.off())
     if(file.exists("Rplots.pdf")){file.remove("Rplots.pdf")}
 # End of program
-    logg("ALOHA", "Program Complete", level = level); quit()
+    logg("ALOHA", "Program Complete", lev = level); quit()
 }
 
 reset_time <- function(datetime){
