@@ -114,7 +114,7 @@ iterative.analysis <- function(results, dir, obool, nan.out, mean.out){
 				def_seed <- sample(1:.Machine$integer.max, 1, replace=FALSE)
 				seeds <- append(seeds, def_seed)
 			}
-			logg("DEBUG", sprintf("Step %d out of %d", i,step), level = level)
+			logg("DEBUG", sprintf("Step %d out of %d", i,step), lev = level)
 			set.seed(def_seed)
 			exp_reg <- exp.regression(results,train_frac,
 									  nan.out = nan.out,
@@ -135,7 +135,7 @@ iterative.analysis <- function(results, dir, obool, nan.out, mean.out){
 		write(as.yaml(out, precision=4), file = paste(dir,"data/_output.yml", sep=""))
 	} else {
 		for (i in 1:length(oname)){
-			logg("DEBUG", sprintf("Step %d out of %d", i,step), level = level)
+			logg("DEBUG", sprintf("Step %d out of %d", i,step), lev = level)
 			yml 	<- read_yaml(text=as.yaml(oname[[i]]))
 			seeds 	<- append(seeds, yml$seed)
 			set.seed(yml$seed)
@@ -179,7 +179,7 @@ iterative.analysis <- function(results, dir, obool, nan.out, mean.out){
 	output[["filter.mean"]] <- mean.out
 	output[["nan.out"]]	<- nan.out
 	if (is.na(output$S)){
-		logg("WARN", a01, level = level)
+		logg("WARN", a01, lev = level)
 	}
 	return(output)
 }
