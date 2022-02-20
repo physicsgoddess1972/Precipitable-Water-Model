@@ -102,11 +102,14 @@ for (j in unique(pw_time)){
 }
 col_pwtm <- unique(col_pwtm)
 # Assigns a color for each label
-#pw_color <- distinctColorPalette(length(pw_name), runTsne=TRUE, altCol=TRUE)
 pw_color <- brewer.pal(length(pw_name),"Set1")
 temp_col <- brewer.pal(length(temp_name), "Spectral")
 
 colscheme <- function(range){
+	#' :detail: a function that generates an array of colors based on the number of elements
+	#' :param list range: a list of data series
+	#' :return: a list of colors
+	#' :rtype: list
 	col <- brewer.pal(length(range)+1, "Set1")
 	return(col)
 }
@@ -118,15 +121,14 @@ for (j in unique(snsr_tag)){
 	col_snsr <- append(col_snsr, list(grep(j, snsr_tag)))
 }
 
-#' @title mean.filter
-#' @description filters the data based on the comparison of the daily std and the average std of the dataset
-#' @param pw precipitable water data
-#' @param n the threshold
-#' @return array of indicies for PWV values to be analyzed
-#' @export
 mean.filter <- function(pw, n){
+	#' :detail: filters the data based on the comparison of the daily std and the average std of the dataset
+	#' :param pw: precipitable water data
+	#' :param n: threshold
+	#' :return: an array of indicies for PWV values to be analyzed
+	#' :rtype: list
 	bad <- good <- list()
-	out <- stdi <- list()
+	out <- std.i <- list()
 	for (i in 1:length(pw)){
 		for (j in 1:length(pw[[i]])){
 			out[[ paste("out",j,sep="") ]] <- append(out[[ paste("out",j,sep="") ]],
@@ -134,12 +136,14 @@ mean.filter <- function(pw, n){
 		}
 	}
 	for (i in 1:length(pw[[1]])){
-		stdi <- append(stdi, sd(unlist(out[[ paste("out",i,sep="") ]])))
+		std.i <- append(std.i, sd(unlist(out[[ paste("out",i,sep="") ]])))
 	}
-	for (i in 1:length(stdi)){
-		if(is.na(stdi[i])){
+	std.i <- as.numeric(std.i)
+	std.avg <- Reduce("+", na.omit(std.i))/length(na.omit(std.i))
+	for (i in 1:length(std.i)){
+		if(is.na(std.i[i])){
 			next
-		} else if (stdi[[i]] - (n * (Reduce("+", stdi)/length(stdi))) < 0){
+		} else if (std.i[[i]] - (n * std.avg) < 0){
 			good <- append(good, i)
 		} else {
 			bad <- append(bad, i)
@@ -148,65 +152,103 @@ mean.filter <- function(pw, n){
 	return(unlist(good))
 }
 
+dna.filter <- function(fover){
+	#' :detail: removes data labels as Do Not Analyze
+	#' :param fover: overcast.filter results
+	#' :return: overcast.filter results with DNA points removed
+	#' :rtype: list
+	sky.len <- length(grep("snsr_sky", names(fover), fixed=TRUE))
+	gro.len <- length(grep("snsr_gro", names(fover), fixed=TRUE))
+	pw.len 	<- length(grep("pw_loc", names(fover), fixed=TRUE))
+	dna.len <- grep("DNA", fover$com, fixed=TRUE)
 
-#' @title data.parition
-#' @description splits the data into a training/testing set
-#' @param x domain of the data
-#' @param y range of the data
-#' @param train_size fraction of the data in the testing set [Default is 0.7]
-#' @param rand_state the seed for the random generated partition
-#' @return a testing and training dataset
-#' @export
-data.partition <- function(x,y, train_size=0.7){
-  train_idx <- sample(1:length(x), trunc(length(x)*train_size), replace=FALSE)
-  test_idx  <- (1:length(x))[-(train_idx)]
-
-  train     <- data.frame(x[train_idx],
-                          y[train_idx])
-  colnames(train) <- c("x", "y")
-
-  test    <- data.frame(x[test_idx],
-                          y[test_idx])
-  colnames(test) <- c("x", "y")
-
-  return(list(train=train, test=test, train_idx=train_idx))
+	if (length(dna.len) > 0){
+		for (j in 1:sky.len){
+			fover[[ paste("snsr_sky",j,sep="") ]][dna.len] <- NaN
+		}
+		for (j in 1:gro.len){
+			fover[[ paste("snsr_gro",j,sep="") ]][dna.len] <- NaN
+		}
+		for (j in 1:pw.len){
+			fover[[ paste("pw_loc",j,sep="") ]][dna.len] <- NaN
+		}
+	}
+	return(fover)
 }
-#' @title dna.filter
-#' @description removes data labels as Do Not Analyze
-#' @param date the date of the set
-#' @param comments the comments array for the data
-#' @param snsr_sky sky temperature data
-#' @param snsr_gro ground temperature data
-#' @return sky and temperature data without the DNA data
-#' @export
-dna.filter <- function(date, comments, snsr_sky, snsr_gro){
-	for (i in 1:length(date)) {
-		if (grepl("DNA", comments[i], fixed=TRUE)){
-			for (j in 1:length(snsr_sky)){
-				snsr_sky[[ paste("snsr_sky",j,sep="") ]][i] <- NaN
+
+nan.filter <- function(stuff){
+	#' :detail: removes nan values from a set of lists
+	#' :param list stuff: list of arrays
+	#' :return: returns list with filtered data and the indicies with nans
+	#' :rtype: list
+
+	nans <- list()
+	for (i in 1:length(stuff)){
+		if (length(stuff[[i]][[1]]) > length(lengths(stuff[[i]]))){
+			for (j in 1:length(stuff[[i]])){
+				stuff[[i]][[j]] <- stuff[[i]][[j]]
+				nans <- append(nans, which(is.na(stuff[[i]][[j]])))
 			}
-			for (j in 1:length(snsr_gro)){
-				snsr_gro[[ paste("snsr_gro",j,sep="") ]][i] <- NaN
+		} else {
+			stuff[[i]] <- stuff[[i]]
+			nans <- append(nans, which(is.na(stuff[[i]])))
+		}
+	}
+	nans <- unique(unlist(nans))
+	if (length(nans) > 0){
+		for (i in 1:length(stuff)){
+			if (length(stuff[[i]][[1]]) > length(lengths(stuff[[i]]))){
+				for (j in 1:length(stuff[[i]])){
+					stuff[[i]][[j]] <- stuff[[i]][[j]][-(nans)]
+				}
+			} else {
+				stuff[[i]] <- stuff[[i]][-(nans)]
 			}
 		}
 	}
-	return(list("snsr_sky"=snsr_sky, "snsr_gro"=snsr_gro))
+	return(list(stuff, nans))
 }
 
-#' @title overcast.filter
-#' @description Filters our data with overcast condition
-#' @param col_con column number for condition
-#' @param col_date column number for date stamp
-#' @param col_com column number for comments
-#' @param pw_name pw measurement labels
-#' @param sensr_name sensor labels
-#' @return A sky temperature time series plot
-#' @export
+inf.counter <- function(bool, snsr_data, label){
+	#' :detail: identifies the -Inf values
+	#' :param logical bool: decides if -Inf is not replaced with NaN
+	#' :param list snsr_data: the dataset
+	#' :param character label: the identifer for the dataset (e.g. sky, gro, skyo, groo)
+	#' :return: data set that replaces all -Infs for NaN (If bool == FALSE).
+	#' :rtype: list
+    output <- list()
+    for (i in seq(1, length(snsr_data))){
+        if (bool == FALSE){
+            if ('-Inf' %in% snsr_data[[ paste(paste("snsr_",label,sep=""),i,sep="") ]]) {
+                snsr_data[[ paste(paste("snsr_",label,sep=""),i,sep="") ]] <- replace(snsr_data[[ paste(paste("snsr_",label,sep=""),i,sep="") ]], snsr_data[[ paste(paste("snsr_",label,sep=""),i,sep="") ]] == "-Inf", NaN)
+            }
+        }
+        output <- append(output, values=list(snsr_data[[ paste(paste("snsr_",label,sep=""),i,sep="") ]]))
+    }
+    return(output)
+}
+
+index.norm <- function(x){
+	#' :detail: calculates the normalized index of the dataset
+	#' :param double x: data range
+	#' :return: an array of values between 0 and 1
+	#' :rtype: double
+	return((x - min(x, na.rm=TRUE)) / (max(x, na.rm = TRUE) - min(x, na.rm = TRUE)))
+}
+
 overcast.filter <- function(col_con, col_date, col_com, pw_name, snsr_name, cloud_bool){
+	#' :detail: Filters our data with overcast condition
+	#' :param integer col_con: column index for condition labels
+	#' :param integer col_date: column index for date stamp
+	#' :param integer col_com: column index for comments
+	#' :param list pw_name: pw measurement labels
+	#' :param list snsr_name: sensor labels
+	#' :return: A list of lists containing either clear-sky/overcast data
+	#' :rtype: list
 	# Initializes the lists to store values
 	date_clear	<- snsr_sky		<- snsr_gro		<- pw_loc  <- rh <- time <- dew <- list()
 	date_over	<- snsr_skyo	<- snsr_groo	<- pw_loco <- rho <- timeo <- dewo<- list()
-	com <- como <- list()
+	com <- como <- lab <- labo <- list()
 	# Divides the data based on condition (Overcast/Clear Skies)
 	for (i in 1:length(t(fname[col_con]))){
 		if ("clear sky" %in% fname[i,col_con]){
@@ -222,9 +264,7 @@ overcast.filter <- function(col_con, col_date, col_com, pw_name, snsr_name, clou
 			com <- append(x=com, value=fname[i, col_com[1]])
 			time <- append(x=time, value=fname[i, col_time[1]])
 			dew <- append(x=dew, value=fname[i, col_dew[1]])
-			filter.dna <-dna.filter(date_clear, com, snsr_sky, snsr_gro)
-			snsr_sky <- filter.dna$snsr_sky
-			snsr_gro <- filter.dna$snsr_gro
+			lab <- append(x=lab, value=-1)
 		}else{
 			date_over   <- append(date_over, lapply(fname[[i, as.numeric(col_date)]], as.Date, "%Y-%m-%d" ))
 			for (j in 1:length(pw_name)){
@@ -238,37 +278,117 @@ overcast.filter <- function(col_con, col_date, col_com, pw_name, snsr_name, clou
 			como <- append(x=como, value=fname[i, col_com[1]])
 			timeo <- append(x=timeo, value=fname[i, col_time[1]])
 			dewo <- append(x=dewo, value=fname[i, col_dew[1]])
-			filter.dna <-dna.filter(date_over, como, snsr_skyo, snsr_groo)
-			snsr_skyo <- filter.dna$snsr_sky
-			snsr_groo <- filter.dna$snsr_gro
-
+			labo <- append(x=labo, value=1)
 		}
 	}
 	# Adds divided data into list to output from function
+	output1 <- list()
+
 	if (cloud_bool){
-		output1 <- list(date=date_over, time=timeo, rh=rho, com=como, dew=dewo)
+		output1[["date"]] 	<- date_over
+		output1[["time"]] 	<- timeo
+		output1[["rh"]] 	<- as.numeric(rho)
+		output1[["dew"]] 	<- as.numeric(dewo)
+		output1[["com"]] 	<- como
+		output1[["label"]] 	<- labo
 		for(j in 1:length(snsr_name)){
-			output1 <- append(x=output1, values=list("sky"=snsr_skyo[[ paste("snsr_sky",j,sep="") ]]))
+			output1[[ paste("snsr_gro",j,sep="") ]] <- as.numeric(snsr_groo[[ paste("snsr_gro",j,sep="") ]])
 		}
 		for(j in 1:length(snsr_name)){
-			output1 <- append(x=output1, values=list("gro"=snsr_groo[[ paste("snsr_gro",j,sep="") ]]))
+			output1[[ paste("snsr_sky",j,sep="") ]] <- as.numeric(snsr_skyo[[ paste("snsr_sky",j,sep="") ]])
 		}
 		for(j in 1:length(pw_name)){
-			output1 <- append(x=output1, values=list("pw"=pw_loco[[ paste("pw_loc", j, sep="")]]))
+			output1[[ paste("pw_loc",j,sep="") ]] <- as.numeric(pw_loco[[ paste("pw_loc", j, sep="")]])
 		}
 	} else {
-		output1 <- list(date=date_clear, time=time, rh=rh, com=com, dew=dew)
+		output1[["date"]] 	<- date_clear
+		output1[["time"]] 	<- time
+		output1[["rh"]] 	<- as.numeric(rh)
+		output1[["dew"]] 	<- as.numeric(dew)
+		output1[["com"]] 	<- com
+		output1[["label"]] 	<- lab
 		for(j in 1:length(snsr_name)){
-			output1 <- append(x=output1, values=list("gro"=snsr_gro[[ paste("snsr_gro",j,sep="") ]]))
+			output1[[ paste("snsr_gro",j,sep="") ]] <- as.numeric(snsr_gro[[ paste("snsr_gro",j,sep="") ]])
 		}
 		for(j in 1:length(snsr_name)){
-			output1 <- append(x=output1, values=list("sky"=snsr_sky[[ paste("snsr_sky",j,sep="") ]]))
+			output1[[ paste("snsr_sky",j,sep="") ]] <- as.numeric(snsr_sky[[ paste("snsr_sky",j,sep="") ]])
 		}
-
 		for(j in 1:length(pw_name)){
-			output1 <- append(x=output1, values=list("pw"=pw_loc[[ paste("pw_loc", j, sep="")]]))
+			output1[[ paste("pw_loc",j,sep="") ]] <- as.numeric(pw_loc[[ paste("pw_loc", j, sep="")]])
 		}
 	}
 	return(output1)
+}
+
+sky.processing <- function(overcast){
+	#' :detail: Computes average values and weighted averages
+	#' :param list overcast: results of the overcast.filter function
+	#' :return: series of arrays including average PWV, RH, etc.
+	#' :rtype: list
+	## Pulls date from filter function
+	output <- list()
+	output[["date"]]  	<- overcast$date	# Date
+	output[["time"]]  	<- overcast$time
+	output[["rh"]]		<- overcast$rh
+	output[["dewpoint"]]<- overcast$dew
+	output[["comments"]]<- overcast$com
+	output[["label"]]	<- unlist(overcast$label)
+
+## Adds PW measurements for clear sky to list
+	pw_loc <- list()
+	for (i in 1:length(pw_name)){
+		pw_loc[[ paste("pw_loc", i, sep="")]] <- overcast[[ paste("pw_loc", i, sep="")]]
+	}
+## Adds Sky temperature, Ground temperature, and Change in temperature for each sensor to empty list
+	snsr_sky <- snsr_gro <- snsr_del <- list()
+	for (i in 1:length(snsr_name)){
+	 	snsr_gro[[ paste("snsr_gro",i,sep="") ]] <- overcast[[ paste("snsr_gro", i, sep="")]]
+	 	snsr_sky[[ paste("snsr_sky",i,sep="") ]] <- overcast[[ paste("snsr_sky", i, sep="")]]
+	 	snsr_del[[ paste("snsr_del",i,sep="") ]] <- snsr_gro[[ paste("snsr_gro", i, sep="")]] - snsr_sky[[ paste("snsr_sky", i, sep="")]]
+	}
+
+	output[["raw_sky"]]	<- snsr_sky
+	output[["raw_gro"]]	<- snsr_gro
+
+	out_sky <- inf.counter(FALSE, snsr_sky, 'sky')
+	for (i in seq(1, length(snsr_sky))){
+		snsr_sky[[ paste("snsr_sky",i,sep="") ]] <- out_sky[[i]]
+	}
+	out_gro <- inf.counter(FALSE, snsr_gro, 'gro')
+	for (i in seq(1, length(snsr_gro))){
+		snsr_gro[[ paste("snsr_gro",i,sep="") ]] <- out_gro[[i]]
+	}
+## Takes locational average of the precipitable water measurements
+	loc_avg  <- list()
+	for (i in 1:length(col_pwpl)){
+		loc_avg[[ paste("loc_avg",i,sep="") ]] <- pw_loc[unlist(col_pwpl[i])]
+		loc_avg[[ paste("loc_avg",i,sep="") ]] <- Reduce("+", loc_avg[i][[1]])/length(col_pwpl)
+	}
+## Takes temporal average of the precipitable water measurements
+	tim_avg <- list()
+	for (i in 1:length(col_pwtm)){
+		tim_avg[[ paste("tim_avg",i,sep="") ]] <- pw_loc[unlist(col_pwtm[i])]
+		tim_avg[[ paste("tim_avg",i,sep="") ]] <- Reduce("+", tim_avg[i][[1]])/length(col_pwtm)
+	}
+## Takes super average of the precipitable water measurements
+	k <- -1; wt_avg <- list()
+	for (i in 1:length(unique(pw_place))){
+		for (j in 1:length(unique(pw_time))){
+			wt_avg[[ paste("wt_avg",i+j+k,sep="") ]] <- ((weights[i]) * pw_loc[[ paste("pw_loc",i+j+k,sep="") ]])
+		}
+		k <- k + 1;
+	}
+
+	output[["snsr_sky"]]<- snsr_sky
+	output[["snsr_gro"]]<- snsr_gro
+	output[["snsr_del"]]<- snsr_del
+	output[["pw_loc"]]	<- pw_loc
+	output[["loc_avg"]]	<- loc_avg
+	output[["tmp_avg"]]	<- tim_avg
+	output[["snsr_sky_calc"]] <- rowMeans(data.frame(snsr_sky), na.rm = TRUE)
+	output[["avg"]] 	<- Reduce("+", pw_loc)/length(pw_loc)
+	output[["wt_avg"]] 	<- Reduce("+", wt_avg)
+	output[["pw.index"]]<- index.norm(output[["wt_avg"]])
+	return(output)
 }
 
