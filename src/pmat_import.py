@@ -407,6 +407,9 @@ try:
                                                       usecols=0)[-1]))
 except IndexError:
     last = 0
+except ValueError:
+    logg("WARN", "Raw data mix match. No Data will be collected", dir)
+    quit()
 
 
 for i in range(last, full_len - 1):
