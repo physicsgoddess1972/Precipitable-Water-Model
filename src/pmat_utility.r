@@ -21,7 +21,6 @@ logg <- function(msglevel, msg, dir=out.dir, lev="INFO") {
                    INFO = 20,   WARN = 30,
                    ERROR = 40,  FATAL = 50,
                    ALOHA = 60)
-    print(c(msglevel, lev, msg))
     crayon_env <- tryCatch(asNamespace("crayon"), error = function(e) NULL)
       pos <- which(names(loglevels) == msglevel)
       num <- which(names(loglevels) == lev)
@@ -68,8 +67,8 @@ first <- function(){
 
 startup <- function(){
     #' :detail: shows title banner for program
-    logg("ALOHA", "Precipitable-water Model Analysis Tool", lev = level)
-    logg("ALOHA", "Program Start", lev = level)
+    logg("ALOHA", "Precipitable-water Model Analysis Tool", lev = "ALOHA")
+    logg("ALOHA", "Program Start", lev = "ALOHA")
 }
 
 closing <- function(){
@@ -78,7 +77,7 @@ closing <- function(){
     invisible(graphics.off())
     if(file.exists("Rplots.pdf")){file.remove("Rplots.pdf")}
 # End of program
-    logg("ALOHA", "Program Complete", lev = level); quit()
+    logg("ALOHA", "Program Complete", lev = "ALOHA"); quit()
 }
 
 reset_time <- function(datetime){
