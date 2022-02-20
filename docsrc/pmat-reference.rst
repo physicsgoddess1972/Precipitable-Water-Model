@@ -189,7 +189,7 @@ pmat_products.r
 	:param xlabel: the xaxis label
 	:param title: the title of the histogram
 
-.. function:: poster.plots(overcast,iter)
+.. function:: poster.plots(overcast,iter,nan.out,mean.out)
 
 	:detail: The set of all poster
 	:param bool overcast: the condition of data (clear sky/overcast)
@@ -198,7 +198,7 @@ pmat_products.r
 .. function:: poster1(...)
 
 
-.. function:: poster2(overcast,iter)
+.. function:: poster2(overcast,iter,nan.out,mean.out)
 
 	:detail: The analytics poster plot
 	:param bool overcast: the condition of data (clear sky/overcast)
@@ -228,7 +228,7 @@ pmat_products.r
 .. function:: data.final(dir,clear.len,over.len,train.len,nan.len,frac.kept,coef,std,rmse)
 
 
-.. function:: visual.products(set,datetime=datetime,overcast=args$overcast)
+.. function:: visual.products(set,nan.out,mean.out,datetime=datetime,overcast=args$overcast)
 
 	:detail: saves plot sets
 	:param character set: the set identifier
@@ -246,7 +246,7 @@ pmat_utility.r
 	:module: Precipitable Water Model Analysis Tool: Utility
 	:synopsis: general functions for PMAT
 
-.. function:: logg(msglevel,msg,dir=args$dir)
+.. function:: logg(msglevel,msg,dir=out.dir)
 
 	:detail: creates log entries for _log.txt
 	:param character msglevel:
