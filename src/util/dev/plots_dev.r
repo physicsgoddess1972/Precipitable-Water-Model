@@ -47,7 +47,7 @@ dev.plots <- function(){
                                      col=c(color[[i]]),
                                      pch=c(16,16, 16))
               }
-            logg("PASS", title[[i]])
+            logg("PASS", title[[i]], level)
           }
       }
 

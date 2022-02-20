@@ -525,3 +525,111 @@
 2022-02-20 11:38:56 PASS Data sent to data/data.csv
 2022-02-20 11:38:57 PASS Data sent to ./util/tests/data_monsoon/../out/data/ml_data.csv
 2022-02-20 11:38:57 ALOHA Program Complete
+2022-02-20 12:06:41 ALOHA Precipitable-water Model Analysis Tool
+2022-02-20 12:06:41 ALOHA Program Start
+2022-02-20 12:06:44 INFO Collecting Data from sources
+2022-02-20 12:06:46 DEBUG Step 1 out of 10
+2022-02-20 12:06:46 DEBUG Step 2 out of 10
+2022-02-20 12:06:46 DEBUG Step 3 out of 10
+2022-02-20 12:06:46 DEBUG Step 4 out of 10
+2022-02-20 12:06:46 DEBUG Step 5 out of 10
+2022-02-20 12:06:46 DEBUG Step 6 out of 10
+2022-02-20 12:06:46 DEBUG Step 7 out of 10
+2022-02-20 12:06:46 DEBUG Step 8 out of 10
+2022-02-20 12:06:46 DEBUG Step 9 out of 10
+2022-02-20 12:06:46 DEBUG Step 10 out of 10
+2022-02-20 12:06:46 INFO Analytics Plot Set
+2022-02-20 12:06:46 PASS Correlation between TPW and Temperature
+2022-02-20 12:06:48 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-20 12:06:48 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-20 12:06:48 PASS Regression between Mean TPW and Temperature
+2022-02-20 12:06:48 PASS Regression between Weighted TPW and Temperature
+2022-02-20 12:06:48 PASS SVM Analysis between Sky Temperature and TPW
+2022-02-20 12:06:48 PASS Plot set downloaded to ./util/tests/data_monsoon/../out/figs/
+2022-02-20 12:06:48 ALOHA Program Complete
+2022-02-20 12:06:58 ALOHA Precipitable-water Model Analysis Tool
+2022-02-20 12:06:58 ALOHA Program Start
+2022-02-20 12:07:01 INFO Collecting Data from sources
+2022-02-20 12:07:04 INFO Analytics Plot Set
+2022-02-20 12:07:05 ALOHA Program Complete
+2022-02-20 12:07:41 ALOHA Precipitable-water Model Analysis Tool
+2022-02-20 12:07:41 ALOHA Program Start
+2022-02-20 12:07:43 INFO Collecting Data from sources
+2022-02-20 12:07:46 DEBUG Step 1 out of 10
+2022-02-20 12:07:46 DEBUG Step 2 out of 10
+2022-02-20 12:07:46 DEBUG Step 3 out of 10
+2022-02-20 12:07:46 DEBUG Step 4 out of 10
+2022-02-20 12:07:46 DEBUG Step 5 out of 10
+2022-02-20 12:07:46 DEBUG Step 6 out of 10
+2022-02-20 12:07:46 DEBUG Step 7 out of 10
+2022-02-20 12:07:46 DEBUG Step 8 out of 10
+2022-02-20 12:07:46 DEBUG Step 9 out of 10
+2022-02-20 12:07:46 DEBUG Step 10 out of 10
+2022-02-20 12:07:46 INFO Analytics Plot Set
+2022-02-20 12:07:46 PASS Correlation between TPW and Temperature
+2022-02-20 12:07:46 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-20 12:07:46 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-20 12:07:46 PASS Regression between Mean TPW and Temperature
+2022-02-20 12:07:46 PASS Regression between Weighted TPW and Temperature
+2022-02-20 12:07:47 PASS SVM Analysis between Sky Temperature and TPW
+2022-02-20 12:07:47 PASS Plot set downloaded to ./util/tests/data_monsoon/../out/figs/
+2022-02-20 12:07:47 ALOHA Program Complete
+2022-02-20 12:12:04 ALOHA Precipitable-water Model Analysis Tool
+2022-02-20 12:12:04 ALOHA Program Start
+2022-02-20 12:12:06 INFO Collecting Data from sources
+2022-02-20 12:12:09 INFO Analytics Plot Set
+2022-02-20 12:12:10 ALOHA Program Complete
+2022-02-20 12:29:44 ALOHA Precipitable-water Model Analysis Tool
+2022-02-20 12:29:44 ALOHA Program Start
+2022-02-20 12:29:46 INFO Collecting Data from sources
+2022-02-20 12:29:49 INFO Analytics Plot Set
+2022-02-20 12:29:49 ALOHA Program Complete
+2022-02-20 12:30:50 ALOHA Precipitable-water Model Analysis Tool
+2022-02-20 12:30:50 ALOHA Program Start
+2022-02-20 12:30:53 INFO Collecting Data from sources
+2022-02-20 12:30:55 INFO Analytics Plot Set
+2022-02-20 12:30:56 ALOHA Program Complete
+2022-02-20 12:33:09 ALOHA Precipitable-water Model Analysis Tool
+2022-02-20 12:33:09 ALOHA Program Start
+2022-02-20 12:33:11 INFO Collecting Data from sources
+2022-02-20 12:33:14 DEBUG Step 1 out of 10
+2022-02-20 12:33:14 DEBUG Step 2 out of 10
+2022-02-20 12:33:14 DEBUG Step 3 out of 10
+2022-02-20 12:33:14 DEBUG Step 4 out of 10
+2022-02-20 12:33:14 DEBUG Step 5 out of 10
+2022-02-20 12:33:14 DEBUG Step 6 out of 10
+2022-02-20 12:33:14 DEBUG Step 7 out of 10
+2022-02-20 12:33:14 DEBUG Step 8 out of 10
+2022-02-20 12:33:14 DEBUG Step 9 out of 10
+2022-02-20 12:33:14 DEBUG Step 10 out of 10
+2022-02-20 12:33:14 INFO Analytics Plot Set
+2022-02-20 12:33:14 PASS Correlation between TPW and Temperature
+2022-02-20 12:33:14 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-20 12:33:14 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-20 12:33:14 PASS Regression between Mean TPW and Temperature
+2022-02-20 12:33:14 PASS Regression between Weighted TPW and Temperature
+2022-02-20 12:33:14 PASS SVM Analysis between Sky Temperature and TPW
+2022-02-20 12:33:14 PASS Plot set downloaded to ./util/tests/data_monsoon/../out/figs/
+2022-02-20 12:33:14 ALOHA Program Complete
+2022-02-20 12:34:12 ALOHA Precipitable-water Model Analysis Tool
+2022-02-20 12:34:12 ALOHA Program Start
+2022-02-20 12:34:15 INFO Collecting Data from sources
+2022-02-20 12:34:17 DEBUG Step 1 out of 10
+2022-02-20 12:34:17 DEBUG Step 2 out of 10
+2022-02-20 12:34:17 DEBUG Step 3 out of 10
+2022-02-20 12:34:17 DEBUG Step 4 out of 10
+2022-02-20 12:34:17 DEBUG Step 5 out of 10
+2022-02-20 12:34:17 DEBUG Step 6 out of 10
+2022-02-20 12:34:17 DEBUG Step 7 out of 10
+2022-02-20 12:34:17 DEBUG Step 8 out of 10
+2022-02-20 12:34:17 DEBUG Step 9 out of 10
+2022-02-20 12:34:17 DEBUG Step 10 out of 10
+2022-02-20 12:34:17 INFO Analytics Plot Set
+2022-02-20 12:34:17 PASS Correlation between TPW and Temperature
+2022-02-20 12:34:17 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-20 12:34:18 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-20 12:34:18 PASS Regression between Mean TPW and Temperature
+2022-02-20 12:34:18 PASS Regression between Weighted TPW and Temperature
+2022-02-20 12:34:18 PASS SVM Analysis between Sky Temperature and TPW
+2022-02-20 12:34:18 PASS Plot set downloaded to ./util/tests/data_monsoon/../out/figs/
+2022-02-20 12:34:18 ALOHA Program Complete

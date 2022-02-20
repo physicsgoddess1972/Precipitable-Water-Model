@@ -41,16 +41,15 @@ cloudblue 	<- make_style("lightskyblue")
 out.dir <- paste(args$dir, "../out/", sep="")
 fig.dir <- paste(out.dir, "figs/", sep="")
 dat.dir <- paste(out.dir, "data/", sep="")
-
 # Error/Warning definitions
 source("./pmat_utility.r")
 
 ## Imports sensor information from instruments.txt
 if(file.exists(paste(args$dir,"_pmat.yml", sep=""))){
-	config		<- yaml.load_file(paste(args$dir,"_pmat.yml", sep=""))
-	assign("level", config[[3]]$logging[[1]]$verbose)
+	config	<- yaml.load_file(paste(args$dir,"_pmat.yml", sep=""))
+	level 	<- config[[3]]$logging[[1]]$verbose
 } else {
-	logg("ERROR", F02); closing()
+	logg("ERROR", F02, level = level); closing()
 }
 
 if (args$first){first()}
@@ -60,13 +59,13 @@ startup()
 if (file.exists(paste(args$dir,"master_data.csv", sep=""))){
 	fname       <- read.table(paste(args$dir,"master_data.csv", sep=""), sep=",", header=TRUE, strip.white=TRUE)
 } else {
-	logg("ERROR", F01); closing()
+	logg("ERROR", F01, level = level); closing()
 }
 ## Tries to read _output.yml
 if(file.exists(paste(out.dir,"data/_output.yml", sep=""))){
 	oname <- yaml.load_file(paste(out.dir,"data/_output.yml", sep=""))
 } else {
-	logg("WARN", f01)
+	logg("WARN", f01, level = level)
 	oname <- file.create(paste(out.dir,"data/_output.yml", sep=""))
 	args$u <- TRUE
 }
@@ -123,13 +122,13 @@ if (length(res$date) > 0){
 			   	iter.results$S,
 				list(M=iter.results$M, K=iter.results$K, R=iter.results$R))
 } else {
-	logg("ERROR", D01); closing()
+	logg("ERROR", D01, level = level); closing()
 }
 
 
 if(args$set != FALSE){
 	visual.products(args$set, nan.out, filter.mean, datetime)
-	logg("PASS", sprintf("Plot set downloaded to %s", fig.dir))
+	logg("PASS", sprintf("Plot set downloaded to %s", fig.dir), level = level)
 }
 
 if(length(args$data) > 0){
@@ -144,7 +143,7 @@ if (args$all){
 	logg("INFO", paste("Condition:", ifelse(args$overcast, "Overcast", "Clear Sky"), sep=" "))
 	for (i in opt){
 		visual.products(i, nan.out, filter.mean, datetime, args$overcast)
-		logg("PASS", sprintf("Plot set downloaded to %s", fig.dir))
+		logg("PASS", sprintf("Plot set downloaded to %s", fig.dir), level = level)
 	}
 	data.gen(args$overcast, dat.dir)
 	data.ml(dat.dir)
