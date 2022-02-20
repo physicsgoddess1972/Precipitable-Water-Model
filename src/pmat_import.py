@@ -159,10 +159,10 @@ class PMAT_Import():
             df_12 = WyomingUpperAir.request_data(dt.combine(end_date, datetime.time(12, 0)), station)
             pw12 = df_12.pw[0]
         except (ValueError, IndexError):
-            logg("WARN", "Data not avialable for {} at {}".format(dt.combine(end_date, datetime.time(12, 0)), station), out_dir, level = level)
+            logg("WARN", "Data not avialable for {} at {}".format(dt.combine(end_date, datetime.time(12, 0)), station), out_dir, lev = level)
             pw12 = "NaN"
         except requests.exceptions.HTTPError:
-            logg("WARN", "Connection issue with Wyoming Upper-Air...", out_dir, level = level)
+            logg("WARN", "Connection issue with Wyoming Upper-Air...", out_dir, lev = level)
             pw12 = "Error"
         try:
             df_00 = WyomingUpperAir.request_data(end_date + datetime.timedelta(days=1), station)
@@ -171,10 +171,10 @@ class PMAT_Import():
             else:
                 pw00 = "NaN"
         except (ValueError, IndexError):
-            logg("WARN", "Data not avialable for {} at {}".format(end_date + datetime.timedelta(days=1), station), out_dir, level = level)
+            logg("WARN", "Data not avialable for {} at {}".format(end_date + datetime.timedelta(days=1), station), out_dir, lev = level)
             pw00 = "NaN"
         except requests.exceptions.HTTPError:
-            logg("WARN", "Connection issue with Wyoming Upper-Air...", out_dir, level = level)
+            logg("WARN", "Connection issue with Wyoming Upper-Air...", out_dir, lev = level)
             pw00 = "Error"
         return [station, [end_date, pw12, pw00]]
 
@@ -227,17 +227,17 @@ class PMAT_Import():
 
             thyme = df_tm[mw_header[tau]].values[0]
             if str(df_tm['relative_humidity'].values[0]) == "nan":
-                logg("WARN", "RH data not avialable for {} at {}".format(thyme, station), out_dir, level = level)
+                logg("WARN", "RH data not avialable for {} at {}".format(thyme, station), out_dir, lev = level)
                 rh = "NaN"
             else:
                 rh = int(df_tm['relative_humidity'].values[0])
             if str(float(df_tm['temperature'].values[0])) == "nan":
-                logg("WARN", "Temperature data not avialable for {} at {}".format(thyme, station), out_dir, level = level)
+                logg("WARN", "Temperature data not avialable for {} at {}".format(thyme, station), out_dir, lev = level)
                 temp = "NaN"
             else:
                 temp = round((float(df_tm['temperature'].values[0]) * units.degF).to(units.degC).magnitude, 2)
             if str(float(df_tm['dew_point'].values[0])) == "nan":
-                logg("WARN", "Dewpoint data not avialable for {} at {}".format(thyme, station), out_dir, level = level)
+                logg("WARN", "Dewpoint data not avialable for {} at {}".format(thyme, station), out_dir, lev = level)
                 dwpt = "NaN"
             else:
                 dwpt = round((float(df_tm['dew_point'].values[0]) * units.degF).to(units.degC).magnitude, 2)
@@ -356,7 +356,7 @@ V = list(yaml.safe_load_all(open(cname)))[0][2]['logging'][0]
 level = V['verbose']
 
 logg = robjects.r['logg']
-logg("INFO", "Collecting Data from sources", out_dir, level = level)
+logg("INFO", "Collecting Data from sources", out_dir, lev = level)
 
 ## Hours to pull
 hour = [00, 12]
@@ -384,7 +384,7 @@ if (len(keys) != 0):
     if ('mesowest' in keys):
         mw_station = list(map(lambda x: x['id'], cnfg[keys.index('mesowest')]['mesowest']))
 else:
-    logg("ERROR", "There are no sources avaliable", out_dir, level = level)
+    logg("ERROR", "There are no sources avaliable", out_dir, lev = level)
 ## Retrives column index for sensors
 headr = pd.read_csv(rname, delimiter=",").columns
 indx = [[], []]
@@ -408,7 +408,7 @@ try:
 except IndexError:
     last = 0
 except ValueError:
-    logg("WARN", "Raw data mix match. No Data will be collected", out_dir, level = level)
+    logg("WARN", "Raw data mix match. No Data will be collected", out_dir, lev = level)
     quit()
 
 
@@ -418,6 +418,6 @@ for i in range(last, full_len - 1):
     day = dt.strptime(str(loadtxt(rname, delimiter=",", dtype=str,
                                             usecols=(0))[i + 1]), "%Y-%m-%d")
     logg("DEBUG", "Collecting data for {:}\t\t Progress: {:.2f}%".format(str(day.date()),
-                                      i / (full_len - 1) * 100), out_dir, level = level)
+                                      i / (full_len - 1) * 100), out_dir, lev = level)
 
     PMAT_Import.impt(day, i, level)
