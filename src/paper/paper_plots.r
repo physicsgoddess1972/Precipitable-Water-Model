@@ -270,7 +270,7 @@ figureA1 <- function(...){
 
 		legend("topright", "(c)", bty="n")
 
-		exp_reg <- exp.regression(clear_sky.results, 1, c(297:396))
+		exp_reg <- exp.regression(clear_sky.results, c(297:396))
 		# Non-linear model (exponential)
 		plot(exp_reg$x,exp_reg$y, col=c("black"), pch=1,
 		xlim=c(xmin-1, xmax),

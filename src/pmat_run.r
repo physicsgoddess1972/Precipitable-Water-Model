@@ -3,7 +3,6 @@
 #' :author: Spencer Riley <sriley@pmat.app>
 #' :synopsis: The main file for PMAT. Documentation available at <https://docs.pmat.app>.
 #' :author: Spencer Riley
-#' :todo: organize the mean.filter and nan.filter so that everything works
 ## Necessary Libraries for the script to run, for installation run install.sh
 library(argparse)
 library(crayon)
@@ -11,6 +10,7 @@ library(RColorBrewer)
 library(plotrix)
 suppressPackageStartupMessages(library(pacviz))
 suppressMessages(library(Hmisc))
+suppressPackageStartupMessages(library(e1071))
 library(yaml)
 options(warn=-1)
 
@@ -76,7 +76,6 @@ filter.overcast.clear <- overcast.filter(col_con,
 							  	pw_name,
 								snsr_name,
 								FALSE)
-filter.dna.clear	 <- dna.filter(filter.overcast.clear)
 
 filter.overcast.over <- overcast.filter(col_con,
 								col_date,
@@ -84,44 +83,41 @@ filter.overcast.over <- overcast.filter(col_con,
 							  	pw_name,
 								snsr_name,
 								TRUE)
-filter.dna.over 	<- dna.filter(filter.overcast.over)
+
+clear_sky.data 	<- sky.processing(dna.filter(filter.overcast.clear))
+overcast.data 	<- sky.processing(dna.filter(filter.overcast.over))
+
+if (args$overcast){
+	res <- overcast.data
+} else {
+	res <- clear_sky.data
+}
+nan.out <- nan.filter(list(x=res$snsr_sky_calc,
+						   y=res$wt_avg,
+						   y1=res$avg,
+						   z=res$pw_loc))
+filter.mean	<- mean.filter(nan.out[[1]]$z, rel_diff)
+
+datetime <- as.POSIXct(paste(as.Date(unlist(res$date), origin="1970-01-01"), paste(unlist(res$time),":00", sep="")), format="%Y-%m-%d %H:%M:%S")
 
 # Analysis functions
 source("pmat_analysis.r")
 source("pmat_products.r")
-
-clear_sky.results 	<- sky.analysis(filter.dna.clear)
-overcast.results 	<- sky.analysis(filter.dna.over)
-
-
-if (args$overcast){
-	filter.mean 	<- mean.filter(filter.dna.over, rel_diff)
-	res <- overcast.results
-} else {
-	filter.mean	<- mean.filter(filter.dna.clear, rel_diff)
-	res <- clear_sky.results
-}
-nan.out <- nan.filter(list(x=res$snsr_sky_calc,
-						   y=res$wt_avg,
-						   z=res$pw_loc), filter.mean)
-
-datetime <- as.POSIXct(paste(as.Date(unlist(res$date), origin="1970-01-01"), paste(unlist(res$time),":00", sep="")), format="%Y-%m-%d %H:%M:%S")
 
 if (length(res$date) > 0){
 	iter.results <- iterative.analysis(results=res,
 									   dir=args$dir,
 									   obool=args$u,
 									   nan.out = nan.out,
-									   data_index = filter.mean)
-	# print(nan.out[[2]])
-	# print(round(length(filter.mean)/(length(clear_sky.results$date) - length(nan.out[[2]])), 2))
+									   mean.out = filter.mean)
 	data.final(fig_dir,
-				length(clear_sky.results$date),
-				length(overcast.results$date),
+				length(clear_sky.data$date),
+				length(overcast.data$date),
 				iter.results$train.len,
 				length(nan.out[[2]]),
-				round(length(filter.mean)/(length(clear_sky.results$date) - length(nan.out[[2]])), 2),
+				length(filter.mean)/(length(clear_sky.data$date) - length(nan.out[[2]])),
 				list(A=iter.results$A, B=iter.results$B),
+			   	iter.results$S,
 				list(M=iter.results$M, K=iter.results$K, R=iter.results$R))
 } else {
 	logg("ERROR", D01); closing()
@@ -148,12 +144,10 @@ if (args$all){
 		logg("PASS", sprintf("Plot set downloaded to %s", fig_dir))
 	}
 }
-
 if (args$dev){
 	source("./util/dev/analysis_feat.r")
 	source("./util/dev/plots_dev.r")
 	pdf(sprintf("%sdev.pdf", fig_dir))
 	dev.plots()
 }
-
 closing()

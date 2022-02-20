@@ -30,11 +30,12 @@ sin.regression <- function(y){
 	y <- y[!is.na(y)]
 	A <- (max(y, na.rm=TRUE) - min(y, na.rm=TRUE))/2
 	B <- (max(y, na.rm=TRUE) + min(y, na.rm=TRUE))/2
-
+	w <- (2 * pi)/366
 	dt <- seq(1, length(y), length.out=length(y))[!is.na(y)]
 	model <- nls(y ~ (A * sin((w*x) + phi)) + B,
 	             data=data.frame(x=dt, y=y),
-				 start=list(A=A, phi=0, B=B, w=6))
+				 start=list(A=A, phi=0, B=B, w=w))
 	output <- list("y"=y, "model"=model)
 	return(output)
 }
+

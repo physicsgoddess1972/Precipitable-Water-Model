@@ -43,12 +43,12 @@
       range: -50 ~ 550
       emissivity: 0.95
       poster: true
-      active: true
+      active: false
 - analysis:
   - train_fraction: 0.8
   - rel_difference: 2
   - iteration:
-      step: 5000
+      step: 2
       seed:
 - logging:
   - verbose: DEBUG
