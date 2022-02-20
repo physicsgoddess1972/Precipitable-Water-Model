@@ -4,10 +4,6 @@
 #' :author: Spencer Riley <sriley@pmat.app>
 
 
-loglevels <- c(DEBUG = 10,  PASS = 15,
-               INFO = 20,   WARN = 30,
-               ERROR = 40,  FATAL = 50,
-               ALOHA = 60)
 ## warning codes
 a01 <- "Insufficient data for accurate analysis"
 f01 <- "_output.yml is not found"
@@ -21,7 +17,12 @@ logg <- function(msglevel, msg, dir=out.dir, lev="INFO") {
       #' :detail: creates log entries for _log.txt
       #' :param character msglevel:
       #' :param character msg:
-      crayon_env <- tryCatch(asNamespace("crayon"), error = function(e) NULL)
+    loglevels <- c(DEBUG = 10,  PASS = 15,
+                   INFO = 20,   WARN = 30,
+                   ERROR = 40,  FATAL = 50,
+                   ALOHA = 60)
+    print(c(msglevel, lev, msg))
+    crayon_env <- tryCatch(asNamespace("crayon"), error = function(e) NULL)
       pos <- which(names(loglevels) == msglevel)
       num <- which(names(loglevels) == lev)
 
