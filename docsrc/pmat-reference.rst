@@ -246,7 +246,7 @@ pmat_utility.r
 	:module: Precipitable Water Model Analysis Tool: Utility
 	:synopsis: general functions for PMAT
 
-.. function:: logg(msglevel,msg,dir=out.dir,level="INFO")
+.. function:: logg(msglevel,msg,dir=out.dir,lev="INFO")
 
 	:detail: creates log entries for _log.txt
 	:param character msglevel:
