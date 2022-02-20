@@ -48,7 +48,7 @@ source("./pmat_utility.r")
 ## Imports sensor information from instruments.txt
 if(file.exists(paste(args$dir,"_pmat.yml", sep=""))){
 	config		<- yaml.load_file(paste(args$dir,"_pmat.yml", sep=""))
-	assign("level", config[[3]]$logging[[1]]$verbose)
+	level 	<- config[[3]]$logging[[1]]$verbose
 } else {
 	logg("ERROR", F02); closing()
 }
