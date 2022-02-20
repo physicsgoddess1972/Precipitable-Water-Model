@@ -38,10 +38,13 @@ yellow 		<- make_style("gold2")
 green 		<- make_style("lawngreen")
 cloudblue 	<- make_style("lightskyblue")
 
+out.dir <- paste(args$dir, "../out/", sep="")
+fig.dir <- paste(out.dir, "figs/", sep="")
+dat.dir <- paste(out.dir, "data/", sep="")
+
 # Error/Warning definitions
 source("./pmat_utility.r")
 
-fig_dir <- paste(args$dir, "../figs/results/", sep="")
 ## Imports sensor information from instruments.txt
 if(file.exists(paste(args$dir,"_pmat.yml", sep=""))){
 	config		<- yaml.load_file(paste(args$dir,"_pmat.yml", sep=""))
@@ -60,11 +63,11 @@ if (file.exists(paste(args$dir,"master_data.csv", sep=""))){
 	logg("ERROR", F01); closing()
 }
 ## Tries to read _output.yml
-if(file.exists(paste(args$dir,"_output.yml", sep=""))){
-	oname <- yaml.load_file(paste(args$dir,"_output.yml", sep=""))
+if(file.exists(paste(out.dir,"data/_output.yml", sep=""))){
+	oname <- yaml.load_file(paste(out.dir,"data/_output.yml", sep=""))
 } else {
 	logg("WARN", f01)
-	oname <- file.create(paste(args$dir,"_output.yml", sep=""))
+	oname <- file.create(paste(out.dir,"data/_output.yml", sep=""))
 	args$u <- TRUE
 }
 
@@ -106,11 +109,11 @@ source("pmat_products.r")
 
 if (length(res$date) > 0){
 	iter.results <- iterative.analysis(results=res,
-									   dir=args$dir,
+									   dir=out.dir,
 									   obool=args$u,
 									   nan.out = nan.out,
 									   mean.out = filter.mean)
-	data.final(fig_dir,
+	data.final(out.dir,
 				length(clear_sky.data$date),
 				length(overcast.data$date),
 				iter.results$train.len,
@@ -125,29 +128,31 @@ if (length(res$date) > 0){
 
 
 if(args$set != FALSE){
-	visual.products(args$set, datetime)
-	logg("PASS", sprintf("Plot set downloaded to %s", fig_dir))
+	visual.products(args$set, nan.out, filter.mean, datetime)
+	logg("PASS", sprintf("Plot set downloaded to %s", fig.dir))
 }
 
 if(length(args$data) > 0){
 	if (args$data == 'a'){
-        data.gen(args$overcast, fig_dir)
+        data.gen(args$overcast, dat.dir)
     } else if (args$data == 'm'){
-       data.ml(fig_dir)
+       data.ml(fig.dir)
     }
 }
 if (args$all){
 	opt <- c('t', 'a', 'i', 'c', 'o', 'p')
 	logg("INFO", paste("Condition:", ifelse(args$overcast, "Overcast", "Clear Sky"), sep=" "))
 	for (i in opt){
-		visual.products(i, datetime, args$overcast)
-		logg("PASS", sprintf("Plot set downloaded to %s", fig_dir))
+		visual.products(i, nan.out, filter.mean, datetime, args$overcast)
+		logg("PASS", sprintf("Plot set downloaded to %s", fig.dir))
 	}
+	data.gen(args$overcast, dat.dir)
+	data.ml(dat.dir)
 }
 if (args$dev){
 	source("./util/dev/analysis_feat.r")
 	source("./util/dev/plots_dev.r")
-	pdf(sprintf("%sdev.pdf", fig_dir))
+	pdf(sprintf("%sdev.pdf", fig.dir))
 	dev.plots()
 }
 closing()

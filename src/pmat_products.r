@@ -297,7 +297,7 @@ charts	<- function(...){
     return(list(chart1(x, xlab, title)))
 }
 
-poster.plots <- function(overcast, iter){
+poster.plots <- function(overcast, iter, nan.out, mean.out){
     #' :detail: The set of all poster
     #' :param bool overcast: the condition of data (clear sky/overcast)
     #' :return: All available poster plots
@@ -500,7 +500,7 @@ poster.plots <- function(overcast, iter){
         logg("PASS", "Sky-Ground-Delta Temperature Time Series")
     }
 
-    poster2 <- function(overcast, iter){
+    poster2 <- function(overcast, iter, nan.out, mean.out){
         #' :detail: The analytics poster plot
         #' :param bool overcast: the condition of data (clear sky/overcast)
 
@@ -553,7 +553,9 @@ poster.plots <- function(overcast, iter){
                 range 	<- clear_sky.data$loc_avg
                 results <- clear_sky.data
             }
-            exp_reg <- exp.regression(results)
+            exp_reg <- exp.regression(results,
+									  nan.out = nan.out,
+									  data_indx = mean.out)
             ymax	<- max(as.numeric(unlist(range)), na.rm=TRUE)
             ymin	<- min(as.numeric(unlist(range)), na.rm=TRUE)
 
@@ -606,7 +608,7 @@ poster.plots <- function(overcast, iter){
     }
 
     return(list(poster1(),
-                poster2(overcast, iter)))
+                poster2(overcast, iter, nan.out, mean.out)))
 }
 
 sensor.chart <- function(...){
@@ -774,7 +776,7 @@ data.gen <- function(overcast, dir){
         data 	  <- data.frame(list(date=c(norm$x), avg_temp=c(norm$y1), avg_pw=c(norm$y2)))
         colnames(data) <- c("date", "avg_temp", "avg_pw")
       # Writes the data to a csv
-        write.csv(data, file=sprintf("../data/data%s.csv", ifelse(overcast,"_overcast", "")), row.names=FALSE)
+        write.csv(data, file=paste(dir, sprintf("data%s.csv", ifelse(overcast,"_overcast", "")), sep=""), row.names=FALSE)
         logg("PASS", sprintf("Data sent to data/data%s.csv", ifelse(overcast,"_overcast", "")))
 }
 
@@ -855,20 +857,20 @@ data.final <- function(dir, clear.len, over.len, train.len, nan.len, frac.kept, 
         file = paste(dir,"_results.yml", sep=""))
 }
 
-visual.products <- function(set, datetime=datetime, overcast=args$overcast){
+visual.products <- function(set, nan.out, mean.out, datetime=datetime, overcast=args$overcast){
     #' :detail: saves plot sets
     #' :param character set: the set identifier
     #' :param logical overcast: ovecast boolean
 
 	if(set == "i"){
         logg("INFO", "Sensor Plot Set")
-		pdf(sprintf("%ssensor%s.pdf", fig_dir, ifelse(overcast,"_overcast", "")))
+		pdf(sprintf("%ssensor%s.pdf", fig.dir, ifelse(overcast,"_overcast", "")))
 	    sensor.chart()
         sensor.time(overcast)
         return(NULL)
 	}else if(set == "t"){
         logg("INFO", "Time Series Plot Set")
-		pdf(sprintf("%stime_series%s.pdf", fig_dir, ifelse(overcast,"_overcast", "")))
+		pdf(sprintf("%stime_series%s.pdf", fig.dir, ifelse(overcast,"_overcast", "")))
         if (length(datetime) > 0){
           r1 <- list(res$snsr_sky,
                      res$snsr_gro,
@@ -926,7 +928,7 @@ visual.products <- function(set, datetime=datetime, overcast=args$overcast){
 		}
 	}else if(set == "a"){
         logg("INFO", "Analytics Plot Set")
-        pdf(sprintf("%sanalytics%s.pdf", fig_dir,
+        pdf(sprintf("%sanalytics%s.pdf", fig.dir,
                              ifelse(overcast,"_overcast", "")))
         ifelse(overcast, res <- overcast.data,
                          res <- clear_sky.data)
@@ -966,16 +968,19 @@ visual.products <- function(set, datetime=datetime, overcast=args$overcast){
         analysis.svm(ml)
 	}else if(set == "c"){
         logg("INFO", "Chart Set")
-		pdf(sprintf("%scharts.pdf", fig_dir))
+		pdf(sprintf("%scharts.pdf", fig.dir))
         charts()
         return(NULL)
 	} else if (set == "p") {
         logg("INFO", "Pac-Man Plot Set")
-		pdf(sprintf("%spacman%s.pdf", fig_dir, ifelse(overcast,"_overcast", "")))
+		pdf(sprintf("%spacman%s.pdf", fig.dir, ifelse(overcast,"_overcast", "")))
         ifelse(overcast, results <- overcast.data,
                          results <- clear_sky.data)
-        x1 <- list(exp.regression(results,1)$x)
-        y1 <- list(exp.regression(results,1)$y)
+        exp.reg <-  exp.regression(results,train_frac,
+                               nan.out = nan.out,
+                               data_indx = mean.out)
+        x1 <- list(exp.reg$x)
+        y1 <- list(exp.reg$y)
         t1 <- list("Correlation between Mean TPW and Temperature")
         th1 <- list(c("Zenith Sky Temperature", "C"))
         ra1 <- list(c("TPW", "mm"))
@@ -986,8 +991,8 @@ visual.products <- function(set, datetime=datetime, overcast=args$overcast){
         return(NULL)
 	} else if (set == "o"){
         logg("INFO", "Poster Plot Set")
-		pdf(sprintf("%sposter%s.pdf", fig_dir, ifelse(overcast,"_overcast", "")))
-        poster.plots(overcast, iter.results)
+		pdf(sprintf("%sposter%s.pdf", fig.dir, ifelse(overcast,"_overcast", "")))
+        poster.plots(overcast, iter.results, nan.out, mean.out)
         return(NULL)
 	}
 }
