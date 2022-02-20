@@ -17,7 +17,7 @@ D01 <- "Insufficient clear sky/overcast data"
 F01 <- "master_data.csv is not found"
 F02 <- "_pmat.yml is not found"
 
-logg <- function(msglevel, msg, dir=args$dir) {
+logg <- function(msglevel, msg, dir=out.dir) {
       #' :detail: creates log entries for _log.txt
       #' :param character msglevel:
       #' :param character msg:

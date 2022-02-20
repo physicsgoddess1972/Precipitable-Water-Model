@@ -16,7 +16,7 @@
       range: null
       emissivity: 0.95
       poster: true
-      active: true
+      active: false
   - sensor:
       name: AMES_1
       error: 7

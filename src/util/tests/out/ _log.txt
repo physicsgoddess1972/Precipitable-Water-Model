@@ -1,0 +1,527 @@
+2022-02-20 11:13:25 ALOHA Precipitable-water Model Analysis Tool
+2022-02-20 11:13:25 ALOHA Program Start
+2022-02-20 11:13:26 WARN _output.yml is not found
+2022-02-20 11:13:28 INFO Collecting Data from sources
+2022-02-20 11:13:31 DEBUG Step 1 out of 10
+2022-02-20 11:13:31 DEBUG Step 2 out of 10
+2022-02-20 11:13:31 DEBUG Step 3 out of 10
+2022-02-20 11:13:31 DEBUG Step 4 out of 10
+2022-02-20 11:13:31 DEBUG Step 5 out of 10
+2022-02-20 11:13:31 DEBUG Step 6 out of 10
+2022-02-20 11:13:31 DEBUG Step 7 out of 10
+2022-02-20 11:13:31 DEBUG Step 8 out of 10
+2022-02-20 11:13:31 DEBUG Step 9 out of 10
+2022-02-20 11:13:31 DEBUG Step 10 out of 10
+2022-02-20 11:13:31 INFO Analytics Plot Set
+2022-02-20 11:13:31 PASS Correlation between TPW and Temperature
+2022-02-20 11:13:31 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-20 11:13:31 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-20 11:13:31 PASS Regression between Mean TPW and Temperature
+2022-02-20 11:13:31 PASS Regression between Weighted TPW and Temperature
+2022-02-20 11:13:31 PASS SVM Analysis between Sky Temperature and TPW
+2022-02-20 11:13:31 PASS Plot set downloaded to ./util/tests/data_monsoon/../out/figs/
+2022-02-20 11:13:32 ALOHA Program Complete
+2022-02-20 11:16:17 ALOHA Precipitable-water Model Analysis Tool
+2022-02-20 11:16:17 ALOHA Program Start
+2022-02-20 11:16:17 WARN _output.yml is not found
+2022-02-20 11:16:20 INFO Collecting Data from sources
+2022-02-20 11:16:23 DEBUG Step 1 out of 10
+2022-02-20 11:16:23 DEBUG Step 2 out of 10
+2022-02-20 11:16:23 DEBUG Step 3 out of 10
+2022-02-20 11:16:23 DEBUG Step 4 out of 10
+2022-02-20 11:16:23 DEBUG Step 5 out of 10
+2022-02-20 11:16:23 DEBUG Step 6 out of 10
+2022-02-20 11:16:23 DEBUG Step 7 out of 10
+2022-02-20 11:16:23 DEBUG Step 8 out of 10
+2022-02-20 11:16:23 DEBUG Step 9 out of 10
+2022-02-20 11:16:23 DEBUG Step 10 out of 10
+2022-02-20 11:16:23 INFO Analytics Plot Set
+2022-02-20 11:16:23 PASS Correlation between TPW and Temperature
+2022-02-20 11:16:23 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-20 11:16:23 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-20 11:16:23 PASS Regression between Mean TPW and Temperature
+2022-02-20 11:16:23 PASS Regression between Weighted TPW and Temperature
+2022-02-20 11:16:23 PASS SVM Analysis between Sky Temperature and TPW
+2022-02-20 11:16:23 PASS Plot set downloaded to ./util/tests/data_monsoon/../out/figs/
+2022-02-20 11:16:23 ALOHA Program Complete
+2022-02-20 11:16:45 ALOHA Precipitable-water Model Analysis Tool
+2022-02-20 11:16:45 ALOHA Program Start
+2022-02-20 11:16:48 INFO Collecting Data from sources
+2022-02-20 11:16:51 DEBUG Step 1 out of 10
+2022-02-20 11:16:51 DEBUG Step 2 out of 10
+2022-02-20 11:16:51 DEBUG Step 3 out of 10
+2022-02-20 11:16:51 DEBUG Step 4 out of 10
+2022-02-20 11:16:51 DEBUG Step 5 out of 10
+2022-02-20 11:16:51 DEBUG Step 6 out of 10
+2022-02-20 11:16:51 DEBUG Step 7 out of 10
+2022-02-20 11:16:51 DEBUG Step 8 out of 10
+2022-02-20 11:16:51 DEBUG Step 9 out of 10
+2022-02-20 11:16:51 DEBUG Step 10 out of 10
+2022-02-20 11:16:51 INFO Analytics Plot Set
+2022-02-20 11:16:51 PASS Correlation between TPW and Temperature
+2022-02-20 11:16:51 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-20 11:16:51 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-20 11:16:51 PASS Regression between Mean TPW and Temperature
+2022-02-20 11:16:52 PASS Regression between Weighted TPW and Temperature
+2022-02-20 11:16:52 PASS SVM Analysis between Sky Temperature and TPW
+2022-02-20 11:16:52 PASS Plot set downloaded to ./util/tests/data_monsoon/../out/figs/
+2022-02-20 11:16:52 ALOHA Program Complete
+2022-02-20 11:17:10 ALOHA Precipitable-water Model Analysis Tool
+2022-02-20 11:17:10 ALOHA Program Start
+2022-02-20 11:17:13 INFO Collecting Data from sources
+2022-02-20 11:17:15 DEBUG Step 1 out of 10
+2022-02-20 11:17:15 DEBUG Step 2 out of 10
+2022-02-20 11:17:15 DEBUG Step 3 out of 10
+2022-02-20 11:17:15 DEBUG Step 4 out of 10
+2022-02-20 11:17:15 DEBUG Step 5 out of 10
+2022-02-20 11:17:15 DEBUG Step 6 out of 10
+2022-02-20 11:17:16 DEBUG Step 7 out of 10
+2022-02-20 11:17:16 DEBUG Step 8 out of 10
+2022-02-20 11:17:16 DEBUG Step 9 out of 10
+2022-02-20 11:17:16 DEBUG Step 10 out of 10
+2022-02-20 11:17:16 INFO Condition: Clear Sky
+2022-02-20 11:17:16 INFO Time Series Plot Set
+2022-02-20 11:17:16 PASS Sky Temperature Time Series
+2022-02-20 11:17:16 PASS Ground Temperature Time Series
+2022-02-20 11:17:16 PASS Difference Between Ground-Sky Temperature Time Series
+2022-02-20 11:17:16 PASS Total Precipitable Water Time Series
+2022-02-20 11:17:16 PASS Temporal Mean Precipitable Water Time Series
+2022-02-20 11:17:16 PASS Locational Mean Precipitable Water Time Series
+2022-02-20 11:17:16 PASS Mean Total Precipitable Water Time Series
+2022-02-20 11:17:16 PASS Dewpoint Temperature Time Series
+2022-02-20 11:17:16 PASS Mean Sky Temperature and PWV Time Series
+2022-02-20 11:17:17 PASS Mean Sky Temperature and RH Time Series
+2022-02-20 11:17:17 PASS Mean TPW and RH Time Series
+2022-02-20 11:17:17 PASS Normalized Index for Weighted PWV Time Series
+2022-02-20 11:17:17 PASS Plot set downloaded to ./util/tests/data_monsoon/../out/figs/
+2022-02-20 11:17:17 INFO Analytics Plot Set
+2022-02-20 11:17:17 PASS Correlation between TPW and Temperature
+2022-02-20 11:17:17 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-20 11:17:17 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-20 11:17:17 PASS Regression between Mean TPW and Temperature
+2022-02-20 11:17:17 PASS Regression between Weighted TPW and Temperature
+2022-02-20 11:17:17 PASS SVM Analysis between Sky Temperature and TPW
+2022-02-20 11:17:17 PASS Plot set downloaded to ./util/tests/data_monsoon/../out/figs/
+2022-02-20 11:17:17 INFO Sensor Plot Set
+2022-02-20 11:17:17 PASS Overcast Condition Percentage: FLIR i3
+2022-02-20 11:17:17 PASS Overcast Condition Percentage: AMES 1
+2022-02-20 11:17:17 PASS Overcast Condition Percentage: AMES 2
+2022-02-20 11:17:18 PASS Overcast Condition Percentage: AMES 3
+2022-02-20 11:17:18 PASS Sky-Ground Time Series: FLIR i3
+2022-02-20 11:17:18 PASS Sky-Ground Time Series: AMES
+2022-02-20 11:17:18 PASS Plot set downloaded to ./util/tests/data_monsoon/../out/figs/
+2022-02-20 11:17:18 INFO Chart Set
+2022-02-20 11:17:18 PASS Weighted PWV
+2022-02-20 11:17:18 PASS Average Temperature
+2022-02-20 11:17:18 PASS Relative Humidity
+2022-02-20 11:17:18 PASS Dewpoint Temperature
+2022-02-20 11:17:18 PASS Distribution of PWV in ABQ
+2022-02-20 11:17:18 PASS Distribution of PWV in EPZ
+2022-02-20 11:17:18 PASS Plot set downloaded to ./util/tests/data_monsoon/../out/figs/
+2022-02-20 11:17:18 INFO Poster Plot Set
+2022-02-20 11:17:19 PASS Sky-Ground-Delta Temperature Time Series
+2022-02-20 11:20:42 ALOHA Precipitable-water Model Analysis Tool
+2022-02-20 11:20:42 ALOHA Program Start
+2022-02-20 11:20:45 INFO Collecting Data from sources
+2022-02-20 11:20:47 DEBUG Step 1 out of 10
+2022-02-20 11:20:47 DEBUG Step 2 out of 10
+2022-02-20 11:20:47 DEBUG Step 3 out of 10
+2022-02-20 11:20:47 DEBUG Step 4 out of 10
+2022-02-20 11:20:47 DEBUG Step 5 out of 10
+2022-02-20 11:20:47 DEBUG Step 6 out of 10
+2022-02-20 11:20:48 DEBUG Step 7 out of 10
+2022-02-20 11:20:48 DEBUG Step 8 out of 10
+2022-02-20 11:20:48 DEBUG Step 9 out of 10
+2022-02-20 11:20:48 DEBUG Step 10 out of 10
+2022-02-20 11:20:48 INFO Condition: Clear Sky
+2022-02-20 11:20:48 INFO Time Series Plot Set
+2022-02-20 11:20:48 PASS Sky Temperature Time Series
+2022-02-20 11:20:48 PASS Ground Temperature Time Series
+2022-02-20 11:20:48 PASS Difference Between Ground-Sky Temperature Time Series
+2022-02-20 11:20:48 PASS Total Precipitable Water Time Series
+2022-02-20 11:20:48 PASS Temporal Mean Precipitable Water Time Series
+2022-02-20 11:20:48 PASS Locational Mean Precipitable Water Time Series
+2022-02-20 11:20:48 PASS Mean Total Precipitable Water Time Series
+2022-02-20 11:20:48 PASS Dewpoint Temperature Time Series
+2022-02-20 11:20:48 PASS Mean Sky Temperature and PWV Time Series
+2022-02-20 11:20:48 PASS Mean Sky Temperature and RH Time Series
+2022-02-20 11:20:48 PASS Mean TPW and RH Time Series
+2022-02-20 11:20:49 PASS Normalized Index for Weighted PWV Time Series
+2022-02-20 11:20:49 PASS Plot set downloaded to ./util/tests/data_monsoon/../out/figs/
+2022-02-20 11:20:49 INFO Analytics Plot Set
+2022-02-20 11:20:49 PASS Correlation between TPW and Temperature
+2022-02-20 11:20:49 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-20 11:20:49 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-20 11:20:49 PASS Regression between Mean TPW and Temperature
+2022-02-20 11:20:49 PASS Regression between Weighted TPW and Temperature
+2022-02-20 11:20:49 PASS SVM Analysis between Sky Temperature and TPW
+2022-02-20 11:20:49 PASS Plot set downloaded to ./util/tests/data_monsoon/../out/figs/
+2022-02-20 11:20:49 INFO Sensor Plot Set
+2022-02-20 11:20:49 PASS Overcast Condition Percentage: FLIR i3
+2022-02-20 11:20:49 PASS Overcast Condition Percentage: AMES 1
+2022-02-20 11:20:49 PASS Overcast Condition Percentage: AMES 2
+2022-02-20 11:20:49 PASS Overcast Condition Percentage: AMES 3
+2022-02-20 11:20:50 PASS Sky-Ground Time Series: FLIR i3
+2022-02-20 11:20:50 PASS Sky-Ground Time Series: AMES
+2022-02-20 11:20:50 PASS Plot set downloaded to ./util/tests/data_monsoon/../out/figs/
+2022-02-20 11:20:50 INFO Chart Set
+2022-02-20 11:20:50 PASS Weighted PWV
+2022-02-20 11:20:50 PASS Average Temperature
+2022-02-20 11:20:50 PASS Relative Humidity
+2022-02-20 11:20:50 PASS Dewpoint Temperature
+2022-02-20 11:20:50 PASS Distribution of PWV in ABQ
+2022-02-20 11:20:50 PASS Distribution of PWV in EPZ
+2022-02-20 11:20:50 PASS Plot set downloaded to ./util/tests/data_monsoon/../out/figs/
+2022-02-20 11:20:50 INFO Poster Plot Set
+2022-02-20 11:20:50 PASS Sky-Ground-Delta Temperature Time Series
+2022-02-20 11:24:11 ALOHA Precipitable-water Model Analysis Tool
+2022-02-20 11:24:11 ALOHA Program Start
+2022-02-20 11:24:14 INFO Collecting Data from sources
+2022-02-20 11:24:17 DEBUG Step 1 out of 10
+2022-02-20 11:24:17 DEBUG Step 2 out of 10
+2022-02-20 11:24:17 DEBUG Step 3 out of 10
+2022-02-20 11:24:17 DEBUG Step 4 out of 10
+2022-02-20 11:24:17 DEBUG Step 5 out of 10
+2022-02-20 11:24:17 DEBUG Step 6 out of 10
+2022-02-20 11:24:17 DEBUG Step 7 out of 10
+2022-02-20 11:24:17 DEBUG Step 8 out of 10
+2022-02-20 11:24:17 DEBUG Step 9 out of 10
+2022-02-20 11:24:17 DEBUG Step 10 out of 10
+2022-02-20 11:24:17 INFO Condition: Clear Sky
+2022-02-20 11:24:17 INFO Time Series Plot Set
+2022-02-20 11:24:17 PASS Sky Temperature Time Series
+2022-02-20 11:24:17 PASS Ground Temperature Time Series
+2022-02-20 11:24:17 PASS Difference Between Ground-Sky Temperature Time Series
+2022-02-20 11:24:17 PASS Total Precipitable Water Time Series
+2022-02-20 11:24:17 PASS Temporal Mean Precipitable Water Time Series
+2022-02-20 11:24:17 PASS Locational Mean Precipitable Water Time Series
+2022-02-20 11:24:17 PASS Mean Total Precipitable Water Time Series
+2022-02-20 11:24:18 PASS Dewpoint Temperature Time Series
+2022-02-20 11:24:18 PASS Mean Sky Temperature and PWV Time Series
+2022-02-20 11:24:18 PASS Mean Sky Temperature and RH Time Series
+2022-02-20 11:24:18 PASS Mean TPW and RH Time Series
+2022-02-20 11:24:18 PASS Normalized Index for Weighted PWV Time Series
+2022-02-20 11:24:18 PASS Plot set downloaded to ./util/tests/data_monsoon/../out/figs/
+2022-02-20 11:24:18 INFO Analytics Plot Set
+2022-02-20 11:24:18 PASS Correlation between TPW and Temperature
+2022-02-20 11:24:18 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-20 11:24:18 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-20 11:24:18 PASS Regression between Mean TPW and Temperature
+2022-02-20 11:24:18 PASS Regression between Weighted TPW and Temperature
+2022-02-20 11:24:19 PASS SVM Analysis between Sky Temperature and TPW
+2022-02-20 11:24:19 PASS Plot set downloaded to ./util/tests/data_monsoon/../out/figs/
+2022-02-20 11:24:19 INFO Sensor Plot Set
+2022-02-20 11:24:19 PASS Overcast Condition Percentage: FLIR i3
+2022-02-20 11:24:19 PASS Overcast Condition Percentage: AMES 1
+2022-02-20 11:24:19 PASS Overcast Condition Percentage: AMES 2
+2022-02-20 11:24:19 PASS Overcast Condition Percentage: AMES 3
+2022-02-20 11:24:19 PASS Sky-Ground Time Series: FLIR i3
+2022-02-20 11:24:19 PASS Sky-Ground Time Series: AMES
+2022-02-20 11:24:19 PASS Plot set downloaded to ./util/tests/data_monsoon/../out/figs/
+2022-02-20 11:24:19 INFO Chart Set
+2022-02-20 11:24:19 PASS Weighted PWV
+2022-02-20 11:24:19 PASS Average Temperature
+2022-02-20 11:24:19 PASS Relative Humidity
+2022-02-20 11:24:19 PASS Dewpoint Temperature
+2022-02-20 11:24:19 PASS Distribution of PWV in ABQ
+2022-02-20 11:24:19 PASS Distribution of PWV in EPZ
+2022-02-20 11:24:19 PASS Plot set downloaded to ./util/tests/data_monsoon/../out/figs/
+2022-02-20 11:24:19 INFO Poster Plot Set
+2022-02-20 11:24:20 PASS Sky-Ground-Delta Temperature Time Series
+2022-02-20 11:25:30 ALOHA Precipitable-water Model Analysis Tool
+2022-02-20 11:25:30 ALOHA Program Start
+2022-02-20 11:25:32 INFO Collecting Data from sources
+2022-02-20 11:25:35 DEBUG Step 1 out of 10
+2022-02-20 11:25:35 DEBUG Step 2 out of 10
+2022-02-20 11:25:35 DEBUG Step 3 out of 10
+2022-02-20 11:25:35 DEBUG Step 4 out of 10
+2022-02-20 11:25:35 DEBUG Step 5 out of 10
+2022-02-20 11:25:35 DEBUG Step 6 out of 10
+2022-02-20 11:25:35 DEBUG Step 7 out of 10
+2022-02-20 11:25:35 DEBUG Step 8 out of 10
+2022-02-20 11:25:35 DEBUG Step 9 out of 10
+2022-02-20 11:25:35 DEBUG Step 10 out of 10
+2022-02-20 11:25:35 INFO Condition: Clear Sky
+2022-02-20 11:25:35 INFO Time Series Plot Set
+2022-02-20 11:26:04 ALOHA Precipitable-water Model Analysis Tool
+2022-02-20 11:26:04 ALOHA Program Start
+2022-02-20 11:26:06 INFO Collecting Data from sources
+2022-02-20 11:26:09 DEBUG Step 1 out of 10
+2022-02-20 11:26:09 DEBUG Step 2 out of 10
+2022-02-20 11:26:09 DEBUG Step 3 out of 10
+2022-02-20 11:26:09 DEBUG Step 4 out of 10
+2022-02-20 11:26:09 DEBUG Step 5 out of 10
+2022-02-20 11:26:09 DEBUG Step 6 out of 10
+2022-02-20 11:26:09 DEBUG Step 7 out of 10
+2022-02-20 11:26:09 DEBUG Step 8 out of 10
+2022-02-20 11:26:09 DEBUG Step 9 out of 10
+2022-02-20 11:26:09 DEBUG Step 10 out of 10
+2022-02-20 11:26:09 INFO Condition: Clear Sky
+2022-02-20 11:26:09 INFO Time Series Plot Set
+2022-02-20 11:26:09 PASS Sky Temperature Time Series
+2022-02-20 11:26:09 PASS Ground Temperature Time Series
+2022-02-20 11:26:09 PASS Difference Between Ground-Sky Temperature Time Series
+2022-02-20 11:26:09 PASS Total Precipitable Water Time Series
+2022-02-20 11:26:09 PASS Temporal Mean Precipitable Water Time Series
+2022-02-20 11:26:09 PASS Locational Mean Precipitable Water Time Series
+2022-02-20 11:26:10 PASS Mean Total Precipitable Water Time Series
+2022-02-20 11:26:10 PASS Dewpoint Temperature Time Series
+2022-02-20 11:26:10 PASS Mean Sky Temperature and PWV Time Series
+2022-02-20 11:26:10 PASS Mean Sky Temperature and RH Time Series
+2022-02-20 11:26:10 PASS Mean TPW and RH Time Series
+2022-02-20 11:26:10 PASS Normalized Index for Weighted PWV Time Series
+2022-02-20 11:26:10 PASS Plot set downloaded to ./util/tests/data_monsoon/../out/figs/
+2022-02-20 11:26:10 INFO Analytics Plot Set
+2022-02-20 11:26:10 PASS Correlation between TPW and Temperature
+2022-02-20 11:26:10 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-20 11:26:10 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-20 11:26:10 PASS Regression between Mean TPW and Temperature
+2022-02-20 11:26:10 PASS Regression between Weighted TPW and Temperature
+2022-02-20 11:26:11 PASS SVM Analysis between Sky Temperature and TPW
+2022-02-20 11:26:11 PASS Plot set downloaded to ./util/tests/data_monsoon/../out/figs/
+2022-02-20 11:26:11 INFO Sensor Plot Set
+2022-02-20 11:26:11 PASS Overcast Condition Percentage: FLIR i3
+2022-02-20 11:26:11 PASS Overcast Condition Percentage: AMES 1
+2022-02-20 11:26:11 PASS Overcast Condition Percentage: AMES 2
+2022-02-20 11:26:11 PASS Overcast Condition Percentage: AMES 3
+2022-02-20 11:26:11 PASS Sky-Ground Time Series: FLIR i3
+2022-02-20 11:26:11 PASS Sky-Ground Time Series: AMES
+2022-02-20 11:26:11 PASS Plot set downloaded to ./util/tests/data_monsoon/../out/figs/
+2022-02-20 11:26:11 INFO Chart Set
+2022-02-20 11:26:11 PASS Weighted PWV
+2022-02-20 11:26:11 PASS Average Temperature
+2022-02-20 11:26:11 PASS Relative Humidity
+2022-02-20 11:26:11 PASS Dewpoint Temperature
+2022-02-20 11:26:11 PASS Distribution of PWV in ABQ
+2022-02-20 11:26:11 PASS Distribution of PWV in EPZ
+2022-02-20 11:26:11 PASS Plot set downloaded to ./util/tests/data_monsoon/../out/figs/
+2022-02-20 11:26:11 INFO Poster Plot Set
+2022-02-20 11:26:12 PASS Sky-Ground-Delta Temperature Time Series
+2022-02-20 11:26:12 PASS Analytical Plots
+2022-02-20 11:26:12 PASS Plot set downloaded to ./util/tests/data_monsoon/../out/figs/
+2022-02-20 11:26:12 INFO Pac-Man Plot Set
+2022-02-20 11:28:21 ALOHA Precipitable-water Model Analysis Tool
+2022-02-20 11:28:21 ALOHA Program Start
+2022-02-20 11:28:24 INFO Collecting Data from sources
+2022-02-20 11:28:26 DEBUG Step 1 out of 10
+2022-02-20 11:28:26 DEBUG Step 2 out of 10
+2022-02-20 11:28:26 DEBUG Step 3 out of 10
+2022-02-20 11:28:26 DEBUG Step 4 out of 10
+2022-02-20 11:28:26 DEBUG Step 5 out of 10
+2022-02-20 11:28:26 DEBUG Step 6 out of 10
+2022-02-20 11:28:27 DEBUG Step 7 out of 10
+2022-02-20 11:28:27 DEBUG Step 8 out of 10
+2022-02-20 11:28:27 DEBUG Step 9 out of 10
+2022-02-20 11:28:27 DEBUG Step 10 out of 10
+2022-02-20 11:28:27 INFO Condition: Clear Sky
+2022-02-20 11:28:27 INFO Time Series Plot Set
+2022-02-20 11:28:27 PASS Sky Temperature Time Series
+2022-02-20 11:28:27 PASS Ground Temperature Time Series
+2022-02-20 11:28:27 PASS Difference Between Ground-Sky Temperature Time Series
+2022-02-20 11:28:27 PASS Total Precipitable Water Time Series
+2022-02-20 11:28:27 PASS Temporal Mean Precipitable Water Time Series
+2022-02-20 11:28:27 PASS Locational Mean Precipitable Water Time Series
+2022-02-20 11:28:27 PASS Mean Total Precipitable Water Time Series
+2022-02-20 11:28:27 PASS Dewpoint Temperature Time Series
+2022-02-20 11:28:27 PASS Mean Sky Temperature and PWV Time Series
+2022-02-20 11:28:28 PASS Mean Sky Temperature and RH Time Series
+2022-02-20 11:28:28 PASS Mean TPW and RH Time Series
+2022-02-20 11:28:28 PASS Normalized Index for Weighted PWV Time Series
+2022-02-20 11:28:28 PASS Plot set downloaded to ./util/tests/data_monsoon/../out/figs/
+2022-02-20 11:28:28 INFO Analytics Plot Set
+2022-02-20 11:28:28 PASS Correlation between TPW and Temperature
+2022-02-20 11:28:28 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-20 11:28:28 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-20 11:28:28 PASS Regression between Mean TPW and Temperature
+2022-02-20 11:28:28 PASS Regression between Weighted TPW and Temperature
+2022-02-20 11:28:28 PASS SVM Analysis between Sky Temperature and TPW
+2022-02-20 11:28:28 PASS Plot set downloaded to ./util/tests/data_monsoon/../out/figs/
+2022-02-20 11:28:28 INFO Sensor Plot Set
+2022-02-20 11:28:29 PASS Overcast Condition Percentage: FLIR i3
+2022-02-20 11:28:29 PASS Overcast Condition Percentage: AMES 1
+2022-02-20 11:28:29 PASS Overcast Condition Percentage: AMES 2
+2022-02-20 11:28:29 PASS Overcast Condition Percentage: AMES 3
+2022-02-20 11:28:29 PASS Sky-Ground Time Series: FLIR i3
+2022-02-20 11:28:29 PASS Sky-Ground Time Series: AMES
+2022-02-20 11:28:29 PASS Plot set downloaded to ./util/tests/data_monsoon/../out/figs/
+2022-02-20 11:28:29 INFO Chart Set
+2022-02-20 11:28:29 PASS Weighted PWV
+2022-02-20 11:28:29 PASS Average Temperature
+2022-02-20 11:28:29 PASS Relative Humidity
+2022-02-20 11:28:29 PASS Dewpoint Temperature
+2022-02-20 11:28:29 PASS Distribution of PWV in ABQ
+2022-02-20 11:28:29 PASS Distribution of PWV in EPZ
+2022-02-20 11:28:29 PASS Plot set downloaded to ./util/tests/data_monsoon/../out/figs/
+2022-02-20 11:28:29 INFO Poster Plot Set
+2022-02-20 11:28:30 PASS Sky-Ground-Delta Temperature Time Series
+2022-02-20 11:28:30 PASS Analytical Plots
+2022-02-20 11:28:30 PASS Plot set downloaded to ./util/tests/data_monsoon/../out/figs/
+2022-02-20 11:28:30 INFO Pac-Man Plot Set
+2022-02-20 11:28:30 PASS Correlation between Mean TPW and Temperature
+2022-02-20 11:28:30 PASS Pac-Man Residual of the Mean TPW and Temperature Model
+2022-02-20 11:28:30 PASS Plot set downloaded to ./util/tests/data_monsoon/../out/figs/
+2022-02-20 11:28:30 ALOHA Program Complete
+2022-02-20 11:32:22 ALOHA Precipitable-water Model Analysis Tool
+2022-02-20 11:32:22 ALOHA Program Start
+2022-02-20 11:32:25 INFO Collecting Data from sources
+2022-02-20 11:32:27 DEBUG Step 1 out of 10
+2022-02-20 11:32:27 DEBUG Step 2 out of 10
+2022-02-20 11:32:27 DEBUG Step 3 out of 10
+2022-02-20 11:32:27 DEBUG Step 4 out of 10
+2022-02-20 11:32:27 DEBUG Step 5 out of 10
+2022-02-20 11:32:27 DEBUG Step 6 out of 10
+2022-02-20 11:32:27 DEBUG Step 7 out of 10
+2022-02-20 11:32:27 DEBUG Step 8 out of 10
+2022-02-20 11:32:27 DEBUG Step 9 out of 10
+2022-02-20 11:32:27 DEBUG Step 10 out of 10
+2022-02-20 11:32:27 INFO Analytics Plot Set
+2022-02-20 11:32:28 PASS Correlation between TPW and Temperature
+2022-02-20 11:32:28 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-20 11:32:28 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-20 11:32:28 PASS Regression between Mean TPW and Temperature
+2022-02-20 11:32:28 PASS Regression between Weighted TPW and Temperature
+2022-02-20 11:32:28 PASS SVM Analysis between Sky Temperature and TPW
+2022-02-20 11:32:28 PASS Plot set downloaded to ./util/tests/data_monsoon/../out/figs/
+2022-02-20 11:32:28 ALOHA Program Complete
+2022-02-20 11:32:41 ALOHA Precipitable-water Model Analysis Tool
+2022-02-20 11:32:41 ALOHA Program Start
+2022-02-20 11:32:44 INFO Collecting Data from sources
+2022-02-20 11:32:46 DEBUG Step 1 out of 10
+2022-02-20 11:32:46 DEBUG Step 2 out of 10
+2022-02-20 11:32:46 DEBUG Step 3 out of 10
+2022-02-20 11:32:46 DEBUG Step 4 out of 10
+2022-02-20 11:32:46 DEBUG Step 5 out of 10
+2022-02-20 11:32:46 DEBUG Step 6 out of 10
+2022-02-20 11:32:47 DEBUG Step 7 out of 10
+2022-02-20 11:32:47 DEBUG Step 8 out of 10
+2022-02-20 11:32:47 DEBUG Step 9 out of 10
+2022-02-20 11:32:47 DEBUG Step 10 out of 10
+2022-02-20 11:32:47 INFO Analytics Plot Set
+2022-02-20 11:32:47 PASS Correlation between TPW and Temperature
+2022-02-20 11:32:47 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-20 11:32:47 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-20 11:32:47 PASS Regression between Mean TPW and Temperature
+2022-02-20 11:32:47 PASS Regression between Weighted TPW and Temperature
+2022-02-20 11:32:47 PASS SVM Analysis between Sky Temperature and TPW
+2022-02-20 11:32:47 PASS Plot set downloaded to ./util/tests/data_monsoon/../out/figs/
+2022-02-20 11:32:47 ALOHA Program Complete
+2022-02-20 11:34:05 ALOHA Precipitable-water Model Analysis Tool
+2022-02-20 11:34:05 ALOHA Program Start
+2022-02-20 11:34:07 INFO Collecting Data from sources
+2022-02-20 11:34:10 DEBUG Step 1 out of 10
+2022-02-20 11:34:10 DEBUG Step 2 out of 10
+2022-02-20 11:34:10 DEBUG Step 3 out of 10
+2022-02-20 11:34:10 DEBUG Step 4 out of 10
+2022-02-20 11:34:10 DEBUG Step 5 out of 10
+2022-02-20 11:34:10 DEBUG Step 6 out of 10
+2022-02-20 11:34:10 DEBUG Step 7 out of 10
+2022-02-20 11:34:10 DEBUG Step 8 out of 10
+2022-02-20 11:34:10 DEBUG Step 9 out of 10
+2022-02-20 11:34:10 DEBUG Step 10 out of 10
+2022-02-20 11:34:10 INFO Analytics Plot Set
+2022-02-20 11:34:10 PASS Correlation between TPW and Temperature
+2022-02-20 11:34:10 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-20 11:34:10 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-20 11:34:10 PASS Regression between Mean TPW and Temperature
+2022-02-20 11:34:11 PASS Regression between Weighted TPW and Temperature
+2022-02-20 11:34:11 PASS SVM Analysis between Sky Temperature and TPW
+2022-02-20 11:34:11 PASS Plot set downloaded to ./util/tests/data_monsoon/../out/figs/
+2022-02-20 11:34:11 ALOHA Program Complete
+2022-02-20 11:34:42 ALOHA Precipitable-water Model Analysis Tool
+2022-02-20 11:34:42 ALOHA Program Start
+2022-02-20 11:34:45 INFO Collecting Data from sources
+2022-02-20 11:34:46 WARN Raw data mix match. No Data will be collected
+2022-02-20 11:34:48 DEBUG Step 1 out of 2
+2022-02-20 11:34:48 DEBUG Step 2 out of 2
+2022-02-20 11:34:48 INFO Analytics Plot Set
+2022-02-20 11:34:48 PASS Correlation between TPW and Temperature
+2022-02-20 11:34:48 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-20 11:34:48 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-20 11:34:48 PASS Regression between Mean TPW and Temperature
+2022-02-20 11:34:49 PASS Regression between Weighted TPW and Temperature
+2022-02-20 11:34:49 PASS SVM Analysis between Sky Temperature and TPW
+2022-02-20 11:34:49 PASS Plot set downloaded to ./util/tests/data_paper/../out/figs/
+2022-02-20 11:34:49 ALOHA Program Complete
+2022-02-20 11:35:39 ALOHA Precipitable-water Model Analysis Tool
+2022-02-20 11:35:39 ALOHA Program Start
+2022-02-20 11:35:42 INFO Collecting Data from sources
+2022-02-20 11:35:44 DEBUG Step 1 out of 10
+2022-02-20 11:35:44 DEBUG Step 2 out of 10
+2022-02-20 11:35:44 DEBUG Step 3 out of 10
+2022-02-20 11:35:44 DEBUG Step 4 out of 10
+2022-02-20 11:35:44 DEBUG Step 5 out of 10
+2022-02-20 11:35:44 DEBUG Step 6 out of 10
+2022-02-20 11:35:44 DEBUG Step 7 out of 10
+2022-02-20 11:35:44 DEBUG Step 8 out of 10
+2022-02-20 11:35:44 DEBUG Step 9 out of 10
+2022-02-20 11:35:44 DEBUG Step 10 out of 10
+2022-02-20 11:35:44 INFO Analytics Plot Set
+2022-02-20 11:35:44 PASS Correlation between TPW and Temperature
+2022-02-20 11:35:44 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-20 11:35:44 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-20 11:35:45 PASS Regression between Mean TPW and Temperature
+2022-02-20 11:35:45 PASS Regression between Weighted TPW and Temperature
+2022-02-20 11:35:45 PASS SVM Analysis between Sky Temperature and TPW
+2022-02-20 11:35:45 PASS Plot set downloaded to ./util/tests/data_monsoon/../out/figs/
+2022-02-20 11:35:45 ALOHA Program Complete
+2022-02-20 11:38:48 ALOHA Precipitable-water Model Analysis Tool
+2022-02-20 11:38:48 ALOHA Program Start
+2022-02-20 11:38:50 INFO Collecting Data from sources
+2022-02-20 11:38:53 DEBUG Step 1 out of 10
+2022-02-20 11:38:53 DEBUG Step 2 out of 10
+2022-02-20 11:38:53 DEBUG Step 3 out of 10
+2022-02-20 11:38:53 DEBUG Step 4 out of 10
+2022-02-20 11:38:53 DEBUG Step 5 out of 10
+2022-02-20 11:38:53 DEBUG Step 6 out of 10
+2022-02-20 11:38:53 DEBUG Step 7 out of 10
+2022-02-20 11:38:53 DEBUG Step 8 out of 10
+2022-02-20 11:38:53 DEBUG Step 9 out of 10
+2022-02-20 11:38:53 DEBUG Step 10 out of 10
+2022-02-20 11:38:53 INFO Condition: Clear Sky
+2022-02-20 11:38:53 INFO Time Series Plot Set
+2022-02-20 11:38:53 PASS Sky Temperature Time Series
+2022-02-20 11:38:53 PASS Ground Temperature Time Series
+2022-02-20 11:38:53 PASS Difference Between Ground-Sky Temperature Time Series
+2022-02-20 11:38:53 PASS Total Precipitable Water Time Series
+2022-02-20 11:38:54 PASS Temporal Mean Precipitable Water Time Series
+2022-02-20 11:38:54 PASS Locational Mean Precipitable Water Time Series
+2022-02-20 11:38:54 PASS Mean Total Precipitable Water Time Series
+2022-02-20 11:38:54 PASS Dewpoint Temperature Time Series
+2022-02-20 11:38:54 PASS Mean Sky Temperature and PWV Time Series
+2022-02-20 11:38:54 PASS Mean Sky Temperature and RH Time Series
+2022-02-20 11:38:54 PASS Mean TPW and RH Time Series
+2022-02-20 11:38:54 PASS Normalized Index for Weighted PWV Time Series
+2022-02-20 11:38:54 PASS Plot set downloaded to ./util/tests/data_monsoon/../out/figs/
+2022-02-20 11:38:54 INFO Analytics Plot Set
+2022-02-20 11:38:54 PASS Correlation between TPW and Temperature
+2022-02-20 11:38:55 PASS Correlation between Locational Mean TPW and Temperature
+2022-02-20 11:38:55 PASS Correlation between Temporal Mean TPW and Temperature
+2022-02-20 11:38:55 PASS Regression between Mean TPW and Temperature
+2022-02-20 11:38:55 PASS Regression between Weighted TPW and Temperature
+2022-02-20 11:38:55 PASS SVM Analysis between Sky Temperature and TPW
+2022-02-20 11:38:55 PASS Plot set downloaded to ./util/tests/data_monsoon/../out/figs/
+2022-02-20 11:38:55 INFO Sensor Plot Set
+2022-02-20 11:38:55 PASS Overcast Condition Percentage: AMES 1
+2022-02-20 11:38:55 PASS Overcast Condition Percentage: AMES 2
+2022-02-20 11:38:55 PASS Overcast Condition Percentage: AMES 3
+2022-02-20 11:38:55 PASS Sky-Ground Time Series: AMES
+2022-02-20 11:38:55 PASS Plot set downloaded to ./util/tests/data_monsoon/../out/figs/
+2022-02-20 11:38:55 INFO Chart Set
+2022-02-20 11:38:55 PASS Weighted PWV
+2022-02-20 11:38:56 PASS Average Temperature
+2022-02-20 11:38:56 PASS Relative Humidity
+2022-02-20 11:38:56 PASS Dewpoint Temperature
+2022-02-20 11:38:56 PASS Distribution of PWV in ABQ
+2022-02-20 11:38:56 PASS Distribution of PWV in EPZ
+2022-02-20 11:38:56 PASS Plot set downloaded to ./util/tests/data_monsoon/../out/figs/
+2022-02-20 11:38:56 INFO Poster Plot Set
+2022-02-20 11:38:56 PASS Sky-Ground-Delta Temperature Time Series
+2022-02-20 11:38:56 PASS Analytical Plots
+2022-02-20 11:38:56 PASS Plot set downloaded to ./util/tests/data_monsoon/../out/figs/
+2022-02-20 11:38:56 INFO Pac-Man Plot Set
+2022-02-20 11:38:56 PASS Correlation between Mean TPW and Temperature
+2022-02-20 11:38:56 PASS Pac-Man Residual of the Mean TPW and Temperature Model
+2022-02-20 11:38:56 PASS Plot set downloaded to ./util/tests/data_monsoon/../out/figs/
+2022-02-20 11:38:56 PASS Data sent to data/data.csv
+2022-02-20 11:38:57 PASS Data sent to ./util/tests/data_monsoon/../out/data/ml_data.csv
+2022-02-20 11:38:57 ALOHA Program Complete
