@@ -154,7 +154,7 @@ class PMAT_Import():
     @param station
     @return 
     """
-    def wyoming_import(end_date, station):
+    def wyoming_import(end_date, station, level):
         try:
             df_12 = WyomingUpperAir.request_data(dt.combine(end_date, datetime.time(12, 0)), station)
             pw12 = df_12.pw[0]
