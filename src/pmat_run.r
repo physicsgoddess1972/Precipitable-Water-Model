@@ -54,6 +54,9 @@ if(file.exists(paste(args$dir,"_pmat.yml", sep=""))){
 if (args$first){first()}
 startup()
 
+# Processing functions
+source("./pmat_processing.r")
+
 ## Imports data from master_data.csv
 if (file.exists(paste(args$dir,"master_data.csv", sep=""))){
 	fname       <- read.table(paste(args$dir,"master_data.csv", sep=""), sep=",", header=TRUE, strip.white=TRUE)
@@ -69,8 +72,6 @@ if(file.exists(paste(out.dir,"data/_output.yml", sep=""))){
 	args$u <- TRUE
 }
 
-# Processing functions
-source("./pmat_processing.r")
 filter.overcast.clear <- overcast.filter(col_con,
 								col_date,
 								col_com,
