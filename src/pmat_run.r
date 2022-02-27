@@ -38,15 +38,23 @@ yellow 		<- make_style("gold2")
 green 		<- make_style("lawngreen")
 cloudblue 	<- make_style("lightskyblue")
 
-out.dir <- paste(args$dir, "../out/", sep="")
-fig.dir <- paste(out.dir, "figs/", sep="")
-dat.dir <- paste(out.dir, "data/", sep="")
+src.dir <- 	file.path(args$dir)
+out.dir <- 	file.path(src.dir, "../out")
+if (grepl("//", out.dir, fixed=TRUE)){
+	out.dir <- gsub("//", "/", out.dir)
+}
+fig.dir <- 	file.path(out.dir, "figs/")
+dat.dir <-	file.path(out.dir, "data/")
+dir.create(out.dir)
+dir.create(fig.dir)
+dir.create(dat.dir)
+
 # Error/Warning definitions
 source("./pmat_utility.r")
 
 ## Imports sensor information from instruments.txt
-if(file.exists(paste(args$dir,"_pmat.yml", sep=""))){
-	config	<- yaml.load_file(paste(args$dir,"_pmat.yml", sep=""))
+if(file.exists(file.path(src.dir, "_pmat.yml"))){
+	config	<- yaml.load_file(file.path(src.dir, "_pmat.yml"))
 	level 	<- config[[3]]$logging[[1]]$verbose
 } else {
 	logg("ERROR", F02, lev = "DEBUG"); closing()
@@ -55,14 +63,14 @@ if (args$first){first()}
 startup()
 
 ## Imports data from master_data.csv
-if (!file.exists(paste(args$dir,"master_data.csv", sep=""))){
+if (!file.exists(file.path(src.dir, "master_data.csv"))){
 	logg("WARN", F01, lev = level)
-	fname <- file.create(paste(args$dir,"master_data.csv", sep=""))
+	fname <- file.create(file.path(src.dir, "master_data.csv"))
 }
 ## Tries to read _output.yml
-if(!file.exists(paste(out.dir,"data/_output.yml", sep=""))){
+if(!file.exists(file.path(dat.dir, "_output.yml"))){
 	logg("WARN", f01, lev = level)
-	oname <- file.create(paste(out.dir,"data/_output.yml", sep=""))
+	oname <- file.create(file.path(dat.dir, "_output.yml"))
 	args$u <- TRUE
 }
 
