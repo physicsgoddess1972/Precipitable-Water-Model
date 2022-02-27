@@ -54,15 +54,15 @@ if(file.exists(paste(args$dir,"_pmat.yml", sep=""))){
 if (args$first){first()}
 startup()
 
-# Processing functions
-source("./pmat_processing.r")
-
 ## Imports data from master_data.csv
-if (file.exists(paste(args$dir,"master_data.csv", sep=""))){
-	fname       <- read.table(paste(args$dir,"master_data.csv", sep=""), sep=",", header=TRUE, strip.white=TRUE)
-} else {
-	logg("ERROR", F01, lev = level); closing()
+if (!file.exists(paste(args$dir,"master_data.csv", sep=""))){
+	logg("WARN", F01, lev = level)
+	oname <- file.create(paste(args$dir,"master_data.csv", sep=""))
 }
+fname       <- read.table(paste(args$dir,"master_data.csv", sep=""),
+						  sep=",",
+						  header=TRUE,
+						  strip.white=TRUE)
 ## Tries to read _output.yml
 if(file.exists(paste(out.dir,"data/_output.yml", sep=""))){
 	oname <- yaml.load_file(paste(out.dir,"data/_output.yml", sep=""))
@@ -71,6 +71,9 @@ if(file.exists(paste(out.dir,"data/_output.yml", sep=""))){
 	oname <- file.create(paste(out.dir,"data/_output.yml", sep=""))
 	args$u <- TRUE
 }
+
+# Processing functions
+source("./pmat_processing.r")
 
 filter.overcast.clear <- overcast.filter(col_con,
 								col_date,
