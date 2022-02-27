@@ -770,13 +770,25 @@ data.gen <- function(overcast, dir){
       # Pulls the data
         norm  	  <- data.frame(list(x=date, y1=avg_temp, y2=avg_pw))
       # Removes the NaN data
-        norm 	  <- norm[-c(which(avg_pw %in% NaN)), ]
-        norm 	  <- norm[-c(which(avg_temp %in% NaN)), ]
+        if (length(c(which(avg_pw %in% NaN))) != 0){
+          norm 	  <- norm[-c(which(avg_pw %in% NaN)), ]
+        }
+        if (length(c(which(avg_temp %in% NaN))) != 0){
+          norm 	  <- norm[-c(which(avg_temp %in% NaN)), ]
+        }
       # Adds data to a data frame with column names
-        data 	  <- data.frame(list(date=c(norm$x), avg_temp=c(norm$y1), avg_pw=c(norm$y2)))
+        data 	  <- data.frame(list(date=c(norm$x),
+                                      avg_temp=c(norm$y1),
+                                     avg_pw=c(norm$y2)))
+
         colnames(data) <- c("date", "avg_temp", "avg_pw")
       # Writes the data to a csv
-        write.csv(data, file=paste(dir, sprintf("data%s.csv", ifelse(overcast,"_overcast", "")), sep=""), row.names=FALSE)
+
+        write.csv(data,
+                  file=file.path(dir,
+                                 sprintf("data%s.csv",
+                                         ifelse(overcast,"_overcast", ""))),
+                  row.names=FALSE)
         logg("PASS", sprintf("Data sent to data/data%s.csv", ifelse(overcast,"_overcast", "")), lev = level)
 }
 
@@ -826,7 +838,7 @@ data.ml <- function(dir){
         data 		<- data.frame(list(date=c(norm$x),avg_temp=c(norm$y1), avg_pw=c(norm$y2), avg_rh=c(norm$y3), cond=c(norm$c)))
         colnames(data) <- c("date", "avg_temp", "avg_pw", "avg_rh", "condition")
         # Writes the data to a csv
-        write.csv(data, file=sprintf("%sml_data.csv", dir), row.names=FALSE)
+        write.csv(data, file=file.path(dir, "ml_data.csv"), row.names=FALSE)
         logg("PASS", sprintf("Data sent to %sml_data.csv", dir), lev = level)
 }
 
@@ -854,7 +866,7 @@ data.final <- function(dir, clear.len, over.len, train.len, nan.len, frac.kept, 
                                                    yours=c(rmse$R))))
 
   write(as.yaml(yml, precision=4),
-        file = paste(dir,"_results.yml", sep=""))
+        file = file.path(dir, "_results.yml"))
 }
 
 visual.products <- function(set, nan.out, mean.out, datetime=datetime, overcast=args$overcast){
@@ -864,13 +876,18 @@ visual.products <- function(set, nan.out, mean.out, datetime=datetime, overcast=
 
 	if(set == "i"){
         logg("INFO", "Sensor Plot Set", lev = level)
-		pdf(sprintf("%ssensor%s.pdf", fig.dir, ifelse(overcast,"_overcast", "")))
+
+		pdf(file.path(fig.dir,
+                      sprintf("sensor%s.pdf",
+                              ifelse(overcast,"_overcast", ""))))
 	    sensor.chart()
         sensor.time(overcast)
         return(NULL)
 	}else if(set == "t"){
         logg("INFO", "Time Series Plot Set", lev = level)
-		pdf(sprintf("%stime_series%s.pdf", fig.dir, ifelse(overcast,"_overcast", "")))
+		pdf(file.path(fig.dir,
+                      sprintf("timeseries%s.pdf",
+                              ifelse(overcast,"_overcast", ""))))
         if (length(datetime) > 0){
           r1 <- list(res$snsr_sky,
                      res$snsr_gro,
@@ -928,8 +945,9 @@ visual.products <- function(set, nan.out, mean.out, datetime=datetime, overcast=
 		}
 	}else if(set == "a"){
         logg("INFO", "Analytics Plot Set")
-        pdf(sprintf("%sanalytics%s.pdf", fig.dir,
-                             ifelse(overcast,"_overcast", "")))
+        pdf(file.path(fig.dir,
+                      sprintf("analytics%s.pdf",
+                              ifelse(overcast,"_overcast", ""))))
         ifelse(overcast, res <- overcast.data,
                          res <- clear_sky.data)
 
@@ -968,12 +986,14 @@ visual.products <- function(set, nan.out, mean.out, datetime=datetime, overcast=
         analysis.svm(ml)
 	}else if(set == "c"){
         logg("INFO", "Chart Set", lev = level)
-		pdf(sprintf("%scharts.pdf", fig.dir))
+		pdf(file.path(fig.dir, "charts.pdf"))
         charts()
         return(NULL)
 	} else if (set == "p") {
         logg("INFO", "Pac-Man Plot Set", lev = level)
-		pdf(sprintf("%spacman%s.pdf", fig.dir, ifelse(overcast,"_overcast", "")))
+		pdf(file.path(fig.dir,
+                      sprintf("pacman%s.pdf",
+                              ifelse(overcast,"_overcast", ""))))
         ifelse(overcast, results <- overcast.data,
                          results <- clear_sky.data)
         exp.reg <-  exp.regression(results,train_frac,
@@ -991,7 +1011,9 @@ visual.products <- function(set, nan.out, mean.out, datetime=datetime, overcast=
         return(NULL)
 	} else if (set == "o"){
         logg("INFO", "Poster Plot Set", lev = level)
-		pdf(sprintf("%sposter%s.pdf", fig.dir, ifelse(overcast,"_overcast", "")))
+		pdf(file.path(fig.dir,
+                      sprintf("poster%s.pdf",
+                              ifelse(overcast,"_overcast", ""))))
         poster.plots(overcast, iter.results, nan.out, mean.out)
         return(NULL)
 	}
