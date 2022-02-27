@@ -49,7 +49,8 @@ logg <- function(msglevel, msg, dir=out.dir, lev="INFO") {
       log_entry <- paste(record$color(record$levelname), record$msg)
       fil_entry <- paste(record$timestamp, record$levelname, record$msg)
       cat(log_entry, sep="\n")
-      cat(fil_entry,file=paste(dir, "_log.txt"), sep="\n", append=TRUE)
+      cat(fil_entry,file=file.path(dir, "_log.txt"),
+          sep="\n", append=TRUE)
 }
 
 ## Command Prompt "Start of Program" and 1st time user stuff

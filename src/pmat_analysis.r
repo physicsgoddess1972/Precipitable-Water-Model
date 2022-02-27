@@ -132,7 +132,8 @@ iterative.analysis <- function(results, dir, obool, nan.out, mean.out){
 			kelsey_y <- (19.71 * exp(exp_reg$x * 0.036))
 			kelsey 	 <- append(kelsey, sqrt(sum((kelsey_y - exp_reg$y)^2)/length(exp_reg$y)))
 		}
-		write(as.yaml(out, precision=4), file = paste(dir,"data/_output.yml", sep=""))
+		write(as.yaml(out, precision=4),
+			  file = file.path(dat.dir, "_output.yml"))
 	} else {
 		for (i in 1:length(oname)){
 			logg("DEBUG", sprintf("Step %d out of %d", i,step), lev = level)
