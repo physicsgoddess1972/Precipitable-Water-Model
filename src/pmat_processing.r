@@ -5,6 +5,11 @@
 
 system(sprintf("python3 pmat_import.py %s %s", args$dir, out.dir))
 
+fname	<- read.table(paste(args$dir,"master_data.csv", sep=""),
+					   sep=",",
+					   header=TRUE,
+					   strip.white=TRUE)
+oname 	<- yaml.load_file(paste(out.dir,"data/_output.yml", sep=""))
 ## Pulls most recent data stamp for the purpose of adding date stamps to file names when plots are saved
 recent 		<- t(fname[1])[length(t(fname[1]))]
 
