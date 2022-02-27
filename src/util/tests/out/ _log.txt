@@ -746,3 +746,169 @@
 2022-02-20 13:39:39 ERROR _pmat.yml is not found
 2022-02-20 13:40:29 ERROR _pmat.yml is not found
 2022-02-20 13:40:29 ALOHA Program Complete
+2022-02-26 21:58:08 ALOHA Precipitable-water Model Analysis Tool
+2022-02-26 21:58:08 ALOHA Program Start
+2022-02-26 21:58:08 WARN master_data.csv is not found
+2022-02-26 21:58:43 INFO Collecting Data from sources
+2022-02-26 21:58:44 DEBUG Collecting data for 2019-01-22		 Progress: 0.00%
+2022-02-26 21:59:06 DEBUG Collecting data for 2019-01-23		 Progress: 6.25%
+2022-02-26 21:59:35 ALOHA Precipitable-water Model Analysis Tool
+2022-02-26 21:59:35 ALOHA Program Start
+2022-02-26 21:59:35 WARN master_data.csv is not found
+2022-02-26 21:59:37 INFO Collecting Data from sources
+2022-02-26 21:59:38 DEBUG Collecting data for 2019-01-22		 Progress: 0.00%
+2022-02-26 21:59:40 DEBUG Collecting data for 2019-01-23		 Progress: 6.25%
+2022-02-26 21:59:43 DEBUG Collecting data for 2019-01-24		 Progress: 12.50%
+2022-02-26 21:59:52 DEBUG Collecting data for 2019-01-25		 Progress: 18.75%
+2022-02-26 22:00:02 DEBUG Collecting data for 2019-01-26		 Progress: 25.00%
+2022-02-26 22:00:15 DEBUG Collecting data for 2019-01-27		 Progress: 31.25%
+2022-02-26 22:00:32 DEBUG Collecting data for 2019-01-28		 Progress: 37.50%
+2022-02-26 22:00:49 DEBUG Collecting data for 2019-01-29		 Progress: 43.75%
+2022-02-26 22:00:57 DEBUG Collecting data for 2019-01-30		 Progress: 50.00%
+2022-02-26 22:01:07 DEBUG Collecting data for 2019-01-31		 Progress: 56.25%
+2022-02-26 22:01:17 DEBUG Collecting data for 2019-02-01		 Progress: 62.50%
+2022-02-26 22:01:32 DEBUG Collecting data for 2019-02-02		 Progress: 68.75%
+2022-02-26 22:01:48 ALOHA Precipitable-water Model Analysis Tool
+2022-02-26 22:01:48 ALOHA Program Start
+2022-02-26 22:01:48 WARN master_data.csv is not found
+2022-02-26 22:01:50 INFO Collecting Data from sources
+2022-02-26 22:01:51 DEBUG Collecting data for 2019-01-22		 Progress: 0.00%
+2022-02-26 22:01:53 DEBUG Collecting data for 2019-01-23		 Progress: 6.25%
+2022-02-26 22:01:56 DEBUG Collecting data for 2019-01-24		 Progress: 12.50%
+2022-02-26 22:01:59 DEBUG Collecting data for 2019-01-25		 Progress: 18.75%
+2022-02-26 22:02:02 DEBUG Collecting data for 2019-01-26		 Progress: 25.00%
+2022-02-26 22:02:04 DEBUG Step 1 out of 2
+2022-02-26 22:02:24 ALOHA Precipitable-water Model Analysis Tool
+2022-02-26 22:02:24 ALOHA Program Start
+2022-02-26 22:02:24 WARN master_data.csv is not found
+2022-02-26 22:02:24 WARN _output.yml is not found
+2022-02-26 22:02:26 INFO Collecting Data from sources
+2022-02-26 22:02:26 DEBUG Collecting data for 2019-01-22		 Progress: 0.00%
+2022-02-26 22:02:29 DEBUG Collecting data for 2019-01-23		 Progress: 6.25%
+2022-02-26 22:02:32 DEBUG Collecting data for 2019-01-24		 Progress: 12.50%
+2022-02-26 22:02:35 DEBUG Collecting data for 2019-01-25		 Progress: 18.75%
+2022-02-26 22:02:38 DEBUG Collecting data for 2019-01-26		 Progress: 25.00%
+2022-02-26 22:02:41 DEBUG Collecting data for 2019-01-27		 Progress: 31.25%
+2022-02-26 22:02:43 DEBUG Collecting data for 2019-01-28		 Progress: 37.50%
+2022-02-26 22:02:46 DEBUG Collecting data for 2019-01-29		 Progress: 43.75%
+2022-02-26 22:02:49 DEBUG Collecting data for 2019-01-30		 Progress: 50.00%
+2022-02-26 22:02:52 DEBUG Collecting data for 2019-01-31		 Progress: 56.25%
+2022-02-26 22:02:55 DEBUG Collecting data for 2019-02-01		 Progress: 62.50%
+2022-02-26 22:02:57 DEBUG Collecting data for 2019-02-02		 Progress: 68.75%
+2022-02-26 22:03:23 DEBUG Collecting data for 2019-02-03		 Progress: 75.00%
+2022-02-26 22:03:32 DEBUG Collecting data for 2019-02-04		 Progress: 81.25%
+2022-02-26 22:03:42 DEBUG Collecting data for 2019-02-05		 Progress: 87.50%
+2022-02-26 22:03:52 DEBUG Collecting data for 2019-02-06		 Progress: 93.75%
+2022-02-26 22:04:12 DEBUG Step 1 out of 2
+2022-02-26 22:04:37 ALOHA Precipitable-water Model Analysis Tool
+2022-02-26 22:04:37 ALOHA Program Start
+2022-02-26 22:04:39 INFO Collecting Data from sources
+2022-02-26 22:04:42 DEBUG Step 1 out of 10
+2022-02-26 22:04:43 DEBUG Step 0 out of 10
+2022-02-26 22:06:28 ALOHA Precipitable-water Model Analysis Tool
+2022-02-26 22:06:28 ALOHA Program Start
+2022-02-26 22:06:30 INFO Collecting Data from sources
+2022-02-26 22:06:33 DEBUG Step 1 out of 10
+2022-02-26 22:06:33 DEBUG Step 2 out of 10
+2022-02-26 22:06:33 DEBUG Step 3 out of 10
+2022-02-26 22:06:33 DEBUG Step 4 out of 10
+2022-02-26 22:06:33 DEBUG Step 5 out of 10
+2022-02-26 22:06:33 DEBUG Step 6 out of 10
+2022-02-26 22:06:33 DEBUG Step 7 out of 10
+2022-02-26 22:06:33 DEBUG Step 8 out of 10
+2022-02-26 22:06:33 DEBUG Step 9 out of 10
+2022-02-26 22:06:33 DEBUG Step 10 out of 10
+2022-02-26 22:06:34 INFO Time Series Plot Set
+2022-02-26 22:06:34 PASS Sky Temperature Time Series
+2022-02-26 22:06:34 PASS Ground Temperature Time Series
+2022-02-26 22:06:34 PASS Difference Between Ground-Sky Temperature Time Series
+2022-02-26 22:06:34 PASS Total Precipitable Water Time Series
+2022-02-26 22:06:34 PASS Temporal Mean Precipitable Water Time Series
+2022-02-26 22:06:34 PASS Locational Mean Precipitable Water Time Series
+2022-02-26 22:06:34 PASS Mean Total Precipitable Water Time Series
+2022-02-26 22:06:34 PASS Dewpoint Temperature Time Series
+2022-02-26 22:06:35 PASS Mean Sky Temperature and PWV Time Series
+2022-02-26 22:06:35 PASS Mean Sky Temperature and RH Time Series
+2022-02-26 22:06:35 PASS Mean TPW and RH Time Series
+2022-02-26 22:06:35 PASS Normalized Index for Weighted PWV Time Series
+2022-02-26 22:06:35 PASS Plot set downloaded to ./util/tests/data_monsoon/../out/figs/
+2022-02-26 22:06:35 ALOHA Program Complete
+2022-02-26 22:06:50 ALOHA Precipitable-water Model Analysis Tool
+2022-02-26 22:06:50 ALOHA Program Start
+2022-02-26 22:06:53 INFO Collecting Data from sources
+2022-02-26 22:06:54 DEBUG Step 1 out of 2
+2022-02-26 22:07:27 ALOHA Precipitable-water Model Analysis Tool
+2022-02-26 22:07:27 ALOHA Program Start
+2022-02-26 22:07:30 INFO Collecting Data from sources
+2022-02-26 22:07:30 DEBUG Collecting data for 2019-02-07		 Progress: 31.37%
+2022-02-26 22:07:40 DEBUG Collecting data for 2019-02-08		 Progress: 33.33%
+2022-02-26 22:07:49 DEBUG Collecting data for 2019-02-09		 Progress: 35.29%
+2022-02-26 22:07:58 DEBUG Collecting data for 2019-02-10		 Progress: 37.25%
+2022-02-26 22:08:07 DEBUG Collecting data for 2019-02-11		 Progress: 39.22%
+2022-02-26 22:08:17 DEBUG Collecting data for 2019-02-12		 Progress: 41.18%
+2022-02-26 22:08:29 DEBUG Collecting data for 2019-02-13		 Progress: 43.14%
+2022-02-26 22:08:47 DEBUG Collecting data for 2019-02-14		 Progress: 45.10%
+2022-02-26 22:08:59 DEBUG Collecting data for 2019-02-15		 Progress: 47.06%
+2022-02-26 22:09:08 DEBUG Collecting data for 2019-02-16		 Progress: 49.02%
+2022-02-26 22:09:17 DEBUG Collecting data for 2019-02-17		 Progress: 50.98%
+2022-02-26 22:09:28 DEBUG Collecting data for 2019-02-18		 Progress: 52.94%
+2022-02-26 22:09:39 DEBUG Collecting data for 2019-02-19		 Progress: 54.90%
+2022-02-26 22:09:48 DEBUG Collecting data for 2019-02-20		 Progress: 56.86%
+2022-02-26 22:09:57 DEBUG Collecting data for 2019-02-21		 Progress: 58.82%
+2022-02-26 22:10:08 DEBUG Collecting data for 2019-02-22		 Progress: 60.78%
+2022-02-26 22:10:17 DEBUG Collecting data for 2019-02-23		 Progress: 62.75%
+2022-02-26 22:10:26 DEBUG Collecting data for 2019-02-24		 Progress: 64.71%
+2022-02-26 22:10:36 DEBUG Collecting data for 2019-02-25		 Progress: 66.67%
+2022-02-26 22:10:46 DEBUG Collecting data for 2019-02-26		 Progress: 68.63%
+2022-02-26 22:10:57 DEBUG Collecting data for 2019-02-27		 Progress: 70.59%
+2022-02-26 22:11:10 DEBUG Collecting data for 2019-02-28		 Progress: 72.55%
+2022-02-26 22:11:19 DEBUG Collecting data for 2019-03-01		 Progress: 74.51%
+2022-02-26 22:11:31 DEBUG Collecting data for 2019-03-02		 Progress: 76.47%
+2022-02-26 22:11:42 DEBUG Collecting data for 2019-03-03		 Progress: 78.43%
+2022-02-26 22:11:59 DEBUG Collecting data for 2019-03-04		 Progress: 80.39%
+2022-02-26 22:12:08 DEBUG Collecting data for 2019-03-05		 Progress: 82.35%
+2022-02-26 22:12:16 DEBUG Collecting data for 2019-03-06		 Progress: 84.31%
+2022-02-26 22:12:28 DEBUG Collecting data for 2019-03-07		 Progress: 86.27%
+2022-02-26 22:12:37 DEBUG Collecting data for 2019-03-08		 Progress: 88.24%
+2022-02-26 22:12:46 DEBUG Collecting data for 2019-03-09		 Progress: 90.20%
+2022-02-26 22:12:56 DEBUG Collecting data for 2019-03-10		 Progress: 92.16%
+2022-02-26 22:13:07 DEBUG Collecting data for 2019-03-11		 Progress: 94.12%
+2022-02-26 22:13:16 DEBUG Collecting data for 2019-03-12		 Progress: 96.08%
+2022-02-26 22:13:29 DEBUG Collecting data for 2019-03-13		 Progress: 98.04%
+2022-02-26 22:13:45 DEBUG Step 1 out of 2
+2022-02-26 22:13:45 DEBUG Step 2 out of 2
+2022-02-26 22:13:45 INFO Time Series Plot Set
+2022-02-26 22:13:45 PASS Sky Temperature Time Series
+2022-02-26 22:13:45 PASS Ground Temperature Time Series
+2022-02-26 22:13:45 PASS Difference Between Ground-Sky Temperature Time Series
+2022-02-26 22:13:45 PASS Total Precipitable Water Time Series
+2022-02-26 22:13:45 PASS Temporal Mean Precipitable Water Time Series
+2022-02-26 22:13:45 PASS Locational Mean Precipitable Water Time Series
+2022-02-26 22:13:45 PASS Mean Total Precipitable Water Time Series
+2022-02-26 22:13:45 PASS Dewpoint Temperature Time Series
+2022-02-26 22:13:46 PASS Mean Sky Temperature and PWV Time Series
+2022-02-26 22:13:46 PASS Mean Sky Temperature and RH Time Series
+2022-02-26 22:13:46 PASS Mean TPW and RH Time Series
+2022-02-26 22:13:46 PASS Normalized Index for Weighted PWV Time Series
+2022-02-26 22:13:46 PASS Plot set downloaded to ./util/tests/data_small/../out/figs/
+2022-02-26 22:13:46 ALOHA Program Complete
+2022-02-26 22:14:23 ALOHA Precipitable-water Model Analysis Tool
+2022-02-26 22:14:23 ALOHA Program Start
+2022-02-26 22:14:26 INFO Collecting Data from sources
+2022-02-26 22:14:27 DEBUG Step 1 out of 2
+2022-02-26 22:14:27 DEBUG Step 2 out of 2
+2022-02-26 22:14:27 INFO Time Series Plot Set
+2022-02-26 22:14:27 PASS Sky Temperature Time Series
+2022-02-26 22:14:27 PASS Ground Temperature Time Series
+2022-02-26 22:14:28 PASS Difference Between Ground-Sky Temperature Time Series
+2022-02-26 22:14:28 PASS Total Precipitable Water Time Series
+2022-02-26 22:14:28 PASS Temporal Mean Precipitable Water Time Series
+2022-02-26 22:14:28 PASS Locational Mean Precipitable Water Time Series
+2022-02-26 22:14:28 PASS Mean Total Precipitable Water Time Series
+2022-02-26 22:14:28 PASS Dewpoint Temperature Time Series
+2022-02-26 22:14:28 PASS Mean Sky Temperature and PWV Time Series
+2022-02-26 22:14:28 PASS Mean Sky Temperature and RH Time Series
+2022-02-26 22:14:28 PASS Mean TPW and RH Time Series
+2022-02-26 22:14:28 PASS Normalized Index for Weighted PWV Time Series
+2022-02-26 22:14:28 PASS Plot set downloaded to ./util/tests/data_small/../out/figs/
+2022-02-26 22:14:28 ALOHA Program Complete
