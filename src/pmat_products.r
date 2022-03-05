@@ -3,6 +3,7 @@
 #' :synopsis: plotting functions for PMAT
 #' :author: Spencer Riley <sriley@pmat.app>
 
+# Time series plots
 time.pwindex <- function(datetime){
     #' :detail: Normalized PWV index for both clear sky and overcast data
     #' :param date: the datestamp of the data
@@ -45,7 +46,6 @@ time.pwindex <- function(datetime){
     # print statement when completed
     logg("PASS","Normalized Index for Weighted PWV Time Series", lev = level)
 }
-
 time.nth_range <- function(range, title, color, leg.lab, ylab, datetime,overcast){
     #' :detail: Multirange Time Series plot series
     #' :param date: the datestamp of the data
@@ -82,7 +82,6 @@ time.nth_range <- function(range, title, color, leg.lab, ylab, datetime,overcast
     # print statement when completed
     logg("PASS", title, lev = level)
 }
-
 time.composite <- function(range, title, color, ylab, datetime, overcast){
     #' :detail: Time Series composite plot series
     #' :param date: the datestamp of the data
@@ -112,7 +111,21 @@ time.composite <- function(range, title, color, ylab, datetime, overcast){
     axis(side = 4); mtext(side=4, line=3, ylab[[2]], col=color[[2]])
     logg("PASS", title, lev = level)
 }
+time.multiyear <- function(range, title, color, datetime,ylab, overcast){
+    x <- unclass(as.POSIXlt(datetime))$yday
+    dat <- with(data.frame(x=x,y=range),
+                aggregate(list(y=range), list(x = x), mean))
+    plot(dat$x, dat$y,
+         pch=16,
+         xlab="Day number",
+         ylab=ylab,
+         xlim=c(1, 366),
+         main=stnd_title(title, overcast),
+         col=color)
+    logg("PASS", title)
+}
 
+# Analysis plots
 analysis.nth_range <- function(overcast, x, y, title, label, color, leg.lab){
   #' :detail: Super Average Plot with Exponential Fit
   #' :param bool overcast: the condition of data (clear sky/overcast)
@@ -144,14 +157,11 @@ analysis.nth_range <- function(overcast, x, y, title, label, color, leg.lab){
   }
   logg("PASS", title, lev = level)
 }
-
-analysis.regression	<- function(overcast, x, y, des, label, iter, results){
+analysis.regression	<- function(overcast, x, y, des, label, iter){
     #' :detail: Super Average Plot with Exponential Fit
     #' :param bool overcast: the condition of data (clear sky/overcast)
     #' :return: A sky temperature time series plot
-    exp_reg <- exp.regression(results,
-                              nan.out = iter[["nan.out"]],
-                              data_indx = iter[["filter.mean"]])
+    exp_reg <- exp.regression(mean.out=iter[["filter.mean"]])
     ymax	<- max(unlist(exp_reg$y), na.rm=TRUE)
     ymin	<- min(unlist(exp_reg$y), na.rm=TRUE)
 
@@ -180,7 +190,6 @@ analysis.regression	<- function(overcast, x, y, des, label, iter, results){
 
     logg("PASS", des, lev = level)
 }
-
 analysis.svm <- function(model){
     cf <- model$cf
     A <- -cf[2]/cf[3]
@@ -204,6 +213,7 @@ analysis.svm <- function(model){
     logg("PASS", "SVM Analysis between Sky Temperature and TPW", lev = level)
   }
 
+# Pacviz plots
 pac.compare <- function(overcast, des, x, y, angular, radial){
     #' :detail: Pac-Man plot of Super Average Plot
     #' :param bool overcast: the condition of data (clear sky/overcast)
@@ -219,7 +229,6 @@ pac.compare <- function(overcast, des, x, y, angular, radial){
 
    logg("PASS", des, lev = level)
 }
-
 pac.regression <- function(overcast){
     #' :detail: Pac-Man residual plot
     #' :param bool overcast: the condition of data (clear sky/overcast)
@@ -243,61 +252,31 @@ pac.regression <- function(overcast){
     logg("PASS", des, lev = level)
 }
 
-charts	<- function(...){
-    #' :detail: A collection of histograms and charts
-    #' :return: PDF of charts
-
-    chart1 <- function(range, xlabel, title){
+chart.histogram <- function(range, xlabel, title){
         #' :detail: Histograms of defined quantities
         #' :param range: a data range
         #' :param xlabel: the xaxis label
         #' :param title: the title of the histogram
 
-        for (count in 1:length(range)){
-            h <- hist(range[[count]],
-                      main = paste("Distribution of", title[count], sep=" "),
-                      prob = FALSE,
-                      xlab = xlabel[count],
-                      xlim=c(floor(min(range[[count]], na.rm = TRUE)),
-                              ceiling(max(range[[count]], na.rm = TRUE))),
-                      ylab = "Number of Occurances")
-            minor.tick(nx=2, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
-            text(h$mids, h$counts, labels = h$counts, adj = c(0.5, -0.5))
+        h <- hist(range,
+                  main = paste("Distribution of", title, sep=" "),
+                  prob = FALSE,
+                  xlab = xlabel,
+                  xlim=c(floor(min(range, na.rm = TRUE)),
+                          ceiling(max(range, na.rm = TRUE))),
+                  ylab = "Number of Occurances")
+        minor.tick(nx=2, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
+        text(h$mids, h$counts, labels = h$counts, adj = c(0.5, -0.5))
 
-            x <- seq(min(range[[count]], na.rm = TRUE),
-                     max(range[[count]], na.rm = TRUE), length = 40)
+        x <- seq(min(range, na.rm = TRUE),
+                 max(range, na.rm = TRUE), length = 40)
 
-            f <- (h$counts / h$density) * dnorm(x, mean = mean(range[[count]], na.rm = TRUE), sd = sd(range[[count]], na.rm=TRUE))
-            lines(x,f, type="l", col="black", lwd=2, lty=1)
-            logg("PASS", sprintf("%s", title[count]), lev = level)
-        }
+        f <- (h$counts / h$density) * dnorm(x, mean = mean(range, na.rm = TRUE), sd = sd(range, na.rm=TRUE))
+        lines(x,f, type="l", col="black", lwd=2, lty=1)
+        logg("PASS", sprintf("%s", title), lev = level)
+  }
 
-    }
-    x <- list(c(cbind(overcast.data$wt_avg, clear_sky.data$wt_avg)),
-              cbind(unlist(overcast.data$snsr_sky_calc),
-                     unlist(clear_sky.data$snsr_sky_calc)),
-              cbind(overcast.data$rh, clear_sky.data$rh),
-              cbind(overcast.data$dew, clear_sky.data$dew))
-
-    xlab <- list("Precipitable Water [mm]",
-                 "Temperature [C]",
-                "Relative Humidity [%]",
-                "Temperature [C]")
-    title <- list("Weighted PWV",
-                  "Average Temperature",
-                  "Relative Humidity",
-                  "Dewpoint Temperature")
-
-    for (i in 1:length(unique(pw_place))){
-        x <- append(x, list(c(cbind(unlist(clear_sky.data$tmp_avg[i]),
-                                    unlist(overcast.data$tmp_avg[i])))))
-        xlab <- append(xlab, "Precipitable Water [mm]")
-        title <- append(title, sprintf("Distribution of PWV in %s", unique(pw_place)[i]))
-    }
-    return(list(chart1(x, xlab, title)))
-}
-
-poster.plots <- function(overcast, iter, nan.out, mean.out){
+poster.plots <- function(overcast, iter, mean.out){
     #' :detail: The set of all poster
     #' :param bool overcast: the condition of data (clear sky/overcast)
     #' :return: All available poster plots
@@ -500,7 +479,7 @@ poster.plots <- function(overcast, iter, nan.out, mean.out){
         logg("PASS", "Sky-Ground-Delta Temperature Time Series", lev = level)
     }
 
-    poster2 <- function(overcast, iter, nan.out, mean.out){
+    poster2 <- function(overcast, iter, mean.out){
         #' :detail: The analytics poster plot
         #' :param bool overcast: the condition of data (clear sky/overcast)
 
@@ -548,14 +527,10 @@ poster.plots <- function(overcast, iter, nan.out, mean.out){
         ## Temporal Average Pw Temperature Correlation
             if (overcast){
                 range 	<- overcast.data$loc_avg
-                results <- overcast.data
             } else {
                 range 	<- clear_sky.data$loc_avg
-                results <- clear_sky.data
             }
-            exp_reg <- exp.regression(results,
-									  nan.out = nan.out,
-									  data_indx = mean.out)
+            exp_reg <- exp.regression(mean.out = mean.out)
             ymax	<- max(as.numeric(unlist(range)), na.rm=TRUE)
             ymin	<- min(as.numeric(unlist(range)), na.rm=TRUE)
 
@@ -608,9 +583,10 @@ poster.plots <- function(overcast, iter, nan.out, mean.out){
     }
 
     return(list(poster1(),
-                poster2(overcast, iter, nan.out, mean.out)))
+                poster2(overcast, iter, mean.out)))
 }
 
+# Sensor specific plots
 sensor.chart <- function(...){
     #' :detail: overcast distribution charts
 
@@ -683,7 +659,6 @@ sensor.chart <- function(...){
         logg("PASS", sprintf("Overcast Condition Percentage: %s", gsub("_", " ",snsr_name[count])), lev = level)
     }
 }
-
 sensor.time <- function(overcast){
         #' :detail: Instrumentation time series plots
 
@@ -755,6 +730,7 @@ sensor.time <- function(overcast){
         }
     }
 
+## Data products
 data.gen <- function(overcast, dir){
         #' :detail: creates a datafile containing the date, avg temp, and avg pwv for a defined condition
         #' :param bool overcast: the condition of the data (clear sky/overcast)
@@ -791,7 +767,6 @@ data.gen <- function(overcast, dir){
                   row.names=FALSE)
         logg("PASS", sprintf("Data sent to data/data%s.csv", ifelse(overcast,"_overcast", "")), lev = level)
 }
-
 data.ml <- function(dir){
       #' :detail: creates a datafile containing the machine learning relavant information
       #' :param dir: directory path
@@ -841,7 +816,6 @@ data.ml <- function(dir){
         write.csv(data, file=file.path(dir, "ml_data.csv"), row.names=FALSE)
         logg("PASS", sprintf("Data sent to %sml_data.csv", dir), lev = level)
 }
-
 data.step <- function(seed, i, coef, r, S){
     yml.out <- list(step=c(i),
                     seed=c(seed),
@@ -851,7 +825,6 @@ data.step <- function(seed, i, coef, r, S){
                                   rstd=c(S)))
     return(list(yml.out))
 }
-
 data.final <- function(dir, clear.len, over.len, train.len, nan.len, frac.kept, coef, std, rmse){
   yml <- list(data=list(clear=list(total.count=c(clear.len)),
 									overcast=list(total.count=c(over.len)),
@@ -869,7 +842,8 @@ data.final <- function(dir, clear.len, over.len, train.len, nan.len, frac.kept, 
         file = file.path(dir, "_results.yml"))
 }
 
-visual.products <- function(set, nan.out, mean.out, datetime=datetime, overcast=args$overcast){
+## Plot function calls
+visual.products <- function(set, mean.out, datetime=datetime, overcast=args$overcast){
     #' :detail: saves plot sets
     #' :param character set: the set identifier
     #' :param logical overcast: ovecast boolean
@@ -880,7 +854,9 @@ visual.products <- function(set, nan.out, mean.out, datetime=datetime, overcast=
 		pdf(file.path(fig.dir,
                       sprintf("sensor%s.pdf",
                               ifelse(overcast,"_overcast", ""))))
-	    sensor.chart()
+
+	    # plot function calls
+        sensor.chart()
         sensor.time(overcast)
         return(NULL)
 	}else if(set == "t"){
@@ -888,61 +864,83 @@ visual.products <- function(set, nan.out, mean.out, datetime=datetime, overcast=
 		pdf(file.path(fig.dir,
                       sprintf("timeseries%s.pdf",
                               ifelse(overcast,"_overcast", ""))))
+        # data inputs for time.nth_range
+        range.r <- list(res$snsr_sky,
+                       res$snsr_gro,
+                       res$snsr_del,
+                       res$pw_loc,
+                       res$tmp_avg,
+                       res$loc_avg,
+                       list(res$avg),
+                       list(res$dew))
+
+        range.t <- list("Sky Temperature Time Series",
+                       "Ground Temperature Time Series",
+                       "Difference Between Ground-Sky Temperature Time Series",
+                       "Total Precipitable Water Time Series",
+                       "Temporal Mean Precipitable Water Time Series",
+                       "Locational Mean Precipitable Water Time Series",
+                       "Mean Total Precipitable Water Time Series",
+                       "Dewpoint Temperature Time Series")
+
+        range.col <- unlist(list(rep(list(snsr_color), 3),
+                          rep(list(pw_color), 3), "blue", "black"),
+                     recursive=FALSE)
+        range.leg <- unlist(list(rep(list(snsr_name), 3),
+                          list(pw_name),
+                          list(unique(pw_place)),
+                          list(paste(unique(pw_time), "Z")), NA, NA),
+                     recursive=FALSE)
+        range.ylab <- unlist(list(rep(list("Temperature [C]"), 3),
+                          rep(list("TPW [mm]"), 4), "Temperature [C]"),
+                     recursive=FALSE)
+
+        # data inputs for time.composite
+        composite.r <- list(list(res$snsr_sky_calc, res$avg),
+                           list(res$snsr_sky_calc, res$rh),
+                           list(res$avg, res$rh))
+        composite.title <- list("Mean Sky Temperature and PWV Time Series",
+                                "Mean Sky Temperature and RH Time Series",
+                               "Mean TPW and RH Time Series")
+        composite.col <- list(list("red", "blue"),
+                   list("red", "green3"),
+                   list("blue", "green3"))
+        composite.ylab <- list(list("Temperature [C]", "TPW [mm]"),
+                               list("Temperature [C]", "RH [%]"),
+                               list("TPW [mm]", "RH [%]"))
+        # data inputs for time.multiyear
+        multiyear.r <- list(res$snsr_sky_calc)
+        multiyear.title <- list("Multiyear mean sky temperature time series")
+        multiyear.col <- list("black")
+        multiyear.ylab <- list("Temperature [C]")
         if (length(datetime) > 0){
-          r1 <- list(res$snsr_sky,
-                     res$snsr_gro,
-                     res$snsr_del,
-                     res$pw_loc,
-                     res$tmp_avg,
-                     res$loc_avg,
-                     list(res$avg),
-                     list(res$dew))
-
-          t1 <- list("Sky Temperature Time Series",
-                     "Ground Temperature Time Series",
-                     "Difference Between Ground-Sky Temperature Time Series",
-                     "Total Precipitable Water Time Series",
-                     "Temporal Mean Precipitable Water Time Series",
-                     "Locational Mean Precipitable Water Time Series",
-                     "Mean Total Precipitable Water Time Series",
-                     "Dewpoint Temperature Time Series")
-
-            c1 <- unlist(list(rep(list(snsr_color), 3),
-                              rep(list(pw_color), 3), "blue", "black"),
-                         recursive=FALSE)
-            l1 <- unlist(list(rep(list(snsr_name), 3),
-                              list(pw_name),
-                              list(unique(pw_place)),
-                              list(paste(unique(pw_time), "Z")), NA, NA),
-                         recursive=FALSE)
-            y1 <- unlist(list(rep(list("Temperature [C]"), 3),
-                              rep(list("TPW [mm]"), 4), "Temperature [C]"),
-                         recursive=FALSE)
+            # plot function calls
             par(mar=c(5.1, 5.1, 5.1, 5.3), xpd=TRUE)
-            for (i in 1:length(r1)){
-              time.nth_range(r1[[i]], t1[[i]], c1[[i]], l1[[i]], y1[[i]], datetime, overcast)
+            for (i in 1:length(range.r)){
+                time.nth_range(range.r[[i]],
+                               range.t[[i]],
+                               range.col[[i]],
+                               range.leg[[i]],
+                               range.ylab[[i]], datetime, overcast)
             }
-            r2 <- list(list(res$snsr_sky_calc, res$avg),
-                       list(res$snsr_sky_calc, res$rh),
-                       list(res$avg, res$rh))
-            t2 <- list("Mean Sky Temperature and PWV Time Series",
-                        "Mean Sky Temperature and RH Time Series",
-                       "Mean TPW and RH Time Series")
-            c2 <- list(list("red", "blue"),
-                       list("red", "green3"),
-                       list("blue", "green3"))
-            y2 <- list(list("Temperature [C}", "TPW [mm]"),
-                       list("Temperature [C]", "RH [%]"),
-                       list("TPW [mm]", "RH [%]"))
-            par(mar=c(5.1, 5.1, 5.1, 5.3), xpd=TRUE)
-            for (i in 1:length(r2)){
-              time.composite(r2[[i]], t2[[i]], c2[[i]], y2[[i]], datetime, overcast)
+            for (i in 1:length(composite.r)){
+                time.composite(composite.r[[i]],
+                               composite.title[[i]],
+                               composite.col[[i]],
+                               composite.ylab[[i]], datetime, overcast)
+            }
+            for (i in 1:length(multiyear.r)){
+              time.multiyear(multiyear.r[[i]],
+                             multiyear.title[[i]],
+                             multiyear.col[[i]],
+                             datetime, multiyear.ylab,
+                             overcast)
             }
             time.pwindex(datetime)
             return(NULL)
-		} else {
-			logg("ERROR", D01, lev = level); closing()
-		}
+        } else {
+            logg("ERROR", D01, lev = level); closing()
+        }
 	}else if(set == "a"){
         logg("INFO", "Analytics Plot Set")
         pdf(file.path(fig.dir,
@@ -950,7 +948,7 @@ visual.products <- function(set, nan.out, mean.out, datetime=datetime, overcast=
                               ifelse(overcast,"_overcast", ""))))
         ifelse(overcast, res <- overcast.data,
                          res <- clear_sky.data)
-
+        # data inputs for analysis.nth_range
         x1 <- unlist(list(rep(list(res$snsr_sky_calc), 3)),
                      recursive=FALSE)
         y1 <- list(res$pw_loc, res$loc_avg, res$tmp_avg)
@@ -963,47 +961,71 @@ visual.products <- function(set, nan.out, mean.out, datetime=datetime, overcast=
                                list(unique(pw_place)),
                                list(paste(unique(pw_time), "Z"))),
                           recursive=FALSE)
-
-        for (i in 1:length(x1)){
-          analysis.nth_range(overcast, x1[[i]], y1[[i]], t1[[i]], l1[[i]], c1[[i]], leg.lab[[i]])
-        }
-
+        # data inputs for analysis.regression
         x2 <- unlist(list(rep(list(res$snsr_sky_calc), 2)),
                      recursive=FALSE)
         y2 <- list(res$avg, res$wt_avg)
         t2 <- list("Regression between Mean TPW and Temperature",
                    "Regression between Weighted TPW and Temperature")
         l2 <- rep(list(list("Zenith Sky Temperature [C]", "TPW [mm]")), 2)
-        for (i in 1:length(x2)){
-          analysis.regression(overcast, x2[[i]], y2[[i]], t2[[i]], l2[[i]], iter.results, res)
-        }
 
+        # data inputs for analysis.svm
         ml.x <- c(clear_sky.data$snsr_sky_calc, overcast.data$snsr_sky_calc)
         ml.y <- c(clear_sky.data$wt_avg, overcast.data$wt_avg)
         ml.l <- c(clear_sky.data$label, overcast.data$label)
         nan.ml <- nan.filter(list(x=ml.x, y=ml.y, l=ml.l))[[1]]
         ml <- lsvm(nan.ml$x, log(nan.ml$y, base=exp(1)), nan.ml$l)
+
+        # plot function calls
+        for (i in 1:length(x1)){
+            analysis.nth_range(overcast, x1[[i]], y1[[i]], t1[[i]], l1[[i]], c1[[i]], leg.lab[[i]])
+        }
+        for (i in 1:length(x2)){
+            analysis.regression(overcast, x2[[i]], y2[[i]], t2[[i]], l2[[i]], iter.results)
+        }
         analysis.svm(ml)
 	}else if(set == "c"){
         logg("INFO", "Chart Set", lev = level)
 		pdf(file.path(fig.dir, "charts.pdf"))
-        charts()
+        x <- list(c(cbind(overcast.data$wt_avg, clear_sky.data$wt_avg)),
+                  cbind(unlist(overcast.data$snsr_sky_calc),
+                         unlist(clear_sky.data$snsr_sky_calc)),
+                  cbind(overcast.data$rh, clear_sky.data$rh),
+                  cbind(overcast.data$dew, clear_sky.data$dew))
+
+        xlab <- list("Precipitable Water [mm]",
+                     "Temperature [C]",
+                    "Relative Humidity [%]",
+                    "Temperature [C]")
+        title <- list("Weighted PWV",
+                      "Average Temperature",
+                      "Relative Humidity",
+                      "Dewpoint Temperature")
+
+        for (i in 1:length(unique(pw_place))){
+            x <- append(x, list(c(cbind(unlist(clear_sky.data$tmp_avg[i]),
+                                        unlist(overcast.data$tmp_avg[i])))))
+            xlab <- append(xlab, "Precipitable Water [mm]")
+            title <- append(title, sprintf("Distribution of PWV in %s", unique(pw_place)[i]))
+        }
+        # plot function calls
+        for (count in 1:length(x)){
+          chart.histogram(x[[count]], xlab[count], title[count])
+        }
         return(NULL)
 	} else if (set == "p") {
         logg("INFO", "Pac-Man Plot Set", lev = level)
 		pdf(file.path(fig.dir,
                       sprintf("pacman%s.pdf",
                               ifelse(overcast,"_overcast", ""))))
-        ifelse(overcast, results <- overcast.data,
-                         results <- clear_sky.data)
-        exp.reg <-  exp.regression(results,train_frac,
-                               nan.out = nan.out,
-                               data_indx = mean.out)
+        exp.reg <-  exp.regression(train_frac,mean.out)
         x1 <- list(exp.reg$x)
         y1 <- list(exp.reg$y)
         t1 <- list("Correlation between Mean TPW and Temperature")
         th1 <- list(c("Zenith Sky Temperature", "C"))
         ra1 <- list(c("TPW", "mm"))
+
+        # plot function calls
         for (i in 1:length(x1)){
           pac.compare(overcast, t1[[i]], x1[[i]], y1[[i]], th1[[i]], ra1[[i]])
         }
@@ -1014,7 +1036,8 @@ visual.products <- function(set, nan.out, mean.out, datetime=datetime, overcast=
 		pdf(file.path(fig.dir,
                       sprintf("poster%s.pdf",
                               ifelse(overcast,"_overcast", ""))))
-        poster.plots(overcast, iter.results, nan.out, mean.out)
+        # plot function calls
+        poster.plots(overcast, iter.results, mean.out)
         return(NULL)
 	}
 }
