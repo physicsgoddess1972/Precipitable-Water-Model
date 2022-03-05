@@ -126,12 +126,13 @@ for (j in unique(snsr_tag)){
 	col_snsr <- append(col_snsr, list(grep(j, snsr_tag)))
 }
 
-mean.filter <- function(pw, n){
+mean.filter <- function(nan.out, n){
 	#' :detail: filters the data based on the comparison of the daily std and the average std of the dataset
-	#' :param pw: precipitable water data
-	#' :param n: threshold
+	#' :param list nan.out: the output of nan.filter
+	#' :param integer n: threshold
 	#' :return: an array of indicies for PWV values to be analyzed
 	#' :rtype: list
+	pw <- nan.out[[1]]$z
 	bad <- good <- list()
 	out <- std.i <- list()
 	for (i in 1:length(pw)){
@@ -154,12 +155,12 @@ mean.filter <- function(pw, n){
 			bad <- append(bad, i)
 		}
 	}
-	return(unlist(good))
+	return(list(unlist(good), nan.out))
 }
 
 dna.filter <- function(fover){
 	#' :detail: removes data labels as Do Not Analyze
-	#' :param fover: overcast.filter results
+	#' :param list fover: overcast.filter results
 	#' :return: overcast.filter results with DNA points removed
 	#' :rtype: list
 	sky.len <- length(grep("snsr_sky", names(fover), fixed=TRUE))
@@ -186,7 +187,6 @@ nan.filter <- function(stuff){
 	#' :param list stuff: list of arrays
 	#' :return: returns list with filtered data and the indicies with nans
 	#' :rtype: list
-
 	nans <- list()
 	for (i in 1:length(stuff)){
 		if (length(stuff[[i]][[1]]) > length(lengths(stuff[[i]]))){
@@ -248,6 +248,7 @@ overcast.filter <- function(col_con, col_date, col_com, pw_name, snsr_name, clou
 	#' :param integer col_com: column index for comments
 	#' :param list pw_name: pw measurement labels
 	#' :param list snsr_name: sensor labels
+	#' :param logical cloud_bool:
 	#' :return: A list of lists containing either clear-sky/overcast data
 	#' :rtype: list
 	# Initializes the lists to store values
