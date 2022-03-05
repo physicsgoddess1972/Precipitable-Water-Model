@@ -103,7 +103,7 @@ nan.out <- nan.filter(list(x=res$snsr_sky_calc,
 						   y=res$wt_avg,
 						   y1=res$avg,
 						   z=res$pw_loc))
-filter.mean	<- mean.filter(nan.out[[1]]$z, rel_diff)
+filter.mean	<- mean.filter(nan.out, rel_diff)
 
 datetime <- as.POSIXct(paste(as.Date(unlist(res$date), origin="1970-01-01"), paste(unlist(res$time),":00", sep="")), format="%Y-%m-%d %H:%M:%S")
 
@@ -112,17 +112,14 @@ source("pmat_analysis.r")
 source("pmat_products.r")
 
 if (length(res$date) > 0){
-	iter.results <- iterative.analysis(results=res,
-									   dir=out.dir,
-									   obool=args$u,
-									   nan.out = nan.out,
+	iter.results <- iterative.analysis(obool=args$u,
 									   mean.out = filter.mean)
 	data.final(out.dir,
 				length(clear_sky.data$date),
 				length(overcast.data$date),
 				iter.results$train.len,
-				length(nan.out[[2]]),
-				length(filter.mean)/(length(clear_sky.data$date) - length(nan.out[[2]])),
+				length(iter.results$nan.out),
+				length(iter.results$filter.mean[[1]])/(length(clear_sky.data$date) - length(iter.results$nan.out)),
 				list(A=iter.results$A, B=iter.results$B),
 			   	iter.results$S,
 				list(M=iter.results$M, K=iter.results$K, R=iter.results$R))
@@ -132,7 +129,7 @@ if (length(res$date) > 0){
 
 
 if(args$set != FALSE){
-	visual.products(args$set, nan.out, filter.mean, datetime)
+	visual.products(args$set, filter.mean, datetime)
 	logg("PASS", sprintf("Plot set downloaded to %s", fig.dir), lev = level)
 }
 
@@ -147,7 +144,7 @@ if (args$all){
 	opt <- c('t', 'a', 'i', 'c', 'o', 'p')
 	logg("INFO", paste("Condition:", ifelse(args$overcast, "Overcast", "Clear Sky"), sep=" "))
 	for (i in opt){
-		visual.products(i, nan.out, filter.mean, datetime, args$overcast)
+		visual.products(i, filter.mean, datetime, args$overcast)
 		logg("PASS", sprintf("Plot set downloaded to %s", fig.dir), lev = level)
 	}
 	data.gen(args$overcast, dat.dir)
