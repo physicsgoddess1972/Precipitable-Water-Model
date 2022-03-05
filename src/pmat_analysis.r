@@ -3,17 +3,17 @@
 #' :synopsis: This module contains analysis functions
 #' :author: Spencer Riley <sriley@pmat.app>
 
-exp.regression 	<- function(r,t=NULL,nan.out, data_indx){
+exp.regression 	<- function(t=NULL,mean.out){
 	#' :detail: Function includes all of the stuff to generate the exponential regression model with intervals
-	#' :param list r: output of sky.analysis
 	#' :param double t: training fraction
-	#' :param integer range: range of date indices to be used
+	#' :param list mean.out: the output of mean.filter
 	#' :return: returns the data series and model statistics
 	#' :rtype: list
-	dat 	<- nan.out[[1]]
+	idx 	<- mean.out[[1]]
+	dat 	<- mean.out[[2]][[1]]
 	# creates a uniform sequence of numbers that fit within the limits of x
 	if (!is.null(t)){
-		data_sep <- data.partition(dat$x[data_indx], dat$y[data_indx], t)
+		data_sep <- data.partition(dat$x[idx], dat$y[idx], t)
 		train <- data_sep$train
 		test <- data_sep$test
 		x <- train$x
@@ -22,8 +22,8 @@ exp.regression 	<- function(r,t=NULL,nan.out, data_indx){
 		tx <- test$x
 		ty <- test$y
 	} else {
-		tx <- x <- dat$x[data_indx]
-		ty <- y <- dat$y[data_indx]
+		tx <- x <- dat$x[idx]
+		ty <- y <- dat$y[idx]
 	}
 	output <- list()
 	xmin 	<- min(x, na.rm=TRUE)
@@ -60,6 +60,7 @@ lin.regression <- function(x,y){
 	#' :param double y: the range of the dataset
 	#' :return: returns the data series and model statistics
 	#' :rtype: list
+	print("lin.regression")
 	nans <- c(grep("NaN", y)); nans <- append(nans, grep("NaN", x))
 	x <- x[-(nans)]; y <- y[-(nans)]
 
@@ -75,33 +76,30 @@ lin.regression <- function(x,y){
 	return(output)
 }
 
-data.partition <- function(x,y, train_size=0.7){
+data.partition <- function(x,y, tr.sz=0.7){
 	#' :detail: splits the data into a training/testing set
-	#' :param list x: domain of the data
-	#' :param list y: range of the data
-	#' :param double train_size: fraction of the data in the testing set
+	#' :param double x: domain of the data
+	#' :param double y: range of the data
+	#' :param double tr.sz: fraction of the data in the testing set
 	#' :return: a list containing the training and testing sets
 	#' :rtype: list
-  train_idx <- sample(1:length(x), trunc(length(x)*train_size), replace=FALSE)
-  test_idx  <- (1:length(x))[-(train_idx)]
+	train_idx <- sample(1:length(x), trunc(length(x)*tr.sz), replace=FALSE)
+	test_idx  <- (1:length(x))[-(train_idx)]
 
-  train     <- data.frame(x[train_idx],
-                          y[train_idx])
-  colnames(train) <- c("x", "y")
+	train     <- data.frame(x[train_idx],
+						  y[train_idx])
+	colnames(train) <- c("x", "y")
 
-  test    <- data.frame(x[test_idx],
-                          y[test_idx])
-  colnames(test) <- c("x", "y")
+	test    <- data.frame(x[test_idx],
+						  y[test_idx])
+	colnames(test) <- c("x", "y")
 
-  return(list(train=train, test=test, train_idx=train_idx))
+	return(list(train=train, test=test, train_idx=train_idx))
 }
 
-iterative.analysis <- function(results, dir, obool, nan.out, mean.out){
+iterative.analysis <- function(obool, mean.out){
 	#' :detail: computes regression statistics and outputs to a yaml file
-	#' :param logical overcast: boolean to determine label
-	#' :param string dir: directory file path for _output.yml
 	#' :param logical obool: determine whether to generate new _output.yml
-	#' :param list nan.out: output of nan.filter
 	#' :param list mean.out: output of mean.filter
 	#' :return: iterative stats and _output.yml
 	#' :rtype: list
@@ -116,9 +114,7 @@ iterative.analysis <- function(results, dir, obool, nan.out, mean.out){
 			}
 			logg("DEBUG", sprintf("Step %d out of %d", i,step), lev = level)
 			set.seed(def_seed)
-			exp_reg <- exp.regression(results,train_frac,
-									  nan.out = nan.out,
-									  data_indx=mean.out)
+			exp_reg <- exp.regression(train_frac,mean.out)
 			out 	<- append(out, data.step(def_seed, i,
 											list(A=exp(coef(exp_reg$model)[1]),
 												 B=coef(exp_reg$model)[2]),
@@ -140,9 +136,7 @@ iterative.analysis <- function(results, dir, obool, nan.out, mean.out){
 			yml 	<- read_yaml(text=as.yaml(oname[[i]]))
 			seeds 	<- append(seeds, yml$seed)
 			set.seed(yml$seed)
-			exp_reg <- exp.regression(results,train_frac,
-									  nan.out = nan.out,
-									  data_indx = mean.out)
+			exp_reg <- exp.regression(train_frac,mean.out)
 			resids 	<- append(resids, resid(exp_reg$model.0))
 			mims_y  <- (30.55 * exp(exp_reg$x/28.725) - 2.63)
 			mims <- append(mims, sqrt(sum((mims_y - exp_reg$y)^2)/length(exp_reg$y)))
@@ -178,7 +172,7 @@ iterative.analysis <- function(results, dir, obool, nan.out, mean.out){
 	output[["K"]] 	<- Reduce("+", kelsey)/length(kelsey)
 	output[["train.len"]] <- length(exp_reg$x)
 	output[["filter.mean"]] <- mean.out
-	output[["nan.out"]]	<- nan.out
+	output[["nan.out"]]	<- mean.out[[2]]
 	if (is.na(output$S)){
 		logg("WARN", a01, lev = level)
 	}

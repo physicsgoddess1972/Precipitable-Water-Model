@@ -101,16 +101,26 @@ dev.plots <- function(){
       }
 
   dev.agg_temp <- function(...){
-    datetime1 <- unclass(as.POSIXlt(paste(as.Date(unlist(clear_sky.data$date), origin="1970-01-01")),
-                       format="%Y-%m-%d"))$yday
+    datetime1 <- as.POSIXlt(paste(as.Date(unlist(clear_sky.data$date), origin="1970-01-01")), format="%Y-%m-%d")
+    print(unclass(datetime1))
     # print(unclass(datetime1))
-    x <- datetime1
+    x <- unclass(datetime1)$yday
     y <- clear_sky.data$snsr_sky_calc
-    t1 <- with(data.frame(x=x,y=y), aggregate(list(y=y), list(x = x), mean))
+    t1 <- with(data.frame(x=x,y=y),
+               aggregate(list(y=y), list(x = x), mean))
     plot(t1$x, t1$y,
-         xaxt='n',
          pch=16,
-         col="black")
+         main="Multi-year Average Time Series",
+         col="black",
+         xlab="Day number",
+         xlim=c(1, 366),
+         ylab="Y-axis")
+    # mj_ticks <- seq(1, 12,  length.out=12)
+    # axis.POSIXct(1,mj_ticks, at=mj_ticks, format="%b", tck=-0.03)
+    # axis.POSIXct(1,ticks.at, at=ticks.at, format=" ", tck=-0.015)
+    minor.tick(nx=2, ny=2, tick.ratio=0.5,
+               x.args = list(), y.args = list())
+
     s <- coef(sin.regression(t1$y)$model)
     A <- (max(t1$y, na.rm=TRUE) - min(t1$y, na.rm=TRUE))/2
 	B <- (max(t1$y, na.rm=TRUE) + min(t1$y, na.rm=TRUE))/2
