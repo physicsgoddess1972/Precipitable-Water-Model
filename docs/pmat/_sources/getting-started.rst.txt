@@ -6,7 +6,7 @@ Getting Started
 Introduction 
 ============
 
-The Precipitable-water Model Analysis Tool (``PMAT``) is a computational utility that is used to analyze the data collected from this project to understand the relationship between the zenith sky temperature and precipitable water in the atmosphere. ``PMAT`` has three different modules that work together to present data.
+The Precipitable-water Model Analysis Tool (`PMAT`) is a computational utility that is used to analyze the data collected from this project to understand the relationship between the zenith sky temperature and precipitable water in the atmosphere. `PMAT` has three different modules that work together to present data.
 
 The first is the Deployment Module. This module acts as the user interface for the software suite, whether it be locally or through cloud services.
 
@@ -26,12 +26,12 @@ This version of the Deployment module is, for the most part, automated and recom
 
 1. Create a GitHub repository from the `template repository <https://template.pmat.app>`_. 
 2. Edit the README.md page based on your location and username
-3. Update all files that are contained in the ``data`` directory, and utilize the documentation on data formatting that is provided
-4. Upon finializing updates on ``cool_data.csv``, the workflow will run automatically and the visual and data products will be generated
+3. Update all files that are contained in the `data/` directory, and utilize the documentation on data formatting that is provided
+4. Upon finializing updates on `cool_data.csv`, the workflow will run automatically and the visual and data products will be generated
 
 Amazon Web Service (AWS)
 ------------------------
-For Amazon Web Services, ``PMAT`` can be configured through the EC2 virtual machines. Once they have been configured, connect to the virutal machine.
+For Amazon Web Services, `PMAT` can be configured through the EC2 virtual machines. Once they have been configured, connect to the virutal machine.
 Once connected, enter the following commands
 
 ::
@@ -56,7 +56,7 @@ Local
 We fully support Ubuntu and Debian systems. We do have minimal Windows support through the usage of Windows Subsystem for Linux (WSL) and Virutalization.
 
 
-development
+Development
 -----------
 
 
