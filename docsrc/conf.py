@@ -40,7 +40,7 @@ html_theme_options = {
 # -- Options for LaTeX output
 latex_engine = 'pdflatex'
 latex_elements = {
-    'papersize': 'a4paper',
+    'papersize': 'a5paper',
     'pointsize': '11pt',
     }
 latex_documents = [
