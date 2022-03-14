@@ -9,12 +9,11 @@ pmat_analysis.r
 	:module: Precipitable Water Model Analysis Tool: Analysis
 	:synopsis: This module contains analysis functions
 
-.. function:: exp.regression(r,t=NULL,nan.out,data_indx)
+.. function:: exp.regression(t=NULL,mean.out)
 
 	:detail: Function includes all of the stuff to generate the exponential regression model with intervals
-	:param list r: output of sky.analysis
 	:param double t: training fraction
-	:param integer range: range of date indices to be used
+	:param list mean.out: the output of mean.filter
 	:return: returns the data series and model statistics
 	:rtype: list
 
@@ -26,22 +25,19 @@ pmat_analysis.r
 	:return: returns the data series and model statistics
 	:rtype: list
 
-.. function:: data.partition(x,y,train_size=0.7)
+.. function:: data.partition(x,y,tr.sz=0.7)
 
 	:detail: splits the data into a training/testing set
-	:param list x: domain of the data
-	:param list y: range of the data
-	:param double train_size: fraction of the data in the testing set
+	:param double x: domain of the data
+	:param double y: range of the data
+	:param double tr.sz: fraction of the data in the testing set
 	:return: a list containing the training and testing sets
 	:rtype: list
 
-.. function:: iterative.analysis(results,dir,obool,nan.out,mean.out)
+.. function:: iterative.analysis(obool,mean.out)
 
 	:detail: computes regression statistics and outputs to a yaml file
-	:param logical overcast: boolean to determine label
-	:param string dir: directory file path for _output.yml
 	:param logical obool: determine whether to generate new _output.yml
-	:param list nan.out: output of nan.filter
 	:param list mean.out: output of mean.filter
 	:return: iterative stats and _output.yml
 	:rtype: list
@@ -70,18 +66,18 @@ pmat_processing.r
 	:return: a list of colors
 	:rtype: list
 
-.. function:: mean.filter(pw,n)
+.. function:: mean.filter(nan.out,n)
 
 	:detail: filters the data based on the comparison of the daily std and the average std of the dataset
-	:param pw: precipitable water data
-	:param n: threshold
+	:param list nan.out: the output of nan.filter
+	:param integer n: threshold
 	:return: an array of indicies for PWV values to be analyzed
 	:rtype: list
 
 .. function:: dna.filter(fover)
 
 	:detail: removes data labels as Do Not Analyze
-	:param fover: overcast.filter results
+	:param list fover: overcast.filter results
 	:return: overcast.filter results with DNA points removed
 	:rtype: list
 
@@ -116,6 +112,7 @@ pmat_processing.r
 	:param integer col_com: column index for comments
 	:param list pw_name: pw measurement labels
 	:param list snsr_name: sensor labels
+	:param logical cloud_bool:
 	:return: A list of lists containing either clear-sky/overcast data
 	:rtype: list
 
@@ -150,13 +147,16 @@ pmat_products.r
 	:param bool overcast: the condition of data (clear sky/overcast)
 	:return: A sky temperature time series plot
 
+.. function:: time.multiyear(range,title,color,datetime,ylab,overcast)
+
+
 .. function:: analysis.nth_range(overcast,x,y,title,label,color,leg.lab)
 
 	:detail: Super Average Plot with Exponential Fit
 	:param bool overcast: the condition of data (clear sky/overcast)
 	:return: A sky temperature time series plot
 
-.. function:: analysis.regression(overcast,x,y,des,label,iter,results)
+.. function:: analysis.regression(overcast,x,y,des,label,iter)
 
 	:detail: Super Average Plot with Exponential Fit
 	:param bool overcast: the condition of data (clear sky/overcast)
@@ -177,19 +177,14 @@ pmat_products.r
 	:param bool overcast: the condition of data (clear sky/overcast)
 	:return: A sky temperature time series plot
 
-.. function:: charts(...)
-
-	:detail: A collection of histograms and charts
-	:return: PDF of charts
-
-.. function:: chart1(range,xlabel,title)
+.. function:: chart.histogram(range,xlabel,title)
 
 	:detail: Histograms of defined quantities
 	:param range: a data range
 	:param xlabel: the xaxis label
 	:param title: the title of the histogram
 
-.. function:: poster.plots(overcast,iter,nan.out,mean.out)
+.. function:: poster.plots(overcast,iter,mean.out)
 
 	:detail: The set of all poster
 	:param bool overcast: the condition of data (clear sky/overcast)
@@ -198,7 +193,7 @@ pmat_products.r
 .. function:: poster1(...)
 
 
-.. function:: poster2(overcast,iter,nan.out,mean.out)
+.. function:: poster2(overcast,iter,mean.out)
 
 	:detail: The analytics poster plot
 	:param bool overcast: the condition of data (clear sky/overcast)
@@ -228,7 +223,7 @@ pmat_products.r
 .. function:: data.final(dir,clear.len,over.len,train.len,nan.len,frac.kept,coef,std,rmse)
 
 
-.. function:: visual.products(set,nan.out,mean.out,datetime=datetime,overcast=args$overcast)
+.. function:: visual.products(set,mean.out,datetime=datetime,overcast=args$overcast)
 
 	:detail: saves plot sets
 	:param character set: the set identifier
