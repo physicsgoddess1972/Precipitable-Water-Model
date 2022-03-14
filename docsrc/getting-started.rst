@@ -18,7 +18,7 @@ The third module is the main program to run the analysis, the DAnalysis Module. 
 Installation and Deployment Tutorial
 ====================================
 
-We also require two data files. One that contains the raw data collected by the temperature sensors, that also includes date and time information (`cool_data.csv`). The second should contain sensor definitions with additional parameters for the preprocessing and analysis phases (`_pmat.yml`). A template and detailed breakdown of the configuration file is provided in Chapter 2.1, followed by a detailed breakdown on the data file format.
+We also require two data files. One that contains the raw data collected by the temperature sensors, that also includes date and time information (``cool_data.csv``). The second should contain sensor definitions with additional parameters for the preprocessing and analysis phases (``_pmat.yml``). A template and detailed breakdown of the configuration file is provided in Chapter 2.1, followed by a detailed breakdown on the data file format.
 
 Github
 ------
@@ -26,12 +26,12 @@ This version of the Deployment module is, for the most part, automated and recom
 
 1. Create a GitHub repository from the `template repository <https://template.pmat.app>`_. 
 2. Edit the README.md page based on your location and username
-3. Update all files that are contained in the `data/` directory, and utilize the documentation on data formatting that is provided
-4. Upon finializing updates on `cool_data.csv`, the workflow will run automatically and the visual and data products will be generated
+3. Update all files that are contained in the ``data/`` directory, and utilize the documentation on data formatting that is provided
+4. Upon finializing updates on ``cool_data.csv``, the workflow will run automatically and the visual and data products will be generated
 
 Amazon Web Service (AWS)
 ------------------------
-For Amazon Web Services, `PMAT` can be configured through the EC2 virtual machines. Once they have been configured, connect to the virutal machine.
+For Amazon Web Services, ``PMAT`` can be configured through the EC2 virtual machines. Once they have been configured, connect to the virutal machine.
 Once connected, enter the following commands
 
 ::
