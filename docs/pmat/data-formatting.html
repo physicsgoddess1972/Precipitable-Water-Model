@@ -62,6 +62,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templates.html">Templates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pmat-reference.html">PMAT Reference</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/docs/pmat.pdf?raw=TRUE">Download Documentation</a></li>
 </ul>
@@ -103,10 +104,14 @@
 </section>
 <section id="raw-data-file">
 <h3>Raw Data File<a class="headerlink" href="#raw-data-file" title="Permalink to this headline"></a></h3>
-<p>The raw data file is processed, through pattern identification, allowing for a flexible format with few strict requirements. One of these requirements is that the sky and ground temperature should be separated into groups and ordered the same way as the configuration file. Here are three examples of data files:
-- Dataset Example 1 &lt;<a class="reference external" href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/master/data/example/example1.csv">https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/master/data/example/example1.csv</a>&gt;
-- Dataset Example 2 &lt;<a class="reference external" href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/master/data/example/example2.csv">https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/master/data/example/example2.csv</a>&gt;
-- Dataset Example 3 &lt;<a class="reference external" href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/master/data/example/example1.csv">https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/master/data/example/example1.csv</a>&gt;</p>
+<dl class="simple">
+<dt>The raw data file is processed, through pattern identification, allowing for a flexible format with few strict requirements. One of these requirements is that the sky and ground temperature should be separated into groups and ordered the same way as the configuration file. Here are three examples of data files:</dt><dd><ul class="simple">
+<li><p><a class="reference external" href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/master/data/example/example1.csv">Dataset Example 1</a></p></li>
+<li><p><a class="reference external" href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/master/data/example/example2.csv">Dataset Example 2</a></p></li>
+<li><p><a class="reference external" href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/master/data/example/example1.csv">Dataset Example 3</a></p></li>
+</ul>
+</dd>
+</dl>
 <p>It should be noted that the columns do not have to be in any set order, with one small caveat, the model pulls the data from columns with headers containing specific words or phrases. The caveat is with regards to Ground and Sky temperature readings. The temperature measurements must go in consecutive order by sensor as determined by <code class="docutils literal notranslate"><span class="pre">_pmat.yml</span></code>.</p>
 <p>For example, if the order of the sensors in <code class="docutils literal notranslate"><span class="pre">_pmat.yml</span></code> is 1610 TE, FLIR i3, and then AMES 1. Then the order of the ground and sky temperature measurements in the dataset should be: 1610 TE, FLIR i3, and then AMES 1. (As seen in Dataset 2).</p>
 </section>
