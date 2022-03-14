@@ -15,6 +15,8 @@ The Precipitable-Water Model Analysis Tool is an open-source suite for analyzing
     getting-started
     data-formatting
     changelog
+    table
+    templates
     pmat-reference
 
     Download Documentation <https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/docs/pmat.pdf?raw=TRUE>

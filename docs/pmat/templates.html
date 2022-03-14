@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Official PMAT Documentation &mdash; PMAT Documentation</title>
+  <title>&lt;no title&gt; &mdash; PMAT Documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
@@ -20,7 +20,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Getting Started" href="getting-started.html" /> 
+    <link rel="next" title="PMAT Reference" href="pmat-reference.html" />
+    <link rel="prev" title="Changelog" href="changelog.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -28,7 +29,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="#">
+            <a href="index.html">
             <img src="_static/banner_icon.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
@@ -58,17 +59,17 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">Precipitable-Water Model Analysis Tool</a>
+          <a href="index.html">Precipitable-Water Model Analysis Tool</a>
       </nav>
 
       <div class="wy-nav-content">
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
-      <li>Official PMAT Documentation</li>
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>&lt;no title&gt;</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/templates.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -76,50 +77,60 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="official-pmat-documentation">
-<h1>Official PMAT Documentation<a class="headerlink" href="#official-pmat-documentation" title="Permalink to this headline"></a></h1>
-<p>The Precipitable-Water Model Analysis Tool is an open-source suite for analyzing the relationship between atmospheric brightness temperature and precipitable water.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This documentation is under active development.</p>
-</div>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+  <p>::
+- instruments:</p>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt>sensor:</dt><dd><p>name:
+error:
+color:
+ratio:
+range:
+emissivity:
+poster:
+active:</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
 <ul>
-<li class="toctree-l1"><a class="reference external" href="http://docs.pmat.app/">Project Home</a></li>
-<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="getting-started.html#introduction">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getting-started.html#installation-and-deployment-tutorial">Installation and Deployment Tutorial</a></li>
+<li><p>analysis:
+- train_fraction:
+- rel_difference:
+- iteration:</p>
+<blockquote>
+<div><p>step:
+seed:</p>
+</div></blockquote>
+</li>
+<li><p>logging:
+- verbose:</p></li>
+<li><p>import:
+- mesowest:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>id:</p></li>
+</ul>
+</div></blockquote>
+<ul>
+<li><p>wyoming:
+- id:</p>
+<blockquote>
+<div><p>weight:</p>
+</div></blockquote>
+</li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="data-formatting.html">Working with data and PMAT</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="data-formatting.html#input-data-formatting">Input Data Formatting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="data-formatting.html#output-data-formatting">Output Data Formatting</a></li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#pmat-cirrus">PMAT Cirrus</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#pmat-altocumulus">PMAT Altocumulus</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="pmat-reference.html">PMAT Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="pmat-reference.html#pmat-analysis-r">pmat_analysis.r</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pmat-reference.html#pmat-processing-r">pmat_processing.r</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pmat-reference.html#pmat-products-r">pmat_products.r</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pmat-reference.html#pmat-run-r">pmat_run.r</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pmat-reference.html#pmat-utility-r">pmat_utility.r</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/docs/pmat.pdf?raw=TRUE">Download Documentation</a></li>
-</ul>
-</div>
-</section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="getting-started.html" class="btn btn-neutral float-right" title="Getting Started" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="changelog.html" class="btn btn-neutral float-left" title="Changelog" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pmat-reference.html" class="btn btn-neutral float-right" title="PMAT Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
