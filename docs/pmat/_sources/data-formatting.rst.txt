@@ -19,9 +19,9 @@ A template of the configuration file presented in Template XX shows the structur
 Raw Data File
 -----------------------
 The raw data file is processed, through pattern identification, allowing for a flexible format with few strict requirements. One of these requirements is that the sky and ground temperature should be separated into groups and ordered the same way as the configuration file. Here are three examples of data files:
-- Dataset Example 1 <https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/master/data/example/example1.csv>
-- Dataset Example 2 <https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/master/data/example/example2.csv>
-- Dataset Example 3 <https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/master/data/example/example1.csv>
+ * `Dataset Example 1 <https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/master/data/example/example1.csv>`_
+ * `Dataset Example 2 <https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/master/data/example/example2.csv>`_
+ * `Dataset Example 3 <https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/master/data/example/example1.csv>`_
 
 It should be noted that the columns do not have to be in any set order, with one small caveat, the model pulls the data from columns with headers containing specific words or phrases. The caveat is with regards to Ground and Sky temperature readings. The temperature measurements must go in consecutive order by sensor as determined by ``_pmat.yml``.
 
