@@ -21,7 +21,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="PMAT Reference" href="pmat-reference.html" />
-    <link rel="prev" title="Changelog" href="changelog.html" /> 
+    <link rel="prev" title="Tables" href="tables.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -49,6 +49,7 @@
 <li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data-formatting.html">Working with data and PMAT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tables.html">Tables</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Templates</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#input-data-file">Input Data File</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#pmat-yml"><code class="docutils literal notranslate"><span class="pre">_pmat.yml</span></code></a></li>
@@ -90,53 +91,32 @@
 <h2>Input Data File<a class="headerlink" href="#input-data-file" title="Permalink to this headline"></a></h2>
 <section id="pmat-yml">
 <h3><code class="docutils literal notranslate"><span class="pre">_pmat.yml</span></code><a class="headerlink" href="#pmat-yml" title="Permalink to this headline"></a></h3>
-<p>::
-- instruments:</p>
-<blockquote>
-<div><ul class="simple">
-<li><dl class="simple">
-<dt>sensor:</dt><dd><p>name:
-error:
-color:
-ratio:
-range:
-emissivity:
-poster:
-active:</p>
-</dd>
-</dl>
-</li>
-</ul>
-</div></blockquote>
-<ul>
-<li><p>analysis:
-- train_fraction:
-- rel_difference:
-- iteration:</p>
-<blockquote>
-<div><p>step:
-seed:</p>
-</div></blockquote>
-</li>
-<li><p>logging:
-- verbose:</p></li>
-<li><p>import:
-- mesowest:</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>id:</p></li>
-</ul>
-</div></blockquote>
-<ul>
-<li><p>wyoming:
-- id:</p>
-<blockquote>
-<div><p>weight:</p>
-</div></blockquote>
-</li>
-</ul>
-</li>
-</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">instruments</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">sensor</span><span class="p">:</span>
+      <span class="n">name</span><span class="p">:</span>
+      <span class="n">error</span><span class="p">:</span>
+      <span class="n">color</span><span class="p">:</span>
+      <span class="n">ratio</span><span class="p">:</span>
+      <span class="nb">range</span><span class="p">:</span>
+      <span class="n">emissivity</span><span class="p">:</span>
+      <span class="n">poster</span><span class="p">:</span>
+      <span class="n">active</span><span class="p">:</span>
+<span class="o">-</span> <span class="n">analysis</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">train_fraction</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">rel_difference</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">iteration</span><span class="p">:</span>
+      <span class="n">step</span><span class="p">:</span>
+      <span class="n">seed</span><span class="p">:</span>
+<span class="o">-</span> <span class="n">logging</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">verbose</span><span class="p">:</span>
+<span class="o">-</span> <span class="n">import</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">mesowest</span><span class="p">:</span>
+    <span class="o">-</span> <span class="nb">id</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">wyoming</span><span class="p">:</span>
+    <span class="o">-</span> <span class="nb">id</span><span class="p">:</span>
+      <span class="n">weight</span><span class="p">:</span>
+</pre></div>
+</div>
 </section>
 </section>
 </section>
@@ -145,7 +125,7 @@ seed:</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="changelog.html" class="btn btn-neutral float-left" title="Changelog" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="tables.html" class="btn btn-neutral float-left" title="Tables" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="pmat-reference.html" class="btn btn-neutral float-right" title="PMAT Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
