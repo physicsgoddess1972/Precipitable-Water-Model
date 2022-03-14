@@ -20,7 +20,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Data Formatting" href="data-formatting.html" />
+    <link rel="next" title="Working with data and PMAT" href="data-formatting.html" />
     <link rel="prev" title="Official PMAT Documentation" href="index.html" /> 
 </head>
 
@@ -58,7 +58,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="data-formatting.html">Data Formatting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-formatting.html">Working with data and PMAT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pmat-reference.html">PMAT Reference</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/docs/pmat.pdf?raw=TRUE">Download Documentation</a></li>
@@ -99,20 +99,20 @@
 </section>
 <section id="installation-and-deployment-tutorial">
 <h2>Installation and Deployment Tutorial<a class="headerlink" href="#installation-and-deployment-tutorial" title="Permalink to this headline"></a></h2>
-<p>We also require two data files. One that contains the raw data collected by the temperature sensors, that also includes date and time information (<cite>cool_data.csv</cite>). The second should contain sensor definitions with additional parameters for the preprocessing and analysis phases (<cite>_pmat.yml</cite>). A template and detailed breakdown of the configuration file is provided in Chapter 2.1, followed by a detailed breakdown on the data file format.</p>
+<p>We also require two data files. One that contains the raw data collected by the temperature sensors, that also includes date and time information (<code class="docutils literal notranslate"><span class="pre">cool_data.csv</span></code>). The second should contain sensor definitions with additional parameters for the preprocessing and analysis phases (<code class="docutils literal notranslate"><span class="pre">_pmat.yml</span></code>). A template and detailed breakdown of the configuration file is provided in Chapter 2.1, followed by a detailed breakdown on the data file format.</p>
 <section id="github">
 <h3>Github<a class="headerlink" href="#github" title="Permalink to this headline"></a></h3>
 <p>This version of the Deployment module is, for the most part, automated and recommended. Follow the steps in this section to successfully deploy PMAT through GitHub with GitHub Actions.</p>
 <ol class="arabic simple">
 <li><p>Create a GitHub repository from the <a class="reference external" href="https://template.pmat.app">template repository</a>.</p></li>
 <li><p>Edit the README.md page based on your location and username</p></li>
-<li><p>Update all files that are contained in the <cite>data/</cite> directory, and utilize the documentation on data formatting that is provided</p></li>
-<li><p>Upon finializing updates on <cite>cool_data.csv</cite>, the workflow will run automatically and the visual and data products will be generated</p></li>
+<li><p>Update all files that are contained in the <code class="docutils literal notranslate"><span class="pre">data/</span></code> directory, and utilize the documentation on data formatting that is provided</p></li>
+<li><p>Upon finializing updates on <code class="docutils literal notranslate"><span class="pre">cool_data.csv</span></code>, the workflow will run automatically and the visual and data products will be generated</p></li>
 </ol>
 </section>
 <section id="amazon-web-service-aws">
 <h3>Amazon Web Service (AWS)<a class="headerlink" href="#amazon-web-service-aws" title="Permalink to this headline"></a></h3>
-<p>For Amazon Web Services, <cite>PMAT</cite> can be configured through the EC2 virtual machines. Once they have been configured, connect to the virutal machine.
+<p>For Amazon Web Services, <code class="docutils literal notranslate"><span class="pre">PMAT</span></code> can be configured through the EC2 virtual machines. Once they have been configured, connect to the virutal machine.
 Once connected, enter the following commands</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">yum</span> <span class="n">update</span> <span class="o">-</span><span class="n">y</span>
 </pre></div>
@@ -143,7 +143,7 @@ Once connected, enter the following commands</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="index.html" class="btn btn-neutral float-left" title="Official PMAT Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="data-formatting.html" class="btn btn-neutral float-right" title="Data Formatting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="data-formatting.html" class="btn btn-neutral float-right" title="Working with data and PMAT" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
