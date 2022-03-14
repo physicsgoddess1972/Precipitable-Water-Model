@@ -10,27 +10,36 @@ Input Data File
 ``cool_data.csv``
 -----------------------
 
-+---------+---------+-----------+
-| Data Type | Header | Format |
-+---------+---------+-----------+
-| Date | Date | YYYY-MM-DD |
-+---------+---------+-----------+
-| Time | Time | HH:MM |
-+---------+---------+-----------+
-| String | Condition | clear sky / overcast |
-+---------+---------+-----------+
-| Sky Temperature | Sensor Name (Sky) | float |
-+---------+---------+-----------+
-| Ground Temperature | Sensor Name (Ground) | float|
-+---------+---------+-----------+
++---------------------+----------------------+----------------------+
+| Data Type           | Header               | Format               |
++---------------------+----------------------+----------------------+
+| Date                | Date                 | YYYY-MM-DD           |
++---------------------+----------------------+----------------------+
+| Time                | Time                 | HH:MM                |
++---------------------+----------------------+----------------------+
+| String              | Condition            | clear sky / overcast |
++---------------------+----------------------+----------------------+
+| Sky Temperature     | Sensor Name (Sky)    | float                |
++---------------------+----------------------+----------------------+
+| Ground Temperature  | Sensor Name (Ground) | float                |
++---------------------+----------------------+----------------------+
+
+.. csv-table:: a title
+    :header: "Data Type", "Header", "Format"
+    :widths: 20, 20, 20
+    "datetime", "Date", "YYYY-MM-DD"
+    "datetime", "Time", "HH:MM"
+    "string", "Condition", "clear sky / overcast"
+    "float", "Sensor Name (Sky)", float
+    "float", "Sensor Name (Ground)", float
 
 -----------------------
 ``_pmat.yml``
 -----------------------
 
-+---------+---------+-----------+
-| Field Name | Description | Example |
-+---------+---------+-----------+
++------------+-------------+-----------+
+| Field Name | Description | Example   |
++------------+-------------+-----------+
 | name | The name of the sensor. If there are multiple of the same sensor use the notation `_N` with N being the index of the sensor. | Sensor 09
 Sensor 10_1
 Sensor 10_2 |
