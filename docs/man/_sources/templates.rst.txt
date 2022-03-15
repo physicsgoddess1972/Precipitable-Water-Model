@@ -35,3 +35,5 @@ Input Data File
       - wyoming:
         - id:
           weight:
+
+::

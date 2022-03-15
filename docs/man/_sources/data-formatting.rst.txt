@@ -18,68 +18,68 @@ A template of the configuration file presented in Template XX shows the structur
 Sensor fields
 
 sensor.name *(string)*:
-    + The name of the sensor.
+    **Detail:** The name of the sensor.
     **Note:** If there are multiple of the same sensor use the notation ``_N`` with N being the index of the sensor.
-	**Ex.** Sensor 09, Sensor 10_1, Sensor 10_2
+	**Example:** Sensor 09, Sensor 10_1, Sensor 10_2
 
 sensor.error *(float)*:
-    + The manufacturer reported error on the sensor (OPTIONAL)
-	**Ex.** 2.5, 5.0
+    **Detail:** The manufacturer reported error on the sensor (OPTIONAL)
+	**Example** 2.5, 5.0
 
 sensor.color *(string)*:
-    + A hexadecimal color code that will be used to identify the sensor on visualizations.
-	**Ex.** FF0000, 0000FF
+    **Detail:** A hexadecimal color code that will be used to identify the sensor on visualizations.
+	**Example:** FF0000, 0000FF
 
 sensor.ratio *(string)*:
-    + The distance to spot ratio that is reported by the manufacturer.
-    **Ex.** 12 to 1, 21 to 1
+    **Detail:** The distance to spot ratio that is reported by the manufacturer.
+    **Example:** 12 to 1, 21 to 1
 
 sensor.emissivity *(float)*:
-    + The emissivity of the sensor as reported by the manufacturer. (OPTIONAL)
-    **Ex.** 0.95
+    **Detail:** The emissivity of the sensor as reported by the manufacturer. (OPTIONAL)
+    **Example:** 0.95
 
 sensor.poster *(boolean)*:
-    + A boolean that will decide whether the sensor will be shown in the poster-specific plots
-    **Ex.** true, false
+    **Detail:** A boolean that will decide whether the sensor will be shown in the poster-specific plots
+    **Example:** true, false
 
 sensor.active *(boolean)*:
-    + A boolean that will decide whether the sensor will be used in the analysis.
-    **Ex.** true, false
+    **Detail:** A boolean that will decide whether the sensor will be used in the analysis.
+    **Example:** true, false
 
 Analysis
 
 train_fraction *(float)*:
-    + The fraction of data being used to create the training set.
+    **Detail:** The fraction of data being used to create the training set.
     **Note:** A value between 0 and 1.
-    **Ex.** 0.8
+    **Example:** 0.8
 
 rel_difference (float):
-    +
+    **Detail:**
     **Ex.** 2
 
 iteration.step *(integer)*:
-    + The number of steps the analysis will run
+    **Detail:** The number of steps the analysis will run
     **Ex.** 1, 100, 1000
 
 Logging
 
 verbose *(string)*:
-    + An identifier for the level of logging
+    **Detail:** An identifier for the level of logging
     **Ex.** DEBUG, WARN, ERROR, INFO
 
 Import
 For information regarding the usage of external files for PWV or RH measurements, refer to …
 
 mesowest.id *(string)*:
-    + The measurement site identifier for the MesoWest database
+    **Detail:** The measurement site identifier for the MesoWest database
     **Ex.** KONM, KRAP
 
 wyoming.id *(string)*:
-    + The measurement site identifier for the Wyoming Upper-Air database
+    **Detail:** The measurement site identifier for the Wyoming Upper-Air database
     **Ex.** ABQ, EPZ
 
 wyoming.weight *(string)*:
-    + The weighting used on the PWV measurements for analysis.
+    **Detail:** The weighting used on the PWV measurements for analysis.
     **Note:** If there is multiple sites, these values should add to 0.5.
     **Ex.** 0.4, 0.2, 0.5
 
@@ -98,16 +98,16 @@ It should be noted that the columns do not have to be in any set order, with one
 For example, if the order of the sensors in ``_pmat.yml`` is 1610 TE, FLIR i3, and then AMES 1. Then the order of the ground and sky temperature measurements in the dataset should be: 1610 TE, FLIR i3, and then AMES 1. (As seen in Dataset 2).
 
 Date *(datetime, ``YYYY-MM-DD``)*:
-    + The date of the measurements.
+    **Detail:** The date of the measurements.
 
 Time *(datetime, ``HH:MM``)*:
-    + The local time of the measurements
+    **Detail:** The local time of the measurements
 
 Sky temperature *(float)*:
-    + The sky temperature measurements. The header of this column should be Sensor Name (Sky), where Sensor Name is the name of the sensor used in the configuration file.
+    **Detail:** The sky temperature measurements. The header of this column should be Sensor Name (Sky), where Sensor Name is the name of the sensor used in the configuration file.
 
 Ground temperature *(float)*:
-    + The ground temperature measurements. The header of this column should be Sensor Name (Ground), where Sensor Name is the name of the sensor in the configuration file.
+    **Detail:** The ground temperature measurements. The header of this column should be Sensor Name (Ground), where Sensor Name is the name of the sensor in the configuration file.
 
 ======================
 Output Data Formatting
