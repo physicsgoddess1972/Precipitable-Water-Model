@@ -6,7 +6,7 @@ Getting Started
 Introduction 
 ============
 
-The Precipitable-water Model Analysis Tool (`PMAT`) is a computational utility that is used to analyze the data collected from this project to understand the relationship between the zenith sky temperature and precipitable water in the atmosphere. `PMAT` has three different modules that work together to present data.
+The Precipitable-water Model Analysis Tool (``PMAT``) is a computational utility that is used to analyze the data collected from this project to understand the relationship between the zenith sky temperature and precipitable water in the atmosphere. ``PMAT`` has three different modules that work together to present data.
 
 The first is the Deployment Module. This module acts as the user interface for the software suite, whether it be locally or through cloud services.
 
