@@ -20,7 +20,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Changelog" href="changelog.html" />
+    <link rel="next" title="Reporting Issues with PMAT" href="bug-reporting.html" />
     <link rel="prev" title="Getting Started" href="getting-started.html" /> 
 </head>
 
@@ -46,7 +46,7 @@
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference external" href="https://pmat.app">Project Home</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://docs.pmat.app">Dccumentation Home</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pmat.app/man/">Dccumentation Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Working with data and PMAT</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#input-data-formatting">Input Data Formatting</a><ul>
@@ -62,6 +62,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="bug-reporting.html">Reporting Issues with PMAT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="templates.html">Templates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pmat-reference.html">PMAT Reference</a></li>
@@ -105,12 +106,12 @@
 <p>Sensor fields</p>
 <dl>
 <dt>sensor.name <em>(string)</em>:</dt><dd><ul class="simple">
-<li><dl class="simple">
-<dt>The name of the sensor. If there are multiple of the same sensor use the notation <code class="docutils literal notranslate"><span class="pre">_N</span></code> with N being the index of the sensor.</dt><dd><p><strong>Ex.</strong> Sensor 09, Sensor 10_1, Sensor 10_2</p>
+<li><p>The name of the sensor.</p></li>
+</ul>
+<dl class="simple">
+<dt><strong>Note:</strong> If there are multiple of the same sensor use the notation <code class="docutils literal notranslate"><span class="pre">_N</span></code> with N being the index of the sensor.</dt><dd><p><strong>Ex.</strong> Sensor 09, Sensor 10_1, Sensor 10_2</p>
 </dd>
 </dl>
-</li>
-</ul>
 </dd>
 <dt>sensor.error <em>(float)</em>:</dt><dd><ul class="simple">
 <li><dl class="simple">
@@ -152,9 +153,10 @@
 <p>Analysis</p>
 <dl>
 <dt>train_fraction <em>(float)</em>:</dt><dd><ul class="simple">
-<li><p>The fraction of data being used to create the training set. A value between 0 and 1.</p></li>
+<li><p>The fraction of data being used to create the training set.</p></li>
 </ul>
-<p><strong>Ex.</strong> 0.8</p>
+<p><strong>Note:</strong> A value between 0 and 1.
+<strong>Ex.</strong> 0.8</p>
 </dd>
 <dt>rel_difference (float):</dt><dd><ul class="simple">
 <li></li>
@@ -189,9 +191,10 @@ For information regarding the usage of external files for PWV or RH measurements
 <p><strong>Ex.</strong> ABQ, EPZ</p>
 </dd>
 <dt>wyoming.weight <em>(string)</em>:</dt><dd><ul class="simple">
-<li><p>The weighting used on the PWV measurements for analysis. If there is multiple sites, these values should add to 0.5.</p></li>
+<li><p>The weighting used on the PWV measurements for analysis.</p></li>
 </ul>
-<p><strong>Ex.</strong> 0.4, 0.2, 0.5</p>
+<p><strong>Note:</strong> If there is multiple sites, these values should add to 0.5.
+<strong>Ex.</strong> 0.4, 0.2, 0.5</p>
 </dd>
 </dl>
 </section>
@@ -278,7 +281,7 @@ For information regarding the usage of external files for PWV or RH measurements
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="getting-started.html" class="btn btn-neutral float-left" title="Getting Started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="changelog.html" class="btn btn-neutral float-right" title="Changelog" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="bug-reporting.html" class="btn btn-neutral float-right" title="Reporting Issues with PMAT" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
