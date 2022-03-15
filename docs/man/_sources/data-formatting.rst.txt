@@ -16,6 +16,7 @@ The role of the configuration file is to store a series of parameters that inclu
 A template of the configuration file presented in Template XX shows the structure of the data fields. The filename of this file must be ``_pmat.yml``.
 
 Sensor fields
+
 sensor.name *(string)*:
     + The name of the sensor. If there are multiple of the same sensor use the notation ``_N`` with N being the index of the sensor.
 	**Ex.** Sensor 09, Sensor 10_1, Sensor 10_2

@@ -45,7 +45,30 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference external" href="http://docs.pmat.app/">Project Home</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pmat.app">Project Home</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Official PMAT Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference external" href="https://pmat.app">Project Home</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Working with data and PMAT</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#input-data-formatting">Input Data Formatting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#configuration-input">Configuration Input</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#raw-data-file">Raw Data File</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#output-data-formatting">Output Data Formatting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#general-data-files">General data files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#machine-learning">Machine learning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#analytic-results">Analytic results</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="templates.html">Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pmat-reference.html">PMAT Reference</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/docs/pmat.pdf?raw=TRUE">Download Documentation</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Working with data and PMAT</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#input-data-formatting">Input Data Formatting</a><ul>
@@ -101,18 +124,16 @@
 <h3>Configuration Input<a class="headerlink" href="#configuration-input" title="Permalink to this headline"></a></h3>
 <p>The role of the configuration file is to store a series of parameters that includes sensor information, analytic parameters, logging options, and the site identifiers for the University of Wyoming’s Upper-Air database and the University of Utah’s MesoWest database.</p>
 <p>A template of the configuration file presented in Template XX shows the structure of the data fields. The filename of this file must be <code class="docutils literal notranslate"><span class="pre">_pmat.yml</span></code>.</p>
-<p>Sensor fields
-sensor.name <em>(string)</em>:</p>
-<blockquote>
-<div><ul class="simple">
+<p>Sensor fields</p>
+<dl>
+<dt>sensor.name <em>(string)</em>:</dt><dd><ul class="simple">
 <li><dl class="simple">
 <dt>The name of the sensor. If there are multiple of the same sensor use the notation <code class="docutils literal notranslate"><span class="pre">_N</span></code> with N being the index of the sensor.</dt><dd><p><strong>Ex.</strong> Sensor 09, Sensor 10_1, Sensor 10_2</p>
 </dd>
 </dl>
 </li>
 </ul>
-</div></blockquote>
-<dl>
+</dd>
 <dt>sensor.error <em>(float)</em>:</dt><dd><ul class="simple">
 <li><dl class="simple">
 <dt>The manufacturer reported error on the sensor (OPTIONAL)</dt><dd><p><strong>Ex.</strong> 2.5, 5.0</p>
