@@ -11,7 +11,7 @@
 				<br>
 				<i>Atmospheric Measurement Techniques</i>
 				<br>
-				<b>Under Review</b>
+				<b>Accepted</b>
 				<br><br>
 				<div style="display: flex">
 					<a class="button" target="_blank" style="width: 100%; text-align: center" href="https://doi.org/10.5194/amt-2021-130">Web View</a>
