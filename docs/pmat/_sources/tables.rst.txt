@@ -24,25 +24,26 @@ Input Data File
 | Ground Temperature  | Sensor Name (Ground) | float                |
 +---------------------+----------------------+----------------------+
 
-.. csv-table:: a title
+.. csv-table::
     :header: "Data Type", "Header", "Format"
     :widths: 20, 20, 20
+
     "datetime", "Date", "YYYY-MM-DD"
     "datetime", "Time", "HH:MM"
     "string", "Condition", "clear sky / overcast"
-    "float", "Sensor Name (Sky)", float
-    "float", "Sensor Name (Ground)", float
+    "float", "Sensor Name (Sky)", "float"
+    "float", "Sensor Name (Ground)", "float"
 
 -----------------------
 ``_pmat.yml``
 -----------------------
 
-+------------+-------------+-----------+
-| Field Name | Description | Example   |
-+------------+-------------+-----------+
-| name | The name of the sensor. If there are multiple of the same sensor use the notation `_N` with N being the index of the sensor. | Sensor 09
-Sensor 10_1
-Sensor 10_2 |
+.. csv-table::
+    :header: "Field Name", "Description", "Example"
+    :widths: 20, 20, 20
+
+    "name", "The name of the sensor. If there are multiple of the same sensor use the notation `_N` with N being the index of the sensor.", "Sensor 09 Sensor 10_1 Sensor 10_2"
+
 +---------+---------+-----------+
 | error | The manufacturer reported error on the sensor.  (OPTIONAL) | 2.5
 5.0 |
