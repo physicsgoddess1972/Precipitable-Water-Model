@@ -18,7 +18,8 @@ A template of the configuration file presented in Template XX shows the structur
 Sensor fields
 
 sensor.name *(string)*:
-    + The name of the sensor. If there are multiple of the same sensor use the notation ``_N`` with N being the index of the sensor.
+    + The name of the sensor.
+    **Note:** If there are multiple of the same sensor use the notation ``_N`` with N being the index of the sensor.
 	**Ex.** Sensor 09, Sensor 10_1, Sensor 10_2
 
 sensor.error *(float)*:
@@ -48,7 +49,8 @@ sensor.active *(boolean)*:
 Analysis
 
 train_fraction *(float)*:
-    + The fraction of data being used to create the training set. A value between 0 and 1.
+    + The fraction of data being used to create the training set.
+    **Note:** A value between 0 and 1.
     **Ex.** 0.8
 
 rel_difference (float):
@@ -77,7 +79,8 @@ wyoming.id *(string)*:
     **Ex.** ABQ, EPZ
 
 wyoming.weight *(string)*:
-    + The weighting used on the PWV measurements for analysis. If there is multiple sites, these values should add to 0.5.
+    + The weighting used on the PWV measurements for analysis.
+    **Note:** If there is multiple sites, these values should add to 0.5.
     **Ex.** 0.4, 0.2, 0.5
 
 
