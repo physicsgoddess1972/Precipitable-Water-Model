@@ -6,7 +6,7 @@
 	<div class="panel">
 		<div class="collapsible_1">
 			<div class="panel">
-				<h2 style="text-align: center; font-size: 15px">Atmospheric Precipitable Water and its Correlation with Clear Sky Infrared Temperature Observations</h2>
+				<h2 style="text-align: center; font-size: 15px">Atmospheric precipitable water vapor and its correlation with clear-sky infrared temperature observations</h2>
 				<b style="font-weight: bold">V. Kelsey, S. Riley, K. Minschwaner</b>
 				<br>
 				<i>Atmospheric Measurement Techniques</i>
