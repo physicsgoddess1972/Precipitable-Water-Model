@@ -6,7 +6,7 @@ sys.path.insert(0, os.path.abspath('../'))
 project = 'Precipitable-Water Model Analysis Tool'
 copyright = '2022, Spencer Riley'
 author = 'Spencer Riley'
-version = 'latest'
+version = 'legacy'
 release = ''
 
 
@@ -44,7 +44,7 @@ latex_elements = {
     'pointsize': '11pt',
     }
 latex_documents = [
- ('index', 'pmat.tex', u'Precipitable-Water Model Analysis Tool Documentation', u'Spencer Riley', 'manual'),
+ ('index', 'pmat.tex', u'Precipitable-water Model Analysis Tool Official Manual', u'Spencer Riley', 'manual'),
 ]
 latex_logo = 'banner_icon.png'
 latex_domain_indices = True

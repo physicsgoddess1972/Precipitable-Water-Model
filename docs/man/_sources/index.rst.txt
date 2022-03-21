@@ -1,5 +1,6 @@
+============================
 Official PMAT Documentation
-==========================
+============================
 
 The Precipitable-Water Model Analysis Tool is an open-source suite for analyzing the relationship between atmospheric brightness temperature and precipitable water.
 
