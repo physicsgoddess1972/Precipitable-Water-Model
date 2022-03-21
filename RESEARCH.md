@@ -11,11 +11,11 @@
 				<br>
 				<i>Atmospheric Measurement Techniques</i>
 				<br>
-				<b>Accepted</b>
+				<b>Published</b>
 				<br><br>
 				<div style="display: flex">
-					<a class="button" target="_blank" style="width: 100%; text-align: center" href="https://doi.org/10.5194/amt-2021-130">Web View</a>
-					<a class="button" target="_blank" style="width: 100%; text-align: center" href="https://amt.copernicus.org/preprints/amt-2021-130/amt-2021-130.pdf">PDF View</a>
+					<a class="button" target="_blank" style="width: 100%; text-align: center" href="https://doi.org/10.5194/amt-15-1563-2022">Web View</a>
+					<a class="button" target="_blank" style="width: 100%; text-align: center" href="https://amt.copernicus.org/articles/15/1563/2022/amt-15-1563-2022.pdf">PDF View</a>
 				</div>
 			</div>
 		</div>
