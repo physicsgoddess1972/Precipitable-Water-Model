@@ -362,7 +362,7 @@ logg("INFO", "Collecting Data from sources", out_dir, lev = level)
 hour = [00, 12]
 
 ## Imports Wyoming and MesoWest Site IDs
-cnfg = list(yaml.safe_load_all(open(cname)))[0][3]['import']
+cnfg = list(yaml.safe_load_all(open(cname)))[0][4]['import']
 ## Collects data from cname for PW data collection
 keys = [list(x.keys())[0] for x in cnfg]
 if (len(keys) != 0):
