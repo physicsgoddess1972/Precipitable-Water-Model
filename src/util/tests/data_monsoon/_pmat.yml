@@ -48,10 +48,12 @@
   - train_fraction: 0.8
   - rel_difference: 2
   - iteration:
-      step: 10
+      step: 1
       seed:
 - logging:
   - verbose: DEBUG
+- style:
+  - pw_label: PWAT
 - import:
   - mesowest:
     - id: KONM
