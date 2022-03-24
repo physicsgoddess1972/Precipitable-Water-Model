@@ -246,15 +246,18 @@ pmat_utility.r
 	:detail: creates log entries for _log.txt
 	:param character msglevel:
 	:param character msg:
+	:param character dir:
+	:param character lev:
 
-.. function:: first()
+.. function:: aloha.first()
 
+	:detail: shows first time user information
 
-.. function:: startup()
+.. function:: aloha.startup()
 
 	:detail: shows title banner for program
 
-.. function:: closing()
+.. function:: aloha.closing()
 
 	:detail: cleans up files and ends the program
 
@@ -275,7 +278,7 @@ pmat_utility.r
 .. function:: time_axis(datetime)
 
 	:detail: A function that sets the x-axis format for time series plots
-	:param double date: A date or datetime object
+	:param double datetime: A date or datetime object
 
 .. function:: stnd_title(des,overcast)
 
