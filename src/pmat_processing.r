@@ -40,23 +40,25 @@ rel_diff 	<-  config[[2]]$analysis[[2]]$rel_difference
 
 step 		<-  config[[2]]$analysis[[3]]$iteration$step
 
+pw_lab 		<-  config[[4]]$style[[1]]$pw_label
+
 import_src 	<- list()
-for (i in 1:length(config[[4]]$import)){
-	import_src <- append(import_src, names(config[[4]]$import[[i]]))
+for (i in 1:length(config[[5]]$import)){
+	import_src <- append(import_src, names(config[[5]]$import[[i]]))
 }
 
 weights 	<- c()
 if ("wyoming" %in% import_src){
 	wy_idx <- which(import_src == "wyoming")
-	for (i in 1:length(config[[4]]$import[[wy_idx]]$wyoming)){
-		weights <- append(weights, as.numeric(unlist(config[[4]]$import[[wy_idx]]$wyoming[[i]]$weight)))
+	for (i in 1:length(config[[5]]$import[[wy_idx]]$wyoming)){
+		weights <- append(weights, as.numeric(unlist(config[[5]]$import[[wy_idx]]$wyoming[[i]]$weight)))
 	}
 }
 
 if ("external" %in% import_src){
 	ex_idx <- which(import_src == "external")
-	for (i in 1:length(config[[4]]$import[[ex_idx]]$external)){
-		weights <- append(weights, as.numeric(unlist(config[[4]]$import[[ex_idx]]$external[[i]]$weight)))
+	for (i in 1:length(config[[5]]$import[[ex_idx]]$external)){
+		weights <- append(weights, as.numeric(unlist(config[[5]]$import[[ex_idx]]$external[[i]]$weight)))
 	}
 }
 
