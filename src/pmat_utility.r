@@ -17,6 +17,8 @@ logg <- function(msglevel, msg, dir=out.dir, lev="INFO") {
       #' :detail: creates log entries for _log.txt
       #' :param character msglevel:
       #' :param character msg:
+      #' :param character dir:
+      #' :param character lev:
     loglevels <- c(DEBUG = 10,  PASS = 15,
                    INFO = 20,   WARN = 30,
                    ERROR = 40,  FATAL = 50,
@@ -54,7 +56,8 @@ logg <- function(msglevel, msg, dir=out.dir, lev="INFO") {
 }
 
 ## Command Prompt "Start of Program" and 1st time user stuff
-first <- function(){
+aloha.first <- function(){
+    #' :detail: shows first time user information
 	message(bold(cloudblue(" \t\t**** Welcome First Time Users ****\t\t\t")))
 	message(bold(cloudblue(paste(rep("\t   _  _\t\t\t", 2, collapse="")))))
 	message(bold(cloudblue(paste(rep("\t  ( `   )_\t\t", 2, collapse="")))))
@@ -66,13 +69,13 @@ first <- function(){
 	quit()
 }
 
-startup <- function(){
+aloha.startup <- function(){
     #' :detail: shows title banner for program
     logg("ALOHA", "Precipitable-water Model Analysis Tool", lev = "ALOHA")
     logg("ALOHA", "Program Start", lev = "ALOHA")
 }
 
-closing <- function(){
+aloha.closing <- function(){
     #' :detail: cleans up files and ends the program
     ## Ends the script
     invisible(graphics.off())
@@ -109,7 +112,7 @@ time_axis_init <- function(date){
 
 time_axis <- function(datetime){
     #' :detail: A function that sets the x-axis format for time series plots
-    #' :param double date: A date or datetime object
+    #' :param double datetime: A date or datetime object
     # defines major and minor tick marks for the x-axis and their position
     ticks.at <- time_axis_init(datetime)[2][[1]]
     if (length(ticks.at) > 3){
