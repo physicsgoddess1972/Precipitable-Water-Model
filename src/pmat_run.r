@@ -57,10 +57,10 @@ if(file.exists(file.path(src.dir, "_pmat.yml"))){
 	config	<- yaml.load_file(file.path(src.dir, "_pmat.yml"))
 	level 	<- config[[3]]$logging[[1]]$verbose
 } else {
-	logg("ERROR", F02, lev = "DEBUG"); closing()
+	logg("ERROR", F02, lev = "DEBUG"); aloha.closing()
 }
-if (args$first){first()}
-startup()
+if (args$first){aloha.first()}
+aloha.startup()
 
 ## Imports data from master_data.csv
 if (!file.exists(file.path(src.dir, "master_data.csv"))){
@@ -156,4 +156,4 @@ if (args$dev){
 	pdf(sprintf("%sdev.pdf", fig.dir))
 	dev.plots()
 }
-closing()
+aloha.closing()
