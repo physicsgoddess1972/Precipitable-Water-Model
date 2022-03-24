@@ -11,7 +11,7 @@ time.pwindex <- function(datetime){
     par(mar = c(3,4, 3, 3), oma = c(1, 1, 0, 0), mfrow=c(1, 1), xpd=TRUE)
     # Plotting margin
     range_over 		<- overcast.data$pw.index
-    title 		    <- sprintf("Normalized Index for Weighted PWV Time Series")
+    title 		    <- sprintf("Normalized Index for Weighted %s Time Series", pw_lab)
     range_clear	    <- clear_sky.data$pw.index
 
     datetime_clear <- as.POSIXct(paste(as.Date(unlist(clear_sky.data$date), origin="1970-01-01"),
@@ -44,7 +44,7 @@ time.pwindex <- function(datetime){
         points(x_sec, y_sec, pch=16)
     }
     # print statement when completed
-    logg("PASS","Normalized Index for Weighted PWV Time Series", lev = level)
+    logg("PASS",title, lev = level)
 }
 time.nth_range <- function(range, title, color, leg.lab, ylab, datetime,overcast){
     #' :detail: Multirange Time Series plot series
@@ -59,6 +59,7 @@ time.nth_range <- function(range, title, color, leg.lab, ylab, datetime,overcast
     plot(datetime, range[[1]],
          ylab=ylab[1],
          xaxt='n',
+         xlab='',
          main=stnd_title(title, overcast),
          pch=16,
          ylim=c(ymin, ymax),
@@ -93,6 +94,7 @@ time.composite <- function(range, title, color, ylab, datetime, overcast){
          col=color[[1]],
          main=stnd_title(title, overcast),
          xaxt='n',
+         xlab='',
          pch=16,
          xlim=time_axis_init(datetime)[[1]])
 
@@ -193,11 +195,12 @@ analysis.regression	<- function(overcast, x, y, des, label, iter){
 analysis.svm <- function(model){
     cf <- model$cf
     A <- -cf[2]/cf[3]
+    title <- sprintf("SVM Analysis between Sky Temperature and %s", pw_lab)
     plot(model$x,model$y,
          pch=16, col=model$color,
          xlab="Temperature [C]",
-         ylab="log(TPW)",
-         main="SVM Analysis between Sky Temperature and TPW")
+         ylab=sprintf("log(%s)", pw_lab),
+         main=title)
     curve(A*x + (-cf[1]/cf[3]), add=TRUE, col="black")
     curve(A*x + (-(cf[1] + 1)/cf[3]), col="black", add=TRUE, lty="dashed")
     curve(A*x + (-(cf[1] - 1)/cf[3]), col="black", add=TRUE, lty="dashed")
@@ -210,7 +213,7 @@ analysis.svm <- function(model){
            pch=c(NA, 16, 16),
            lty=c(1, NA, NA),
            legend=c(parse(text=leg), "clear-sky", "overcast"))
-    logg("PASS", "SVM Analysis between Sky Temperature and TPW", lev = level)
+    logg("PASS", title, lev = level)
   }
 
 # Pacviz plots
@@ -238,7 +241,7 @@ pac.regression <- function(overcast){
                      x <- clear_sky.data$snsr_sky_calc)
     ifelse(overcast, y <- log(overcast.data$avg, base=exp(1)),
                      y <- log(clear_sky.data$avg, base=exp(1)))
-    des <- "Pac-Man Residual of the Mean TPW and Temperature Model"
+    des <- sprintf("Pac-Man Residual of the Mean %s and Temperature Model", pw_lab)
 
     # Finds and removes NaNed values from the dataset
     nans <- c(grep("NaN", y)); nans <- append(nans, grep("NaN", x))
@@ -272,7 +275,7 @@ chart.histogram <- function(range, xlabel, title){
                  max(range, na.rm = TRUE), length = 40)
 
         f <- (h$counts / h$density) * dnorm(x, mean = mean(range, na.rm = TRUE), sd = sd(range, na.rm=TRUE))
-        lines(x,f, type="l", col="black", lwd=2, lty=1)
+        #lines(x,f, type="l", col="black", lwd=2, lty=1)
         logg("PASS", sprintf("%s", title), lev = level)
   }
 
@@ -877,10 +880,10 @@ visual.products <- function(set, mean.out, datetime=datetime, overcast=args$over
         range.t <- list("Sky Temperature Time Series",
                        "Ground Temperature Time Series",
                        "Difference Between Ground-Sky Temperature Time Series",
-                       "Total Precipitable Water Time Series",
-                       "Temporal Mean Precipitable Water Time Series",
-                       "Locational Mean Precipitable Water Time Series",
-                       "Mean Total Precipitable Water Time Series",
+                       sprintf("%s Time Series", pw_lab),
+                       sprintf("Temporal Mean %s Time Series", pw_lab),
+                       sprintf("Locational Mean %s Time Series", pw_lab),
+                       sprintf("Spatiotemporal Mean %s Time Series", pw_lab),
                        "Dewpoint Temperature Time Series")
 
         range.col <- unlist(list(rep(list(snsr_color), 3),
@@ -892,22 +895,22 @@ visual.products <- function(set, mean.out, datetime=datetime, overcast=args$over
                           list(paste(unique(pw_time), "Z")), NA, NA),
                      recursive=FALSE)
         range.ylab <- unlist(list(rep(list("Temperature [C]"), 3),
-                          rep(list("TPW [mm]"), 4), "Temperature [C]"),
+                          rep(list(sprintf("%s [mm]", pw_lab)), 4), "Temperature [C]"),
                      recursive=FALSE)
 
         # data inputs for time.composite
         composite.r <- list(list(res$snsr_sky_calc, res$avg),
                            list(res$snsr_sky_calc, res$rh),
                            list(res$avg, res$rh))
-        composite.title <- list("Mean Sky Temperature and PWV Time Series",
+        composite.title <- list(sprintf("Mean Sky Temperature and %s Time Series", pw_lab),
                                 "Mean Sky Temperature and RH Time Series",
-                               "Mean TPW and RH Time Series")
+                               sprintf("Mean %s and RH Time Series", pw_lab))
         composite.col <- list(list("red", "blue"),
                    list("red", "green3"),
                    list("blue", "green3"))
-        composite.ylab <- list(list("Temperature [C]", "TPW [mm]"),
+        composite.ylab <- list(list("Temperature [C]", sprintf("%s [mm]", pw_lab)),
                                list("Temperature [C]", "RH [%]"),
-                               list("TPW [mm]", "RH [%]"))
+                               list(sprintf("%s [mm]", pw_lab), "RH [%]"))
         # data inputs for time.multiyear
         multiyear.r <- list(res$snsr_sky_calc)
         multiyear.title <- list("Multiyear mean sky temperature time series")
@@ -952,10 +955,10 @@ visual.products <- function(set, mean.out, datetime=datetime, overcast=args$over
         x1 <- unlist(list(rep(list(res$snsr_sky_calc), 3)),
                      recursive=FALSE)
         y1 <- list(res$pw_loc, res$loc_avg, res$tmp_avg)
-        t1 <- list("Correlation between TPW and Temperature",
-                   "Correlation between Locational Mean TPW and Temperature",
-                   "Correlation between Temporal Mean TPW and Temperature")
-        l1 <- rep(list(list("Zenith Sky Temperature [C]", "TPW [mm]")), 3)
+        t1 <- list(sprintf("Correlation between %s and Temperature", pw_lab),
+                   sprintf("Correlation between Locational Mean %s and Temperature", pw_lab),
+                   sprintf("Correlation between Temporal Mean %s and Temperature", pw_lab))
+        l1 <- rep(list(list("Zenith Sky Temperature [C]", sprintf("%s [mm]", pw_lab))), 3)
         c1 <- unlist(list(rep(list(pw_color), 3)), recursive=FALSE)
         leg.lab <- unlist(list(list(pw_name),
                                list(unique(pw_place)),
@@ -965,9 +968,9 @@ visual.products <- function(set, mean.out, datetime=datetime, overcast=args$over
         x2 <- unlist(list(rep(list(res$snsr_sky_calc), 2)),
                      recursive=FALSE)
         y2 <- list(res$avg, res$wt_avg)
-        t2 <- list("Regression between Mean TPW and Temperature",
-                   "Regression between Weighted TPW and Temperature")
-        l2 <- rep(list(list("Zenith Sky Temperature [C]", "TPW [mm]")), 2)
+        t2 <- list(sprintf("Regression between Spatiotemporal Mean %s and Temperature", pw_lab),
+                   sprintf("Regression between Weighted %s and Temperature", pw_lab))
+        l2 <- rep(list(list("Zenith Sky Temperature [C]", sprintf("%s [mm]", pw_lab))), 2)
 
         # data inputs for analysis.svm
         ml.x <- c(clear_sky.data$snsr_sky_calc, overcast.data$snsr_sky_calc)
@@ -991,22 +994,25 @@ visual.products <- function(set, mean.out, datetime=datetime, overcast=args$over
                   cbind(unlist(overcast.data$snsr_sky_calc),
                          unlist(clear_sky.data$snsr_sky_calc)),
                   cbind(overcast.data$rh, clear_sky.data$rh),
-                  cbind(overcast.data$dew, clear_sky.data$dew))
+                  cbind(overcast.data$dew, clear_sky.data$dew),
+                  c(18.48 * exp(0.034 * clear_sky.data$snsr_sky_calc)))
 
-        xlab <- list("Precipitable Water [mm]",
+        xlab <- list(sprintf("%s [mm]", pw_lab),
                      "Temperature [C]",
                     "Relative Humidity [%]",
-                    "Temperature [C]")
-        title <- list("Weighted PWV",
+                    "Temperature [C]",
+                    sprintf("%s [mm]", pw_lab))
+        title <- list(sprintf("Weighted %s", pw_lab),
                       "Average Temperature",
                       "Relative Humidity",
-                      "Dewpoint Temperature")
+                      "Dewpoint Temperature",
+                      sprintf("Predicted clear sky %s from IR Product", pw_lab))
 
         for (i in 1:length(unique(pw_place))){
             x <- append(x, list(c(cbind(unlist(clear_sky.data$tmp_avg[i]),
                                         unlist(overcast.data$tmp_avg[i])))))
-            xlab <- append(xlab, "Precipitable Water [mm]")
-            title <- append(title, sprintf("Distribution of PWV in %s", unique(pw_place)[i]))
+            xlab <- append(xlab, sprintf("%s [mm]", pw_lab))
+            title <- append(title, sprintf("Distribution of %s in %s", pw_lab, unique(pw_place)[i]))
         }
         # plot function calls
         for (count in 1:length(x)){
@@ -1021,9 +1027,9 @@ visual.products <- function(set, mean.out, datetime=datetime, overcast=args$over
         exp.reg <-  exp.regression(train_frac,mean.out)
         x1 <- list(exp.reg$x)
         y1 <- list(exp.reg$y)
-        t1 <- list("Correlation between Mean TPW and Temperature")
+        t1 <- list(sprintf("Correlation between Spatiotemporal Mean %s and Temperature", pw_lab))
         th1 <- list(c("Zenith Sky Temperature", "C"))
-        ra1 <- list(c("TPW", "mm"))
+        ra1 <- list(c(sprintf("%s", pw_lab), "mm"))
 
         # plot function calls
         for (i in 1:length(x1)){
