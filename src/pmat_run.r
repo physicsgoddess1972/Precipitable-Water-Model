@@ -68,9 +68,9 @@ if (!file.exists(file.path(src.dir, "master_data.csv"))){
 	fname <- file.create(file.path(src.dir, "master_data.csv"))
 }
 ## Tries to read _output.yml
-if(!file.exists(file.path(dat.dir, "_output.yml"))){
+if(!file.exists(file.path(dat.dir, sprintf("_output%s.yml", ifelse(args$overcast,"_overcast", ""))))){
 	logg("WARN", f01, lev = level)
-	oname <- file.create(file.path(dat.dir, "_output.yml"))
+	oname <- file.create(file.path(dat.dir, sprintf("_output%s.yml", ifelse(args$overcast,"_overcast", ""))))
 	args$u <- TRUE
 }
 
