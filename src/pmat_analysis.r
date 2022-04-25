@@ -97,7 +97,7 @@ data.partition <- function(x,y, tr.sz=0.7){
 	return(list(train=train, test=test, train_idx=train_idx))
 }
 
-iterative.analysis <- function(obool, mean.out){
+iterative.analysis <- function(obool, mean.out, overcast=args$overcast){
 	#' :detail: computes regression statistics and outputs to a yaml file
 	#' :param logical obool: determine whether to generate new _output.yml
 	#' :param list mean.out: output of mean.filter
@@ -129,7 +129,7 @@ iterative.analysis <- function(obool, mean.out){
 			kelsey 	 <- append(kelsey, sqrt(sum((kelsey_y - exp_reg$y)^2)/length(exp_reg$y)))
 		}
 		write(as.yaml(out, precision=4),
-			  file = file.path(dat.dir, "_output.yml"))
+			  file = file.path(dat.dir, sprintf("_output%s.yml", ifelse(overcast,"_overcast", ""))))
 	} else {
 		for (i in 1:length(oname)){
 			logg("DEBUG", sprintf("Step %d out of %d", i,step), lev = level)
