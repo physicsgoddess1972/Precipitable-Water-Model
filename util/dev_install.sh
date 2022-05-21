@@ -13,7 +13,7 @@ echo -e "\e[96m ~~~~ Installing Packages ~~~~\e[0m"
 # System Requirements
 sudo apt install gfortran libbz2-dev libv8-dev libcurl4-openssl-dev libxml2-dev libssl-dev unzip libfontconfig1-dev
 sudo apt install zlib1g-dev libpcre2-dev liblzma-dev g++ libgit2-dev default-jdk libharfbuzz-dev libfribidi-dev
-sudo apt install libfreetype6-dev libpng-dev libtiff5-dev libjpeg-dev
+sudo apt install libfreetype6-dev libpng-dev libtiff5-dev libjpeg-dev python3-pip
 sudo python3 -m pip install -r ../requirements.txt
 curl -O https://cran.rstudio.com/src/base/R-${rvers:2:1}/${rvers}.tar.gz
 sudo tar -zxf ./R-*.tar.gz -C /opt/

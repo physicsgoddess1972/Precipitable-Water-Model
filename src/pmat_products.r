@@ -214,7 +214,42 @@ analysis.svm <- function(model){
            lty=c(1, NA, NA),
            legend=c(parse(text=leg), "clear-sky", "overcast"))
     logg("PASS", title, lev = level)
-  }
+}
+
+analysis.multiyear <- function(range, title, datetime,label, overcast){
+      x <- unclass(as.POSIXlt(datetime))$yday
+      dat <- with(data.frame(x=x,y=range),
+                  aggregate(list(y=range), list(x = x), mean))
+
+    exp_reg <- exp.regression(mean.out=iter[["filter.mean"]])
+    ymax	<- max(unlist(exp_reg$y), na.rm=TRUE)
+    ymin	<- min(unlist(exp_reg$y), na.rm=TRUE)
+
+    # Non-linear model (exponential)
+    plot(dat$x,  dat$y,
+         xlab=label[[1]],
+         ylab=label[[2]],
+         ylim=c(ymin, ymax),
+         main=title)
+    # Best Fit
+    curve(iter$A*exp(iter$B*x), col="black", add=TRUE)
+
+    polygon(c(exp_reg$newx, rev(exp_reg$newx)),
+            c(exp(exp_reg$predint[ ,3]), rev(exp(exp_reg$predint[ ,2]))),
+            col=rgb(0.25, 0.25, 0.25,0.25),
+            border = NA)
+
+    minor.tick(nx=2, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
+
+    leg <- sprintf("%.2f*e^{%.3f*x}*\t\t(S == %.3f*mm)", iter$A,
+                                                         iter$B,
+                                                         iter$S)
+    legend("topleft",   col=c("black"),
+                        lty=c(1),
+                        legend=c(parse(text=leg)))
+
+      logg("PASS", title)
+}
 
 # Pacviz plots
 pac.compare <- function(overcast, des, x, y, angular, radial){
@@ -979,6 +1014,11 @@ visual.products <- function(set, mean.out, datetime=datetime, overcast=args$over
         nan.ml <- nan.filter(list(x=ml.x, y=ml.y, l=ml.l))[[1]]
         ml <- lsvm(nan.ml$x, log(nan.ml$y, base=exp(1)), nan.ml$l)
 
+        # data inputs for time.multiyear
+        multiyear.r <- list(res$snsr_sky_calc)
+        multiyear.title <- list("Multiyear mean sky temperature time series")
+        multiyear.label <- list("Temperature [C]", "Date")
+
         # plot function calls
         for (i in 1:length(x1)){
             analysis.nth_range(overcast, x1[[i]], y1[[i]], t1[[i]], l1[[i]], c1[[i]], leg.lab[[i]])
@@ -987,6 +1027,7 @@ visual.products <- function(set, mean.out, datetime=datetime, overcast=args$over
             analysis.regression(overcast, x2[[i]], y2[[i]], t2[[i]], l2[[i]], iter.results)
         }
         analysis.svm(ml)
+        analysis.multiyear(multiyear.r, multiyear.title, datetime, multiyear.label, overcast)
 	}else if(set == "c"){
         logg("INFO", "Chart Set", lev = level)
 		pdf(file.path(fig.dir, "charts.pdf"))
