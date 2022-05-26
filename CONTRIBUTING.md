@@ -80,8 +80,7 @@
                         <a class="button" target="_blank" style="width: 100%; text-align: center" href="mailto:fleford.redoloza@mines.sdsmt.edu"><i class="material-icons">email</i></a>
                     </div>
                 </div>
-	</div>
-	<div style="display: flex">
+		<div style="width: 5%"></div>
                 <div class="collapsible_1 collab">
                     <div class="panel" style="margin-bottom: 0; padding-bottom: 2%;">
                         <h3>Kara Huse</h3>
