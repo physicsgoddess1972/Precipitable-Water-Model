@@ -68,6 +68,8 @@
                         <a class="button" target="_blank" style="width: 100%; text-align: center" href="mailto:christen.gauker@mines.sdsmt.edu"><i class="material-icons">email</i></a>
                     </div>
                 </div>
+	</div>
+	    <div style="display: flex">
                 <div class="collapsible_1 collab">
                     <div class="panel" style="margin-bottom: 0; padding-bottom: 2%;">
                         <h3>Fleford Redoloza</h3>
