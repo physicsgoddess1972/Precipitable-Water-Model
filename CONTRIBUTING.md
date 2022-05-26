@@ -81,6 +81,18 @@
                     </div>
                 </div>
 	</div>
+	<div style="display: flex">
+                <div class="collapsible_1 collab">
+                    <div class="panel" style="margin-bottom: 0; padding-bottom: 2%;">
+                        <h3>Kara Huse</h3>
+                        <img width="100%" src="https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/docs/docs/assets/img/people/khuse.png?raw=true/" alt="Fleford Redoloza">
+                        <br>
+                        <b style="font-weight: bold;">Role:</b> Automation Engineer
+                        <hr>
+                        <a class="button" target="_blank" style="width: 100%; text-align: center" href="mailto:kara.huse@mines.sdsmt.edu"><i class="material-icons">email</i></a>
+                    </div>
+                </div>
+	</div>
         </div>
     </div>
 </div>
