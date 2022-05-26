@@ -75,7 +75,7 @@
                         <h3>Fleford Redoloza</h3>
                         <img width="100%" src="https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/docs/docs/assets/img/people/fredoloza.jpg?raw=true/" alt="Fleford Redoloza">
                         <br>
-                        <b style="font-weight: bold;">Role:</b> Automation Engineer
+                        <b style="font-weight: bold;">Role:</b> Automation Engineering Technician
                         <hr>
                         <a class="button" target="_blank" style="width: 100%; text-align: center" href="mailto:fleford.redoloza@mines.sdsmt.edu"><i class="material-icons">email</i></a>
                     </div>
@@ -86,7 +86,7 @@
                         <h3>Kara Huse</h3>
                         <img width="100%" src="https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/docs/docs/assets/img/people/khuse.png?raw=true/" alt="Fleford Redoloza">
                         <br>
-                        <b style="font-weight: bold;">Role:</b> Automation Engineer
+                        <b style="font-weight: bold;">Role:</b> Automation Engineering Technician
                         <hr>
                         <a class="button" target="_blank" style="width: 100%; text-align: center" href="mailto:kara.huse@mines.sdsmt.edu"><i class="material-icons">email</i></a>
                     </div>
