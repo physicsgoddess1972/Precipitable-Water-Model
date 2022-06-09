@@ -34,7 +34,7 @@ pmat_analysis.r
 	:return: a list containing the training and testing sets
 	:rtype: list
 
-.. function:: iterative.analysis(obool,mean.out)
+.. function:: iterative.analysis(obool,mean.out,overcast=args$overcast)
 
 	:detail: computes regression statistics and outputs to a yaml file
 	:param logical obool: determine whether to generate new _output.yml
@@ -147,6 +147,13 @@ pmat_products.r
 	:param bool overcast: the condition of data (clear sky/overcast)
 	:return: A sky temperature time series plot
 
+.. function:: time.mono_composite(range,title,ylab,datetime,overcast)
+
+	:detail: Time Series composite plot series
+	:param date: the datestamp of the data
+	:param bool overcast: the condition of data (clear sky/overcast)
+	:return: A sky temperature time series plot
+
 .. function:: time.multiyear(range,title,color,datetime,ylab,overcast)
 
 
@@ -220,7 +227,7 @@ pmat_products.r
 .. function:: data.step(seed,i,coef,r,S)
 
 
-.. function:: data.final(dir,clear.len,over.len,train.len,nan.len,frac.kept,coef,std,rmse)
+.. function:: data.final(dir,clear.len,over.len,train.len,nan.len,frac.kept,coef,std,rmse,overcast=args$overcast)
 
 
 .. function:: visual.products(set,mean.out,datetime=datetime,overcast=args$overcast)
