@@ -1,4 +1,7 @@
-<html>
+---
+title: Dash
+layout: null
+---
 <head>
     <title>Precipitable Water Model</title>
     <meta charset="utf-8">
@@ -83,7 +86,7 @@
                 </div>
             </div>
         </div>
-        <div id="results-plots"></div>
+        {% include results.html %}
         <div class="mdl-grid demo-content">
             <div class="mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--stretch mdl-cell--12-col">
                 <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col">
@@ -102,11 +105,9 @@
             <div class="mdl-mini-footer__right-section">
                 <div class="mdl-logo">Flag icons made by <a href="https://www.flaticon.com"
                                                             style="color: cyan">Freepik</a></div>
-
             </div>
         </footer>
     </main>
 </div>
 <script src="assets/js/material.min.js"></script>
 </body>
-</html>
