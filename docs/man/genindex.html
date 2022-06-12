@@ -15,6 +15,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="#" />
@@ -30,7 +31,7 @@
             <img src="_static/banner_icon.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                latest
+                legacy
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -45,8 +46,7 @@
 <li class="toctree-l1"><a class="reference external" href="https://pmat.app">Project Home</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://pmat.app/man/">Dccumentation Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data-formatting.html">Input Data Formatting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data-formatting.html#output-data-formatting">Output Data Formatting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-formatting.html">Working with data and PMAT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bug-reporting.html">Reporting Issues with PMAT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="templates.html">Templates</a></li>
@@ -86,7 +86,6 @@
  | <a href="#C"><strong>C</strong></a>
  | <a href="#D"><strong>D</strong></a>
  | <a href="#E"><strong>E</strong></a>
- | <a href="#F"><strong>F</strong></a>
  | <a href="#I"><strong>I</strong></a>
  | <a href="#L"><strong>L</strong></a>
  | <a href="#M"><strong>M</strong></a>
@@ -103,6 +102,29 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li>
+    aloha.closing()
+
+      <ul>
+        <li><a href="pmat-reference.html#aloha.closing">built-in function</a>
+</li>
+      </ul></li>
+      <li>
+    aloha.first()
+
+      <ul>
+        <li><a href="pmat-reference.html#aloha.first">built-in function</a>
+</li>
+      </ul></li>
+      <li>
+    aloha.startup()
+
+      <ul>
+        <li><a href="pmat-reference.html#aloha.startup">built-in function</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
     analysis.nth_range()
 
       <ul>
@@ -116,8 +138,6 @@
         <li><a href="pmat-reference.html#analysis.regression">built-in function</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     analysis.svm()
 
@@ -135,6 +155,12 @@
     built-in function
 
       <ul>
+        <li><a href="pmat-reference.html#aloha.closing">aloha.closing()</a>
+</li>
+        <li><a href="pmat-reference.html#aloha.first">aloha.first()</a>
+</li>
+        <li><a href="pmat-reference.html#aloha.startup">aloha.startup()</a>
+</li>
         <li><a href="pmat-reference.html#analysis.nth_range">analysis.nth_range()</a>
 </li>
         <li><a href="pmat-reference.html#analysis.regression">analysis.regression()</a>
@@ -142,8 +168,6 @@
         <li><a href="pmat-reference.html#analysis.svm">analysis.svm()</a>
 </li>
         <li><a href="pmat-reference.html#chart.histogram">chart.histogram()</a>
-</li>
-        <li><a href="pmat-reference.html#closing">closing()</a>
 </li>
         <li><a href="pmat-reference.html#colscheme">colscheme()</a>
 </li>
@@ -160,8 +184,6 @@
         <li><a href="pmat-reference.html#dna.filter">dna.filter()</a>
 </li>
         <li><a href="pmat-reference.html#exp.regression">exp.regression()</a>
-</li>
-        <li><a href="pmat-reference.html#first">first()</a>
 </li>
         <li><a href="pmat-reference.html#index.norm">index.norm()</a>
 </li>
@@ -199,11 +221,11 @@
 </li>
         <li><a href="pmat-reference.html#sky.processing">sky.processing()</a>
 </li>
-        <li><a href="pmat-reference.html#startup">startup()</a>
-</li>
         <li><a href="pmat-reference.html#stnd_title">stnd_title()</a>
 </li>
         <li><a href="pmat-reference.html#time.composite">time.composite()</a>
+</li>
+        <li><a href="pmat-reference.html#time.mono_composite">time.mono_composite()</a>
 </li>
         <li><a href="pmat-reference.html#time.multiyear">time.multiyear()</a>
 </li>
@@ -229,13 +251,6 @@
 
       <ul>
         <li><a href="pmat-reference.html#chart.histogram">built-in function</a>
-</li>
-      </ul></li>
-      <li>
-    closing()
-
-      <ul>
-        <li><a href="pmat-reference.html#closing">built-in function</a>
 </li>
       </ul></li>
   </ul></td>
@@ -308,19 +323,6 @@
 
       <ul>
         <li><a href="pmat-reference.html#exp.regression">built-in function</a>
-</li>
-      </ul></li>
-  </ul></td>
-</tr></table>
-
-<h2 id="F">F</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li>
-    first()
-
-      <ul>
-        <li><a href="pmat-reference.html#first">built-in function</a>
 </li>
       </ul></li>
   </ul></td>
@@ -496,20 +498,13 @@
         <li><a href="pmat-reference.html#sensor.time">built-in function</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     sky.processing()
 
       <ul>
         <li><a href="pmat-reference.html#sky.processing">built-in function</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li>
-    startup()
-
-      <ul>
-        <li><a href="pmat-reference.html#startup">built-in function</a>
 </li>
       </ul></li>
       <li>
@@ -530,6 +525,13 @@
 
       <ul>
         <li><a href="pmat-reference.html#time.composite">built-in function</a>
+</li>
+      </ul></li>
+      <li>
+    time.mono_composite()
+
+      <ul>
+        <li><a href="pmat-reference.html#time.mono_composite">built-in function</a>
 </li>
       </ul></li>
       <li>

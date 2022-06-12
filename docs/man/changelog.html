@@ -16,6 +16,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -33,7 +34,7 @@
             <img src="_static/banner_icon.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                latest
+                legacy
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -48,8 +49,7 @@
 <li class="toctree-l1"><a class="reference external" href="https://pmat.app">Project Home</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://pmat.app/man/">Dccumentation Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data-formatting.html">Input Data Formatting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data-formatting.html#output-data-formatting">Output Data Formatting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-formatting.html">Working with data and PMAT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bug-reporting.html">Reporting Issues with PMAT</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Changelog</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#pmat-cirrus">PMAT Cirrus</a><ul>
@@ -98,9 +98,9 @@
            <div itemprop="articleBody">
              
   <section id="changelog">
-<h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline"></a></h1>
+<h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this heading"></a></h1>
 <section id="pmat-cirrus">
-<h2>PMAT Cirrus<a class="headerlink" href="#pmat-cirrus" title="Permalink to this headline"></a></h2>
+<h2>PMAT Cirrus<a class="headerlink" href="#pmat-cirrus" title="Permalink to this heading"></a></h2>
 <dl class="field-list simple">
 <dt class="field-odd">Version</dt>
 <dd class="field-odd"><p>2.0</p>
@@ -113,13 +113,13 @@
 </dd>
 </dl>
 <section id="overall">
-<h3>Overall<a class="headerlink" href="#overall" title="Permalink to this headline"></a></h3>
+<h3>Overall<a class="headerlink" href="#overall" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>[Updated] Compatible with R 4.0</p></li>
 </ul>
 </section>
 <section id="data-input">
-<h3>Data-input<a class="headerlink" href="#data-input" title="Permalink to this headline"></a></h3>
+<h3>Data-input<a class="headerlink" href="#data-input" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>[Added] Now includes relative humidity imports.</p></li>
 <li><p>[Added] Now pulls data from MesoWest..</p></li>
@@ -127,14 +127,14 @@
 </ul>
 </section>
 <section id="setup-script">
-<h3>Setup-script<a class="headerlink" href="#setup-script" title="Permalink to this headline"></a></h3>
+<h3>Setup-script<a class="headerlink" href="#setup-script" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>[Updated] Now installs R 4.0</p></li>
 <li><p>[Added] Additional argument to configure database imports (run <cite>bash setup.sh -h</cite> for more information)</p></li>
 </ul>
 </section>
 <section id="plots">
-<h3>Plots<a class="headerlink" href="#plots" title="Permalink to this headline"></a></h3>
+<h3>Plots<a class="headerlink" href="#plots" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>[Fixed] Fixed issues with bar charts where if there were more than three sensors, not all bar charts would be added for the remaining sensors.</p></li>
 <li><p>[Added] Added more time series plots and more composite plots.</p></li>
@@ -146,7 +146,7 @@
 </ul>
 </section>
 <section id="web-applications">
-<h3>Web-applications<a class="headerlink" href="#web-applications" title="Permalink to this headline"></a></h3>
+<h3>Web-applications<a class="headerlink" href="#web-applications" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>[Added] Two web-apps are active. One is a Data Dashboard, which allows for the viewing of time series data as a scatter plot or a heat map, and analytical comparisons between data that has been collected.</p></li>
 <li><p>[Added] The Data Dashboard also allows for custom time series data to be uploaded.</p></li>
@@ -154,7 +154,7 @@
 </ul>
 </section>
 <section id="documentation">
-<h3>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline"></a></h3>
+<h3>Documentation<a class="headerlink" href="#documentation" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>[Fixed] Fixed multiple CSS issues.</p></li>
 <li><p>[Updated] Altered Pac-Man residual plot documentation to refer to the package documentation</p></li>
@@ -164,14 +164,14 @@
 </ul>
 </section>
 <section id="automation">
-<h3>Automation<a class="headerlink" href="#automation" title="Permalink to this headline"></a></h3>
+<h3>Automation<a class="headerlink" href="#automation" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>[Misc] This is a work in progress</p></li>
 </ul>
 </section>
 </section>
 <section id="pmat-altocumulus">
-<h2>PMAT Altocumulus<a class="headerlink" href="#pmat-altocumulus" title="Permalink to this headline"></a></h2>
+<h2>PMAT Altocumulus<a class="headerlink" href="#pmat-altocumulus" title="Permalink to this heading"></a></h2>
 <dl class="field-list simple">
 <dt class="field-odd">Version</dt>
 <dd class="field-odd"><p>1.0</p>
@@ -184,7 +184,7 @@
 </dd>
 </dl>
 <section id="id1">
-<h3>Overall<a class="headerlink" href="#id1" title="Permalink to this headline"></a></h3>
+<h3>Overall<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>[Added] Flexible data input</p></li>
 <li><p>[Added] Easy Hands-off setup.</p></li>
