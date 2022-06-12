@@ -1,5 +1,3 @@
----
----
 <html>
 <head>
     <title>Precipitable Water Model</title>
@@ -39,11 +37,11 @@
 
     <script rel="preload">
       $(function(){
-        $("#modal-maintainers").load("assets/external/modal_maintainers.html");
+        $("#modal-maintainers").load("_includes/modal_maintainers.html");
         $("#modal-introduction").load("assets/external/modal_introduction.html");
         $("#bottom-nav").load("assets/external/bottom_nav.html");
         $("#side-nav").load("assets/external/side_nav.html");
-        $('#results-plots').load("assets/external/results.html");
+        $('#results-plots').load("_includes/results.html");
         $('#top-bar').load("assets/external/header.html");
       });
     </script>
@@ -85,8 +83,7 @@
                 </div>
             </div>
         </div>
-        {% include results.html %}
-<!--        <div id="results-plots"></div>-->
+        <div id="results-plots"></div>
         <div class="mdl-grid demo-content">
             <div class="mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--stretch mdl-cell--12-col">
                 <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col">
