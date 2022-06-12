@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Changelog &mdash; PMAT Documentation</title>
+  <title>layout: null &mdash; PMAT Documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
@@ -51,19 +51,17 @@
 <li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data-formatting.html">Working with data and PMAT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bug-reporting.html">Reporting Issues with PMAT</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Changelog</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#data-input">Data-input</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#setup-script">Setup-script</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#plots">Plots</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#web-applications">Web-applications</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#documentation">Documentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#automation">Automation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#pmat-altocumulus">PMAT Altocumulus</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">layout: null</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#data-input">Data-input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#setup-script">Setup-script</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#plots">Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#web-applications">Web-applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#documentation">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#automation">Automation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#pmat-altocumulus">PMAT Altocumulus</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#overall">Overall</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="#overall">Overall</a></li>
 <li class="toctree-l1"><a class="reference internal" href="templates.html">Templates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pmat-reference.html">PMAT Reference</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/docs/pmat.pdf?raw=TRUE">Download Documentation</a></li>
@@ -83,7 +81,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Changelog</li>
+      <li>layout: null</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/changelog.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -93,83 +91,95 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="changelog">
-<h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this heading"></a></h1>
-<dl>
-<dt>{% for changes in site.data.changelog %}</dt><dd><dl>
-<dt>{% if changes.released != no %}</dt><dd><dl class="field-list simple">
-<dt class="field-odd">Version</dt>
-<dd class="field-odd"><p>{{changes.version}}</p>
-</dd>
-<dt class="field-even">Date</dt>
-<dd class="field-even"><p>{{changes.date}}</p>
-</dd>
-<dt class="field-odd">Tagline</dt>
-<dd class="field-odd"><p>{{changes.tagline}}</p>
-</dd>
-</dl>
-<p>{% endfor %}</p>
-</dd>
-</dl>
-<p>{% endif %}</p>
-</dd>
-</dl>
+  <hr class="docutils" />
+<p>title: Changelog</p>
+<section id="layout-null">
+<h1>layout: null<a class="headerlink" href="#layout-null" title="Permalink to this heading"></a></h1>
+<hr class="docutils" />
+<p>Changelog</p>
+<hr class="docutils" />
+<p>{% for changes in site.data.changelog %}</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="o">%</span> <span class="k">if</span> <span class="n">changes</span><span class="o">.</span><span class="n">released</span> <span class="o">!=</span> <span class="n">no</span> <span class="o">%</span><span class="p">}</span>
+    <span class="o">===========</span>
+    <span class="p">{{</span><span class="n">changes</span><span class="o">.</span><span class="n">name</span><span class="p">}}</span>
+    <span class="o">===========</span>
+
+    <span class="p">:</span><span class="n">Version</span><span class="p">:</span> <span class="p">{{</span><span class="n">changes</span><span class="o">.</span><span class="n">version</span><span class="p">}}</span>
+    <span class="p">:</span><span class="n">Date</span><span class="p">:</span> <span class="p">{{</span><span class="n">changes</span><span class="o">.</span><span class="n">date</span><span class="p">}}</span>
+    <span class="p">:</span><span class="n">Tagline</span><span class="p">:</span> <span class="p">{{</span><span class="n">changes</span><span class="o">.</span><span class="n">tagline</span><span class="p">}}</span>
+
+    <span class="p">{</span><span class="o">%</span> <span class="k">for</span> <span class="n">logs</span> <span class="ow">in</span> <span class="n">changes</span><span class="o">.</span><span class="n">changes</span> <span class="o">%</span><span class="p">}</span>
+    <span class="o">-------</span>
+    <span class="p">{{</span><span class="n">logs</span><span class="p">}}</span>
+    <span class="o">-------</span>
+    <span class="p">{</span><span class="o">%</span> <span class="n">endfor</span> <span class="o">%</span><span class="p">}</span>
+<span class="p">{</span><span class="o">%</span> <span class="n">endif</span> <span class="o">%</span><span class="p">}</span>
+</pre></div>
+</div>
 <p>{% endfor %}</p>
 <ul class="simple">
 <li><p>[Updated] Compatible with R 4.0</p></li>
 </ul>
+</section>
+<hr class="docutils" />
 <section id="data-input">
-<h2>Data-input<a class="headerlink" href="#data-input" title="Permalink to this heading"></a></h2>
+<h1>Data-input<a class="headerlink" href="#data-input" title="Permalink to this heading"></a></h1>
 <ul class="simple">
 <li><p>[Added] Now includes relative humidity imports.</p></li>
 <li><p>[Added] Now pulls data from MesoWest..</p></li>
 <li><p>[Added] New guidelines for sensors that are not active (See Documentation Page for further info.)</p></li>
 </ul>
 </section>
+<hr class="docutils" />
 <section id="setup-script">
-<h2>Setup-script<a class="headerlink" href="#setup-script" title="Permalink to this heading"></a></h2>
+<h1>Setup-script<a class="headerlink" href="#setup-script" title="Permalink to this heading"></a></h1>
 <ul class="simple">
 <li><p>[Updated] Now installs R 4.0</p></li>
-<li><p>[Added] Additional argument to configure database imports (run <cite>bash setup.sh -h</cite> for more information)</p></li>
+<li><p>[Added] Additional argument to configure database imports (run <code class="docutils literal notranslate"><span class="pre">bash</span> <span class="pre">setup.sh</span> <span class="pre">-h</span></code> for more information)</p></li>
 </ul>
 </section>
+<hr class="docutils" />
 <section id="plots">
-<h2>Plots<a class="headerlink" href="#plots" title="Permalink to this heading"></a></h2>
+<h1>Plots<a class="headerlink" href="#plots" title="Permalink to this heading"></a></h1>
 <ul class="simple">
 <li><p>[Fixed] Fixed issues with bar charts where if there were more than three sensors, not all bar charts would be added for the remaining sensors.</p></li>
 <li><p>[Added] Added more time series plots and more composite plots.</p></li>
 <li><p>[Updated] Changed the x-axis labeling system to have tick marks at the 1st of the month.</p></li>
 <li><p>[Updated] Redesigned the main analytical plot, confidence interval is now a shaded region, and the plot is now monochromatic.</p></li>
 <li><p>[Updated] Pac-Man residual was removed from this plot set.</p></li>
-<li><p>[Updated] Pac-man residual now resides in a new plot set (run <cite>Rscript model.r –pacman</cite>)</p></li>
+<li><p>[Updated] Pac-man residual now resides in a new plot set (run <code class="docutils literal notranslate"><span class="pre">Rscript</span> <span class="pre">model.r</span> <span class="pre">--pacman</span></code>)</p></li>
 <li><p>[Added] Mean TPW and Mean temperature comparison can now be visualized in a Pac-Man plot.</p></li>
 </ul>
 </section>
+<hr class="docutils" />
 <section id="web-applications">
-<h2>Web-applications<a class="headerlink" href="#web-applications" title="Permalink to this heading"></a></h2>
+<h1>Web-applications<a class="headerlink" href="#web-applications" title="Permalink to this heading"></a></h1>
 <ul class="simple">
 <li><p>[Added] Two web-apps are active. One is a Data Dashboard, which allows for the viewing of time series data as a scatter plot or a heat map, and analytical comparisons between data that has been collected.</p></li>
 <li><p>[Added] The Data Dashboard also allows for custom time series data to be uploaded.</p></li>
 <li><p>[Added] The Machine Learning dashboard now allows for custom data to be uploaded.</p></li>
 </ul>
 </section>
+<hr class="docutils" />
 <section id="documentation">
-<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this heading"></a></h2>
+<h1>Documentation<a class="headerlink" href="#documentation" title="Permalink to this heading"></a></h1>
 <ul class="simple">
 <li><p>[Fixed] Fixed multiple CSS issues.</p></li>
 <li><p>[Updated] Altered Pac-Man residual plot documentation to refer to the package documentation</p></li>
 <li><p>[Updated] Updated procedure to include the new command-line arguments</p></li>
 <li><p>[Added] Included buttons on the dashboard’s “Project Updates” card to include Pac-Man plots and Poster plots that are generated from data we have collected.</p></li>
-<li><p>[Updated] We also scored a <cite>.tech</cite> domain for the page.</p></li>
+<li><p>[Updated] We also scored a <code class="docutils literal notranslate"><span class="pre">.tech</span></code> domain for the page.</p></li>
 </ul>
 </section>
+<hr class="docutils" />
 <section id="automation">
-<h2>Automation<a class="headerlink" href="#automation" title="Permalink to this heading"></a></h2>
+<h1>Automation<a class="headerlink" href="#automation" title="Permalink to this heading"></a></h1>
 <ul class="simple">
 <li><p>[Misc] This is a work in progress</p></li>
 </ul>
+<hr class="docutils" />
 <section id="pmat-altocumulus">
-<h3>PMAT Altocumulus<a class="headerlink" href="#pmat-altocumulus" title="Permalink to this heading"></a></h3>
+<h2>PMAT Altocumulus<a class="headerlink" href="#pmat-altocumulus" title="Permalink to this heading"></a></h2>
 <dl class="field-list simple">
 <dt class="field-odd">Version</dt>
 <dd class="field-odd"><p>1.0</p>
@@ -183,8 +193,9 @@
 </dl>
 </section>
 </section>
+<hr class="docutils" />
 <section id="overall">
-<h2>Overall<a class="headerlink" href="#overall" title="Permalink to this heading"></a></h2>
+<h1>Overall<a class="headerlink" href="#overall" title="Permalink to this heading"></a></h1>
 <ul class="simple">
 <li><p>[Added] Flexible data input</p></li>
 <li><p>[Added] Easy Hands-off setup.</p></li>
@@ -196,7 +207,6 @@
 <li><p>[Added] The Pac-Man Residual</p></li>
 <li><p>[Updated] Documentation Page.</p></li>
 </ul>
-</section>
 </section>
 
 
