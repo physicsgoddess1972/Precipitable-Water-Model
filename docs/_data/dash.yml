@@ -1,8 +1,8 @@
 - city: Socorro
   state: NM
   img: nmt.jpg
-  active: yes
+  active: true
 - city: Rapid City
   state: SD
   img: sdsm.jpg
-  active: yes
+  active: true
