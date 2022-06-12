@@ -10,6 +10,8 @@
 		}
 		return checked;
 	}
+</script>
+<script>
 	$('#button').click(function(){{
 		var darr = [];
 		var iter = getChcked();
@@ -39,7 +41,7 @@
 					{% if cities.active == true %}
 						<li class="tab col s3">
 							<a href="#{{cities.city | remove: ' ' | downcase}}-{{cities.state | remove: ' ' | downcase}}">
-								{{cities.city | remove: ' ' | downcase}}, {{cities.state | remove: ' ' | downcase}}
+								{{cities.city}}, {{cities.state}}
 							</a>
 						</li>
 					{% endif %}
@@ -94,12 +96,14 @@
 								<div id="chart-{{cities.state | remove: ' ' | downcase}}" class="col s12">
 									<h5>Plot Set: Charts</h5>
 									<form action="#">
-										<a><label><input type="checkbox" name="charts"><span>Charts</span></label></a><br>							</form>
+										<a><label><input type="checkbox" name="charts"><span>Charts</span></label></a><br>
+									</form>
 								</div>
 								<div id="poster-{{cities.state | remove: ' ' | downcase}}" class="col s12">
 									<h5>Plot Set: Poster</h5>
 									<form action="#">
-										<a><label><input type="checkbox" name="poster"><span>Poster</span></label></a><br>							</form>
+										<a><label><input type="checkbox" name="poster"><span>Poster</span></label></a><br>
+									</form>
 								</div>
 								<div id="data-product-{{cities.state | remove: ' ' | downcase}}" class="col s12">
 									<h5>IR Data Product</h5>
