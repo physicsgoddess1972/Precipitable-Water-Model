@@ -1,9 +1,3 @@
----
-title: Changelog
-layout: null
----
-
-
 ***********
 Changelog
 ***********
@@ -13,11 +7,9 @@ Changelog
         ===========
         {{changes.name}}
         ===========
-
         :Version: {{changes.version}}
         :Date: {{changes.date}}
         :Tagline: {{changes.tagline}}
-
         {% for logs in changes.changes %}
         -------
         {{logs}}

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>layout: null &mdash; PMAT Documentation</title>
+  <title>Data-input &mdash; PMAT Documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
@@ -16,7 +16,6 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -51,8 +50,7 @@
 <li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data-formatting.html">Working with data and PMAT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bug-reporting.html">Reporting Issues with PMAT</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">layout: null</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#data-input">Data-input</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Data-input</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#setup-script">Setup-script</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#plots">Plots</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#web-applications">Web-applications</a></li>
@@ -81,7 +79,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>layout: null</li>
+      <li>Data-input</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/changelog.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -92,10 +90,6 @@
            <div itemprop="articleBody">
              
   <hr class="docutils" />
-<p>title: Changelog</p>
-<section id="layout-null">
-<h1>layout: null<a class="headerlink" href="#layout-null" title="Permalink to this heading"></a></h1>
-<hr class="docutils" />
 <p>Changelog</p>
 <hr class="docutils" />
 <p>{% for changes in site.data.changelog %}</p>
@@ -103,11 +97,9 @@
     <span class="o">===========</span>
     <span class="p">{{</span><span class="n">changes</span><span class="o">.</span><span class="n">name</span><span class="p">}}</span>
     <span class="o">===========</span>
-
     <span class="p">:</span><span class="n">Version</span><span class="p">:</span> <span class="p">{{</span><span class="n">changes</span><span class="o">.</span><span class="n">version</span><span class="p">}}</span>
     <span class="p">:</span><span class="n">Date</span><span class="p">:</span> <span class="p">{{</span><span class="n">changes</span><span class="o">.</span><span class="n">date</span><span class="p">}}</span>
     <span class="p">:</span><span class="n">Tagline</span><span class="p">:</span> <span class="p">{{</span><span class="n">changes</span><span class="o">.</span><span class="n">tagline</span><span class="p">}}</span>
-
     <span class="p">{</span><span class="o">%</span> <span class="k">for</span> <span class="n">logs</span> <span class="ow">in</span> <span class="n">changes</span><span class="o">.</span><span class="n">changes</span> <span class="o">%</span><span class="p">}</span>
     <span class="o">-------</span>
     <span class="p">{{</span><span class="n">logs</span><span class="p">}}</span>
@@ -120,10 +112,9 @@
 <ul class="simple">
 <li><p>[Updated] Compatible with R 4.0</p></li>
 </ul>
-</section>
 <hr class="docutils" />
 <section id="data-input">
-<h1>Data-input<a class="headerlink" href="#data-input" title="Permalink to this heading"></a></h1>
+<h1>Data-input<a class="headerlink" href="#data-input" title="Permalink to this headline"></a></h1>
 <ul class="simple">
 <li><p>[Added] Now includes relative humidity imports.</p></li>
 <li><p>[Added] Now pulls data from MesoWest..</p></li>
@@ -132,7 +123,7 @@
 </section>
 <hr class="docutils" />
 <section id="setup-script">
-<h1>Setup-script<a class="headerlink" href="#setup-script" title="Permalink to this heading"></a></h1>
+<h1>Setup-script<a class="headerlink" href="#setup-script" title="Permalink to this headline"></a></h1>
 <ul class="simple">
 <li><p>[Updated] Now installs R 4.0</p></li>
 <li><p>[Added] Additional argument to configure database imports (run <code class="docutils literal notranslate"><span class="pre">bash</span> <span class="pre">setup.sh</span> <span class="pre">-h</span></code> for more information)</p></li>
@@ -140,7 +131,7 @@
 </section>
 <hr class="docutils" />
 <section id="plots">
-<h1>Plots<a class="headerlink" href="#plots" title="Permalink to this heading"></a></h1>
+<h1>Plots<a class="headerlink" href="#plots" title="Permalink to this headline"></a></h1>
 <ul class="simple">
 <li><p>[Fixed] Fixed issues with bar charts where if there were more than three sensors, not all bar charts would be added for the remaining sensors.</p></li>
 <li><p>[Added] Added more time series plots and more composite plots.</p></li>
@@ -153,7 +144,7 @@
 </section>
 <hr class="docutils" />
 <section id="web-applications">
-<h1>Web-applications<a class="headerlink" href="#web-applications" title="Permalink to this heading"></a></h1>
+<h1>Web-applications<a class="headerlink" href="#web-applications" title="Permalink to this headline"></a></h1>
 <ul class="simple">
 <li><p>[Added] Two web-apps are active. One is a Data Dashboard, which allows for the viewing of time series data as a scatter plot or a heat map, and analytical comparisons between data that has been collected.</p></li>
 <li><p>[Added] The Data Dashboard also allows for custom time series data to be uploaded.</p></li>
@@ -162,7 +153,7 @@
 </section>
 <hr class="docutils" />
 <section id="documentation">
-<h1>Documentation<a class="headerlink" href="#documentation" title="Permalink to this heading"></a></h1>
+<h1>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline"></a></h1>
 <ul class="simple">
 <li><p>[Fixed] Fixed multiple CSS issues.</p></li>
 <li><p>[Updated] Altered Pac-Man residual plot documentation to refer to the package documentation</p></li>
@@ -173,13 +164,13 @@
 </section>
 <hr class="docutils" />
 <section id="automation">
-<h1>Automation<a class="headerlink" href="#automation" title="Permalink to this heading"></a></h1>
+<h1>Automation<a class="headerlink" href="#automation" title="Permalink to this headline"></a></h1>
 <ul class="simple">
 <li><p>[Misc] This is a work in progress</p></li>
 </ul>
 <hr class="docutils" />
 <section id="pmat-altocumulus">
-<h2>PMAT Altocumulus<a class="headerlink" href="#pmat-altocumulus" title="Permalink to this heading"></a></h2>
+<h2>PMAT Altocumulus<a class="headerlink" href="#pmat-altocumulus" title="Permalink to this headline"></a></h2>
 <dl class="field-list simple">
 <dt class="field-odd">Version</dt>
 <dd class="field-odd"><p>1.0</p>
@@ -195,7 +186,7 @@
 </section>
 <hr class="docutils" />
 <section id="overall">
-<h1>Overall<a class="headerlink" href="#overall" title="Permalink to this heading"></a></h1>
+<h1>Overall<a class="headerlink" href="#overall" title="Permalink to this headline"></a></h1>
 <ul class="simple">
 <li><p>[Added] Flexible data input</p></li>
 <li><p>[Added] Easy Hands-off setup.</p></li>
