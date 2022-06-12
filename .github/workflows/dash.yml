@@ -23,7 +23,7 @@ jobs:
         python -m pip install pyyaml
         cd util/ && python update_docs.py -t dash
     - name: stage changed files
-      run: git add docs/dash.md
+      run: git add docs/dash.html
     - name: Commit files
       run: |
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"

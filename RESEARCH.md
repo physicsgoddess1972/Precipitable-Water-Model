@@ -1,28 +1,4 @@
 <a id="top"></a>
-<div class="collapsible" id="papers">
-	<div class="collapsible-header">
-		<h2>Papers</h2>
-	</div>
-    {% for papers in site.data.research.papers %}
-	<div class="panel">
-		<div class="collapsible_1">
-			<div class="panel">
-				<h2 style="text-align: center; font-size: 15px">{{papers.title}}</h2>
-				<b style="font-weight: bold">{{papers.author}}</b>
-				<br>
-				<i>{{papers.journal}}</i>
-				<br>
-				<b>{{papers.status}}</b>
-				<br><br>
-				<div style="display: flex">
-					<a class="button" target="_blank" style="width: 100%; text-align: center" href="https://doi.org/{{papers.doi}}">Web View</a>
-					<a class="button" target="_blank" style="width: 100%; text-align: center" href="{{papers.pdf}}">PDF View</a>
-				</div>
-			</div>
-		</div>
-	</div> 
-    {% endfor %}
-</div>
 <div class="collapsible" id="posters">
 	<div class="collapsible-header">
 		<h2>Posters</h2>
