@@ -21,7 +21,6 @@ layout: null
 	<script>
 		$("#content").load("assets/external/head.html");
 	</script>
-	<script rel="preload" src="assets/js/header.js"></script>
 	<div rel="preload" id="content"></div>
 </head>
 <body>

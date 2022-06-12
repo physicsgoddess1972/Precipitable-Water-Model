@@ -87,13 +87,6 @@ layout: null
             </div>
         </div>
         {% include results.html %}
-        <div class="mdl-grid demo-content">
-            <div class="mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--stretch mdl-cell--12-col">
-                <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col">
-                    <script src='https://darksky.net/map-embed/@temperature,39.000,-95.000,4.js?embed=true&timeControl=true&fieldControl=true&defaultField=temperature&defaultUnits=_c'></script>
-                </div>
-            </div>
-        </div>
         <footer class="mdl-mini-footer">
             <div class="mdl-mini-footer__left-section">
                 <div class="mdl-logo">Precipitable Water Model</div>
