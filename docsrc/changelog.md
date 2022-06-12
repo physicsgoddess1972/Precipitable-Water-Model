@@ -1,3 +1,9 @@
+---
+title: Changelog
+layout: null
+---
+
+
 ***********
 Changelog
 ***********
