@@ -22,7 +22,6 @@ layout: null
 	<script>
 		$("#content").load("assets/external/head.html");
 	</script>
-	<script src="assets/js/header.js"></script>
 	<div id="content"></div>
 </head>
 <body>

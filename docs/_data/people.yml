@@ -8,3 +8,24 @@
   email: academic@sriley.dev
   web: sriley.dev
   image: sriley.jpg
+- name: Dr. Kenneth Minschwaner
+  role: Research Advisor and Co-Author
+  email: kenneth.minschwaner@nmt.edu
+  web: kestrel.nmt.edu/~krm/Ken_home.html
+  image: kminschwaner.jpg
+- name: Fernando Rivera
+  role: Data Collection and Analysis for Socorro, NM
+  email: fernando.rivera@student.nmt.edu
+  image: frivera.png
+- name: Christen Gauker
+  role: Data Collection and Analysis for Rapid City, SD
+  email: christen.gauker@mines.sdsmt.edu
+  image: cgauker.jpg
+- name: Fleford Redoloza
+  role: Automation Engineer
+  email: fleford.redoloza@mines.sdsmt.edu
+  image: fredoloza.jpg
+- name: Kara Huse
+  role: Automation Engineering Technician
+  email: kara.huse@mines.sdsmt.edu
+  image: khuse.png

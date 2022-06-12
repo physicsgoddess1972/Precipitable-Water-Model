@@ -6,21 +6,17 @@ layout: null
 	<title>Precipitable Water Model</title>
 	<link rel="icon" href="assets/img/icon.png">
 	<meta charset='utf-8'>
-
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width">
-
 	<link rel="preconnect" href="//www.gstatic.com" crossorigin>
 	<link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
 	<link rel="preconnect" href="//fonts.googleapis.com" crossorigin>
-
 	<link rel="stylesheet" href='assets/css/main.max.css'>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.12.0/devicon.min.css">
-
 	<script src="assets/js/jquery.min.js"></script>
 	<script>
 		$("#content").load("assets/external/head.html");
@@ -28,11 +24,10 @@ layout: null
 	<script rel="preload" src="assets/js/header.js"></script>
 	<div rel="preload" id="content"></div>
 </head>
-<body role='flatdoc'>
+<body>
 <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
 	<header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600" id="top-bar"></header>
-	<div id="maintenance"></div>
-	<div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50" id="side-nav"></div>
+    <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50" id="side-nav"></div>
     <main class="mdl-layout__content">
         <div id="modal-maintainers"></div>
 		<div id="modal-introduction"></div>
@@ -56,70 +51,15 @@ layout: null
 									<br>
 									<b style="font-weight: bold;">Role:</b> {{people.role}}
 									<hr>
-									<a class="button" target="_blank" style="width: 49%; text-align: center" href="mailto:{{people.email}}"><i class="material-icons">email</i></a>
-									<a class="button" target="_blank" style="width: 49%; text-align: center" href="https://{{people.web}}"><i class="material-icons">public</i></a>
+									{% if people.email != null %}
+										<a class="button" target="_blank" style="width: 49%; text-align: center" href="mailto:{{people.email}}"><i class="material-icons">email</i></a>
+									{% endif %}
+									{% if people.web != null %}
+										<a class="button" target="_blank" style="width: 49%; text-align: center" href="https://{{people.web}}"><i class="material-icons">public</i></a>
+									{% endif %}
 								</div>
 							</div>
 						{% endfor %}
-					<div style="display: flex">
-							<div class="collapsible_1 collab">
-								<div class="panel" style="margin-bottom: 0; padding-bottom: 2%;">
-									<h3>Dr. Kenneth Minschwaner</h3>
-									<img width="100%" src="https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/docs/docs/assets/img/people/kminschwaner.jpg?raw=true/" alt="Kenneth Minschwaner">
-									<br>
-									<b style="font-weight: bold;">Role:</b> Research Advisor and Co-author
-									<hr>
-									<a class="button" target="_blank" style="width: 49%; text-align: center" href="mailto:kenneth.minschwaner@nmt.edu"><i class="material-icons">email</i></a>
-									<a class="button" target="_blank" style="width: 49%; text-align: center" href="http://kestrel.nmt.edu/~krm/Ken_home.html"><i class="material-icons">public</i></a>
-								</div>
-							</div>
-						</div>
-						<div style="display: flex">
-							<div class="collapsible_1 collab">
-								<div class="panel" style="margin-bottom: 0; padding-bottom: 2%;">
-									<h3>Fernando Rivera</h3>
-									<img width="100%" src="https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/docs/docs/assets/img/people/frivera.png?raw=true/" alt="Fernando Rivera">
-									<br>
-									<b style="font-weight: bold;">Role:</b> Data Collection and Analysis for Socorro, NM.
-									<hr>
-									<a class="button" target="_blank" style="width: 100%; text-align: center" href="mailto:fernando.rivera@student.nmt.edu"><i class="material-icons">email</i></a>
-								</div>
-							</div>
-							<div style="width: 5%"></div>
-							<div class="collapsible_1 collab">
-								<div class="panel" style="margin-bottom: 0; padding-bottom: 2%;">
-									<h3>Christen Gauker</h3>
-									<img width="100%" src="https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/docs/docs/assets/img/people/cgauker.jpg?raw=true/" alt="Christen Gauker">
-									<br>
-									<b style="font-weight: bold;">Role:</b> Data Collection and Analysis for Rapid City, SD.
-									<hr>
-									<a class="button" target="_blank" style="width: 100%; text-align: center" href="mailto:christen.gauker@mines.sdsmt.edu"><i class="material-icons">email</i></a>
-								</div>
-							</div>
-				</div>
-					<div style="display: flex">
-							<div class="collapsible_1 collab">
-								<div class="panel" style="margin-bottom: 0; padding-bottom: 2%;">
-									<h3>Fleford Redoloza</h3>
-									<img width="100%" src="https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/docs/docs/assets/img/people/fredoloza.jpg?raw=true/" alt="Fleford Redoloza">
-									<br>
-									<b style="font-weight: bold;">Role:</b> Automation Engineer
-									<hr>
-									<a class="button" target="_blank" style="width: 100%; text-align: center" href="mailto:fleford.redoloza@mines.sdsmt.edu"><i class="material-icons">email</i></a>
-								</div>
-							</div>
-					<div style="width: 5%"></div>
-							<div class="collapsible_1 collab">
-								<div class="panel" style="margin-bottom: 0; padding-bottom: 2%;">
-									<h3>Kara Huse</h3>
-									<img width="100%" src="https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/docs/docs/assets/img/people/khuse.png?raw=true/" alt="Fleford Redoloza">
-									<br>
-									<b style="font-weight: bold;">Role:</b> Automation Engineering Technician
-									<hr>
-									<a class="button" target="_blank" style="width: 100%; text-align: center" href="mailto:kara.huse@mines.sdsmt.edu"><i class="material-icons">email</i></a>
-								</div>
-							</div>
-				</div>
 					</div>
 				</div>
 			</div>
