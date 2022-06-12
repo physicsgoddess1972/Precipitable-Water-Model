@@ -3,40 +3,31 @@
 	<div class="collapsible-header">
 		<h2>Papers</h2>
 	</div>
+    {% for papers in site.data.research.papers %}
 	<div class="panel">
 		<div class="collapsible_1">
 			<div class="panel">
-				<h2 style="text-align: center; font-size: 15px">Atmospheric precipitable water vapor and its correlation with clear-sky infrared temperature observations</h2>
-				<b style="font-weight: bold">V. Kelsey, S. Riley, K. Minschwaner</b>
+				<h2 style="text-align: center; font-size: 15px">{{papers.title}}</h2>
+				<b style="font-weight: bold">{{papers.author}}</b>
 				<br>
-				<i>Atmospheric Measurement Techniques</i>
+				<i>{{papers.journal}}</i>
 				<br>
-				<b>Published</b>
+				<b>{{papers.status}}</b>
 				<br><br>
 				<div style="display: flex">
-					<a class="button" target="_blank" style="width: 100%; text-align: center" href="https://doi.org/10.5194/amt-15-1563-2022">Web View</a>
-					<a class="button" target="_blank" style="width: 100%; text-align: center" href="https://amt.copernicus.org/articles/15/1563/2022/amt-15-1563-2022.pdf">PDF View</a>
+					<a class="button" target="_blank" style="width: 100%; text-align: center" href="https://doi.org/{{papers.doi}}">Web View</a>
+					<a class="button" target="_blank" style="width: 100%; text-align: center" href="{{papers.pdf}}">PDF View</a>
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> 
+    {% endfor %}
 </div>
 <div class="collapsible" id="posters">
 	<div class="collapsible-header">
 		<h2>Posters</h2>
 	</div>
 	<div class="panel">
-		<div class="collapsible_1">
-			<div class="panel">
-				<img src="https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/docs/docs/assets/img/poster/txwx2022.png?raw=true" width="100%">
-				<h2 style="text-align: center; font-size: 15px">Atmospheric Precipitable Water and its Correlation with Clear Sky Infrared Temperature Observations</h2>
-				<b>V. Kelsey, S.Riley</b>
-				<br>
-				<i>5th Texas Weather Conference</i>
-				<hr>
-				<p>Precipitable water vapor (PWAT) is the vertically integrated amount of water vapor in the atmosphere, and it is a valuable predictor for weather forecasting. Currently, the use of sophisticated instrumentation can limit the number of PWAT measurement sites, which affects the accuracy of forecast models in regards to storm formation, strength, and the potential for precipitation. We have analyzed relationships between PWAT and zenith clear sky temperature measurements for the dry climate zone found in the North American Desert Southwest, specifically over Socorro, New Mexico (34$^{\circ}$N, 107$^{\circ}$W). Daily measurements of the ground and zenith sky temperatures have been made at Socorro for two complete annual cycles using low-cost infrared thermal sensors. Radiosonde measurements of PWAT from National Weather Service stations located in nearby Albuquerque, and Santa Teresa, New Mexico, are input into our dataset and analysed via a newly developed computational tool. Our results show that an exponential relationship between PWAT and zenith clear sky temperature holds for the Desert Southwest, but with parameters that are different from those obtained previously over the more moist climate zone of the Gulf Coast of Texas. Model simulations can accurately reproduce the observed relationship between PWAT and temperature, and the results suggest that half of the signal in temperature is directly related to changes in opacity due to changes in PWAT, while the other half is due to changes in air temperature that usually accompany changes in PWAT.</p>
-			</div>
-		</div>
 		<div class="collapsible_1">
 			<div class="panel">
 				<img src="https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/docs/docs/assets/img/poster/ams100.png?raw=true" width="100%">

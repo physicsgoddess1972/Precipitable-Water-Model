@@ -36,60 +36,6 @@ def changelog():
 
                 csvfile.write("\n")
 
-
-def research():
-    with open("./research.yml") as f:
-        my_dict = list(yaml.load_all(f, Loader=yaml.FullLoader))
-
-    with open("../RESEARCH.md", 'w', newline='') as csvfile:
-        csvfile.write('<a id="top"></a>\n')
-        csvfile.write('<div class="collapsible" id="papers">\n')
-        csvfile.write('\t<div class="collapsible-header">\n\t\t<h2>Papers</h2>\n\t</div>\n')
-        csvfile.write('\t<div class="panel">\n')
-        for i in list(my_dict):
-            if 'paper' in i:
-                title = i['paper']['title']
-                author = i['paper']['author']
-                journal = i['paper']['journal']
-                doi = i['paper']['doi']
-                pdf = i['paper']['pdf']
-                status = i['paper']['status']
-                csvfile.write('\t\t<div class="collapsible_1">\n\t\t\t<div class="panel">\n')
-                csvfile.write('\t\t\t\t<h2 style="text-align: center; font-size: 15px">{}</h2>\n'.format(title))
-                csvfile.write('\t\t\t\t<b style="font-weight: bold">{}</b>\n\t\t\t\t<br>\n'.format(author))
-                csvfile.write('\t\t\t\t<i>{}</i>\n\t\t\t\t<br>\n'.format(journal))
-                csvfile.write('\t\t\t\t<b>{}</b>\n'.format(status))
-                csvfile.write('\t\t\t\t<br><br>\n')
-                csvfile.write('\t\t\t\t<div style="display: flex">\n')
-                csvfile.write(
-                    '\t\t\t\t\t<a class="button" target="_blank" style="width: 100%; text-align: center" href="https://doi.org/{}">Web View</a>\n'.format(
-                        doi))
-                csvfile.write(
-                    '\t\t\t\t\t<a class="button" target="_blank" style="width: 100%; text-align: center" href="{}">PDF View</a>\n'.format(
-                        pdf))
-                csvfile.write('\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n')
-        csvfile.write('</div>\n')
-        csvfile.write('<div class="collapsible" id="posters">\n')
-        csvfile.write('\t<div class="collapsible-header">\n\t\t<h2>Posters</h2>\n\t</div>\n')
-        csvfile.write('\t<div class="panel">\n')
-        for i in list(my_dict):
-            if 'poster' in i:
-                title = i['poster']['title']
-                author = i['poster']['author']
-                conference = i['poster']['conference']
-                abstract = i['poster']['abstract']
-                image = i['poster']['image']
-
-                csvfile.write('\t\t<div class="collapsible_1">\n\t\t\t<div class="panel">\n')
-                csvfile.write('\t\t\t\t<img src="https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/docs/docs/assets/img/poster/{}?raw=true" width="100%">\n'.format(image))
-                csvfile.write('\t\t\t\t<h2 style="text-align: center; font-size: 15px">{}</h2>\n'.format(title))
-                csvfile.write('\t\t\t\t<b>{}</b>\n\t\t\t\t<br>\n'.format(author))
-                csvfile.write('\t\t\t\t<i>{}</i>\n\t\t\t\t<hr>\n'.format(conference))
-                csvfile.write('\t\t\t\t<p>{}</p>\n'.format(abstract))
-                csvfile.write('\t\t\t</div>\n\t\t</div>\n')
-        csvfile.write('\t</div>\n</div>')
-
-
 def dash():
     with open("./dash.yml") as f:
         my_dict = list(yaml.load_all(f, Loader=yaml.FullLoader))
@@ -163,5 +109,3 @@ if args.t == 'dash':
 if args.t == 'changelog':
     changelog()
 
-if args.t == 'research':
-    research()
