@@ -10,9 +10,7 @@
 		}
 		return checked;
 	}
-</script>
-<script>
-	$('#button').click(function(){{
+	$('#button').click(function(){
 		var darr = [];
 		var iter = getChcked();
 		var name = $('.tabs .active').attr('href').split('#').pop().replace('-', '.') + '.pmat.app'
@@ -24,8 +22,7 @@
 		}}
 		download_files(darr);
 		document.querySelectorAll('input[type=checkbox]').forEach(el => el.checked = false);
-
-	}})
+	})
 </script>
 <div class="mdl-grid demo-content">
 <div class="mdl-shadow--2dp mdl-cell mdl-cell--stretch mdl-cell--12-col" style="background-color: white">
@@ -96,19 +93,21 @@
 								<div id="chart-{{cities.state | remove: ' ' | downcase}}" class="col s12">
 									<h5>Plot Set: Charts</h5>
 									<form action="#">
-										<a><label><input type="checkbox" name="charts"><span>Charts</span></label></a><br>
+										<a><label><input type="checkbox" name="charts"><span>Charts</span></label></a>
+										<br>
 									</form>
 								</div>
 								<div id="poster-{{cities.state | remove: ' ' | downcase}}" class="col s12">
 									<h5>Plot Set: Poster</h5>
 									<form action="#">
-										<a><label><input type="checkbox" name="poster"><span>Poster</span></label></a><br>
+										<a><label><input type="checkbox" name="poster"><span>Poster</span></label></a>
+										<br>
 									</form>
 								</div>
 								<div id="data-product-{{cities.state | remove: ' ' | downcase}}" class="col s12">
 									<h5>IR Data Product</h5>
-									<form action="">
-										<input type="number" id="quantity" name="quantity">
+									<form action="#">
+										<label for="quantity"><span>Input a temperature in C</span><input type="number" id="quantity" name="quantity"></label>
 									</form>
 								</div>
 							</div>
