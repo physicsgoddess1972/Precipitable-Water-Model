@@ -2,17 +2,23 @@
 Changelog
 ***********
 
-===========
-PMAT Cirrus
-===========
+{% for changes in site.data.changelog %}
+    {% if changes.released != no %}
+        ===========
+        {{changes.name}}
+        ===========
 
-:Version: 2.0
-:Date: 6 Mar 2021
-:Tagline: New and Improved PMAT
+        :Version: {{changes.version}}
+        :Date: {{changes.date}}
+        :Tagline: {{changes.tagline}}
 
--------
-Overall
--------
+        {% for logs in changes.changes %}
+        -------
+        {{logs}}
+        -------
+        {% endfor %}
+    {% endif %}
+{% endfor %}
 
 - [Updated] Compatible with R 4.0
 
