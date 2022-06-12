@@ -8,6 +8,7 @@
 				checked.push(chks[i].name)
 			}
 		}
+		console.log(checked);
 		return checked;
 	}
 	$('#button').click(function(){
@@ -20,6 +21,7 @@
 			console.log(url)
 			darr.push(url)
 		}
+		console.log(darr);
 		download_files(darr);
 		document.querySelectorAll('input[type=checkbox]').forEach(el => el.checked = false);
 	})
@@ -37,6 +39,12 @@
 				{% for cities in site.data.dash %}
 					{% if cities.active == true %}
 						<li class="tab col s3">
+							<a href="#{{cities.city | remove: ' ' | downcase}}-{{cities.state | remove: ' ' | downcase}}">
+								{{cities.city}}, {{cities.state}}
+							</a>
+						</li>
+					{% else %}
+						<li class="tab col s3 disabled">
 							<a href="#{{cities.city | remove: ' ' | downcase}}-{{cities.state | remove: ' ' | downcase}}">
 								{{cities.city}}, {{cities.state}}
 							</a>
