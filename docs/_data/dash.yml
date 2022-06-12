@@ -5,4 +5,4 @@
 - city: Rapid City
   state: SD
   img: sdsm.jpg
-  active: false
+  active: true
