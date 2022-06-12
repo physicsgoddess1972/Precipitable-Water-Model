@@ -16,7 +16,7 @@
 		var name = $('.tabs .active').attr('href').split('#').pop().replace('-', '.') + '.pmat.app'
 		for (var i = 0; i < iter.length; i++){{
 			console.log(iter.length)
-			let url = "https://" + name  + '/raw/main/out/figs/' + iter[i] + '.pdf'
+			let url = "https://" + name + '/raw/main/out/figs/' + iter[i] + '.pdf'
 			console.log(url)
 			darr.push(url)
 		}}
@@ -30,32 +30,50 @@
 	<div class="row">
 		<div class="col s12">
 			<ul class="tabs">
-				<li class="tab col s3" style="padding-top: 10px; padding-left: 10px; padding-right: 10px"><i style="color: #4C69EC" id="button" name="action" type="submit"><i class="material-icons">save</i></i></li>
+				<li class="tab col s3" style="padding-top: 10px; padding-left: 10px; padding-right: 10px">
+					<i style="color: #4C69EC" id="button" name="action" type="submit">
+						<i class="material-icons">save</i>
+					</i>
+				</li>
 				{% for cities in site.data.dash %}
 					{% if cities.active == true %}
-						<li class="tab col s3"><a href="#{{cities.city | strip | downcase}}-{{cities.state | strip | downcase}}">{{cities.city  | strip | downcase}}, {{cities.state  | strip | downcase}}</a></li>
+						<li class="tab col s3">
+							<a href="#{{cities.city | strip | downcase}}-{{cities.state | strip | downcase}}">
+								{{cities.city | strip | downcase}}, {{cities.state | strip | downcase}}
+							</a>
+						</li>
 					{% endif %}
 				{% endfor %}
 			</ul>
 		</div>
 		{% for cities in site.data.dash %}
 			{% if cities.active == true %}
-				<div class="col s12" id="#{{cities.city  | strip | downcase}}-{{cities.state  | strip | downcase}}">
+				<div class="col s12" id="#{{cities.city | strip | downcase}}-{{cities.state | strip | downcase}}">
 					<div style="display: flex;">
 						<div class="data-nav" style="height: 250px">
 							<div class="mdl-card__actions mdl-card--border">
 								<div class="row">
 									<div class="col s12">
 										<ul class="tabs">
-											<li class="tab col s3"><a href="#clear-{{cities.state  | strip | downcase}}"><i class="material-icons">brightness_5</i></a></li>
-											<li class="tab col s3"><a href="#over-{{cities.state  | strip | downcase}}"><i class="material-icons">cloud</i></a></li>
-											<li class="tab col s3"><a href="#chart-{{cities.state  | strip | downcase}}"><i class="material-icons">insert_chart_outlined</i></a></li>
-											<li class="tab col s3"><a href="#poster-{{cities.state  | strip | downcase}}"><i class="material-icons">table_chart</i></a></li>
-											<li class="tab col s3"><a href="#data-product-{{cities.state  | strip | downcase}}"><i class="material-icons">insights</i></a></li>
+											<li class="tab col s3"><a href="#clear-{{cities.state | strip | downcase}}">
+												<i class="material-icons">brightness_5</i></a>
+											</li>
+											<li class="tab col s3"><a href="#over-{{cities.state | strip | downcase}}">
+												<i class="material-icons">cloud</i></a>
+											</li>
+											<li class="tab col s3"><a href="#chart-{{cities.state | strip | downcase}}">
+												<i class="material-icons">insert_chart_outlined</i></a>
+											</li>
+											<li class="tab col s3"><a href="#poster-{{cities.state | strip | downcase}}">
+												<i class="material-icons">table_chart</i></a>
+											</li>
+											<li class="tab col s3"><a href="#data-product-{{cities.state | strip | downcase}}">
+												<i class="material-icons">insights</i></a>
+											</li>
 										</ul>
 									</div>
 								</div>
-								<div id="clear-{{cities.state  | strip | downcase}}" class="col s12">
+								<div id="clear-{{cities.state | strip | downcase}}" class="col s12">
 									<h5>Plot Set: Clear Sky</h5>
 									<form action="#">
 										<a><label><input type="checkbox" name="timeseries"><span>Time Series</span></label></a><br>
@@ -64,7 +82,7 @@
 										<a><label><input type="checkbox" name="pacman"><span>Pacman</span></label></a><br>
 									</form>
 								</div>
-								<div id="over-{{cities.state  | strip | downcase}}" class="col s12">
+								<div id="over-{{cities.state | strip | downcase}}" class="col s12">
 									<h5>Plot Set: Overcast</h5>
 									<form action="#">
 										<a><label><input type="checkbox" name="timeseries_overcast"><span>Time Series</span></label></a><br>
@@ -73,17 +91,17 @@
 										<a><label><input type="checkbox" name="pacman_overcast"><span>Pacman</span></label></a><br>
 									</form>
 								</div>
-								<div id="chart-{{cities.state  | strip | downcase}}" class="col s12">
+								<div id="chart-{{cities.state | strip | downcase}}" class="col s12">
 									<h5>Plot Set: Charts</h5>
 									<form action="#">
 										<a><label><input type="checkbox" name="charts"><span>Charts</span></label></a><br>							</form>
 								</div>
-								<div id="poster-{{cities.state  | strip | downcase}}" class="col s12">
+								<div id="poster-{{cities.state | strip | downcase}}" class="col s12">
 									<h5>Plot Set: Poster</h5>
 									<form action="#">
 										<a><label><input type="checkbox" name="poster"><span>Poster</span></label></a><br>							</form>
 								</div>
-								<div id="data-product-{{cities.state  | strip | downcase}}" class="col s12">
+								<div id="data-product-{{cities.state | strip | downcase}}" class="col s12">
 									<h5>IR Data Product</h5>
 									<form action="">
 										<input type="number" id="quantity" name="quantity">
@@ -91,9 +109,9 @@
 								</div>
 							</div>
 						</div>
-						<div class="img-small-{{cities.state  | strip | downcase}}" style="width: 50%; padding-top: 15px; padding-right: 5px">
-							<img src="https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/docs/docs/assets/img/dash/{{cities.img}}?raw=true/">
-						</div>
+<!--						<div class="img-small-{{cities.state | strip | downcase}}" style="width: 50%; padding-top: 15px; padding-right: 5px">-->
+<!--							<img src="https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/docs/docs/assets/img/dash/{{cities.img}}?raw=true/">-->
+<!--						</div>-->
 					</div>
 				</div>
 			{% endif %}
