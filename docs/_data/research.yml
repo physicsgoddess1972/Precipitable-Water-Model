@@ -25,7 +25,7 @@ posters:
   - title: "Atmospheric Precipitable Water and its Correlation with Clear Sky Infrared Temperature Readings: Field Observations"
     author: V. Kelsey, S. Riley
     conference: Physics Congress 2019
-    doc: vicki_physcon2019.png
+    doc: PhysCon2019_VK
     abstract: Precipitable water is the total amount of water vapor which is contained in a vertical column of air that stretches from the Earth’s surface to the top of the atmosphere. It is expressed in terms of what the depth of liquid water would measure once all the water vapor in the column is compressed down into liquid form. Meteorologists currently use ground-based global positioning systems (GPS), microwave radiometers (MWRI), and radiosondes to measure precipitable water. Due to the cost and complexity of these instruments, the number of locations where these measurements are taken is limited; therefore most National Weather Service (NWS) monitoring sites do not measure precipitable water. Meteorologists need precipitable water measurements to help accurately forecast storm formation, strength, and the likelihood of precipitation. We utilize the methodology from a previous study in which relatively low-cost infrared thermometers were used to determine the precipitable water over the Gulf Coast of Texas. This approach is being tested in the climate zone found in Socorro, NM using daily ground and clear sky temperature measurements. This research demonstrates the ability to measure precipitable water with low-cost tools in higher altitude arid climate zones similar to that found in the desert Southwest.
   - title: "Atmospheric Precipitable Water and its Correlation with Clear Sky Infrared Temperature Readings: Data Analysis"
     author: S. Riley, V. Kelsey
