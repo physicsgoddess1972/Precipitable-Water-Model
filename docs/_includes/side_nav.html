@@ -1,9 +1,11 @@
 <!-- <script src="assets/js/sidenav.js"></script> -->
-<!-- <script>
+<script>
     var myObj = {}
 
     myObj.anc = function(){
-        $.get("side_nav.html", function(data){
+        console.log(window.location.pathname);
+        console.log(window.location.pathname.split("/").pop());
+        $.get(window.location.pathname, function(data){
             if (document.location.pathname == '/' ){
                 var path = "/index.html";
             } else{
@@ -19,8 +21,7 @@
             page2.add("mdl-navigation__link--current");
             page2.remove("mdl-navigation__link");
         })
-    }; -->
-<script>
+    };
     myObj.gnc = function(){
 
         document.querySelectorAll('.sidebar .nav-link').forEach(function(element) {
@@ -49,14 +50,9 @@
         })
 
     };
-//     myObj.anc();
+    myObj.anc();
     myObj.gnc();
 </script>
-<!-- <script>  
-$(document).ready(function(){
-    $('.sidenav').sidenav();
-  });
-</script> -->
 <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-900 sidebar">
     <ul class="nav flex-column" id="nav_accordion">
         <a class="mdl-navigation__link" id="dash-html" href="dash.html"><i class="material-icons" role="presentation">dashboard</i>Dashboard</a>
