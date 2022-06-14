@@ -98,8 +98,10 @@
 												<form action="#">
 													<label for="temp_in">
 														<span>Input a temperature in C: </span>
-														<input type="number" id="temp_in-{{site_city}}-{{site_state}}" name="quantity" min="0" step="0.01">
-														<a onclick="Calc({{A}}, {{B}})"><i class="material-icons">calculate</i></a>
+														<div style="display: flex">
+															<input type="number" id="temp_in-{{site_city}}-{{site_state}}" name="quantity" min="0" step="0.01" style="flex: 50%">
+															<a onclick="Calc({{A}}, {{B}})"><i class="material-icons">calculate</i></a>
+														</div>
 													</label>
 												</form>
 												<p id="tpw-{{site_city}}-{{site_state}}"></p>
