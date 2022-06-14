@@ -6,7 +6,7 @@ layout: null
     <title>Precipitable Water Model</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="description" content="Dashboard for the Precipitable Water Model Project">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 
     <!-- Add to homescreen for Chrome on Android -->
@@ -37,16 +37,6 @@ layout: null
 	  z-index: 900;
 	}
     </style>
-
-    <script rel="preload">
-      $(function(){
-        $("#modal-maintainers").load("_includes/modal_maintainers.html");
-        $("#bottom-nav").load("assets/external/bottom_nav.html");
-        $("#side-nav").load("assets/external/side_nav.html");
-        $('#results-plots').load("_includes/results.html");
-        $('#top-bar').load("assets/external/header.html");
-      });
-    </script>
     <script type="text/javascript">$(document).ready(function(){$(".tabs").tabs();});</script>
     <script>
         function getChcked() {
@@ -65,24 +55,30 @@ layout: null
             let iter = getChcked();
             let name = $('.tabs .active').attr('href').split('#').pop().replace('-', '.') + '.pmat.app'
             for (let i = 0; i < iter.length; i++){
-                console.log(iter.length)
                 let url = "https://" + name + '/raw/main/out/figs/' + iter[i] + '.pdf'
-                console.log(url)
                 darr.push(url)
             }
-            console.log(darr);
             download_files(darr);
             document.querySelectorAll('input[type=checkbox]').forEach(el => el.checked = false);
         }
-    </script>
+	function Calc(A,B) {
+		let name = $('.tabs .active').attr('href').split('#').pop()
+		let x = document.getElementById("temp_in-" + name).value;
+		let tpw = A * Math.exp(B * x);
+		document.getElementById("tpw-" + name).innerHTML = tpw.toFixed(3).toString() + " mm";
+	}
+    </script>	
 </head>
 <body>
 <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
-	<header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600" id="top-bar"></header>
-    <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50" id="side-nav"></div>
+	<header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600" id="top-bar">
+	{% include header.html %}
+	</header>
+	<div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50" id="side-nav">
+	{% include side_nav.html %}
+	</div>
     <main class="mdl-layout__content mdl-color--grey-100">
-        <div id="modal-maintainers"></div>
-        <div id="modal-introduction"></div>
+        <div id="modal-maintainers">{% include modal_maintainers.html %}</div>
         <div class="mdl-grid demo-content">
             <div class="demo-cards mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-grid mdl-grid--no-spacing">
                 <div class="demo-updates2 mdl-card mdl-shadow--2dp">

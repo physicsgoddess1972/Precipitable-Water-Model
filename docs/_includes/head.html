@@ -5,21 +5,8 @@
 <script src="assets/js/bootstrap.min.js"></script>
 <script src="assets/js/material.min.js"></script> 
 <script src="assets/js/materialize.min.js"></script>
-<script>
-$(function(){
-    $("#modal-maintainers").load("assets/external/modal_maintainers.html");
-    $("#bottom-nav").load("assets/external/bottom_nav.html");
-    $("#side-nav").load("assets/external/side_nav.html");
-    $('#top-bar').load("assets/external/header.html");
-    $.get('https://raw.githubusercontent.com/physicsgoddess1972/Precipitable-Water-Model/docs/_config.yml', function (data) {
-        if (data.includes('under maintenance')){
-            $('#maintenance').load("assets/external/maintenance_bar.html");
-            document.getElementById('maintenance').classList.add('demo-header', 'mdl-layout__header', 'mdl-color--grey-100', 'mdl-color-text--grey-600')
-        }
-    });
-  });
-</script>
-<script>
+<!-- <script>
+console.log(document.getElementsByTagName('body')[0]);
 document.getElementsByTagName('body')[0].addEventListener('click', function(e) {
 	if (e.target.getAttribute('id') == 'pain' || e.target.getAttribute('id') == 'icon-of-pain'){
 		$("#pain").attr("aria-expanded","false");
@@ -31,10 +18,10 @@ document.getElementsByTagName('body')[0].addEventListener('click', function(e) {
 		document.getElementById('side-nav').classList.remove("is-visible");
 	}
 });
-</script>
+</script> -->
 <script>
   Flatdoc.run({
-   fetcher: Flatdoc.github('physicsgoddess1972/Precipitable-Water-Model', 'file_name', 'branch')
+   fetcher: Flatdoc.github('physicsgoddess1972/Precipitable-Water-Model', "{{page.mkdown}}", "{{page.branch}}")
    //fetcher: Flatdoc.file('../file_name')
   });
 </script>

@@ -28,7 +28,7 @@
 		</div>
 			{% for cities in site.data.dash %}
 				{% if cities.active == true %}
-					<div class="col s12" id="#{{cities.city | remove: ' ' | downcase}}-{{cities.state | remove: ' ' | downcase}}">
+					<div class="col s12" id="{{cities.city | remove: ' ' | downcase}}-{{cities.state | remove: ' ' | downcase}}">
 						<div style="display: flex;">
 							<div class="data-nav" style="height: 250px">
 								<div class="mdl-card__actions mdl-card--border">
@@ -88,9 +88,28 @@
 									<div id="data-product-{{cities.state | remove: ' ' | downcase}}" class="col s12">
 										<h5>IR Data Product</h5>
 										<p>Feature under development</p>
-<!--										<form action="#">-->
-<!--											<label for="quantity"><span>Input a temperature in C</span><input type="number" id="quantity" name="quantity"></label>-->
-<!--										</form>-->
+										{% for result_hash in site.data.results %}
+											{% assign people = result_hash[1] %}
+											{% assign site_city = cities.city | remove: ' ' | downcase %}
+											{% assign site_state = cities.state | remove: ' ' | downcase %}
+											{% if {{people.site}} contains {{site_city}} %}
+												{% assign A=people.analysis.coeff.A %}
+												{% assign B=people.analysis.coeff.B %}
+												<form action="#">
+													<label for="temp_in-{{site_city}}-{{site_state}}">
+														<span>Input a temperature in C: </span>
+														<div style="display: flex">
+															<input type="number" id="temp_in-{{site_city}}-{{site_state}}" name="quantity" step="0.01" style="flex: 50%">
+															<a style="padding-top: 16px;" onclick="Calc({{A}}, {{B}})"><i class="material-icons">calculate</i></a>
+														</div>
+													</label>
+												</form>
+												<div style="display: flex">
+													<b>Total Precipitable Water:</b>
+													<p id="tpw-{{site_city}}-{{site_state}}"></p>
+												</div>
+											{% endif %}
+										{% endfor %}
 									</div>
 								</div>
 							</div>
