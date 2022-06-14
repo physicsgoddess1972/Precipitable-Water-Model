@@ -64,6 +64,9 @@ layout: null
 	function Calc(A,B) {
 		let name = $('.tabs .active').attr('href').split('#').pop()
 		let x = document.getElementById("temp_in-" + name).value;
+		console.log(x);
+		console.log(A);
+		console.log(B);
 		console.log(A * Math.exp(B * x));
 		document.getElementById("tpw-" + name).innerHTML = A * Math.exp(B * x);
 	}
