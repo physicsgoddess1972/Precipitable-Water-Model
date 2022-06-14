@@ -90,17 +90,18 @@
 										<p>Feature under development</p>
 										{% for result_hash in site.data.results %}
 										{% assign people = result_hash[1] %}
+										{% assign A=people.analysis.coeff.A %}
+										{% assign B=people.analysis.coeff.B %}
+										<p>{{A}}, {{B}}</p>
 										<p>{{people.site}}</p>
-											{% if "{{people.site}}" == {{cities.city | remove: ' ' | downcase}}-{{cities.state | remove: ' ' | downcase}} %}
+										<p>{{cities.city | remove: ' ' | downcase}}-{{cities.state | remove: ' ' | downcase}}</p>
+											{% if people.site == {{cities.city | remove: ' ' | downcase}}-{{cities.state | remove: ' ' | downcase}} %}
 												<form action="#">
 													<label for="temp_in">
 														<span>Input a temperature in C: </span>
 													</label>
 													<input type="number" id="temp_in" name="quantity" min="0" step="0.01">
 												</form>
-												{% assign A=people.analysis.coeff.A %}
-												{% assign B=people.analysis.coeff.B %}
-												<p>{{A}}, {{B}}</p>
 												<a onclick="Calc()"><i class="material-icons">calculate</i></a>
 											{% endif %}
 										{% endfor %}
