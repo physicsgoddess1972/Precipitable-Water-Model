@@ -18,13 +18,10 @@ extensions = [
     'sphinx.ext.coverage',
     'sphinx.ext.napoleon',
     'sphinx.ext.viewcode',
-    'm2r2'
 ]
 
 
 # -- Options for HTML output
-source_suffix = ['.rst', '.md']
-
 html_title = 'PMAT Documentation'
 html_logo = 'banner_icon.png'
 html_favicon = 'icon.png'
