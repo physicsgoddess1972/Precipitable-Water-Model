@@ -1,6 +1,8 @@
 ---
 title: Home
 layout: null
+mkdown: README.md
+branch: master
 ---
 <head>
 	<title>Precipitable Water Model</title>
@@ -27,12 +29,13 @@ layout: null
 <!--  	<script type="text/javascript">var fname = "README.md"</script>
 	<script type="text/javascript">var bname = "master"</script>
 	<script rel="preload" src="assets/js/header.js"></script> -->
-	<script>
+	{% include head.html %}
+<!-- 	<script>
 	  Flatdoc.run({
 	   fetcher: Flatdoc.github('physicsgoddess1972/Precipitable-Water-Model', 'README.md', 'master')
 	   //fetcher: Flatdoc.file('../file_name')
 	  });
-	</script>
+	</script> -->
 </head>
 <body role='flatdoc'>
 <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header" id="page">
