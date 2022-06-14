@@ -61,9 +61,11 @@ layout: null
             download_files(darr);
             document.querySelectorAll('input[type=checkbox]').forEach(el => el.checked = false);
         }
-	function Calc(A, B) {
-		let x = 1;
-		console.log(A * exp(B * x));
+	function Calc() {
+		console.log("start");
+		$.getJSON("_data/" + $('.tabs .active').attr('href').split('#').pop() + ".yml", function(data){
+			console.log(data);
+		});
 	}
     </script>	
 </head>
