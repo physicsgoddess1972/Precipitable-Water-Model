@@ -40,7 +40,7 @@ layout: null
 
     <script rel="preload">
       $(function(){
-        $("#modal-maintainers").load("_includes/modal_maintainers.html");
+       // $("#modal-maintainers").load("_includes/modal_maintainers.html");
         $("#bottom-nav").load("assets/external/bottom_nav.html");
         $("#side-nav").load("assets/external/side_nav.html");
         $('#results-plots').load("_includes/results.html");
@@ -81,7 +81,7 @@ layout: null
 	<header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600" id="top-bar"></header>
     <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50" id="side-nav"></div>
     <main class="mdl-layout__content mdl-color--grey-100">
-        <div id="modal-maintainers"></div>
+        <div id="modal-maintainers">{% include modal_maintainers.html %}</div>
         <div id="modal-introduction"></div>
         <div class="mdl-grid demo-content">
             <div class="demo-cards mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-grid mdl-grid--no-spacing">
