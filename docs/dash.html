@@ -61,14 +61,19 @@ layout: null
             download_files(darr);
             document.querySelectorAll('input[type=checkbox]').forEach(el => el.checked = false);
         }
-	function Calc() {
-		{% for sites in {{site.results}} %}
-			{% if sites.data ==  "_" + $('.tabs .active').attr('href').split('#').pop() + "-results.yml" %}
-				let A = {{ sites.data.analysis.coeff.A }};
-				let B = {{ sites.data.analysis.coeff.B }};
-		    	    	console.log(A);
-			 {% endif %}
-		 {% endfor %}
+	function Calc(data) {
+// 		{% for sites in {{site.results}} %}
+// 			console.log({{sites.data}});
+// 			console.log("_" + $('.tabs .active').attr('href').split('#').pop() + "-results.yml");
+// 			{% if sites.data ==  "_" + $('.tabs .active').attr('href').split('#').pop() + "-results.yml" %}
+// 				let A = {{ sites.data.analysis.coeff.A }};
+// 				let B = {{ sites.data.analysis.coeff.B }};
+// 		    	    	console.log(A);
+// 			 {% endif %}
+// 		 {% endfor %}
+		$.getJSON(data, function(data){
+			console.log(data);
+		});
 	}
     </script>	
 </head>
