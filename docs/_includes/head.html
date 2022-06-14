@@ -6,8 +6,8 @@
 <script src="assets/js/material.min.js"></script> 
 <script src="assets/js/materialize.min.js"></script>
 <script>
-console.log(document.getElementsByTagName('body'));
-document.getElementsByTagName('body').addEventListener('click', function(e) {
+console.log(document.getElementsByTagName('body')[0]);
+document.getElementsByTagName('body')[0].addEventListener('click', function(e) {
 	if (e.target.getAttribute('id') == 'pain' || e.target.getAttribute('id') == 'icon-of-pain'){
 		$("#pain").attr("aria-expanded","false");
 		$("#side-nav").attr("aria-hidden","true");
