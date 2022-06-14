@@ -18,7 +18,9 @@ layout: null
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.12.0/devicon.min.css">
-
+	<script src="assets/js/jquery.min.js"></script>
+	<script rel="preload" src="assets/js/materialize.min.js"></script>
+	<script rel="preload" src="assets/js/bootstrap.min.js"></script>
 	<script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 	<link rel="stylesheet" href="assets/css/main.max.css">
 	<script src="assets/js/jquery.min.js"></script>
@@ -36,11 +38,12 @@ layout: null
 	{% include side_nav.html %}
 	</div>
 	<main class="mdl-layout__content">
-		<div>{% include modal_maintainers.html %}</div>
+		<div id="modal-maintainers">{% include modal_maintainers.html %}</div>
 		<div class="menubar"></div>
 		<div role='flatdoc-content' class='content'></div>
 		<div id="bottom-nav"></div>
 	</main>
 </div>
+<script src="assets/js/material.min.js"></script>
 </body>
 
