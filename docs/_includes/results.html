@@ -88,9 +88,13 @@
 									<div id="data-product-{{cities.state | remove: ' ' | downcase}}" class="col s12">
 										<h5>IR Data Product</h5>
 										<p>Feature under development</p>
-<!--										<form action="#">-->
-<!--											<label for="quantity"><span>Input a temperature in C</span><input type="number" id="quantity" name="quantity"></label>-->
-<!--										</form>-->
+										<form action="#">
+											<label for="temp_in">
+												<span>Input a temperature in C: </span>
+											</label>
+											<input type="number" id="temp_in" name="quantity" min="0" step="0.01">
+										</form>
+										<a onclick="Calc()"><i class="material-icons">calculate</i></a>
 									</div>
 								</div>
 							</div>
