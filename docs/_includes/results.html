@@ -89,7 +89,8 @@
 										<h5>IR Data Product</h5>
 										<p>Feature under development</p>
 										{% for result_hash in site.data.results %}
-											{% if result_hash.site == {{cities.city | remove: ' ' | downcase}}-{{cities.state | remove: ' ' | downcase}} %}
+										<p>{{result_hash.site}}</p>
+											{% if "{{result_hash.site}}" == "{{cities.city | remove: ' ' | downcase}}-{{cities.state | remove: ' ' | downcase}}" %}
 												<form action="#">
 													<label for="temp_in">
 														<span>Input a temperature in C: </span>
