@@ -42,7 +42,11 @@ branch: master
 	<header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
 	{% include header.html %}
 	</header>
-	<div id="maintenance"></div>
+	{% if {{site.status}} != good %}
+		<div class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+			{% include maintenance_bar.html %}
+		</div>
+	{% endif %}
 	<div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
 	{% include side_nav.html %}
 	</div>
@@ -50,7 +54,7 @@ branch: master
 		<div id="modal-maintainers">{% include modal_maintainers.html %}</div>
 		<div class="menubar"></div>
 		<div role='flatdoc-content' class='content'></div>
-		<div id="bottom-nav"></div>
+		<div id="bottom-nav">{% include bottom_nav.html %}</div>
 	</main>
 </div>
 <script src="assets/js/material.min.js"></script>
