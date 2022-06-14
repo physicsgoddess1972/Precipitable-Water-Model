@@ -62,12 +62,13 @@ layout: null
             document.querySelectorAll('input[type=checkbox]').forEach(el => el.checked = false);
         }
 	function Calc() {
-		let name = "_" + $('.tabs .active').attr('href').split('#').pop() + "-results" + ".yml"
-		
-		let A = {{ name.analysis.coeff.A }};
-	    	let B = {{ name.analysis.coeff.B }};
-	    
-	    	console.log(A);
+		{% for sites in {{site.results}} %}
+			{% if sites.data ==  "_" + $('.tabs .active').attr('href').split('#').pop() + "-results.yml" %}
+				let A = {{ sites.data.analysis.coeff.A }};
+				let B = {{ sites.data.analysis.coeff.B }};
+		    	    	console.log(A);
+			 {% endif %}
+		 {% endfor %}
 	}
     </script>	
 </head>
