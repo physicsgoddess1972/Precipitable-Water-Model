@@ -64,6 +64,14 @@ layout: null
             download_files(darr);
             document.querySelectorAll('input[type=checkbox]').forEach(el => el.checked = false);
         }
+	    
+    	function Calc() {
+		let name = $('.tabs .active').attr('href').split('#').pop().replace('-', '.') + '.pmat.app/out/results.yml'		
+		jQuery.get(name, function(data) {
+			var dat = JSON.stringify(data);
+			console.log(dat);
+		});
+		
     </script>
 </head>
 <body>
