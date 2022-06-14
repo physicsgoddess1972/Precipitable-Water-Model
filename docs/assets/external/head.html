@@ -11,12 +11,13 @@ $(function(){
     $("#bottom-nav").load("assets/external/bottom_nav.html");
     $("#side-nav").load("assets/external/side_nav.html");
     $('#top-bar').load("assets/external/header.html");
-    $.get('_config.yml', function (data) {
-        if (data.includes('under maintenance')){
+    //$.get('_config.yml', function (data) {
+       // if (data.includes('under maintenance')){
+	if ({{ site.status }} == 'under maintenance')
             $('#maintenance').load("assets/external/maintenance_bar.html");
             document.getElementById('maintenance').classList.add('demo-header', 'mdl-layout__header', 'mdl-color--grey-100', 'mdl-color-text--grey-600')
         }
-    });
+    //});
   });
 </script>
 <script>
