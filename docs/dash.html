@@ -61,25 +61,7 @@ layout: null
             download_files(darr);
             document.querySelectorAll('input[type=checkbox]').forEach(el => el.checked = false);
         }
-	    
-//     	function Calc() {
-// 		let name = "https://" + $('.tabs .active').attr('href').split('#').pop().replace('-', '.') + '.pmat.app/out/_results.yml'		
-// 		$.get(name, function(data) {
-// 			var dat = JSON.stringify(data);
-// 			console.log(dat);
-// 		});
-// 	}
-    </script>
-<script>
-	function Calc() {
-		const URL = "https://raw.githubusercontent.com/PharaohCola13/pmat-socorro-nm/main/out/_results.yml";
-		let thing = 'http://www.whateverorigin.org/get?url=' + encodeURIComponent(URL) + '&callback=?'
-		console.log(thing);
-		$.getJSON(thing, function(data){
-			alert(data.contents);
-		});
-	}
-</script>	
+    </script>	
 </head>
 <body>
 <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
