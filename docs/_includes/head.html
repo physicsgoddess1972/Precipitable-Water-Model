@@ -13,7 +13,7 @@ $(function(){
    // $('#top-bar').load("assets/external/header.html");
   //  $.get('_config.yml', function (data) {
     //   if (data.includes('under maintenance')){
- 	if ({{site.status}} == 'under maintenance') {
+ 	if ("{{site.status}}" == "under maintenance") {
             $('#maintenance').load("assets/external/maintenance_bar.html");
             document.getElementById('maintenance').classList.add('demo-header', 'mdl-layout__header', 'mdl-color--grey-100', 'mdl-color-text--grey-600')
         };
@@ -35,7 +35,7 @@ document.getElementsByTagName('body')[0].addEventListener('click', function(e) {
 </script>
 <script>
   Flatdoc.run({
-   fetcher: Flatdoc.github('physicsgoddess1972/Precipitable-Water-Model', {{page.mkdown}}, {{page.branch}})
+   fetcher: Flatdoc.github('physicsgoddess1972/Precipitable-Water-Model', "{{page.mkdown}}", "{{page.branch}}")
    //fetcher: Flatdoc.file('../file_name')
   });
 </script>
