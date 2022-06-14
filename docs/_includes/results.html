@@ -91,7 +91,7 @@
 										{% for result_hash in site.data.results %}
 										{% assign people = result_hash[1] %}
 										<p>{{people.site}}</p>
-											{% if "{{people.site}}" == "{{cities.city | remove: ' ' | downcase}}-{{cities.state | remove: ' ' | downcase}}" %}
+											{% if "{{people.site}}" == {{cities.city | remove: ' ' | downcase}}-{{cities.state | remove: ' ' | downcase}} %}
 												<form action="#">
 													<label for="temp_in">
 														<span>Input a temperature in C: </span>
