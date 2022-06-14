@@ -26,12 +26,15 @@
 </head>
 <body role='flatdoc'>
 <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header" id="page">
-	<header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600" id="top-bar"></header>
+	<header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+	{% include header.html %}
+	</header>
 	<div id="maintenance"></div>
-	<div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50" id="side-nav"></div>
+	<div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
+	{% include side_nav.html %}
+	</div>
 	<main class="mdl-layout__content">
-		<div id="modal-maintainers"></div>
-		<div id="modal-introduction"></div>
+		<div>{% include modal_maintainers.html %}</div>
 		<div class="menubar"></div>
 		<div role='flatdoc-content' class='content'></div>
 		<div id="bottom-nav"></div>
