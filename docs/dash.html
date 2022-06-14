@@ -65,7 +65,7 @@ layout: null
 		let name = $('.tabs .active').attr('href').split('#').pop()
 		let x = document.getElementById("temp_in-" + name).value;
 		let tpw = A * Math.exp(B * x);
-		document.getElementById("tpw-" + name).innerHTML = tpw.toFixed(3).toString() + "mm";
+		document.getElementById("tpw-" + name).innerHTML = tpw.toFixed(3).toString() + " mm";
 	}
     </script>	
 </head>
