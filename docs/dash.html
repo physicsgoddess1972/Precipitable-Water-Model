@@ -71,29 +71,12 @@ layout: null
 // 	}
     </script>
 <script>
-	// function to get the raw data
-	const getRawData = (URL) => {
-	   return fetch(URL)
-	      .then((response) => response.text())
-	      .then((data) => {
-		 return data;
-	      });
-	};
-	// start of the program
-// 	const Calc = async () => {
-// 	   const rawData = await getRawData(URL);
-// 	   // parsing the data
-// 	   const parsedData = cheerio.load(rawData);
-// 	   console.log(parsedData);
-// 	   // write code to extract the data
-// 	   // here
-// 	   // ...
-// 	   // ...
-// 	};
-	const URL = "https://raw.githubusercontent.com/PharaohCola13/pmat-socorro-nm/main/out/_results.yml";
 	function Calc() {
-		const rawData = await getRawData(URL);
-		console.log(rawData);
+		const URL = "https://raw.githubusercontent.com/PharaohCola13/pmat-socorro-nm/main/out/_results.yml";
+		var url = "http://anyorigin.com/go?url=" + encodeURIComponent(URL) + "&callback=?";
+		$.get(url, function(response) {  
+			console.log(response);
+		});
 	}
 </script>	
 </head>
