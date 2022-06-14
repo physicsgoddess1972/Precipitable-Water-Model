@@ -63,7 +63,7 @@ layout: null
         }
 	function Calc() {
 		console.log("start");
-		$.getJSON("_data/" + $('.tabs .active').attr('href').split('#').pop() + ".yml", function(data){
+		$.getJSON("https://raw.githubusercontent.com/physicsgoddess1972/Precipitable-Water-Model/docs/docs/_data/" + $('.tabs .active').attr('href').split('#').pop() + ".yml", function(data){
 			console.log(data);
 		});
 	}
