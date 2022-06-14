@@ -61,8 +61,10 @@ layout: null
             download_files(darr);
             document.querySelectorAll('input[type=checkbox]').forEach(el => el.checked = false);
         }
-	function Calc() {
-
+	function Calc(A,B) {
+		let name = $('.tabs .active').attr('href').split('#').pop()
+		let x = document.getElementById("temp_in-" + name).value;
+		console.log(A * exp(B * x));
 	}
     </script>	
 </head>
