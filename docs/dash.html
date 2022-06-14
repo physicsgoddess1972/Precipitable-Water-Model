@@ -71,9 +71,6 @@ layout: null
 // 	}
     </script>
 <script>
-	const fetch = require("node-fetch");
-	const cheerio = require("cheerio");
-	const fs = require("fs");
 	// function to get the raw data
 	const getRawData = (URL) => {
 	   return fetch(URL)
@@ -82,21 +79,22 @@ layout: null
 		 return data;
 	      });
 	};
-	// URL for data
-	const URL = "https://raw.githubusercontent.com/PharaohCola13/pmat-socorro-nm/main/out/_results.yml";
 	// start of the program
-	const Calc = async () => {
-	   const rawData = await getRawData(URL);
-	   // parsing the data
-	   const parsedData = cheerio.load(rawData);
-	   console.log(parsedData);
-	   // write code to extract the data
-	   // here
-	   // ...
-	   // ...
-	};
-	// invoking the main function
-	Calc();	
+// 	const Calc = async () => {
+// 	   const rawData = await getRawData(URL);
+// 	   // parsing the data
+// 	   const parsedData = cheerio.load(rawData);
+// 	   console.log(parsedData);
+// 	   // write code to extract the data
+// 	   // here
+// 	   // ...
+// 	   // ...
+// 	};
+	const URL = "https://raw.githubusercontent.com/PharaohCola13/pmat-socorro-nm/main/out/_results.yml";
+	function Calc() {
+		const rawData = await getRawData(URL);
+		console.log(rawData);
+	}
 </script>	
 </head>
 <body>
