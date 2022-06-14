@@ -61,6 +61,14 @@ layout: null
             download_files(darr);
             document.querySelectorAll('input[type=checkbox]').forEach(el => el.checked = false);
         }
+	function Calc() {
+		let name = "_" + $('.tabs .active').attr('href').split('#').pop() + "-results" + ".yml"
+		
+		let A = {{ name.analysis.coeff.A }};
+	    	let B = {{ name.analysis.coeff.B }};
+	    
+	    	console.log(A);
+	}
     </script>	
 </head>
 <body>
