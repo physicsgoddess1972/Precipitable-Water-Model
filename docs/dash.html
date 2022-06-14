@@ -73,9 +73,10 @@ layout: null
 <script>
 	function Calc() {
 		const URL = "https://raw.githubusercontent.com/PharaohCola13/pmat-socorro-nm/main/out/_results.yml";
-		var url = "https://anyorigin.com/go?url=" + encodeURIComponent(URL) + "&callback=?";
-		$.get(url, function(response) {  
-			console.log(response);
+		let thing = 'http://www.whateverorigin.org/get?url=' + encodeURIComponent(URL) + '&callback=?'
+		console.log(thing);
+		$.getJSON(thing, function(data){
+			alert(data.contents);
 		});
 	}
 </script>	
