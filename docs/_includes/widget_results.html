@@ -78,7 +78,7 @@
 											<a><label><input type="checkbox" name="pacman_overcast"><span>Pacman</span></label></a><br>
 										</form>
 									</div>
-									<div id="chart-{{}site_id}" class="col s12">
+									<div id="chart-{{cities.city | remove: ' ' | downcase}}-{{cities.state | remove: ' ' | downcase}}" class="col s12">
 										<h5>Plot Set: Charts</h5>
 										<form action="#">
 											<a><label><input type="checkbox" name="charts"><span>Charts</span></label></a>
