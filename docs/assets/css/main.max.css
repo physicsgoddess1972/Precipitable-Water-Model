@@ -21400,9 +21400,9 @@ table {
         width:100%
    }
 }
-.data-nav {
+/* .data-nav {
     width: 50%
-}
+} */
 @media (max-width: 550px) {
     .img-small-nm,.img-small-sd {
         background-image:none
