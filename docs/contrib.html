@@ -1,46 +1,210 @@
-<!doctype html>
-<html>
+---
+title: Contributors
+layout: null
+---
 <head>
 	<title>Precipitable Water Model</title>
 	<link rel="icon" href="assets/img/icon.png">
 	<meta charset='utf-8'>
-
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width">
-
 	<link rel="preconnect" href="//www.gstatic.com" crossorigin>
 	<link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
 	<link rel="preconnect" href="//fonts.googleapis.com" crossorigin>
-
 	<link rel="stylesheet" href='assets/css/main.max.css'>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.12.0/devicon.min.css">
-
 	<script src="assets/js/jquery.min.js"></script>
-	<script>
-		$("#content").load("assets/external/head.html");
-	</script>
-	<script type="text/javascript">var fname = "CONTRIBUTING.md"</script>
-	<script type="text/javascript">var bname = "master"</script>
-	<script rel="preload" src="assets/js/header.js"></script>
-	<div rel="preload" id="content"></div>
+
+    <script rel="preload">
+        $(function(){
+    //        $("#modal-maintainers").load("_includes/modal_maintainers.html");
+            $("#bottom-nav").load("assets/external/bottom_nav.html");
+//            $("#side-nav").load("assets/external/side_nav.html");
+  //          $('#top-bar').load("assets/external/header.html");
+        });
+    </script>
 </head>
-<body role='flatdoc'>
+<body>
 <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
-	<header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600" id="top-bar"></header>
-	<div id="maintenance"></div>
-	<div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50" id="side-nav"></div>
+	<header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600" id="top-bar">
+	{% include header.html %}
+	</header>
+	<div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50" id="side-nav">
+	{% include side_nav.html %}
+	</div>
     <main class="mdl-layout__content">
-        <div id="modal-maintainers"></div>
-		<div id="modal-introduction"></div>
-        <div class="menubar" style="padding-right: -100%;"></div>
-        <div role='flatdoc-content' class='content'></div>
-        <div id="bottom-nav"></div>
+        <div>{% include modal_maintainers.html %}</div>
+	{% if {{site.status}} != good %}
+		<div class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+			{% include maintenance_bar.html %}
+		</div>
+	{% endif %}
+	<div class="menubar" style="padding-right: -100%;"></div>
+        <div class='content'>
+			<a id="top"></a>
+			<div id="our-peeps">
+				<div class="collapsible">
+					<div class="collapsible-header">
+						<h2>Our Contributors</h2>
+					</div>
+					<div class="panel">
+						<p>
+							We would like to recognize the people that have contributed to this project.
+						</p>
+						{% for people in site.data.people %}
+							<div class="collapsible_1 collab">
+								<div class="panel" style="margin-bottom: 0; padding-bottom: 2%;">
+									<h3>{{people.name}}</h3>
+									<img width="100%" src="https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/docs/docs/assets/img/people/{{people.image}}?raw=true/" alt="{{people.name}}">
+									<br>
+									<b style="font-weight: bold;">Role:</b> {{people.role}}
+									<hr>
+									{% if people.email != null %}
+										<a class="button" target="_blank" style="width: 49%; text-align: center" href="mailto:{{people.email}}"><i class="material-icons">email</i></a>
+									{% endif %}
+									{% if people.web != null %}
+										<a class="button" target="_blank" style="width: 49%; text-align: center" href="https://{{people.web}}"><i class="material-icons">public</i></a>
+									{% endif %}
+								</div>
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+			<div id="guidelines">
+				<div class="collapsible">
+					<div class="collapsible-header">
+						<h2>Guidelines for Contributors</h2>
+					</div>
+					<div class="panel">
+						While working on data collection or any contributions to this project, keep in mind
+						the following guidelines. Contributions that do not follow these guidelines will
+						not be included in the project.
+						<div class="collapsible_1">
+							<div class="guide panel">
+								<table class="usage">
+									<tbody>
+									<tr style="border: 0px;">
+										<td><span class="numbered">1</span></td>
+										<td>Practice good science.</td>
+									</tr>
+									<tr>
+										<td><span class="numbered">2</span></td>
+										<td>Be as consistent as possible.</td>
+									</tr>
+									<tr>
+										<td><span class="numbered">3</span></td>
+										<td>Do not fabricate or fudge your data.</td>
+									</tr>
+									<tr>
+										<td><span class="numbered">4</span></td>
+										<td>Be detailed in your findings.</td>
+									</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="give-data">
+				<div class="collapsible">
+					<div class="collapsible-header">
+						<h2>Contributing Data</h2>
+					</div>
+					<div class="panel">
+						If you would like to add temperature and precipitable water measurements to our dataset please follow the data formatting guidelines on the <a href="./index.html#data-format">documentation page</a>. To contribute datasets follow the procedure in this section:
+						<br><br>
+						<b>We should make note that the only prerequisite for this deployment system is a GitHub account. </b>
+						<div class="collapsible_1">
+							<div class="give-data panel">
+								<table class="usage">
+									<tbody>
+										<tr style="border: 0px;">
+											<td><span class="numbered">1</span></td>
+											<td>Create an <a href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/issues">Issue</a> using the PMAT Deployment template. A branch with the city and state name will be created, all branches of the repo can be viewed <a href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/branches">here.</a> </td>
+										</tr>
+										<tr>
+											<td><span class="numbered">2</span></td>
+											<td>Once the Issue has been closed, <a href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/fork">fork the repository</a></td>
+										</tr>
+										<tr>
+											<td><span class="numbered">3</span></td>
+											<td>Navigate to the branch that corresponds to your location and edit the data files appropriately. Guidelines for data files can be viewed on the <a href="https://physicsgoddess1972.github.io/Precipitable-Water-Model/">main documentation page</a>.</td>
+										</tr>
+										<tr>
+											<td><span class="numbered">4</span></td>
+											<td>Submit a pull request. Be sure when opening a pull request that the <code>base</code> and <code>head</code> repositories have branches that correspond to the branch created in Step 1. </td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="give-code">
+				<div class="collapsible">
+					<div class="collapsible-header">
+						<h2>Contributing Features</h2>
+					</div>
+					<div class="panel">
+						If you would like to add an additional feature to the model follow the procedure below.
+						<div class="collapsible_1">
+							<div class="give-code panel">
+								<table class="usage">
+									<tbody>
+										<tr style="border: 0px;">
+											<td><span class="numbered">1</span></td>
+											<td>Fork it!</td>
+										</tr>
+										<tr>
+											<td><span class="numbered">2</span></td>
+											<td>Create your feature branch: <code>git checkout -b my-new-feature</code></td>
+										</tr>
+										<tr>
+											<td><span class="numbered">3</span></td>
+											<td>Commit your changes: <code>git commit -m 'Add some feature'</code></td>
+										</tr>
+										<tr>
+											<td><span class="numbered">4</span></td>
+											<td>Push to the branch: <code>git push origin my-new-feature</code></td>
+										</tr>
+										<tr>
+											<td><span class="numbered">5</span></td>
+											<td>Submit a pull request.</td>
+										</tr>
+										<tr>
+											<td><span class="numbered">6</span></td>
+											<td>After your pull request is merged, you can safely delete your branch.</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="collapsible">
+				<div class="collapsible-header">
+					<h2>Issues and Bugs</h2>
+				</div>
+				<div class="panel">
+					<p> To file a report on an bug, visit <a href="">this</a> page and fill out the form with as much detail as possible. Include system information and the exact method used to generate the issue. We will make an attempt to resolve the issue as soon as possible. If the issue cannot be resolved then we apologize for the inconvience, and we will actively try to find a workaround.</p>
+				</div>
+			</div>
+			<div class="collapsible">
+				<div class="collapsible-header" style="text-align: center">
+					<h2>Thank you for your help!</h2>
+				</div>
+			</div>
+</div>
+        <div id="bottom-nav">{% include bottom_nav.html %}</div>
     </main>
 </div>
 <script src="assets/js/material.min.js"></script>
 </body>
-</html>

@@ -5,19 +5,20 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Getting Started &mdash; PMAT Documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
-    <link rel="shortcut icon" href="_static/icon.png"/>
+      <link rel="stylesheet" href="assets/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="assets/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="assets/css/custom.css" type="text/css" />
+    <link rel="shortcut icon" href="assets/icon.png"/>
   <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
+    <script src="assets/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-    <script src="_static/js/theme.js"></script>
+        <script data-url_root="./" id="documentation_options" src="assets/documentation_options.js"></script>
+        <script src="assets/jquery.js"></script>
+        <script src="assets/underscore.js"></script>
+        <script src="assets/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="assets/doctools.js"></script>
+    <script src="assets/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Working with data and PMAT" href="data-formatting.html" />
@@ -30,10 +31,10 @@
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
             <a href="index.html">
-            <img src="_static/banner_icon.png" class="logo" alt="Logo"/>
+            <img src="assets/banner_icon.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                latest
+                legacy
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -83,7 +84,6 @@
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
       <li>Getting Started</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/getting-started.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -92,19 +92,19 @@
            <div itemprop="articleBody">
              
   <section id="getting-started">
-<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline"></a></h1>
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this heading"></a></h1>
 <section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline"></a></h2>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h2>
 <p>The Precipitable-water Model Analysis Tool (<code class="docutils literal notranslate"><span class="pre">PMAT</span></code>) is a computational utility that is used to analyze the data collected from this project to understand the relationship between the zenith sky temperature and precipitable water in the atmosphere. <code class="docutils literal notranslate"><span class="pre">PMAT</span></code> has three different modules that work together to present data.</p>
 <p>The first is the Deployment Module. This module acts as the user interface for the software suite, whether it be locally or through cloud services.</p>
 <p>The second is the Pre-processing Module, this module imports data from University of Utah’s MesoWest and the University of Wyoming UpperAir Databases.</p>
 <p>The third module is the main program to run the analysis, the DAnalysis Module. Here the all of the data is presented and the regression analysis between precipitable water and zenith sky temperature is conducted.</p>
 </section>
 <section id="installation-and-deployment-tutorial">
-<h2>Installation and Deployment Tutorial<a class="headerlink" href="#installation-and-deployment-tutorial" title="Permalink to this headline"></a></h2>
+<h2>Installation and Deployment Tutorial<a class="headerlink" href="#installation-and-deployment-tutorial" title="Permalink to this heading"></a></h2>
 <p>We also require two data files. One that contains the raw data collected by the temperature sensors, that also includes date and time information (<code class="docutils literal notranslate"><span class="pre">cool_data.csv</span></code>). The second should contain sensor definitions with additional parameters for the preprocessing and analysis phases (<code class="docutils literal notranslate"><span class="pre">_pmat.yml</span></code>). A template and detailed breakdown of the configuration file is provided in Chapter 2.1, followed by a detailed breakdown on the data file format.</p>
 <section id="github">
-<h3>Github<a class="headerlink" href="#github" title="Permalink to this headline"></a></h3>
+<h3>Github<a class="headerlink" href="#github" title="Permalink to this heading"></a></h3>
 <p>This version of the Deployment module is, for the most part, automated and recommended. Follow the steps in this section to successfully deploy PMAT through GitHub with GitHub Actions.</p>
 <ol class="arabic simple">
 <li><p>Create a GitHub repository from the <a class="reference external" href="https://template.pmat.app">template repository</a>.</p></li>
@@ -114,7 +114,7 @@
 </ol>
 </section>
 <section id="amazon-web-service-aws">
-<h3>Amazon Web Service (AWS)<a class="headerlink" href="#amazon-web-service-aws" title="Permalink to this headline"></a></h3>
+<h3>Amazon Web Service (AWS)<a class="headerlink" href="#amazon-web-service-aws" title="Permalink to this heading"></a></h3>
 <p>For Amazon Web Services, <code class="docutils literal notranslate"><span class="pre">PMAT</span></code> can be configured through the EC2 virtual machines. Once they have been configured, connect to the virutal machine.
 Once connected, enter the following commands</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">yum</span> <span class="n">update</span> <span class="o">-</span><span class="n">y</span>
@@ -129,14 +129,14 @@ Once connected, enter the following commands</p>
 <p>From here, data files can be added and utilizing the <code class="docutils literal notranslate"><span class="pre">local_deploy.sh</span></code> script, <code class="docutils literal notranslate"><span class="pre">PMAT</span></code> can be executed.</p>
 </section>
 <section id="google-cloud-console-gcloud">
-<h3>Google Cloud Console (GCloud)<a class="headerlink" href="#google-cloud-console-gcloud" title="Permalink to this headline"></a></h3>
+<h3>Google Cloud Console (GCloud)<a class="headerlink" href="#google-cloud-console-gcloud" title="Permalink to this heading"></a></h3>
 </section>
 <section id="local">
-<h3>Local<a class="headerlink" href="#local" title="Permalink to this headline"></a></h3>
+<h3>Local<a class="headerlink" href="#local" title="Permalink to this heading"></a></h3>
 <p>We fully support Ubuntu and Debian systems. We do have minimal Windows support through the usage of Windows Subsystem for Linux (WSL) and Virutalization.</p>
 </section>
 <section id="development">
-<h3>Development<a class="headerlink" href="#development" title="Permalink to this headline"></a></h3>
+<h3>Development<a class="headerlink" href="#development" title="Permalink to this heading"></a></h3>
 </section>
 </section>
 </section>

@@ -1,0 +1,142 @@
+{% assign site_id= {{cities.city | remove: ' ' | downcase}}-{{cities.state | remove: ' ' | downcase}} %}
+<div class="mdl-grid demo-content">
+	<div class="mdl-shadow--2dp mdl-cell mdl-cell--stretch mdl-cell--12-col" style="background-color: white">
+		<div class="row">
+			<div class="col s12">
+			<ul class="tabs">
+				<li class="col s3" style="padding-top: 10px; padding-left: 10px; padding-right: 10px">
+					<a style="color: #4C69EC;" id="button" onclick="Down()" type="submit">
+						<i class="material-icons">save</i>
+					</a>
+				</li>
+				{% for cities in site.data.dash %}
+					{% if cities.active == true %}
+						<li class="tab col s3">
+							<a href="#{{site_id}}">
+								{{cities.city}}, {{cities.state}}
+							</a>
+						</li>
+					{% else %}
+						<li class="tab col s3 disabled">
+
+							<a href="#{{site_id}}">
+								{{cities.city}}, {{cities.state}}
+							</a>
+						</li>
+					{% endif %}
+				{% endfor %}
+			</ul>
+		</div>
+			{% for cities in site.data.dash %}
+				{% if cities.active == true %}
+					<div class="col s12" id="{{site_id}}">
+						<div style="display: flex;">
+							<div class="data-nav" style="height: 250px">
+								<div class="mdl-card__actions mdl-card--border">
+									<div class="row">
+										<div class="col s12">
+											<ul class="tabs">
+												<li class="tab col s3"><a href="#clear-{{site_id}}">
+													<i class="material-icons">brightness_5</i></a>
+												</li>
+												<li class="tab col s3"><a href="#over-{{site_id}}">
+													<i class="material-icons">cloud</i></a>
+												</li>
+												<li class="tab col s3"><a href="#chart-{{site_id}}">
+													<i class="material-icons">insert_chart_outlined</i></a>
+												</li>
+												<li class="tab col s3"><a href="#poster-{{site_id}}">
+													<i class="material-icons">table_chart</i></a>
+												</li>
+												<li class="tab col s3"><a href="#data-{{site_id}}}}">
+													<i class="material-icons">description</i>
+												</a>
+												</li>
+												<li class="tab col s3"><a href="#data-product-{{site_id}}">
+													<i class="material-icons">query_stats</i></a>
+												</li>
+												<li class="tab col s3"><a href="#status-{{site_id}}">
+													<i class="material-icons">info_outline</i></a>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<div id="clear-{{site_id}}" class="col s12">
+										<h5>Plot Set: Clear Sky</h5>
+										<form action="#">
+											<a><label><input type="checkbox" name="timeseries"><span>Time Series</span></label></a><br>
+											<a><label><input type="checkbox" name="analytics"><span>Analytics</span></label></a><br>
+											<a><label><input type="checkbox" name="sensor"><span>Sensor Time Series</span></label></a><br>
+											<a><label><input type="checkbox" name="pacman"><span>Pacman</span></label></a><br>
+										</form>
+									</div>
+									<div id="over-{{site_id}}" class="col s12">
+										<h5>Plot Set: Overcast</h5>
+										<form action="#">
+											<a><label><input type="checkbox" name="timeseries_overcast"><span>Time Series</span></label></a><br>
+											<a><label><input type="checkbox" name="analytics_overcast"><span>Analytics</span></label></a><br>
+											<a><label><input type="checkbox" name="sensor_overcast"><span>Sensor Time Series</span></label></a><br>
+											<a><label><input type="checkbox" name="pacman_overcast"><span>Pacman</span></label></a><br>
+										</form>
+									</div>
+									<div id="chart-{{}site_id}" class="col s12">
+										<h5>Plot Set: Charts</h5>
+										<form action="#">
+											<a><label><input type="checkbox" name="charts"><span>Charts</span></label></a>
+											<br>
+										</form>
+									</div>
+									<div id="poster-{{site_id}}" class="col s12">
+										<h5>Plot Set: Poster</h5>
+										<form action="#">
+											<a><label><input type="checkbox" name="poster"><span>Poster</span></label></a>
+											<br>
+										</form>
+									</div>
+									<div id="data-{{site_id}}" class="col s12">
+										<h5>Data files</h5>
+										<form action="#">
+											<a>
+												<label>
+													<input type="checkbox" name="master_data">
+													<span>master_data.csv</span>
+												</label>
+											</a>
+										</form>
+									</div>
+									<div id="data-product-{{site_id}}" class="col s12">
+										<h5>IR Data Product</h5>
+										{% for result_hash in site.data.results %}
+											{% assign people = result_hash[1] %}
+											{% if {{people.site}} contains {{cities.city | remove: ' ' | downcase}} %}
+												{% assign A=people.analysis.coeff.A %}
+												{% assign B=people.analysis.coeff.B %}
+												<form action="#">
+													<label for="temp_in-{{site_id}}">
+														<span>Input a temperature in C: </span>
+														<div style="display: flex">
+															<input type="number" id="temp_in-{{site_id}}" name="quantity" step="0.01" style="flex: 50%">
+															<a style="padding-top: 16px;" onclick="Calc({{A}}, {{B}})"><i class="material-icons">calculate</i></a>
+														</div>
+													</label>
+												</form>
+												<div style="display: flex">
+													<b>Total Precipitable Water:</b>
+													<p id="tpw-{{site_id}}"></p>
+												</div>
+											{% endif %}
+										{% endfor %}
+									</div>
+									<div id="status-{{site_id}}" class="col s12">
+										<h5>Status</h5>
+										<img src="https://{{cities.city | remove: ' ' | downcase}}.{{cities.state | remove: ' ' | downcase}}.pmat.app/actions/workflows/main.yml/badge.svg?style=for-the-badge" alt="PMAT Run">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				{% endif %}
+			{% endfor %}
+		</div>
+	</div>
+</div>

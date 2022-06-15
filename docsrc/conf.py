@@ -6,7 +6,7 @@ sys.path.insert(0, os.path.abspath('../'))
 project = 'Precipitable-Water Model Analysis Tool'
 copyright = '2022, Spencer Riley'
 author = 'Spencer Riley'
-version = 'latest'
+version = 'legacy'
 release = ''
 
 
@@ -20,18 +20,19 @@ extensions = [
     'sphinx.ext.viewcode',
 ]
 
-
 # -- Options for HTML output
-
 html_title = 'PMAT Documentation'
 html_logo = 'banner_icon.png'
 html_favicon = 'icon.png'
 
-html_static_path = ['_static']
 html_css_files = [
     'css/custom.css',
 ]
+html_copy_source = False
+
 html_theme = 'sphinx_rtd_theme'
+
+html_static_path = ["assets"]
 
 html_theme_options = {
     'logo_only': True,
@@ -44,7 +45,7 @@ latex_elements = {
     'pointsize': '11pt',
     }
 latex_documents = [
- ('index', 'pmat.tex', u'Precipitable-Water Model Analysis Tool Documentation', u'Spencer Riley', 'manual'),
+ ('index', 'pmat.tex', u'Precipitable-water Model Analysis Tool Official Manual', u'Spencer Riley', 'manual'),
 ]
 latex_logo = 'banner_icon.png'
 latex_domain_indices = True

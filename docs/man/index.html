@@ -5,19 +5,20 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Official PMAT Documentation &mdash; PMAT Documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
-    <link rel="shortcut icon" href="_static/icon.png"/>
+      <link rel="stylesheet" href="assets/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="assets/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="assets/css/custom.css" type="text/css" />
+    <link rel="shortcut icon" href="assets/icon.png"/>
   <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
+    <script src="assets/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-    <script src="_static/js/theme.js"></script>
+        <script data-url_root="./" id="documentation_options" src="assets/documentation_options.js"></script>
+        <script src="assets/jquery.js"></script>
+        <script src="assets/underscore.js"></script>
+        <script src="assets/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="assets/doctools.js"></script>
+    <script src="assets/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Getting Started" href="getting-started.html" /> 
@@ -29,10 +30,10 @@
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
             <a href="#">
-            <img src="_static/banner_icon.png" class="logo" alt="Logo"/>
+            <img src="assets/banner_icon.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                latest
+                legacy
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -71,7 +72,6 @@
       <li><a href="#" class="icon icon-home"></a> &raquo;</li>
       <li>Official PMAT Documentation</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -80,7 +80,7 @@
            <div itemprop="articleBody">
              
   <section id="official-pmat-documentation">
-<h1>Official PMAT Documentation<a class="headerlink" href="#official-pmat-documentation" title="Permalink to this headline"></a></h1>
+<h1>Official PMAT Documentation<a class="headerlink" href="#official-pmat-documentation" title="Permalink to this heading"></a></h1>
 <p>The Precipitable-Water Model Analysis Tool is an open-source suite for analyzing the relationship between atmospheric brightness temperature and precipitable water.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -93,26 +93,60 @@
 <li class="toctree-l1"><a class="reference external" href="https://pmat.app/man/">Dccumentation Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="getting-started.html#introduction">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getting-started.html#installation-and-deployment-tutorial">Installation and Deployment Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#installation-and-deployment-tutorial">Installation and Deployment Tutorial</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getting-started.html#github">Github</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started.html#amazon-web-service-aws">Amazon Web Service (AWS)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started.html#google-cloud-console-gcloud">Google Cloud Console (GCloud)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started.html#local">Local</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started.html#development">Development</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="data-formatting.html">Working with data and PMAT</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="data-formatting.html#input-data-formatting">Input Data Formatting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="data-formatting.html#output-data-formatting">Output Data Formatting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-formatting.html#input-data-formatting">Input Data Formatting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="data-formatting.html#configuration-input">Configuration Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data-formatting.html#raw-data-file">Raw Data File</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="data-formatting.html#output-data-formatting">Output Data Formatting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="data-formatting.html#general-data-files">General data files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data-formatting.html#machine-learning">Machine learning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data-formatting.html#analytic-results">Analytic results</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="bug-reporting.html">Reporting Issues with PMAT</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="bug-reporting.html#bug-reporting">Bug reporting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bug-reporting.html#bug-reporting">Bug reporting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bug-reporting.html#opening-a-ticket">Opening a Ticket</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="bug-reporting.html#feature-requests">Feature requests</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#pmat-cirrus">PMAT Cirrus</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#pmat-altocumulus">PMAT Altocumulus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#pmat-cirrus">PMAT Cirrus</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="changelog.html#overall">Overall</a></li>
+<li class="toctree-l3"><a class="reference internal" href="changelog.html#data-input">Data-input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="changelog.html#setup-script">Setup-script</a></li>
+<li class="toctree-l3"><a class="reference internal" href="changelog.html#plots">Plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="changelog.html#web-applications">Web-applications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="changelog.html#documentation">Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="changelog.html#automation">Automation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#pmat-altocumulus">PMAT Altocumulus</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="changelog.html#id1">Overall</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="templates.html">Templates</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="templates.html#input-data-file">Input Data File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="templates.html#input-data-file">Input Data File</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="templates.html#pmat-yml"><code class="docutils literal notranslate"><span class="pre">_pmat.yml</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="pmat-reference.html">PMAT Reference</a><ul>

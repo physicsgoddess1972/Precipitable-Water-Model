@@ -1,0 +1,28 @@
+<script>$(document).ready(function(){$(".modal").modal({});});</script>
+<div class="modal" id="maintainers">
+	<div class="modal-content">
+		<h4>The Maintainers</h4>
+		<hr>
+        <table>
+            <tr>
+                {% for face in site.data.maintainers %}
+                    <td><i class="material-icons">face</i></td>
+                    <td>{{face.name}}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                {% for face in site.data.maintainers %}
+                    <td><i class="material-icons">public</i></td>
+                    <td><a target="_blank" href="https://{{face.webpage}}">{{face.webpage}}</a></td>
+                {% endfor %}
+            </tr>
+            <tr>
+                {% for face in site.data.maintainers %}
+                    <td><i class="material-icons">alternate_email</i></td>
+                    <td><a href="mailto://{{face.email}}">{{face.email}}</a></td>
+                {% endfor %}
+            </tr>
+        </table>
+	</div>
+	<div class="modal-footer"><a href="#!" class="modal-close waves-effect waves-teal btn-flat" data-dismiss="maintainers">Continue</a></div>
+</div>

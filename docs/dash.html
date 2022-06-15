@@ -1,10 +1,12 @@
-<!doctype html>
-<html>
+---
+title: Dash
+layout: null
+---
 <head>
     <title>Precipitable Water Model</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="description" content="Dashboard for the Precipitable Water Model Project">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 
     <!-- Add to homescreen for Chrome on Android -->
@@ -35,103 +37,80 @@
 	  z-index: 900;
 	}
     </style>
+    <script type="text/javascript">$(document).ready(function(){$(".tabs").tabs();});</script>
+    <script>
+        function getChcked() {
+            let chks = document.querySelectorAll('input[type="checkbox"]');
+            let checked = [];
+            for (var i = 0; i < chks.length; i++) {
+                if (chks[i].checked) {
+                    checked.push(chks[i].name)
+                }
+            }
+            return checked;
+        }
 
-    <script rel="preload">
-      $(function(){
-        $("#modal-maintainers").load("assets/external/modal_maintainers.html");
-        $("#modal-introduction").load("assets/external/modal_introduction.html");
-        $("#bottom-nav").load("assets/external/bottom_nav.html");
-        $("#side-nav").load("assets/external/side_nav.html");
-        $('#results-plots').load("assets/external/results.html");
-        $('#top-bar').load("assets/external/header.html");
-      });
-    </script>
+        function Down() {
+            let darr = [];
+            let iter = getChcked();
+            let name = $('.tabs .active').attr('href').split('#').pop().replace('-', '.') + '.pmat.app'
+            for (let i = 0; i < iter.length; i++){
+                let url = "https://" + name + '/raw/main/out/figs/' + iter[i] + '.pdf'
+                darr.push(url)
+            }
+            download_files(darr);
+            document.querySelectorAll('input[type=checkbox]').forEach(el => el.checked = false);
+        }
+	function Calc(A,B) {
+		let name = $('.tabs .active').attr('href').split('#').pop()
+		let x = document.getElementById("temp_in-" + name).value;
+		let tpw = A * Math.exp(B * x);
+		document.getElementById("tpw-" + name).innerHTML = tpw.toFixed(3).toString() + " mm";
+	}
+    </script>	
 </head>
 <body>
 <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
-	<header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
-
-    </header>
-<!--    <div class="demo-drawer mdl-layout__drawer mdl-color&#45;&#45;blue-grey-900 mdl-color-text&#45;&#45;blue-grey-50" id="side-nav"></div>-->
+	<header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600" id="top-bar">
+	{% include header.html %}
+	</header>
+	<div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50" id="side-nav">
+	{% include side_nav.html %}
+	</div>
     <main class="mdl-layout__content mdl-color--grey-100">
-        <div id="modal-maintainers"></div>
-<!--        <div id="modal-introduction"></div>-->
-<!--        <div class="mdl-grid demo-content">-->
-<!--            <div class="demo-cards mdl-cell mdl-cell&#45;&#45;4-col mdl-cell&#45;&#45;4-col-tablet mdl-grid mdl-grid&#45;&#45;no-spacing">-->
-<!--                <div class="demo-updates mdl-card mdl-shadow&#45;&#45;2dp">-->
-
-<!--                    <div class="mdl-card__title mdl-card&#45;&#45;expand mdl-color&#45;&#45;grey-900">-->
-<!--                        <h2 class="mdl-card__title-text">Project Updates</h2>-->
-<!--                    </div>-->
-<!--                  <div class="mdl-card__actions mdl-card&#45;&#45;border">-->
-<!--					  <div class="mdl-card__menu" style="text-align: center">-->
-<!--                          </div>-->
-<!--                  </div>-->
-<!--                    <div class="mdl-card__supporting-text mdl-color-text&#45;&#45;grey-600">-->
-<!--                        Wanting to use the model? Read up on the latest developments of the project.-->
-<!--                    </div>-->
-<!--                    <div class="mdl-card__actions mdl-card&#45;&#45;border">-->
-<!--                        <a href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/releases"-->
-<!--                           target="_blank" class="mdl-button mdl-js-button mdl-js-ripple-effect">New Releases</a>-->
-<!--                        <a href="index.html" target="_blank" class="mdl-button mdl-js-button mdl-js-ripple-effect"-->
-<!--                           style="float: right">Documentation</a>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="demo-cards mdl-cell mdl-cell&#45;&#45;4-col mdl-cell&#45;&#45;4-col-tablet mdl-grid mdl-grid&#45;&#45;no-spacing">-->
-<!--                <div class="demo-updates4 mdl-card mdl-shadow&#45;&#45;2dp">-->
-<!--                    <div class="mdl-card__title mdl-card&#45;&#45;expand mdl-color&#45;&#45;grey-900">-->
-<!--                        <h2 class="mdl-card__title-text" style="color: white">Research</h2>-->
-<!--                    </div>-->
-<!--                    <div class="mdl-card__supporting-text mdl-color-text&#45;&#45;grey-600">-->
-<!--                        Come look at our posters and the papers for this project-->
-<!--                    </div>-->
-<!--                    <div class="mdl-card__actions mdl-card&#45;&#45;border">-->
-<!--                        <a href="./research.html#posters" target="_blank"-->
-<!--                           class="mdl-button mdl-js-button mdl-js-ripple-effect">Posters</a>-->
-<!--                        <a href="https://amt.copernicus.org/preprints/amt-2021-130/" target="_blank"-->
-<!--                           style="float: right" class="mdl-button mdl-js-button mdl-js-ripple-effect">Paper</a>-->
-
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="demo-cards mdl-cell mdl-cell&#45;&#45;4-col mdl-cell&#45;&#45;4-col-tablet mdl-grid mdl-grid&#45;&#45;no-spacing">-->
-<!--                <div class="demo-updates2 mdl-card mdl-shadow&#45;&#45;2dp">-->
-<!--                    <div class="mdl-card__title mdl-card&#45;&#45;expand mdl-color&#45;&#45;grey-900">-->
-<!--                        <h2 class="mdl-card__title-text">Global Climate Change Initiatives</h2>-->
-<!--                    </div>-->
-<!--                    <div class="mdl-card__actions mdl-card&#45;&#45;border">-->
-<!--					  <span class="mdl-chip mdl-chip&#45;&#45;contact ">-->
-<!--						<a href="https://www.unenvironment.org/explore-topics/climate-change/about-climate-change/climate-change-initiatives-and-partnerships">-->
-<!--							<img class="mdl-chip__contact" src="https://cdn-icons-png.flaticon.com/512/197/197591.png">-->
-<!--							<span class="mdl-chip__text">U.N.</span>-->
-<!--						</a>-->
-<!--					  </span>-->
-<!--                        <span class="mdl-chip mdl-chip&#45;&#45;contact">-->
-<!--						<a href="https://www.govtrack.us/congress/bills/subjects/climate_change_and_greenhouse_gases/6040">-->
-<!--							<img class="mdl-chip__contact" src="https://cdn-icons-png.flaticon.com/512/197/197484.png">-->
-<!--							<span class="mdl-chip__text">U.S.</span>-->
-<!--						</a>-->
-<!--					</span>-->
-<!--                        <span class="mdl-chip mdl-chip&#45;&#45;contact">-->
-<!--						<a href="https://ec.europa.eu/clima/citizens/eu_en">-->
-<!--							<img class="mdl-chip__contact" src="https://cdn-icons-png.flaticon.com/512/197/197615.png">-->
-<!--							<span class="mdl-chip__text">Europe</span>-->
-<!--						</a>-->
-<!--					  </span>-->
-<!--                        <div class="mdl-layout-spacer"></div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--         <div id="results-plots"></div> -->
-<!--        <div class="mdl-grid demo-content">-->
-<!--            <div class="mdl-shadow&#45;&#45;2dp mdl-color&#45;&#45;white mdl-cell mdl-cell&#45;&#45;stretch mdl-cell&#45;&#45;12-col">-->
-<!--                <div class="mdl-card mdl-shadow&#45;&#45;2dp mdl-cell mdl-cell&#45;&#45;12-col">-->
-<!--                    <script src='https://darksky.net/map-embed/@temperature,39.000,-95.000,4.js?embed=true&timeControl=true&fieldControl=true&defaultField=temperature&defaultUnits=_c'></script>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
+        <div id="modal-maintainers">{% include modal_maintainers.html %}</div>
+        <div class="mdl-grid demo-content">
+            <div class="demo-cards mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-grid mdl-grid--no-spacing">
+                <div class="demo-updates2 mdl-card mdl-shadow--2dp">
+                    <div class="mdl-card__title mdl-card--expand mdl-color--grey-900">
+                        <h2 class="mdl-card__title-text">Global Climate Change Initiatives</h2>
+                    </div>
+                    <div class="mdl-card__actions mdl-card--border">
+					  <span class="mdl-chip mdl-chip--contact ">
+						<a href="https://www.unenvironment.org/explore-topics/climate-change/about-climate-change/climate-change-initiatives-and-partnerships">
+							<img class="mdl-chip__contact" src="https://cdn-icons-png.flaticon.com/512/197/197591.png">
+							<span class="mdl-chip__text">U.N.</span>
+						</a>
+					  </span>
+                        <span class="mdl-chip mdl-chip--contact">
+						<a href="https://www.govtrack.us/congress/bills/subjects/climate_change_and_greenhouse_gases/6040">
+							<img class="mdl-chip__contact" src="https://cdn-icons-png.flaticon.com/512/197/197484.png">
+							<span class="mdl-chip__text">U.S.</span>
+						</a>
+					</span>
+                        <span class="mdl-chip mdl-chip--contact">
+						<a href="https://ec.europa.eu/clima/citizens/eu_en">
+							<img class="mdl-chip__contact" src="https://cdn-icons-png.flaticon.com/512/197/197615.png">
+							<span class="mdl-chip__text">Europe</span>
+						</a>
+					  </span>
+                        <div class="mdl-layout-spacer"></div>
+                    </div>
+                </div>	    
+            </div>
+	{% include widget_deployment.html %}
+        </div>
+        {% include widget_results.html %}
         <footer class="mdl-mini-footer">
             <div class="mdl-mini-footer__left-section">
                 <div class="mdl-logo">Precipitable Water Model</div>
@@ -143,7 +122,6 @@
             <div class="mdl-mini-footer__right-section">
                 <div class="mdl-logo">Flag icons made by <a href="https://www.flaticon.com"
                                                             style="color: cyan">Freepik</a></div>
-
             </div>
         </footer>
     </main>
@@ -151,4 +129,3 @@
 <script src="assets/js/material.min.js"></script>
 <script src="assets/js/data-product-interface.js"></script>
 </body>
-</html>

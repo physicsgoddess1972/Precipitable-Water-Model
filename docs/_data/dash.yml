@@ -1,0 +1,8 @@
+- city: Socorro
+  state: NM
+  img: nmt.jpg
+  active: true
+- city: Rapid City
+  state: SD
+  img: sdsm.jpg
+  active: true

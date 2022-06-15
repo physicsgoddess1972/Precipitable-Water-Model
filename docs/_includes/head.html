@@ -1,0 +1,27 @@
+<script src='assets/js/legacy.js'></script>
+<script src='assets/js/flatdoc.js'></script>
+<script src='assets/js/script.js'></script>
+<script src="assets/js/layout.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/material.min.js"></script> 
+<script src="assets/js/materialize.min.js"></script>
+<!-- <script>
+console.log(document.getElementsByTagName('body')[0]);
+document.getElementsByTagName('body')[0].addEventListener('click', function(e) {
+	if (e.target.getAttribute('id') == 'pain' || e.target.getAttribute('id') == 'icon-of-pain'){
+		$("#pain").attr("aria-expanded","false");
+		$("#side-nav").attr("aria-hidden","true");
+		document.getElementById('side-nav').classList.add("is-visible");
+	} else if (e.target.classList.contains('mdl-navigation__link') || e.target.classList.contains('mdl-navigation')){} else {
+		$("#pain").attr("aria-expanded","true");
+		$("#side-nav").attr("aria-hidden","false");
+		document.getElementById('side-nav').classList.remove("is-visible");
+	}
+});
+</script> -->
+<script>
+  Flatdoc.run({
+   fetcher: Flatdoc.github('physicsgoddess1972/Precipitable-Water-Model', "{{page.mkdown}}", "{{page.branch}}")
+   //fetcher: Flatdoc.file('../file_name')
+  });
+</script>

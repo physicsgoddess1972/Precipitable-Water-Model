@@ -1,18 +1,19 @@
+
 ***********
 Changelog
 ***********
 
-===========
+============
 PMAT Cirrus
-===========
+============
 
 :Version: 2.0
 :Date: 6 Mar 2021
 :Tagline: New and Improved PMAT
 
--------
+--------
 Overall
--------
+--------
 
 - [Updated] Compatible with R 4.0
 

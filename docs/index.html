@@ -1,5 +1,9 @@
-<!doctype html>
-<html>
+---
+title: Home
+layout: null
+mkdown: README.md
+branch: master
+---
 <head>
 	<title>Precipitable Water Model</title>
 	<link rel="icon" href="assets/img/icon.png">
@@ -16,26 +20,43 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.12.0/devicon.min.css">
-
+	<script src="assets/js/jquery.min.js"></script>
+	<script rel="preload" src="assets/js/materialize.min.js"></script>
+	<script rel="preload" src="assets/js/bootstrap.min.js"></script>
 	<script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 	<link rel="stylesheet" href="assets/css/main.max.css">
 	<script src="assets/js/jquery.min.js"></script>
- 	<script type="text/javascript">var fname = "README.md"</script>
+<!--  	<script type="text/javascript">var fname = "README.md"</script>
 	<script type="text/javascript">var bname = "master"</script>
-	<script rel="preload" src="assets/js/header.js"></script>
+	<script rel="preload" src="assets/js/header.js"></script> -->
+	{% include head.html %}
+<!-- 	<script>
+	  Flatdoc.run({
+	   fetcher: Flatdoc.github('physicsgoddess1972/Precipitable-Water-Model', 'README.md', 'master')
+	   //fetcher: Flatdoc.file('../file_name')
+	  });
+	</script> -->
 </head>
 <body role='flatdoc'>
 <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header" id="page">
-	<header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600" id="top-bar"></header>
-	<div id="maintenance"></div>
-	<div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50" id="side-nav"></div>
+	<header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+	{% include header.html %}
+	</header>
+	{% if {{site.status}} != good %}
+		<div class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+			{% include maintenance_bar.html %}
+		</div>
+	{% endif %}
+	<div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
+	{% include side_nav.html %}
+	</div>
 	<main class="mdl-layout__content">
-		<div id="modal-maintainers"></div>
-		<div id="modal-introduction"></div>
+		<div id="modal-maintainers">{% include modal_maintainers.html %}</div>
 		<div class="menubar"></div>
 		<div role='flatdoc-content' class='content'></div>
-		<div id="bottom-nav"></div>
+		<div id="bottom-nav">{% include bottom_nav.html %}</div>
 	</main>
 </div>
+<script src="assets/js/material.min.js"></script>
 </body>
-</html>
+

@@ -1,0 +1,18 @@
+data:
+  clear:
+    total.count: 19
+  overcast:
+    total.count: 12
+  train.count: 7
+  fraction.kept: 0.5
+  nans: 1
+analysis:
+  coeff:
+    A: 19.7258
+    B: 0.0034
+  stdev: .inf
+  rmse:
+    mims: 19.3363
+    kelsey: 8.6369
+    yours: 5.9483
+site: "rapidcity-sd"
