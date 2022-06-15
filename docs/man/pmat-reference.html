@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PMAT Reference &mdash; PMAT Documentation</title>
+      <link rel="stylesheet" href="assets/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="assets/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="assets/css/custom.css" type="text/css" />
+    <link rel="shortcut icon" href="assets/icon.png"/>
+  <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="assets/documentation_options.js"></script>
+        <script src="assets/jquery.js"></script>
+        <script src="assets/underscore.js"></script>
+        <script src="assets/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="assets/doctools.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Templates" href="templates.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html">
+            <img src="assets/banner_icon.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                legacy
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference external" href="https://pmat.app">Project Home</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pmat.app/man/">Dccumentation Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-formatting.html">Working with data and PMAT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bug-reporting.html">Reporting Issues with PMAT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templates.html">Templates</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">PMAT Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#pmat-analysis-r">pmat_analysis.r</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pmat-processing-r">pmat_processing.r</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pmat-products-r">pmat_products.r</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pmat-run-r">pmat_run.r</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pmat-utility-r">pmat_utility.r</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/docs/pmat.pdf?raw=TRUE">Download Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Precipitable-Water Model Analysis Tool</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>PMAT Reference</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="pmat-reference">
+<h1>PMAT Reference<a class="headerlink" href="#pmat-reference" title="Permalink to this heading"></a></h1>
+<section id="pmat-analysis-r">
+<h2>pmat_analysis.r<a class="headerlink" href="#pmat-analysis-r" title="Permalink to this heading"></a></h2>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">module</dt>
+<dd class="field-odd"><p>Precipitable Water Model Analysis Tool: Analysis</p>
+</dd>
+<dt class="field-even">synopsis</dt>
+<dd class="field-even"><p>This module contains analysis functions</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="py function">
+<dt class="sig sig-object py" id="exp.regression">
+<span class="sig-prename descclassname"><span class="pre">exp.</span></span><span class="sig-name descname"><span class="pre">regression</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t=NULL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mean.out</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#exp.regression" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Detail</dt>
+<dd class="field-odd"><p>Function includes all of the stuff to generate the exponential regression model with intervals</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>t</strong> (<em>double</em>) – training fraction</p></li>
+<li><p><strong>mean.out</strong> (<em>list</em>) – the output of mean.filter</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>returns the data series and model statistics</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="lin.regression">
+<span class="sig-prename descclassname"><span class="pre">lin.</span></span><span class="sig-name descname"><span class="pre">regression</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lin.regression" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Detail</dt>
+<dd class="field-odd"><p>Linear regression function</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>x</strong> (<em>double</em>) – the domain of the dataset</p></li>
+<li><p><strong>y</strong> (<em>double</em>) – the range of the dataset</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>returns the data series and model statistics</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="data.partition">
+<span class="sig-prename descclassname"><span class="pre">data.</span></span><span class="sig-name descname"><span class="pre">partition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tr.sz=0.7</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#data.partition" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Detail</dt>
+<dd class="field-odd"><p>splits the data into a training/testing set</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>x</strong> (<em>double</em>) – domain of the data</p></li>
+<li><p><strong>y</strong> (<em>double</em>) – range of the data</p></li>
+<li><p><strong>tr.sz</strong> (<em>double</em>) – fraction of the data in the testing set</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a list containing the training and testing sets</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="iterative.analysis">
+<span class="sig-prename descclassname"><span class="pre">iterative.</span></span><span class="sig-name descname"><span class="pre">analysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mean.out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overcast=args$overcast</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iterative.analysis" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Detail</dt>
+<dd class="field-odd"><p>computes regression statistics and outputs to a yaml file</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>obool</strong> (<em>logical</em>) – determine whether to generate new _output.yml</p></li>
+<li><p><strong>mean.out</strong> (<em>list</em>) – output of mean.filter</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>iterative stats and _output.yml</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="lsvm">
+<span class="sig-name descname"><span class="pre">lsvm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tr.sz=0.7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed=sample(1:2^15</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">1)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lsvm" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Detail</dt>
+<dd class="field-odd"><p>Generates a Linear Support Vector Machine and draws the decision hyperplane and support vectors</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>x</strong> (<em>double</em>) – domain of dataset</p></li>
+<li><p><strong>y</strong> (<em>double</em>) – range of dataset</p></li>
+<li><p><strong>l</strong> (<em>double</em>) – labels of the dataset</p></li>
+<li><p><strong>tr.sz</strong> (<em>double</em>) – fraction of data to be used for model training</p></li>
+<li><p><strong>seed</strong> (<em>integer</em>) – the random seed</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>list of data, labels, and the coefficients</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="pmat-processing-r">
+<h2>pmat_processing.r<a class="headerlink" href="#pmat-processing-r" title="Permalink to this heading"></a></h2>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">module</dt>
+<dd class="field-odd"><p>Precipitable Water Model Analysis Tool: Pre-processing</p>
+</dd>
+<dt class="field-even">synopsis</dt>
+<dd class="field-even"><p>functions for preprocessing</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="py function">
+<dt class="sig sig-object py" id="colscheme">
+<span class="sig-name descname"><span class="pre">colscheme</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">range</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#colscheme" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Detail</dt>
+<dd class="field-odd"><p>a function that generates an array of colors based on the number of elements</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><p><strong>range</strong> (<em>list</em>) – a list of data series</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a list of colors</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mean.filter">
+<span class="sig-prename descclassname"><span class="pre">mean.</span></span><span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nan.out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mean.filter" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Detail</dt>
+<dd class="field-odd"><p>filters the data based on the comparison of the daily std and the average std of the dataset</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>nan.out</strong> (<em>list</em>) – the output of nan.filter</p></li>
+<li><p><strong>n</strong> (<em>integer</em>) – threshold</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>an array of indicies for PWV values to be analyzed</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="dna.filter">
+<span class="sig-prename descclassname"><span class="pre">dna.</span></span><span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fover</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dna.filter" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Detail</dt>
+<dd class="field-odd"><p>removes data labels as Do Not Analyze</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><p><strong>fover</strong> (<em>list</em>) – overcast.filter results</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>overcast.filter results with DNA points removed</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="nan.filter">
+<span class="sig-prename descclassname"><span class="pre">nan.</span></span><span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stuff</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nan.filter" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Detail</dt>
+<dd class="field-odd"><p>removes nan values from a set of lists</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><p><strong>stuff</strong> (<em>list</em>) – list of arrays</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>returns list with filtered data and the indicies with nans</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="inf.counter">
+<span class="sig-prename descclassname"><span class="pre">inf.</span></span><span class="sig-name descname"><span class="pre">counter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">snsr_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#inf.counter" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Detail</dt>
+<dd class="field-odd"><p>identifies the -Inf values</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>bool</strong> (<em>logical</em>) – decides if -Inf is not replaced with NaN</p></li>
+<li><p><strong>snsr_data</strong> (<em>list</em>) – the dataset</p></li>
+<li><p><strong>label</strong> (<em>character</em>) – the identifer for the dataset (e.g. sky, gro, skyo, groo)</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>data set that replaces all -Infs for NaN (If bool == FALSE).</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="index.norm">
+<span class="sig-prename descclassname"><span class="pre">index.</span></span><span class="sig-name descname"><span class="pre">norm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#index.norm" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Detail</dt>
+<dd class="field-odd"><p>calculates the normalized index of the dataset</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><p><strong>x</strong> (<em>double</em>) – data range</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>an array of values between 0 and 1</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="overcast.filter">
+<span class="sig-prename descclassname"><span class="pre">overcast.</span></span><span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">col_con</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col_date</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col_com</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pw_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">snsr_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cloud_bool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#overcast.filter" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Detail</dt>
+<dd class="field-odd"><p>Filters our data with overcast condition</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>col_con</strong> (<em>integer</em>) – column index for condition labels</p></li>
+<li><p><strong>col_date</strong> (<em>integer</em>) – column index for date stamp</p></li>
+<li><p><strong>col_com</strong> (<em>integer</em>) – column index for comments</p></li>
+<li><p><strong>pw_name</strong> (<em>list</em>) – pw measurement labels</p></li>
+<li><p><strong>snsr_name</strong> (<em>list</em>) – sensor labels</p></li>
+<li><p><strong>cloud_bool</strong> (<em>logical</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of lists containing either clear-sky/overcast data</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sky.processing">
+<span class="sig-prename descclassname"><span class="pre">sky.</span></span><span class="sig-name descname"><span class="pre">processing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">overcast</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sky.processing" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Detail</dt>
+<dd class="field-odd"><p>Computes average values and weighted averages</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><p><strong>overcast</strong> (<em>list</em>) – results of the overcast.filter function</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>series of arrays including average PWV, RH, etc.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="pmat-products-r">
+<h2>pmat_products.r<a class="headerlink" href="#pmat-products-r" title="Permalink to this heading"></a></h2>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">module</dt>
+<dd class="field-odd"><p>Precipitable Water Model Analysis Tool: Products</p>
+</dd>
+<dt class="field-even">synopsis</dt>
+<dd class="field-even"><p>plotting functions for PMAT</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="py function">
+<dt class="sig sig-object py" id="time.pwindex">
+<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">pwindex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datetime</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#time.pwindex" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Detail</dt>
+<dd class="field-odd"><p>Normalized PWV index for both clear sky and overcast data</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><p><strong>date</strong> – the datestamp of the data</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="time.nth_range">
+<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">nth_range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">range</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leg.lab</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylab</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datetime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overcast</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#time.nth_range" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Detail</dt>
+<dd class="field-odd"><p>Multirange Time Series plot series</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>date</strong> – the datestamp of the data</p></li>
+<li><p><strong>overcast</strong> (<em>bool</em>) – the condition of data (clear sky/overcast)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="time.composite">
+<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">composite</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">range</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylab</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datetime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overcast</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#time.composite" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Detail</dt>
+<dd class="field-odd"><p>Time Series composite plot series</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>date</strong> – the datestamp of the data</p></li>
+<li><p><strong>overcast</strong> (<em>bool</em>) – the condition of data (clear sky/overcast)</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A sky temperature time series plot</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="time.mono_composite">
+<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">mono_composite</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">range</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylab</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datetime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overcast</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#time.mono_composite" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Detail</dt>
+<dd class="field-odd"><p>Time Series composite plot series</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>date</strong> – the datestamp of the data</p></li>
+<li><p><strong>overcast</strong> (<em>bool</em>) – the condition of data (clear sky/overcast)</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A sky temperature time series plot</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="time.multiyear">
+<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">multiyear</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">range</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datetime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylab</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overcast</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#time.multiyear" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="analysis.nth_range">
+<span class="sig-prename descclassname"><span class="pre">analysis.</span></span><span class="sig-name descname"><span class="pre">nth_range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">overcast</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leg.lab</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#analysis.nth_range" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Detail</dt>
+<dd class="field-odd"><p>Super Average Plot with Exponential Fit</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><p><strong>overcast</strong> (<em>bool</em>) – the condition of data (clear sky/overcast)</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A sky temperature time series plot</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="analysis.regression">
+<span class="sig-prename descclassname"><span class="pre">analysis.</span></span><span class="sig-name descname"><span class="pre">regression</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">overcast</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">des</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iter</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#analysis.regression" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Detail</dt>
+<dd class="field-odd"><p>Super Average Plot with Exponential Fit</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><p><strong>overcast</strong> (<em>bool</em>) – the condition of data (clear sky/overcast)</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A sky temperature time series plot</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="analysis.svm">
+<span class="sig-prename descclassname"><span class="pre">analysis.</span></span><span class="sig-name descname"><span class="pre">svm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#analysis.svm" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pac.compare">
+<span class="sig-prename descclassname"><span class="pre">pac.</span></span><span class="sig-name descname"><span class="pre">compare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">overcast</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">des</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angular</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radial</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pac.compare" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Detail</dt>
+<dd class="field-odd"><p>Pac-Man plot of Super Average Plot</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><p><strong>overcast</strong> (<em>bool</em>) – the condition of data (clear sky/overcast)</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A sky temperature time series plot</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pac.regression">
+<span class="sig-prename descclassname"><span class="pre">pac.</span></span><span class="sig-name descname"><span class="pre">regression</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">overcast</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pac.regression" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Detail</dt>
+<dd class="field-odd"><p>Pac-Man residual plot</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><p><strong>overcast</strong> (<em>bool</em>) – the condition of data (clear sky/overcast)</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A sky temperature time series plot</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="chart.histogram">
+<span class="sig-prename descclassname"><span class="pre">chart.</span></span><span class="sig-name descname"><span class="pre">histogram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">range</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlabel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chart.histogram" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Detail</dt>
+<dd class="field-odd"><p>Histograms of defined quantities</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>range</strong> – a data range</p></li>
+<li><p><strong>xlabel</strong> – the xaxis label</p></li>
+<li><p><strong>title</strong> – the title of the histogram</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="poster.plots">
+<span class="sig-prename descclassname"><span class="pre">poster.</span></span><span class="sig-name descname"><span class="pre">plots</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">overcast</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mean.out</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#poster.plots" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Detail</dt>
+<dd class="field-odd"><p>The set of all poster</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><p><strong>overcast</strong> (<em>bool</em>) – the condition of data (clear sky/overcast)</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>All available poster plots</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="poster1">
+<span class="sig-name descname"><span class="pre">poster1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">...</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#poster1" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="poster2">
+<span class="sig-name descname"><span class="pre">poster2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">overcast</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mean.out</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#poster2" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Detail</dt>
+<dd class="field-odd"><p>The analytics poster plot</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><p><strong>overcast</strong> (<em>bool</em>) – the condition of data (clear sky/overcast)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sensor.chart">
+<span class="sig-prename descclassname"><span class="pre">sensor.</span></span><span class="sig-name descname"><span class="pre">chart</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">...</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sensor.chart" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Detail</dt>
+<dd class="field-odd"><p>overcast distribution charts</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sensor.time">
+<span class="sig-prename descclassname"><span class="pre">sensor.</span></span><span class="sig-name descname"><span class="pre">time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">overcast</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sensor.time" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Detail</dt>
+<dd class="field-odd"><p>Instrumentation time series plots</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="data.gen">
+<span class="sig-prename descclassname"><span class="pre">data.</span></span><span class="sig-name descname"><span class="pre">gen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">overcast</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dir</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#data.gen" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Detail</dt>
+<dd class="field-odd"><p>creates a datafile containing the date, avg temp, and avg pwv for a defined condition</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>overcast</strong> (<em>bool</em>) – the condition of the data (clear sky/overcast)</p></li>
+<li><p><strong>dir</strong> – directory path</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="data.ml">
+<span class="sig-prename descclassname"><span class="pre">data.</span></span><span class="sig-name descname"><span class="pre">ml</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#data.ml" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Detail</dt>
+<dd class="field-odd"><p>creates a datafile containing the machine learning relavant information</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><p><strong>dir</strong> – directory path</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="data.step">
+<span class="sig-prename descclassname"><span class="pre">data.</span></span><span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coef</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">S</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#data.step" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="data.final">
+<span class="sig-prename descclassname"><span class="pre">data.</span></span><span class="sig-name descname"><span class="pre">final</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clear.len</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">over.len</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train.len</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nan.len</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frac.kept</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coef</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">std</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rmse</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overcast=args$overcast</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#data.final" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="visual.products">
+<span class="sig-prename descclassname"><span class="pre">visual.</span></span><span class="sig-name descname"><span class="pre">products</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">set</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mean.out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datetime=datetime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overcast=args$overcast</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#visual.products" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Detail</dt>
+<dd class="field-odd"><p>saves plot sets</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>set</strong> (<em>character</em>) – the set identifier</p></li>
+<li><p><strong>overcast</strong> (<em>logical</em>) – ovecast boolean</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="pmat-run-r">
+<h2>pmat_run.r<a class="headerlink" href="#pmat-run-r" title="Permalink to this heading"></a></h2>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">module</dt>
+<dd class="field-odd"><p>Precipitable-Water Model Analysis Tool</p>
+</dd>
+<dt class="field-even">synopsis</dt>
+<dd class="field-even"><p>The main file for PMAT. Documentation available at &lt;<a class="reference external" href="https://docs.pmat.app">https://docs.pmat.app</a>&gt;.</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<section id="pmat-utility-r">
+<h2>pmat_utility.r<a class="headerlink" href="#pmat-utility-r" title="Permalink to this heading"></a></h2>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">module</dt>
+<dd class="field-odd"><p>Precipitable Water Model Analysis Tool: Utility</p>
+</dd>
+<dt class="field-even">synopsis</dt>
+<dd class="field-even"><p>general functions for PMAT</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="py function">
+<dt class="sig sig-object py" id="logg">
+<span class="sig-name descname"><span class="pre">logg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msglevel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">out.dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lev</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'INFO'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#logg" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Detail</dt>
+<dd class="field-odd"><p>creates log entries for _log.txt</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>msglevel</strong> (<em>character</em>) – </p></li>
+<li><p><strong>msg</strong> (<em>character</em>) – </p></li>
+<li><p><strong>dir</strong> (<em>character</em>) – </p></li>
+<li><p><strong>lev</strong> (<em>character</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="aloha.first">
+<span class="sig-prename descclassname"><span class="pre">aloha.</span></span><span class="sig-name descname"><span class="pre">first</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#aloha.first" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Detail</dt>
+<dd class="field-odd"><p>shows first time user information</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="aloha.startup">
+<span class="sig-prename descclassname"><span class="pre">aloha.</span></span><span class="sig-name descname"><span class="pre">startup</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#aloha.startup" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Detail</dt>
+<dd class="field-odd"><p>shows title banner for program</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="aloha.closing">
+<span class="sig-prename descclassname"><span class="pre">aloha.</span></span><span class="sig-name descname"><span class="pre">closing</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#aloha.closing" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Detail</dt>
+<dd class="field-odd"><p>cleans up files and ends the program</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="reset_time">
+<span class="sig-name descname"><span class="pre">reset_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datetime</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#reset_time" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Detail</dt>
+<dd class="field-odd"><p>A function that sets the time to 00:00:00</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><p><strong>datetime</strong> (<em>character</em>) – a Date or datetime object</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A datetime object with time 00:00:00</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="time_axis_init">
+<span class="sig-name descname"><span class="pre">time_axis_init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#time_axis_init" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Detail</dt>
+<dd class="field-odd"><p>A function that calculates the min, max, and position of the tick marks for</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><p><strong>date</strong> (<em>double</em>) – A date or datetime object</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The max, min, and tick mark positions</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="time_axis">
+<span class="sig-name descname"><span class="pre">time_axis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datetime</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#time_axis" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Detail</dt>
+<dd class="field-odd"><p>A function that sets the x-axis format for time series plots</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><p><strong>datetime</strong> (<em>double</em>) – A date or datetime object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="stnd_title">
+<span class="sig-name descname"><span class="pre">stnd_title</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">des</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overcast</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#stnd_title" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Detail</dt>
+<dd class="field-odd"><p>A function that generates the title based on</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>des</strong> (<em>character</em>) – the description of the plot</p></li>
+<li><p><strong>overcast</strong> (<em>logical</em>) – the sky condition</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a title string</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>character</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="templates.html" class="btn btn-neutral float-left" title="Templates" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Spencer Riley.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
