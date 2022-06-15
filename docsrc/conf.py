@@ -20,17 +20,19 @@ extensions = [
     'sphinx.ext.viewcode',
 ]
 
-
 # -- Options for HTML output
 html_title = 'PMAT Documentation'
 html_logo = 'banner_icon.png'
 html_favicon = 'icon.png'
 
-html_static_path = ['_static']
 html_css_files = [
     'css/custom.css',
 ]
+html_copy_source = False
+
 html_theme = 'sphinx_rtd_theme'
+
+html_static_path = ["assets"]
 
 html_theme_options = {
     'logo_only': True,
