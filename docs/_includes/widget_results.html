@@ -130,7 +130,9 @@
 									</div>
 									<div id="status-{{cities.city | remove: ' ' | downcase}}-{{cities.state | remove: ' ' | downcase}}" class="col s12">
 										<h5>Status</h5>
-										<img src="https://{{cities.city | remove: ' ' | downcase}}.{{cities.state | remove: ' ' | downcase}}.pmat.app/actions/workflows/main.yml/badge.svg?style=for-the-badge" alt="PMAT Run">
+										<a href="https://{{cities.city | remove: ' ' | downcase}}.{{cities.state | remove: ' ' | downcase}}.pmat.app/actions/workflows//main.yml" target="_blank">
+											<img src="https://{{cities.city | remove: ' ' | downcase}}.{{cities.state | remove: ' ' | downcase}}.pmat.app/actions/workflows/main.yml/badge.svg" alt="PMAT Run">
+										</a>
 									</div>
 								</div>
 							</div>
