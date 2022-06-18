@@ -39,16 +39,6 @@ layout: null
     </style>
     <script type="text/javascript">$(document).ready(function(){$(".tabs").tabs();});</script>
     <script>
-document.getElementById('select-box').addEventListener('change', function() {
-          dropdown = $('#select-box').val();
-            console.log(dropdown);
-          //first hide all tabs again when a new option is selected
-            $('.tabby').hide();
-          //then show the tab content of whatever option value was selected
-            $('#' + dropdown).show();
-        });
-</script>
-    <script>
         function getChcked() {
             let chks = document.querySelectorAll('input[type="checkbox"]');
             let checked = [];

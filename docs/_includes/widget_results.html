@@ -1,4 +1,3 @@
-
 <div class="mdl-grid demo-content">
 	<div class="mdl-shadow--2dp mdl-cell mdl-cell--stretch mdl-cell--12-col" style="background-color: white">
 		<div class="row">
@@ -9,22 +8,26 @@
 						<i class="material-icons">save</i>
 					</a>
 				</li>
-                <li class="col s3 tab">
-                    <select  id="select-box">
-						{% for cities in site.data.dash %}
-							{% if cities.active == true %}
-							<option value="{{cities.city | remove: ' ' | downcase}}-{{cities.state | remove: ' ' | downcase}}">{{cities.city}}, {{cities.state}}</option>
-							{% else %}
-							<option value="{{cities.city | remove: ' ' | downcase}}-{{cities.state | remove: ' ' | downcase}}" disabled>{{cities.city}}, {{cities.state}}</option>
-							{% endif %}
-						{% endfor %}
-                    </select>
-                </li>
+				{% for cities in site.data.dash %}
+					{% if cities.active == true %}
+						<li class="tab col s3">
+							<a href="#{{cities.city | remove: ' ' | downcase}}-{{cities.state | remove: ' ' | downcase}}">
+								{{cities.city}}, {{cities.state}}
+							</a>
+						</li>
+					{% else %}
+						<li class="tab col s3 disabled">
+							<a href="#{{cities.city | remove: ' ' | downcase}}-{{cities.state | remove: ' ' | downcase}}">
+								{{cities.city}}, {{cities.state}}
+							</a>
+						</li>
+					{% endif %}
+				{% endfor %}
 			</ul>
 		</div>
 			{% for cities in site.data.dash %}
 				{% if cities.active == true %}
-					<div class="col s12 tabby" id="{{cities.city | remove: ' ' | downcase}}-{{cities.state | remove: ' ' | downcase}}">
+					<div class="col s12" id="{{cities.city | remove: ' ' | downcase}}-{{cities.state | remove: ' ' | downcase}}">
 						<div style="display: flex;">
 							<div class="data-nav" style="height: 250px">
 								<div class="mdl-card__actions mdl-card--border">
