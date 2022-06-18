@@ -39,35 +39,30 @@ document.getElementById('select-box').addEventListener('change', function() {
 								<div class="mdl-card__actions mdl-card--border">
 									<div class="row">
 										<div class="col s12">
-											<div class="fixed-action-btn">
-												<a class="btn-floating btn-large red">
-												  <i class="large material-icons">double_arrow</i>
+											<ul class="tabs">
+												<li class="tab col s3"><a href="#clear-{{cities.city | remove: ' ' | downcase}}-{{cities.state | remove: ' ' | downcase}}">
+													<i class="material-icons">brightness_5</i></a>
+												</li>
+												<li class="tab col s3"><a href="#over-{{cities.city | remove: ' ' | downcase}}-{{cities.state | remove: ' ' | downcase}}">
+													<i class="material-icons">cloud</i></a>
+												</li>
+												<li class="tab col s3"><a href="#chart-{{cities.city | remove: ' ' | downcase}}-{{cities.state | remove: ' ' | downcase}}">
+													<i class="material-icons">insert_chart_outlined</i></a>
+												</li>
+												<li class="tab col s3"><a href="#poster-{{cities.city | remove: ' ' | downcase}}-{{cities.state | remove: ' ' | downcase}}">
+													<i class="material-icons">table_chart</i></a>
+												</li>
+												<li class="tab col s3"><a href="#data-{{cities.city | remove: ' ' | downcase}}-{{cities.state | remove: ' ' | downcase}}">
+													<i class="material-icons">description</i>
 												</a>
-												<ul class="tabs">
-													<li class="tab col s3"><a href="#clear-{{cities.city | remove: ' ' | downcase}}-{{cities.state | remove: ' ' | downcase}}">
-														<i class="material-icons">brightness_5</i></a>
-													</li>
-													<li class="tab col s3"><a href="#over-{{cities.city | remove: ' ' | downcase}}-{{cities.state | remove: ' ' | downcase}}">
-														<i class="material-icons">cloud</i></a>
-													</li>
-													<li class="tab col s3"><a href="#chart-{{cities.city | remove: ' ' | downcase}}-{{cities.state | remove: ' ' | downcase}}">
-														<i class="material-icons">insert_chart_outlined</i></a>
-													</li>
-													<li class="tab col s3"><a href="#poster-{{cities.city | remove: ' ' | downcase}}-{{cities.state | remove: ' ' | downcase}}">
-														<i class="material-icons">table_chart</i></a>
-													</li>
-													<li class="tab col s3"><a href="#data-{{cities.city | remove: ' ' | downcase}}-{{cities.state | remove: ' ' | downcase}}">
-														<i class="material-icons">description</i>
-													</a>
-													</li>
-													<li class="tab col s3"><a href="#data-product-{{cities.city | remove: ' ' | downcase}}-{{cities.state | remove: ' ' | downcase}}">
-														<i class="material-icons">query_stats</i></a>
-													</li>
-													<li class="tab col s3"><a href="#status-{{cities.city | remove: ' ' | downcase}}-{{cities.state | remove: ' ' | downcase}}">
-														<i class="material-icons">info_outline</i></a>
-													</li>
-												</ul>
-											</div>
+												</li>
+												<li class="tab col s3"><a href="#data-product-{{cities.city | remove: ' ' | downcase}}-{{cities.state | remove: ' ' | downcase}}">
+													<i class="material-icons">query_stats</i></a>
+												</li>
+												<li class="tab col s3"><a href="#status-{{cities.city | remove: ' ' | downcase}}-{{cities.state | remove: ' ' | downcase}}">
+													<i class="material-icons">info_outline</i></a>
+												</li>
+											</ul>
 										</div>
 									</div>
 									<div id="clear-{{cities.city | remove: ' ' | downcase}}-{{cities.state | remove: ' ' | downcase}}" class="col s12">
