@@ -1,13 +1,4 @@
-<script>
-document.getElementById('select-box').addEventListener('change', function() {
-          dropdown = $('#select-box').val();
-            console.log(dropdown);
-          //first hide all tabs again when a new option is selected
-            $('.tab-content').hide();
-          //then show the tab content of whatever option value was selected
-            $('#' + dropdown).show();
-        });
-</script>
+
 <div class="mdl-grid demo-content">
 	<div class="mdl-shadow--2dp mdl-cell mdl-cell--stretch mdl-cell--12-col" style="background-color: white">
 		<div class="row">
@@ -33,7 +24,7 @@ document.getElementById('select-box').addEventListener('change', function() {
 		</div>
 			{% for cities in site.data.dash %}
 				{% if cities.active == true %}
-					<div class="col s12 tab-content" id="{{cities.city | remove: ' ' | downcase}}-{{cities.state | remove: ' ' | downcase}}">
+					<div class="col s12 tabby" id="{{cities.city | remove: ' ' | downcase}}-{{cities.state | remove: ' ' | downcase}}">
 						<div style="display: flex;">
 							<div class="data-nav" style="height: 250px">
 								<div class="mdl-card__actions mdl-card--border">
