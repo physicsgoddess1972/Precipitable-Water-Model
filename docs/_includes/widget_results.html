@@ -1,7 +1,7 @@
 <script>
         let selected = ''
 
-        const toggleDisplay = (id, action = 'add') =>  document.getElementById(id).classList[action]("hidden");
+        const toggleDisplay = (id, action = 'remove') =>  document.getElementById(id).classList[action]("active");
         
         // Get event object
         function selectCategory({ target }) {
@@ -47,7 +47,7 @@
 		</div>
 			{% for cities in site.data.dash %}
 				{% if cities.active == true %}
-					<div class="col s12 hidden" id="{{cities.city | remove: ' ' | downcase}}-{{cities.state | remove: ' ' | downcase}}">
+					<div class="col s12" id="{{cities.city | remove: ' ' | downcase}}-{{cities.state | remove: ' ' | downcase}}">
 						<div style="display: flex;">
 							<div class="data-nav" style="height: 250px">
 								<div class="mdl-card__actions mdl-card--border">
