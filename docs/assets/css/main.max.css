@@ -19005,9 +19005,12 @@ input[type=checkbox]:not(:disabled).tabbed:focus~.lever::before,input[type=check
 .switch label input[type=checkbox][disabled]+.lever:after,.switch label input[type=checkbox][disabled]:checked+.lever:after {
     background-color: #949494
 }
+.hidden {
+    display: none
+}
+
 select {
     background-color: rgba(255,255,255,.9);
-    width: 100%;
     padding: 5px;
     border: 1px solid #f2f2f2;
     border-radius: 2px;
