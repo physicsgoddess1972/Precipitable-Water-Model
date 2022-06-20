@@ -1,3 +1,13 @@
+<script type="text/javascript">
+    $(document).ready(function(){
+            function val(){
+                d = document.getElementById("location").value;
+                console.log(d);
+	    	document.getElementById(d).tabs();
+            }
+            $("#location").on("change", val);
+    });
+</script>
 <div class="mdl-grid demo-content">
 	<div class="mdl-shadow--2dp mdl-cell mdl-cell--stretch mdl-cell--12-col" style="background-color: white">
 		<div class="row">
