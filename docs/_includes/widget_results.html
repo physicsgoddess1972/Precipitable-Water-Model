@@ -1,13 +1,4 @@
-<script type="text/javascript">
-    $(document).ready(function(){
-            function val(){
-                d = document.getElementById("location").value;
-                console.log(d);
-	    	document.getElementById(d).tabs();
-            }
-            $("#location").on("change", val);
-    });
-</script>
+
 <div class="mdl-grid demo-content">
 	<div class="mdl-shadow--2dp mdl-cell mdl-cell--stretch mdl-cell--12-col" style="background-color: white">
 		<div class="row">
@@ -18,15 +9,14 @@
 						<i class="material-icons">save</i>
 					</a>
 				</li>
-				<select id="location" class="tab col s3">
+<!-- 				<select id="location" class="tab col s3"> -->
 				{% for cities in site.data.dash %}
 					{% if cities.active == true %}
-<!-- 						<li class="tab col s3">
+						<li class="tab col s3">
 							<a href="#{{cities.city | remove: ' ' | downcase}}-{{cities.state | remove: ' ' | downcase}}">
 								{{cities.city}}, {{cities.state}}
 							</a>
-						</li> -->
-					 <option value="{{cities.city | remove: ' ' | downcase}}-{{cities.state | remove: ' ' | downcase}}">{{cities.city}}, {{cities.state}}</option>
+						</li>
 					{% else %}
 						<li class="tab col s3 disabled">
 							<a href="#{{cities.city | remove: ' ' | downcase}}-{{cities.state | remove: ' ' | downcase}}">
@@ -35,7 +25,7 @@
 						</li>
 					{% endif %}
 				{% endfor %}
-				</select>
+<!-- 				</select> -->
 			</ul>
 		</div>
 			{% for cities in site.data.dash %}
