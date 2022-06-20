@@ -8,13 +8,15 @@
 						<i class="material-icons">save</i>
 					</a>
 				</li>
+				<select id="location" class="tab col s3">
 				{% for cities in site.data.dash %}
 					{% if cities.active == true %}
-						<li class="tab col s3">
+<!-- 						<li class="tab col s3">
 							<a href="#{{cities.city | remove: ' ' | downcase}}-{{cities.state | remove: ' ' | downcase}}">
 								{{cities.city}}, {{cities.state}}
 							</a>
-						</li>
+						</li> -->
+					 <option value="{{cities.city | remove: ' ' | downcase}}-{{cities.state | remove: ' ' | downcase}}">{{cities.city}}, {{cities.state}}</option>
 					{% else %}
 						<li class="tab col s3 disabled">
 							<a href="#{{cities.city | remove: ' ' | downcase}}-{{cities.state | remove: ' ' | downcase}}">
@@ -23,6 +25,7 @@
 						</li>
 					{% endif %}
 				{% endfor %}
+				</select>
 			</ul>
 		</div>
 			{% for cities in site.data.dash %}
