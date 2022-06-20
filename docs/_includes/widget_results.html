@@ -1,4 +1,18 @@
+<script>
+        let selected = ''
 
+        const toggleDisplay = (id, action = 'add') =>  document.getElementById(id).classList[action]("hidden");
+        
+        // Get event object
+        function selectCategory({ target }) {
+          // Check if there's a selected element and hide it
+          if(selected && selected !== target.value) toggleDisplay(selected)
+          // Set selected to latest element
+          selected = target.value
+          // remove 'hidden' class from selected
+          return toggleDisplay(target.value, 'remove')
+        }
+</script>
 <div class="mdl-grid demo-content">
 	<div class="mdl-shadow--2dp mdl-cell mdl-cell--stretch mdl-cell--12-col" style="background-color: white">
 		<div class="row">
@@ -9,14 +23,15 @@
 						<i class="material-icons">save</i>
 					</a>
 				</li>
-<!-- 				<select id="location" class="tab col s3"> -->
+				<select id="location" class="tab col s3" onchange="selectCategory(event)">
 				{% for cities in site.data.dash %}
 					{% if cities.active == true %}
-						<li class="tab col s3">
+<!-- 						<li class="tab col s3">
 							<a href="#{{cities.city | remove: ' ' | downcase}}-{{cities.state | remove: ' ' | downcase}}">
 								{{cities.city}}, {{cities.state}}
 							</a>
-						</li>
+						</li> -->
+					<option value="{{cities.city | remove: ' ' | downcase}}-{{cities.state | remove: ' ' | downcase}}">{{cities.city}}, {{cities.state}}</option>
 					{% else %}
 						<li class="tab col s3 disabled">
 							<a href="#{{cities.city | remove: ' ' | downcase}}-{{cities.state | remove: ' ' | downcase}}">
@@ -25,7 +40,7 @@
 						</li>
 					{% endif %}
 				{% endfor %}
-<!-- 				</select> -->
+				</select>
 			</ul>
 		</div>
 			{% for cities in site.data.dash %}
