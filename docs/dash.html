@@ -37,7 +37,26 @@ layout: null
 	  z-index: 900;
 	}
     </style>
-    <script type="text/javascript">$(document).ready(function(){$(".tabs").tabs();});</script>
+    <script>
+        let selected = ''
+
+        const toggleDisplay = (id, action = 'add') =>  document.getElementById(id).classList[action]("hidden");
+
+        // Get event object
+        function selectCategory({ target }) {
+          // Check if there's a selected element and hide it
+          if(selected && selected !== target.value) toggleDisplay(selected)
+          // Set selected to latest element
+          selected = target.value
+          // remove 'hidden' class from selected
+          return toggleDisplay(target.value, 'remove')
+        }
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $(".tabs").tabs();
+        });
+    </script>
     <script>
         function getChcked() {
             let chks = document.querySelectorAll('input[type="checkbox"]');
@@ -53,6 +72,7 @@ layout: null
         function Down() {
             let darr = [];
             let iter = getChcked();
+            console.log($('.tabs .active'));
             let name = $('.tabs .active').attr('href').split('#').pop().replace('-', '.') + '.pmat.app'
             for (let i = 0; i < iter.length; i++){
                 let url = "https://" + name + '/raw/main/out/figs/' + iter[i] + '.pdf'
@@ -79,6 +99,11 @@ layout: null
 	</div>
     <main class="mdl-layout__content mdl-color--grey-100">
         <div id="modal-maintainers">{% include modal_maintainers.html %}</div>
+        {% if site.status != "good" %}
+            <div class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+                {% include maintenance_bar.html %}
+            </div>
+        {% endif %}
         <div class="mdl-grid demo-content">
             <div class="demo-cards mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-grid mdl-grid--no-spacing">
                 <div class="demo-updates2 mdl-card mdl-shadow--2dp">

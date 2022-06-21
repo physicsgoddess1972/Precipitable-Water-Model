@@ -25,7 +25,7 @@ layout: null
 	<header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600" id="top-bar">
 	{% include header.html %}
 	</header>
-	{% if {{site.status}} != good %}
+	{% if site.status != "good" %}
 		<div class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
 			{% include maintenance_bar.html %}
 		</div>

@@ -19,14 +19,6 @@ layout: null
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.12.0/devicon.min.css">
 	<script src="assets/js/jquery.min.js"></script>
 
-    <script rel="preload">
-        $(function(){
-    //        $("#modal-maintainers").load("_includes/modal_maintainers.html");
-            $("#bottom-nav").load("assets/external/bottom_nav.html");
-//            $("#side-nav").load("assets/external/side_nav.html");
-  //          $('#top-bar').load("assets/external/header.html");
-        });
-    </script>
 </head>
 <body>
 <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
@@ -38,7 +30,7 @@ layout: null
 	</div>
     <main class="mdl-layout__content">
         <div>{% include modal_maintainers.html %}</div>
-	{% if {{site.status}} != good %}
+	{% if site.status != "good" %}
 		<div class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
 			{% include maintenance_bar.html %}
 		</div>
@@ -55,22 +47,37 @@ layout: null
 						<p>
 							We would like to recognize the people that have contributed to this project.
 						</p>
+						{% assign i = 0 %}
+						{% assign siz = site.data.people.size | minus:1 %}
 						{% for people in site.data.people %}
-							<div class="collapsible_1 collab">
-								<div class="panel" style="margin-bottom: 0; padding-bottom: 2%;">
-									<h3>{{people.name}}</h3>
-									<img width="100%" src="https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/docs/docs/assets/img/people/{{people.image}}?raw=true/" alt="{{people.name}}">
-									<br>
-									<b style="font-weight: bold;">Role:</b> {{people.role}}
-									<hr>
-									{% if people.email != null %}
-										<a class="button" target="_blank" style="width: 49%; text-align: center" href="mailto:{{people.email}}"><i class="material-icons">email</i></a>
-									{% endif %}
-									{% if people.web != null %}
-										<a class="button" target="_blank" style="width: 49%; text-align: center" href="https://{{people.web}}"><i class="material-icons">public</i></a>
-									{% endif %}
+							{% assign remind = i | modulo: 2 %}
+							{% if remind == 0 %}
+								<div style="display: flex">
+							{% endif %}
+							<div style="flex: 50%">
+								<div class="collapsible_1 collab">
+									<div class="panel" style="margin-bottom: 0; padding-bottom: 2%;">
+										<h3>{{people.name}}</h3>
+										<img width="100%" src="https://github.com/physicsgoddess1972/Precipitable-Water-Model/blob/docs/docs/assets/img/people/{{people.image}}?raw=true/" alt="{{people.name}}">
+										<br>
+										<b style="font-weight: bold;">Role:</b> {{people.role}}
+										<hr>
+										{% if people.email != null %}
+											<a class="button" target="_blank" style="width: 49%; text-align: center" href="mailto:{{people.email}}"><i class="material-icons">email</i></a>
+										{% endif %}
+										{% if people.web != null %}
+											<a class="button" target="_blank" style="width: 49%; text-align: center" href="https://{{people.web}}"><i class="material-icons">public</i></a>
+										{% endif %}
+									</div>
 								</div>
 							</div>
+							{% if i == siz %}
+								<div style="flex: 50%"></div>
+							{% endif %}
+							{% if remind == 1 %}
+								</div>
+							{% endif %}
+							{% assign i = i | plus:1 %}
 						{% endfor %}
 					</div>
 				</div>
