@@ -1,0 +1,1096 @@
+Date,Vicki time,Conditions,1610 TE (Sky),FLIRi3 (Sky),AMES 1 (Sky),AMES 2 (Sky),AMES 3 (Sky),1610 TE (Ground),FLIRi3 (Ground),AMES 1 (Ground),AMES 2 (Ground),AMES 3 (Ground),comments
+2019-01-22,10:38,overcast,-13.3,-13.2,NaN,-Inf,-Inf,7.2,5.3,NaN,-Inf,-Inf,
+2019-01-23,13:38,clear sky,NaN,NaN,NaN,-Inf,-Inf,17,13.7,NaN,-Inf,-Inf,
+2019-01-24,10:38,clear sky,NaN,NaN,NaN,-Inf,-Inf,11.2,7.2,NaN,-Inf,-Inf,
+2019-01-25,15:02,clear sky,NaN,NaN,NaN,-Inf,-Inf,16.1,12.9,NaN,-Inf,-Inf,
+2019-01-26,11:33,clear sky,NaN,NaN,NaN,-Inf,-Inf,15.3,12.5,NaN,-Inf,-Inf,
+2019-01-27,14:33,clear sky,NaN,NaN,NaN,-Inf,-Inf,15.9,14.7,NaN,-Inf,-Inf,
+2019-01-28,11:28,clear sky,NaN,NaN,NaN,-Inf,-Inf,17.4,15.7,NaN,-Inf,-Inf,
+2019-01-29,10:26,overcast,-20,-21.5,NaN,-Inf,-Inf,34,37,NaN,-Inf,-Inf,
+2019-01-30,10:44,clear sky,NaN,NaN,NaN,-Inf,-Inf,10.2,8.7,NaN,-Inf,-Inf,
+2019-01-31,10:46,clear sky,NaN,NaN,NaN,-Inf,-Inf,10.2,9.8,NaN,-Inf,-Inf,
+2019-02-01,11:35,clear sky,NaN,NaN,NaN,-Inf,-Inf,15.3,13.5,NaN,-Inf,-Inf,
+2019-02-02,11:07,clear sky,NaN,NaN,NaN,-Inf,-Inf,16,13.2,NaN,-Inf,-Inf,
+2019-02-03,10:43,overcast,-11,-8.3,NaN,-Inf,-Inf,8.8,9.6,NaN,-Inf,-Inf,
+2019-02-04,12:43,clear sky,NaN,NaN,NaN,-Inf,-Inf,20.2,18.6,NaN,-Inf,-Inf,
+2019-02-05,10:33,clear sky,NaN,NaN,-31.2,-Inf,-Inf,9.8,8.9,9.9,-Inf,-Inf,
+2019-02-06,11:22,overcast,-13.6,-13.8,-13.8,-Inf,-Inf,17.1,15.6,17.6,-Inf,-Inf,
+2019-02-07,10:45,clear sky,NaN,NaN,NaN,-Inf,-Inf,10.2,10.6,11.4,-Inf,-Inf,
+2019-02-08,12:17,clear sky,NaN,NaN,-46.8,-Inf,-Inf,16.5,15.1,17.2,-Inf,-Inf,
+2019-02-09,11:49,clear sky,NaN,NaN,-34.9,-Inf,-Inf,15.4,13.3,14,-Inf,-Inf,
+2019-02-10,11:31,overcast,-17.3,-17.3,-10.7,-Inf,-Inf,8.2,7.8,7.7,-Inf,-Inf,
+2019-02-11,10:38,clear sky,NaN,NaN,-44.9,-Inf,-Inf,13,12.5,12.4,-Inf,-Inf,
+2019-02-12,10:32,clear sky,NaN,NaN,NaN,-Inf,-Inf,9.4,8.6,8.7,-Inf,-Inf,
+2019-02-13,11:00,overcast,-17.3,-15.7,-12.8,-Inf,-Inf,6.5,5.4,5.5,-Inf,-Inf,
+2019-02-14,10:55,overcast,NaN,-4.3,-0.7,-Inf,-Inf,NaN,8.3,8.5,-Inf,-Inf,T missing so no data
+2019-02-15,10:39,clear sky,NaN,NaN,-23.4,-Inf,-Inf,NaN,15.3,17.4,-Inf,-Inf,T missing so no data
+2019-02-16,11:10,clear sky,NaN,NaN,-40.3,-Inf,-Inf,NaN,11.3,11.1,-Inf,-Inf,T missing so no data
+2019-02-17,10:50,clear sky,NaN,NaN,-43.3,-Inf,-Inf,NaN,11.7,12.7,-Inf,-Inf,T missing so no data
+2019-02-18,10:30,clear sky,-40,NaN,-43.3,-Inf,-Inf,10.2,10.1,17.5,-Inf,-Inf,
+2019-02-19,10:40,clear sky,NaN,NaN,-38.4,-Inf,-Inf,8.8,8.7,9.1,-Inf,-Inf,
+2019-02-20,12:30,clear sky,NaN,NaN,-45.7,-Inf,-Inf,17.4,17.1,18.2,-Inf,-Inf,
+2019-02-21,9:00,overcast,NaN,-27.4,-20.8,-Inf,-Inf,5.4,4.3,3.1,-Inf,-Inf,
+2019-02-22,11:28,clear sky,NaN,NaN,-34.2,-Inf,-Inf,18.4,17.6,14,-Inf,-Inf,
+2019-02-23,9:35,clear sky,NaN,NaN,-45.2,-Inf,-Inf,5.4,4.9,6.5,-Inf,-Inf,
+2019-02-24,10:38,clear sky,NaN,NaN,-41.9,-Inf,-Inf,12.4,11.6,15.7,-Inf,-Inf,
+2019-02-25,11:10,clear sky,NaN,NaN,-40.9,-Inf,-Inf,17.4,16.9,17.4,-Inf,-Inf,
+2019-02-26,9:15,clear sky,NaN,NaN,-38.8,-Inf,-Inf,9.7,9.1,10.3,-Inf,-Inf,
+2019-02-27,17:25,clear sky,NaN,NaN,-27.9,-Inf,-Inf,13.1,13.3,13.4,-Inf,-Inf,
+2019-02-28,9:10,clear sky,NaN,NaN,-34.4,-Inf,-Inf,11.7,11.2,12.2,-Inf,-Inf,check NWS accuracy from here back
+2019-03-01,13:49,overcast,-12,-11.6,-7.3,-Inf,-Inf,23,22.3,23.8,-Inf,-Inf,
+2019-03-02,17:19,clear sky,NaN,NaN,-23.3,-Inf,-Inf,19.1,18.6,19.1,-Inf,-Inf,
+2019-03-03,14:36,overcast,-10.9,-9.4,-24.5,-Inf,-Inf,31.8,31.5,33.1,-Inf,-Inf,
+2019-03-04,14:01,clear sky,NaN,NaN,-31.3,-Inf,-Inf,30.3,33.2,34.8,-Inf,-Inf,
+2019-03-05,10:38,clear sky,NaN,NaN,-33.7,-Inf,-Inf,22.5,21.4,23.4,-Inf,-Inf,
+2019-03-06,11:45,clear sky,NaN,NaN,-27.8,-Inf,-Inf,26.8,26.2,29.4,-Inf,-Inf,
+2019-03-07,9:27,overcast,NaN,-32.3,-16.4,-Inf,-Inf,14.5,13.6,13.9,-Inf,-Inf,
+2019-03-08,12:39,overcast,NaN,-27.3,-12.4,-Inf,-Inf,22.5,21.8,22.9,-Inf,-Inf,
+2019-03-09,13:10,clear sky,NaN,NaN,-36.3,-Inf,-Inf,29.3,28.6,30.4,-Inf,-Inf,
+2019-03-10,11:03,clear sky,-16.7,NaN,-11.2,-Inf,-Inf,12.8,NaN,11.1,-Inf,-Inf,Dead battery on FLIR
+2019-03-11,12:38,overcast,-2.2,-6.5,-10.4,-Inf,-Inf,26.6,25.5,28.8,-Inf,-Inf,
+2019-03-12,9:20,overcast,-17.6,-24.9,-16.2,-Inf,-Inf,14,12.6,12.4,-Inf,-Inf,
+2019-03-13,10:25,clear sky,NaN,NaN,-37.9,-Inf,-Inf,6.9,6.3,6.2,-Inf,-Inf,
+2019-03-14,11:55,clear sky,NaN,NaN,-41.9,-Inf,-Inf,20.4,20.6,21.1,-Inf,-Inf,
+2019-03-15,13:32,clear sky,NaN,NaN,-37.2,-Inf,-Inf,27.6,26.6,28.3,-Inf,-Inf,
+2019-03-16,11:29,clear sky,NaN,NaN,-29.4,-Inf,-Inf,21,20.2,22.2,-Inf,-Inf,
+2019-03-17,11:20,clear sky,NaN,NaN,-35.7,-Inf,-Inf,21,20.1,21.8,-Inf,-Inf,
+2019-03-18,11:43,clear sky,NaN,NaN,-30.6,-Inf,-Inf,25.5,25.3,27.3,-Inf,-Inf,
+2019-03-19,10:47,overcast,-18.7,-19.3,-14.7,-Inf,-Inf,20.4,19.4,19.6,-Inf,-Inf,
+2019-03-20,11:02,clear sky,NaN,NaN,-30.5,-Inf,-Inf,23.5,23.3,24.8,-Inf,-Inf,
+2019-03-21,11:00,overcast,1.9,-2.3,2.2,-Inf,-Inf,16.4,15.2,14.7,-Inf,-Inf,
+2019-03-22,12:15,clear sky,NaN,NaN,-32.6,-Inf,-Inf,28,27.5,27.2,-Inf,-Inf,
+2019-03-23,13:48,clear sky,NaN,NaN,-22.1,-Inf,-Inf,31.5,31.2,33.4,-Inf,-Inf,
+2019-03-24,10:56,clear sky,NaN,-29.6,-22,-Inf,-Inf,20.4,19.7,19.2,-Inf,-Inf,
+2019-03-25,10:48,clear sky,NaN,NaN,-36.1,-Inf,-Inf,24.5,24.1,25.5,-Inf,-Inf,
+2019-03-26,10:49,clear sky,NaN,NaN,-23.8,-Inf,-Inf,23,22.8,24.2,-Inf,-Inf,
+2019-03-27,12:35,clear sky,NaN,NaN,-15.1,-Inf,-Inf,34.7,34.9,36.7,-Inf,-Inf,
+2019-03-28,9:57,clear sky,NaN,NaN,-26.5,-Inf,-Inf,29.5,29.8,31.2,-Inf,-Inf,
+2019-03-29,10:57,clear sky,NaN,NaN,-38.1,-Inf,-Inf,30.7,31,32.5,-Inf,-Inf,
+2019-03-30,10:32,clear sky,NaN,NaN,-37.8,-Inf,-Inf,22,21.7,22.4,-Inf,-Inf,
+2019-03-31,10:25,overcast,NaN,-38.3,-23.4,-Inf,-Inf,17.4,15.7,16.1,-Inf,-Inf,
+2019-04-01,11:22,clear sky,NaN,NaN,-36.4,-Inf,-Inf,21.5,20.8,22.2,-Inf,-Inf,
+2019-04-02,10:36,overcast,NaN,-30.5,-17.4,-Inf,-Inf,19.5,19.1,19.9,-Inf,-Inf,
+2019-04-03,10:46,clear sky,NaN,NaN,-23.3,-Inf,-Inf,28.9,29.4,31.8,-Inf,-Inf,
+2019-04-04,11:00,clear sky,NaN,NaN,-27.1,-Inf,-Inf,28,27.4,29.9,-Inf,-Inf,
+2019-04-05,11:49,clear sky,NaN,NaN,-20.7,-Inf,-Inf,29.9,29.3,31.7,-Inf,-Inf,
+2019-04-06,9:15,clear sky,NaN,NaN,-31.1,-Inf,-Inf,17.8,17.4,18.2,-Inf,-Inf,
+2019-04-07,12:48,clear sky,NaN,NaN,-22.6,-Inf,-Inf,36.4,37.6,39.1,-Inf,-Inf,
+2019-04-08,12:10,clear sky,NaN,NaN,-23.9,-Inf,-Inf,36.8,37.3,39.8,-Inf,-Inf,
+2019-04-09,9:08,clear sky,NaN,NaN,-29.2,-Inf,-Inf,20.4,20.7,21.6,-Inf,-Inf,
+2019-04-10,9:57,clear sky,NaN,NaN,-30.1,-Inf,-Inf,25.9,27.3,26.4,-Inf,-Inf,
+2019-04-11,10:22,overcast,NaN,-31.8,-21.8,-Inf,-Inf,17.8,17.7,17,-Inf,-Inf,
+2019-04-12,13:27,overcast,-8.6,-13.2,-3.3,-Inf,-Inf,25.5,24.8,25.5,-Inf,-Inf,
+2019-04-13,9:13,overcast,-11.3,-4,-3.4,-Inf,-Inf,27.6,27,28.1,-Inf,-Inf,
+2019-04-14,11:15,clear sky,NaN,NaN,-31.7,-Inf,-Inf,28,27.7,29.2,-Inf,-Inf,
+2019-04-15,13:15,clear sky,NaN,NaN,-15.5,-Inf,-Inf,41.2,40.9,43.9,-Inf,-Inf,
+2019-04-16,9:13,clear sky,NaN,NaN,-28.2,-Inf,-Inf,22.5,23.1,23.7,-Inf,-Inf,
+2019-04-17,10:52,overcast,3.4,2.9,2.7,-Inf,-Inf,16.6,15.6,15.2,-Inf,-Inf,it was raining when measurements were taken
+2019-04-18,9:22,clear sky,NaN,NaN,-28.6,-Inf,-Inf,17.4,16.5,17.5,-Inf,-Inf,
+2019-04-19,10:30,clear sky,NaN,NaN,-27.5,-Inf,-Inf,27.2,27.8,28.8,-Inf,-Inf,measurements taken by Sooraj Bhatia as Vicki doing pilgrimage to Chimayo
+2019-04-20,16:26,clear sky,NaN,NaN,-18.8,-Inf,-Inf,40.5,40.5,43.2,-Inf,-Inf,later measurements due to heat stroke
+2019-04-21,10:45,clear sky,NaN,NaN,-24.9,-Inf,-Inf,33.9,33.8,35.9,-Inf,-Inf,
+2019-04-22,10:50,overcast,NaN,-24.2,-18.7,-Inf,-Inf,25.9,25.2,26.2,-Inf,-Inf,
+2019-04-23,9:22,clear sky,NaN,NaN,-24.7,-Inf,-Inf,23.5,23.5,24.5,-Inf,-Inf,
+2019-04-24,11:21,clear sky,NaN,NaN,-22.2,-Inf,-Inf,33.1,32.9,34.2,-Inf,-Inf,
+2019-04-25,8:55,clear sky,NaN,NaN,-24.8,-Inf,-Inf,20.4,20.4,21.8,-Inf,-Inf,
+2019-04-26,11:20,clear sky,NaN,NaN,-14.7,-Inf,-Inf,38.1,37.9,40.4,-Inf,-Inf,
+2019-04-27,10:54,clear sky,NaN,NaN,-21,-Inf,-Inf,37.3,37.7,39.3,-Inf,-Inf,
+2019-04-28,10:31,clear sky,NaN,NaN,-21.4,-Inf,-Inf,35.1,34.9,38.2,-Inf,-Inf,
+2019-04-29,10:50,clear sky,NaN,NaN,-22.2,-Inf,-Inf,33.1,32.7,35.2,-Inf,-Inf,
+2019-04-30,10:50,clear sky,NaN,NaN,-22.3,-Inf,-Inf,35.9,35.6,37.8,-Inf,-Inf,
+2019-05-01,11:10,clear sky,NaN,NaN,-24.4,-Inf,-Inf,35.9,36.1,38.3,-Inf,-Inf,
+2019-05-02,10:23,clear sky,NaN,NaN,-25.9,-Inf,-Inf,32.7,33.2,34.7,-Inf,-Inf,
+2019-05-03,11:10,clear sky,NaN,NaN,-25.7,-Inf,-Inf,36.3,36.5,37.6,-Inf,-Inf,
+2019-05-04,10:24,clear sky,NaN,NaN,-28.8,-Inf,-Inf,32.3,32.8,34.1,-Inf,-Inf,
+2019-05-05,9:35,clear sky,NaN,NaN,-25.4,-Inf,-Inf,29.5,30.2,31.7,-Inf,-Inf,
+2019-05-06,13:22,clear sky,NaN,NaN,-5.7,-Inf,-Inf,43.7,45.3,47.8,-Inf,-Inf,
+2019-05-07,10:45,overcast,-19.6,-20.8,-17,-Inf,-Inf,24,23.5,24.6,-Inf,-Inf,
+2019-05-08,9:51,clear sky,NaN,NaN,-21.9,-Inf,-Inf,30.3,30.1,32.4,-Inf,-Inf,
+2019-05-09,9:45,clear sky,NaN,NaN,-17.5,-Inf,-Inf,37.7,37.6,39.4,-Inf,-Inf,
+2019-05-10,10:38,overcast,3.9,2.4,2,-Inf,-Inf,16.2,14.6,13.8,-Inf,-Inf,
+2019-05-11,10:12,clear sky,NaN,NaN,-8.8,-Inf,-Inf,25.9,24.9,26.6,-Inf,-Inf,
+2019-05-12,10:50,clear sky,NaN,NaN,-20.1,-Inf,-Inf,31.5,31.6,33.1,-Inf,-Inf,
+2019-05-13,10:40,clear sky,NaN,NaN,-21.3,-Inf,-Inf,32.3,36.3,33.7,-Inf,-Inf,
+2019-05-14,10:38,clear sky,NaN,NaN,-18,-16.7,-Inf,34.7,35.2,36.9,37.5,-Inf,
+2019-05-15,11:12,clear sky,NaN,NaN,-13.2,-11.6,-Inf,39.3,40.2,42.2,43.3,-Inf,
+2019-05-16,11:03,overcast,-10.5,-13.4,1.2,1.8,-Inf,30.7,30.1,31.6,31.8,-Inf,
+2019-05-17,12:15,overcast,-6.8,-6.1,3.3,3.9,-Inf,40.1,37.7,38,37.9,-Inf,
+2019-05-18,12:55,clear sky,NaN,NaN,-17.1,-20.5,-Inf,42.2,41.5,45.2,45.7,-Inf,
+2019-05-19,12:15,overcast,-13.3,-13.8,-5.2,-4.2,-Inf,22.5,22.2,22.4,22.6,-Inf,
+2019-05-20,14:05,clear sky,NaN,NaN,-6.8,-7.9,-Inf,37.7,35.9,39.5,40.2,-Inf,
+2019-05-21,17:09,clear sky,NaN,NaN,-15.3,-17.9,-Inf,34.7,35.8,37.1,37.1,-Inf,
+2019-05-22,9:51,clear sky,NaN,NaN,-26,-25.4,-Inf,28.5,28.2,31.5,30.8,-Inf,
+2019-05-23,9:32,clear sky,NaN,NaN,-25.5,-21.2,-Inf,27.6,28.5,29.6,31.7,-Inf,
+2019-05-24,10:35,clear sky,NaN,NaN,-26.8,-26.2,-Inf,32.7,33.3,35,35.5,-Inf,
+2019-05-25,10:28,clear sky,NaN,NaN,-26.1,-22.3,-Inf,35.1,35,36.9,37.9,-Inf,
+2019-05-26,11:48,clear sky,NaN,NaN,-15.8,-15.5,-Inf,40.5,40.6,43.3,43.8,-Inf,
+2019-05-27,10:40,clear sky,NaN,NaN,-24.1,-20.9,-Inf,33.9,34.4,36.7,37.6,-Inf,
+2019-05-28,10:22,clear sky,NaN,NaN,-29.6,-26.9,-Inf,31.5,32.4,33.6,34.5,-Inf,
+2019-05-29,10:59,clear sky,NaN,NaN,-22.4,-18.9,-Inf,37.7,37.9,39.7,40.5,-Inf,
+2019-05-30,14:32,overcast,NaN,-27.9,8.4,6.2,-Inf,46.5,47.9,50.2,49.8,-Inf,
+2019-05-31,13:38,clear sky,NaN,-39.3,-9.5,-10.2,-Inf,45.8,46.4,50.9,50.3,-Inf,
+2019-06-01,19:03,clear sky,NaN,-32,-10.2,-9.9,-Inf,24,22.2,22.7,23.5,-Inf,
+2019-06-02,10:57,clear sky,NaN,-30.5,-8.4,-6.6,-Inf,37.3,37.7,39.6,40.2,-Inf,
+2019-06-03,13:53,clear sky,NaN,-32.1,-1.6,-2.7,-Inf,46.9,47.9,51,51.2,-Inf,
+2019-06-04,17:38,overcast,-9.8,-11.9,1.3,2.8,-Inf,31.5,31.8,32.2,32.4,-Inf,
+2019-06-05,17:51,overcast,-17.6,-18.1,-2.8,-1.9,-Inf,31.5,31.6,32.4,32.8,-Inf,
+2019-06-06,10:38,clear sky,NaN,NaN,-14.9,-12.1,-Inf,35.5,35.8,37.5,38.7,-Inf,
+2019-06-07,9:53,overcast,NaN,-26.9,-10.9,-12,-Inf,33.1,32.9,34.2,34.5,-Inf,
+2019-06-08,10:53,clear sky,NaN,-37.5,-10.3,-9.1,-Inf,41.2,41.6,44.1,44.7,-Inf,
+2019-06-09,11:10,clear sky,NaN,NaN,-17.1,-15.8,-Inf,41.9,42.1,45.1,45.6,-Inf,
+2019-06-10,10:32,overcast,-15,-18.2,-2.5,0.7,-Inf,33.5,33.8,34.8,36,-Inf,
+2019-06-11,10:40,clear sky,NaN,-38.8,-13.7,-12.8,-Inf,35.1,35.1,38,37.2,-Inf,
+2019-06-12,19:11,overcast,NaN,-21.8,-4.3,-3,-Inf,35.1,35.4,36.2,36.9,-Inf,
+2019-06-13,19:05,overcast,NaN,-8.5,-2,-2.1,-Inf,32.7,33.2,34.4,34.5,-Inf,
+2019-06-14,11:01,clear sky,NaN,-36.6,-8.7,-6.6,-Inf,41.2,44.1,44.3,44.7,-Inf,
+2019-06-15,11:02,clear sky,NaN,NaN,-17.3,-14.2,-Inf,41.9,43.1,45.1,45.5,-Inf,
+2019-06-16,10:45,clear sky,NaN,-37.3,-10.8,-8.8,-Inf,41.2,42.5,44,45.1,-Inf,
+2019-06-17,10:48,clear sky,NaN,-24.7,-6.2,-4.7,-Inf,40.5,41.3,42.4,42.6,-Inf,
+2019-06-18,16:45,clear sky,NaN,-38.6,-12.2,-11.1,-Inf,38.9,38.4,39.3,39.8,-Inf,
+2019-06-19,15:08,clear sky,NaN,-38.2,-9.7,-7.1,-Inf,50,50.2,52.7,54.2,-Inf,
+2019-06-20,11:48,clear sky,NaN,-37.9,-9,-8.1,-Inf,45.5,48.9,50.3,50.1,-Inf,
+2019-06-21,9:39,clear sky,NaN,NaN,-20,-18,-Inf,34.3,35.1,35.9,36.8,-Inf,
+2019-06-22,16:50,clear sky,NaN,NaN,-14.6,-14.1,-Inf,41.5,42,43,43.3,-Inf,
+2019-06-23,13:28,clear sky,NaN,NaN,-12.2,-12.2,-Inf,50,49.8,52.7,53,-Inf,
+2019-06-24,18:05,clear sky,NaN,-35.4,-10.9,-12,-Inf,38.5,39.1,41.6,42.3,-Inf,
+2019-06-25,18:38,clear sky,NaN,NaN,-12.4,-10.1,-Inf,38.5,37.9,38.9,40.5,-Inf,
+2019-06-26,9:45,clear sky,NaN,-38,-7,-8.2,-Inf,38.5,38.3,42.9,42.1,-Inf,
+2019-06-27,19:42,overcast,-9.8,-6.5,2.7,2.8,-Inf,30.7,30.5,31.5,31.6,-Inf,sprinkling
+2019-06-28,8:48,clear sky,NaN,-27.6,-10.1,-9.7,-Inf,28.9,28.9,30.3,30.5,-Inf,
+2019-06-29,10:05,clear sky,NaN,-29.4,-4.7,-3.8,-Inf,40.9,41.1,43.7,43.6,-Inf,
+2019-06-30,10:43,clear sky,NaN,-25.7,-7.2,-5.9,-Inf,41.4,41.2,43.3,43.6,-Inf,
+2019-07-01,18:20,overcast,-3,-14.5,4.6,4.7,-Inf,37.3,37.6,38.3,38.8,-Inf,
+2019-07-02,11:14,clear sky,NaN,-32,-3.5,-1.9,-Inf,45.8,46.5,49.7,50.1,-Inf,
+2019-07-03,10:26,clear sky,NaN,-36.1,-8.2,-7.8,-Inf,42.2,43.6,45.8,45.7,-Inf,
+2019-07-04,16:46,clear sky,NaN,-32.9,-6.7,-5.6,-Inf,48.9,50.3,52.3,53.2,-Inf,
+2019-07-05,9:22,clear sky,NaN,NaN,-9.7,-9.8,-Inf,35.5,36.5,40.1,38.3,-Inf,
+2019-07-06,18:22,overcast,-2.2,-3.8,6.8,7.8,-Inf,33.1,33.4,33.9,34.3,-Inf,
+2019-07-07,16:06,clear sky,NaN,-19,-2.3,-1,-Inf,40.9,41.3,42,42.8,-Inf,
+2019-07-08,10:26,clear sky,NaN,-34.7,-8.8,-8.3,-Inf,38.1,38,40.7,40.8,-Inf,
+2019-07-09,11:43,clear sky,NaN,NaN,-13.7,-11.9,-Inf,43.4,43.6,47.4,48,-Inf,
+2019-07-10,15:21,clear sky,NaN,-36.3,-6.8,-4.9,-Inf,53.9,54.9,57.5,57.9,-Inf,
+2019-07-11,10:14,clear sky,NaN,-23.7,-3.9,-1.9,-Inf,41.9,42.7,44.5,44.6,-Inf,
+2019-07-12,14:22,clear sky,NaN,-33.6,-9.8,-8.2,-Inf,36.4,37.2,38.7,38.5,-Inf,
+2019-07-13,19:53,overcast,-6.2,-10.8,11.1,10.3,-Inf,37.7,38.5,39.3,39.6,-Inf,
+2019-07-14,16:36,overcast,-19.6,-16,1,2.4,-Inf,41.2,41.7,43,43.7,-Inf,
+2019-07-15,10:22,clear sky,NaN,-26.6,-4.2,-1.9,-Inf,43,43.6,46.1,47.2,-Inf,
+2019-07-16,8:58,clear sky,NaN,-24.5,-5.3,-4.4,-Inf,33.1,33.7,35.4,35.2,-Inf,
+2019-07-17,10:04,clear sky,NaN,-21.3,-4.2,-2.9,-Inf,36.8,37.3,39.2,39.3,-Inf,
+2019-07-18,10:10,clear sky,NaN,-29.7,-6,-3.4,-Inf,40.9,41.1,43.4,44.2,-Inf,
+2019-07-19,10:39,clear sky,NaN,-30.5,-5.3,-3.5,-Inf,40.9,41.5,44.7,45.5,-Inf,
+2019-07-20,10:20,clear sky,NaN,-29,-3.3,-2.9,-Inf,42.7,42.5,45.3,45.7,-Inf,
+2019-07-21,19:09,overcast,8,7.2,14.4,14.9,-Inf,37.3,37.7,38.4,38.6,-Inf,
+2019-07-22,8:48,clear sky,NaN,-15.9,-2.3,-3,-Inf,38.7,35.9,36.2,36.9,-Inf,
+2019-07-23,10:03,clear sky,NaN,-18.5,18.9,19.3,-Inf,39.7,40,41.5,41.3,-Inf,
+2019-07-24,15:39,clear sky,NaN,-25.6,-3.3,-1.9,-Inf,52.5,52.7,54.9,54.8,-Inf,
+2019-07-25,10:20,clear sky,NaN,-23.9,-2.9,-1.6,-Inf,41.9,41.2,44.2,44.4,-Inf,talked with Frank at the EPZ NWS office about 12Z reading anomaly
+2019-07-26,10:23,overcast,-10.5,-10.2,6.8,8.1,-Inf,39.3,41.9,41.2,43.3,-Inf,
+2019-07-27,9:29,clear sky,NaN,-22.5,-4.6,-3.1,-Inf,36.4,37.1,38.3,38.7,-Inf,
+2019-07-28,9:34,overcast,4.2,-6,4.4,3.7,-Inf,36.4,37.5,37.2,37.1,-Inf,
+2019-07-29,10:19,clear sky,NaN,-22.6,-2,-1.9,-Inf,41.2,41.8,43.7,43.6,-Inf,
+2019-07-30,10:39,clear sky,NaN,-22.3,-2.4,-3,-Inf,41.5,43.6,44.5,44.3,-Inf,
+2019-07-31,10:53,clear sky,NaN,-25.5,-1.5,-1.6,-Inf,43.4,43.6,46.5,46.7,-Inf,
+2019-08-01,9:54,clear sky,NaN,-22.7,-3.3,-1.9,-Inf,39.3,38.8,41.2,41.9,-Inf,
+2019-08-02,10:18,clear sky,NaN,-20.7,-2.1,-0.9,-Inf,40.5,40.8,42.2,42.9,-Inf,
+2019-08-03,11:04,clear sky,NaN,-21.4,-0.3,-0.2,-Inf,43.7,46.1,47.8,48.2,-Inf,
+2019-08-04,10:48,clear sky,NaN,-17.6,-1.8,-0.4,-Inf,40.9,40.1,43.2,43.6,-Inf,
+2019-08-05,10:14,clear sky,NaN,-17.8,-1.1,-0.5,-Inf,39.7,40.1,42.2,41.7,-Inf,
+2019-08-06,18:48,overcast,2.8,2.6,7.3,6.5,-Inf,32.3,32.6,33.1,33.2,-Inf,
+2019-08-07,11:02,overcast,-10.5,-13.7,4.4,5,-Inf,40.5,41.3,43.8,44.1,-Inf,
+2019-08-08,11:13,overcast,-16,-12.4,2.2,3.1,-Inf,41.9,43.1,44.7,44.6,-Inf,no nws readins between 9:55 and 12:15 on this day at Socorro Airport
+2019-08-09,15:18,clear sky,NaN,-17.3,3.2,3.1,-Inf,48.9,49.8,52.1,51.9,-Inf,
+2019-08-10,10:10,clear sky,NaN,-24.9,-0.9,-2.1,-Inf,31.9,31.9,34,34.8,-Inf,
+2019-08-11,18:33,overcast,15.7,14.6,14.9,15.6,-Inf,36.8,36.8,36.5,37.1,-Inf,
+2019-08-12,9:04,clear sky,NaN,-30.9,-7.3,-8.8,-Inf,29.9,29.5,32.8,31.7,-Inf,
+2019-08-13,11:05,clear sky,NaN,-31.9,-6.4,-5.2,-Inf,41.5,41.9,44.4,44.6,-Inf,
+2019-08-14,9:31,clear sky,NaN,-24.1,-4.5,-1.9,-Inf,35.1,35.7,36.9,38.4,-Inf,
+2019-08-15,10:59,clear sky,NaN,-30.9,-6.6,-3.9,-Inf,40.1,40,42.1,44.3,-Inf,
+2019-08-16,10:09,clear sky,NaN,-36.3,-8.5,-8.3,-Inf,34.7,34.5,38.3,38.5,-Inf,
+2019-08-17,19:32,overcast,6.7,7.6,10.9,11.1,-Inf,34.3,34.8,35,35.3,-Inf,
+2019-08-18,8:39,clear sky,NaN,-38.7,-12.6,-10.5,-Inf,28.5,27.6,30.1,30.8,-Inf,
+2019-08-19,10:22,clear sky,NaN,-34.4,-8.2,-8.1,-Inf,38.9,39,41.4,40.8,-Inf,
+2019-08-20,10:38,clear sky,NaN,-25.3,-2.5,-1.2,-Inf,40.9,41.7,43.5,44.3,-Inf,
+2019-08-21,10:09,clear sky,NaN,-26.8,-4.4,-3.1,-Inf,35.9,36.3,39.1,39.4,-Inf,
+2019-08-22,10:39,clear sky,NaN,-29.4,-7,-5.9,-Inf,36.8,37.3,39.2,39.7,-Inf,
+2019-08-23,9:59,clear sky,NaN,-29.9,-8.6,-7.7,-Inf,35.5,35.9,37.5,37.8,-Inf,
+2019-08-24,19:19,clear sky,NaN,-31.2,-5.2,-4.6,-Inf,35.5,35.6,36.8,37.2,-Inf,
+2019-08-25,8:52,clear sky,NaN,-34.7,-8.8,-8.2,-Inf,29.5,29,31.6,31.9,-Inf,
+2019-08-26,10:09,clear sky,NaN,-31.5,-5.3,-3.2,-Inf,39.3,39.4,42.2,42.9,-Inf,
+2019-08-27,10:36,clear sky,NaN,-21.1,-2.6,-2.2,-Inf,39.7,41.2,41.8,41.9,-Inf,
+2019-08-28,10:06,clear sky,NaN,-25.4,-3.2,-2.5,-Inf,37.3,37.1,39.5,40,-Inf,
+2019-08-29,10:52,clear sky,NaN,-26.6,-5.1,-4.7,-Inf,40.5,40.1,43,42.8,-Inf,
+2019-08-30,10:47,clear sky,NaN,-29.5,-6.4,-5.5,-Inf,39.7,40.3,41.9,42.7,-Inf,
+2019-08-31,19:24,overcast,0.4,-2.2,11.5,11.6,-Inf,35.9,36.2,37.5,37.4,-Inf,
+2019-09-01,11:00,clear sky,NaN,-27.9,-3.2,-3.7,-Inf,41.6,41.7,44.7,43.9,-Inf,
+2019-09-02,19:33,clear sky,NaN,-28.2,-6.1,-5,-Inf,33.9,34.2,34.7,35.2,-Inf,
+2019-09-03,10:10,clear sky,NaN,-30.7,-8.4,-7.8,-Inf,36.4,36.1,38.2,38.3,-Inf,ABQ 9/4 00Z has no reading listed
+2019-09-04,11:03,clear sky,NaN,-30.9,-6.4,-5.3,-Inf,41.5,40.6,44.1,44.8,-Inf,
+2019-09-05,10:30,clear sky,NaN,-30.9,-7.1,-6.5,-Inf,36.8,36.5,38.6,39.3,-Inf,
+2019-09-06,10:10,clear sky,NaN,-33.8,-8.9,-7.8,-Inf,34.7,34.5,37.1,37.4,-Inf,
+2019-09-07,10:19,clear sky,NaN,-27,-3.2,-2.9,-Inf,36.8,36.7,39.9,39.8,-Inf,
+2019-09-08,9:53,overcast,8.9,7,12.9,13.5,-Inf,28,27.4,28.3,28.7,-Inf,
+2019-09-09,10:50,clear sky,NaN,-27.8,-5.2,-6.3,-Inf,37.3,36.7,39.7,39.7,-Inf,
+2019-09-10,10:34,clear sky,NaN,-25.4,-4.7,-4,-Inf,36.4,36.6,38.6,38.8,-Inf,
+2019-09-11,10:15,clear sky,NaN,-26.5,-5.1,-4.9,-Inf,34.7,34.8,37,37.5,-Inf,
+2019-09-12,10:54,clear sky,NaN,NaN,-15.7,-14.2,-Inf,37.3,39.5,38.9,39.4,-Inf,
+2019-09-13,10:35,clear sky,NaN,-30.7,-7.3,-7.6,-Inf,35.9,36.9,39,38.2,-Inf,
+2019-09-14,11:00,clear sky,NaN,-21,-3.5,-2.3,-Inf,36.4,36.5,38.7,39.3,-Inf,
+2019-09-15,9:40,overcast,7.8,5.5,10.3,11.1,-Inf,24.5,23.8,23.3,24.1,-Inf,it was raining while measurements were taken
+2019-09-16,10:38,clear sky,NaN,-31.5,-9.8,-8.8,-Inf,32.3,32.7,34,34.3,-Inf,
+2019-09-17,9:13,clear sky,NaN,-34.3,-13,-11.6,-Inf,27.2,26.5,28.6,29,-Inf,
+2019-09-18,10:14,clear sky,NaN,-36.5,-11.4,-10.8,-Inf,32.2,32.4,34.7,34.6,-Inf,
+2019-09-19,10:42,clear sky,NaN,-36.6,-12.3,-11.5,-Inf,34.7,35.4,36.7,37.6,-Inf,
+2019-09-20,17:08,clear sky,NaN,NaN,-12.9,-12.3,-Inf,33.5,33.6,24.8,35.1,-Inf,
+2019-09-21,16:47,clear sky,NaN,-32,-7.8,-6.8,-Inf,35.1,35.2,36.4,36.7,-Inf,
+2019-09-22,17:31,clear sky,NaN,NaN,-18.6,-17.4,-Inf,31.1,31.4,32,32.3,-Inf,ABQ sounding was incomplete hence the n/a
+2019-09-23,10:04,clear sky,NaN,-39.1,-15.1,-13.9,-Inf,27.6,27.8,30.2,30.1,-Inf,
+2019-09-24,11:09,overcast,-10.5,-12.6,0.8,0.9,-Inf,29.9,29.7,31,31.1,-Inf,
+2019-09-25,10:18,clear sky,NaN,-36.5,-12.5,-12.5,-Inf,30.7,30.5,32.7,32.8,-Inf,
+2019-09-26,11:07,clear sky,NaN,-35.8,-11.5,-10.9,-Inf,36.3,36.5,38.3,38.2,-Inf,
+2019-09-27,10:01,clear sky,NaN,NaN,-16.5,-15,-Inf,29.9,30.9,31.1,31.8,-Inf,
+2019-09-28,10:50,clear sky,NaN,-38.6,-13.9,-12,-Inf,31.9,32,34,35.3,-Inf,
+2019-09-29,11:27,clear sky,NaN,-36.7,-13.9,-15.5,-Inf,34.3,35.2,36,34.4,-Inf,
+2019-09-30,11:11,clear sky,NaN,-36.3,-14.9,-13.8,-Inf,35.5,35.7,35.5,36.2,-Inf,
+2019-10-01,12:07,overcast,2.8,0.4,9.8,11.4,-Inf,29.9,29.3,30.7,31.4,-Inf,
+2019-10-02,10:02,clear sky,NaN,NaN,-22.2,-21,-Inf,28,27.7,28.9,29.5,-Inf,
+2019-10-03,10:57,overcast,5.5,2.8,9.5,10.2,-Inf,27.6,27.3,28.3,28.7,-Inf,
+2019-10-04,10:11,overcast,11.2,12.4,13.8,16.2,-Inf,22.5,21.6,21.8,22.5,-Inf,
+2019-10-05,9:54,clear sky,NaN,NaN,-21.3,-18.7,-Inf,23.5,22.4,25.1,25.6,-Inf,
+2019-10-06,11:52,clear sky,NaN,NaN,-19.4,-19.5,-Inf,34.3,34.9,36.8,36.6,-Inf,
+2019-10-07,10:46,clear sky,NaN,NaN,-20.5,-19.3,-Inf,27.6,28,29.1,29.6,-Inf,
+2019-10-08,10:35,overcast,4.4,2.4,9,9.3,-Inf,25.5,24.6,25.1,25.6,-Inf,
+2019-10-09,10:42,clear sky,NaN,NaN,-17.4,-15.9,-Inf,27.6,27.5,29.6,29.3,-Inf,
+2019-10-10,10:55,clear sky,NaN,NaN,-21.4,-18,-Inf,28.5,28.6,30.7,31.7,-Inf,
+2019-10-11,11:23,clear sky,NaN,NaN,-47.7,-46.5,-Inf,24,23.1,23.9,24,-Inf,
+2019-10-12,18:20,overcast,0.4,-0.5,3.1,3,-Inf,20.4,20.4,20.7,21.3,-Inf,
+2019-10-13,18:31,clear sky,NaN,NaN,-18.8,-17.9,-Inf,21.5,21.1,21.6,22.2,-Inf,
+2019-10-14,15:11,clear sky,NaN,NaN,-16.6,-14.9,-Inf,34.7,35.6,36.9,37.1,-Inf,
+2019-10-15,8:55,clear sky,NaN,NaN,-27.2,-25,-Inf,16.2,14.7,16.3,17,-Inf,
+2019-10-16,11:45,clear sky,NaN,NaN,-27.3,-25.4,-Inf,28.5,28.6,29.9,30.8,-Inf,
+2019-10-17,16:15,clear sky,NaN,NaN,-16.2,-14.7,-Inf,32.7,33.1,34.1,34.4,-Inf,
+2019-10-18,18:10,clear sky,NaN,NaN,-26.2,-24.6,-Inf,19.1,17.9,18.1,18.6,-Inf,
+2019-10-19,16:45,clear sky,NaN,NaN,-27.1,-25.2,-Inf,29.9,29.3,30.3,30.3,-Inf,
+2019-10-20,10:52,clear sky,NaN,NaN,-27.6,-27.2,-Inf,24,23.5,25.6,25.3,-Inf,there is no radiosonde data for EPZ 00Z for 10/21
+2019-10-21,10:18,clear sky,NaN,NaN,-36.9,-35.7,-Inf,17.8,16.9,18.3,18.6,-Inf,
+2019-10-22,11:12,clear sky,NaN,NaN,-31.1,-29.8,-Inf,23,23.4,23.9,24.7,-Inf,
+2019-10-23,10:54,clear sky,NaN,NaN,-28.7,-26.3,-Inf,22,21.3,22.7,22.9,-Inf,
+2019-10-24,17:16,clear sky,NaN,NaN,-37.6,-36.1,-Inf,16.8,14.5,14.2,14.8,-Inf,
+2019-10-25,10:57,clear sky,NaN,NaN,-42.1,-35.6,-Inf,16.2,17.5,17.4,18,-Inf,
+2019-10-26,17:26,clear sky,NaN,NaN,-28.7,-26.1,-Inf,17.8,17,17.3,18.1,-Inf,
+2019-10-27,12:44,clear sky,NaN,NaN,-25.5,-25.1,-Inf,27.6,27.4,29.9,30.2,-Inf,
+2019-10-28,11:32,clear sky,NaN,NaN,-27.5,-27.3,-Inf,25.4,25.1,27.2,27.3,-Inf,
+2019-10-29,10:57,clear sky,NaN,NaN,-39.8,-37.4,-Inf,16.6,14.7,15.8,16.6,-Inf,
+2019-10-30,12:22,clear sky,NaN,NaN,NaN,NaN,-Inf,18.3,18.8,18.9,19.6,-Inf,It was so cold that all thermometers were out of their limits for air temperature readings
+2019-10-31,14:08,clear sky,NaN,NaN,NaN,NaN,-Inf,21,23.5,20.1,21.2,-Inf,Ames 2 actually -59.8
+2019-11-01,10:08,clear sky,NaN,NaN,-49.7,-48.9,-Inf,7.8,6.2,6.3,6.4,-Inf,
+2019-11-02,15:29,clear sky,NaN,NaN,-33.5,-31.6,-Inf,22,21.4,26.2,26.4,-Inf,
+2019-11-03,12:17,clear sky,NaN,NaN,-24.4,-23.3,-Inf,24.5,23.8,25.5,26.7,-Inf,
+2019-11-04,16:49,clear sky,NaN,NaN,-25.6,-23.9,-Inf,17,16.3,16.9,17.1,-Inf,
+2019-11-05,10:28,clear sky,NaN,NaN,-30,-28.2,-Inf,19.9,19.5,21.5,21.7,-Inf,
+2019-11-06,10:02,overcast,-4.2,-4.9,-0.9,0.5,-Inf,15.2,13.6,13.1,14,-Inf,
+2019-11-07,10:48,overcast,-10.5,-14.1,-6,-5.6,-Inf,16.2,14.2,14.7,15.2,-Inf,
+2019-11-08,10:08,overcast,-5.6,-6.9,-1,0.6,-Inf,13.4,10.7,11.1,11.8,-Inf,
+2019-11-09,16:04,clear sky,NaN,NaN,-23,-21.5,-Inf,16.2,14.8,15.6,16,-Inf,
+2019-11-10,12:28,clear sky,NaN,NaN,-25.3,-24.6,-Inf,22.5,22.2,22.7,22.8,-Inf,
+2019-11-11,10:05,clear sky,NaN,NaN,-24.4,-24.6,-Inf,17.8,17.2,17.3,17.8,-Inf,
+2019-11-12,11:25,clear sky,NaN,NaN,-38.9,-36.4,-Inf,17.4,17,17.4,18.4,-Inf,readings taken by Brandon Phelps for training to cover during PhysCon conference
+2019-11-13,10:00,clear sky,NaN,NaN,-37.8,-33.5,-Inf,12.2,NaN,11.2,13.6,-Inf,readings taken by Brandon Phelps and Chris Baca as Vicki was at PhysCon they forgot to open FLiR lens cover
+2019-11-14,11:00,clear sky,NaN,NaN,-33.4,-30.6,-Inf,22.5,NaN,23.2,24.1,-Inf,readings taken by Brandon Phelps and Chris Baca as Vicki was at PhysCon they forgot to open FLiR lens cover
+2019-11-15,10:00,clear sky,NaN,NaN,-29.9,-28.4,-Inf,15.2,NaN,14.5,14.6,-Inf,readings taken by Brandon Phelps and Chris Baca as Vicki was at PhysCon they forgot to open FLiR lens cover
+2019-11-16,10:50,clear sky,NaN,-32.8,-30,-20.9,-Inf,16.6,16.8,15.5,17.4,-Inf,readings taken by Brandon Phelps and Chris Baca as Vicki was at PhysCon
+2019-11-17,10:58,clear sky,NaN,NaN,-35.7,-33.8,-Inf,18.3,17.4,18,18.8,-Inf,readings taken by Brandon Phelps and Chris Baca as Vicki was at PhysCon
+2019-11-18,12:27,clear sky,NaN,NaN,-28.5,-27.4,-Inf,23.5,22.4,24.3,24.3,-Inf,
+2019-11-19,14:54,clear sky,NaN,NaN,-21.7,-19.9,-Inf,21,20.6,21.2,21.6,-Inf,
+2019-11-20,10:30,overcast,1,0.2,3.8,4.6,-Inf,15.2,12.8,13.4,14.6,-Inf,very windy and sprinkling during measurement
+2019-11-21,12:22,overcast,-19.7,-16.2,-15,-14.7,-Inf,10.8,10.2,9.5,9.8,-Inf,
+2019-11-22,10:19,clear sky,NaN,NaN,-34,-33.5,-Inf,13.9,12.5,12.9,12.8,-Inf,
+2019-11-23,16:49,clear sky,NaN,NaN,-30.9,-29.7,-Inf,10.4,8.9,9,9.6,-Inf,
+2019-11-24,9:40,clear sky,NaN,NaN,-24.8,-25,-Inf,7.8,7.1,6.9,6.8,-Inf,
+2019-11-25,10:05,clear sky,NaN,NaN,-35.5,-34.7,-Inf,7.8,7.6,6.8,7.3,-Inf,
+2019-11-26,14:01,clear sky,NaN,NaN,NaN,-49.9,-Inf,14.8,14,14.6,14.7,-Inf,
+2019-11-27,10:41,overcast,-4.7,-4.1,-4.3,-3.9,-Inf,3.5,3.5,2.2,3.5,-Inf,
+2019-11-28,15:12,overcast,0.4,-2.7,-2.2,-2.4,-Inf,1.6,-1.4,-1.5,1,-Inf,snowed
+2019-11-29,14:46,overcast,NaN,NaN,-3.4,-2.6,-Inf,10.4,8.1,7.5,8.5,-Inf,cloud cover moving too fast that first half of the readings were in clear sky and second half in overcast Could not do readings fast enough to get all of the same kind in additional attempts so kept the first readings
+2019-11-30,12:20,clear sky,NaN,NaN,-39.4,-36.1,-Inf,13.4,10.5,12.3,13.2,-Inf,very windy
+2019-12-01,12:20,clear sky,NaN,NaN,-39.4,-36.1,-Inf,13.4,10.5,12.3,13.2,-Inf,very windy
+2019-12-02,10:03,clear sky,NaN,NaN,-35.9,-40.8,-Inf,6,4.5,4.5,2.1,-Inf,very cold wind
+2019-12-03,11:35,clear sky,NaN,NaN,-34.4,-32.3,-Inf,15.2,11.9,14,14.7,-Inf,very windy
+2019-12-04,10:04,overcast,-5.6,-6.7,-2.5,-1.6,-Inf,8.9,7,6.6,7.1,-Inf,
+2019-12-05,9:12,overcast,-2.2,-6.3,-5.2,-4,-Inf,8.4,7.1,8.6,8.2,-Inf,fast moving cloud cover
+2019-12-06,10:27,clear sky,NaN,NaN,-33.3,-33.7,-Inf,10.4,9.2,10.1,9.6,-Inf,
+2019-12-07,14:22,clear sky,NaN,NaN,-23.6,-23,-Inf,17.4,17.1,17.2,18.1,-Inf,
+2019-12-08,12:10,overcast,2.8,-0.1,3.1,2.2,-Inf,12.2,10.7,10.6,10.9,-Inf,
+2019-12-09,16:34,clear sky,NaN,NaN,-31.9,-29.6,-Inf,8.4,6.3,6.7,7.2,-Inf,
+2019-12-10,16:32,clear sky,NaN,NaN,-36.7,-34.2,-Inf,8.4,6.9,6.5,7.2,-Inf,
+2019-12-11,14:09,clear sky,NaN,NaN,-28,-26.7,-Inf,10.4,9.5,9.1,9.4,-Inf,
+2019-12-12,16:04,clear sky,NaN,NaN,-31.4,-29.5,-Inf,9.9,8,8.3,9.4,-Inf,
+2019-12-13,14:42,clear sky,NaN,NaN,-25.4,-23.9,-Inf,18.7,18.3,19.3,19.7,-Inf,
+2019-12-14,15:27,clear sky,NaN,NaN,-23.4,-22.4,-Inf,17.8,16.9,18,18.4,-Inf,
+2019-12-15,11:27,clear sky,NaN,NaN,-33.2,-32,-Inf,17.4,17.7,18.3,18.7,-Inf,
+2019-12-16,14:50,clear sky,NaN,NaN,-31.2,-29.2,-Inf,15.7,16.3,14.1,14.7,-Inf,
+2019-12-17,15:16,clear sky,NaN,NaN,NaN,-48.2,-Inf,8,7.6,7.2,7.9,-Inf,
+2019-12-18,15:50,clear sky,NaN,NaN,NaN,-48.6,-Inf,4.6,4.1,3.4,4.2,-Inf,
+2019-12-19,13:24,clear sky,NaN,NaN,-44.3,-41.8,-Inf,7.6,7.3,7.7,8.9,-Inf,
+2019-12-20,11:59,clear sky,NaN,NaN,-46.4,-45.2,-Inf,8.5,9.2,8.7,8.6,-Inf,
+2019-12-21,14:49,clear sky,NaN,NaN,-39.6,-37.6,-Inf,11.4,11.4,11.8,12.4,-Inf,
+2019-12-22,12:58,clear sky,NaN,NaN,-25.8,-24.9,-Inf,10.2,9.8,10.2,11.1,-Inf,
+2019-12-23,12:16,overcast,NaN,-32.7,-23.2,-19.7,-Inf,6.9,6.6,5.9,6.4,-Inf,
+2019-12-24,16:29,overcast,-11,-13.2,-9.2,-6.4,-Inf,5.5,4.3,2.4,3.7,-Inf,was raining during the measurement
+2019-12-25,12:29,clear sky,NaN,NaN,-30.9,-31.2,-Inf,14.4,13.6,15,14.3,-Inf,
+2019-12-26,13:46,clear sky,NaN,NaN,-33.5,-31.7,-Inf,16.8,14.6,15,15.9,-Inf,
+2019-12-27,12:26,overcast,-5.4,-7.4,-5.5,-3.9,-Inf,6.9,5.2,4.6,5.7,-Inf,
+2019-12-28,12:52,overcast,-14.2,-17.2,-10.1,-9.2,-Inf,7.8,5.5,5.9,6.5,-Inf,
+2019-12-29,16:17,clear sky,NaN,NaN,NaN,-48.8,-Inf,1.4,1.5,0,0.8,-Inf,
+2019-12-30,15:50,clear sky,NaN,NaN,-41.8,-39.6,-Inf,2.4,3.3,1.8,2.7,-Inf,
+2019-12-31,14:26,clear sky,NaN,NaN,-41.1,-39.4,-Inf,9.7,8.6,10,10.7,-Inf,
+2020-01-01,16:30,clear sky,NaN,NaN,-35.3,-33.7,-Inf,4.6,5.1,4.7,5.5,-Inf,
+2020-01-02,15:17,clear sky,NaN,-30.6,-27.7,-25.9,-Inf,7.8,6.8,5.2,6.1,-Inf,
+2020-01-03,16:27,clear sky,NaN,NaN,-41.5,-38.2,-Inf,4.4,3.6,2.1,4.2,-Inf,
+2020-01-04,12:41,clear sky,NaN,NaN,-35.6,-32.3,-Inf,13.4,12.3,14.1,14.2,-Inf,
+2020-01-05,11:36,clear sky,NaN,NaN,-39,-37.9,-Inf,12.8,11.3,12.2,12.5,-Inf,
+2020-01-06,12:28,clear sky,NaN,NaN,-49.6,NaN,-Inf,13.9,9.7,12.6,9.3,-Inf,
+2020-01-07,15:33,clear sky,NaN,NaN,-42.3,-40.3,-Inf,10.8,11.2,10.9,11.6,-Inf,
+2020-01-08,11:07,clear sky,NaN,NaN,-45.6,-45.3,-Inf,8.4,7.5,8,8.2,-Inf,
+2020-01-09,13:23,overcast,-11.3,-12,-6.6,-6.8,-Inf,7.8,6.5,6.5,7.1,-Inf,
+2020-01-10,11:45,clear sky,NaN,NaN,-48.6,-49,-Inf,11.7,11,6.6,6.3,-Inf,measurements taken by Chris Baca and Brandon Phelps during AMS100
+2020-01-11,10:30,clear sky,NaN,NaN,-48.6,-48.8,-Inf,5.9,5.8,6.2,4.9,-Inf,measurements taken by Chris Baca and Brandon Phelps during AMS100
+2020-01-12,11:48,clear sky,NaN,NaN,-41.8,-42.2,-Inf,16.8,14.4,15.4,14.6,-Inf,measurements taken by Chris Baca and Brandon Phelps during AMS100
+2020-01-13,10:03,clear sky,NaN,NaN,-41.3,-37.3,-Inf,7.8,6.2,6.7,8.8,-Inf,measurements taken by Chris Baca and Brandon Phelps during AMS100
+2020-01-14,12:27,clear sky,NaN,NaN,-39.3,-37.2,-Inf,18.7,16.2,19.5,19.3,-Inf,measurements taken by Chris Baca and Brandon Phelps during AMS100
+2020-01-15,10:00,overcast,NaN,-27.1,-29.9,-28.9,-Inf,6.7,6.1,6.2,4,-Inf,measurements taken by Chris Baca and Brandon Phelps during AMS100
+2020-01-16,13:00,overcast,0,-2.7,-3.5,-2.2,-Inf,4.7,6,3,3.7,-Inf,measurements taken by Chris Baca and Brandon Phelps during AMS100
+2020-01-17,11:42,overcast,1.8,NaN,0.5,3.4,-Inf,9.4,8.4,9,9.3,-Inf,measurements taken by Chris Baca and Brandon Phelps during AMS100
+2020-01-18,11:00,clear sky,NaN,NaN,-43.4,-42,-Inf,9,8.9,9.1,10.1,-Inf,
+2020-01-19,10:34,clear sky,NaN,NaN,-43.6,-43.2,-Inf,6.4,6.8,5.5,5.4,-Inf,
+2020-01-20,15:25,overcast,NaN,-30.9,-17,-17.8,-Inf,13,12.6,11.4,12.8,-Inf,
+2020-01-21,15:10,overcast,-1.5,0.2,-1.3,-0.3,-Inf,7.8,5.8,5.5,5.3,-Inf,
+2020-01-22,13:06,clear sky,NaN,NaN,-34.3,-31.1,-Inf,18.2,17.9,18.3,20.2,-Inf,
+2020-01-23,14:26,clear sky,NaN,NaN,-30.2,-27.4,-Inf,17.8,17.3,18.7,17.8,-Inf,
+2020-01-24,12:30,clear sky,NaN,NaN,-32.8,-31.7,-Inf,17.8,17.2,18.5,18.1,-Inf,
+2020-01-25,16:52,clear sky,NaN,NaN,-32.4,-30.3,-Inf,9.7,10.1,9.8,10.2,-Inf,
+2020-01-26,14:17,clear sky,NaN,NaN,-30.2,-28.7,-Inf,19.1,18.9,20.2,20.5,-Inf,
+2020-01-27,12:43,overcast,-6,-5.9,-1.9,-0.5,-Inf,11.4,11.2,10.8,11.5,-Inf,
+2020-01-28,11:32,clear sky,NaN,NaN,-31.3,-32,-Inf,15.2,15.5,16.7,17.1,-Inf,
+2020-01-29,12:34,clear sky,NaN,NaN,-30.5,-31.4,-Inf,14.8,14,15.2,15.5,-Inf,
+2020-01-30,13:12,clear sky,NaN,NaN,-38.6,-36.4,-Inf,18.3,18.1,18.9,20.3,-Inf,
+2020-01-31,13:37,clear sky,NaN,NaN,-42.4,-41.8,-Inf,17.8,18.1,18.5,17.6,-Inf,
+2020-02-01,11:29,clear sky,NaN,NaN,-37.3,-36.5,-Inf,14.8,15.3,15.4,15.8,-Inf,
+2020-02-02,10:24,clear sky,NaN,NaN,-37.7,-37.3,-Inf,6.9,6.8,8.1,8.2,-Inf,
+2020-02-03,12:42,clear sky,NaN,NaN,-29.4,-27.4,-Inf,19.1,18.6,19.9,20.5,-Inf,
+2020-02-04,16:13,overcast,-9.6,-9.5,-8.5,-7.8,-Inf,8,7.1,6.8,7.2,-Inf,snowing
+2020-02-05,12:22,clear sky,NaN,NaN,NaN,NaN,-Inf,11.9,13.2,12.9,12.8,-Inf,
+2020-02-06,14:06,clear sky,NaN,NaN,-29,-32.3,-Inf,18.7,18.3,18.7,19.3,-Inf,
+2020-02-07,15:22,clear sky,NaN,NaN,-26.4,-24.4,-Inf,22,21.7,22.2,22.6,-Inf,
+2020-02-08,10:31,clear sky,NaN,NaN,-34.1,-34.4,-Inf,15.4,17,19.1,18.5,-Inf,
+2020-02-09,12:22,clear sky,NaN,NaN,-33.7,-33.8,-Inf,18.3,16.9,18.4,17.6,-Inf,
+2020-02-10,12:13,overcast,3.9,1.6,3.8,4.1,-Inf,16.2,14.3,14.2,14.3,-Inf,sprinkling
+2020-02-11,13:07,overcast,-7.1,-8.5,-9.4,-8.1,-Inf,2.4,1.9,-0.2,0.1,-Inf,snowing
+2020-02-12,13:51,clear sky,NaN,NaN,-39.9,-38.5,-Inf,17,15.4,16.5,16.6,-Inf,
+2020-02-13,10:15,clear sky,NaN,NaN,-41.5,-41.9,-Inf,9.4,8.1,9,8.6,-Inf,
+2020-02-14,13:04,clear sky,NaN,NaN,-36,-39,-Inf,20.4,19.8,20.2,17.3,-Inf,
+2020-02-15,9:02,clear sky,NaN,NaN,-31.3,-31.8,-Inf,10.1,9.3,10,9.5,-Inf,
+2020-02-16,12:33,clear sky,NaN,NaN,-25.4,-24.8,-Inf,24.5,23.5,25.9,26.1,-Inf,
+2020-02-17,12:16,clear sky,NaN,NaN,-26,-24.6,-Inf,25.9,25.5,27.4,27.2,-Inf,
+2020-02-18,15:54,clear sky,NaN,NaN,-27.7,-26.3,-Inf,25.5,25.8,26.1,26.4,-Inf,
+2020-02-19,12:05,overcast,-17.6,-20.2,-10.1,-9.9,-Inf,16.8,14.2,15.1,15,-Inf,
+2020-02-20,15:55,clear sky,NaN,NaN,-35.2,-33.4,-Inf,22,21.3,21.7,22,-Inf,
+2020-02-21,12:17,overcast,NaN,-24.5,-10.4,-10.2,-Inf,17.4,17.1,18.1,18.3,-Inf,
+2020-02-22,13:33,overcast,1.5,-0.8,1.7,2.4,-Inf,16.2,13.6,14.1,14.6,-Inf,
+2020-02-23,12:59,overcast,-6,-9.6,-12.5,-11.6,-Inf,22.7,22.2,23.7,24.6,-Inf,
+2020-02-24,11:57,clear sky,NaN,NaN,-33.6,-31.2,-Inf,24,23.6,25.3,25.7,-Inf,
+2020-02-25,11:19,clear sky,NaN,NaN,NaN,NaN,-Inf,16.2,15,15.3,15.8,-Inf,
+2020-02-26,10:01,clear sky,NaN,NaN,-48.9,-48.6,-Inf,10.2,9.4,10.7,10.9,-Inf,
+2020-02-27,14:25,clear sky,NaN,NaN,-39.8,-36.4,-Inf,24.5,24.9,25.5,25.8,-Inf,
+2020-02-28,10:53,overcast,NaN,-37.8,-25.8,-25.1,-Inf,21.5,21.2,22.4,22.2,-Inf,
+2020-02-29,17:35,clear sky,NaN,NaN,-31.9,-29.9,-Inf,17,16.2,16.3,16.9,-Inf,
+2020-03-01,10:58,overcast,NaN,NaN,-28.6,-29.2,-Inf,24.5,24,25.5,23.5,-Inf,
+2020-03-02,9:05,clear sky,NaN,NaN,-36.2,-34.8,-Inf,12.8,12.5,12.7,13.2,-Inf,
+2020-03-03,13:03,clear sky,NaN,NaN,-30.2,-26.6,-Inf,25.9,25.6,26.7,27,-Inf,
+2020-03-04,12:30,clear sky,NaN,NaN,-30.3,-28.8,-Inf,29.5,29.4,30.9,31.1,-Inf,
+2020-03-05,10:56,clear sky,NaN,NaN,-33.9,-30.5,-Inf,23.5,25.4,24.1,24.6,-Inf,
+2020-03-06,11:52,clear sky,NaN,NaN,-27.4,-24.3,-Inf,28.5,28.3,29.8,30.4,-Inf,
+2020-03-07,11:13,clear sky,NaN,NaN,-33.7,-30.1,-Inf,23.4,25.2,24,24.2,-Inf,
+2020-03-08,12:16,overcast,1,-1.6,2.3,3.5,-Inf,15.7,12.9,13.2,13.7,-Inf,sprinkling
+2020-03-09,12:20,clear sky,NaN,NaN,-26.5,-26.4,-Inf,25.5,24.4,26.3,26.7,-Inf,
+2020-03-10,14:50,overcast,NaN,NaN,-15.2,-15.7,-Inf,32.3,32.2,34,34.2,-Inf,
+2020-03-11,14:02,overcast,1.5,3.7,9.4,9.9,-Inf,28,27.7,29.5,30,-Inf,
+2020-03-12,14:38,overcast,5,-0.5,7.7,8.2,-Inf,23,22.8,22.7,22.9,-Inf,
+2020-03-13,12:52,clear sky,NaN,NaN,-19.9,-20,-Inf,24.5,24,25.6,25.6,-Inf,
+2020-03-14,16:58,clear sky,NaN,NaN,-28.5,-27.9,-Inf,27.6,27.9,28.4,28.7,-Inf,
+2020-03-15,13:57,overcast,-6.2,-8.2,0.8,0.1,-Inf,24.5,23.9,24.5,24.9,-Inf,
+2020-03-16,15:48,clear sky,NaN,NaN,-28.4,-27.1,-Inf,31.9,32.5,33.7,33.8,-Inf,
+2020-03-17,12:00,overcast,NaN,NaN,-13.6,-14.7,-Inf,23.5,23.4,24.5,23.9,-Inf,
+2020-03-18,16:46,overcast,NaN,-38.6,-7.3,-9.2,-Inf,17.4,16.7,16.4,16.5,-Inf,
+2020-03-19,14:58,clear sky,NaN,NaN,-33.8,-30.9,-Inf,28.9,28.8,30.5,30.8,-Inf,
+2020-03-20,16:16,overcast,-18.7,-13.6,-9.7,-8.4,-Inf,23,22.5,22.4,23.1,-Inf,
+2020-03-21,13:53,clear sky,NaN,NaN,-23,-19.5,-Inf,39.3,39.1,41,41.4,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-03-22,10:32,clear sky,NaN,NaN,-24.9,-22.1,-Inf,38.5,37.8,40.2,40.8,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-03-23,16:13,clear sky,NaN,NaN,-29.2,-24.5,-Inf,42.2,42.6,44.1,45.5,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-03-24,15:11,clear sky,NaN,NaN,-23.1,-18,-Inf,42.3,41.5,46.1,49.3,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-03-25,10:48,clear sky,NaN,NaN,-27.6,-27.3,-Inf,29,29.1,30.7,31,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-03-26,15:28,overcast,-0.7,-2.7,-5.3,-5.1,-Inf,31.4,30.5,31.4,31.6,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-03-27,15:24,clear sky,NaN,NaN,-32.7,-30.1,-Inf,38.5,39,38.9,40,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-03-28,15:08,clear sky,NaN,NaN,-35.3,-31.8,-Inf,41,40.7,42.9,42.8,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-03-29,16:07,overcast,NaN,NaN,-22.3,-20.9,-Inf,35.2,35.1,36.9,36.7,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-03-30,11:48,overcast,NaN,NaN,-5,-23.7,-Inf,29.5,29.3,32.8,28.3,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-03-31,19:10,overcast,NaN,-23.7,-13.5,-12.6,-Inf,25.9,26.8,25.5,26.3,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-04-01,15:32,overcast,-6.6,-8.5,1,2.5,-Inf,31.9,32.6,32.2,32.4,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-04-02,15:49,clear sky,NaN,NaN,-28.6,-22.6,-Inf,43.3,44.7,45,47.1,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-04-03,16:30,overcast,-9.4,-17.4,-4.4,1.2,-Inf,38.4,38.3,37.4,38.2,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-04-04,11:06,clear sky,NaN,NaN,-29.8,-24.8,-Inf,32.7,33.2,33.3,36.1,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-04-05,16:40,clear sky,NaN,NaN,-25,-21.1,-Inf,42.6,42.9,43.5,45.5,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-04-06,10:52,overcast,NaN,NaN,-22.4,-18.9,-Inf,31.1,32,34.7,35.3,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-04-07,10:51,clear sky,NaN,NaN,-25.5,-25,-Inf,32.3,32.4,34.5,34.3,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-04-08,15:46,clear sky,NaN,NaN,-22.2,-19,-Inf,45.5,44.8,46.4,45.8,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-04-09,10:15,clear sky,NaN,NaN,-15.4,-19.4,-Inf,32.3,32,35.1,33.5,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-04-10,11:23,clear sky,NaN,NaN,-24.9,-28.4,-Inf,36,38.6,38.9,38,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-04-11,16:49,clear sky,NaN,NaN,-29.7,-24.2,-Inf,37.7,38.4,38.2,39.8,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-04-12,16:02,overcast,-6,-11.1,-1.5,-5.5,-Inf,35.1,35.5,36.3,35.7,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-04-13,15:53,overcast,0,-2.3,0.3,-0.6,-Inf,18.3,17.3,17.5,16.6,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-04-14,16:45,clear sky,NaN,NaN,-37.4,-32.1,-Inf,35.6,36.8,38.4,38.9,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-04-15,10:48,clear sky,NaN,NaN,-38,-32.7,-Inf,25.9,25.1,27.2,28.5,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-04-16,16:47,clear sky,NaN,NaN,-18.5,-22,-Inf,41.9,42.7,46.7,43.5,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-04-17,15:47,clear sky,NaN,NaN,-24.9,-21.3,-Inf,46.5,47.4,49,48.8,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-04-18,11:38,clear sky,NaN,NaN,-24.4,-20.4,-Inf,35.6,34.7,37.5,38.4,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-04-19,11:23,clear sky,NaN,NaN,-24.6,-21.3,-Inf,35.1,35.4,37,38.4,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-04-20,15:18,clear sky,NaN,NaN,-19.4,-18.6,-Inf,49.3,49.1,52.1,51.5,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-04-21,14:04,clear sky,NaN,NaN,-20,-19.5,-Inf,46.1,48,50.8,48.4,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-04-22,17:41,clear sky,NaN,NaN,-23.4,-21.2,-Inf,39.3,39,40.5,40,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-04-23,15:24,overcast,-7.3,-18.4,8.7,9.2,-Inf,45.5,45.7,48.5,49.7,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-04-24,16:52,clear sky,NaN,NaN,-16.1,-16.3,-Inf,49.4,48.2,52.6,50.6,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-04-25,16:02,clear sky,NaN,NaN,-20.3,-13,-Inf,50,50,50.8,54.2,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-04-26,15:03,clear sky,NaN,NaN,-17.1,-9.3,-Inf,52.5,53.4,53.8,54.6,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-04-27,17:03,overcast,-2,-4.4,3.6,4.4,-Inf,36.4,37.9,36.9,36.8,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-04-28,14:20,overcast,NaN,-27.4,-3.9,-2.9,-Inf,51.4,52.8,55.5,55.4,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-04-29,10:32,clear sky,NaN,NaN,-18.8,-18.4,-Inf,28,30.3,32.7,29.9,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-04-30,11:05,overcast,NaN,-31.8,-10.7,-6.2,-Inf,36.7,37.1,38,37.4,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-05-01,11:06,clear sky,NaN,NaN,-14.9,-14,-Inf,39.7,41.2,42.7,42.2,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-05-02,16:51,overcast,-14.2,-13.1,-10.2,-8.3,-Inf,49.2,50.5,51,49.5,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-05-03,10:25,clear sky,NaN,NaN,-17.6,-17.4,-Inf,31.9,33,35,34.9,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-05-04,11:15,clear sky,NaN,NaN,-18.9,-17.8,-Inf,41,42.7,44.4,45,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-05-05,11:20,clear sky,NaN,NaN,-18.2,-18,-Inf,36.3,36.6,38.4,39.5,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-05-06,16:26,clear sky,NaN,NaN,-10.1,-10.2,-Inf,52.3,NaN,55.1,54.9,-Inf,batteries dead on Flir due to Corona ...
+2020-05-07,11:19,clear sky,NaN,NaN,-17.4,-18.1,-Inf,41.5,44.9,47.7,44.8,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-05-08,16:15,overcast,NaN,-37.3,-13.4,-12,-Inf,42.2,42.7,43.4,43.3,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-05-09,16:30,overcast,-16.7,-22.5,-15.2,-15.4,-Inf,45.8,44.8,46.5,46.7,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-05-10,16:21,overcast,-10.5,-13.8,0.2,0.4,-Inf,37.6,38.6,38.8,38.7,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-05-11,11:11,overcast,NaN,-34.8,-8.7,-6.4,-Inf,32.3,32.6,34.1,35.4,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-05-12,15:38,clear sky,NaN,NaN,-13.6,-12.1,-Inf,50.7,51.3,53.2,53,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-05-13,11:38,overcast,-9.8,-2.3,-8,-6.6,-Inf,33.9,34.7,34.7,35.3,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-05-14,11:53,overcast,NaN,-30.9,-8.8,-7.7,-Inf,33.1,34.6,35.6,35.8,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-05-15,16:18,clear sky,NaN,NaN,-5.9,-5.3,-Inf,51.8,52.8,53.9,54.3,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-05-16,19:59,clear sky,NaN,NaN,-16.2,-15.5,-Inf,33.5,34.7,34.4,34.5,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-05-17,16:22,overcast,NaN,-34.7,-6.1,-7.7,-Inf,49.8,51.1,52.5,52.6,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-05-18,10:40,clear sky,NaN,NaN,-15.3,-12.3,-Inf,37.3,37.8,38.7,40.8,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-05-19,10:49,overcast,4.2,1.6,11,12.2,-Inf,30.7,31.3,31.7,32.5,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-05-20,10:35,clear sky,NaN,NaN,-23.7,-22.1,-Inf,32.7,34.3,35.6,35.1,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-05-21,16:25,clear sky,NaN,NaN,-22.2,-22.6,-Inf,50.8,51.2,52.4,52.8,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-05-22,16:40,clear sky,NaN,NaN,-15.5,-14.6,-Inf,48,47.9,50.2,50.4,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-05-23,17:39,overcast,NaN,NaN,-15.8,-13.6,-Inf,46.1,47.2,48,47.4,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-05-24,16:55,clear sky,NaN,NaN,-16.7,-13.7,-Inf,49,48.8,50.7,51.2,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-05-25,11:01,clear sky,NaN,NaN,-15.6,-12.1,-Inf,48.9,49.8,51,50.5,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-05-26,17:15,clear sky,NaN,NaN,-16.5,-13.7,-Inf,48,48.3,49.3,51.3,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-05-27,17:20,clear sky,NaN,NaN,-12.4,-10,-Inf,43.3,43.8,44.7,44.1,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-05-28,17:22,clear sky,NaN,-36.5,-9.4,-7.7,-Inf,52.3,53.4,54.3,53.2,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-05-29,17:11,overcast,NaN,-25.5,-2,8.7,-Inf,53,52.4,52.9,50,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-05-30,18:22,overcast,-18.3,-19.9,-7,-5.3,-Inf,39.4,39,39.2,39.6,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-05-31,18:19,clear sky,NaN,-35.1,-9.6,-7.6,-Inf,39.3,40.4,40,43.9,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-06-01,11:00,clear sky,NaN,-32.8,-8.2,-6.1,-Inf,39.3,41.5,41.3,40.7,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-06-02,10:42,overcast,NaN,-31.9,-8.7,-6.1,-Inf,35.9,37.6,37.5,37.6,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-06-03,16:35,overcast,-5,-5.4,6.6,8.8,-Inf,51.9,52,53.5,53.1,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-06-04,10:20,clear sky,NaN,-33.5,-8.2,-5,-Inf,32.3,34.6,35.6,36.4,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-06-05,16:20,clear sky,NaN,-31.4,-4.2,1,-Inf,59,57,57.4,57.7,-Inf,smoke from fires in Eastern AZ and western NM overhead due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-06-06,11:15,clear sky,NaN,-27.9,-3.7,-2.2,-Inf,38.8,41.3,42.9,43,-Inf,smoke from fires in Eastern AZ and western NM overhead due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-06-07,10:55,clear sky,NaN,NaN,-13.3,-12.7,-Inf,36.4,38.1,39.9,40.1,-Inf,smoke from fires in Eastern AZ and western NM overhead due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-06-08,19:16,clear sky,NaN,NaN,-25.3,-21.9,-Inf,33.5,34,34.6,35.4,-Inf,smoke from fires in Eastern AZ and western NM overhead due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-06-09,16:16,clear sky,NaN,NaN,-25.2,-20.2,-Inf,50.7,51,53.5,53.3,-Inf,smoke from fires in Eastern AZ and western NM overhead due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-06-10,10:15,clear sky,NaN,NaN,-23.2,-21.2,-Inf,28,31,33.9,33.2,-Inf,smoke from fires in Eastern AZ and western NM overhead due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-06-11,17:11,clear sky,NaN,-27.2,-4.4,-1.9,-Inf,52.8,54.1,54.1,53.7,-Inf,smoke from fires in Eastern AZ and western NM overhead due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-06-12,16:00,overcast,NaN,-4,10.8,6.9,-Inf,48.4,50.1,48.3,45.7,-Inf,smoke from fires in Eastern AZ and western NM overhead due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-06-13,16:07,overcast,-9.8,-8,-6.3,-5.3,-Inf,43.1,45.2,44.5,43,-Inf,smoke from fires in Eastern AZ and western NM overhead due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-06-14,10:47,clear sky,NaN,-32.6,-7,-5.1,-Inf,35.9,37.2,38.5,39.6,-Inf,smoke from fires in Eastern AZ and western NM overhead due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-06-15,15:03,overcast,-8.4,-15.3,4.6,4.6,-Inf,44.7,45.9,46.9,45.7,-Inf,smoke from fires in Eastern AZ and western NM overhead due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-06-16,16:22,overcast,1.2,-5.4,8.3,9.1,-Inf,41.5,41.4,41.6,42,-Inf,smoke from fires in Eastern AZ and western NM overhead due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-06-17,15:15,clear sky,NaN,NaN,-4.5,-10.4,-Inf,57.9,57.6,62,57.6,-Inf,smoke from fires in Eastern AZ and western NM overhead due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-06-18,17:12,clear sky,NaN,NaN,-13.4,-12.4,-Inf,54.2,55,54.9,53.7,-Inf,smoke from fires in Eastern AZ and western NM overhead due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-06-19,11:22,clear sky,NaN,NaN,-18.2,-13.3,-Inf,43,44.3,45.8,46.6,-Inf,smoke from fires in Eastern AZ and western NM overhead due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-06-20,10:42,clear sky,NaN,NaN,-15.2,-13,-Inf,36.3,37.1,38.4,36.2,-Inf,smoke from fires in Eastern AZ and western NM overhead due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-06-21,15:21,clear sky,NaN,-38.3,-8.5,-8.4,-Inf,56.1,57.2,59.5,57,-Inf,smoke from fires in Eastern AZ and western NM overhead due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-06-22,10:30,clear sky,NaN,NaN,-10,-7.9,-Inf,36.7,37,41.2,39.8,-Inf,smoke from fires in Eastern AZ and western NM overhead due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-06-23,10:45,clear sky,NaN,-30.7,-5.9,-2.9,-Inf,36.7,36.9,40.8,41.1,-Inf,smoke from fires in Eastern AZ and western NM overhead due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-06-24,15:05,overcast,6,0.5,12.7,13.4,-Inf,43.5,44.6,45,45.2,-Inf,smoke from fires in Eastern AZ and western NM overhead due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-06-25,18:25,clear sky,NaN,-30.2,-4.6,-4.2,-Inf,40.5,41.5,41.5,41.6,-Inf,smoke from fires in Eastern AZ and western NM overhead due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-06-26,15:35,overcast,NaN,-19.7,-1.9,-1.1,-Inf,51.7,52.2,53.7,53.4,-Inf,smoke from fires in Eastern AZ and western NM overhead due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-06-27,15:38,overcast,1.7,-1.4,11.6,12.5,-Inf,45,47.2,47.4,47.2,-Inf,smoke from fires in Eastern AZ and western NM overhead due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-06-28,17:28,overcast,3.9,-15.2,11.8,12.5,-Inf,41.9,43.7,43.3,43.9,-Inf,smoke from fires in Eastern AZ and western NM overhead due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-06-29,16:32,clear sky,NaN,-37.2,-7.8,-5.9,-Inf,54.6,56.1,55.8,59.8,-Inf,smoke from fires in Eastern AZ and western NM overhead due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-06-30,11:15,clear sky,NaN,NaN,-11.7,-9.4,-Inf,36.7,39.2,40.8,41.7,-Inf,smoke from fires in Eastern AZ and western NM overhead due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-07-01,16:43,clear sky,NaN,-37.2,-10.7,-7.2,-Inf,53.6,53.3,54.2,54.8,-Inf,smoke from fires in Eastern AZ and western NM overhead due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-07-02,10:19,overcast,NaN,-0.9,-7.4,-2.1,-Inf,32.7,33.5,36.1,37,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-07-03,11:18,clear sky,NaN,NaN,-4.4,0.6,-Inf,42,NaN,44.9,47.8,-Inf,Flir battery depleted so did not take measurements Due to Corona virus quarantine measurements taken in Vickis driveway
+2020-07-04,11:35,clear sky,NaN,-24.8,-2.7,-1.4,-Inf,43,44.6,45.8,46.5,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-07-05,15:45,overcast,NaN,-18.1,-3.9,-4.2,-Inf,50.8,51.4,52.9,52.5,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-07-06,10:55,clear sky,NaN,-32,-5.3,-3,-Inf,39.7,40.6,43.5,43.3,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-07-07,10:52,overcast,NaN,-34.3,-8,-5.9,-Inf,37.7,39.4,41.2,42,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-07-08,16:13,overcast,9.9,7.2,10.2,8.9,-Inf,48,48.9,48.9,48.8,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-07-09,11:20,clear sky,NaN,-33.8,-4.6,-1.7,-Inf,48.2,47.5,51.3,52.9,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-07-10,11:09,clear sky,NaN,-34.7,-7.6,-5.5,-Inf,46.2,48.5,50.2,50.4,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-07-11,16:28,overcast,NaN,-30,-3.6,-1.9,-Inf,59.6,60.3,60.3,61.3,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-07-12,16:36,overcast,11.2,6.4,16.3,17.4,-Inf,38.8,41.3,39.2,39.6,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-07-13,17:04,overcast,11.7,9.5,16,17.7,-Inf,39,39.4,39,39.4,-Inf,raining during measurement due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-07-14,10:35,clear sky,NaN,-26.1,-3.1,-1.6,-Inf,38.8,42.2,40.4,41,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-07-15,18:44,overcast,10.6,7.2,15.2,16.3,-Inf,40.6,41.3,40.7,41.4,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-07-16,11:30,clear sky,NaN,-25.3,-2.8,-2,-Inf,45.8,48.9,49.8,48.8,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-07-17,16:55,overcast,-11.3,-18.1,2.4,3.1,-Inf,46.6,49.3,NaN,49.5,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-07-18,16:37,overcast,3.9,4.4,11.2,13.4,-Inf,38.5,38.2,39,39.3,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-07-19,16:36,overcast,-16,-15.4,1.3,5.9,-Inf,45.8,47.4,48.2,47.8,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-07-20,15:52,overcast,-1.4,-6.4,9.2,10.2,-Inf,44.4,45.3,45.8,45.3,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-07-21,10:38,overcast,NaN,-20.9,-1.1,-0.1,-Inf,36.3,36.6,37.4,37,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-07-22,16:01,overcast,3.4,-1.9,2.7,3.2,-Inf,48,48.1,50,49.2,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-07-23,11:00,overcast,-1.4,-2.5,9.2,9.8,-Inf,35.1,34,36.3,37,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-07-24,17:38,overcast,14.4,11.7,16.5,17.6,-Inf,40.6,42.1,39.5,40.7,-Inf,raining during measurement due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-07-25,16:58,overcast,8.4,11.1,5.4,3.1,-Inf,43.3,43.7,43.3,42.8,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-07-26,16:15,overcast,-2.2,-14,5.4,5.6,-Inf,41.9,41.8,42.1,42,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-07-27,18:55,overcast,-16.2,-18.3,-2.7,-0.3,-Inf,37.8,39,37.7,37.4,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-07-28,10:49,overcast,-2,3.3,9.1,9.5,-Inf,32.2,31.8,33.3,33.1,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-07-29,10:48,clear sky,NaN,-31,-6.6,-4,-Inf,36.8,37.6,39.2,39.3,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-07-30,10:36,clear sky,NaN,-39.2,-10.8,-8,-Inf,39,40,41.2,43.1,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-07-31,11:07,clear sky,NaN,-24.5,-5.7,-1.4,-Inf,42.4,43.6,43.9,44.8,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-08-01,16:30,clear sky,NaN,-29.3,-1.3,-0.2,-Inf,51.4,29.9,52.7,51.8,-Inf,measurements taken by Chris Baca and Steve White
+2020-08-02,10:30,clear sky,NaN,-27.1,-4.6,-3.4,-Inf,46.1,46.3,50.8,49.4,-Inf,measurements taken by Chris Baca and Steve White
+2020-08-03,10:30,clear sky,NaN,-27.9,-7.5,-4.6,-Inf,31.1,32.5,33.6,34,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-08-04,17:12,overcast,-17.6,-24.3,2.1,3.2,-Inf,50.6,51.5,52.6,52.2,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-08-05,17:01,clear sky,NaN,-26.8,-4,-25,-Inf,50,50.2,51.4,52.3,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-08-06,10:39,clear sky,NaN,-29.8,-3.9,-3,-Inf,37.2,36.1,38.8,39,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-08-07,13:58,overcast,5.9,2.6,16,16.4,-Inf,45.5,46.9,46.8,46.5,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-08-08,16:03,overcast,-8,4.2,15.2,12.9,-Inf,58.2,58,59.3,58.8,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-08-09,16:32,overcast,NaN,-30.3,-4.1,-2.2,-Inf,49.2,50.6,51.9,52.1,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-08-10,10:52,clear sky,NaN,-34.8,-7.8,-5.4,-Inf,40.1,40.7,42.2,42.4,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-08-11,11:20,clear sky,NaN,-36.9,-10.1,-7.9,-Inf,42.6,45.4,46.2,46.4,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-08-12,16:41,overcast,5.5,2.2,11.6,12.7,-Inf,47,48.8,48.8,48.2,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-08-13,10:33,clear sky,NaN,-31.4,-5.2,-3.5,-Inf,35.9,35.6,36.6,37.2,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-08-14,10:29,clear sky,NaN,-29.9,-7.5,-6,-Inf,38.4,38.7,38.6,39.8,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-08-15,17:00,overcast,11.2,6.2,14.5,15,-Inf,39.6,39.1,39,39.5,-Inf,due to Corona virus quarantine measurement site moved to Vickis driveway
+2020-08-16,10:05,clear sky,NaN,-31.2,-8.9,-6.8,-Inf,32.7,32.4,34.5,35.4,-Inf,Vickis last set of manual measurements before moving to South Dakota taken in her driveway
+2020-08-17,11:53,clear sky,NaN,-22.4,-3.3,-4,-Inf,44.8,44.7,47.7,46.6,-Inf,Fernandos first manual measurments taken in Alta apartments on Tech campus
+2020-08-18,11:50,clear sky,NaN,-30.4,-6.3,-5.7,-Inf,40.8,42.9,43.4,42.6,-Inf,
+2020-08-19,17:23,clear sky,NaN,-26.8,-2.5,-0.3,-Inf,46.5,47.5,48.5,48.3,-Inf,Hazy outside evening measurments measurments taken due to classes
+2020-08-20,11:53,overcast,NaN,-26.8,-4.1,-0.9,-Inf,40.3,43.1,42.4,44.2,-Inf,
+2020-08-21,20:00,clear sky,NaN,-28.5,-5.2,-3.5,-Inf,39.1,39.3,39.1,39.2,-Inf,
+2020-08-22,17:17,clear sky,NaN,-27.1,-1.9,-0.7,-Inf,48.5,47.5,49.8,49.2,-Inf,
+2020-08-23,15:39,clear sky,NaN,-28.2,-3.6,0.4,-Inf,52.7,54.2,54.9,56.6,-Inf,
+2020-08-24,10:51,clear sky,NaN,-26.1,-3.3,-0.9,-Inf,35.1,34,35.7,36,-Inf,
+2020-08-25,12:15,clear sky,NaN,-26.1,0.7,4.4,-Inf,42.7,41.9,45.1,46,-Inf,
+2020-08-26,10:45,clear sky,NaN,-27.3,-3.7,-0.8,-Inf,36.7,34.5,36.3,36,-Inf,
+2020-08-27,17:24,overcast,-8,-5.4,7.5,8.5,-Inf,44.8,47.6,46,45.4,-Inf,
+2020-08-28,13:27,clear sky,NaN,-32.3,-6.2,-5.8,-Inf,40.8,42.7,43.5,42.6,-Inf,
+2020-08-29,16:47,overcast,NaN,5.6,-3.6,-0.3,-Inf,50.2,50.1,51.1,51.7,-Inf,
+2020-08-30,14:55,overcast,-8.6,5.7,6.1,3.9,-Inf,50.6,52.7,53.5,53.4,-Inf,
+2020-08-31,16:41,overcast,9.7,9.2,23.3,25.4,-Inf,43,43.4,43.7,43.1,-Inf,
+2020-09-01,14:43,overcast,NaN,-35.4,-15.1,-13,-Inf,21,20.8,21.3,21.9,-Inf,
+2020-09-02,10:47,clear sky,NaN,-36.2,-12.8,-10.8,-Inf,33.1,38.2,34.5,34,-Inf,Started talking measurements at workman once again
+2020-09-03,10:45,clear sky,NaN,-30.7,-8.4,-7.8,-Inf,36.4,36.1,38.2,38.3,-Inf,
+2020-09-04,11:03,clear sky,NaN,-30.9,-6.4,-5.3,-Inf,41.5,40.6,44.1,44.8,-Inf,
+2020-09-05,10:30,clear sky,NaN,-30.9,-7.1,-6.5,-Inf,36.8,36.5,38.6,39.3,-Inf,
+2020-09-06,11:30,clear sky,NaN,-29.1,-5.4,-3.2,-Inf,41.5,42.8,44.1,45.9,-Inf,
+2020-09-07,11:20,clear sky,NaN,-28.4,-6.4,-5.4,-Inf,37.6,36.5,38.3,39.2,-Inf,
+2020-09-08,10:31,overcast,-17.3,-10.8,1.5,3.5,-Inf,28,29.6,30.9,31,-Inf,
+2020-09-09,11:36,overcast,3,1.4,2.6,3.9,-Inf,15.4,14.2,13.8,14.7,-Inf,Rainy day today New Mexico experiencing a cold snap for a few days
+2020-09-10,11:46,overcast,1.5,-0.8,1.7,2.4,-Inf,16.2,14.6,14.1,14.6,-Inf,
+2020-09-11,11:29,clear sky,NaN,-27.4,-5.6,-4.3,-Inf,36.4,36.7,39.1,31.2,-Inf,
+2020-09-12,10:34,clear sky,NaN,-30.6,-7.2,-6.4,-Inf,36.4,36.1,38.2,35.4,-Inf,
+2020-09-13,17:35,clear sky,NaN,-34.6,-10.3,-9.6,-Inf,37.1,36.5,38.4,37.6,-Inf,
+2020-09-14,10:45,clear sky,NaN,-35.6,-12.4,-10.6,-Inf,36.3,36.7,38.7,37.9,-Inf,
+2020-09-15,17:59,clear sky,NaN,NaN,-15.6,-11.4,-Inf,37.3,40.5,39.3,37.9,-Inf,
+2020-09-16,17:10,clear sky,NaN,NaN,-12.3,-8.1,-Inf,38.9,38.8,40.1,41.3,-Inf,
+2020-09-17,11:13,clear sky,NaN,-34.3,-13,-11.6,-Inf,27.2,26.5,28.6,29,-Inf,
+2020-09-18,15:14,clear sky,NaN,-36.5,-11.4,-10.8,-Inf,32.2,32.4,34.7,34.6,-Inf,
+2020-09-19,10:45,clear sky,NaN,-36.6,-12.3,-11.5,-Inf,34.7,35.4,36.7,37.6,-Inf,
+2020-09-20,10:36,clear sky,NaN,NaN,-12.9,-12.3,-Inf,36.4,33.6,24.8,35.1,-Inf,
+2020-09-21,10:47,clear sky,NaN,-35.3,-11.4,-10.3,-Inf,36.3,35.2,36.4,36.7,-Inf,
+2020-09-22,17:31,clear sky,NaN,-38.5,-13.6,-11.4,-Inf,35.1,35.4,37.1,37.3,-Inf,
+2020-09-23,10:04,clear sky,NaN,-39.1,-15.1,-13.9,-Inf,37.6,37.8,38.2,39.1,-Inf,
+2020-09-24,15:54,clear sky,NaN,NaN,-12.9,-12.4,-Inf,39.7,40.6,40.5,40.4,-Inf,
+2020-09-25,10:28,clear sky,NaN,NaN,-21.4,-19,-Inf,32.5,32.9,33.2,33.2,-Inf,
+2020-09-26,11:15,clear sky,NaN,-38.6,-13.9,-12,-Inf,31.9,32,34,35.3,-Inf,
+2020-09-27,10:45,clear sky,NaN,-36.2,-12.8,-10.8,-Inf,33.1,38.2,34.5,34,-Inf,
+2020-09-28,10:50,clear sky,NaN,-35.8,-11.5,-10.9,-Inf,36.3,36.5,38.3,38.2,-Inf,
+2020-09-29,11:37,clear sky,NaN,-36.7,-13.9,-15.5,-Inf,34.3,35.2,36,34.4,-Inf,
+2020-09-30,11:29,clear sky,NaN,-36.3,-14.9,-13.8,-Inf,35.5,35.7,35.5,36.2,-Inf,
+2020-10-01,11:45,clear sky,NaN,-35.3,-12.4,-11.8,-Inf,32.2,32.4,34.7,34.6,-Inf,
+2020-10-02,12:07,clear sky,NaN,-38.5,-15.6,-13.6,-Inf,34.7,37.9,36.7,37.6,-Inf,
+2020-10-03,10:11,clear sky,NaN,-39.1,-12.3,-11.7,-Inf,36.4,36.6,37.8,36.1,-Inf,
+2020-10-04,18:05,clear sky,NaN,NaN,-15.9,-14.1,-Inf,32.5,32.8,33.3,34.1,-Inf,
+2020-10-05,16:00,clear sky,NaN,NaN,-17.8,-15.5,-Inf,40.5,40.5,41.9,42.3,-Inf,
+2020-10-06,11:45,clear sky,NaN,NaN,-16.8,-14.5,-Inf,39.5,39.7,40.2,40.8,-Inf,
+2020-10-07,17:25,clear sky,NaN,NaN,-19.9,-16.1,-Inf,39.3,39.4,39,39.2,-Inf,
+2020-10-08,11:35,clear sky,NaN,-39.5,-17.7,-15.4,-Inf,38.7,39,38.6,38.9,-Inf,
+2020-10-09,10:42,clear sky,NaN,NaN,-15.9,-14.1,-Inf,32.5,32.8,33.3,34.1,-Inf,
+2020-10-10,10:55,clear sky,NaN,NaN,-18.9,-15.1,-Inf,38.3,38.4,38,38.2,-Inf,
+2020-10-11,11:23,clear sky,NaN,-38.5,-15.6,-13.6,-Inf,34.7,37.9,36.7,37.6,-Inf,
+2020-10-12,18:20,clear sky,NaN,NaN,-19.9,-16.1,-Inf,39.3,39.4,39,39.2,-Inf,
+2020-10-13,16:30,clear sky,NaN,NaN,-22.2,-19,-Inf,34.3,26.1,25.7,28,-Inf,
+2020-10-14,15:11,clear sky,NaN,NaN,-16.6,-14.9,-Inf,34.7,35.6,36.9,37.1,-Inf,
+2020-10-15,11:56,clear sky,NaN,-38.7,-13.9,-15.5,-Inf,34.3,35.2,36,34.4,-Inf,
+2020-10-16,11:45,clear sky,NaN,NaN,-17.3,-15.4,-Inf,28.5,28.6,29.9,30.8,-Inf,
+2020-10-17,13:48,clear sky,NaN,NaN,-17,-14.9,-Inf,33.4,33.1,35.7,33.6,-Inf,
+2020-10-18,16:42,clear sky,NaN,NaN,-18.1,-16.6,-Inf,35.1,34.8,37.1,36.4,-Inf,
+2020-10-19,17:20,clear sky,NaN,NaN,-19.3,-17.9,-Inf,36.6,35.8,38.8,42.2,-Inf,
+2020-10-20,11:45,clear sky,NaN,NaN,-23.6,-19.5,-Inf,37.4,36.6,38.6,39.2,-Inf,
+2020-10-21,13:12,clear sky,NaN,NaN,-27.3,-24.9,-Inf,40.6,39.8,41.8,42.2,-Inf,
+2020-10-22,11:45,clear sky,NaN,NaN,-22.8,-21.1,-Inf,43,43.4,43.7,43.1,-Inf,
+2020-10-23,14:47,clear sky,NaN,NaN,-18.7,-17.1,-Inf,44.1,44.8,46.9,45.8,-Inf,
+2020-10-24,11:25,overcast,9.7,9.2,23.3,25.4,-Inf,43,43.4,43.7,43.1,-Inf,
+2020-10-25,10:35,overcast,4.4,2.4,9,9.3,-Inf,25.5,24.6,25.1,25.6,-Inf,
+2020-10-26,11:45,overcast,-11,-13.2,-9.2,-6.4,-Inf,5.5,4.3,2.4,3.7,-Inf,
+2020-10-27,17:34,overcast,-18.2,-16.7,-12.2,-11.2,-Inf,7.4,6.4,6.2,7.7,-Inf,
+2020-10-28,11:45,clear sky,NaN,-36.3,-14.9,-13.8,-Inf,25.4,25.1,27.2,27.3,-Inf,
+2020-10-29,10:35,clear sky,NaN,-35.3,-12.4,-Inf,-11.8,16.6,14.7,15.8,-Inf,16.6,
+2020-10-30,11:22,clear sky,NaN,-38.5,-15.6,-Inf,-13.6,18.3,18.8,18.9,-Inf,19.6,
+2020-10-31,13:30,clear sky,NaN,-39.1,-12.3,-Inf,-11.7,21,23.5,20.1,-Inf,21.2,
+2020-11-01,11:48,clear sky,NaN,NaN,-15.9,-Inf,-14.1,26.5,25.8,27.5,-Inf,26.7,
+2020-11-02,15:46,clear sky,NaN,NaN,-33.5,-Inf,-31.6,22,21.4,26.2,-Inf,26.4,
+2020-11-03,12:17,clear sky,NaN,NaN,-24.4,-Inf,-23.3,24.5,23.8,25.5,-Inf,26.7,
+2020-11-04,16:25,clear sky,NaN,NaN,-25.6,-Inf,-23.9,17,16.3,16.9,-Inf,17.1,
+2020-11-05,11:38,clear sky,NaN,NaN,-30,-Inf,-28.2,19.9,19.5,21.5,-Inf,21.7,
+2020-11-06,11:02,clear sky,NaN,NaN,-24.4,-Inf,-24.6,17.8,17.2,17.3,-Inf,17.4,
+2020-11-07,10:50,overcast,-10.5,-14.1,-6,-Inf,-5.6,16.2,14.2,14.7,-Inf,14.8,
+2020-11-08,10:18,overcast,-5.6,-6.9,-1,-Inf,0.6,13.4,10.7,11.1,-Inf,11.5,
+2020-11-09,16:04,clear sky,NaN,-36.8,-23,-Inf,-21.5,16.2,14.8,15.6,-Inf,15.8,
+2020-11-10,12:28,clear sky,NaN,NaN,-25.3,-Inf,-24.6,22.5,22.2,22.7,-Inf,22.8,
+2020-11-11,10:45,overcast,-4.2,-4.9,-0.9,-Inf,0.5,15.2,13.6,13.1,-Inf,13.3,
+2020-11-12,15:39,overcast,NaN,-35.6,-21.6,-Inf,-19.3,13,11.9,12.1,-Inf,12.2,
+2020-11-13,10:45,clear sky,NaN,-33.7,-12.9,-Inf,-13.5,12.2,14.3,11.2,-Inf,13.6,
+2020-11-14,11:25,clear sky,NaN,-38.5,-18.2,-Inf,-17.6,22.5,20.2,23.2,-Inf,24.1,
+2020-11-15,10:30,clear sky,NaN,-36.6,-10.1,-Inf,-11.4,15.2,17.8,14.5,-Inf,14.6,
+2020-11-16,10:35,clear sky,NaN,-32.8,-17.4,-Inf,-16.9,16.6,16.8,15.5,-Inf,17.4,
+2020-11-17,10:58,clear sky,NaN,-34.5,-13.4,-Inf,-12.8,18.3,17.4,18,-Inf,18.8,
+2020-11-18,12:15,clear sky,NaN,-35.5,-15.2,-Inf,-17.4,23.5,22.4,24.3,-Inf,24.3,
+2020-11-19,12:54,clear sky,NaN,-36.3,-14.7,-Inf,-13.9,21,20.6,21.2,-Inf,21.6,
+2020-11-20,10:30,clear sky,NaN,-36.4,-13.9,-Inf,-12.2,19.5,18.7,20.4,-Inf,20.9,
+2020-11-21,15:32,overcast,-12.7,-11.2,-15,-Inf,-14.5,10.7,10.3,9.6,-Inf,10,
+2020-11-22,10:45,clear sky,NaN,-35.4,-34,-Inf,-35.5,15.9,14.5,14.9,-Inf,14.8,
+2020-11-23,13:34,clear sky,NaN,NaN,-31.9,-Inf,-28.7,10.5,8.9,9.7,-Inf,9.6,
+2020-11-24,12:40,clear sky,NaN,NaN,-24.8,-Inf,-25.7,7.8,7.1,6.9,-Inf,6.8,
+2020-11-25,10:54,clear sky,NaN,NaN,-35.5,-Inf,-34.7,7.8,7.6,6.8,-Inf,7.3,
+2020-11-26,11:15,overcast,-5.6,-6.7,-2.5,-Inf,-1.6,8.5,7.4,6.6,-Inf,7.5,
+2020-11-27,16:21,overcast,-4.9,-4.3,-4.2,-Inf,-3.9,3.5,3.5,2.4,-Inf,3.7,
+2020-11-28,12:45,clear sky,NaN,-33.5,-11.5,-Inf,-12.3,12.5,13.5,12.6,-Inf,12.4,
+2020-11-29,11:35,clear sky,NaN,-34.6,-12.6,-Inf,-13.5,15.5,17.6,16.3,-Inf,16.9,
+2020-11-30,11:45,clear sky,NaN,-35.6,-13.5,-Inf,-14.6,13.2,11.9,12.4,-Inf,13.3,
+2020-12-01,14:45,clear sky,NaN,-38.7,-12.6,-Inf,-13.4,13.4,11.5,13.6,-Inf,14.2,
+2020-12-02,9:46,overcast,-6.6,-8.2,-6.7,-Inf,-9.3,4,3.1,0.9,-Inf,-0.2,Snow
+2020-12-03,10:27,clear sky,NaN,NaN,-44,-Inf,-47.3,7.4,6,7.6,-Inf,6,
+2020-12-04,10:15,clear sky,NaN,NaN,-38.8,-Inf,-44.4,8.8,6.5,9.9,-Inf,6.7,
+2020-12-05,10:14,clear sky,NaN,NaN,-39.5,-Inf,-40.2,10.8,9.2,10,-Inf,10.7,
+2020-12-06,10:34,clear sky,NaN,NaN,-44.2,-Inf,-39.8,12.4,11,10.9,-Inf,13.6,
+2020-12-07,10:00,clear sky,NaN,NaN,-41,-Inf,-43.6,8.5,7.3,8.9,-Inf,7.1,
+2020-12-08,9:50,clear sky,NaN,NaN,-39.5,-Inf,-40.7,8.7,8.2,11,-Inf,8.7,
+2020-12-09,10:10,clear sky,NaN,NaN,-43.9,-Inf,-44.1,10.2,9.4,8.9,-Inf,9,
+2020-12-10,10:00,overcast,0,-0.3,-3.3,-Inf,-1.6,3.5,2.7,0,-Inf,2.3,
+2020-12-11,16:30,overcast,NaN,1,-36.5,-Inf,-35,0.4,18.3,0.6,-Inf,1.3,
+2020-12-12,16:30,overcast,NaN,NaN,-31.1,-Inf,-31.3,4.2,4.5,4.3,-Inf,4.7,
+2020-12-13,0:00,NaN,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,No Measurements taken
+2020-12-14,16:15,clear sky,NaN,NaN,-41.6,-Inf,-41.5,-0.5,-1.8,-1.9,-Inf,-2.8,
+2020-12-15,0:00,NaN,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,No Measurements taken
+2020-12-16,0:00,NaN,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,No Measurements taken
+2020-12-17,16:15,overcast,NaN,NaN,-25.5,-Inf,-25.8,1,NaN,-0.3,-Inf,0.1,FLIR i3 battery died
+2020-12-18,16:30,clear sky,NaN,NaN,-38.8,-Inf,-38.5,0.4,NaN,-0.3,-Inf,-1,FLIR i3 battery died
+2020-12-19,16:00,clear sky,NaN,NaN,-38.8,-Inf,-38.1,6.4,NaN,5.6,-Inf,4.2,FLIR i3 battery died
+2020-12-20,16:12,clear sky,NaN,NaN,-36.6,-Inf,-37.4,8.5,8,7.2,-Inf,6.9,
+2020-12-21,14:19,clear sky,NaN,NaN,-34.1,-Inf,-33.2,8.5,8,7.7,-Inf,7.1,
+2020-12-22,10:19,clear sky,NaN,NaN,-36.9,-Inf,-41.9,9,8.4,11.5,-Inf,8.3,
+2020-12-23,10:47,clear sky,NaN,NaN,-44.6,-Inf,-46.4,10.8,10.3,11.4,-Inf,10.2,
+2020-12-24,0:00,NaN,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,No Measurements taken
+2020-12-25,10:36,clear sky,NaN,NaN,-41.1,-Inf,-30.9,8.5,8.3,8.4,-Inf,10.2,Thin wispy clouds outside FOV
+2020-12-26,10:05,clear sky,NaN,NaN,-37.6,-Inf,-37.6,5.4,4.4,5.8,-Inf,6.5,
+2020-12-27,10:28,clear sky,NaN,NaN,-39.3,-Inf,-36.4,9.7,9.1,7.8,-Inf,10.2,
+2020-12-28,10:13,clear sky,NaN,NaN,-32.2,-Inf,-28.9,11.4,10.7,11.7,-Inf,13.7,
+2020-12-29,10:04,overcast,-9.6,-10.2,-6.4,-Inf,-15.5,6.9,6.7,4.8,-Inf,3.7,
+2020-12-30,10:19,clear sky,NaN,NaN,-48.3,-Inf,-41,6.4,6.5,4,-Inf,8.6,
+2020-12-31,16:12,clear sky,NaN,NaN,-43,-Inf,-43.5,4,4.2,3.3,-Inf,2.8,
+2021-01-01,10:21,overcast,NaN,NaN,-32.8,-Inf,-35,8,7.6,6.7,-Inf,7.1,
+2021-01-02,10:05,clear sky,NaN,NaN,-47.3,-Inf,-45.4,3.4,4,1.6,-Inf,2.9,
+2021-01-03,10:11,clear sky,NaN,NaN,-37.8,-Inf,-38.6,6.4,5,8.1,-Inf,5.7,thin clouds outside FOV
+2021-01-04,9:45,clear sky,NaN,NaN,-37.5,-Inf,-35.9,3,1.5,4.3,-Inf,5.3,
+2021-01-05,16:15,clear sky,NaN,NaN,-35.7,-Inf,-36,9.7,9.4,9.5,-Inf,9.3,
+2021-01-06,10:15,clear sky,NaN,NaN,-46.9,-Inf,-49.9,7.4,7.5,5.8,-Inf,4,
+2021-01-07,10:00,clear sky,NaN,NaN,-41.9,-Inf,-41.8,5.4,4.5,3.6,-Inf,5.7,
+2021-01-08,10:18,clear sky,NaN,NaN,-40.4,-Inf,-45.1,9.7,8.2,9.8,-Inf,6.1,
+2021-01-09,16:10,overcast,-12.7,-15,-17.3,-Inf,-14.6,8,5.5,-0.1,-Inf,2.1,
+2021-01-10,10:17,overcast,NaN,NaN,-45,-Inf,-45.1,3,1.8,1.9,-Inf,1.5,thin wispy clouds
+2021-01-11,16:04,clear sky,NaN,NaN,-43.3,-Inf,-43.9,5.4,4.2,2.9,-Inf,2.3,
+2021-01-12,9:57,clear sky,NaN,NaN,-47.7,-Inf,-43.9,2.6,1.9,1.4,-Inf,3.2,
+2021-01-13,16:21,overcast,NaN,NaN,-33.3,-Inf,-33.2,2.6,8,6.8,-Inf,7.2,thin clouds
+2021-01-14,15:48,clear sky,NaN,NaN,-35.6,-Inf,-34.9,11.9,12.1,10.7,-Inf,11.7,
+2021-01-15,16:04,clear sky,NaN,NaN,-38,-Inf,-37.7,10.2,10.2,11.2,-Inf,9.6,
+2021-01-16,10:24,overcast,-12.7,-13.2,-11.3,-Inf,-11.8,3.5,3.2,0.3,-Inf,0.3,
+2021-01-17,10:26,clear sky,NaN,NaN,-41.3,-Inf,-38.9,7.4,7.6,6.8,-Inf,9,
+2021-01-18,10:08,clear sky,NaN,NaN,-40.1,-Inf,-41.6,6.4,5.3,7.6,-Inf,6.5,
+2021-01-19,15:45,clear sky,NaN,NaN,-38.4,-Inf,-39.1,11.9,10.3,9.1,-Inf,8.2,
+2021-01-20,10:05,overcast,-1.8,-4.1,-5.9,-Inf,-6.1,6.4,5.4,0.8,-Inf,0.8,
+2021-01-21,10:25,clear sky,NaN,NaN,-31,-Inf,-30.9,11.9,11.6,11.9,-Inf,12.3,
+2021-01-22,10:10,overcast,0,1.6,-3.1,-Inf,-2,7.4,6.6,4.8,-Inf,4.1,
+2021-01-23,10:13,clear sky,NaN,NaN,-30.6,-Inf,-33.1,10.8,9.9,11.8,-Inf,10.5,
+2021-01-24,10:11,overcast,NaN,-18.8,-13,-Inf,-11.1,10.8,9.8,9.3,-Inf,10,puffy spaced out clouds
+2021-01-25,10:07,overcast,-20,-18.7,-14.3,-Inf,-14.5,4.6,4,2.6,-Inf,1.6,blanket of clouds
+2021-01-26,10:32,overcast,-13.6,-13.1,-13.8,-Inf,-9.7,6.4,4.3,2.5,-Inf,4.6,
+2021-01-27,9:50,clear sky,NaN,NaN,NaN,-Inf,NaN,0.4,1,-0.3,-Inf,-0.6,
+2021-01-28,16:06,overcast,NaN,NaN,-28.5,-Inf,-34.6,7.4,6.9,4.2,-Inf,4.6,
+2021-01-29,16:03,clear sky,NaN,NaN,-33.3,-Inf,-33.9,11.9,11.2,9.1,-Inf,9.5,
+2021-01-30,16:00,clear sky,NaN,NaN,-37.9,-Inf,-37.5,11.4,10.8,10.2,-Inf,11.5,
+2021-01-31,16:33,clear sky,NaN,NaN,-36.4,-Inf,-37,10.2,10.2,8.5,-Inf,10.1,
+2021-02-01,16:09,overcast,NaN,-18.6,-10.4,-Inf,-12.5,13.7,13.7,11.3,-Inf,12.7,
+2021-02-02,10:06,overcast,-18.2,-14.2,-7.7,-Inf,-7.9,11.9,11.7,9.6,-Inf,12,
+2021-02-03,16:01,overcast,-4,-0.3,2.4,-Inf,4.3,18.3,17.8,12.5,-Inf,18.4,
+2021-02-04,16:05,clear sky,NaN,NaN,-31.8,-Inf,-31.3,16.6,16.1,14.8,-Inf,16.4,
+2021-02-05,10:04,clear sky,NaN,NaN,-43.7,-Inf,-45.8,9.4,9.3,8.1,-Inf,8.9,
+2021-02-06,16:15,clear sky,NaN,NaN,-40.1,-Inf,-40.8,-14.8,14.4,12.7,-Inf,13,
+2021-02-07,16:23,clear sky,NaN,NaN,-34.3,-Inf,-35.6,15.7,15.7,15.3,-Inf,15,
+2021-02-08,16:52,clear sky,NaN,NaN,-35,-Inf,-34.9,16.6,15.3,14.8,-Inf,14.8,
+2021-02-09,16:15,overcast,NaN,-24,-13.1,-Inf,-12.4,19.5,19.9,19.4,-Inf,19.4,
+2021-02-10,16:41,overcast,NaN,-38,-7.8,-Inf,-20.7,15.4,13.8,14,-Inf,13.2,
+2021-02-11,16:30,clear sky,NaN,NaN,-28.9,-Inf,-31.9,16.6,16.3,16.6,-Inf,16.1,
+2021-02-12,16:42,overcast,-5,-4.7,NaN,-Inf,-1.3,15.7,15.2,NaN,-Inf,14.3,AMES 1 battery died
+2021-02-13,16:33,clear sky,NaN,NaN,NaN,-Inf,-32,12.2,11.8,NaN,-Inf,10.7,AMES 1 battery died
+2021-02-14,16:38,overcast,NaN,-21.7,-22.4,-Inf,-21.8,2.4,2.1,-1.4,-Inf,-0.1,snowing
+2021-02-15,16:56,overcast,NaN,-32,-41.3,-Inf,-43.4,3.5,3.2,-3.9,-Inf,-7.4,
+2021-02-16,10:22,overcast,-6.6,-9.8,-14.1,-Inf,-10.6,4,3.4,-1.9,-Inf,-0.2,snow
+2021-02-17,0:00,NaN,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,No Measurements taken
+2021-02-18,16:34,clear sky,NaN,NaN,-42.5,-Inf,-42.1,8,7.4,6.4,-Inf,7.2,
+2021-02-19,17:04,clear sky,NaN,NaN,-37.2,-Inf,-37.3,10.8,10.8,8.6,-Inf,8.4,
+2021-02-20,16:01,clear sky,NaN,NaN,-29,-Inf,-27.8,17.4,16.6,17.5,-Inf,17.7,
+2021-02-21,16:21,clear sky,NaN,NaN,-45.3,-Inf,-43.5,13.4,12.8,10.8,-Inf,11.3,
+2021-02-22,15:50,clear sky,NaN,NaN,-35.3,-Inf,-34.8,17.4,16.8,16,-Inf,15.7,
+2021-02-23,16:24,overcast,NaN,NaN,-33.4,-Inf,-32.5,15.7,15.1,15.2,-Inf,15.4,
+2021-02-24,10:00,clear sky,NaN,NaN,-40.5,-Inf,-40.9,16.8,15.1,16.1,-Inf,16.6,
+2021-02-25,16:41,overcast,-7.4,-6.4,-5.3,-Inf,-6.5,17.4,17.4,16,-Inf,14.4,
+2021-02-26,16:43,clear sky,NaN,NaN,-40.9,-Inf,-40,16.2,14.8,14.2,-Inf,15,
+2021-02-27,16:08,clear sky,NaN,NaN,-39.3,-Inf,-37.2,19.1,19.2,18.7,-Inf,19.2,small patches of clouds outside FOV
+2021-02-28,16:23,overcast,NaN,-25.7,-18.7,-Inf,-19.8,17,16.3,14,-Inf,13.5,
+2021-03-01,16:41,clear sky,NaN,NaN,-45.5,-Inf,-44.9,13.4,13.2,11.5,-Inf,10.8,
+2021-03-02,10:10,clear sky,NaN,NaN,-40.9,-Inf,-40.2,15.4,14.5,17,-Inf,18,
+2021-03-03,16:11,clear sky,NaN,NaN,-30.1,-Inf,-28.9,19.1,18.9,18,-Inf,18.7,
+2021-03-04,16:36,clear sky,NaN,NaN,-32.1,-Inf,-33.1,18.3,18.6,17.8,-Inf,17.8,
+2021-03-05,16:25,clear sky,NaN,NaN,-29.9,-Inf,-28.1,19.1,18,19.3,-Inf,19.8,
+2021-03-06,16:08,clear sky,NaN,NaN,-33.8,-Inf,-32.8,18.3,18.3,18.7,-Inf,18.2,
+2021-03-07,16:05,overcast,NaN,NaN,-20.3,-Inf,-18.8,24.7,24.5,25.1,-Inf,24.8,
+2021-03-08,16:44,overcast,NaN,-38.7,-18.6,-Inf,-17.7,19.5,20.5,20.3,-Inf,20.9,
+2021-03-09,16:00,overcast,-9.8,-12.4,-1.4,-Inf,-2.6,19.1,19.4,19.9,-Inf,20,
+2021-03-10,15:55,clear sky,NaN,NaN,-37.8,-Inf,-36.7,21,21.3,19.9,-Inf,21,
+2021-03-11,10:20,clear sky,NaN,NaN,-41.8,-Inf,-37.3,26.4,27.1,24.4,-Inf,25.5,
+2021-03-12,16:17,clear sky,NaN,NaN,-39,-Inf,-38.6,19.9,20.3,19,-Inf,19.5,
+2021-03-13,16:11,overcast,NaN,-26.1,-18.7,-Inf,-20.3,15.2,14.2,12.4,-Inf,11.4,
+2021-03-14,16:14,overcast,NaN,-39.1,-35,-Inf,-35.1,22.5,23,21.2,-Inf,21.4,VERY WINDY
+2021-03-15,16:13,overcast,NaN,-18,-7.5,-Inf,-6.6,25.9,25.3,25.4,-Inf,25,
+2021-03-16,16:12,overcast,NaN,NaN,-41.6,-Inf,-23.6,22,22.2,20.6,-Inf,20.8,
+2021-03-17,16:39,clear sky,NaN,NaN,-31,-Inf,-30.5,25.9,26.7,25.3,-Inf,25.1,
+2021-03-18,16:50,overcast,NaN,NaN,-29,-Inf,-28.7,29.9,29.9,28.6,-Inf,28.8,
+2021-03-19,16:45,clear sky,NaN,NaN,-27.5,-Inf,-26.5,27.6,27,26.7,-Inf,26.8,
+2021-03-20,16:52,clear sky,NaN,NaN,-23.1,-Inf,-21.2,28,27.8,29,-Inf,29.1,
+2021-03-21,16:15,overcast,-15,-10.6,-20.1,-Inf,-17.7,36.7,31.4,38.5,-Inf,37.6,
+2021-03-22,10:15,overcast,-18.7,-17.7,-11.7,-Inf,-14.4,15.7,15.4,13.9,-Inf,14.3,
+2021-03-23,16:33,overcast,NaN,-35,-21.3,-Inf,-12,25.9,24.8,25.7,-Inf,25.6,
+2021-03-24,16:17,overcast,-10.5,-7.1,-6.4,-Inf,-7.5,12.2,10.2,7.9,-Inf,8.1,snowed eariler today
+2021-03-25,16:09,overcast,-9,-8.9,-4.9,-Inf,-4.6,20,20.6,19.5,-Inf,20.1,
+2021-03-26,16:36,overcast,NaN,-26.7,-20,-Inf,-14.8,25.9,25.5,25.1,-Inf,24.7,
+2021-03-27,15:58,overcast,NaN,NaN,-29.3,-Inf,-30.8,29.9,30.1,31.1,-Inf,31,partly cloudy
+2021-03-28,16:17,clear sky,NaN,NaN,-29.8,-Inf,-26.8,33.5,34.1,34.2,-Inf,34.5,
+2021-03-29,16:26,overcast,NaN,NaN,-20.9,-Inf,-17.8,33.9,33.4,34.9,-Inf,35.2,partly cloudy
+2021-03-30,16:16,clear sky,NaN,NaN,-27.4,-Inf,-24,37.3,37.7,38.7,-Inf,39,
+2021-03-31,16:34,clear sky,NaN,NaN,-42,-Inf,-41.2,28.5,29.1,27.7,-Inf,28.8,
+2021-04-01,16:38,overcast,NaN,-28.3,-13.6,-Inf,-11.2,27.2,27.3,27.2,-Inf,27.8,
+2021-04-02,16:03,overcast,0.4,-1.5,7.2,-Inf,7.9,33.1,33.9,33.8,-Inf,34.6,
+2021-04-03,16:55,clear sky,NaN,NaN,-17.2,-Inf,-16.3,31.9,32.2,32.6,-Inf,32.5,
+2021-04-04,16:30,overcast,NaN,NaN,-3.4,-Inf,-3.9,37.3,38.4,40,-Inf,40.2,partly cloudy
+2021-04-05,10:08,clear sky,NaN,NaN,-23.7,-Inf,-17.2,27.6,27.5,29.3,-Inf,31.4,
+2021-04-06,16:53,clear sky,NaN,NaN,-30.3,-Inf,-29.3,32.3,32.7,33.1,-Inf,33.1,
+2021-04-07,16:14,clear sky,NaN,NaN,-26.2,-Inf,-27,38.9,39.3,38.9,-Inf,40.6,
+2021-04-08,16:00,overcast,-5,-5.3,3.6,-Inf,6.5,32.7,32,33.7,-Inf,34.3,
+2021-04-09,10:00,clear sky,NaN,NaN,-28.9,-Inf,-27.1,25.9,25.7,34.2,-Inf,31.1,
+2021-04-10,16:16,overcast,-16.7,-24.6,-12.7,-Inf,-11.6,37.3,37.8,37.1,-Inf,40.1,
+2021-04-11,9:53,clear sky,NaN,NaN,-31.3,-Inf,-28.2,25.5,25.6,27.1,-Inf,28.4,
+2021-04-12,10:00,overcast,-17.3,-19.4,-9.6,-Inf,-8.6,23,22.3,22.3,-Inf,21.9,
+2021-04-13,16:20,clear sky,NaN,NaN,-19.2,-Inf,-18,37.7,37.3,39.3,-Inf,39.8,
+2021-04-14,10:00,clear sky,NaN,NaN,-26.2,-Inf,-22.8,27.6,25.2,28,-Inf,29.1,
+2021-04-15,16:32,overcast,NaN,-27.5,-13.1,-Inf,-12.3,35.5,35.9,37.9,-Inf,37.5,
+2021-04-16,16:36,overcast,-9.4,-11.8,-4.9,-Inf,-3.8,32.7,32.6,33.2,-Inf,33.2,
+2021-04-17,10:03,overcast,NaN,NaN,-34.7,-Inf,-33.3,21.5,21.5,23.1,-Inf,22.5,partly cloudy
+2021-04-18,10:16,overcast,-6.2,-5.1,-4,-Inf,-5,15.7,14.3,13.3,-Inf,12.7,
+2021-04-19,10:19,clear sky,NaN,NaN,-31.2,-Inf,-31.8,23,25.7,25.1,-Inf,24.2,
+2021-04-20,10:00,clear sky,NaN,NaN,-31,-Inf,-29.1,25.9,24,26.3,-Inf,25.7,
+2021-04-21,16:44,clear sky,NaN,NaN,-23.5,-Inf,-22.1,33.9,34.4,35.1,-Inf,35.7,
+2021-04-22,17:25,overcast,NaN,NaN,-23.3,-Inf,-20.1,30.7,31.1,31.9,-Inf,31.2,
+2021-04-23,16:31,clear sky,NaN,NaN,-24.8,-Inf,-26,34.3,34.8,35.6,-Inf,35.8,
+2021-04-25,10:05,clear sky,NaN,NaN,-26,-Inf,-24.1,29.5,28.8,34.6,-Inf,31.4,
+2021-04-26,10:02,clear sky,NaN,NaN,-29.9,-Inf,-28.9,29.5,30.2,32.3,-Inf,32.4,
+2021-04-27,10:24,clear sky,NaN,NaN,-26.6,-Inf,-25.1,28.5,28.3,29.2,-Inf,28.7,
+2021-04-28,10:18,overcast,-Inf,-7.2,2.8,-Inf,-0.4,-Inf,24.6,30.7,-Inf,26.8,
+2021-04-29,16:39,clear sky,-Inf,NaN,-17.6,-Inf,-20.5,-Inf,32.7,32.8,-Inf,33.1,clouds outside FOV
+2021-04-30,9:56,clear sky,-Inf,NaN,-23.7,-Inf,-22.9,-Inf,26.6,28.3,-Inf,28,
+2021-05-01,16:18,overcast,-Inf,-34,-10.4,-Inf,-10.5,-Inf,42.4,43.7,-Inf,44.5,
+2021-05-02,16:22,overcast,-Inf,NaN,-18.1,-Inf,-16.2,-Inf,46.2,50.2,-Inf,49.1,
+2021-05-03,16:51,overcast,-Inf,-2.8,2.3,-Inf,3,-Inf,28.1,28.4,-Inf,28.5,
+2021-05-04,17:17,overcast,-Inf,-34.2,-12.4,-Inf,-16.2,-Inf,34.2,35.5,-Inf,34.3,
+2021-05-05,16:12,clear sky,-Inf,NaN,-15.3,-Inf,-12.7,-Inf,47.3,47.6,-Inf,53.4,
+2021-05-06,16:38,overcast,-Inf,-35.4,-11.1,-Inf,-9.8,-Inf,44,45.8,-Inf,49.1,
+2021-05-07,16:31,overcast,-Inf,-34.5,-2.4,-Inf,-2.9,-Inf,44.5,53,-Inf,51.2,
+2021-05-08,16:48,overcast,-Inf,NaN,-12.8,-Inf,-16.3,-Inf,49.6,48.9,-Inf,48.3,
+2021-05-09,16:24,overcast,-Inf,-11.1,-4.5,-Inf,-3,-Inf,36.5,37.6,-Inf,37.1,
+2021-05-10,16:07,clear sky,-Inf,NaN,-22.4,-Inf,-19.3,-Inf,48,48.1,-Inf,50.4,
+2021-05-11,16:09,clear sky,-Inf,NaN,-10.6,-Inf,-10.6,-Inf,45.9,51.1,-Inf,50.8,
+2021-05-12,15:52,clear sky,-Inf,NaN,-13.4,-Inf,-13.7,-Inf,46.3,49.5,-Inf,48.6,
+2021-05-13,16:00,clear sky,-Inf,-35.7,-9,-Inf,-9.3,-Inf,46.5,50.5,-Inf,48.5,
+2021-05-14,16:00,overcast,-Inf,-15.1,-2.2,-Inf,-2.3,-Inf,35,35.7,-Inf,35.8,
+2021-05-15,16:40,overcast,-Inf,-37,-11.8,-Inf,-11.8,-Inf,40,38.6,-Inf,40.8,
+2021-05-16,16:05,clear sky,-Inf,NaN,-13.6,-Inf,-11.1,-Inf,48.2,52.5,-Inf,54.2,
+2021-05-17,17:24,clear sky,-Inf,NaN,-25,-Inf,-23,-Inf,35.7,35.6,-Inf,35.4,
+2021-05-18,17:22,overcast,-Inf,-16.2,-3.5,-Inf,-3.7,-Inf,29.9,30.1,-Inf,30.8,
+2021-05-19,16:11,overcast,-Inf,-32.5,-9.5,-Inf,-8.7,-Inf,48.4,47.2,-Inf,47.3,
+2021-05-20,15:46,clear sky,-Inf,NaN,-12.8,-Inf,-11.3,-Inf,51.5,51.8,-Inf,52.2,
+2021-05-21,10:07,clear sky,-Inf,NaN,-9.5,-Inf,-13.2,-Inf,38.4,42.4,-Inf,42.1,
+2021-05-22,16:05,clear sky,-Inf,-34.6,-7.5,-Inf,-6.2,-Inf,47.7,51.2,-Inf,51.8,
+2021-05-23,10:00,clear sky,-Inf,NaN,-17.6,-Inf,-13.6,-Inf,36.8,36.5,-Inf,37.1,
+2021-05-24,10:03,clear sky,-Inf,NaN,-20.4,-Inf,-23.1,-Inf,37,38.5,-Inf,36.2,
+2021-05-25,10:08,clear sky,-Inf,NaN,-19.6,-Inf,-17.1,-Inf,36.6,40.1,-Inf,45.2,
+2021-05-26,17:11,overcast,-Inf,-34.6,-13.2,-Inf,-11.6,-Inf,36.8,39.5,-Inf,39.6,thin wispy
+2021-05-27,16:02,overcast,-Inf,-35.8,-12.4,-Inf,-13.8,-Inf,51.2,50.6,-Inf,52,thin wispy
+2021-05-28,16:08,clear sky,-Inf,NaN,-13.5,-Inf,-10.4,-Inf,54.4,54.2,-Inf,55.4,
+2021-05-29,16:28,overcast,-Inf,NaN,-12.3,-Inf,-9.5,-Inf,50.6,50.2,-Inf,51.8,thin wispy
+2021-05-30,16:44,clear sky,-Inf,NaN,-13.8,-Inf,-8.8,-Inf,47,50.1,-Inf,51.2,
+2021-05-31,16:00,overcast,-Inf,-15.3,-3.4,-Inf,-2.5,-Inf,41.2,44.5,-Inf,41.6,rained 2hr prior
+2021-06-01,0:00,NaN,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,
+2021-06-02,16:14,overcast,-Inf,-20,-13.1,-Inf,-13.2,-Inf,37.2,36.9,-Inf,37,raining
+2021-06-03,17:01,overcast,-Inf,-20.5,-1.3,-Inf,-0.8,-Inf,44.7,46.4,-Inf,47.9,
+2021-06-04,17:01,clear sky,-Inf,-35.7,-11.4,-Inf,-11,-Inf,47.8,47.8,-Inf,47.9,
+2021-06-05,16:53,overcast,-Inf,-2.1,8.5,-Inf,7.8,-Inf,30.8,31.6,-Inf,31.1,post-rain
+2021-06-06,16:16,overcast,-Inf,-28.7,9.4,-Inf,9.2,-Inf,51,51.3,-Inf,52,white puffy
+2021-06-07,16:37,clear sky,-Inf,-39.1,-11.1,-Inf,-9.9,-Inf,50,52.5,-Inf,52.1,thin wispy outside FOV
+2021-06-08,17:08,overcast,-Inf,-31.2,-3.2,-Inf,-0.5,-Inf,45.9,46.2,-Inf,47,puffy white
+2021-06-09,16:26,overcast,-Inf,-26,-8.8,-Inf,-5.5,-Inf,53.1,53.3,-Inf,52.6,wispy thin
+2021-06-10,16:15,overcast,-Inf,-29.6,4.5,-Inf,3.5,-Inf,53.2,54.6,-Inf,55.9,puffy white
+2021-06-11,17:27,clear sky,-Inf,NaN,-10.2,-Inf,-8.6,-Inf,45.4,46.7,-Inf,47.4,cirrus OFOV
+2021-06-12,17:25,overcast,-Inf,-32.7,-4.2,-Inf,-2.7,-Inf,47.2,48.5,-Inf,47.4,patches of clouds
+2021-06-13,17:07,overcast,-Inf,-16.8,2.2,-Inf,2.2,-Inf,45.7,47.8,-Inf,48.7,cirrus clouds
+2021-06-14,18:02,overcast,-Inf,-32.6,-5.5,-Inf,-5,-Inf,44.1,46.2,-Inf,46.5,cirrus clouds
+2021-06-15,17:02,clear sky,-Inf,-38.4,-6.5,-Inf,-6.5,-Inf,48.4,51.3,-Inf,49.9,
+2021-06-16,16:32,clear sky,-Inf,-24.5,-3.1,-Inf,-3.3,-Inf,52.7,57.7,-Inf,54.5,
+2021-06-17,17:17,clear sky,-Inf,-27.1,-3,-Inf,-2.3,-Inf,45.3,48,-Inf,45.6,
+2021-06-18,16:20,clear sky,-Inf,-30.1,-2.4,-Inf,-2.8,-Inf,54.3,59.1,-Inf,55.3,
+2021-06-19,17:31,overcast,-Inf,2.5,15.4,-Inf,13.6,-Inf,43.7,44.8,-Inf,45.9,thick blanket
+2021-06-20,17:21,overcast,-Inf,-22.3,-1.5,-Inf,-1.1,-Inf,44.9,41.6,-Inf,42.1,post-rain
+2021-06-21,16:30,clear sky,-Inf,-24.4,1,-Inf,0.8,-Inf,53.6,55.6,-Inf,53.9,
+2021-06-22,16:34,overcast,-Inf,-17.7,5.7,-Inf,8.2,-Inf,46.8,48.3,-Inf,48.8,
+2021-06-23,16:07,overcast,-Inf,8.3,20.3,-Inf,19.1,-Inf,46.4,49.6,-Inf,48.2,
+2021-06-24,15:40,overcast,-Inf,13.6,26,-Inf,25.8,-Inf,32.8,34.9,-Inf,33.6,raining
+2021-06-25,16:45,overcast,-Inf,-9.3,-2.1,-Inf,-3,-Inf,50.1,51.5,-Inf,50.8,scattered clouds
+2021-06-26,16:19,overcast,-Inf,3.1,12.9,-Inf,13.4,-Inf,40.1,42.2,-Inf,41.7,
+2021-06-27,16:07,overcast,-Inf,-6.5,7.6,-Inf,8.9,-Inf,28.1,29.7,-Inf,29.3,post-rain
+2021-06-28,16:24,overcast,-Inf,21,20,-Inf,20.4,-Inf,22.5,21.5,-Inf,22.1,raining
+2021-06-29,19:28,overcast,-Inf,8.9,13,-Inf,11.4,-Inf,20.5,20.9,-Inf,20.1,post-rain
+2021-06-30,16:09,overcast,-Inf,-10.1,7.8,-Inf,5.7,-Inf,36.4,38.1,-Inf,37.1,
+2021-07-01,16:06,overcast,-Inf,6.3,13.8,-Inf,14.7,-Inf,39.7,40.3,-Inf,39.2,
+2021-07-02,17:16,overcast,-Inf,-14.2,9.4,-Inf,11.7,-Inf,44.7,45.3,-Inf,43.7,
+2021-07-03,17:16,overcast,-Inf,-8.2,7.1,-Inf,6.7,-Inf,40.5,41.6,-Inf,40.8,
+2021-07-04,18:09,overcast,-Inf,-19.6,0.4,-Inf,0.6,-Inf,38.8,40,-Inf,40.1,cirrus
+2021-07-05,16:33,clear sky,-Inf,-18.8,3.6,-Inf,5.1,-Inf,50.8,54.4,-Inf,51.7,
+2021-07-06,16:54,clear sky,-Inf,-21.8,-2.6,-Inf,-1.8,-Inf,52.8,51.7,-Inf,52.3,
+2021-07-07,16:09,overcast,-Inf,-21.3,0.8,-Inf,0.3,-Inf,53.1,51.6,-Inf,51.4,partly cloud
+2021-07-08,18:24,overcast,-Inf,-23,-2.3,-Inf,-1.2,-Inf,40,41,-Inf,40.8,partly cloud
+2021-07-09,17:20,overcast,-Inf,-25.1,-1.4,-Inf,0.2,-Inf,50.4,51.5,-Inf,54.5,
+2021-07-10,16:53,overcast,-Inf,-13.6,3.6,-Inf,3.5,-Inf,50.7,52.4,-Inf,52.3,cirrus
+2021-07-11,16:10,clear sky,-Inf,-20.1,-1.8,-Inf,1.8,-Inf,57.1,54.4,-Inf,57.7,
+2021-07-12,16:12,overcast,-Inf,-25.3,-2,-Inf,-2.2,-Inf,49.8,52,-Inf,51.4,blanket smoke
+2021-07-13,15:51,overcast,-Inf,-22.4,-0.5,-Inf,0.9,-Inf,49,51.4,-Inf,51.8,blanket smoke
+2021-07-14,16:01,overcast,-Inf,10.4,16.3,-Inf,16.7,-Inf,41,41.3,-Inf,41.2,rain
+2021-07-15,16:02,overcast,-Inf,-2.3,11.3,-Inf,12.7,-Inf,45.5,45.7,-Inf,45.7,
+2021-07-16,15:58,overcast,-Inf,-5.7,6.7,-Inf,7.5,-Inf,47.3,49.2,-Inf,49.5,cirrus partly cloudy
+2021-07-17,16:46,overcast,-Inf,-2.7,15.2,-Inf,17.2,-Inf,40.4,38.8,-Inf,43.3,rain
+2021-07-18,16:46,overcast,-Inf,12.6,4.6,-Inf,3.8,-Inf,53.6,54.6,-Inf,54,pre-rain
+2021-07-19,16:10,overcast,-Inf,-21,-1.7,-Inf,-1,-Inf,50.6,52.2,-Inf,52.7,partly cloudy smoke haze
+2021-07-20,16:06,overcast,-Inf,-19.4,-0.7,-Inf,0,-Inf,54.5,55.7,-Inf,55.9,smoke haze
+2021-07-21,16:09,overcast,-Inf,-22.5,0.5,-Inf,1,-Inf,48.6,51.1,-Inf,50.8,haze smoke blanket
+2021-07-22,16:51,overcast,-Inf,10.3,21.1,-Inf,18.9,-Inf,45.2,47.6,-Inf,42.9,blanket
+2021-07-23,16:31,overcast,-Inf,12.7,19.1,-Inf,19.7,-Inf,41.6,41.9,-Inf,42.1,pre-rain
+2021-07-24,16:03,overcast,-Inf,-2.4,8.2,-Inf,8.5,-Inf,38.1,37,-Inf,37.8,
+2021-07-25,10:07,overcast,-Inf,-17.3,2,-Inf,2.6,-Inf,49.4,50.6,-Inf,52.9,haze
+2021-07-26,16:18,overcast,-Inf,8,16.7,-Inf,17.4,-Inf,44.3,45.7,-Inf,46.4,haze
+2021-07-27,16:08,overcast,-Inf,-16.7,1.5,-Inf,1.7,-Inf,51.8,53.1,-Inf,53.4,partly cloudy
+2021-07-28,16:04,overcast,-Inf,-19.3,-1.3,-Inf,-0.3,-Inf,55.3,56.9,-Inf,56.7,partly cloudy
+2021-07-29,0:00,NaN,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,
+2021-07-30,0:00,NaN,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,
+2021-07-31,0:00,NaN,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,
+2021-08-01,16:28,overcast,-Inf,-12.8,2.6,-Inf,1.4,-Inf,45.3,46.7,-Inf,46.1,
+2021-08-02,15:53,overcast,-Inf,-8.3,3,-Inf,2.7,-Inf,48.1,48.3,-Inf,48.7,
+2021-08-03,16:01:00,overcast,-Inf,-5.4,4.1,-Inf,2.7,-Inf,48.6,50.4,-Inf,49.5,
+2021-08-04,16:00,clear sky,-Inf,-24.4,-1.9,-Inf,-2.9,-Inf,51.8,53.3,-Inf,52.3,
+2021-08-05,15:58,clear sky,-Inf,-24.3,-4.8,-Inf,-3.7,-Inf,52.7,53.2,-Inf,56.9,
+2021-08-06,16:04,overcast,-Inf,-18.3,2.2,-Inf,3.7,-Inf,51.3,52.6,-Inf,53.5,
+2021-08-07,16:19,overcast,-Inf,10.2,20.7,-Inf,20.8,-Inf,53.3,55.3,-Inf,54.6,
+2021-08-08,16:12,overcast,-Inf,-32.4,-6.1,-Inf,-4.3,-Inf,50.5,53,-Inf,53.4,thick smoke haze
+2021-08-09,15:57,overcast,-Inf,-14.6,2.2,-Inf,1.5,-Inf,46.6,47.8,-Inf,46.8,thin haze
+2021-08-10,0:00,NaN,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,
+2021-08-11,16:31,overcast,-Inf,-5.6,3.3,-Inf,9.1,-Inf,45.4,46.4,-Inf,47.3,partly cloudy
+2021-08-12,15:52,clear sky,-Inf,-20.7,-1.2,-Inf,-0.6,-Inf,46.5,48.2,-Inf,48,
+2021-08-13,16:20,overcast,-Inf,4.7,10,-Inf,10.9,-Inf,28.2,26.8,-Inf,27.5,raining
+2021-08-14,16:14,overcast,-Inf,-10.5,6,-Inf,6.8,-Inf,42.1,41,-Inf,44.3,partly cloudy
+2021-08-15,16:21,clear sky,-Inf,-27.8,-5,-Inf,-3.7,-Inf,46.1,47.5,-Inf,47.9,clouds OFOV
+2021-08-16,15:54,overcast,-Inf,-22.2,-2.4,-Inf,-1,-Inf,43.3,45.5,-Inf,45.6,haze
+2021-08-17,0:00,NaN,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,
+2021-08-18,15:46,overcast,-Inf,2.9,11.2,-Inf,11.2,-Inf,36.9,37.8,-Inf,37.7,
+2021-08-19,15:55,overcast,-Inf,7.8,5,-Inf,11.6,-Inf,46.1,47.3,-Inf,47.3,
+2021-08-20,16:03,overcast,-Inf,-26.7,-4,-Inf,-4.1,-Inf,41.5,40.5,-Inf,40.6,
+2021-08-21,17:12,clear sky,-Inf,-27.3,-4.7,-Inf,-5.3,-Inf,42.1,42.9,-Inf,38.5,
+2021-08-22,16:14,overcast,-Inf,-14.3,9.2,-Inf,8.7,-Inf,46.7,49.8,-Inf,48.1,
+2021-08-23,15:52,overcast,-Inf,-5.5,12.4,-Inf,10.2,-Inf,44.5,45.8,-Inf,45.7,
+2021-08-24,16:08,clear sky,-Inf,-26.3,-4.3,-Inf,-3.6,-Inf,48,48.3,-Inf,49.1,
+2021-08-25,16:21,overcast,-Inf,-14.7,3.7,-Inf,4.5,-Inf,52.6,53.8,-Inf,53.7,
+2021-08-26,16:28,overcast,-Inf,-27.2,-1.6,-Inf,0.7,-Inf,47.8,46.8,-Inf,49.1,
+2021-08-27,16:07,overcast,-Inf,-14.7,1,-Inf,2.7,-Inf,46.6,47.7,-Inf,47.4,
+2021-08-28,16:13,clear sky,-Inf,-25.5,-4.3,-Inf,-3.1,-Inf,47.4,47.8,-Inf,46.8,
+2021-08-29,16:15,overcast,-Inf,-21.3,0,-Inf,0.8,-Inf,47.9,49.6,-Inf,49.5,
+2021-08-30,16:50,overcast,-Inf,-23.8,-2.8,-Inf,-2.6,-Inf,41.4,41.8,-Inf,42.6,
+2021-08-31,9:45,clear sky,-Inf,-24.3,-2.8,-Inf,-3.9,-Inf,33.3,33.8,-Inf,34.9,
+2021-09-01,9:56,overcast,-Inf,7.6,14.1,-Inf,13.5,-Inf,30.8,30.4,-Inf,31.7,
+2021-09-02,15:36,overcast,-Inf,9.9,3.7,-Inf,3.9,-Inf,44.4,46.2,-Inf,47.4,
+2021-09-03,16:34,overcast,-Inf,8.3,13.3,-Inf,9.1,-Inf,43.8,43.5,-Inf,42.5,
+2021-09-04,0:00,NaN,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,
+2021-09-05,16:01,overcast,-Inf,-16.3,2.5,-Inf,1.5,-Inf,43.4,44,-Inf,44.4,
+2021-09-06,16:12,clear sky,-Inf,-26.4,-3.9,-Inf,-4.1,-Inf,50.5,47.5,-Inf,47.1,
+2021-09-07,16:05,clear sky,-Inf,-28,-2.6,-Inf,-4.3,-Inf,48.1,53.4,-Inf,49.2,clouds OFOV
+2021-09-08,10:01,clear sky,-Inf,-28.8,-2.3,-Inf,-7.2,-Inf,33.3,37.8,-Inf,36.6,
+2021-09-09,15:47,clear sky,-Inf,-26.9,-1.9,-Inf,-2,-Inf,51.9,53.9,-Inf,49.3,
+2021-09-10,10:02,clear sky,-Inf,-32.7,-10.1,-Inf,-8.7,-Inf,36.2,34.6,-Inf,34.7,
+2021-09-11,16:17,clear sky,-Inf,-25.8,-8.6,-Inf,-7.8,-Inf,50.8,48.3,-Inf,47.7,
+2021-09-12,16:53,clear sky,-Inf,-38,-12,-Inf,-10.4,-Inf,39.3,40.5,-Inf,40.7,
+2021-09-13,9:55,clear sky,-Inf,-39,-13.2,-Inf,-12.9,-Inf,33.2,35.7,-Inf,35,
+2021-09-14,10:10,clear sky,-Inf,-33.7,-8.8,-Inf,-9.7,-Inf,35.5,37.1,-Inf,37.8,
+2021-09-15,15:53,clear sky,-Inf,-31.7,-9,-Inf,-8.3,-Inf,52.2,48.8,-Inf,47.8,
+2021-09-16,16:30,clear sky,-Inf,NaN,-14.7,-Inf,-14.2,-Inf,39.9,40.7,-Inf,40.9,clouds OFOV
+2021-09-17,10:06,clear sky,-Inf,NaN,-14.4,-Inf,-12.8,-Inf,32.1,34.1,-Inf,34.8,
+2021-09-18,16:21,overcast,-Inf,-19.2,1.2,-Inf,-1.2,-Inf,40.7,40.7,-Inf,41.5,
+2021-09-19,16:32,clear sky,-Inf,-28.2,-6.1,-Inf,-6,-Inf,35,34.9,-Inf,33.9,clouds OFOV
+2021-09-20,10:00,clear sky,-Inf,NaN,-11.8,-Inf,-13.8,-Inf,30.2,34.4,-Inf,32.7,
+2021-09-21,16:26,clear sky,-Inf,NaN,-17.7,-Inf,-17,-Inf,37.2,37.8,-Inf,37.6,
+2021-09-22,16:08,clear sky,-Inf,-36.1,-9.7,-Inf,-7.9,-Inf,40.1,41.6,-Inf,41.8,
+2021-09-23,15:42,overcast,-Inf,-10.3,2.6,-Inf,3.3,-Inf,38.3,38,-Inf,37.9,
+2021-09-24,15:48,overcast,-Inf,-28.6,-6.3,-Inf,-6.3,-Inf,42.1,43.5,-Inf,43.6,
+2021-09-25,15:52,overcast,-Inf,5.4,9.8,-Inf,10.5,-Inf,26.5,26.2,-Inf,25.4,raining
+2021-09-26,15:49,overcast,-Inf,-3.4,4.3,-Inf,4.9,-Inf,30.8,31.8,-Inf,31.6,
+2021-09-27,10:18,overcast,-Inf,-12.9,-2.8,-Inf,-1.4,-Inf,24,24.5,-Inf,23.6,
+2021-09-28,16:11,overcast,-Inf,-13.6,-8.3,-Inf,-9,-Inf,21.7,21.1,-Inf,21.3,post-rain
+2021-09-29,9:58,clear sky,-Inf,-38.5,-17.1,-Inf,-15.6,-Inf,22,22.6,-Inf,23.5,
+2021-09-30,16:39,overcast,-Inf,-14.9,-5.8,-Inf,-6.1,25,25,23.7,-Inf,23.5,
+2021-10-01,15:53,overcast,-Inf,-6.1,0.5,-Inf,2.1,22.5,23.1,22.5,-Inf,22.7,post-rain
+2021-10-02,10:22,clear sky,-Inf,NaN,-19,-Inf,-19.8,22.5,22.4,24.8,-Inf,23.9,
+2021-10-03,16:07,clear sky,-Inf,-39.5,-15,-Inf,-14.7,33.1,32.7,32.8,-Inf,32.2,
+2021-10-04,9:53,clear sky,-Inf,NaN,-19,-Inf,-17.2,23,21.9,23.5,-Inf,23.1,
+2021-10-05,9:58,overcast,-Inf,-29.5,-11.7,-Inf,-8.9,28.9,24.4,27,-Inf,26.2,
+2021-10-06,10:08,clear sky,-Inf,-35.7,-15.4,-Inf,-13,-Inf,25.7,27.6,-Inf,27,
+2021-10-07,9:55,overcast,-Inf,NaN,-20,-Inf,-17.8,-Inf,22.4,24.5,-Inf,23,
+2021-10-08,9:55,overcast,-Inf,NaN,-16.1,-Inf,-16.1,-Inf,24.8,24.1,-Inf,22.8,
+2021-10-09,16:11,overcast,-Inf,-33.3,-9.5,-Inf,-8.3,-Inf,32.6,34.2,-Inf,33.3,
+2021-10-10,9:43,clear sky,-Inf,NaN,-26.1,-Inf,-25.3,-Inf,22.2,22.7,-Inf,23,
+2021-10-11,16:01,overcast,-Inf,NaN,-20.2,-Inf,-18.7,-Inf,32.6,32.7,-Inf,32.6,
+2021-10-12,15:57,clear sky,-Inf,NaN,-24.2,-Inf,-23.2,-Inf,30.7,31.3,-Inf,30.9,
+2021-10-13,16:21,clear sky,-Inf,NaN,-30.8,-Inf,-23.7,-Inf,28.6,28.8,-Inf,29.7,
+2021-10-14,10:00,clear sky,-Inf,NaN,-36.4,-Inf,-36.4,-Inf,16.1,16.7,-Inf,17.9,
+2021-10-15,0:00,NaN,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,
+2021-10-16,16:12,clear sky,-Inf,NaN,-26.3,-Inf,-24.1,-Inf,29.5,32.5,-Inf,32,
+2021-10-17,9:57,clear sky,-Inf,NaN,-27.6,-Inf,-26.5,-Inf,16.4,17.9,-Inf,17.7,
+2021-10-18,10:00,clear sky,-Inf,NaN,-22.6,-Inf,-20.4,-Inf,20.9,22.7,-Inf,22.2,
+2021-10-19,15:57,overcast,-Inf,NaN,-17.3,-Inf,-16.7,-Inf,37.3,36.2,-Inf,36.7,partly cloudy
+2021-10-20,16:04,clear sky,-Inf,NaN,-22.4,-Inf,-20.9,-Inf,32.4,34.9,-Inf,35.1,
+2021-10-21,16:00,clear sky,-Inf,NaN,-20.8,-Inf,-18.5,-Inf,32.4,33.4,-Inf,34.2,clouds OFOV
+2021-10-22,0:00,NaN,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,
+2021-10-23,10:08,overcast,-Inf,NaN,-23,-Inf,-21.3,-Inf,19.8,21.8,-Inf,21.4,
+2021-10-24,10:10,clear sky,-Inf,NaN,-23.6,-Inf,-23.4,-Inf,22,22,-Inf,21.6,
+2021-10-25,15:53,clear sky,-Inf,NaN,-16.2,-Inf,-14.4,-Inf,33.1,36.6,-Inf,34.9,
+2021-10-26,15:53,overcast,-Inf,NaN,-24.3,-Inf,-24.1,-Inf,29.6,29.9,-Inf,30,
+2021-10-27,16:04,clear sky,-Inf,NaN,-29.3,-Inf,-28.5,-Inf,27.3,29.3,-Inf,29,
+2021-10-28,15:58,clear sky,-Inf,NaN,-23.5,-Inf,-23.8,-Inf,30.1,30.9,-Inf,31.5,
+2021-10-29,17:20,clear sky,-Inf,NaN,-24.3,-Inf,-23.2,-Inf,21.9,21.7,-Inf,21.8,
+2021-10-30,16:06,clear sky,-Inf,NaN,-20.4,-Inf,-19.9,-Inf,33.3,31.1,-Inf,30.7,
+2021-10-31,16:02,clear sky,-Inf,NaN,-21,-Inf,-19.5,-Inf,29,29.7,-Inf,30.7,
+2021-11-01,10:22,overcast,-Inf,NaN,-26.1,-Inf,-24.5,-Inf,15.7,17.2,-Inf,17.3,
+2021-11-02,16:13,overcast,-Inf,NaN,-22.2,-Inf,-21.2,-Inf,25,26.2,-Inf,26.5,
+2021-11-03,16:01,clear sky,-Inf,NaN,-24.6,-Inf,-23.2,-Inf,28,29.4,-Inf,28.1,
+2021-11-04,17:34,clear sky,-Inf,NaN,-23.7,-Inf,-22.4,-Inf,18.6,19.1,-Inf,19.1,
+2021-11-05,16:19,clear sky,-Inf,NaN,-24.5,-Inf,-24.1,-Inf,26.5,27.8,-Inf,28.1,
+2021-11-06,10:05,clear sky,-Inf,NaN,-30.4,-Inf,-30.3,-Inf,12.3,15.8,-Inf,15.6,
+2021-11-07,10:08,clear sky,-Inf,NaN,-26.2,-Inf,-25.6,-Inf,24,25.3,-Inf,23,
+2021-11-08,15:55,overcast,-Inf,-17,-6.5,-Inf,-6.2,-Inf,19.7,20.3,-Inf,21.6,
+2021-11-09,16:35,overcast,-Inf,-29.5,-12.8,-Inf,-13,-Inf,20.7,20.6,-Inf,20.7,
+2021-11-10,10:01,clear sky,-Inf,NaN,-23.7,-Inf,-25.3,-Inf,18.6,21,-Inf,20.3,
+2021-11-11,16:02,overcast,-Inf,NaN,-31.1,-Inf,-30.3,-Inf,19.3,18.5,-Inf,19.2,
+2021-11-12,9:56,clear sky,-Inf,NaN,-27.7,-Inf,-30.6,-Inf,16.4,19.1,-Inf,18.1,
+2021-11-13,10:04,clear sky,-Inf,NaN,-32.1,-Inf,-32.3,-Inf,15.3,17.6,-Inf,17.2,
+2021-11-14,9:52,clear sky,-Inf,NaN,-29.4,-Inf,-29.8,-Inf,15.8,17.9,-Inf,17.7,
+2021-11-15,16:30,clear sky,-Inf,NaN,-26.3,-Inf,-25,-Inf,19.6,19.6,-Inf,19.3,
+2021-11-16,16:53,overcast,-Inf,NaN,-26.6,-Inf,-25.3,-Inf,15.8,15.7,-Inf,16.3,
+2021-11-17,15:43,overcast,-Inf,NaN,-23,-Inf,-23.7,-Inf,19.5,20.1,-Inf,19.9,
+2021-11-18,10:00,clear sky,-Inf,NaN,-41.5,-Inf,-37.7,-Inf,12.6,12.6,-Inf,12.6,
+2021-11-19,16:52,clear sky,-Inf,NaN,-30.4,-Inf,-29,-Inf,13.1,12.8,-Inf,13.1,
+2021-11-20,16:07,overcast,-Inf,-38.9,-18.9,-Inf,-14.4,-Inf,16.9,17.1,-Inf,17.4,
+2021-11-21,16:08,overcast,-Inf,NaN,-31.5,-Inf,-30.4,-Inf,14.2,12.9,-Inf,13.8,
+2021-11-22,16:52,clear sky,-Inf,NaN,-37.4,-Inf,-35.4,-Inf,11.3,10.6,-Inf,11.9,
+2021-11-23,10:09,overcast,-Inf,-19.4,-8,-Inf,-9,-Inf,11,10.5,-Inf,10.8,
+2021-11-24,16:26,clear sky,-Inf,NaN,-28.2,-Inf,-27.9,-Inf,14.1,14,-Inf,14.2,
+2021-11-25,10:06,overcast,-Inf,-26.5,-11.8,-Inf,-15.7,-Inf,13.1,13.5,-Inf,13.2,
+2021-11-26,16:43,clear sky,-Inf,NaN,-30.3,-Inf,-28.6,-Inf,12.7,12.1,-Inf,12.9,
+2021-11-27,10:04,clear sky,-Inf,NaN,-32.7,-Inf,-35,-Inf,11.7,13,-Inf,12.8,
+2021-11-28,10:07,clear sky,-Inf,NaN,-31.7,-Inf,-33,-Inf,11.3,13.1,-Inf,13.1,
+2021-11-29,10:03,clear sky,-Inf,NaN,-33.2,-Inf,-32.3,-Inf,13,14.1,-Inf,13.8,
+2021-11-30,17:10,clear sky,-Inf,NaN,-29.2,-Inf,-28.7,-Inf,12.3,11.3,-Inf,11.6,
+2021-12-01,9:57,clear sky,-Inf,NaN,-37.4,-Inf,-38.3,-Inf,9.8,12.1,-Inf,10.8,
+2021-12-02,16:41,clear sky,-Inf,NaN,-26.7,-Inf,-24.9,-Inf,12.3,11.8,-Inf,12.5,
+2021-12-03,10:05,clear sky,-Inf,NaN,-28.7,-Inf,-27.7,-Inf,11.2,13.3,-Inf,13.5,
+2021-12-04,10:06,overcast,-Inf,NaN,-34.7,-Inf,-33,-Inf,7.8,6.6,-Inf,6,
+2021-12-05,16:11,clear sky,-Inf,NaN,-30.3,-Inf,-28.1,-Inf,16,15.8,-Inf,16.5,
+2021-12-06,16:17,overcast,-Inf,NaN,-31.6,-Inf,-29.6,-Inf,12.6,12.6,-Inf,13.2,
+2021-12-07,9:57,overcast,-Inf,-19.3,-13.4,-Inf,-13.5,-Inf,7.2,6.2,-Inf,6.3,`
+2021-12-08,16:08,overcast,-Inf,NaN,-31.2,-Inf,-29.4,-Inf,8.9,8.2,-Inf,8.6,
+2021-12-09,16:24,clear sky,-Inf,NaN,-26.7,-Inf,-24.9,-Inf,12.3,11.8,-Inf,12.5,
+2021-12-10,10:00,overcast,-Inf,-20.8,-5.4,-Inf,-4.7,-Inf,6.8,4,-Inf,2.8,
+2021-12-11,16:00,clear sky,-Inf,NaN,-46.3,-Inf,-46.3,-Inf,-3.1,-3,-Inf,-3.7,
+2021-12-12,10:14,clear sky,-Inf,NaN,-44.4,-Inf,-48.6,-Inf,4,4,-Inf,4.2,
+2021-12-13,16:37,overcast,-Inf,NaN,-31.1,-Inf,-30.1,-Inf,9.3,9.6,-Inf,9.9,thin clouds
+2021-12-14,0:00,NaN,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,
+2021-12-15,0:00,NaN,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,
+2021-12-16,15:55,clear sky,-Inf,NaN,-39.6,-Inf,-35.6,-Inf,11.7,8.8,-Inf,11.1,
+2021-12-17,0:00,NaN,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,Spencer Riley was ill;No measurements were taken
+2021-12-18,0:00,NaN,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,Spencer Riley was ill;No measurements were taken
+2021-12-19,0:00,NaN,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,Spencer Riley was ill;No measurements were taken
+2021-12-20,0:00,NaN,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,Spencer Riley was ill;No measurements were taken
+2021-12-21,0:00,NaN,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,Spencer Riley was ill;No measurements were taken
+2021-12-22,0:00,NaN,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,Spencer Riley was ill;No measurements were taken
+2021-12-23,0:00,NaN,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,Spencer Riley was ill;No measurements were taken
+2021-12-24,0:00,NaN,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,Spencer Riley was ill;No measurements were taken
+2021-12-25,0:00,NaN,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,Spencer Riley was ill;No measurements were taken
+2021-12-26,0:00,NaN,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,-Inf,Spencer Riley was ill;No measurements were taken
+2021-12-27,16:34,overcast,-Inf,-9.8,-5.5,-Inf,-6.2,-Inf,7.3,5.3,-Inf,6.3,
+2021-12-28,10:00,clear sky,-Inf,NaN,-37.1,-Inf,-35.5,-Inf,6.5,6.6,-Inf,5.3,
+2021-12-29,16:06,clear sky,-Inf,NaN,-39.9,-Inf,-39.7,-Inf,11.1,9.6,-Inf,10.3,
+2021-12-30,9:58,overcast,-Inf,NaN,-44.4,-Inf,-43.1,-Inf,1.4,-1.6,-Inf,0.4,
+2021-12-31,9:58,overcast,-Inf,-8.3,-6.7,-Inf,-7,-Inf,3.4,2.4,-Inf,2.5,blanket of clouds
+2022-01-01,10:06,overcast,-Inf,-25.6,-30.3,-Inf,-21.1,-Inf,7.7,6.1,-Inf,6.4,
+2022-01-02,10:06,clear sky,-Inf,NaN,NaN,-Inf,NaN,-Inf,-7,-6.6,-Inf,-6.7,
+2022-01-03,10:21,clear sky,-Inf,NaN,NaN,-Inf,-48.4,-Inf,3.5,1.5,-Inf,2.6,
+2022-01-04,9:45,clear sky,-Inf,NaN,-47.2,-Inf,-46.5,-Inf,0.3,-2.8,-Inf,-2.4,
+2022-01-05,16:43,clear sky,-Inf,NaN,-33.7,-Inf,-32.3,-Inf,10.2,9.8,-Inf,9.7,
+2022-01-06,15:58,clear sky,-Inf,NaN,-29.2,-Inf,-27.3,-Inf,19.6,14.6,-Inf,15.1,
+2022-01-07,10:00,clear sky,-Inf,NaN,-34.7,-Inf,-34.5,-Inf,7.2,7.4,-Inf,8,
+2022-01-08,16:08,overcast,-Inf,NaN,-27.9,-Inf,-26.2,-Inf,12,11.4,-Inf,12.4,
+2022-01-09,9:56,overcast,-Inf,NaN,-36.2,-Inf,-32.4,-Inf,6.5,7.5,-Inf,7,
+2022-01-10,16:03,clear sky,-Inf,NaN,-36.8,-Inf,-36.6,-Inf,11.4,10.9,-Inf,11.3,
+2022-01-11,10:02,clear sky,-Inf,NaN,-43.4,-Inf,-41.2,-Inf,2.4,1.4,-Inf,1.6,
+2022-01-12,16:00,clear sky,-Inf,NaN,-35.2,-Inf,-32.3,-Inf,13.9,13.9,-Inf,14.2,
+2022-01-13,15:58,clear sky,-Inf,NaN,-32.3,-Inf,-31.2,-Inf,16.9,16.8,-Inf,16.8,
+2022-01-14,15:37,clear sky,-Inf,NaN,-31.8,-Inf,-29.1,-Inf,17.8,17.6,-Inf,18.5,
+2022-01-15,16:05,overcast,-Inf,NaN,-38.8,-Inf,-38.1,-Inf,12.2,11.1,-Inf,11.8,scattered cirrus
+2022-01-16,10:18,overcast,-Inf,NaN,-44.8,-Inf,-42.8,-Inf,7.7,6.3,-Inf,7.3,scattered cirrus
+2022-01-17,16:00,overcast,-Inf,-29.8,-17.9,-Inf,-17.1,-Inf,13.6,14.5,-Inf,15,
+2022-01-18,16:09,clear sky,-Inf,NaN,-30,-Inf,-28,-Inf,11.9,11.7,-Inf,11.9,clouds OFOV
+2022-01-19,9:58,clear sky,-Inf,NaN,-31.9,-Inf,-30.9,-Inf,9.9,9.9,-Inf,9.3,clouds OFOV
+2022-01-20,16:17,clear sky,-Inf,NaN,-37.7,-Inf,-35,-Inf,12.7,11.5,-Inf,13.4,
+2022-01-21,9:54,clear sky,-Inf,NaN,-41,-Inf,-40.9,-Inf,6.2,5.3,-Inf,5.5,

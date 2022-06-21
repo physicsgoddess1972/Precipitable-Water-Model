@@ -187,7 +187,7 @@ if __name__ == '__main__':
                 time.sleep(60)
                 main(i)
                 ex = str(exception)
-        with open("./output.txt", "a") as f:
+        with open("output.txt", "a") as f:
             export = output.export_text(clear=True)
             if export[0] == "[":
                 f.write(export)
