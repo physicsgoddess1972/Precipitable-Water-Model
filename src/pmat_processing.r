@@ -9,7 +9,7 @@ fname	<- read.table(file.path(src.dir, "master_data.csv"),
 					   sep=",",
 					   header=TRUE,
 					   strip.white=TRUE)
-oname 	<- yaml.load_file(file.path(dat.dir, "_output.yml"))
+oname 	<- yaml.load_file(file.path(dat.dir, sprintf("_output%s.yml", ifelse(args$overcast,"_overcast", ""))))
 ## Pulls most recent data stamp for the purpose of adding date stamps to file names when plots are saved
 recent 		<- t(fname[1])[length(t(fname[1]))]
 
