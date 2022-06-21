@@ -78,6 +78,17 @@ body {
    }
 }
 
+@media only screen and (max-width: 700px) {
+    .collab-flex {
+        display: block;
+   }
+}
+@media only screen and (min-width: 700px) {
+    .collab-flex {
+        display: flex;
+   }
+}
+
 /*! * Bootstrap v5.0.1 (https://getbootstrap.com/) * Copyright 2011-2021 The Bootstrap Authors * Copyright 2011-2021 Twitter, Inc. * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE) */
 @-webkit-keyframes progress-bar-stripes {
     0% {
@@ -9725,26 +9736,32 @@ li code {
 .demo-cards h3 {
     font-size: 1em
 }
-.demo-updates .mdl-card__title,.demo-updates2 .mdl-card__title {
-    min-height: 200px;
-    background-image: url(../img/dash/sky.jpg);
-    background-position: 20% 0;
-    background-repeat: no-repeat
-}
 .demo-updates2 .mdl-card__title {
     background-image: url(../img/dash/sun.jpg);
     background-size: cover;
     background-position: center
 }
 .demo-updates4 .mdl-card__title {
-    min-height: 200px;
-    background-image: url(../img/dash/rain.jpg);
-    background-position: 70% 0;
-    background-repeat: no-repeat
+    background-image: url(../img/dash/balloon.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .demo-options h3,footer {
     margin: 0
 }
+
+#view-source {
+  position: fixed;
+  display: block;
+  right: 0;
+  bottom: 0;
+  margin-right: 40px;
+  margin-bottom: 40px;
+  z-index: 900;
+}
+
+
 .demo-options .mdl-checkbox__box-outline {
     border-color: rgba(255,255,255,.89)
 }

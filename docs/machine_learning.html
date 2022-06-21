@@ -1,6 +1,7 @@
-<!doctype html>
-<!--suppress ALL -->
-<html>
+---
+title: Machine Learning
+layout: null
+---
 <head>
 	<title>Precipitable Water Model</title>
 	<link rel="icon" href="assets/img/icon.png">
@@ -15,29 +16,23 @@
 	<link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
 	<link rel="preconnect" href="//fonts.googleapis.com" crossorigin>
 
-	<script rel="preload" src="assets/js/jquery.min.js"></script>
-
-	<link rel="stylesheet" href='assets/css/main.max.css'>
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.12.0/devicon.min.css">
-
-	<script>
-		$("#content").load("assets/external/head.html");
-	</script>
-
-	<div rel="preload" id="content"></div>
+	{% include head.html %}
 </head>
 <body>
 <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
-	<header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600" id="top-bar"></header>
-	<div id="maintenance"></div>
-	<div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50" id="side-nav"></div>
+	<header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+	{% include header.html %}
+	</header>
+	{% if site.status != "good" %}
+		<div class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+			{% include maintenance_bar.html %}
+		</div>
+	{% endif %}
+	<div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
+	{% include side_nav.html %}
+	</div>
 	<main class="mdl-layout__content">
-		<div id="modal-maintainers"></div>
-		<div id="modal-introduction"></div>
-		<div class="menubar" style="padding-right: -100%;"></div>
+		<div id="modal-maintainers">{% include modal_maintainers.html %}</div>
 		<div class='content'>
 			<a id="top"></a>
 
@@ -72,9 +67,7 @@
 				</div>
 			</div>
 		</div>
-		<div id="bottom-nav"></div>
+		<div id="bottom-nav">{% include bottom_nav.html %}</div>
 	</main>
 </div>
-<script src="assets/js/material.min.js"></script>
 </body>
-</html>

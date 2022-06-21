@@ -1,10 +1,17 @@
-<!-- <script src="assets/js/sidenav.js"></script> -->
 <script>
+    window.onload = function() {
+        document.getElementById('sub-nav').addEventListener('click', function(e) {
+            if (document.getElementById('sub-lst').classList.contains('collapse')) {
+                document.getElementById('sub-lst').classList.remove("collapse");
+            } else {
+                document.getElementById('sub-lst').classList.add("collapse");
+            }
+        });
+    }
+
     var myObj = {}
 
     myObj.anc = function(){
-        console.log(window.location.pathname);
-        console.log(window.location.pathname.split("/").pop());
         $.get(window.location.pathname, function(data){
             if (document.location.pathname == '/' ){
                 var path = "/index.html";
@@ -25,7 +32,6 @@
     myObj.gnc = function(){
 
         document.querySelectorAll('.sidebar .nav-link').forEach(function(element) {
-
             element.addEventListener('click', function(e) {
 
                 let nextEl = element.nextElementSibling;
@@ -62,16 +68,15 @@
         <a class="mdl-navigation__link" id="research-html" href="research.html"><i class="material-icons">science</i>Research</a>
 
         <li class="nav-item has-submenu">
-            <a class="mdl-navigation__link nav-link" data-toggle="dropdown" href="#">Side Projects <i class="material-icons" role="presentation">expand_more</i></a>
-            <ul class="submenu show">
+            <a class="mdl-navigation__link nav-link" data-toggle="dropdown" href="#" id="sub-nav">Side Projects <i class="material-icons" role="presentation">expand_more</i></a>
+            <ul class="submenu" id="sub-lst">
                 <a class="mdl-navigation__link" id="machine_learning-html" href="machine_learning.html"><i class="material-icons">memory</i>Machine Learning</a>
                 <a class="mdl-navigation__link" id="automation-html" href="automation.html"><i class="material-icons">smart_toy</i>Automation</a>
-
             </ul>
         </li>
         <a class="mdl-navigation__link" onclick="$('#maintainers').modal('open');"><i class="material-icons" role="presentation">face</i>The Maintainers</a>
         <hr>
-        <a class="mdl-navigation__link" href="https://github.com/physicsgoddess1972/Precipitable-Water-Model"><i class="material-icons"><i class="fab fa-github big-icon"></i></i> View on Github</a>
+        <a class="mdl-navigation__link" href="https://github.com/physicsgoddess1972/Precipitable-Water-Model"><i class="material-icons"><i class="fab fa-github big-icon" style="padding-top: 15px;"></i></i> View on Github</a>
         <a class="mdl-navigation__link" href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/archive/master.zip"><i class="material-icons" role="presentation">cloud_download</i>Download the Repo</a>
         <a class="mdl-navigation__link" href="https://github.com/physicsgoddess1972/Precipitable-Water-Model/issues"><i class="material-icons" role="presentation">bug_report</i>Bug Report</a>
     </ul>

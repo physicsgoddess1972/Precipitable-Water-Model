@@ -12,12 +12,8 @@ layout: null
 	<link rel="preconnect" href="//www.gstatic.com" crossorigin>
 	<link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
 	<link rel="preconnect" href="//fonts.googleapis.com" crossorigin>
-	<link rel="stylesheet" href='assets/css/main.max.css'>
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.12.0/devicon.min.css">
-	<script src="assets/js/jquery.min.js"></script>
+
+	{% include head.html %}
 
 </head>
 <body>
@@ -52,7 +48,7 @@ layout: null
 						{% for people in site.data.people %}
 							{% assign remind = i | modulo: 2 %}
 							{% if remind == 0 %}
-								<div style="display: flex">
+								<div class="collab-flex">
 							{% endif %}
 							<div style="flex: 50%">
 								<div class="collapsible_1 collab">
@@ -213,5 +209,5 @@ layout: null
         <div id="bottom-nav">{% include bottom_nav.html %}</div>
     </main>
 </div>
-<script src="assets/js/material.min.js"></script>
+<!--<script src="assets/js/material.min.js"></script>-->
 </body>
