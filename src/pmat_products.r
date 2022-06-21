@@ -113,6 +113,35 @@ time.composite <- function(range, title, color, ylab, datetime, overcast){
     axis(side = 4); mtext(side=4, line=3, ylab[[2]], col=color[[2]])
     logg("PASS", title, lev = level)
 }
+time.mono_composite <- function(range, title, ylab, datetime, overcast){
+    #' :detail: Time Series composite plot series
+    #' :param date: the datestamp of the data
+    #' :param bool overcast: the condition of data (clear sky/overcast)
+    #' :return: A sky temperature time series plot
+
+    plot(datetime, range[[1]],
+         ylab=NA,
+         main=stnd_title(title, overcast),
+         xaxt='n',
+         xlab='',
+         pch=16,
+         xlim=time_axis_init(datetime)[[1]])
+
+    axis(side = 2); minor.tick(nx=1, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
+    mtext(side = 2, line=3, "\\#H0850", family="HersheySans", xpd=TRUE, adj=0.35, padj=0.3, cex=3)
+    mtext(side = 2, line=3, ylab[[1]], xpd=TRUE)
+
+    time_axis(datetime)
+    par(new = T)
+    plot(datetime, range[[2]], ylab=NA, axes=F, xlab=NA, col="black", pch=1, xlim=time_axis_init(datetime)[[1]])
+
+    axis(side = 4, tck=-0.02)
+    axis(side = 4, at=seq(0,40, by=2.5), labels=rep("", length(seq(0,40, by=2.5))), tck=-0.01);
+    mtext(side = 4, line=3, "\\de", family="HersheySans", adj=0.38, padj=0.65, cex=3)
+    mtext(side = 4, line=3, ylab[[2]])
+
+    logg("PASS", title, lev = level)
+}
 time.multiyear <- function(range, title, color, datetime,ylab, overcast){
     x <- unclass(as.POSIXlt(datetime))$yday
     dat <- with(data.frame(x=x,y=range),
@@ -214,42 +243,7 @@ analysis.svm <- function(model){
            lty=c(1, NA, NA),
            legend=c(parse(text=leg), "clear-sky", "overcast"))
     logg("PASS", title, lev = level)
-}
-
-analysis.multiyear <- function(range, title, datetime,label, overcast){
-      x <- unclass(as.POSIXlt(datetime))$yday
-      dat <- with(data.frame(x=x,y=range),
-                  aggregate(list(y=range), list(x = x), mean))
-
-    exp_reg <- exp.regression(mean.out=iter[["filter.mean"]])
-    ymax	<- max(unlist(exp_reg$y), na.rm=TRUE)
-    ymin	<- min(unlist(exp_reg$y), na.rm=TRUE)
-
-    # Non-linear model (exponential)
-    plot(dat$x,  dat$y,
-         xlab=label[[1]],
-         ylab=label[[2]],
-         ylim=c(ymin, ymax),
-         main=title)
-    # Best Fit
-    curve(iter$A*exp(iter$B*x), col="black", add=TRUE)
-
-    polygon(c(exp_reg$newx, rev(exp_reg$newx)),
-            c(exp(exp_reg$predint[ ,3]), rev(exp(exp_reg$predint[ ,2]))),
-            col=rgb(0.25, 0.25, 0.25,0.25),
-            border = NA)
-
-    minor.tick(nx=2, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
-
-    leg <- sprintf("%.2f*e^{%.3f*x}*\t\t(S == %.3f*mm)", iter$A,
-                                                         iter$B,
-                                                         iter$S)
-    legend("topleft",   col=c("black"),
-                        lty=c(1),
-                        legend=c(parse(text=leg)))
-
-      logg("PASS", title)
-}
+  }
 
 # Pacviz plots
 pac.compare <- function(overcast, des, x, y, angular, radial){
@@ -863,7 +857,7 @@ data.step <- function(seed, i, coef, r, S){
                                   rstd=c(S)))
     return(list(yml.out))
 }
-data.final <- function(dir, clear.len, over.len, train.len, nan.len, frac.kept, coef, std, rmse){
+data.final <- function(dir, clear.len, over.len, train.len, nan.len, frac.kept, coef, std, rmse, overcast=args$overcast){
   yml <- list(data=list(clear=list(total.count=c(clear.len)),
 									overcast=list(total.count=c(over.len)),
 									train.count=c(train.len),
@@ -877,7 +871,7 @@ data.final <- function(dir, clear.len, over.len, train.len, nan.len, frac.kept, 
                                                    yours=c(rmse$R))))
 
   write(as.yaml(yml, precision=4),
-        file = file.path(dir, "_results.yml"))
+        file = file.path(dir, sprintf("_results%s.yml", ifelse(overcast,"_overcast", ""))))
 }
 
 ## Plot function calls
@@ -946,6 +940,15 @@ visual.products <- function(set, mean.out, datetime=datetime, overcast=args$over
         composite.ylab <- list(list("Temperature [C]", sprintf("%s [mm]", pw_lab)),
                                list("Temperature [C]", "RH [%]"),
                                list(sprintf("%s [mm]", pw_lab), "RH [%]"))
+        composite_mono.r <- list(list(res$snsr_sky_calc, res$avg),
+                           list(res$snsr_sky_calc, res$rh),
+                           list(res$avg, res$rh))
+        composite_mono.title <- list(sprintf("Mean Sky Temperature and %s Time Series", pw_lab),
+                                "Mean Sky Temperature and RH Time Series",
+                               sprintf("Mean %s and RH Time Series", pw_lab))
+        composite_mono.ylab <- list(list("Temperature [C]", sprintf("%s [mm]", pw_lab)),
+                               list("Temperature [C]", "RH [%]"),
+                               list(sprintf("%s [mm]", pw_lab), "RH [%]"))
         # data inputs for time.multiyear
         multiyear.r <- list(res$snsr_sky_calc)
         multiyear.title <- list("Multiyear mean sky temperature time series")
@@ -966,6 +969,11 @@ visual.products <- function(set, mean.out, datetime=datetime, overcast=args$over
                                composite.title[[i]],
                                composite.col[[i]],
                                composite.ylab[[i]], datetime, overcast)
+            }
+            for (i in 1:length(composite_mono.r)){
+                time.mono_composite(composite_mono.r[[i]],
+                               composite_mono.title[[i]],
+                               composite_mono.ylab[[i]], datetime, overcast)
             }
             for (i in 1:length(multiyear.r)){
               time.multiyear(multiyear.r[[i]],
@@ -1014,11 +1022,6 @@ visual.products <- function(set, mean.out, datetime=datetime, overcast=args$over
         nan.ml <- nan.filter(list(x=ml.x, y=ml.y, l=ml.l))[[1]]
         ml <- lsvm(nan.ml$x, log(nan.ml$y, base=exp(1)), nan.ml$l)
 
-        # data inputs for time.multiyear
-        multiyear.r <- list(res$snsr_sky_calc)
-        multiyear.title <- list("Multiyear mean sky temperature time series")
-        multiyear.label <- list("Temperature [C]", "Date")
-
         # plot function calls
         for (i in 1:length(x1)){
             analysis.nth_range(overcast, x1[[i]], y1[[i]], t1[[i]], l1[[i]], c1[[i]], leg.lab[[i]])
@@ -1027,7 +1030,6 @@ visual.products <- function(set, mean.out, datetime=datetime, overcast=args$over
             analysis.regression(overcast, x2[[i]], y2[[i]], t2[[i]], l2[[i]], iter.results)
         }
         analysis.svm(ml)
-        analysis.multiyear(multiyear.r, multiyear.title, datetime, multiyear.label, overcast)
 	}else if(set == "c"){
         logg("INFO", "Chart Set", lev = level)
 		pdf(file.path(fig.dir, "charts.pdf"))
