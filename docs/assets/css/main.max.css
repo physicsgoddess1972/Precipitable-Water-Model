@@ -21427,3 +21427,31 @@ table {
         width: 100%
    }
 }
+
+embed {
+    height: 500px
+}
+
+
+@media (max-width: 800px) {
+    embed {
+        height: 462px
+    }
+}
+
+.research-doc {
+    display: none;
+}
+
+@media (max-width: 500px) {
+    embed {
+        display: none;
+    }
+
+    .research-doc {
+        display: block;
+    }
+
+}
+
+
