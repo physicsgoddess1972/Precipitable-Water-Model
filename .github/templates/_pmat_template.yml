@@ -16,8 +16,24 @@
       seed:
 - logging:
   - verbose:
+- style:
+    - pw_label:
 - import:
   - external:
+      - pw:
+          - id:
+            path:
+            weight:
+            date:
+            merge:
+            units:
+      - rh:
+          - id:
+            path:
+            weight:
+            date:
+            merge:
+            units:
   - mesowest:
     - id:
   - wyoming:

@@ -1,0 +1,11 @@
+error:
+  D:
+    - code: {D01, "Insufficient clear sky/overcast data"}
+  F:
+    - code: {F01, "master_data.csv is not found"}
+    - code: {F02, "_pmat.yml is not found"}
+warn:
+  a:
+    - code: {a01, "Insufficient data for accurate analysis"}
+  f:
+    - code: {f01, "_output.yml is not found"}
