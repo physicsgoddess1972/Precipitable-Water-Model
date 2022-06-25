@@ -34,7 +34,7 @@ pmat_analysis.r
 	:return: a list containing the training and testing sets
 	:rtype: list
 
-.. function:: iterative.analysis(obool,mean.out,overcast=args$overcast)
+.. function:: iterative.analysis(obool,mean.out)
 
 	:detail: computes regression statistics and outputs to a yaml file
 	:param logical obool: determine whether to generate new _output.yml
