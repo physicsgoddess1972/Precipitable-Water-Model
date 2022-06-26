@@ -1,0 +1,18 @@
+error:
+  D:
+    - code: "Insufficient finite clear sky/overcast data."
+      fix: "Add more clear sky/overcast data and then run again."
+  F:
+    - code: "_pmat.yml is not found"
+      fix: "Check the --dir option to see if _pmat.yml is present."
+    - code: "cool_data.csv is not found"
+      fix: "Check the --dir option to see if cool_data.csv is present"
+warn:
+  a:
+    - code: "Insufficient data for accurate analysis"
+      fix: "Add additional data for analysis."
+  f:
+    - code: "_output.yml is not found"
+      fix: "Automatically creating _output.yml."
+    - code: "master_data.csv is not found"
+      fix: "Automatically creating master_data.csv"
