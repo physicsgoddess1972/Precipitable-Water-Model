@@ -132,7 +132,7 @@ mean.filter <- function(nan.out, n){
 	#' :detail: filters the data based on the comparison of the daily std and the average std of the dataset
 	#' :param list nan.out: the output of nan.filter
 	#' :param integer n: threshold
-	#' :return: an array of indicies for PWV values to be analyzed
+	#' :return: an array of indices for PWV values to be analyzed
 	#' :rtype: list
 	pw <- nan.out[[1]]$z
 	bad <- good <- list()

@@ -3,22 +3,12 @@
 #' :synopsis: general functions for PMAT
 #' :author: Spencer Riley <sriley@pmat.app>
 
-
-## warning codes
-a01 <- "Insufficient data for accurate analysis"
-f01 <- "_output.yml is not found"
-## Error codes
-D01 <- "Insufficient clear sky/overcast data"
-
-F01 <- "master_data.csv is not found"
-F02 <- "_pmat.yml is not found"
-
 logg <- function(msglevel, msg, dir=out.dir, lev="INFO") {
-      #' :detail: creates log entries for _log.txt
-      #' :param character msglevel:
-      #' :param character msg:
-      #' :param character dir:
-      #' :param character lev:
+    #' :detail: creates log entries for _log.txt
+    #' :param character msglevel:
+    #' :param character msg:
+    #' :param character dir:
+    #' :param character lev:
     loglevels <- c(DEBUG = 10,  PASS = 15,
                    INFO = 20,   WARN = 30,
                    ERROR = 40,  FATAL = 50,

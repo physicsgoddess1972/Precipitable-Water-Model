@@ -28,6 +28,11 @@ exp.regression 	<- function(t=NULL,mean.out){
 	output <- list()
 	xmin 	<- min(x, na.rm=TRUE)
 	xmax 	<- max(x, na.rm=TRUE)
+	if (!is.finite(xmax) || !is.finite(xmax)){
+	    logg("ERROR", err$D[[1]]$code, lev=level)
+	    logg("ERROR", err$D[[1]]$fix, lev=level)
+	    aloha.closing()
+	}
 	newx	<- seq(xmin, xmax, length.out=length(x))
 	# Non-linear model (exponential)
 	## Initial values are in fact the converged values

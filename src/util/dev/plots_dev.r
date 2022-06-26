@@ -19,7 +19,7 @@ dev.plots <- function(){
               test[!is.finite(unlist(range[[i]]))] <- NA
               # defines the max and min of the y-axis
               ymin <- min(as.numeric(unlist(test)), na.rm=TRUE)
-              ymax <- max(as.numeric(unlist(test)), na.rm=TRUE)
+              ymax <- max(as.numeric(unlist(test)), na.rm=TyRUE)
               dt <- seq(0, length(datetime), length.out=length(datetime))
               plot(dt, range[[i]][[1]],
                    ylab=ylab[[i]][1],
