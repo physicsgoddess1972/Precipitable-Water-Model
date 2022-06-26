@@ -50,6 +50,11 @@ dir.create(fig.dir)
 dir.create(dat.dir)
 
 # Error/Warning definitions
+err_war = yaml.load_file(file.path("./pmat_codes.yml"))
+err = err_war$error
+warn = err_war$warn
+
+## Imports utility functions
 source("./pmat_utility.r")
 
 ## Imports sensor information from instruments.txt
@@ -57,19 +62,29 @@ if(file.exists(file.path(src.dir, "_pmat.yml"))){
 	config	<- yaml.load_file(file.path(src.dir, "_pmat.yml"))
 	level 	<- config[[3]]$logging[[1]]$verbose
 } else {
-	logg("ERROR", F02, lev = "DEBUG"); aloha.closing()
+	logg("ERROR", err$F[[1]]$code, lev = "DEBUG")
+    logg("ERROR", err$F[[1]]$fix, lev = "DEBUG")
+	aloha.closing()
 }
 if (args$first){aloha.first()}
 aloha.startup()
 
+if (!file.exists(file.path(src.dir, "cool_data.csv"))) {
+    logg("ERROR", err$F[[2]]$code, lev = "DEBUG")
+    logg("ERROR", err$F[[2]]$fix, lev = "DEBUG")
+	aloha.closing()
+}
+
 ## Imports data from master_data.csv
 if (!file.exists(file.path(src.dir, "master_data.csv"))){
-	logg("WARN", F01, lev = level)
+	logg("WARN",warn$f[[1]]$code, lev = level)
+	logg("WARN",warn$f[[1]]$fix, lev = level)
 	fname <- file.create(file.path(src.dir, "master_data.csv"))
 }
 ## Tries to read _output.yml
 if(!file.exists(file.path(dat.dir, sprintf("_output%s.yml", ifelse(args$overcast,"_overcast", ""))))){
-	logg("WARN", f01, lev = level)
+	logg("WARN",warn$f[[1]]$code, lev = level)
+	logg("WARN",warn$f[[1]]$fix, lev = level)
 	oname <- file.create(file.path(dat.dir, sprintf("_output%s.yml", ifelse(args$overcast,"_overcast", ""))))
 	args$u <- TRUE
 }
@@ -115,16 +130,18 @@ if (length(res$date) > 0){
 	iter.results <- iterative.analysis(obool=args$u,
 									   mean.out = filter.mean)
 	data.final(out.dir,
-				length(clear_sky.data$date),
-				length(overcast.data$date),
-				iter.results$train.len,
-				length(iter.results$nan.out),
-				length(iter.results$filter.mean[[1]])/(length(clear_sky.data$date) - length(iter.results$nan.out)),
+				list(length(clear_sky.data$date),
+				     length(overcast.data$date),
+				     iter.results$train.len,
+				     length(iter.results$nan.out)),
+                length(iter.results$filter.mean[[1]])/(length(clear_sky.data$date) - length(iter.results$nan.out)),
 				list(A=iter.results$A, B=iter.results$B),
 			   	iter.results$S,
 				list(M=iter.results$M, K=iter.results$K, R=iter.results$R))
 } else {
-	logg("ERROR", D01, lev = level); closing()
+	logg("ERROR", err$D[[1]]$code, lev = "DEBUG")
+    logg("ERROR", err$D[[1]]$fix, lev = "DEBUG")
+	closing()
 }
 
 
