@@ -22,7 +22,9 @@ jobs:
           sudo apt install latexmk texlive-latex-extra
           pip3 install sphinx sphinx-rtd-theme
           python3 -m sphinx -d ./docs/man/_static/source -T -E -b html ./docsrc ./docs/man
+          rm -r ./docs/man/assets/
           mv ./docs/man/_static/ ./docs/man/assets/
+          
           find ./docs/man/ -type f -name "*.html" -print0 | xargs -0 sed -i 's/_static/assets/g'
           python3 -m sphinx -T -E -b latex ./docsrc ./_pdf
           cd ./_pdf/ && pdflatex pmat.tex && pdflatex pmat.tex
