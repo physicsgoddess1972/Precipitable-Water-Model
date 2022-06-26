@@ -46,10 +46,15 @@ time.pwindex <- function(datetime){
     # print statement when completed
     logg("PASS",title, lev = level)
 }
-time.nth_range <- function(range, title, color, leg.lab, ylab, datetime,overcast){
+time.nth_range <- function(range, title, color, leg.lab, ylab, datetime, overcast){
     #' :detail: Multirange Time Series plot series
-    #' :param date: the datestamp of the data
-    #' :param bool overcast: the condition of data (clear sky/overcast)
+    #' :param range:
+    #' :param title:
+    #' :param color:
+    #' :param leg.lab:
+    #' :param ylab:
+    #' :param datetime:
+    #' :param logical overcast: the condition of data (clear sky/overcast)
     test <- unlist(range)
     test[!is.finite(unlist(range))] <- NA
     # defines the max and min of the y-axis
@@ -85,8 +90,12 @@ time.nth_range <- function(range, title, color, leg.lab, ylab, datetime,overcast
 }
 time.composite <- function(range, title, color, ylab, datetime, overcast){
     #' :detail: Time Series composite plot series
-    #' :param date: the datestamp of the data
-    #' :param bool overcast: the condition of data (clear sky/overcast)
+    #' :param range:
+    #' :param title:
+    #' :param color:
+    #' :param ylab:
+    #' :param datetime:
+    #' :param logical overcast: the condition of data (clear sky/overcast)
     #' :return: A sky temperature time series plot
 
     plot(datetime, range[[1]],
@@ -115,8 +124,11 @@ time.composite <- function(range, title, color, ylab, datetime, overcast){
 }
 time.mono_composite <- function(range, title, ylab, datetime, overcast){
     #' :detail: Time Series composite plot series
-    #' :param date: the datestamp of the data
-    #' :param bool overcast: the condition of data (clear sky/overcast)
+    #' :param range:
+    #' :param title:
+    #' :param ylab:
+    #' :param datetime:
+    #' :param logical overcast: the condition of data (clear sky/overcast)
     #' :return: A sky temperature time series plot
 
     plot(datetime, range[[1]],
@@ -142,7 +154,7 @@ time.mono_composite <- function(range, title, ylab, datetime, overcast){
 
     logg("PASS", title, lev = level)
 }
-time.multiyear <- function(range, title, color, datetime,ylab, overcast){
+time.multiyear <- function(range, title, color, datetime, ylab, overcast){
     x <- unclass(as.POSIXlt(datetime))$yday
     dat <- with(data.frame(x=x,y=range),
                 aggregate(list(y=range), list(x = x), mean))
@@ -159,7 +171,13 @@ time.multiyear <- function(range, title, color, datetime,ylab, overcast){
 # Analysis plots
 analysis.nth_range <- function(overcast, x, y, title, label, color, leg.lab){
   #' :detail: Super Average Plot with Exponential Fit
-  #' :param bool overcast: the condition of data (clear sky/overcast)
+  #' :param logical overcast: the condition of data (clear sky/overcast)
+  #' :param x:
+  #' :param y:
+  #' :param title:
+  #' :param label:
+  #' :param color:
+  #' :param leg.lab:
   #' :return: A sky temperature time series plot
 
   ymax	<- max(unlist(y), na.rm=TRUE)
@@ -191,6 +209,11 @@ analysis.nth_range <- function(overcast, x, y, title, label, color, leg.lab){
 analysis.regression	<- function(overcast, x, y, des, label, iter){
     #' :detail: Super Average Plot with Exponential Fit
     #' :param bool overcast: the condition of data (clear sky/overcast)
+    #' :param x:
+    #' :param y:
+    #' :param des:
+    #' :param label:
+    #' :param iter:
     #' :return: A sky temperature time series plot
     exp_reg <- exp.regression(mean.out=iter[["filter.mean"]])
     ymax	<- max(unlist(exp_reg$y), na.rm=TRUE)
@@ -222,6 +245,9 @@ analysis.regression	<- function(overcast, x, y, des, label, iter){
     logg("PASS", des, lev = level)
 }
 analysis.svm <- function(model){
+    #' :detail:
+    #' :param model:
+
     cf <- model$cf
     A <- -cf[2]/cf[3]
     title <- sprintf("SVM Analysis between Sky Temperature and %s", pw_lab)
@@ -248,8 +274,12 @@ analysis.svm <- function(model){
 # Pacviz plots
 pac.compare <- function(overcast, des, x, y, angular, radial){
     #' :detail: Pac-Man plot of Super Average Plot
-    #' :param bool overcast: the condition of data (clear sky/overcast)
-    #' :return: A sky temperature time series plot
+    #' :param logical overcast: the condition of data (clear sky/overcast)
+    #' :param des:
+    #' :param x:
+    #' :param y:
+    #' :param angular:
+    #' :param radial:
 
     par(mar=c(5.1, 4.1, 4.1, 2.1),xpd=FALSE)
 
@@ -264,7 +294,6 @@ pac.compare <- function(overcast, des, x, y, angular, radial){
 pac.regression <- function(overcast){
     #' :detail: Pac-Man residual plot
     #' :param bool overcast: the condition of data (clear sky/overcast)
-    #' :return: A sky temperature time series plot
 
     ifelse(overcast, x <- overcast.data$snsr_sky_calc,
                      x <- clear_sky.data$snsr_sky_calc)
@@ -513,7 +542,9 @@ poster.plots <- function(overcast, iter, mean.out){
 
     poster2 <- function(overcast, iter, mean.out){
         #' :detail: The analytics poster plot
-        #' :param bool overcast: the condition of data (clear sky/overcast)
+        #' :param logical overcast: the condition of data (clear sky/overcast)
+        #' :param iter:
+        #' :param mean.out:
 
         ## Layout/Margin Configuration
             par(mar=c(3,3, 3, 1), oma=c(1,1.5,0,0), xpd=FALSE)
@@ -693,6 +724,7 @@ sensor.chart <- function(...){
 }
 sensor.time <- function(overcast){
         #' :detail: Instrumentation time series plots
+        #' :param logical overcast:
 
         # X axis limits
         for (count in col_snsr){
@@ -757,7 +789,6 @@ sensor.time <- function(overcast){
                     points(datetime,t(unlist(gro_range[j])), pch=16, col=c(snsr_color[count[j]]))
                 }
             }
-            # print(length(unique(snsr_tag)[!is.na(unique(snsr_tag))][count]))
             logg("PASS", sprintf("Sky-Ground Time Series: %s", gsub("_", " ",unique(snsr_tag)[count][1])), lev = level)
         }
     }
@@ -849,6 +880,14 @@ data.ml <- function(dir){
         logg("PASS", sprintf("Data sent to %sml_data.csv", dir), lev = level)
 }
 data.step <- function(seed, i, coef, r, S){
+    #' :detail:
+    #' :param seed:
+    #' :param i:
+    #' :param coef:
+    #' :param r:
+    #' :param S:
+    #' :return:
+    #' :rtype: list
     yml.out <- list(step=c(i),
                     seed=c(seed),
                     analysis=list(coeff=list(A=c(coef$A),
@@ -857,8 +896,19 @@ data.step <- function(seed, i, coef, r, S){
                                   rstd=c(S)))
     return(list(yml.out))
 }
-data.final <- function(dir, clear.len, over.len, train.len, nan.len, frac.kept, coef, std, rmse, overcast=args$overcast){
-  yml <- list(data=list(clear=list(total.count=c(clear.len)),
+data.final <- function(dir, lengths, frac.kept, coef, std, rmse, overcast=args$overcast){
+    #' :detail:
+    #' :param dir:
+    #' :param lengths:
+    #' :param coef:
+    #' :param std:
+    #' :param rmse:
+    #' :param overcast:
+    clear.len   = lengths[1]
+    over.len    = lengths[2]
+    train.len  = lengths[3]
+    nan.len     = lengths[4]
+    yml <- list(data=list(clear=list(total.count=c(clear.len)),
 									overcast=list(total.count=c(over.len)),
 									train.count=c(train.len),
 									fraction.kept=c(frac.kept),
@@ -878,6 +928,8 @@ data.final <- function(dir, clear.len, over.len, train.len, nan.len, frac.kept, 
 visual.products <- function(set, mean.out, datetime=datetime, overcast=args$overcast){
     #' :detail: saves plot sets
     #' :param character set: the set identifier
+    #' :param mean.out:
+    #' :param datetime:
     #' :param logical overcast: ovecast boolean
 
 	if(set == "i"){
@@ -905,7 +957,6 @@ visual.products <- function(set, mean.out, datetime=datetime, overcast=args$over
                        res$loc_avg,
                        list(res$avg),
                        list(res$dew))
-
         range.t <- list("Sky Temperature Time Series",
                        "Ground Temperature Time Series",
                        "Difference Between Ground-Sky Temperature Time Series",
@@ -930,30 +981,39 @@ visual.products <- function(set, mean.out, datetime=datetime, overcast=args$over
         # data inputs for time.composite
         composite.r <- list(list(res$snsr_sky_calc, res$avg),
                            list(res$snsr_sky_calc, res$rh),
-                           list(res$avg, res$rh))
+                           list(res$avg, res$rh),
+                           list(res$avg, res$dewpoint))
+
         composite.title <- list(sprintf("Mean Sky Temperature and %s Time Series", pw_lab),
                                 "Mean Sky Temperature and RH Time Series",
-                               sprintf("Mean %s and RH Time Series", pw_lab))
+                               sprintf("Mean %s and RH Time Series", pw_lab),
+                               sprintf("Mean %s and Dewpoint Time Series", pw_lab))
         composite.col <- list(list("red", "blue"),
                    list("red", "green3"),
-                   list("blue", "green3"))
+                   list("blue", "green3"),
+                   list("blue", "purple"))
         composite.ylab <- list(list("Temperature [C]", sprintf("%s [mm]", pw_lab)),
                                list("Temperature [C]", "RH [%]"),
-                               list(sprintf("%s [mm]", pw_lab), "RH [%]"))
+                               list(sprintf("%s [mm]", pw_lab), "RH [%]"),
+                               list(sprintf("%s [mm]", pw_lab), "Dewpoint Temperature [C]"))
         composite_mono.r <- list(list(res$snsr_sky_calc, res$avg),
                            list(res$snsr_sky_calc, res$rh),
-                           list(res$avg, res$rh))
+                           list(res$avg, res$rh),
+                           list(res$avg, res$dewpoint))
         composite_mono.title <- list(sprintf("Mean Sky Temperature and %s Time Series", pw_lab),
                                 "Mean Sky Temperature and RH Time Series",
-                               sprintf("Mean %s and RH Time Series", pw_lab))
+                               sprintf("Mean %s and RH Time Series", pw_lab),
+                               sprintf("Mean %s and Dewpoint Time Series", pw_lab))
         composite_mono.ylab <- list(list("Temperature [C]", sprintf("%s [mm]", pw_lab)),
                                list("Temperature [C]", "RH [%]"),
-                               list(sprintf("%s [mm]", pw_lab), "RH [%]"))
+                               list(sprintf("%s [mm]", pw_lab), "RH [%]"),
+                               list(sprintf("%s [mm]", pw_lab), "Dewpoint Temperature [C]"))
         # data inputs for time.multiyear
-        multiyear.r <- list(res$snsr_sky_calc)
-        multiyear.title <- list("Multiyear mean sky temperature time series")
-        multiyear.col <- list("black")
-        multiyear.ylab <- list("Temperature [C]")
+        multiyear.r <- list(res$snsr_sky_calc, res$dewpoint)
+        multiyear.title <- list("Climatology of mean sky temperature",
+                                 "Climatology of dewpoint temperature")
+        multiyear.col <- list("black", "black")
+        multiyear.ylab <- list("Temperature [C]", "Dewpoint Temperature [C]")
         if (length(datetime) > 0){
             # plot function calls
             par(mar=c(5.1, 5.1, 5.1, 5.3), xpd=TRUE)
@@ -985,7 +1045,9 @@ visual.products <- function(set, mean.out, datetime=datetime, overcast=args$over
             time.pwindex(datetime)
             return(NULL)
         } else {
-            logg("ERROR", D01, lev = level); closing()
+            logg("ERROR", err_war$error$D[[1]]$code, lev = level)
+            logg("ERROR", err_war$error$D[[1]]$fix, lev = level)
+            closing()
         }
 	}else if(set == "a"){
         logg("INFO", "Analytics Plot Set")
