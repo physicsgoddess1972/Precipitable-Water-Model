@@ -9,7 +9,6 @@ author = 'Spencer Riley'
 version = 'legacy'
 release = ''
 
-
 # -- General configuration
 
 extensions = [
