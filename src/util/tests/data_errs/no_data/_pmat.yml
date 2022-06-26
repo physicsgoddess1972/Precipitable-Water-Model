@@ -7,7 +7,7 @@
       range: -20 ~ 537
       emissivity: 0.95
       poster: true
-      active: true
+      active: false
   - sensor:
       name: FLIR i3
       error: null
@@ -16,7 +16,7 @@
       range: null
       emissivity: 0.95
       poster: true
-      active: true
+      active: false
   - sensor:
       name: AMES_1
       error: 7
@@ -51,25 +51,10 @@
       step: 10
       seed:
 - logging:
-  - verbose: 0
+  - verbose: DEBUG
 - style:
   - pw_label: PWAT
 - import:
-  - external:
-      - pw:
-          - id: AERONET
-            path: "aeronet_2019.csv"
-            weight: 1
-            date: "%d:%m:%Y"
-            merge: false
-            units: cm
-      - pw:
-          - id: SuomiNet
-            path: "suominet_2019.csv"
-            weight: 1
-            date: "%Y-%m-%dT%H:%M"
-            merge: false
-            units: mm
   - mesowest:
     - id: KONM
   - wyoming:
