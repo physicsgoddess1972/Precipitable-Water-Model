@@ -71,7 +71,7 @@ pmat_processing.r
 	:detail: filters the data based on the comparison of the daily std and the average std of the dataset
 	:param list nan.out: the output of nan.filter
 	:param integer n: threshold
-	:return: an array of indicies for PWV values to be analyzed
+	:return: an array of indices for PWV values to be analyzed
 	:rtype: list
 
 .. function:: dna.filter(fover)
@@ -137,21 +137,33 @@ pmat_products.r
 .. function:: time.nth_range(range,title,color,leg.lab,ylab,datetime,overcast)
 
 	:detail: Multirange Time Series plot series
-	:param date: the datestamp of the data
-	:param bool overcast: the condition of data (clear sky/overcast)
+	:param range:
+	:param title:
+	:param color:
+	:param leg.lab:
+	:param ylab:
+	:param datetime:
+	:param logical overcast: the condition of data (clear sky/overcast)
 
 .. function:: time.composite(range,title,color,ylab,datetime,overcast)
 
 	:detail: Time Series composite plot series
-	:param date: the datestamp of the data
-	:param bool overcast: the condition of data (clear sky/overcast)
+	:param range:
+	:param title:
+	:param color:
+	:param ylab:
+	:param datetime:
+	:param logical overcast: the condition of data (clear sky/overcast)
 	:return: A sky temperature time series plot
 
 .. function:: time.mono_composite(range,title,ylab,datetime,overcast)
 
 	:detail: Time Series composite plot series
-	:param date: the datestamp of the data
-	:param bool overcast: the condition of data (clear sky/overcast)
+	:param range:
+	:param title:
+	:param ylab:
+	:param datetime:
+	:param logical overcast: the condition of data (clear sky/overcast)
 	:return: A sky temperature time series plot
 
 .. function:: time.multiyear(range,title,color,datetime,ylab,overcast)
@@ -160,29 +172,45 @@ pmat_products.r
 .. function:: analysis.nth_range(overcast,x,y,title,label,color,leg.lab)
 
 	:detail: Super Average Plot with Exponential Fit
-	:param bool overcast: the condition of data (clear sky/overcast)
+	:param logical overcast: the condition of data (clear sky/overcast)
+	:param x:
+	:param y:
+	:param title:
+	:param label:
+	:param color:
+	:param leg.lab:
 	:return: A sky temperature time series plot
 
 .. function:: analysis.regression(overcast,x,y,des,label,iter)
 
 	:detail: Super Average Plot with Exponential Fit
 	:param bool overcast: the condition of data (clear sky/overcast)
+	:param x:
+	:param y:
+	:param des:
+	:param label:
+	:param iter:
 	:return: A sky temperature time series plot
 
 .. function:: analysis.svm(model)
 
+	:detail:
+	:param model:
 
 .. function:: pac.compare(overcast,des,x,y,angular,radial)
 
 	:detail: Pac-Man plot of Super Average Plot
-	:param bool overcast: the condition of data (clear sky/overcast)
-	:return: A sky temperature time series plot
+	:param logical overcast: the condition of data (clear sky/overcast)
+	:param des:
+	:param x:
+	:param y:
+	:param angular:
+	:param radial:
 
 .. function:: pac.regression(overcast)
 
 	:detail: Pac-Man residual plot
 	:param bool overcast: the condition of data (clear sky/overcast)
-	:return: A sky temperature time series plot
 
 .. function:: chart.histogram(range,xlabel,title)
 
@@ -203,7 +231,9 @@ pmat_products.r
 .. function:: poster2(overcast,iter,mean.out)
 
 	:detail: The analytics poster plot
-	:param bool overcast: the condition of data (clear sky/overcast)
+	:param logical overcast: the condition of data (clear sky/overcast)
+	:param iter:
+	:param mean.out:
 
 .. function:: sensor.chart(...)
 
@@ -212,6 +242,7 @@ pmat_products.r
 .. function:: sensor.time(overcast)
 
 	:detail: Instrumentation time series plots
+	:param logical overcast:
 
 .. function:: data.gen(overcast,dir)
 
@@ -226,14 +257,31 @@ pmat_products.r
 
 .. function:: data.step(seed,i,coef,r,S)
 
+	:detail:
+	:param seed:
+	:param i:
+	:param coef:
+	:param r:
+	:param S:
+	:return: 
+	:rtype: list
 
-.. function:: data.final(dir,clear.len,over.len,train.len,nan.len,frac.kept,coef,std,rmse,overcast=args$overcast)
+.. function:: data.final(dir,lengths,frac.kept,coef,std,rmse,overcast=args$overcast)
 
+	:detail:
+	:param dir:
+	:param lengths:
+	:param coef:
+	:param std:
+	:param rmse:
+	:param overcast:
 
 .. function:: visual.products(set,mean.out,datetime=datetime,overcast=args$overcast)
 
 	:detail: saves plot sets
 	:param character set: the set identifier
+	:param mean.out:
+	:param datetime:
 	:param logical overcast: ovecast boolean
 
 ----------
