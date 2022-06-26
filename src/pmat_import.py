@@ -33,42 +33,28 @@ class MesoWest(HTTPEndPoint):
         """Set up endpoint."""
         super(MesoWest, self).__init__('https://mesowest.utah.edu/')
 
+    """
+    :detail: Retrieve upper air observations from the University of Utah MesoWest archive.
+    :param datetime date: The date of the desired observation.
+    :param str site_id: The four letter MesoWest identifier of the station for which data should be downloaded. https://mesowest.utah.edu/cgi-bin/droman/meso_station.cgi?area=1
+    :param kwargs: Arbitrary keyword arguments to use to initialize source
+    :return: data
+    :rtype: pandas.DataFrame
+    """
     @classmethod
     def request_data(cls, date, site_id, **kwargs):
-        r"""Retrieve upper air observations from the University of Utah MesoWest archive.
-
-        Parameters
-        ----------
-        date : datetime
-            The date of the desired observation.
-        site_id : str
-            The four letter MesoWest identifier of the station for which data should be
-            downloaded.
-            https://mesowest.utah.edu/cgi-bin/droman/meso_station.cgi?area=1
-        kwargs
-            Arbitrary keyword arguments to use to initialize source
-        Returns
-        -------
-            :class:`pandas.DataFrame` containing the data
-        """
         endpoint = cls()
         df = endpoint._get_data(date, site_id)
         return df
 
+    """
+    :detail: Download and parse upper air observations from an online archive.
+    :param datetime date: The date of the desired observation.
+    :param str site_id: The four letter MesoWest identifier of the station for which data should be downloaded. https://mesowest.utah.edu/cgi-bin/droman/meso_station.cgi?area=1
+    :return: data from MesoWest
+    :rtype: pandas.DataFrame
+    """
     def _get_data(self, date, site_id):
-        """Download and parse upper air observations from an online archive.
-        Parameters
-        ----------
-        date : datetime
-            The date of the desired observation.
-        site_id : str
-            The four letter MesoWest identifier of the station for which data should be
-            downloaded.
-            https://mesowest.utah.edu/cgi-bin/droman/meso_station.cgi?area=1
-        Returns
-        -------
-            :class:`pandas.DataFrame` containing the data
-        """
         raw_data = self._get_data_raw(date, site_id)
         soup = BeautifulSoup(raw_data, 'html.parser')
         names = pd.DataFrame.from_records(
@@ -104,19 +90,15 @@ class MesoWest(HTTPEndPoint):
         df.columns = [(x.lower()).replace(" ", "_") for x in name]
         return df
 
+    """
+    :detail: Download data from the University of Utah's MesoWest archive.
+    Parameters
+    :param datetime date: Date for which data should be downloaded
+    :param str site_id: Site id for which data should be downloaded https://mesowest.utah.edu/cgi-bin/droman/meso_station.cgi?area=1
+    :return: text of the server response
+    :rtype: str        
+    """
     def _get_data_raw(self, date, site_id):
-        """Download data from the University of Utah's MesoWest archive.
-        Parameters
-        ----------
-        date: datetime
-            Date for which data should be downloaded
-        site_id : str
-            Site id for which data should be downloaded
-            https://mesowest.utah.edu/cgi-bin/droman/meso_station.cgi?area=1
-        Returns
-        -------
-        text of the server response
-        """
         path = ('cgi-bin/droman/meso_table_mesowest.cgi?stn={stid}'
                 '&unit=0&time=LOCAL'
                 '&day1={date:%d}&month1={date:%m}&year1={date:%Y}&hour1={date:%H}'
@@ -130,6 +112,7 @@ class MesoWest(HTTPEndPoint):
         return resp.text
 
 class PMAT_Import():
+
     """
     :title: closest
     :detail: A function that computes the closest value
@@ -148,11 +131,12 @@ class PMAT_Import():
         return lst[idx]
 
     """
-    @title wyoming_import
-    @brief Imports Wyoming Data for specified site and date
-    @param end_date 
-    @param station
-    @return 
+    :title: wyoming_import
+    :detail: Imports Wyoming Data for specified site and date
+    :param datetime end_date:
+    :param str station:
+    :return:
+    :rtype:  
     """
     def wyoming_import(end_date, station, level):
         try:
@@ -199,12 +183,13 @@ class PMAT_Import():
         return data
 
     """
-    @title mesowest_import
-    @brief Imports Mesowest Data for specified site and date
-    @param end_date 
-    @param station
-    @param in_time
-    @return 
+    :title: mesowest_import
+    :detail: Imports Mesowest Data for specified site and date
+    :param datetime end_date: 
+    :param str station:
+    :param datetime in_time:
+    :return:
+    :rtype:
     """
     def mesowest_import(end_date, station, in_time, level):
         df_mw = MesoWest.request_data(end_date + datetime.timedelta(days=1, hours=12), station.strip(" "))
@@ -244,10 +229,10 @@ class PMAT_Import():
             return [thyme, rh, temp, dwpt]
 
     """
-    @title impt
-    @brief 
-    @param end_date 
-    @param idx
+    :detail:  
+    :param datetime end_date: 
+    :param idx:
+    :param level:
     """
     def impt(end_date, idx, level):
         cool_data = []
