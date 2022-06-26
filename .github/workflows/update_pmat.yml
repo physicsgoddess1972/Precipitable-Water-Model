@@ -83,6 +83,7 @@ jobs:
           src/pmat_utility.r=src/pmat_utility.r
           src/pmat_import.py=src/pmat_import.py
           src/pmat_run.r=src/pmat_run.r
+          src/pmat_codes.yml=src/pmat_codes.yml
           DESCRIPTION
           requirements.txt
         TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
