@@ -1,3 +1,4 @@
+name: JOSS Paper Drafting
 on: [push]
 
 jobs:
