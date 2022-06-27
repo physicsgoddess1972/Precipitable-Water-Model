@@ -48,7 +48,7 @@ The threshold of the standard deviation filter is defined by the end user's conf
 
 The analysis module has primary and secondary functionality. First and foremost, the primary analysis function is an iterative regression algorithm that defines a correlation profile between the atmospheric brightness temperature and the precipitable water vapor content. The relationship is characterized by a two-parameter exponential equation that takes the form:
 \begin{equation}
-PWAT = Ae^{T_b B}\, .
+\text{PWAT} = Ae^{T_b B}\, .
 \end{equation}
 The result of this process is two output files. One is for the results at each step, and the other is the final averaged regression statistics. The plots associated with the analysis process will utilize the averaged coefficients and statistics.
 
