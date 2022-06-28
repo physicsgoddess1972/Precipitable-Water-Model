@@ -34,6 +34,7 @@ time.pwindex <- function(datetime){
          ylab="Normalized Index",
          xaxt='n',
          main=title,
+         las =1,
          pch=16,
          ylim=c(0, 1),
          xlim=time_axis_init(datetime)[[1]])
@@ -64,13 +65,14 @@ time.nth_range <- function(range, title, color, leg.lab, ylab, datetime, overcas
     plot(datetime, range[[1]],
          ylab=ylab[1],
          xaxt='n',
+         las =1,
          xlab='',
          main=stnd_title(title, overcast),
          pch=16,
          ylim=c(ymin, ymax),
          xlim=time_axis_init(datetime)[[1]],
          col=color[1])
-
+    minor.tick(nx=1, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
     time_axis(datetime)
     # plots all other ranges in the list if the length of range is greater than 1
     if (length(range) > 1){
@@ -99,27 +101,27 @@ time.composite <- function(range, title, color, ylab, datetime, overcast){
     #' :return: A sky temperature time series plot
 
     plot(datetime, range[[1]],
-         ylab=NA,
+         ylab=ylab[[1]],
          col=color[[1]],
          main=stnd_title(title, overcast),
+         col.lab = color[[1]],
          xaxt='n',
-         xlab='',
+         las =1,
+         xlab=NA,
          pch=16,
          xlim=time_axis_init(datetime)[[1]])
-
-    axis(side = 2); mtext(side = 2, line=3, ylab[[1]], col=color[[1]])
-
     time_axis(datetime)
 
     par(new = T)
     plot(datetime, range[[2]],
-         ylab=NA,
          axes=F,
          xlab=NA,
+         ylab=NA,
          col=color[[2]],
          pch=16,
          xlim=time_axis_init(datetime)[[1]])
-    axis(side = 4); mtext(side=4, line=3, ylab[[2]], col=color[[2]])
+    axis(side= 4, las=1); mtext(side=4, line=3, ylab[[2]], col=color[[2]])
+#     minor.tick(nx=1, ny=2, tick.ratio=0.5, x.args = list(), y.args = list(side=4))
     logg("PASS", title, lev = level)
 }
 time.mono_composite <- function(range, title, ylab, datetime, overcast){
@@ -132,25 +134,30 @@ time.mono_composite <- function(range, title, ylab, datetime, overcast){
     #' :return: A sky temperature time series plot
 
     plot(datetime, range[[1]],
-         ylab=NA,
+         ylab=ylab[[1]],
          main=stnd_title(title, overcast),
          xaxt='n',
-         xlab='',
+#          yaxt='n',
+         xlab=NA,
          pch=16,
+         las = 1,
          xlim=time_axis_init(datetime)[[1]])
-
-    axis(side = 2); minor.tick(nx=1, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
-    mtext(side = 2, line=3, "\\#H0850", family="HersheySans", xpd=TRUE, adj=0.35, padj=0.3, cex=3)
-    mtext(side = 2, line=3, ylab[[1]], xpd=TRUE)
+         # adj=0.35, padj=0.3,
+    mtext(side = 2, line=3.5, "\\#H0850", family="HersheySans", xpd=TRUE, cex=3)
+#     axis(side = 2); #minor.tick(nx=1, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
+#     mtext(side = 2, line=3, ylab[[1]], xpd=TRUE)
 
     time_axis(datetime)
-    par(new = T)
-    plot(datetime, range[[2]], ylab=NA, axes=F, xlab=NA, col="black", pch=1, xlim=time_axis_init(datetime)[[1]])
 
-    axis(side = 4, tck=-0.02)
-    axis(side = 4, at=seq(0,40, by=2.5), labels=rep("", length(seq(0,40, by=2.5))), tck=-0.01);
-    mtext(side = 4, line=3, "\\de", family="HersheySans", adj=0.38, padj=0.65, cex=3)
-    mtext(side = 4, line=3, ylab[[2]])
+    par(new = T)
+    plot(datetime, range[[2]], axes=F, xaxt='n',
+         yaxt='n', ylab=NA, xlab=NA, col="black",
+         pch=1,
+         xlim=time_axis_init(datetime)[[1]])
+
+    axis(side = 4, las=1);
+    mtext(side = 4, line=3.5, "\\#H0905", family="HersheySans")#adj=0.38, padj=0.65, cex=3)
+    mtext(side = 4, line=2.5, ylab[[2]])
 
     logg("PASS", title, lev = level)
 }
@@ -162,9 +169,11 @@ time.multiyear <- function(range, title, color, datetime, ylab, overcast){
          pch=16,
          xlab="Day number",
          ylab=ylab,
+         las = 1,
          xlim=c(1, 366),
          main=stnd_title(title, overcast),
          col=color)
+    minor.tick(nx=2, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
     logg("PASS", title)
 }
 
@@ -989,9 +998,9 @@ visual.products <- function(set, mean.out, datetime=datetime, overcast=args$over
                                sprintf("Mean %s and RH Time Series", pw_lab),
                                sprintf("Mean %s and Dewpoint Time Series", pw_lab))
         composite.col <- list(list("red", "blue"),
-                   list("red", "green3"),
-                   list("blue", "green3"),
-                   list("blue", "purple"))
+                   list("red", "darkolivegreen3"),
+                   list("blue", "darkolivegreen3"),
+                   list("blue", "darkorange"))
         composite.ylab <- list(list("Temperature [C]", sprintf("%s [mm]", pw_lab)),
                                list("Temperature [C]", "RH [%]"),
                                list(sprintf("%s [mm]", pw_lab), "RH [%]"),
@@ -1035,6 +1044,7 @@ visual.products <- function(set, mean.out, datetime=datetime, overcast=args$over
                                composite_mono.title[[i]],
                                composite_mono.ylab[[i]], datetime, overcast)
             }
+            par(mar=c(5.1, 4.1, 4.1, 2.1), xpd=TRUE)
             for (i in 1:length(multiyear.r)){
               time.multiyear(multiyear.r[[i]],
                              multiyear.title[[i]],
@@ -1083,14 +1093,16 @@ visual.products <- function(set, mean.out, datetime=datetime, overcast=args$over
         ml.l <- c(clear_sky.data$label, overcast.data$label)
         nan.ml <- nan.filter(list(x=ml.x, y=ml.y, l=ml.l))[[1]]
         ml <- lsvm(nan.ml$x, log(nan.ml$y, base=exp(1)), nan.ml$l)
-
+        par(mar=c(5.1, 4.1, 4.1, 5.3), xpd=TRUE)
         # plot function calls
         for (i in 1:length(x1)){
             analysis.nth_range(overcast, x1[[i]], y1[[i]], t1[[i]], l1[[i]], c1[[i]], leg.lab[[i]])
         }
+        par(mar=c(5.1, 4.1, 4.1, 2.1), xpd=FALSE)
         for (i in 1:length(x2)){
             analysis.regression(overcast, x2[[i]], y2[[i]], t2[[i]], l2[[i]], iter.results)
         }
+        par(mar=c(5.1, 4.1, 4.1, 2.1), xpd=FALSE)
         analysis.svm(ml)
 	}else if(set == "c"){
         logg("INFO", "Chart Set", lev = level)
