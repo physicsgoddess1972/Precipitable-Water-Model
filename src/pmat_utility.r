@@ -89,7 +89,7 @@ time_axis_init <- function(date){
     #' :return: The max, min, and tick mark positions
     #' :rtype: list
     xmin <- reset_time(paste(substr(date[[1]], 1, 8),"01",sep=""))
-    dm <- ifelse(round(as.integer(substr(date[[length(date)]], 9, 10))/20) > 1, 1, 0)
+    dm <- ifelse(round(as.integer(substr(date[[length(date)]], 9, 10))) > 1, 1, 0)
     xmax <- reset_time(paste(substr(date[[length(date)]], 1, 5),
                       sprintf("%02d", as.integer(substr(date[[length(date)]], 6, 7)) + dm),
                       "-01", sep=""))
@@ -111,6 +111,7 @@ time_axis <- function(datetime){
         ticks.at <- seq(reset_time(datetime[[1]]),
                         reset_time(time_axis_init(datetime)[[1]][2]), by = "day")
         fmt <- "%d %b"
+        print(reset_time(time_axis_init(datetime)[[1]][2]))
     }
     mj_ticks <- ticks.at[seq(1, length(ticks.at), length.out=4)]
     axis.POSIXct(1,mj_ticks, at=mj_ticks, format=fmt, tck=-0.03)

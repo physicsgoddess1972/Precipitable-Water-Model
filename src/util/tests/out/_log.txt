@@ -26518,3 +26518,818 @@
 2022-06-28 12:03:08 PASS Data sent to data/data.csv
 2022-06-28 12:03:08 PASS Data sent to ./util/tests/data_monsoon/../out/data/ml_data.csv
 2022-06-28 12:03:09 ALOHA Program Complete
+2022-06-30 08:32:44 ALOHA Precipitable-water Model Analysis Tool
+2022-06-30 08:32:44 ALOHA Program Start
+2022-06-30 08:32:45 INFO Collecting Data from sources
+2022-06-30 08:32:45 DEBUG Step 1 out of 1
+2022-06-30 08:32:46 INFO Condition: Clear Sky
+2022-06-30 08:32:46 INFO Time Series Plot Set
+2022-06-30 08:32:46 PASS Sky Temperature Time Series
+2022-06-30 08:32:46 PASS Ground Temperature Time Series
+2022-06-30 08:32:46 PASS Difference Between Ground-Sky Temperature Time Series
+2022-06-30 08:32:46 PASS PWAT Time Series
+2022-06-30 08:32:46 PASS Temporal Mean PWAT Time Series
+2022-06-30 08:32:46 PASS Locational Mean PWAT Time Series
+2022-06-30 08:32:46 PASS Spatiotemporal Mean PWAT Time Series
+2022-06-30 08:32:46 PASS Dewpoint Temperature Time Series
+2022-06-30 08:32:46 PASS Mean Sky Temperature and PWAT Time Series
+2022-06-30 08:32:46 PASS Mean Sky Temperature and RH Time Series
+2022-06-30 08:32:46 PASS Mean PWAT and RH Time Series
+2022-06-30 08:32:46 PASS Mean PWAT and Dewpoint Time Series
+2022-06-30 08:32:46 PASS Mean Sky Temperature and PWAT Time Series
+2022-06-30 08:32:46 PASS Mean Sky Temperature and RH Time Series
+2022-06-30 08:32:46 PASS Mean PWAT and RH Time Series
+2022-06-30 08:32:46 PASS Mean PWAT and Dewpoint Time Series
+2022-06-30 08:32:46 PASS Normalized Index for Weighted PWAT Time Series
+2022-06-30 08:32:46 PASS Plot set downloaded to ./util/tests/data_small/../out/figs/
+2022-06-30 08:32:46 INFO Analytics Plot Set
+2022-06-30 08:32:46 PASS Correlation between PWAT and Temperature
+2022-06-30 08:32:46 PASS Correlation between Locational Mean PWAT and Temperature
+2022-06-30 08:32:46 PASS Correlation between Temporal Mean PWAT and Temperature
+2022-06-30 08:32:46 PASS Regression between Spatiotemporal Mean PWAT and Temperature
+2022-06-30 08:32:46 PASS Regression between Weighted PWAT and Temperature
+2022-06-30 08:32:46 PASS SVM Analysis between Sky Temperature and PWAT
+2022-06-30 08:32:46 PASS Plot set downloaded to ./util/tests/data_small/../out/figs/
+2022-06-30 08:32:46 INFO Sensor Plot Set
+2022-06-30 08:32:46 PASS Overcast Condition Percentage: AMES 1
+2022-06-30 08:32:46 PASS Overcast Condition Percentage: AMES 2
+2022-06-30 08:32:46 PASS Sky-Ground Time Series: AMES
+2022-06-30 08:32:46 PASS Plot set downloaded to ./util/tests/data_small/../out/figs/
+2022-06-30 08:32:46 INFO Chart Set
+2022-06-30 08:32:46 PASS Weighted PWAT
+2022-06-30 08:32:47 PASS Average Temperature
+2022-06-30 08:32:47 PASS Relative Humidity
+2022-06-30 08:32:47 PASS Dewpoint Temperature
+2022-06-30 08:32:47 PASS Predicted clear sky PWAT from IR Product
+2022-06-30 08:32:47 PASS Distribution of PWAT in ABQ
+2022-06-30 08:32:47 PASS Distribution of PWAT in EPZ
+2022-06-30 08:32:47 PASS Plot set downloaded to ./util/tests/data_small/../out/figs/
+2022-06-30 08:32:47 INFO Poster Plot Set
+2022-06-30 08:32:47 PASS Sky-Ground-Delta Temperature Time Series
+2022-06-30 08:32:47 PASS Analytical Plots
+2022-06-30 08:32:47 PASS Plot set downloaded to ./util/tests/data_small/../out/figs/
+2022-06-30 08:32:47 INFO Pac-Man Plot Set
+2022-06-30 08:32:47 PASS Correlation between Spatiotemporal Mean PWAT and Temperature
+2022-06-30 08:32:47 PASS Pac-Man Residual of the Mean PWAT and Temperature Model
+2022-06-30 08:32:47 PASS Plot set downloaded to ./util/tests/data_small/../out/figs/
+2022-06-30 08:32:47 PASS Data sent to data/data.csv
+2022-06-30 08:32:47 PASS Data sent to ./util/tests/data_small/../out/data/ml_data.csv
+2022-06-30 08:32:47 ALOHA Program Complete
+2022-06-30 08:35:01 ALOHA Precipitable-water Model Analysis Tool
+2022-06-30 08:35:01 ALOHA Program Start
+2022-06-30 08:35:02 INFO Collecting Data from sources
+2022-06-30 08:35:03 DEBUG Step 1 out of 1
+2022-06-30 08:35:03 INFO Condition: Clear Sky
+2022-06-30 08:35:03 INFO Time Series Plot Set
+2022-06-30 08:35:18 ALOHA Precipitable-water Model Analysis Tool
+2022-06-30 08:35:18 ALOHA Program Start
+2022-06-30 08:35:19 INFO Collecting Data from sources
+2022-06-30 08:35:20 DEBUG Step 1 out of 1
+2022-06-30 08:35:20 INFO Time Series Plot Set
+2022-06-30 08:35:20 PASS Sky Temperature Time Series
+2022-06-30 08:35:20 PASS Ground Temperature Time Series
+2022-06-30 08:35:20 PASS Difference Between Ground-Sky Temperature Time Series
+2022-06-30 08:35:20 PASS PWAT Time Series
+2022-06-30 08:35:20 PASS Temporal Mean PWAT Time Series
+2022-06-30 08:35:20 PASS Locational Mean PWAT Time Series
+2022-06-30 08:35:20 PASS Spatiotemporal Mean PWAT Time Series
+2022-06-30 08:35:20 PASS Dewpoint Temperature Time Series
+2022-06-30 08:35:20 PASS Mean Sky Temperature and PWAT Time Series
+2022-06-30 08:35:20 PASS Mean Sky Temperature and RH Time Series
+2022-06-30 08:35:20 PASS Mean PWAT and RH Time Series
+2022-06-30 08:35:20 PASS Mean PWAT and Dewpoint Time Series
+2022-06-30 08:35:20 PASS Mean Sky Temperature and PWAT Time Series
+2022-06-30 08:35:20 PASS Mean Sky Temperature and RH Time Series
+2022-06-30 08:35:20 PASS Mean PWAT and RH Time Series
+2022-06-30 08:35:20 PASS Mean PWAT and Dewpoint Time Series
+2022-06-30 08:35:20 PASS Normalized Index for Weighted PWAT Time Series
+2022-06-30 08:35:20 PASS Plot set downloaded to ./util/tests/data_small/../out/figs/
+2022-06-30 08:35:20 ALOHA Program Complete
+2022-06-30 08:36:29 ALOHA Precipitable-water Model Analysis Tool
+2022-06-30 08:36:29 ALOHA Program Start
+2022-06-30 08:36:30 INFO Collecting Data from sources
+2022-06-30 08:36:31 DEBUG Step 1 out of 1
+2022-06-30 08:36:31 INFO Time Series Plot Set
+2022-06-30 08:36:31 PASS Sky Temperature Time Series
+2022-06-30 08:36:31 PASS Ground Temperature Time Series
+2022-06-30 08:36:31 PASS Difference Between Ground-Sky Temperature Time Series
+2022-06-30 08:36:31 PASS PWAT Time Series
+2022-06-30 08:36:31 PASS Temporal Mean PWAT Time Series
+2022-06-30 08:36:31 PASS Locational Mean PWAT Time Series
+2022-06-30 08:36:31 PASS Spatiotemporal Mean PWAT Time Series
+2022-06-30 08:36:31 PASS Dewpoint Temperature Time Series
+2022-06-30 08:36:31 PASS Mean Sky Temperature and PWAT Time Series
+2022-06-30 08:36:31 PASS Mean Sky Temperature and RH Time Series
+2022-06-30 08:36:31 PASS Mean PWAT and RH Time Series
+2022-06-30 08:36:31 PASS Mean PWAT and Dewpoint Time Series
+2022-06-30 08:36:31 PASS Mean Sky Temperature and PWAT Time Series
+2022-06-30 08:36:31 PASS Mean Sky Temperature and RH Time Series
+2022-06-30 08:36:31 PASS Mean PWAT and RH Time Series
+2022-06-30 08:36:31 PASS Mean PWAT and Dewpoint Time Series
+2022-06-30 08:36:31 PASS Normalized Index for Weighted PWAT Time Series
+2022-06-30 08:36:31 PASS Plot set downloaded to ./util/tests/data_small/../out/figs/
+2022-06-30 08:36:31 ALOHA Program Complete
+2022-06-30 08:37:25 ALOHA Precipitable-water Model Analysis Tool
+2022-06-30 08:37:25 ALOHA Program Start
+2022-06-30 08:37:27 INFO Collecting Data from sources
+2022-06-30 08:37:27 DEBUG Step 1 out of 1
+2022-06-30 08:37:27 INFO Time Series Plot Set
+2022-06-30 08:37:28 PASS Sky Temperature Time Series
+2022-06-30 08:37:28 PASS Ground Temperature Time Series
+2022-06-30 08:37:28 PASS Difference Between Ground-Sky Temperature Time Series
+2022-06-30 08:37:28 PASS PWAT Time Series
+2022-06-30 08:37:28 PASS Temporal Mean PWAT Time Series
+2022-06-30 08:37:28 PASS Locational Mean PWAT Time Series
+2022-06-30 08:37:28 PASS Spatiotemporal Mean PWAT Time Series
+2022-06-30 08:37:28 PASS Dewpoint Temperature Time Series
+2022-06-30 08:37:28 PASS Mean Sky Temperature and PWAT Time Series
+2022-06-30 08:37:28 PASS Mean Sky Temperature and RH Time Series
+2022-06-30 08:37:28 PASS Mean PWAT and RH Time Series
+2022-06-30 08:37:28 PASS Mean PWAT and Dewpoint Time Series
+2022-06-30 08:37:28 PASS Mean Sky Temperature and PWAT Time Series
+2022-06-30 08:37:28 PASS Mean Sky Temperature and RH Time Series
+2022-06-30 08:37:28 PASS Mean PWAT and RH Time Series
+2022-06-30 08:37:28 PASS Mean PWAT and Dewpoint Time Series
+2022-06-30 08:37:28 PASS Normalized Index for Weighted PWAT Time Series
+2022-06-30 08:37:28 PASS Plot set downloaded to ./util/tests/data_small/../out/figs/
+2022-06-30 08:37:28 ALOHA Program Complete
+2022-06-30 08:39:21 ALOHA Precipitable-water Model Analysis Tool
+2022-06-30 08:39:21 ALOHA Program Start
+2022-06-30 08:39:22 INFO Collecting Data from sources
+2022-06-30 08:39:23 DEBUG Step 1 out of 1
+2022-06-30 08:39:23 INFO Time Series Plot Set
+2022-06-30 08:39:23 PASS Sky Temperature Time Series
+2022-06-30 08:39:23 PASS Ground Temperature Time Series
+2022-06-30 08:39:23 PASS Difference Between Ground-Sky Temperature Time Series
+2022-06-30 08:39:23 PASS PWAT Time Series
+2022-06-30 08:39:23 PASS Temporal Mean PWAT Time Series
+2022-06-30 08:39:23 PASS Locational Mean PWAT Time Series
+2022-06-30 08:39:23 PASS Spatiotemporal Mean PWAT Time Series
+2022-06-30 08:39:23 PASS Dewpoint Temperature Time Series
+2022-06-30 08:39:23 PASS Mean Sky Temperature and PWAT Time Series
+2022-06-30 08:39:23 PASS Mean Sky Temperature and RH Time Series
+2022-06-30 08:39:23 PASS Mean PWAT and RH Time Series
+2022-06-30 08:39:23 PASS Mean PWAT and Dewpoint Time Series
+2022-06-30 08:39:23 PASS Mean Sky Temperature and PWAT Time Series
+2022-06-30 08:39:23 PASS Mean Sky Temperature and RH Time Series
+2022-06-30 08:39:23 PASS Mean PWAT and RH Time Series
+2022-06-30 08:39:23 PASS Mean PWAT and Dewpoint Time Series
+2022-06-30 08:39:23 PASS Normalized Index for Weighted PWAT Time Series
+2022-06-30 08:39:23 PASS Plot set downloaded to ./util/tests/data_small/../out/figs/
+2022-06-30 08:39:23 ALOHA Program Complete
+2022-06-30 08:40:02 ALOHA Precipitable-water Model Analysis Tool
+2022-06-30 08:40:02 ALOHA Program Start
+2022-06-30 08:40:03 INFO Collecting Data from sources
+2022-06-30 08:40:04 DEBUG Step 1 out of 1
+2022-06-30 08:40:04 INFO Time Series Plot Set
+2022-06-30 08:40:04 PASS Sky Temperature Time Series
+2022-06-30 08:40:04 PASS Ground Temperature Time Series
+2022-06-30 08:40:04 PASS Difference Between Ground-Sky Temperature Time Series
+2022-06-30 08:40:04 PASS PWAT Time Series
+2022-06-30 08:40:04 PASS Temporal Mean PWAT Time Series
+2022-06-30 08:40:04 PASS Locational Mean PWAT Time Series
+2022-06-30 08:40:04 PASS Spatiotemporal Mean PWAT Time Series
+2022-06-30 08:40:04 PASS Dewpoint Temperature Time Series
+2022-06-30 08:40:04 PASS Mean Sky Temperature and PWAT Time Series
+2022-06-30 08:40:04 PASS Mean Sky Temperature and RH Time Series
+2022-06-30 08:40:04 PASS Mean PWAT and RH Time Series
+2022-06-30 08:40:04 PASS Mean PWAT and Dewpoint Time Series
+2022-06-30 08:40:04 PASS Mean Sky Temperature and PWAT Time Series
+2022-06-30 08:40:04 PASS Mean Sky Temperature and RH Time Series
+2022-06-30 08:40:04 PASS Mean PWAT and RH Time Series
+2022-06-30 08:40:04 PASS Mean PWAT and Dewpoint Time Series
+2022-06-30 08:40:04 PASS Normalized Index for Weighted PWAT Time Series
+2022-06-30 08:40:04 PASS Plot set downloaded to ./util/tests/data_small/../out/figs/
+2022-06-30 08:40:04 ALOHA Program Complete
+2022-06-30 08:44:02 ALOHA Precipitable-water Model Analysis Tool
+2022-06-30 08:44:02 ALOHA Program Start
+2022-06-30 08:44:03 INFO Collecting Data from sources
+2022-06-30 08:44:04 DEBUG Collecting data for 2021-07-30		 Progress: 63.25%
+2022-06-30 08:44:15 DEBUG Step 1 out of 5000
+2022-06-30 08:44:15 DEBUG Step 2 out of 5000
+2022-06-30 08:44:15 DEBUG Step 3 out of 5000
+2022-06-30 08:44:15 DEBUG Step 4 out of 5000
+2022-06-30 08:44:15 DEBUG Step 5 out of 5000
+2022-06-30 08:44:15 DEBUG Step 6 out of 5000
+2022-06-30 08:44:15 DEBUG Step 7 out of 5000
+2022-06-30 08:44:15 DEBUG Step 8 out of 5000
+2022-06-30 08:44:15 DEBUG Step 9 out of 5000
+2022-06-30 08:44:15 DEBUG Step 10 out of 5000
+2022-06-30 08:44:15 DEBUG Step 11 out of 5000
+2022-06-30 08:44:15 DEBUG Step 12 out of 5000
+2022-06-30 08:44:15 DEBUG Step 13 out of 5000
+2022-06-30 08:44:15 DEBUG Step 14 out of 5000
+2022-06-30 08:44:15 DEBUG Step 15 out of 5000
+2022-06-30 08:44:15 DEBUG Step 16 out of 5000
+2022-06-30 08:44:15 DEBUG Step 17 out of 5000
+2022-06-30 08:44:15 DEBUG Step 18 out of 5000
+2022-06-30 08:44:15 DEBUG Step 19 out of 5000
+2022-06-30 08:45:14 ALOHA Precipitable-water Model Analysis Tool
+2022-06-30 08:45:14 ALOHA Program Start
+2022-06-30 08:45:16 INFO Collecting Data from sources
+2022-06-30 08:45:16 DEBUG Collecting data for 2021-07-30		 Progress: 63.25%
+2022-06-30 08:45:38 DEBUG Step 1 out of 3
+2022-06-30 08:45:42 ALOHA Precipitable-water Model Analysis Tool
+2022-06-30 08:45:42 ALOHA Program Start
+2022-06-30 08:45:43 INFO Collecting Data from sources
+2022-06-30 08:45:43 DEBUG Collecting data for 2021-07-30		 Progress: 63.25%
+2022-06-30 08:46:20 DEBUG Step 1 out of 3
+2022-06-30 08:46:20 DEBUG Step 2 out of 3
+2022-06-30 08:46:20 DEBUG Step 3 out of 3
+2022-06-30 08:46:20 INFO Time Series Plot Set
+2022-06-30 08:46:43 ALOHA Precipitable-water Model Analysis Tool
+2022-06-30 08:46:43 ALOHA Program Start
+2022-06-30 08:46:44 INFO Collecting Data from sources
+2022-06-30 08:46:44 DEBUG Collecting data for 2021-07-30		 Progress: 63.25%
+2022-06-30 08:47:09 ALOHA Precipitable-water Model Analysis Tool
+2022-06-30 08:47:09 ALOHA Program Start
+2022-06-30 08:47:11 INFO Collecting Data from sources
+2022-06-30 08:47:11 DEBUG Collecting data for 2021-07-30		 Progress: 63.25%
+2022-06-30 08:47:36 DEBUG Step 1 out of 3
+2022-06-30 08:47:36 DEBUG Step 2 out of 3
+2022-06-30 08:47:36 DEBUG Step 3 out of 3
+2022-06-30 08:47:36 INFO Time Series Plot Set
+2022-06-30 08:47:39 ALOHA Precipitable-water Model Analysis Tool
+2022-06-30 08:47:39 ALOHA Program Start
+2022-06-30 08:47:40 INFO Collecting Data from sources
+2022-06-30 08:47:40 DEBUG Collecting data for 2021-07-30		 Progress: 63.25%
+2022-06-30 08:48:21 DEBUG Step 1 out of 3
+2022-06-30 08:48:21 DEBUG Step 2 out of 3
+2022-06-30 08:48:21 DEBUG Step 3 out of 3
+2022-06-30 08:48:21 INFO Time Series Plot Set
+2022-06-30 08:49:04 ALOHA Precipitable-water Model Analysis Tool
+2022-06-30 08:49:04 ALOHA Program Start
+2022-06-30 08:49:06 INFO Collecting Data from sources
+2022-06-30 08:49:06 DEBUG Collecting data for 2021-07-30		 Progress: 63.25%
+2022-06-30 08:49:51 DEBUG Collecting data for 2021-07-31		 Progress: 63.60%
+2022-06-30 08:51:41 ALOHA Precipitable-water Model Analysis Tool
+2022-06-30 08:51:41 ALOHA Program Start
+2022-06-30 08:51:42 INFO Collecting Data from sources
+2022-06-30 08:51:42 DEBUG Collecting data for 2021-07-30		 Progress: 63.25%
+2022-06-30 08:51:45 DEBUG Step 1 out of 3
+2022-06-30 08:51:45 DEBUG Step 2 out of 3
+2022-06-30 08:51:45 DEBUG Step 3 out of 3
+2022-06-30 08:51:45 INFO Time Series Plot Set
+2022-06-30 08:52:09 ALOHA Precipitable-water Model Analysis Tool
+2022-06-30 08:52:09 ALOHA Program Start
+2022-06-30 08:52:11 INFO Collecting Data from sources
+2022-06-30 08:52:11 DEBUG Collecting data for 2021-07-30		 Progress: 63.25%
+2022-06-30 08:52:31 DEBUG Step 1 out of 3
+2022-06-30 08:52:31 DEBUG Step 2 out of 3
+2022-06-30 08:52:31 DEBUG Step 3 out of 3
+2022-06-30 08:52:31 INFO Time Series Plot Set
+2022-06-30 08:52:48 ALOHA Precipitable-water Model Analysis Tool
+2022-06-30 08:52:48 ALOHA Program Start
+2022-06-30 08:52:49 INFO Collecting Data from sources
+2022-06-30 08:52:49 DEBUG Collecting data for 2021-07-30		 Progress: 63.25%
+2022-06-30 08:53:27 DEBUG Step 1 out of 3
+2022-06-30 08:53:27 DEBUG Step 2 out of 3
+2022-06-30 08:53:27 DEBUG Step 3 out of 3
+2022-06-30 08:53:27 INFO Time Series Plot Set
+2022-06-30 08:53:49 ALOHA Precipitable-water Model Analysis Tool
+2022-06-30 08:53:49 ALOHA Program Start
+2022-06-30 08:53:50 INFO Collecting Data from sources
+2022-06-30 08:53:50 DEBUG Collecting data for 2021-07-30		 Progress: 63.25%
+2022-06-30 08:54:27 DEBUG Step 1 out of 3
+2022-06-30 08:54:27 DEBUG Step 2 out of 3
+2022-06-30 08:54:27 DEBUG Step 3 out of 3
+2022-06-30 08:54:27 INFO Time Series Plot Set
+2022-06-30 08:54:47 ALOHA Precipitable-water Model Analysis Tool
+2022-06-30 08:54:47 ALOHA Program Start
+2022-06-30 08:54:48 INFO Collecting Data from sources
+2022-06-30 08:54:48 DEBUG Collecting data for 2021-07-30		 Progress: 63.25%
+2022-06-30 08:55:20 DEBUG Step 1 out of 3
+2022-06-30 08:55:20 DEBUG Step 2 out of 3
+2022-06-30 08:55:20 DEBUG Step 3 out of 3
+2022-06-30 08:55:20 INFO Time Series Plot Set
+2022-06-30 08:55:54 ALOHA Precipitable-water Model Analysis Tool
+2022-06-30 08:55:54 ALOHA Program Start
+2022-06-30 08:55:55 INFO Collecting Data from sources
+2022-06-30 08:55:55 DEBUG Collecting data for 2021-07-30		 Progress: 63.25%
+2022-06-30 08:56:17 DEBUG Step 1 out of 3
+2022-06-30 08:56:17 DEBUG Step 2 out of 3
+2022-06-30 08:56:17 DEBUG Step 3 out of 3
+2022-06-30 08:56:17 INFO Time Series Plot Set
+2022-06-30 08:56:54 ALOHA Precipitable-water Model Analysis Tool
+2022-06-30 08:56:54 ALOHA Program Start
+2022-06-30 08:56:55 INFO Collecting Data from sources
+2022-06-30 08:56:55 DEBUG Collecting data for 2021-07-30		 Progress: 63.25%
+2022-06-30 08:57:19 DEBUG Collecting data for 2021-07-31		 Progress: 63.60%
+2022-06-30 08:57:32 DEBUG Step 1 out of 3
+2022-06-30 08:57:32 DEBUG Step 2 out of 3
+2022-06-30 08:57:32 DEBUG Step 3 out of 3
+2022-06-30 08:57:32 INFO Time Series Plot Set
+2022-06-30 08:57:46 ALOHA Precipitable-water Model Analysis Tool
+2022-06-30 08:57:46 ALOHA Program Start
+2022-06-30 08:57:47 INFO Collecting Data from sources
+2022-06-30 08:57:47 DEBUG Collecting data for 2021-07-30		 Progress: 63.25%
+2022-06-30 08:58:00 DEBUG Step 1 out of 3
+2022-06-30 08:58:00 DEBUG Step 2 out of 3
+2022-06-30 08:58:00 DEBUG Step 3 out of 3
+2022-06-30 08:58:00 INFO Time Series Plot Set
+2022-06-30 08:58:49 ALOHA Precipitable-water Model Analysis Tool
+2022-06-30 08:58:49 ALOHA Program Start
+2022-06-30 08:58:50 DEBUG Step 1 out of 3
+2022-06-30 08:58:50 DEBUG Step 2 out of 3
+2022-06-30 08:58:50 DEBUG Step 3 out of 3
+2022-06-30 08:58:50 INFO Time Series Plot Set
+2022-06-30 08:58:57 ALOHA Precipitable-water Model Analysis Tool
+2022-06-30 08:58:57 ALOHA Program Start
+2022-06-30 08:58:58 INFO Collecting Data from sources
+2022-06-30 08:58:58 DEBUG Collecting data for 2021-07-30		 Progress: 63.25%
+2022-06-30 08:59:25 DEBUG Collecting data for 2021-07-31		 Progress: 63.60%
+2022-06-30 08:59:26 DEBUG Step 1 out of 3
+2022-06-30 08:59:26 DEBUG Step 2 out of 3
+2022-06-30 08:59:26 DEBUG Step 3 out of 3
+2022-06-30 08:59:26 INFO Time Series Plot Set
+2022-06-30 09:04:41 ALOHA Precipitable-water Model Analysis Tool
+2022-06-30 09:04:41 ALOHA Program Start
+2022-06-30 09:04:42 INFO Collecting Data from sources
+2022-06-30 09:04:43 DEBUG Collecting data for 2021-07-31		 Progress: 63.60%
+2022-06-30 09:04:44 DEBUG Step 1 out of 3
+2022-06-30 09:04:44 DEBUG Step 2 out of 3
+2022-06-30 09:04:44 DEBUG Step 3 out of 3
+2022-06-30 09:04:44 INFO Time Series Plot Set
+2022-06-30 09:05:29 ALOHA Precipitable-water Model Analysis Tool
+2022-06-30 09:05:29 ALOHA Program Start
+2022-06-30 09:05:31 DEBUG Step 1 out of 3
+2022-06-30 09:05:31 DEBUG Step 2 out of 3
+2022-06-30 09:05:31 DEBUG Step 3 out of 3
+2022-06-30 09:05:31 INFO Time Series Plot Set
+2022-06-30 09:05:43 ALOHA Precipitable-water Model Analysis Tool
+2022-06-30 09:05:43 ALOHA Program Start
+2022-06-30 09:05:44 DEBUG Step 1 out of 3
+2022-06-30 09:05:44 DEBUG Step 2 out of 3
+2022-06-30 09:05:44 DEBUG Step 3 out of 3
+2022-06-30 09:05:44 INFO Time Series Plot Set
+2022-06-30 09:05:59 ALOHA Precipitable-water Model Analysis Tool
+2022-06-30 09:05:59 ALOHA Program Start
+2022-06-30 09:06:00 INFO Collecting Data from sources
+2022-06-30 09:06:00 DEBUG Collecting data for 2021-07-31		 Progress: 63.60%
+2022-06-30 09:06:01 DEBUG Step 1 out of 3
+2022-06-30 09:06:01 DEBUG Step 2 out of 3
+2022-06-30 09:06:01 DEBUG Step 3 out of 3
+2022-06-30 09:06:01 INFO Time Series Plot Set
+2022-06-30 09:07:40 ALOHA Precipitable-water Model Analysis Tool
+2022-06-30 09:07:40 ALOHA Program Start
+2022-06-30 09:07:42 DEBUG Step 1 out of 3
+2022-06-30 09:07:42 DEBUG Step 2 out of 3
+2022-06-30 09:07:42 DEBUG Step 3 out of 3
+2022-06-30 09:07:42 INFO Time Series Plot Set
+2022-06-30 09:07:42 PASS Sky Temperature Time Series
+2022-06-30 09:07:42 PASS Ground Temperature Time Series
+2022-06-30 09:07:42 PASS Difference Between Ground-Sky Temperature Time Series
+2022-06-30 09:07:42 PASS PWAT Time Series
+2022-06-30 09:07:42 PASS Temporal Mean PWAT Time Series
+2022-06-30 09:07:42 PASS Locational Mean PWAT Time Series
+2022-06-30 09:07:42 PASS Spatiotemporal Mean PWAT Time Series
+2022-06-30 09:07:42 PASS Dewpoint Temperature Time Series
+2022-06-30 09:07:42 PASS Mean Sky Temperature and PWAT Time Series
+2022-06-30 09:07:42 PASS Mean Sky Temperature and RH Time Series
+2022-06-30 09:07:42 PASS Mean PWAT and RH Time Series
+2022-06-30 09:07:42 PASS Mean PWAT and Dewpoint Time Series
+2022-06-30 09:07:42 PASS Mean Sky Temperature and PWAT Time Series
+2022-06-30 09:07:42 PASS Mean Sky Temperature and RH Time Series
+2022-06-30 09:07:42 PASS Mean PWAT and RH Time Series
+2022-06-30 09:07:42 PASS Mean PWAT and Dewpoint Time Series
+2022-06-30 09:08:06 ALOHA Precipitable-water Model Analysis Tool
+2022-06-30 09:08:06 ALOHA Program Start
+2022-06-30 09:08:08 DEBUG Step 1 out of 3
+2022-06-30 09:08:08 DEBUG Step 2 out of 3
+2022-06-30 09:08:08 DEBUG Step 3 out of 3
+2022-06-30 09:08:08 INFO Time Series Plot Set
+2022-06-30 09:08:08 PASS Sky Temperature Time Series
+2022-06-30 09:08:08 PASS Ground Temperature Time Series
+2022-06-30 09:08:08 PASS Difference Between Ground-Sky Temperature Time Series
+2022-06-30 09:08:08 PASS PWAT Time Series
+2022-06-30 09:08:08 PASS Temporal Mean PWAT Time Series
+2022-06-30 09:08:08 PASS Locational Mean PWAT Time Series
+2022-06-30 09:08:08 PASS Spatiotemporal Mean PWAT Time Series
+2022-06-30 09:08:08 PASS Dewpoint Temperature Time Series
+2022-06-30 09:08:08 PASS Mean Sky Temperature and PWAT Time Series
+2022-06-30 09:08:08 PASS Mean Sky Temperature and RH Time Series
+2022-06-30 09:08:08 PASS Mean PWAT and RH Time Series
+2022-06-30 09:08:08 PASS Mean PWAT and Dewpoint Time Series
+2022-06-30 09:08:08 PASS Mean Sky Temperature and PWAT Time Series
+2022-06-30 09:08:08 PASS Mean Sky Temperature and RH Time Series
+2022-06-30 09:08:08 PASS Mean PWAT and RH Time Series
+2022-06-30 09:08:08 PASS Mean PWAT and Dewpoint Time Series
+2022-06-30 09:08:08 PASS Normalized Index for Weighted PWAT Time Series
+2022-06-30 09:08:08 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-06-30 09:08:08 ALOHA Program Complete
+2022-06-30 09:09:35 ALOHA Precipitable-water Model Analysis Tool
+2022-06-30 09:09:35 ALOHA Program Start
+2022-06-30 09:09:36 DEBUG Step 1 out of 3
+2022-06-30 09:09:37 DEBUG Step 2 out of 3
+2022-06-30 09:09:37 DEBUG Step 3 out of 3
+2022-06-30 09:09:37 INFO Time Series Plot Set
+2022-06-30 09:09:37 PASS Sky Temperature Time Series
+2022-06-30 09:09:37 PASS Ground Temperature Time Series
+2022-06-30 09:09:37 PASS Difference Between Ground-Sky Temperature Time Series
+2022-06-30 09:09:37 PASS PWAT Time Series
+2022-06-30 09:09:37 PASS Temporal Mean PWAT Time Series
+2022-06-30 09:09:37 PASS Locational Mean PWAT Time Series
+2022-06-30 09:09:37 PASS Spatiotemporal Mean PWAT Time Series
+2022-06-30 09:09:37 PASS Dewpoint Temperature Time Series
+2022-06-30 09:09:37 PASS Mean Sky Temperature and PWAT Time Series
+2022-06-30 09:09:37 PASS Mean Sky Temperature and RH Time Series
+2022-06-30 09:09:37 PASS Mean PWAT and RH Time Series
+2022-06-30 09:09:37 PASS Mean PWAT and Dewpoint Time Series
+2022-06-30 09:09:37 PASS Mean Sky Temperature and PWAT Time Series
+2022-06-30 09:09:37 PASS Mean Sky Temperature and RH Time Series
+2022-06-30 09:09:37 PASS Mean PWAT and RH Time Series
+2022-06-30 09:09:37 PASS Mean PWAT and Dewpoint Time Series
+2022-06-30 09:09:37 PASS Normalized Index for Weighted PWAT Time Series
+2022-06-30 09:09:37 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-06-30 09:09:37 ALOHA Program Complete
+2022-06-30 09:20:33 ALOHA Precipitable-water Model Analysis Tool
+2022-06-30 09:20:33 ALOHA Program Start
+2022-06-30 09:20:34 DEBUG Step 1 out of 3
+2022-06-30 09:20:34 DEBUG Step 2 out of 3
+2022-06-30 09:20:34 DEBUG Step 3 out of 3
+2022-06-30 09:20:34 INFO Time Series Plot Set
+2022-06-30 09:20:34 PASS Sky Temperature Time Series
+2022-06-30 09:20:34 PASS Ground Temperature Time Series
+2022-06-30 09:20:34 PASS Difference Between Ground-Sky Temperature Time Series
+2022-06-30 09:20:34 PASS PWAT Time Series
+2022-06-30 09:20:34 PASS Temporal Mean PWAT Time Series
+2022-06-30 09:20:34 PASS Locational Mean PWAT Time Series
+2022-06-30 09:20:34 PASS Spatiotemporal Mean PWAT Time Series
+2022-06-30 09:20:34 PASS Dewpoint Temperature Time Series
+2022-06-30 09:20:34 PASS Mean Sky Temperature and PWAT Time Series
+2022-06-30 09:20:34 PASS Mean Sky Temperature and RH Time Series
+2022-06-30 09:20:34 PASS Mean PWAT and RH Time Series
+2022-06-30 09:20:34 PASS Mean PWAT and Dewpoint Time Series
+2022-06-30 09:20:35 PASS Mean Sky Temperature and PWAT Time Series
+2022-06-30 09:20:35 PASS Mean Sky Temperature and RH Time Series
+2022-06-30 09:20:35 PASS Mean PWAT and RH Time Series
+2022-06-30 09:20:35 PASS Mean PWAT and Dewpoint Time Series
+2022-06-30 09:20:35 PASS Normalized Index for Weighted PWAT Time Series
+2022-06-30 09:20:35 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-06-30 09:20:35 ALOHA Program Complete
+2022-06-30 09:21:10 ALOHA Precipitable-water Model Analysis Tool
+2022-06-30 09:21:10 ALOHA Program Start
+2022-06-30 09:21:12 DEBUG Step 1 out of 3
+2022-06-30 09:21:12 DEBUG Step 2 out of 3
+2022-06-30 09:21:12 DEBUG Step 3 out of 3
+2022-06-30 09:21:12 INFO Time Series Plot Set
+2022-06-30 09:21:12 PASS Sky Temperature Time Series
+2022-06-30 09:21:12 PASS Ground Temperature Time Series
+2022-06-30 09:21:12 PASS Difference Between Ground-Sky Temperature Time Series
+2022-06-30 09:21:12 PASS PWAT Time Series
+2022-06-30 09:21:12 PASS Temporal Mean PWAT Time Series
+2022-06-30 09:21:12 PASS Locational Mean PWAT Time Series
+2022-06-30 09:21:12 PASS Spatiotemporal Mean PWAT Time Series
+2022-06-30 09:21:12 PASS Dewpoint Temperature Time Series
+2022-06-30 09:21:12 PASS Mean Sky Temperature and PWAT Time Series
+2022-06-30 09:21:12 PASS Mean Sky Temperature and RH Time Series
+2022-06-30 09:21:12 PASS Mean PWAT and RH Time Series
+2022-06-30 09:21:12 PASS Mean PWAT and Dewpoint Time Series
+2022-06-30 09:21:12 PASS Mean Sky Temperature and PWAT Time Series
+2022-06-30 09:21:12 PASS Mean Sky Temperature and RH Time Series
+2022-06-30 09:21:12 PASS Mean PWAT and RH Time Series
+2022-06-30 09:21:12 PASS Mean PWAT and Dewpoint Time Series
+2022-06-30 09:21:12 PASS Normalized Index for Weighted PWAT Time Series
+2022-06-30 09:21:12 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-06-30 09:21:12 ALOHA Program Complete
+2022-06-30 09:21:24 ALOHA Precipitable-water Model Analysis Tool
+2022-06-30 09:21:24 ALOHA Program Start
+2022-06-30 09:21:25 INFO Collecting Data from sources
+2022-06-30 09:21:25 DEBUG Collecting data for 2021-07-31		 Progress: 63.60%
+2022-06-30 09:21:25 DEBUG Step 1 out of 3
+2022-06-30 09:21:25 DEBUG Step 2 out of 3
+2022-06-30 09:21:25 DEBUG Step 3 out of 3
+2022-06-30 09:21:25 INFO Time Series Plot Set
+2022-06-30 09:21:26 PASS Sky Temperature Time Series
+2022-06-30 09:21:26 PASS Ground Temperature Time Series
+2022-06-30 09:21:26 PASS Difference Between Ground-Sky Temperature Time Series
+2022-06-30 09:21:26 PASS PWAT Time Series
+2022-06-30 09:21:26 PASS Temporal Mean PWAT Time Series
+2022-06-30 09:21:26 PASS Locational Mean PWAT Time Series
+2022-06-30 09:21:26 PASS Spatiotemporal Mean PWAT Time Series
+2022-06-30 09:21:26 PASS Dewpoint Temperature Time Series
+2022-06-30 09:21:26 PASS Mean Sky Temperature and PWAT Time Series
+2022-06-30 09:21:26 PASS Mean Sky Temperature and RH Time Series
+2022-06-30 09:21:26 PASS Mean PWAT and RH Time Series
+2022-06-30 09:21:26 PASS Mean PWAT and Dewpoint Time Series
+2022-06-30 09:21:26 PASS Mean Sky Temperature and PWAT Time Series
+2022-06-30 09:21:26 PASS Mean Sky Temperature and RH Time Series
+2022-06-30 09:21:26 PASS Mean PWAT and RH Time Series
+2022-06-30 09:21:26 PASS Mean PWAT and Dewpoint Time Series
+2022-06-30 09:21:26 PASS Normalized Index for Weighted PWAT Time Series
+2022-06-30 09:21:26 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-06-30 09:21:26 ALOHA Program Complete
+2022-06-30 09:22:09 ALOHA Precipitable-water Model Analysis Tool
+2022-06-30 09:22:09 ALOHA Program Start
+2022-06-30 09:22:10 INFO Collecting Data from sources
+2022-06-30 09:22:10 DEBUG Collecting data for 2021-07-31		 Progress: 63.60%
+2022-06-30 09:22:34 DEBUG Step 1 out of 3
+2022-06-30 09:22:34 DEBUG Step 2 out of 3
+2022-06-30 09:22:34 DEBUG Step 3 out of 3
+2022-06-30 09:22:34 INFO Time Series Plot Set
+2022-06-30 09:22:34 PASS Sky Temperature Time Series
+2022-06-30 09:22:34 PASS Ground Temperature Time Series
+2022-06-30 09:22:34 PASS Difference Between Ground-Sky Temperature Time Series
+2022-06-30 09:22:34 PASS PWAT Time Series
+2022-06-30 09:22:34 PASS Temporal Mean PWAT Time Series
+2022-06-30 09:22:34 PASS Locational Mean PWAT Time Series
+2022-06-30 09:22:34 PASS Spatiotemporal Mean PWAT Time Series
+2022-06-30 09:22:34 PASS Dewpoint Temperature Time Series
+2022-06-30 09:22:34 PASS Mean Sky Temperature and PWAT Time Series
+2022-06-30 09:22:34 PASS Mean Sky Temperature and RH Time Series
+2022-06-30 09:22:34 PASS Mean PWAT and RH Time Series
+2022-06-30 09:22:34 PASS Mean PWAT and Dewpoint Time Series
+2022-06-30 09:22:34 PASS Mean Sky Temperature and PWAT Time Series
+2022-06-30 09:22:34 PASS Mean Sky Temperature and RH Time Series
+2022-06-30 09:22:34 PASS Mean PWAT and RH Time Series
+2022-06-30 09:22:34 PASS Mean PWAT and Dewpoint Time Series
+2022-06-30 09:22:34 PASS Normalized Index for Weighted PWAT Time Series
+2022-06-30 09:22:34 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-06-30 09:22:34 ALOHA Program Complete
+2022-06-30 09:22:56 ALOHA Precipitable-water Model Analysis Tool
+2022-06-30 09:22:56 ALOHA Program Start
+2022-06-30 09:22:57 INFO Collecting Data from sources
+2022-06-30 09:22:57 DEBUG Collecting data for 2021-07-31		 Progress: 63.60%
+2022-06-30 09:23:19 DEBUG Collecting data for 2021-08-01		 Progress: 63.96%
+2022-06-30 09:23:49 DEBUG Collecting data for 2021-08-02		 Progress: 64.31%
+2022-06-30 09:24:29 DEBUG Collecting data for 2021-08-03		 Progress: 64.66%
+2022-06-30 09:24:55 DEBUG Collecting data for 2021-08-04		 Progress: 65.02%
+2022-06-30 09:25:23 DEBUG Collecting data for 2021-08-05		 Progress: 65.37%
+2022-06-30 09:25:52 DEBUG Collecting data for 2021-08-06		 Progress: 65.72%
+2022-06-30 09:25:53 WARN Connection issue with Wyoming Upper-Air...
+2022-06-30 09:25:53 WARN Trying again in 30 seconds
+2022-06-30 09:25:53 WARN Connection issue with Wyoming Upper-Air...
+2022-06-30 09:25:53 WARN Trying again in 30 seconds
+2022-06-30 09:27:25 DEBUG Collecting data for 2021-08-07		 Progress: 66.08%
+2022-06-30 09:27:51 DEBUG Collecting data for 2021-08-08		 Progress: 66.43%
+2022-06-30 09:28:27 DEBUG Collecting data for 2021-08-09		 Progress: 66.78%
+2022-06-30 09:28:36 ALOHA Precipitable-water Model Analysis Tool
+2022-06-30 09:28:36 ALOHA Program Start
+2022-06-30 09:28:37 INFO Collecting Data from sources
+2022-06-30 09:28:37 DEBUG Collecting data for 2021-08-09		 Progress: 66.78%
+2022-06-30 09:29:04 DEBUG Collecting data for 2021-08-10		 Progress: 67.14%
+2022-06-30 09:29:44 DEBUG Collecting data for 2021-08-11		 Progress: 67.49%
+2022-06-30 09:30:20 DEBUG Collecting data for 2021-08-12		 Progress: 67.84%
+2022-06-30 09:30:20 WARN Connection issue with Wyoming Upper-Air...
+2022-06-30 09:30:20 WARN Trying again in 30 seconds
+2022-06-30 09:31:30 ALOHA Precipitable-water Model Analysis Tool
+2022-06-30 09:31:30 ALOHA Program Start
+2022-06-30 09:31:32 INFO Collecting Data from sources
+2022-06-30 09:31:32 DEBUG Collecting data for 2021-08-12		 Progress: 67.84%
+2022-06-30 09:31:34 WARN Connection issue with Wyoming Upper-Air...
+2022-06-30 09:31:34 WARN Trying again in 30 seconds
+2022-06-30 09:32:04 WARN Connection issue with Wyoming Upper-Air...
+2022-06-30 09:32:04 WARN Trying again in 30 seconds
+2022-06-30 09:32:31 DEBUG Collecting data for 2021-08-13		 Progress: 68.20%
+2022-06-30 09:32:58 DEBUG Collecting data for 2021-08-14		 Progress: 68.55%
+2022-06-30 09:33:36 DEBUG Collecting data for 2021-08-15		 Progress: 68.90%
+2022-06-30 09:33:37 WARN Connection issue with Wyoming Upper-Air...
+2022-06-30 09:33:37 WARN Trying again in 30 seconds
+2022-06-30 09:33:37 WARN Connection issue with Wyoming Upper-Air...
+2022-06-30 09:33:37 WARN Trying again in 30 seconds
+2022-06-30 09:35:06 DEBUG Collecting data for 2021-08-16		 Progress: 69.26%
+2022-06-30 09:35:33 DEBUG Collecting data for 2021-08-17		 Progress: 69.61%
+2022-06-30 09:36:11 DEBUG Collecting data for 2021-08-18		 Progress: 69.96%
+2022-06-30 09:36:55 DEBUG Collecting data for 2021-08-19		 Progress: 70.32%
+2022-06-30 09:37:20 DEBUG Collecting data for 2021-08-20		 Progress: 70.67%
+2022-06-30 09:37:53 DEBUG Collecting data for 2021-08-21		 Progress: 71.02%
+2022-06-30 09:38:36 DEBUG Collecting data for 2021-08-22		 Progress: 71.38%
+2022-06-30 09:39:04 DEBUG Collecting data for 2021-08-23		 Progress: 71.73%
+2022-06-30 09:39:34 DEBUG Collecting data for 2021-08-24		 Progress: 72.08%
+2022-06-30 09:40:05 DEBUG Collecting data for 2021-08-25		 Progress: 72.44%
+2022-06-30 09:40:30 DEBUG Collecting data for 2021-08-26		 Progress: 72.79%
+2022-06-30 09:40:53 DEBUG Collecting data for 2021-08-27		 Progress: 73.14%
+2022-06-30 09:41:22 DEBUG Collecting data for 2021-08-28		 Progress: 73.50%
+2022-06-30 09:41:22 WARN Connection issue with Wyoming Upper-Air...
+2022-06-30 09:41:22 WARN Trying again in 30 seconds
+2022-06-30 09:42:00 WARN Radiosonde data not available for 2021-08-28 12:00:00 at RAP
+2022-06-30 09:42:01 DEBUG Step 1 out of 3
+2022-06-30 09:42:01 DEBUG Step 2 out of 3
+2022-06-30 09:42:01 DEBUG Step 3 out of 3
+2022-06-30 09:42:01 INFO Time Series Plot Set
+2022-06-30 09:42:01 PASS Sky Temperature Time Series
+2022-06-30 09:42:01 PASS Ground Temperature Time Series
+2022-06-30 09:42:01 PASS Difference Between Ground-Sky Temperature Time Series
+2022-06-30 09:42:01 PASS PWAT Time Series
+2022-06-30 09:42:01 PASS Temporal Mean PWAT Time Series
+2022-06-30 09:42:01 PASS Locational Mean PWAT Time Series
+2022-06-30 09:42:01 PASS Spatiotemporal Mean PWAT Time Series
+2022-06-30 09:42:01 PASS Dewpoint Temperature Time Series
+2022-06-30 09:42:01 PASS Mean Sky Temperature and PWAT Time Series
+2022-06-30 09:42:01 PASS Mean Sky Temperature and RH Time Series
+2022-06-30 09:42:01 PASS Mean PWAT and RH Time Series
+2022-06-30 09:42:01 PASS Mean PWAT and Dewpoint Time Series
+2022-06-30 09:42:01 PASS Mean Sky Temperature and PWAT Time Series
+2022-06-30 09:42:01 PASS Mean Sky Temperature and RH Time Series
+2022-06-30 09:42:01 PASS Mean PWAT and RH Time Series
+2022-06-30 09:42:01 PASS Mean PWAT and Dewpoint Time Series
+2022-06-30 09:42:01 PASS Normalized Index for Weighted PWAT Time Series
+2022-06-30 09:42:01 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-06-30 09:42:01 ALOHA Program Complete
+2022-06-30 09:55:43 ALOHA Precipitable-water Model Analysis Tool
+2022-06-30 09:55:43 ALOHA Program Start
+2022-06-30 09:55:44 INFO Collecting Data from sources
+2022-06-30 09:55:44 DEBUG Collecting data for 2021-08-28		 Progress: 73.50%
+2022-06-30 09:55:46 WARN Radiosonde data not available for 2021-08-28 12:00:00 at RAP
+2022-06-30 09:55:46 WARN Using NaN
+2022-06-30 09:56:12 DEBUG Collecting data for 2021-08-29		 Progress: 73.85%
+2022-06-30 09:56:43 DEBUG Collecting data for 2021-08-30		 Progress: 74.20%
+2022-06-30 09:57:11 DEBUG Collecting data for 2021-08-31		 Progress: 74.56%
+2022-06-30 09:57:36 DEBUG Collecting data for 2021-09-01		 Progress: 74.91%
+2022-06-30 09:58:11 DEBUG Collecting data for 2021-09-02		 Progress: 75.27%
+2022-06-30 09:58:41 DEBUG Collecting data for 2021-09-03		 Progress: 75.62%
+2022-06-30 09:59:09 DEBUG Collecting data for 2021-09-04		 Progress: 75.97%
+2022-06-30 09:59:45 DEBUG Collecting data for 2021-09-05		 Progress: 76.33%
+2022-06-30 10:00:18 DEBUG Collecting data for 2021-09-06		 Progress: 76.68%
+2022-06-30 10:00:18 WARN Connection issue with Wyoming Upper-Air...
+2022-06-30 10:00:18 WARN Trying again in 30 seconds
+2022-06-30 10:01:19 DEBUG Collecting data for 2021-09-07		 Progress: 77.03%
+2022-06-30 10:01:24 WARN Connection issue with Wyoming Upper-Air...
+2022-06-30 10:01:24 WARN Trying again in 30 seconds
+2022-06-30 10:02:23 DEBUG Collecting data for 2021-09-08		 Progress: 77.39%
+2022-06-30 10:02:56 DEBUG Collecting data for 2021-09-09		 Progress: 77.74%
+2022-06-30 10:02:57 WARN Connection issue with Wyoming Upper-Air...
+2022-06-30 10:02:57 WARN Trying again in 30 seconds
+2022-06-30 10:02:57 WARN Connection issue with Wyoming Upper-Air...
+2022-06-30 10:02:57 WARN Trying again in 30 seconds
+2022-06-30 10:04:32 DEBUG Collecting data for 2021-09-10		 Progress: 78.09%
+2022-06-30 10:05:01 DEBUG Collecting data for 2021-09-11		 Progress: 78.45%
+2022-06-30 10:05:07 WARN Connection issue with Wyoming Upper-Air...
+2022-06-30 10:05:07 WARN Trying again in 30 seconds
+2022-06-30 10:06:09 DEBUG Collecting data for 2021-09-12		 Progress: 78.80%
+2022-06-30 10:06:39 DEBUG Collecting data for 2021-09-13		 Progress: 79.15%
+2022-06-30 10:07:12 DEBUG Collecting data for 2021-09-14		 Progress: 79.51%
+2022-06-30 10:07:40 DEBUG Collecting data for 2021-09-15		 Progress: 79.86%
+2022-06-30 10:08:10 DEBUG Collecting data for 2021-09-16		 Progress: 80.21%
+2022-06-30 10:08:44 DEBUG Collecting data for 2021-09-17		 Progress: 80.57%
+2022-06-30 10:09:10 DEBUG Collecting data for 2021-09-18		 Progress: 80.92%
+2022-06-30 10:09:44 DEBUG Collecting data for 2021-09-19		 Progress: 81.27%
+2022-06-30 10:10:13 DEBUG Collecting data for 2021-09-20		 Progress: 81.63%
+2022-06-30 10:10:40 DEBUG Collecting data for 2021-09-21		 Progress: 81.98%
+2022-06-30 10:11:05 DEBUG Collecting data for 2021-09-22		 Progress: 82.33%
+2022-06-30 10:11:36 DEBUG Collecting data for 2021-09-23		 Progress: 82.69%
+2022-06-30 10:12:07 DEBUG Collecting data for 2021-09-24		 Progress: 83.04%
+2022-06-30 10:12:37 DEBUG Collecting data for 2021-09-25		 Progress: 83.39%
+2022-06-30 10:13:12 DEBUG Collecting data for 2021-09-26		 Progress: 83.75%
+2022-06-30 10:13:45 DEBUG Collecting data for 2021-09-27		 Progress: 84.10%
+2022-06-30 10:14:29 DEBUG Collecting data for 2021-09-28		 Progress: 84.45%
+2022-06-30 10:15:02 DEBUG Collecting data for 2021-09-29		 Progress: 84.81%
+2022-06-30 10:15:35 DEBUG Collecting data for 2021-09-30		 Progress: 85.16%
+2022-06-30 10:16:01 DEBUG Collecting data for 2021-10-01		 Progress: 85.51%
+2022-06-30 10:16:32 DEBUG Collecting data for 2021-10-02		 Progress: 85.87%
+2022-06-30 10:41:39 DEBUG Step 1 out of 3
+2022-06-30 10:41:39 DEBUG Step 2 out of 3
+2022-06-30 10:41:39 DEBUG Step 3 out of 3
+2022-06-30 10:41:39 INFO Time Series Plot Set
+2022-06-30 10:41:39 PASS Sky Temperature Time Series
+2022-06-30 10:41:39 PASS Ground Temperature Time Series
+2022-06-30 10:41:39 PASS Difference Between Ground-Sky Temperature Time Series
+2022-06-30 10:41:39 PASS PWAT Time Series
+2022-06-30 10:41:39 PASS Temporal Mean PWAT Time Series
+2022-06-30 10:41:39 PASS Locational Mean PWAT Time Series
+2022-06-30 10:41:39 PASS Spatiotemporal Mean PWAT Time Series
+2022-06-30 10:41:39 PASS Dewpoint Temperature Time Series
+2022-06-30 10:41:39 PASS Mean Sky Temperature and PWAT Time Series
+2022-06-30 10:41:39 PASS Mean Sky Temperature and RH Time Series
+2022-06-30 10:41:39 PASS Mean PWAT and RH Time Series
+2022-06-30 10:41:39 PASS Mean PWAT and Dewpoint Time Series
+2022-06-30 10:41:39 PASS Mean Sky Temperature and PWAT Time Series
+2022-06-30 10:41:39 PASS Mean Sky Temperature and RH Time Series
+2022-06-30 10:41:39 PASS Mean PWAT and RH Time Series
+2022-06-30 10:41:39 PASS Mean PWAT and Dewpoint Time Series
+2022-06-30 10:41:40 PASS Normalized Index for Weighted PWAT Time Series
+2022-06-30 10:41:40 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-06-30 10:41:40 ALOHA Program Complete
+2022-06-30 10:41:43 ALOHA Precipitable-water Model Analysis Tool
+2022-06-30 10:41:43 ALOHA Program Start
+2022-06-30 10:41:44 INFO Collecting Data from sources
+2022-06-30 10:41:44 DEBUG Collecting data for 2021-10-02		 Progress: 85.87%
+2022-06-30 10:42:08 DEBUG Collecting data for 2021-10-03		 Progress: 86.22%
+2022-06-30 10:42:40 DEBUG Collecting data for 2021-10-04		 Progress: 86.57%
+2022-06-30 10:43:11 DEBUG Collecting data for 2021-10-05		 Progress: 86.93%
+2022-06-30 10:43:37 DEBUG Collecting data for 2021-10-06		 Progress: 87.28%
+2022-06-30 10:44:07 DEBUG Collecting data for 2021-10-07		 Progress: 87.63%
+2022-06-30 10:44:35 DEBUG Collecting data for 2021-10-08		 Progress: 87.99%
+2022-06-30 10:45:12 DEBUG Collecting data for 2021-10-09		 Progress: 88.34%
+2022-06-30 10:45:46 DEBUG Collecting data for 2021-10-10		 Progress: 88.69%
+2022-06-30 10:46:19 DEBUG Collecting data for 2021-10-11		 Progress: 89.05%
+2022-06-30 10:46:49 DEBUG Collecting data for 2021-10-12		 Progress: 89.40%
+2022-06-30 10:47:23 DEBUG Collecting data for 2021-10-13		 Progress: 89.75%
+2022-06-30 10:47:55 DEBUG Collecting data for 2021-10-14		 Progress: 90.11%
+2022-06-30 10:48:25 DEBUG Collecting data for 2021-10-15		 Progress: 90.46%
+2022-06-30 10:48:56 DEBUG Collecting data for 2021-10-16		 Progress: 90.81%
+2022-06-30 10:49:25 DEBUG Collecting data for 2021-10-17		 Progress: 91.17%
+2022-06-30 10:49:57 DEBUG Collecting data for 2021-10-18		 Progress: 91.52%
+2022-06-30 10:50:42 DEBUG Collecting data for 2021-10-19		 Progress: 91.87%
+2022-06-30 10:51:15 DEBUG Collecting data for 2021-10-20		 Progress: 92.23%
+2022-06-30 10:51:41 DEBUG Collecting data for 2021-10-21		 Progress: 92.58%
+2022-06-30 10:52:12 DEBUG Collecting data for 2021-10-22		 Progress: 92.93%
+2022-06-30 10:52:41 DEBUG Collecting data for 2021-10-23		 Progress: 93.29%
+2022-06-30 10:53:11 DEBUG Collecting data for 2021-10-24		 Progress: 93.64%
+2022-06-30 10:54:09 DEBUG Collecting data for 2021-10-25		 Progress: 93.99%
+2022-06-30 10:54:52 DEBUG Collecting data for 2021-10-26		 Progress: 94.35%
+2022-06-30 10:55:32 DEBUG Collecting data for 2021-10-27		 Progress: 94.70%
+2022-06-30 10:56:18 DEBUG Collecting data for 2021-10-28		 Progress: 95.05%
+2022-06-30 10:56:54 DEBUG Collecting data for 2021-10-29		 Progress: 95.41%
+2022-06-30 10:57:27 DEBUG Collecting data for 2021-10-30		 Progress: 95.76%
+2022-06-30 10:58:07 DEBUG Collecting data for 2021-10-31		 Progress: 96.11%
+2022-06-30 10:58:47 DEBUG Collecting data for 2021-11-01		 Progress: 96.47%
+2022-06-30 10:59:25 DEBUG Collecting data for 2021-11-02		 Progress: 96.82%
+2022-06-30 11:00:03 DEBUG Collecting data for 2021-11-03		 Progress: 97.17%
+2022-06-30 11:00:54 DEBUG Collecting data for 2021-11-04		 Progress: 97.53%
+2022-06-30 11:00:55 WARN Connection issue with Wyoming Upper-Air...
+2022-06-30 11:00:55 WARN Trying again in 30 seconds
+2022-06-30 11:02:01 DEBUG Collecting data for 2021-11-05		 Progress: 97.88%
+2022-06-30 11:02:38 DEBUG Collecting data for 2021-11-06		 Progress: 98.23%
+2022-06-30 11:03:18 DEBUG Collecting data for 2021-11-07		 Progress: 98.59%
+2022-06-30 11:04:02 DEBUG Collecting data for 2021-11-08		 Progress: 98.94%
+2022-06-30 11:04:44 DEBUG Collecting data for 2021-11-09		 Progress: 99.29%
+2022-06-30 11:05:26 DEBUG Collecting data for 2021-11-10		 Progress: 99.65%
+2022-06-30 11:06:00 DEBUG Step 1 out of 3
+2022-06-30 11:06:00 DEBUG Step 2 out of 3
+2022-06-30 11:06:00 DEBUG Step 3 out of 3
+2022-06-30 11:06:00 INFO Time Series Plot Set
+2022-06-30 11:06:01 PASS Sky Temperature Time Series
+2022-06-30 11:06:01 PASS Ground Temperature Time Series
+2022-06-30 11:06:01 PASS Difference Between Ground-Sky Temperature Time Series
+2022-06-30 11:06:01 PASS PWAT Time Series
+2022-06-30 11:06:01 PASS Temporal Mean PWAT Time Series
+2022-06-30 11:06:01 PASS Locational Mean PWAT Time Series
+2022-06-30 11:06:01 PASS Spatiotemporal Mean PWAT Time Series
+2022-06-30 11:06:01 PASS Dewpoint Temperature Time Series
+2022-06-30 11:06:01 PASS Mean Sky Temperature and PWAT Time Series
+2022-06-30 11:06:01 PASS Mean Sky Temperature and RH Time Series
+2022-06-30 11:06:01 PASS Mean PWAT and RH Time Series
+2022-06-30 11:06:01 PASS Mean PWAT and Dewpoint Time Series
+2022-06-30 11:06:01 PASS Mean Sky Temperature and PWAT Time Series
+2022-06-30 11:06:01 PASS Mean Sky Temperature and RH Time Series
+2022-06-30 11:06:01 PASS Mean PWAT and RH Time Series
+2022-06-30 11:06:01 PASS Mean PWAT and Dewpoint Time Series
+2022-06-30 11:06:01 PASS Normalized Index for Weighted PWAT Time Series
+2022-06-30 11:06:01 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-06-30 11:06:01 ALOHA Program Complete
+2022-06-30 11:07:07 ALOHA Precipitable-water Model Analysis Tool
+2022-06-30 11:07:07 ALOHA Program Start
+2022-06-30 11:07:08 INFO Collecting Data from sources
+2022-06-30 11:07:09 DEBUG Step 1 out of 3
+2022-06-30 11:07:09 DEBUG Step 2 out of 3
+2022-06-30 11:07:09 DEBUG Step 3 out of 3
+2022-06-30 11:07:09 INFO Condition: Clear Sky
+2022-06-30 11:07:09 INFO Time Series Plot Set
+2022-06-30 11:07:17 ALOHA Precipitable-water Model Analysis Tool
+2022-06-30 11:07:17 ALOHA Program Start
+2022-06-30 11:07:18 INFO Collecting Data from sources
+2022-06-30 11:07:18 DEBUG Step 1 out of 3
+2022-06-30 11:07:18 DEBUG Step 2 out of 3
+2022-06-30 11:07:18 DEBUG Step 3 out of 3
+2022-06-30 11:07:18 INFO Condition: Clear Sky
+2022-06-30 11:07:18 INFO Time Series Plot Set
+2022-06-30 11:07:19 PASS Sky Temperature Time Series
+2022-06-30 11:07:19 PASS Ground Temperature Time Series
+2022-06-30 11:07:19 PASS Difference Between Ground-Sky Temperature Time Series
+2022-06-30 11:07:19 PASS PWAT Time Series
+2022-06-30 11:07:19 PASS Temporal Mean PWAT Time Series
+2022-06-30 11:07:19 PASS Locational Mean PWAT Time Series
+2022-06-30 11:07:19 PASS Spatiotemporal Mean PWAT Time Series
+2022-06-30 11:07:19 PASS Dewpoint Temperature Time Series
+2022-06-30 11:07:19 PASS Mean Sky Temperature and PWAT Time Series
+2022-06-30 11:07:19 PASS Mean Sky Temperature and RH Time Series
+2022-06-30 11:07:19 PASS Mean PWAT and RH Time Series
+2022-06-30 11:07:19 PASS Mean PWAT and Dewpoint Time Series
+2022-06-30 11:07:19 PASS Mean Sky Temperature and PWAT Time Series
+2022-06-30 11:07:19 PASS Mean Sky Temperature and RH Time Series
+2022-06-30 11:07:19 PASS Mean PWAT and RH Time Series
+2022-06-30 11:07:19 PASS Mean PWAT and Dewpoint Time Series
+2022-06-30 11:07:19 PASS Normalized Index for Weighted PWAT Time Series
+2022-06-30 11:07:19 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-06-30 11:07:19 INFO Analytics Plot Set
+2022-06-30 11:07:19 PASS Correlation between PWAT and Temperature
+2022-06-30 11:07:19 PASS Correlation between Locational Mean PWAT and Temperature
+2022-06-30 11:07:19 PASS Correlation between Temporal Mean PWAT and Temperature
+2022-06-30 11:07:19 PASS Regression between Spatiotemporal Mean PWAT and Temperature
+2022-06-30 11:07:19 PASS Regression between Weighted PWAT and Temperature
+2022-06-30 11:07:19 PASS SVM Analysis between Sky Temperature and PWAT
+2022-06-30 11:07:19 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-06-30 11:07:19 INFO Sensor Plot Set
+2022-06-30 11:07:19 PASS Overcast Condition Percentage: AMES 2
+2022-06-30 11:07:19 PASS Sky-Ground Time Series: AMES
+2022-06-30 11:07:19 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-06-30 11:07:19 INFO Chart Set
+2022-06-30 11:07:19 PASS Weighted PWAT
+2022-06-30 11:07:19 PASS Average Temperature
+2022-06-30 11:07:19 PASS Relative Humidity
+2022-06-30 11:07:19 PASS Dewpoint Temperature
+2022-06-30 11:07:19 PASS Predicted clear sky PWAT from IR Product
+2022-06-30 11:07:19 PASS Distribution of PWAT in RAP
+2022-06-30 11:07:19 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-06-30 11:07:19 INFO Poster Plot Set
+2022-06-30 11:07:20 PASS Sky-Ground-Delta Temperature Time Series
+2022-06-30 11:07:20 PASS Analytical Plots
+2022-06-30 11:07:20 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-06-30 11:07:20 INFO Pac-Man Plot Set
+2022-06-30 11:07:20 PASS Correlation between Spatiotemporal Mean PWAT and Temperature
+2022-06-30 11:07:20 PASS Pac-Man Residual of the Mean PWAT and Temperature Model
+2022-06-30 11:07:20 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-06-30 11:07:20 PASS Data sent to data/data.csv
+2022-06-30 11:07:20 PASS Data sent to ./util/tests/data_small_sd/../out/data/ml_data.csv
+2022-06-30 11:07:20 ALOHA Program Complete
