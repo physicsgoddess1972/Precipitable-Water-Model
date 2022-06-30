@@ -1,0 +1,26 @@
+- instruments:
+  - sensor:
+      name: AMES_2
+      error: 7
+      color: D001FA
+      ratio: 12 to 1
+      range: -50 ~ 550
+      emissivity: 0.95
+      poster: true
+      active: true
+- analysis:
+  - train_fraction: 0.8
+  - rel_difference: 2
+  - iteration:
+      step: 3
+      seed:
+- logging:
+  - verbose: DEBUG
+- style:
+  - pw_label: PWAT
+- import:
+    - mesowest:
+      - id: KRAP
+    - wyoming:
+      - id: RAP
+        weight: 0.5
