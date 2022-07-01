@@ -9,38 +9,38 @@ fname	<- read.table(file.path(src.dir, "master_data.csv"),
 					   sep=",",
 					   header=TRUE,
 					   strip.white=TRUE)
-oname 	<- yaml.load_file(file.path(dat.dir, sprintf("_output%s.yml", ifelse(args$overcast,"_overcast", ""))))
-## Pulls most recent data stamp for the purpose of adding date stamps to file names when plots are saved
+out.name 	<- yaml.load_file(file.path(dat.dir, sprintf("_output%s.yml", ifelse(args$overcast,"_overcast", ""))))
+# Pulls most recent data stamp for the purpose of adding date stamps to file names when plots are saved
 recent 		<- t(fname[1])[length(t(fname[1]))]
 
-## Pulls the column number of the first Sky Temperature measurement
+# Pulls the column number of the first Sky Temperature measurement
 col_sky 	<- grep("Sky", colnames(fname))
-## Pulls the column number of the first Ground Temperature measurement
+# Pulls the column number of the first Ground Temperature measurement
 col_gro		<- grep("Ground", colnames(fname))
-## Pulls the column number of the first PW measurement
+# Pulls the column number of the first PW measurement
 col_pw 		<- grep("PW", colnames(fname))
-## Pulls the column number of the date
+# Pulls the column number of the date
 col_date 	<- grep("Date", colnames(fname))
-## Pulls the column number of measurement time
+# Pulls the column number of measurement time
 col_time 	<- grep("Time", colnames(fname))
-## Pulls the column number of the Relative Humidity
+# Pulls the column number of the Relative Humidity
 col_rh 		<- grep("RH", colnames(fname))
-## Pulls the column number of the Relative Humidity
+# Pulls the column number of the Relative Humidity
 col_dew 	<- grep("Dewpoint", colnames(fname))
-## Pulls the column number of the non-measurement temperature
+# Pulls the column number of the non-measurement temperature
 col_temp 	<- grep("Temp", colnames(fname))
-## Pulls the column number of the Condition
+# Pulls the column number of the Condition
 col_con 	<- grep("Condition", colnames(fname))
-## Pulls the column number for the comments
+# Pulls the column number for the comments
 col_com 	<- grep("comments", colnames(fname))
-## The value for the training fraction
-train_frac 	<- config[[2]]$analysis[[1]]$train_fraction
-## The value for the threshold of the mean.filter
-rel_diff 	<-  config[[2]]$analysis[[2]]$rel_difference
-
+# The value for the training fraction
+tr.sz 	    <- config[[2]]$analysis[[1]]$tr.sz
+# The value for the threshold of the mean.filter
+rel_diff 	<-  config[[2]]$analysis[[2]]$stdev.threshold
+# The number of steps the iterative analysis function will run
 step 		<-  config[[2]]$analysis[[3]]$iteration$step
-
-pw_lab 		<-  config[[4]]$style[[1]]$pw_label
+# The label to use for precipitable water in all visuals
+pw_lab 		<-  config[[4]]$style[[1]]$pw.label
 
 import_src 	<- list()
 for (i in 1:length(config[[5]]$import)){
@@ -62,7 +62,7 @@ if ("external" %in% import_src){
 	}
 }
 
-## Pulls sensor labels and colors from instruments.txt
+# Pulls sensor labels and colors from instruments.txt
 snsr_name 	<- list(); snsr_color <- snsr_sky_indx <- snsr_gro_indx  	<- unlist(list())
 for(i in 1:length(config[[1]]$instruments)){
 	if (!(length(config[[1]]$instruments[[i]]$sensor$active) == 0)){
@@ -87,7 +87,7 @@ for (i in col_temp){
 		if (grepl("Sky", name)){temp_sky_indx <- append(temp_sky_indx, i)}
 }
 temp_place <- gsub("_.*$", "", gsub(" ", "_", temp_name))
-## Pulls individual PW measurement labels
+# Pulls individual PW measurement labels
 pw_name 	<- col_pwpl  <-	col_pwtm <- list()
 for (j in col_pw){
 	name 	<- gsub("PW", "", colnames(fname)[j])
@@ -120,9 +120,9 @@ colscheme <- function(range){
 	col <- brewer.pal(length(range)+1, "Set1")
 	return(col)
 }
-## Pull general location tag from the label
+# Pull general location tag from the label
 snsr_tag 	<- gsub("*_.", "", snsr_name)
-## Pulls the column numbers that have the general location tag
+# Pulls the column numbers that have the general location tag
 col_snsr <- list()
 for (j in unique(snsr_tag)){
 	col_snsr <- append(col_snsr, list(grep(j, snsr_tag)))
@@ -160,34 +160,34 @@ mean.filter <- function(nan.out, n){
 	return(list(unlist(good), nan.out))
 }
 
-dna.filter <- function(fover){
+dna.filter <- function(filter.res){
 	#' :detail: removes data labels as Do Not Analyze
-	#' :param list fover: overcast.filter results
+	#' :param list filter.res: overcast.filter results
 	#' :return: overcast.filter results with DNA points removed
 	#' :rtype: list
-	sky.len <- length(grep("snsr_sky", names(fover), fixed=TRUE))
-	gro.len <- length(grep("snsr_gro", names(fover), fixed=TRUE))
-	pw.len 	<- length(grep("pw_loc", names(fover), fixed=TRUE))
-	dna.len <- grep("DNA", fover$com, fixed=TRUE)
+	sky.len <- length(grep("snsr_sky", names(filter.res), fixed=TRUE))
+	gro.len <- length(grep("snsr_gro", names(filter.res), fixed=TRUE))
+	pw.len 	<- length(grep("pw_loc", names(filter.res), fixed=TRUE))
+	dna.len <- grep("DNA", filter.res$com, fixed=TRUE)
 
 	if (length(dna.len) > 0){
 		for (j in 1:sky.len){
-			fover[[ paste("snsr_sky",j,sep="") ]][dna.len] <- NaN
+			filter.res[[ paste("snsr_sky",j,sep="") ]][dna.len] <- NaN
 		}
 		for (j in 1:gro.len){
-			fover[[ paste("snsr_gro",j,sep="") ]][dna.len] <- NaN
+			filter.res[[ paste("snsr_gro",j,sep="") ]][dna.len] <- NaN
 		}
 		for (j in 1:pw.len){
-			fover[[ paste("pw_loc",j,sep="") ]][dna.len] <- NaN
+			filter.res[[ paste("pw_loc",j,sep="") ]][dna.len] <- NaN
 		}
 	}
-	return(fover)
+	return(filter.res)
 }
 
 nan.filter <- function(stuff){
 	#' :detail: removes nan values from a set of lists
 	#' :param list stuff: list of arrays
-	#' :return: returns list with filtered data and the indicies with nans
+	#' :return: returns list with filtered data and the indices with nans
 	#' :rtype: list
 	nans <- list()
 	for (i in 1:length(stuff)){
@@ -220,7 +220,7 @@ inf.counter <- function(bool, snsr_data, label){
 	#' :detail: identifies the -Inf values
 	#' :param logical bool: decides if -Inf is not replaced with NaN
 	#' :param list snsr_data: the dataset
-	#' :param character label: the identifer for the dataset (e.g. sky, gro, skyo, groo)
+	#' :param character label: the identifier for the dataset (e.g. sky, gro, skyo, groo)
 	#' :return: data set that replaces all -Infs for NaN (If bool == FALSE).
 	#' :rtype: list
     output <- list()
@@ -243,7 +243,7 @@ index.norm <- function(x){
 	return((x - min(x, na.rm=TRUE)) / (max(x, na.rm = TRUE) - min(x, na.rm = TRUE)))
 }
 
-overcast.filter <- function(col_con, col_date, col_com, pw_name, snsr_name, cloud_bool){
+overcast.filter <- function(col_con, col_date, col_com, pw_name, snsr_name, cloud.bool){
 	#' :detail: Filters our data with overcast condition
 	#' :param integer col_con: column index for condition labels
 	#' :param integer col_date: column index for date stamp
@@ -292,7 +292,7 @@ overcast.filter <- function(col_con, col_date, col_com, pw_name, snsr_name, clou
 	# Adds divided data into list to output from function
 	output1 <- list()
 
-	if (cloud_bool){
+	if (cloud.bool){
 		output1[["date"]] 	<- date_over
 		output1[["time"]] 	<- timeo
 		output1[["rh"]] 	<- as.numeric(rho)
@@ -328,30 +328,30 @@ overcast.filter <- function(col_con, col_date, col_com, pw_name, snsr_name, clou
 	return(output1)
 }
 
-sky.processing <- function(overcast){
+sky.processing <- function(filter.res){
 	#' :detail: Computes average values and weighted averages
-	#' :param list overcast: results of the overcast.filter function
+	#' :param list filter.res: results of the overcast.filter function
 	#' :return: series of arrays including average PWV, RH, etc.
 	#' :rtype: list
-	## Pulls date from filter function
+	# Pulls date from filter function
 	output <- list()
-	output[["date"]]  	<- overcast$date	# Date
-	output[["time"]]  	<- overcast$time
-	output[["rh"]]		<- overcast$rh
-	output[["dewpoint"]]<- overcast$dew
-	output[["comments"]]<- overcast$com
-	output[["label"]]	<- unlist(overcast$label)
+	output[["date"]]  	<- filter.res$date	# Date
+	output[["time"]]  	<- filter.res$time
+	output[["rh"]]		<- filter.res$rh
+	output[["dewpoint"]]<- filter.res$dew
+	output[["comments"]]<- filter.res$com
+	output[["label"]]	<- unlist(filter.res$label)
 
-## Adds PW measurements for clear sky to list
+# Adds PW measurements for clear sky to list
 	pw_loc <- list()
 	for (i in 1:length(pw_name)){
-		pw_loc[[ paste("pw_loc", i, sep="")]] <- overcast[[ paste("pw_loc", i, sep="")]]
+		pw_loc[[ paste("pw_loc", i, sep="")]] <- filter.res[[ paste("pw_loc", i, sep="")]]
 	}
-## Adds Sky temperature, Ground temperature, and Change in temperature for each sensor to empty list
+# Adds Sky temperature, Ground temperature, and Change in temperature for each sensor to empty list
 	snsr_sky <- snsr_gro <- snsr_del <- list()
 	for (i in 1:length(snsr_name)){
-	 	snsr_gro[[ paste("snsr_gro",i,sep="") ]] <- overcast[[ paste("snsr_gro", i, sep="")]]
-	 	snsr_sky[[ paste("snsr_sky",i,sep="") ]] <- overcast[[ paste("snsr_sky", i, sep="")]]
+	 	snsr_gro[[ paste("snsr_gro",i,sep="") ]] <- filter.res[[ paste("snsr_gro", i, sep="")]]
+	 	snsr_sky[[ paste("snsr_sky",i,sep="") ]] <- filter.res[[ paste("snsr_sky", i, sep="")]]
 	 	snsr_del[[ paste("snsr_del",i,sep="") ]] <- snsr_gro[[ paste("snsr_gro", i, sep="")]] - snsr_sky[[ paste("snsr_sky", i, sep="")]]
 	}
 
@@ -366,19 +366,19 @@ sky.processing <- function(overcast){
 	for (i in seq(1, length(snsr_gro))){
 		snsr_gro[[ paste("snsr_gro",i,sep="") ]] <- out_gro[[i]]
 	}
-## Takes locational average of the precipitable water measurements
+# Takes locational average of the precipitable water measurements
 	loc_avg  <- list()
 	for (i in 1:length(col_pwpl)){
 		loc_avg[[ paste("loc_avg",i,sep="") ]] <- pw_loc[unlist(col_pwpl[i])]
 		loc_avg[[ paste("loc_avg",i,sep="") ]] <- Reduce("+", loc_avg[i][[1]])/length(col_pwpl)
 	}
-## Takes temporal average of the precipitable water measurements
+# Takes temporal average of the precipitable water measurements
 	tim_avg <- list()
 	for (i in 1:length(col_pwtm)){
 		tim_avg[[ paste("tim_avg",i,sep="") ]] <- pw_loc[unlist(col_pwtm[i])]
 		tim_avg[[ paste("tim_avg",i,sep="") ]] <- Reduce("+", tim_avg[i][[1]])/length(col_pwtm)
 	}
-## Takes super average of the precipitable water measurements
+# Takes super average of the precipitable water measurements
 	k <- -1; wt_avg <- list()
 	for (i in 1:length(unique(pw_place))){
 		for (j in 1:length(unique(pw_time))){

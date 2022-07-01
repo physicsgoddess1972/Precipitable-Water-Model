@@ -1,25 +1,25 @@
 - step: 1
-  seed: 2030550417
+  seed: 130675257
   analysis:
     coeff:
-      A: 16.9477
+      A: 17.5368
       B: -0.0049
-    rmse: 6.439
-    rstd: 6.8549
+    rmse: 5.413
+    rstd: 5.7626
 - step: 2
-  seed: 1298400061
+  seed: 1097938508
   analysis:
     coeff:
-      A: 17.1882
-      B: -0.0058
-    rmse: 5.8586
-    rstd: 6.2369
+      A: 16.6889
+      B: -0.0039
+    rmse: 6.9155
+    rstd: 7.3621
 - step: 3
-  seed: 208501504
+  seed: 47735052
   analysis:
     coeff:
-      A: 16.9167
-      B: -0.0049
-    rmse: 5.0484
-    rstd: 5.3745
+      A: 17.4298
+      B: -0.0058
+    rmse: 5.1456
+    rstd: 5.4779
 

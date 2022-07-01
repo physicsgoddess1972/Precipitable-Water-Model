@@ -9,15 +9,15 @@
       poster:
       active:
 - analysis:
-  - train_fraction:
-  - rel_difference:
+  - tr.sz:
+  - stdev.threshold:
   - iteration:
       step:
       seed:
 - logging:
   - verbose:
 - style:
-    - pw_label:
+    - pw.label:
 - import:
   - external:
       - pw:
