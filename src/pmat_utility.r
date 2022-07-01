@@ -5,10 +5,10 @@
 
 logg <- function(msglevel, msg, dir=out.dir, lev="INFO") {
     #' :detail: creates log entries for _log.txt
-    #' :param character msglevel:
-    #' :param character msg:
-    #' :param character dir:
-    #' :param character lev:
+    #' :param character msglevel: log level of the message
+    #' :param character msg: the message itself
+    #' :param character dir: directory that stores the log file
+    #' :param character lev: the log level of the user
     loglevels <- c(DEBUG = 10,  PASS = 15,
                    INFO = 20,   WARN = 30,
                    ERROR = 40,  FATAL = 50,

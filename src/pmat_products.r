@@ -6,7 +6,7 @@
 # Time series plots
 time.pwindex <- function(datetime){
     #' :detail: Normalized PWV index for both clear sky and overcast data
-    #' :param date: the datestamp of the data
+    #' :param datetime: the datestamp of the data
 
     par(mar = c(3,4, 3, 3), oma = c(1, 1, 0, 0), mfrow=c(1, 1), xpd=TRUE)
     # Plotting margin
@@ -47,27 +47,28 @@ time.pwindex <- function(datetime){
     # print statement when completed
     logg("PASS",title, lev = level)
 }
-time.nth_range <- function(range, title, color, leg.lab, ylab, datetime, overcast){
+time.nth_range <- function(y, title, color, leg.lab, ylab, datetime, over.bool){
     #' :detail: Multirange Time Series plot series
-    #' :param range:
-    #' :param title:
-    #' :param color:
-    #' :param leg.lab:
-    #' :param ylab:
-    #' :param datetime:
-    #' :param logical overcast: the condition of data (clear sky/overcast)
-    test <- unlist(range)
-    test[!is.finite(unlist(range))] <- NA
+    #' :param list y: the range of the plot
+    #' :param character title: the title/description of the plot
+    #' :param character color: the color string for the data range
+    #' :param list leg.lab: a list of
+    #' :param character ylab: the y-axis label
+    #' :param double datetime: the datetime array
+    #' :param logical over.bool: the condition of data (clear sky/overcast)
+
+    test <- unlist(y)
+    test[!is.finite(unlist(y))] <- NA
     # defines the max and min of the y-axis
     ymin <- min(as.numeric(unlist(test)), na.rm=TRUE)
     ymax <- max(as.numeric(unlist(test)), na.rm=TRUE)
 
-    plot(datetime, range[[1]],
+    plot(datetime, y[[1]],
          ylab=ylab[1],
          xaxt='n',
          las =1,
          xlab='',
-         main=stnd_title(title, overcast),
+         main=stnd_title(title, over.bool),
          pch=16,
          ylim=c(ymin, ymax),
          xlim=time_axis_init(datetime)[[1]],
@@ -75,9 +76,9 @@ time.nth_range <- function(range, title, color, leg.lab, ylab, datetime, overcas
     minor.tick(nx=1, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
     time_axis(datetime)
     # plots all other ranges in the list if the length of range is greater than 1
-    if (length(range) > 1){
-        for(j in 2:length(range)){
-            points(datetime, range[[j]], pch=16, col=color[j])
+    if (length(y) > 1){
+        for(j in 2:length(y)){
+            points(datetime, y[[j]], pch=16, col=color[j])
         }
     }
     # defines the legend
@@ -90,20 +91,19 @@ time.nth_range <- function(range, title, color, leg.lab, ylab, datetime, overcas
     # print statement when completed
     logg("PASS", title, lev = level)
 }
-time.composite <- function(range, title, color, ylab, datetime, overcast){
+time.composite <- function(y, title, color, ylab, datetime, over.bool){
     #' :detail: Time Series composite plot series
-    #' :param range:
-    #' :param title:
-    #' :param color:
-    #' :param ylab:
-    #' :param datetime:
-    #' :param logical overcast: the condition of data (clear sky/overcast)
-    #' :return: A sky temperature time series plot
+    #' :param list y: the range of the plot
+    #' :param character title: the title/description of the plot
+    #' :param character color: the color string for the data range
+    #' :param character ylab: the y-axis label
+    #' :param double datetime: the datetime array
+    #' :param logical over.bool: the condition of data (clear sky/overcast)
 
-    plot(datetime, range[[1]],
+    plot(datetime, y[[1]],
          ylab=ylab[[1]],
          col=color[[1]],
-         main=stnd_title(title, overcast),
+         main=stnd_title(title, over.bool),
          col.lab = color[[1]],
          xaxt='n',
          las =1,
@@ -113,7 +113,7 @@ time.composite <- function(range, title, color, ylab, datetime, overcast){
     time_axis(datetime)
 
     par(new = T)
-    plot(datetime, range[[2]],
+    plot(datetime, y[[2]],
          axes=F,
          xlab=NA,
          ylab=NA,
@@ -124,33 +124,28 @@ time.composite <- function(range, title, color, ylab, datetime, overcast){
 #     minor.tick(nx=1, ny=2, tick.ratio=0.5, x.args = list(), y.args = list(side=4))
     logg("PASS", title, lev = level)
 }
-time.mono_composite <- function(range, title, ylab, datetime, overcast){
+time.mono_composite <- function(y, title, ylab, datetime, over.bool){
     #' :detail: Time Series composite plot series
-    #' :param range:
-    #' :param title:
-    #' :param ylab:
-    #' :param datetime:
+    #' :param list y: the range of the plot
+    #' :param character title: the title/description of the plot
+    #' :param character ylab: the y-axis label
+    #' :param double datetime: the datetime array
     #' :param logical overcast: the condition of data (clear sky/overcast)
-    #' :return: A sky temperature time series plot
 
-    plot(datetime, range[[1]],
+    plot(datetime, y[[1]],
          ylab=ylab[[1]],
-         main=stnd_title(title, overcast),
+         main=stnd_title(title, over.bool),
          xaxt='n',
-#          yaxt='n',
          xlab=NA,
          pch=16,
          las = 1,
          xlim=time_axis_init(datetime)[[1]])
-         # adj=0.35, padj=0.3,
     mtext(side = 2, line=3.5, "\\#H0850", family="HersheySans", xpd=TRUE, cex=3)
-#     axis(side = 2); #minor.tick(nx=1, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
-#     mtext(side = 2, line=3, ylab[[1]], xpd=TRUE)
 
     time_axis(datetime)
 
     par(new = T)
-    plot(datetime, range[[2]], axes=F, xaxt='n',
+    plot(datetime, y[[2]], axes=F, xaxt='n',
          yaxt='n', ylab=NA, xlab=NA, col="black",
          pch=1,
          xlim=time_axis_init(datetime)[[1]])
@@ -161,33 +156,40 @@ time.mono_composite <- function(range, title, ylab, datetime, overcast){
 
     logg("PASS", title, lev = level)
 }
-time.multiyear <- function(range, title, color, datetime, ylab, overcast){
+time.multiyear <- function(y, title, color, datetime, ylab, over.bool){
+    #' :detail: Climatology plot
+    #' :param list y: the range of the plot
+    #' :param character title: the title/description of the plot
+    #' :param character color: the color string for the data range
+    #' :param double datetime: the datetime array
+    #' :param character ylab: the y-axis label
+    #' :param logical overcast: the condition of data (clear sky/overcast)
+
     x <- unclass(as.POSIXlt(datetime))$yday
-    dat <- with(data.frame(x=x,y=range),
-                aggregate(list(y=range), list(x = x), mean))
+    dat <- with(data.frame(x=x,y=y),
+                aggregate(list(y=y), list(x = x), mean))
     plot(dat$x, dat$y,
          pch=16,
          xlab="Day number",
          ylab=ylab,
          las = 1,
          xlim=c(1, 366),
-         main=stnd_title(title, overcast),
+         main=stnd_title(title, over.bool),
          col=color)
     minor.tick(nx=2, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
     logg("PASS", title)
 }
 
 # Analysis plots
-analysis.nth_range <- function(overcast, x, y, title, label, color, leg.lab){
-  #' :detail: Super Average Plot with Exponential Fit
+analysis.nth_range <- function(over.bool, x, y, title, label, color, leg.lab){
+  #' :detail: Comparative analysis plot
   #' :param logical overcast: the condition of data (clear sky/overcast)
-  #' :param x:
-  #' :param y:
-  #' :param title:
+  #' :param x: the domain of the plot
+  #' :param y: the range of the plot
+  #' :param title: the title/description of the plot
   #' :param label:
-  #' :param color:
+  #' :param color: the color string for the data
   #' :param leg.lab:
-  #' :return: A sky temperature time series plot
 
   ymax	<- max(unlist(y), na.rm=TRUE)
   ymin	<- min(unlist(y), na.rm=TRUE)
@@ -197,7 +199,7 @@ analysis.nth_range <- function(overcast, x, y, title, label, color, leg.lab){
        xlab=label[[1]],
        ylab=label[[2]],
        ylim=c(ymin, ymax),
-       main=stnd_title(title, overcast),
+       main=stnd_title(title, over.bool),
        pch=16,
        col=color[[1]])
   minor.tick(nx=2, ny=2, tick.ratio=0.5, x.args = list(), y.args = list())
@@ -215,15 +217,15 @@ analysis.nth_range <- function(overcast, x, y, title, label, color, leg.lab){
   }
   logg("PASS", title, lev = level)
 }
-analysis.regression	<- function(overcast, x, y, des, label, iter){
+analysis.regression	<- function(over.bool, x, y, title, label, iter){
     #' :detail: Super Average Plot with Exponential Fit
     #' :param bool overcast: the condition of data (clear sky/overcast)
-    #' :param x:
-    #' :param y:
-    #' :param des:
-    #' :param label:
-    #' :param iter:
-    #' :return: A sky temperature time series plot
+    #' :param double x: the domain of the plot
+    #' :param double y: the range of the plot
+    #' :param character title: the title/description of the plot
+    #' :param list label: list containing the x-axis and y-axis labels
+    #' :param list iter: the output of iter.analysis
+
     exp_reg <- exp.regression(mean.out=iter[["filter.mean"]])
     ymax	<- max(unlist(exp_reg$y), na.rm=TRUE)
     ymin	<- min(unlist(exp_reg$y), na.rm=TRUE)
@@ -233,7 +235,7 @@ analysis.regression	<- function(overcast, x, y, des, label, iter){
          xlab=label[[1]],
          ylab=label[[2]],
          ylim=c(ymin, ymax),
-         main=stnd_title(des, overcast))
+         main=stnd_title(title, over.bool))
     # Best Fit
     curve(iter$A*exp(iter$B*x), col="black", add=TRUE)
 
@@ -251,11 +253,11 @@ analysis.regression	<- function(overcast, x, y, des, label, iter){
                         lty=c(1),
                         legend=c(parse(text=leg)))
 
-    logg("PASS", des, lev = level)
+    logg("PASS", title, lev = level)
 }
 analysis.svm <- function(model){
-    #' :detail:
-    #' :param model:
+    #' :detail: plots SVM
+    #' :param list model: output of lsvm
 
     cf <- model$cf
     A <- -cf[2]/cf[3]
@@ -281,34 +283,34 @@ analysis.svm <- function(model){
   }
 
 # Pacviz plots
-pac.compare <- function(overcast, des, x, y, angular, radial){
+pac.compare <- function(over.bool, title, x, y, angular, radial){
     #' :detail: Pac-Man plot of Super Average Plot
     #' :param logical overcast: the condition of data (clear sky/overcast)
-    #' :param des:
-    #' :param x:
-    #' :param y:
-    #' :param angular:
-    #' :param radial:
+    #' :param character title: the title/description of the plot
+    #' :param double x: the domain of the plot
+    #' :param double y: the range of the plot
+    #' :param character angular: the angular axis label and units
+    #' :param character radial: the radial axis label and units
 
     par(mar=c(5.1, 4.1, 4.1, 2.1),xpd=FALSE)
 
     # Finds and removes NaNed values from the dataset
     pac.plot(x,y,
-             stnd_title(des, overcast),
+             stnd_title(title, over.bool),
              angular,
              radial)
 
-   logg("PASS", des, lev = level)
+   logg("PASS", title, lev = level)
 }
-pac.regression <- function(overcast){
+pac.regression <- function(over.bool){
     #' :detail: Pac-Man residual plot
-    #' :param bool overcast: the condition of data (clear sky/overcast)
+    #' :param bool over.bool: the condition of data (clear sky/overcast)
 
-    ifelse(overcast, x <- overcast.data$snsr_sky_calc,
+    ifelse(over.bool, x <- overcast.data$snsr_sky_calc,
                      x <- clear_sky.data$snsr_sky_calc)
-    ifelse(overcast, y <- log(overcast.data$avg, base=exp(1)),
+    ifelse(over.bool, y <- log(overcast.data$avg, base=exp(1)),
                      y <- log(clear_sky.data$avg, base=exp(1)))
-    des <- sprintf("Pac-Man Residual of the Mean %s and Temperature Model", pw_lab)
+    title <- sprintf("Pac-Man Residual of the Mean %s and Temperature Model", pw_lab)
 
     # Finds and removes NaNed values from the dataset
     nans <- c(grep("NaN", y)); nans <- append(nans, grep("NaN", x))
@@ -316,17 +318,17 @@ pac.regression <- function(overcast){
         x <- x[-(nans)]; y <- y[-(nans)]
     }
     pac.resid(x, y,
-              stnd_title(des, overcast),
+              stnd_title(title, over.bool),
               c("Zenith Sky Temperature", "degC"))
 
-    logg("PASS", des, lev = level)
+    logg("PASS", title, lev = level)
 }
 
 chart.histogram <- function(range, xlabel, title){
         #' :detail: Histograms of defined quantities
-        #' :param range: a data range
-        #' :param xlabel: the xaxis label
-        #' :param title: the title of the histogram
+        #' :param double range: the range of the plot
+        #' :param list xlabel: the x-axis label of the plot
+        #' :param list title: the title/description of the histogram
 
         h <- hist(range,
                   main = paste("Distribution of", title, sep=" "),
@@ -342,16 +344,17 @@ chart.histogram <- function(range, xlabel, title){
                  max(range, na.rm = TRUE), length = 40)
 
         f <- (h$counts / h$density) * dnorm(x, mean = mean(range, na.rm = TRUE), sd = sd(range, na.rm=TRUE))
-        #lines(x,f, type="l", col="black", lwd=2, lty=1)
         logg("PASS", sprintf("%s", title), lev = level)
   }
 
-poster.plots <- function(overcast, iter, mean.out){
+poster.plots <- function(over.bool, iter, mean.out){
     #' :detail: The set of all poster
     #' :param bool overcast: the condition of data (clear sky/overcast)
+    #' :param list iter: output of iterative.analysis
+    #' :param list mean.out:
     #' :return: All available poster plots
-
-    force(date); force(overcast)
+#     print(list(typeof(iter), typeof(mean.out)))
+    force(date); force(over.bool)
     for (i in 1:length(snsr_name)){
         if(config[[1]]$instruments[[1]]$sensor$poster == FALSE){
             snsr_sky[[i]] <- NULL; snsr_skyo[[i]] <- NULL
@@ -549,17 +552,17 @@ poster.plots <- function(overcast, iter, mean.out){
         logg("PASS", "Sky-Ground-Delta Temperature Time Series", lev = level)
     }
 
-    poster2 <- function(overcast, iter, mean.out){
+    poster2 <- function(over.bool, iter, mean.out){
         #' :detail: The analytics poster plot
         #' :param logical overcast: the condition of data (clear sky/overcast)
-        #' :param iter:
+        #' :param iter: the output of iterative.analysis
         #' :param mean.out:
 
         ## Layout/Margin Configuration
             par(mar=c(3,3, 3, 1), oma=c(1,1.5,0,0), xpd=FALSE)
             layout(matrix(c(1,2,3,3), 2, 2, byrow=TRUE))
         ## Locational Averagen PW Temperature Correlation
-            if (overcast){
+            if (over.bool){
                 xmax 	<- max(as.numeric(unlist(overcast.data$snsr_sky_calc)), na.rm=TRUE)
                 xmin 	<- min(as.numeric(unlist(overcast.data$snsr_sky_calc)), na.rm=TRUE)
                 x 		<- as.numeric(unlist(overcast.data$snsr_sky_calc))
@@ -597,7 +600,7 @@ poster.plots <- function(overcast, iter, mean.out){
             legend("topleft", legend=paste(unique(pw_time), "Z"), col=colscheme(range), pch=c(16))
 
         ## Temporal Average Pw Temperature Correlation
-            if (overcast){
+            if (over.bool){
                 range 	<- overcast.data$loc_avg
             } else {
                 range 	<- clear_sky.data$loc_avg
@@ -655,12 +658,12 @@ poster.plots <- function(overcast, iter, mean.out){
     }
 
     return(list(poster1(),
-                poster2(overcast, iter, mean.out)))
+                poster2(over.bool, iter, mean.out)))
 }
 
 # Sensor specific plots
 sensor.chart <- function(...){
-    #' :detail: overcast distribution charts
+    #' :detail: sensor specific data type distribution charts
 
     par(mar=c(5.1, 5.1, 5.1, 1.3),oma=c(0,0,0,0), xpd=TRUE)
     snsr_sky  <- clear_sky.data$raw_sky
@@ -731,15 +734,15 @@ sensor.chart <- function(...){
         logg("PASS", sprintf("Overcast Condition Percentage: %s", gsub("_", " ",snsr_name[count])), lev = level)
     }
 }
-sensor.time <- function(overcast){
+sensor.time <- function(over.bool){
         #' :detail: Instrumentation time series plots
-        #' :param logical overcast:
+        #' :param logical over.bool: the condition of data (clear sky/overcast)
 
         # X axis limits
         for (count in col_snsr){
             par(mar=c(3,4, 3, 1), oma=c(1,1,0,0), xpd=FALSE)
             layout(matrix(c(1,1,2,2), 2, 2, byrow=TRUE))
-            if(overcast){
+            if(over.bool){
                 date 		<- overcast.data$date
                 time        <- overcast.data$time
                 snsr_sky    <- overcast.data$snsr_sky
@@ -803,12 +806,12 @@ sensor.time <- function(overcast){
     }
 
 ## Data products
-data.gen <- function(overcast, dir){
+data.gen <- function(over.bool, dir){
         #' :detail: creates a datafile containing the date, avg temp, and avg pwv for a defined condition
-        #' :param bool overcast: the condition of the data (clear sky/overcast)
+        #' :param bool over.bool: the condition of the data (clear sky/overcast)
         #' :param dir: directory path
 
-       ifelse(overcast, res <- overcast.data,
+       ifelse(over.bool, res <- overcast.data,
                         res <- clear_sky.data)
       # Pulls the data
         avg_temp  <- res$snsr_sky_calc
@@ -835,13 +838,13 @@ data.gen <- function(overcast, dir){
         write.csv(data,
                   file=file.path(dir,
                                  sprintf("data%s.csv",
-                                         ifelse(overcast,"_overcast", ""))),
+                                         ifelse(over.bool,"_overcast", ""))),
                   row.names=FALSE)
-        logg("PASS", sprintf("Data sent to data/data%s.csv", ifelse(overcast,"_overcast", "")), lev = level)
+        logg("PASS", sprintf("Data sent to data/data%s.csv", ifelse(over.bool,"_overcast", "")), lev = level)
 }
-data.ml <- function(dir){
+data.ml <- function(out.dir){
       #' :detail: creates a datafile containing the machine learning relavant information
-      #' :param dir: directory path
+      #' :param character out.dir: directory path
 
         ml_pw <- ml_pw_avg <- ml_temp <- ml_temp_avg <- ml_rh <- list()
         ## Average PW
@@ -885,18 +888,19 @@ data.ml <- function(dir){
         data 		<- data.frame(list(date=c(norm$x),avg_temp=c(norm$y1), avg_pw=c(norm$y2), avg_rh=c(norm$y3), cond=c(norm$c)))
         colnames(data) <- c("date", "avg_temp", "avg_pw", "avg_rh", "condition")
         # Writes the data to a csv
-        write.csv(data, file=file.path(dir, "ml_data.csv"), row.names=FALSE)
-        logg("PASS", sprintf("Data sent to %sml_data.csv", dir), lev = level)
+        write.csv(data, file=file.path(out.dir, "ml_data.csv"), row.names=FALSE)
+        logg("PASS", sprintf("Data sent to %sml_data.csv", out.dir), lev = level)
 }
 data.step <- function(seed, i, coef, r, S){
-    #' :detail:
-    #' :param seed:
-    #' :param i:
-    #' :param coef:
-    #' :param r:
-    #' :param S:
-    #' :return:
+    #' :detail: writes a yaml object that contains the analysis results of each step in the iterative analysis
+    #' :param integer seed: the generated seed
+    #' :param integer i:  the step number
+    #' :param list coef: the coefficients of the best-fit
+    #' :param double r: the RSME value
+    #' :param double S: the standard deviation
+    #' :return: a yaml object
     #' :rtype: list
+
     yml.out <- list(step=c(i),
                     seed=c(seed),
                     analysis=list(coeff=list(A=c(coef$A),
@@ -905,14 +909,15 @@ data.step <- function(seed, i, coef, r, S){
                                   rstd=c(S)))
     return(list(yml.out))
 }
-data.final <- function(dir, lengths, frac.kept, coef, std, rmse, overcast=args$overcast){
-    #' :detail:
-    #' :param dir:
-    #' :param lengths:
-    #' :param coef:
-    #' :param std:
-    #' :param rmse:
-    #' :param overcast:
+data.final <- function(out.dir, lengths, frac.kept, coef, std, rmse, over.bool=args$overcast){
+    #' :detail: writes the final results of iterative.analysi
+    #' :param character out.dir: the output directory
+    #' :param list lengths: list of lengths
+    #' :param list coef: the average coefficients of the best-fit
+    #' :param double std: the average standard deviation
+    #' :param double rmse: the average rsme values
+    #' :param logical over.bool: the condition of data (clear sky/overcast)
+
     clear.len   = lengths[1]
     over.len    = lengths[2]
     train.len  = lengths[3]
@@ -930,33 +935,33 @@ data.final <- function(dir, lengths, frac.kept, coef, std, rmse, overcast=args$o
                                                    yours=c(rmse$R))))
 
   write(as.yaml(yml, precision=4),
-        file = file.path(dir, sprintf("_results%s.yml", ifelse(overcast,"_overcast", ""))))
+        file = file.path(out.dir, sprintf("_results%s.yml", ifelse(over.bool,"_overcast", ""))))
 }
 
 ## Plot function calls
-visual.products <- function(set, mean.out, datetime=datetime, overcast=args$overcast){
+visual.products <- function(set, mean.out, datetime=datetime, over.bool=args$overcast){
     #' :detail: saves plot sets
-    #' :param character set: the set identifier
-    #' :param mean.out:
-    #' :param datetime:
-    #' :param logical overcast: ovecast boolean
+    #' :param character set: the --set parameter
+    #' :param mean.out: output of mean.filter
+    #' :param datetime: the datetime range of the data
+    #' :param logical over.bool: the condition of data (clear sky/overcast)
 
 	if(set == "i"){
         logg("INFO", "Sensor Plot Set", lev = level)
 
 		pdf(file.path(fig.dir,
                       sprintf("sensor%s.pdf",
-                              ifelse(overcast,"_overcast", ""))))
+                              ifelse(over.bool,"_overcast", ""))))
 
 	    # plot function calls
         sensor.chart()
-        sensor.time(overcast)
+        sensor.time(over.bool)
         return(NULL)
 	}else if(set == "t"){
         logg("INFO", "Time Series Plot Set", lev = level)
 		pdf(file.path(fig.dir,
                       sprintf("timeseries%s.pdf",
-                              ifelse(overcast,"_overcast", ""))))
+                              ifelse(over.bool,"_overcast", ""))))
         # data inputs for time.nth_range
         range.r <- list(res$snsr_sky,
                        res$snsr_gro,
@@ -1031,18 +1036,20 @@ visual.products <- function(set, mean.out, datetime=datetime, overcast=args$over
                                range.t[[i]],
                                range.col[[i]],
                                range.leg[[i]],
-                               range.ylab[[i]], datetime, overcast)
+                               range.ylab[[i]],
+                               datetime, over.bool)
             }
             for (i in 1:length(composite.r)){
                 time.composite(composite.r[[i]],
                                composite.title[[i]],
                                composite.col[[i]],
-                               composite.ylab[[i]], datetime, overcast)
+                               composite.ylab[[i]],
+                               datetime, over.bool)
             }
             for (i in 1:length(composite_mono.r)){
                 time.mono_composite(composite_mono.r[[i]],
                                composite_mono.title[[i]],
-                               composite_mono.ylab[[i]], datetime, overcast)
+                               composite_mono.ylab[[i]], datetime, over.bool)
             }
             par(mar=c(5.1, 4.1, 4.1, 2.1), xpd=TRUE)
             for (i in 1:length(multiyear.r)){
@@ -1050,21 +1057,21 @@ visual.products <- function(set, mean.out, datetime=datetime, overcast=args$over
                              multiyear.title[[i]],
                              multiyear.col[[i]],
                              datetime, multiyear.ylab,
-                             overcast)
+                             over.bool)
             }
             time.pwindex(datetime)
             return(NULL)
         } else {
             logg("ERROR", err_war$error$D[[1]]$code, lev = level)
             logg("ERROR", err_war$error$D[[1]]$fix, lev = level)
-            closing()
+            aloha.closing()
         }
 	}else if(set == "a"){
         logg("INFO", "Analytics Plot Set")
         pdf(file.path(fig.dir,
                       sprintf("analytics%s.pdf",
-                              ifelse(overcast,"_overcast", ""))))
-        ifelse(overcast, res <- overcast.data,
+                              ifelse(over.bool,"_overcast", ""))))
+        ifelse(over.bool, res <- overcast.data,
                          res <- clear_sky.data)
         # data inputs for analysis.nth_range
         x1 <- unlist(list(rep(list(res$snsr_sky_calc), 3)),
@@ -1096,11 +1103,11 @@ visual.products <- function(set, mean.out, datetime=datetime, overcast=args$over
         par(mar=c(5.1, 4.1, 4.1, 5.3), xpd=TRUE)
         # plot function calls
         for (i in 1:length(x1)){
-            analysis.nth_range(overcast, x1[[i]], y1[[i]], t1[[i]], l1[[i]], c1[[i]], leg.lab[[i]])
+            analysis.nth_range(over.bool, x1[[i]], y1[[i]], t1[[i]], l1[[i]], c1[[i]], leg.lab[[i]])
         }
         par(mar=c(5.1, 4.1, 4.1, 2.1), xpd=FALSE)
         for (i in 1:length(x2)){
-            analysis.regression(overcast, x2[[i]], y2[[i]], t2[[i]], l2[[i]], iter.results)
+            analysis.regression(over.bool, x2[[i]], y2[[i]], t2[[i]], l2[[i]], iter.results)
         }
         par(mar=c(5.1, 4.1, 4.1, 2.1), xpd=FALSE)
         analysis.svm(ml)
@@ -1140,8 +1147,8 @@ visual.products <- function(set, mean.out, datetime=datetime, overcast=args$over
         logg("INFO", "Pac-Man Plot Set", lev = level)
 		pdf(file.path(fig.dir,
                       sprintf("pacman%s.pdf",
-                              ifelse(overcast,"_overcast", ""))))
-        exp.reg <-  exp.regression(train_frac,mean.out)
+                              ifelse(over.bool,"_overcast", ""))))
+        exp.reg <-  exp.regression(tr.sz, mean.out)
         x1 <- list(exp.reg$x)
         y1 <- list(exp.reg$y)
         t1 <- list(sprintf("Correlation between Spatiotemporal Mean %s and Temperature", pw_lab))
@@ -1150,17 +1157,17 @@ visual.products <- function(set, mean.out, datetime=datetime, overcast=args$over
 
         # plot function calls
         for (i in 1:length(x1)){
-          pac.compare(overcast, t1[[i]], x1[[i]], y1[[i]], th1[[i]], ra1[[i]])
+          pac.compare(over.bool, t1[[i]], x1[[i]], y1[[i]], th1[[i]], ra1[[i]])
         }
-        pac.regression(overcast)
+        pac.regression(over.bool)
         return(NULL)
 	} else if (set == "o"){
         logg("INFO", "Poster Plot Set", lev = level)
 		pdf(file.path(fig.dir,
                       sprintf("poster%s.pdf",
-                              ifelse(overcast,"_overcast", ""))))
+                              ifelse(over.bool,"_overcast", ""))))
         # plot function calls
-        poster.plots(overcast, iter.results, mean.out)
+        poster.plots(over.bool, iter.results, mean.out)
         return(NULL)
 	}
 }

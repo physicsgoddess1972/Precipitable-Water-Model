@@ -45,15 +45,15 @@
       poster: true
       active: false
 - analysis:
-  - train_fraction: 0.8
-  - rel_difference: 2
+  - tr.sz: 0.8
+  - stdev.threshold: 2
   - iteration:
       step: 1
       seed:
 - logging:
   - verbose: DEBUG
 - style:
-  - pw_label: PWAT
+  - pw.label: PWAT
 - import:
   - mesowest:
     - id: KONM
