@@ -1,19 +1,23 @@
 data:
   clear:
-    total.count: 804
+    total.count:
+    - 804
   overcast:
-    total.count: 439
-  train.count: 532
+    total.count:
+    - 439
+  train.count:
+  - 532
   fraction.kept: 0.8304
-  nans: 2
+  nans:
+  - 2
 analysis:
   coeff:
-    A: 18.4672
+    A: 18.4658
     B: 0.0357
-  stdev: 3.2232
+  stdev: 3.2318
   rmse:
-    mims: 4.4019
-    kelsey: 3.097
-    yours: 3.199
+    mims: 4.4009
+    kelsey: 3.0954
+    yours: 3.2076
 
 site: "socorro-nm"
