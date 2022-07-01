@@ -27333,3 +27333,689 @@
 2022-06-30 11:07:20 PASS Data sent to data/data.csv
 2022-06-30 11:07:20 PASS Data sent to ./util/tests/data_small_sd/../out/data/ml_data.csv
 2022-06-30 11:07:20 ALOHA Program Complete
+2022-07-01 09:21:28 ALOHA Precipitable-water Model Analysis Tool
+2022-07-01 09:21:28 ALOHA Program Start
+2022-07-01 09:21:29 INFO Collecting Data from sources
+2022-07-01 09:22:50 ALOHA Precipitable-water Model Analysis Tool
+2022-07-01 09:22:50 ALOHA Program Start
+2022-07-01 09:22:51 INFO Collecting Data from sources
+2022-07-01 09:22:52 DEBUG Step 1 out of 3
+2022-07-01 09:22:52 DEBUG Step 2 out of 3
+2022-07-01 09:22:52 DEBUG Step 3 out of 3
+2022-07-01 09:22:52 ERROR User has not included any parameters for the --set argument
+2022-07-01 09:22:52 ERROR Run `Rscript pmat_run.r -h` for information on available plot sets
+2022-07-01 09:29:10 ALOHA Precipitable-water Model Analysis Tool
+2022-07-01 09:29:10 ALOHA Program Start
+2022-07-01 09:29:11 INFO Collecting Data from sources
+2022-07-01 09:29:12 DEBUG Step 1 out of 3
+2022-07-01 09:29:12 DEBUG Step 2 out of 3
+2022-07-01 09:29:12 DEBUG Step 3 out of 3
+2022-07-01 09:29:12 INFO Condition: Clear Sky
+2022-07-01 09:29:12 INFO Time Series Plot Set
+2022-07-01 09:29:12 PASS Sky Temperature Time Series
+2022-07-01 09:29:12 PASS Ground Temperature Time Series
+2022-07-01 09:29:12 PASS Difference Between Ground-Sky Temperature Time Series
+2022-07-01 09:29:12 PASS PWAT Time Series
+2022-07-01 09:29:12 PASS Temporal Mean PWAT Time Series
+2022-07-01 09:29:12 PASS Locational Mean PWAT Time Series
+2022-07-01 09:29:12 PASS Spatiotemporal Mean PWAT Time Series
+2022-07-01 09:29:12 PASS Dewpoint Temperature Time Series
+2022-07-01 09:29:12 PASS Mean Sky Temperature and PWAT Time Series
+2022-07-01 09:29:12 PASS Mean Sky Temperature and RH Time Series
+2022-07-01 09:29:12 PASS Mean PWAT and RH Time Series
+2022-07-01 09:29:12 PASS Mean PWAT and Dewpoint Time Series
+2022-07-01 09:29:12 PASS Mean Sky Temperature and PWAT Time Series
+2022-07-01 09:29:12 PASS Mean Sky Temperature and RH Time Series
+2022-07-01 09:29:12 PASS Mean PWAT and RH Time Series
+2022-07-01 09:29:12 PASS Mean PWAT and Dewpoint Time Series
+2022-07-01 09:29:12 PASS Normalized Index for Weighted PWAT Time Series
+2022-07-01 09:29:12 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-07-01 09:29:12 INFO Analytics Plot Set
+2022-07-01 09:29:12 PASS Correlation between PWAT and Temperature
+2022-07-01 09:29:12 PASS Correlation between Locational Mean PWAT and Temperature
+2022-07-01 09:29:12 PASS Correlation between Temporal Mean PWAT and Temperature
+2022-07-01 09:29:12 PASS Regression between Spatiotemporal Mean PWAT and Temperature
+2022-07-01 09:29:12 PASS Regression between Weighted PWAT and Temperature
+2022-07-01 09:29:13 PASS SVM Analysis between Sky Temperature and PWAT
+2022-07-01 09:29:13 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-07-01 09:29:13 INFO Sensor Plot Set
+2022-07-01 09:29:13 PASS Overcast Condition Percentage: AMES 2
+2022-07-01 09:29:13 PASS Sky-Ground Time Series: AMES
+2022-07-01 09:29:13 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-07-01 09:29:13 INFO Chart Set
+2022-07-01 09:29:13 PASS Weighted PWAT
+2022-07-01 09:29:13 PASS Average Temperature
+2022-07-01 09:29:13 PASS Relative Humidity
+2022-07-01 09:29:13 PASS Dewpoint Temperature
+2022-07-01 09:29:13 PASS Predicted clear sky PWAT from IR Product
+2022-07-01 09:29:13 PASS Distribution of PWAT in RAP
+2022-07-01 09:29:13 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-07-01 09:29:13 INFO Poster Plot Set
+2022-07-01 09:29:13 PASS Sky-Ground-Delta Temperature Time Series
+2022-07-01 09:29:13 PASS Analytical Plots
+2022-07-01 09:29:13 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-07-01 09:29:13 INFO Pac-Man Plot Set
+2022-07-01 09:29:46 ALOHA Precipitable-water Model Analysis Tool
+2022-07-01 09:29:46 ALOHA Program Start
+2022-07-01 09:29:47 INFO Collecting Data from sources
+2022-07-01 09:29:47 DEBUG Step 1 out of 3
+2022-07-01 09:29:48 DEBUG Step 2 out of 3
+2022-07-01 09:29:48 DEBUG Step 3 out of 3
+2022-07-01 09:29:48 INFO Condition: Clear Sky
+2022-07-01 09:29:48 INFO Time Series Plot Set
+2022-07-01 09:29:48 PASS Sky Temperature Time Series
+2022-07-01 09:29:48 PASS Ground Temperature Time Series
+2022-07-01 09:29:48 PASS Difference Between Ground-Sky Temperature Time Series
+2022-07-01 09:29:48 PASS PWAT Time Series
+2022-07-01 09:29:48 PASS Temporal Mean PWAT Time Series
+2022-07-01 09:29:48 PASS Locational Mean PWAT Time Series
+2022-07-01 09:29:48 PASS Spatiotemporal Mean PWAT Time Series
+2022-07-01 09:29:48 PASS Dewpoint Temperature Time Series
+2022-07-01 09:29:48 PASS Mean Sky Temperature and PWAT Time Series
+2022-07-01 09:29:48 PASS Mean Sky Temperature and RH Time Series
+2022-07-01 09:29:48 PASS Mean PWAT and RH Time Series
+2022-07-01 09:29:48 PASS Mean PWAT and Dewpoint Time Series
+2022-07-01 09:29:48 PASS Mean Sky Temperature and PWAT Time Series
+2022-07-01 09:29:48 PASS Mean Sky Temperature and RH Time Series
+2022-07-01 09:29:48 PASS Mean PWAT and RH Time Series
+2022-07-01 09:29:48 PASS Mean PWAT and Dewpoint Time Series
+2022-07-01 09:29:48 PASS Normalized Index for Weighted PWAT Time Series
+2022-07-01 09:29:48 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-07-01 09:29:48 INFO Analytics Plot Set
+2022-07-01 09:29:48 PASS Correlation between PWAT and Temperature
+2022-07-01 09:29:48 PASS Correlation between Locational Mean PWAT and Temperature
+2022-07-01 09:29:48 PASS Correlation between Temporal Mean PWAT and Temperature
+2022-07-01 09:29:48 PASS Regression between Spatiotemporal Mean PWAT and Temperature
+2022-07-01 09:29:48 PASS Regression between Weighted PWAT and Temperature
+2022-07-01 09:29:48 PASS SVM Analysis between Sky Temperature and PWAT
+2022-07-01 09:29:48 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-07-01 09:29:48 INFO Sensor Plot Set
+2022-07-01 09:29:48 PASS Overcast Condition Percentage: AMES 2
+2022-07-01 09:29:49 PASS Sky-Ground Time Series: AMES
+2022-07-01 09:29:49 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-07-01 09:29:49 INFO Chart Set
+2022-07-01 09:29:49 PASS Weighted PWAT
+2022-07-01 09:29:49 PASS Average Temperature
+2022-07-01 09:29:49 PASS Relative Humidity
+2022-07-01 09:29:49 PASS Dewpoint Temperature
+2022-07-01 09:29:49 PASS Predicted clear sky PWAT from IR Product
+2022-07-01 09:29:49 PASS Distribution of PWAT in RAP
+2022-07-01 09:29:49 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-07-01 09:29:49 INFO Poster Plot Set
+2022-07-01 09:29:49 PASS Sky-Ground-Delta Temperature Time Series
+2022-07-01 09:29:49 PASS Analytical Plots
+2022-07-01 09:29:49 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-07-01 09:29:49 INFO Pac-Man Plot Set
+2022-07-01 09:29:49 PASS Correlation between Spatiotemporal Mean PWAT and Temperature
+2022-07-01 09:29:49 PASS Pac-Man Residual of the Mean PWAT and Temperature Model
+2022-07-01 09:29:49 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-07-01 09:29:49 PASS Data sent to data/data.csv
+2022-07-01 09:29:49 PASS Data sent to ./util/tests/data_small_sd/../out/data/ml_data.csv
+2022-07-01 09:29:49 ALOHA Program Complete
+2022-07-01 09:39:11 ALOHA Precipitable-water Model Analysis Tool
+2022-07-01 09:39:11 ALOHA Program Start
+2022-07-01 09:39:12 INFO Collecting Data from sources
+2022-07-01 09:39:13 DEBUG Step 1 out of 3
+2022-07-01 09:39:13 DEBUG Step 2 out of 3
+2022-07-01 09:39:13 DEBUG Step 3 out of 3
+2022-07-01 09:39:13 INFO Time Series Plot Set
+2022-07-01 09:39:13 PASS Sky Temperature Time Series
+2022-07-01 09:39:13 PASS Ground Temperature Time Series
+2022-07-01 09:39:13 PASS Difference Between Ground-Sky Temperature Time Series
+2022-07-01 09:39:13 PASS PWAT Time Series
+2022-07-01 09:39:13 PASS Temporal Mean PWAT Time Series
+2022-07-01 09:39:13 PASS Locational Mean PWAT Time Series
+2022-07-01 09:39:13 PASS Spatiotemporal Mean PWAT Time Series
+2022-07-01 09:39:13 PASS Dewpoint Temperature Time Series
+2022-07-01 09:39:14 PASS Mean Sky Temperature and PWAT Time Series
+2022-07-01 09:39:14 PASS Mean Sky Temperature and RH Time Series
+2022-07-01 09:39:14 PASS Mean PWAT and RH Time Series
+2022-07-01 09:39:14 PASS Mean PWAT and Dewpoint Time Series
+2022-07-01 09:39:14 PASS Mean Sky Temperature and PWAT Time Series
+2022-07-01 09:39:14 PASS Mean Sky Temperature and RH Time Series
+2022-07-01 09:39:14 PASS Mean PWAT and RH Time Series
+2022-07-01 09:39:14 PASS Mean PWAT and Dewpoint Time Series
+2022-07-01 09:39:14 PASS Normalized Index for Weighted PWAT Time Series
+2022-07-01 09:39:14 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-07-01 09:39:14 ALOHA Program Complete
+2022-07-01 10:12:37 ALOHA Precipitable-water Model Analysis Tool
+2022-07-01 10:12:37 ALOHA Program Start
+2022-07-01 10:12:38 INFO Collecting Data from sources
+2022-07-01 10:12:39 DEBUG Step 1 out of 3
+2022-07-01 10:12:39 DEBUG Step 2 out of 3
+2022-07-01 10:12:39 DEBUG Step 3 out of 3
+2022-07-01 10:12:39 INFO Time Series Plot Set
+2022-07-01 10:12:39 PASS Sky Temperature Time Series
+2022-07-01 10:12:39 PASS Ground Temperature Time Series
+2022-07-01 10:12:39 PASS Difference Between Ground-Sky Temperature Time Series
+2022-07-01 10:12:39 PASS PWAT Time Series
+2022-07-01 10:12:39 PASS Temporal Mean PWAT Time Series
+2022-07-01 10:12:40 PASS Locational Mean PWAT Time Series
+2022-07-01 10:12:40 PASS Spatiotemporal Mean PWAT Time Series
+2022-07-01 10:12:40 PASS Dewpoint Temperature Time Series
+2022-07-01 10:12:40 PASS Mean Sky Temperature and PWAT Time Series
+2022-07-01 10:12:40 PASS Mean Sky Temperature and RH Time Series
+2022-07-01 10:12:40 PASS Mean PWAT and RH Time Series
+2022-07-01 10:12:40 PASS Mean PWAT and Dewpoint Time Series
+2022-07-01 10:12:40 PASS Mean Sky Temperature and PWAT Time Series
+2022-07-01 10:12:40 PASS Mean Sky Temperature and RH Time Series
+2022-07-01 10:12:40 PASS Mean PWAT and RH Time Series
+2022-07-01 10:12:40 PASS Mean PWAT and Dewpoint Time Series
+2022-07-01 10:13:03 ALOHA Precipitable-water Model Analysis Tool
+2022-07-01 10:13:03 ALOHA Program Start
+2022-07-01 10:13:04 INFO Collecting Data from sources
+2022-07-01 10:13:05 DEBUG Step 1 out of 3
+2022-07-01 10:13:05 DEBUG Step 2 out of 3
+2022-07-01 10:13:05 DEBUG Step 3 out of 3
+2022-07-01 10:13:05 INFO Analytics Plot Set
+2022-07-01 10:13:05 PASS Correlation between PWAT and Temperature
+2022-07-01 10:13:05 PASS Correlation between Locational Mean PWAT and Temperature
+2022-07-01 10:13:05 PASS Correlation between Temporal Mean PWAT and Temperature
+2022-07-01 10:13:05 PASS Regression between Spatiotemporal Mean PWAT and Temperature
+2022-07-01 10:13:06 PASS Regression between Weighted PWAT and Temperature
+2022-07-01 10:13:06 PASS SVM Analysis between Sky Temperature and PWAT
+2022-07-01 10:13:06 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-07-01 10:13:06 ALOHA Program Complete
+2022-07-01 10:13:49 ALOHA Precipitable-water Model Analysis Tool
+2022-07-01 10:13:49 ALOHA Program Start
+2022-07-01 10:13:51 INFO Collecting Data from sources
+2022-07-01 10:13:52 DEBUG Step 1 out of 3
+2022-07-01 10:13:52 DEBUG Step 2 out of 3
+2022-07-01 10:13:52 DEBUG Step 3 out of 3
+2022-07-01 10:13:52 INFO Analytics Plot Set
+2022-07-01 10:13:52 PASS Correlation between PWAT and Temperature
+2022-07-01 10:13:52 PASS Correlation between Locational Mean PWAT and Temperature
+2022-07-01 10:13:52 PASS Correlation between Temporal Mean PWAT and Temperature
+2022-07-01 10:13:52 PASS Regression between Spatiotemporal Mean PWAT and Temperature
+2022-07-01 10:13:52 PASS Regression between Weighted PWAT and Temperature
+2022-07-01 10:13:52 PASS SVM Analysis between Sky Temperature and PWAT
+2022-07-01 10:13:52 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-07-01 10:13:52 ALOHA Program Complete
+2022-07-01 10:19:44 ALOHA Precipitable-water Model Analysis Tool
+2022-07-01 10:19:44 ALOHA Program Start
+2022-07-01 10:19:46 INFO Collecting Data from sources
+2022-07-01 10:19:46 DEBUG Step 1 out of 3
+2022-07-01 10:19:46 DEBUG Step 2 out of 3
+2022-07-01 10:19:46 DEBUG Step 3 out of 3
+2022-07-01 10:19:46 INFO Analytics Plot Set
+2022-07-01 10:19:47 PASS Correlation between PWAT and Temperature
+2022-07-01 10:19:47 PASS Correlation between Locational Mean PWAT and Temperature
+2022-07-01 10:19:47 PASS Correlation between Temporal Mean PWAT and Temperature
+2022-07-01 10:19:47 PASS Regression between Spatiotemporal Mean PWAT and Temperature
+2022-07-01 10:19:47 PASS Regression between Weighted PWAT and Temperature
+2022-07-01 10:19:47 PASS SVM Analysis between Sky Temperature and PWAT
+2022-07-01 10:19:47 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-07-01 10:19:47 ALOHA Program Complete
+2022-07-01 10:20:01 ALOHA Precipitable-water Model Analysis Tool
+2022-07-01 10:20:01 ALOHA Program Start
+2022-07-01 10:20:03 INFO Collecting Data from sources
+2022-07-01 10:20:04 DEBUG Step 1 out of 3
+2022-07-01 10:20:04 DEBUG Step 2 out of 3
+2022-07-01 10:20:04 DEBUG Step 3 out of 3
+2022-07-01 10:20:04 INFO Pac-Man Plot Set
+2022-07-01 10:20:04 PASS Correlation between Spatiotemporal Mean PWAT and Temperature
+2022-07-01 10:20:04 PASS Pac-Man Residual of the Mean PWAT and Temperature Model
+2022-07-01 10:20:04 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-07-01 10:20:04 ALOHA Program Complete
+2022-07-01 10:20:31 ALOHA Precipitable-water Model Analysis Tool
+2022-07-01 10:20:31 ALOHA Program Start
+2022-07-01 10:20:32 INFO Collecting Data from sources
+2022-07-01 10:20:33 DEBUG Step 1 out of 3
+2022-07-01 10:20:33 DEBUG Step 2 out of 3
+2022-07-01 10:20:33 DEBUG Step 3 out of 3
+2022-07-01 10:20:33 INFO Pac-Man Plot Set
+2022-07-01 10:20:33 PASS Correlation between Spatiotemporal Mean PWAT and Temperature
+2022-07-01 10:20:33 PASS Pac-Man Residual of the Mean PWAT and Temperature Model
+2022-07-01 10:20:33 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-07-01 10:20:33 ALOHA Program Complete
+2022-07-01 10:32:43 ALOHA Precipitable-water Model Analysis Tool
+2022-07-01 10:32:43 ALOHA Program Start
+2022-07-01 10:32:45 INFO Collecting Data from sources
+2022-07-01 10:32:45 DEBUG Step 1 out of 3
+2022-07-01 10:32:45 DEBUG Step 2 out of 3
+2022-07-01 10:32:45 DEBUG Step 3 out of 3
+2022-07-01 10:32:45 INFO Pac-Man Plot Set
+2022-07-01 10:32:46 PASS Correlation between Spatiotemporal Mean PWAT and Temperature
+2022-07-01 10:34:04 ALOHA Precipitable-water Model Analysis Tool
+2022-07-01 10:34:04 ALOHA Program Start
+2022-07-01 10:34:06 INFO Collecting Data from sources
+2022-07-01 10:34:06 DEBUG Step 1 out of 3
+2022-07-01 10:34:06 DEBUG Step 2 out of 3
+2022-07-01 10:34:06 DEBUG Step 3 out of 3
+2022-07-01 10:34:06 INFO Chart Set
+2022-07-01 10:34:06 PASS Weighted PWAT
+2022-07-01 10:34:07 PASS Average Temperature
+2022-07-01 10:34:07 PASS Relative Humidity
+2022-07-01 10:34:07 PASS Dewpoint Temperature
+2022-07-01 10:34:07 PASS Predicted clear sky PWAT from IR Product
+2022-07-01 10:34:07 PASS Distribution of PWAT in RAP
+2022-07-01 10:34:07 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-07-01 10:34:07 ALOHA Program Complete
+2022-07-01 10:38:34 ALOHA Precipitable-water Model Analysis Tool
+2022-07-01 10:38:34 ALOHA Program Start
+2022-07-01 10:38:36 INFO Collecting Data from sources
+2022-07-01 10:38:36 DEBUG Step 1 out of 3
+2022-07-01 10:38:36 DEBUG Step 2 out of 3
+2022-07-01 10:38:36 DEBUG Step 3 out of 3
+2022-07-01 10:38:36 INFO Chart Set
+2022-07-01 10:38:37 PASS Weighted PWAT
+2022-07-01 10:38:37 PASS Average Temperature
+2022-07-01 10:38:37 PASS Relative Humidity
+2022-07-01 10:38:37 PASS Dewpoint Temperature
+2022-07-01 10:38:37 PASS Predicted clear sky PWAT from IR Product
+2022-07-01 10:38:37 PASS Distribution of PWAT in RAP
+2022-07-01 10:38:37 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-07-01 10:38:37 ALOHA Program Complete
+2022-07-01 10:38:46 ALOHA Precipitable-water Model Analysis Tool
+2022-07-01 10:38:46 ALOHA Program Start
+2022-07-01 10:38:47 INFO Collecting Data from sources
+2022-07-01 10:38:48 DEBUG Step 1 out of 3
+2022-07-01 10:38:48 DEBUG Step 2 out of 3
+2022-07-01 10:38:48 DEBUG Step 3 out of 3
+2022-07-01 10:38:48 INFO Poster Plot Set
+2022-07-01 10:38:48 PASS Sky-Ground-Delta Temperature Time Series
+2022-07-01 10:55:54 ALOHA Precipitable-water Model Analysis Tool
+2022-07-01 10:55:54 ALOHA Program Start
+2022-07-01 10:55:55 INFO Collecting Data from sources
+2022-07-01 10:55:56 DEBUG Step 1 out of 3
+2022-07-01 10:55:56 DEBUG Step 2 out of 3
+2022-07-01 10:55:56 DEBUG Step 3 out of 3
+2022-07-01 10:55:56 INFO Analytics Plot Set
+2022-07-01 10:55:56 PASS Correlation between PWAT and Temperature
+2022-07-01 10:55:56 PASS Correlation between Locational Mean PWAT and Temperature
+2022-07-01 10:55:56 PASS Correlation between Temporal Mean PWAT and Temperature
+2022-07-01 10:55:56 PASS Regression between Spatiotemporal Mean PWAT and Temperature
+2022-07-01 10:55:56 PASS Regression between Weighted PWAT and Temperature
+2022-07-01 10:55:56 PASS SVM Analysis between Sky Temperature and PWAT
+2022-07-01 10:55:56 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-07-01 10:55:56 ALOHA Program Complete
+2022-07-01 10:57:58 ALOHA Precipitable-water Model Analysis Tool
+2022-07-01 10:57:58 ALOHA Program Start
+2022-07-01 10:58:00 INFO Collecting Data from sources
+2022-07-01 10:58:00 DEBUG Step 1 out of 3
+2022-07-01 10:58:00 DEBUG Step 2 out of 3
+2022-07-01 10:58:00 DEBUG Step 3 out of 3
+2022-07-01 11:17:41 ALOHA Precipitable-water Model Analysis Tool
+2022-07-01 11:17:41 ALOHA Program Start
+2022-07-01 11:17:42 INFO Collecting Data from sources
+2022-07-01 11:17:43 DEBUG Step 1 out of 3
+2022-07-01 11:17:43 DEBUG Step 2 out of 3
+2022-07-01 11:17:43 DEBUG Step 3 out of 3
+2022-07-01 11:17:43 INFO Condition: Clear Sky
+2022-07-01 11:17:43 INFO Time Series Plot Set
+2022-07-01 11:18:18 ALOHA Precipitable-water Model Analysis Tool
+2022-07-01 11:18:18 ALOHA Program Start
+2022-07-01 11:18:20 INFO Collecting Data from sources
+2022-07-01 11:18:20 DEBUG Step 1 out of 3
+2022-07-01 11:18:20 DEBUG Step 2 out of 3
+2022-07-01 11:18:20 DEBUG Step 3 out of 3
+2022-07-01 11:18:21 INFO Condition: Clear Sky
+2022-07-01 11:18:21 INFO Time Series Plot Set
+2022-07-01 11:19:12 ALOHA Precipitable-water Model Analysis Tool
+2022-07-01 11:19:12 ALOHA Program Start
+2022-07-01 11:19:14 INFO Collecting Data from sources
+2022-07-01 11:19:15 DEBUG Step 1 out of 3
+2022-07-01 11:19:15 DEBUG Step 2 out of 3
+2022-07-01 11:19:15 DEBUG Step 3 out of 3
+2022-07-01 11:19:15 INFO Condition: Clear Sky
+2022-07-01 11:19:15 INFO Time Series Plot Set
+2022-07-01 11:19:49 ALOHA Precipitable-water Model Analysis Tool
+2022-07-01 11:19:49 ALOHA Program Start
+2022-07-01 11:19:50 INFO Collecting Data from sources
+2022-07-01 11:19:51 DEBUG Step 1 out of 3
+2022-07-01 11:19:51 DEBUG Step 2 out of 3
+2022-07-01 11:19:51 DEBUG Step 3 out of 3
+2022-07-01 11:19:51 INFO Condition: Clear Sky
+2022-07-01 11:19:51 INFO Time Series Plot Set
+2022-07-01 11:24:05 ALOHA Precipitable-water Model Analysis Tool
+2022-07-01 11:24:05 ALOHA Program Start
+2022-07-01 11:24:07 INFO Collecting Data from sources
+2022-07-01 11:24:07 DEBUG Step 1 out of 3
+2022-07-01 11:24:08 DEBUG Step 2 out of 3
+2022-07-01 11:24:08 DEBUG Step 3 out of 3
+2022-07-01 11:24:08 INFO Condition: Clear Sky
+2022-07-01 11:24:08 INFO Time Series Plot Set
+2022-07-01 11:24:08 PASS Sky Temperature Time Series
+2022-07-01 11:24:08 PASS Ground Temperature Time Series
+2022-07-01 11:24:08 PASS Difference Between Ground-Sky Temperature Time Series
+2022-07-01 11:24:08 PASS PWAT Time Series
+2022-07-01 11:24:08 PASS Temporal Mean PWAT Time Series
+2022-07-01 11:24:08 PASS Locational Mean PWAT Time Series
+2022-07-01 11:24:08 PASS Spatiotemporal Mean PWAT Time Series
+2022-07-01 11:24:08 PASS Dewpoint Temperature Time Series
+2022-07-01 11:24:08 PASS Mean Sky Temperature and PWAT Time Series
+2022-07-01 11:24:08 PASS Mean Sky Temperature and RH Time Series
+2022-07-01 11:24:08 PASS Mean PWAT and RH Time Series
+2022-07-01 11:24:08 PASS Mean PWAT and Dewpoint Time Series
+2022-07-01 11:24:08 PASS Mean Sky Temperature and PWAT Time Series
+2022-07-01 11:24:08 PASS Mean Sky Temperature and RH Time Series
+2022-07-01 11:24:08 PASS Mean PWAT and RH Time Series
+2022-07-01 11:24:08 PASS Mean PWAT and Dewpoint Time Series
+2022-07-01 11:25:17 ALOHA Precipitable-water Model Analysis Tool
+2022-07-01 11:25:17 ALOHA Program Start
+2022-07-01 11:25:19 INFO Collecting Data from sources
+2022-07-01 11:25:20 DEBUG Step 1 out of 3
+2022-07-01 11:25:20 DEBUG Step 2 out of 3
+2022-07-01 11:25:20 DEBUG Step 3 out of 3
+2022-07-01 11:25:20 INFO Analytics Plot Set
+2022-07-01 11:25:20 PASS Correlation between PWAT and Temperature
+2022-07-01 11:25:20 PASS Correlation between Locational Mean PWAT and Temperature
+2022-07-01 11:25:20 PASS Correlation between Temporal Mean PWAT and Temperature
+2022-07-01 11:25:20 PASS Regression between Spatiotemporal Mean PWAT and Temperature
+2022-07-01 11:25:20 PASS Regression between Weighted PWAT and Temperature
+2022-07-01 11:25:20 PASS SVM Analysis between Sky Temperature and PWAT
+2022-07-01 11:25:20 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-07-01 11:25:20 ALOHA Program Complete
+2022-07-01 11:25:33 ALOHA Precipitable-water Model Analysis Tool
+2022-07-01 11:25:33 ALOHA Program Start
+2022-07-01 11:25:34 INFO Collecting Data from sources
+2022-07-01 11:25:35 DEBUG Step 1 out of 3
+2022-07-01 11:25:35 DEBUG Step 2 out of 3
+2022-07-01 11:25:35 DEBUG Step 3 out of 3
+2022-07-01 11:25:35 INFO Time Series Plot Set
+2022-07-01 11:25:35 PASS Sky Temperature Time Series
+2022-07-01 11:25:35 PASS Ground Temperature Time Series
+2022-07-01 11:25:35 PASS Difference Between Ground-Sky Temperature Time Series
+2022-07-01 11:25:35 PASS PWAT Time Series
+2022-07-01 11:25:35 PASS Temporal Mean PWAT Time Series
+2022-07-01 11:25:35 PASS Locational Mean PWAT Time Series
+2022-07-01 11:25:35 PASS Spatiotemporal Mean PWAT Time Series
+2022-07-01 11:25:35 PASS Dewpoint Temperature Time Series
+2022-07-01 11:25:36 PASS Mean Sky Temperature and PWAT Time Series
+2022-07-01 11:25:36 PASS Mean Sky Temperature and RH Time Series
+2022-07-01 11:25:36 PASS Mean PWAT and RH Time Series
+2022-07-01 11:25:36 PASS Mean PWAT and Dewpoint Time Series
+2022-07-01 11:25:36 PASS Mean Sky Temperature and PWAT Time Series
+2022-07-01 11:25:36 PASS Mean Sky Temperature and RH Time Series
+2022-07-01 11:25:36 PASS Mean PWAT and RH Time Series
+2022-07-01 11:25:36 PASS Mean PWAT and Dewpoint Time Series
+2022-07-01 11:32:37 ALOHA Precipitable-water Model Analysis Tool
+2022-07-01 11:32:37 ALOHA Program Start
+2022-07-01 11:32:39 INFO Collecting Data from sources
+2022-07-01 11:32:39 DEBUG Step 1 out of 3
+2022-07-01 11:32:39 DEBUG Step 2 out of 3
+2022-07-01 11:32:39 DEBUG Step 3 out of 3
+2022-07-01 11:32:40 INFO Time Series Plot Set
+2022-07-01 11:32:40 PASS Sky Temperature Time Series
+2022-07-01 11:32:40 PASS Ground Temperature Time Series
+2022-07-01 11:32:40 PASS Difference Between Ground-Sky Temperature Time Series
+2022-07-01 11:32:40 PASS PWAT Time Series
+2022-07-01 11:32:40 PASS Temporal Mean PWAT Time Series
+2022-07-01 11:32:40 PASS Locational Mean PWAT Time Series
+2022-07-01 11:32:40 PASS Spatiotemporal Mean PWAT Time Series
+2022-07-01 11:32:40 PASS Dewpoint Temperature Time Series
+2022-07-01 11:32:40 PASS Mean Sky Temperature and PWAT Time Series
+2022-07-01 11:32:40 PASS Mean Sky Temperature and RH Time Series
+2022-07-01 11:32:40 PASS Mean PWAT and RH Time Series
+2022-07-01 11:32:40 PASS Mean PWAT and Dewpoint Time Series
+2022-07-01 11:32:40 PASS Mean Sky Temperature and PWAT Time Series
+2022-07-01 11:32:40 PASS Mean Sky Temperature and RH Time Series
+2022-07-01 11:32:40 PASS Mean PWAT and RH Time Series
+2022-07-01 11:32:40 PASS Mean PWAT and Dewpoint Time Series
+2022-07-01 11:32:40 PASS Normalized Index for Weighted PWAT Time Series
+2022-07-01 11:32:40 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-07-01 11:32:40 ALOHA Program Complete
+2022-07-01 11:33:00 ALOHA Precipitable-water Model Analysis Tool
+2022-07-01 11:33:00 ALOHA Program Start
+2022-07-01 11:33:01 INFO Collecting Data from sources
+2022-07-01 11:33:02 DEBUG Step 1 out of 3
+2022-07-01 11:33:02 DEBUG Step 2 out of 3
+2022-07-01 11:33:02 DEBUG Step 3 out of 3
+2022-07-01 11:33:02 INFO Condition: Clear Sky
+2022-07-01 11:33:02 INFO Time Series Plot Set
+2022-07-01 11:33:02 PASS Sky Temperature Time Series
+2022-07-01 11:33:03 PASS Ground Temperature Time Series
+2022-07-01 11:33:03 PASS Difference Between Ground-Sky Temperature Time Series
+2022-07-01 11:33:03 PASS PWAT Time Series
+2022-07-01 11:33:03 PASS Temporal Mean PWAT Time Series
+2022-07-01 11:33:03 PASS Locational Mean PWAT Time Series
+2022-07-01 11:33:03 PASS Spatiotemporal Mean PWAT Time Series
+2022-07-01 11:33:03 PASS Dewpoint Temperature Time Series
+2022-07-01 11:33:03 PASS Mean Sky Temperature and PWAT Time Series
+2022-07-01 11:33:03 PASS Mean Sky Temperature and RH Time Series
+2022-07-01 11:33:03 PASS Mean PWAT and RH Time Series
+2022-07-01 11:33:03 PASS Mean PWAT and Dewpoint Time Series
+2022-07-01 11:33:03 PASS Mean Sky Temperature and PWAT Time Series
+2022-07-01 11:33:03 PASS Mean Sky Temperature and RH Time Series
+2022-07-01 11:33:03 PASS Mean PWAT and RH Time Series
+2022-07-01 11:33:03 PASS Mean PWAT and Dewpoint Time Series
+2022-07-01 11:33:03 PASS Normalized Index for Weighted PWAT Time Series
+2022-07-01 11:33:03 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-07-01 11:33:03 INFO Analytics Plot Set
+2022-07-01 11:33:03 PASS Correlation between PWAT and Temperature
+2022-07-01 11:33:03 PASS Correlation between Locational Mean PWAT and Temperature
+2022-07-01 11:33:03 PASS Correlation between Temporal Mean PWAT and Temperature
+2022-07-01 11:33:03 PASS Regression between Spatiotemporal Mean PWAT and Temperature
+2022-07-01 11:33:03 PASS Regression between Weighted PWAT and Temperature
+2022-07-01 11:33:03 PASS SVM Analysis between Sky Temperature and PWAT
+2022-07-01 11:33:03 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-07-01 11:33:03 INFO Sensor Plot Set
+2022-07-01 11:33:03 PASS Overcast Condition Percentage: AMES 2
+2022-07-01 11:33:03 PASS Sky-Ground Time Series: AMES
+2022-07-01 11:33:03 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-07-01 11:33:03 INFO Chart Set
+2022-07-01 11:33:03 PASS Weighted PWAT
+2022-07-01 11:33:03 PASS Average Temperature
+2022-07-01 11:33:03 PASS Relative Humidity
+2022-07-01 11:33:03 PASS Dewpoint Temperature
+2022-07-01 11:33:03 PASS Predicted clear sky PWAT from IR Product
+2022-07-01 11:33:03 PASS Distribution of PWAT in RAP
+2022-07-01 11:33:03 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-07-01 11:33:03 INFO Poster Plot Set
+2022-07-01 11:33:04 PASS Sky-Ground-Delta Temperature Time Series
+2022-07-01 14:28:32 ALOHA Precipitable-water Model Analysis Tool
+2022-07-01 14:28:32 ALOHA Program Start
+2022-07-01 14:28:33 INFO Collecting Data from sources
+2022-07-01 14:28:34 DEBUG Step 1 out of 3
+2022-07-01 14:28:34 DEBUG Step 2 out of 3
+2022-07-01 14:28:34 DEBUG Step 3 out of 3
+2022-07-01 14:28:34 INFO Condition: Clear Sky
+2022-07-01 14:28:34 INFO Time Series Plot Set
+2022-07-01 14:28:34 PASS Sky Temperature Time Series
+2022-07-01 14:28:34 PASS Ground Temperature Time Series
+2022-07-01 14:28:34 PASS Difference Between Ground-Sky Temperature Time Series
+2022-07-01 14:28:34 PASS PWAT Time Series
+2022-07-01 14:28:34 PASS Temporal Mean PWAT Time Series
+2022-07-01 14:28:34 PASS Locational Mean PWAT Time Series
+2022-07-01 14:28:34 PASS Spatiotemporal Mean PWAT Time Series
+2022-07-01 14:28:34 PASS Dewpoint Temperature Time Series
+2022-07-01 14:28:34 PASS Mean Sky Temperature and PWAT Time Series
+2022-07-01 14:28:34 PASS Mean Sky Temperature and RH Time Series
+2022-07-01 14:28:34 PASS Mean PWAT and RH Time Series
+2022-07-01 14:28:34 PASS Mean PWAT and Dewpoint Time Series
+2022-07-01 14:28:34 PASS Mean Sky Temperature and PWAT Time Series
+2022-07-01 14:28:34 PASS Mean Sky Temperature and RH Time Series
+2022-07-01 14:28:34 PASS Mean PWAT and RH Time Series
+2022-07-01 14:28:34 PASS Mean PWAT and Dewpoint Time Series
+2022-07-01 14:28:34 PASS Normalized Index for Weighted PWAT Time Series
+2022-07-01 14:28:34 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-07-01 14:28:34 INFO Analytics Plot Set
+2022-07-01 14:28:35 PASS Correlation between PWAT and Temperature
+2022-07-01 14:28:35 PASS Correlation between Locational Mean PWAT and Temperature
+2022-07-01 14:28:35 PASS Correlation between Temporal Mean PWAT and Temperature
+2022-07-01 14:28:35 PASS Regression between Spatiotemporal Mean PWAT and Temperature
+2022-07-01 14:28:35 PASS Regression between Weighted PWAT and Temperature
+2022-07-01 14:28:35 PASS SVM Analysis between Sky Temperature and PWAT
+2022-07-01 14:28:35 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-07-01 14:28:35 INFO Sensor Plot Set
+2022-07-01 14:28:35 PASS Overcast Condition Percentage: AMES 2
+2022-07-01 14:28:35 PASS Sky-Ground Time Series: AMES
+2022-07-01 14:28:35 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-07-01 14:28:35 INFO Chart Set
+2022-07-01 14:28:35 PASS Weighted PWAT
+2022-07-01 14:28:35 PASS Average Temperature
+2022-07-01 14:28:35 PASS Relative Humidity
+2022-07-01 14:28:35 PASS Dewpoint Temperature
+2022-07-01 14:28:35 PASS Predicted clear sky PWAT from IR Product
+2022-07-01 14:28:35 PASS Distribution of PWAT in RAP
+2022-07-01 14:28:35 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-07-01 14:28:35 INFO Poster Plot Set
+2022-07-01 14:28:35 PASS Sky-Ground-Delta Temperature Time Series
+2022-07-01 14:29:49 ALOHA Precipitable-water Model Analysis Tool
+2022-07-01 14:29:49 ALOHA Program Start
+2022-07-01 14:29:50 INFO Collecting Data from sources
+2022-07-01 14:29:50 DEBUG Step 1 out of 3
+2022-07-01 14:29:50 DEBUG Step 2 out of 3
+2022-07-01 14:29:51 DEBUG Step 3 out of 3
+2022-07-01 14:29:51 INFO Condition: Clear Sky
+2022-07-01 14:29:51 INFO Time Series Plot Set
+2022-07-01 14:29:51 PASS Sky Temperature Time Series
+2022-07-01 14:29:51 PASS Ground Temperature Time Series
+2022-07-01 14:29:51 PASS Difference Between Ground-Sky Temperature Time Series
+2022-07-01 14:29:51 PASS PWAT Time Series
+2022-07-01 14:29:51 PASS Temporal Mean PWAT Time Series
+2022-07-01 14:29:51 PASS Locational Mean PWAT Time Series
+2022-07-01 14:29:51 PASS Spatiotemporal Mean PWAT Time Series
+2022-07-01 14:29:51 PASS Dewpoint Temperature Time Series
+2022-07-01 14:29:51 PASS Mean Sky Temperature and PWAT Time Series
+2022-07-01 14:29:51 PASS Mean Sky Temperature and RH Time Series
+2022-07-01 14:29:51 PASS Mean PWAT and RH Time Series
+2022-07-01 14:29:51 PASS Mean PWAT and Dewpoint Time Series
+2022-07-01 14:29:51 PASS Mean Sky Temperature and PWAT Time Series
+2022-07-01 14:29:51 PASS Mean Sky Temperature and RH Time Series
+2022-07-01 14:29:51 PASS Mean PWAT and RH Time Series
+2022-07-01 14:29:51 PASS Mean PWAT and Dewpoint Time Series
+2022-07-01 14:29:51 PASS Normalized Index for Weighted PWAT Time Series
+2022-07-01 14:29:51 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-07-01 14:29:51 INFO Analytics Plot Set
+2022-07-01 14:29:51 PASS Correlation between PWAT and Temperature
+2022-07-01 14:29:51 PASS Correlation between Locational Mean PWAT and Temperature
+2022-07-01 14:29:51 PASS Correlation between Temporal Mean PWAT and Temperature
+2022-07-01 14:29:51 PASS Regression between Spatiotemporal Mean PWAT and Temperature
+2022-07-01 14:29:51 PASS Regression between Weighted PWAT and Temperature
+2022-07-01 14:29:51 PASS SVM Analysis between Sky Temperature and PWAT
+2022-07-01 14:29:51 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-07-01 14:29:51 INFO Sensor Plot Set
+2022-07-01 14:29:51 PASS Overcast Condition Percentage: AMES 2
+2022-07-01 14:29:51 PASS Sky-Ground Time Series: AMES
+2022-07-01 14:29:51 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-07-01 14:29:51 INFO Chart Set
+2022-07-01 14:29:51 PASS Weighted PWAT
+2022-07-01 14:29:51 PASS Average Temperature
+2022-07-01 14:29:51 PASS Relative Humidity
+2022-07-01 14:29:51 PASS Dewpoint Temperature
+2022-07-01 14:29:51 PASS Predicted clear sky PWAT from IR Product
+2022-07-01 14:29:51 PASS Distribution of PWAT in RAP
+2022-07-01 14:29:51 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-07-01 14:29:51 INFO Poster Plot Set
+2022-07-01 14:29:52 PASS Sky-Ground-Delta Temperature Time Series
+2022-07-01 14:29:52 PASS Analytical Plots
+2022-07-01 14:29:52 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-07-01 14:29:52 INFO Pac-Man Plot Set
+2022-07-01 14:29:52 PASS Correlation between Spatiotemporal Mean PWAT and Temperature
+2022-07-01 14:29:52 PASS Pac-Man Residual of the Mean PWAT and Temperature Model
+2022-07-01 14:29:52 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-07-01 14:29:52 PASS Data sent to data/data.csv
+2022-07-01 14:32:20 ALOHA Precipitable-water Model Analysis Tool
+2022-07-01 14:32:21 ALOHA Program Start
+2022-07-01 14:32:22 INFO Collecting Data from sources
+2022-07-01 14:32:22 DEBUG Step 1 out of 3
+2022-07-01 14:32:22 DEBUG Step 2 out of 3
+2022-07-01 14:32:22 DEBUG Step 3 out of 3
+2022-07-01 14:32:22 INFO Condition: Clear Sky
+2022-07-01 14:32:22 INFO Time Series Plot Set
+2022-07-01 14:32:22 PASS Sky Temperature Time Series
+2022-07-01 14:32:22 PASS Ground Temperature Time Series
+2022-07-01 14:32:22 PASS Difference Between Ground-Sky Temperature Time Series
+2022-07-01 14:32:22 PASS PWAT Time Series
+2022-07-01 14:32:22 PASS Temporal Mean PWAT Time Series
+2022-07-01 14:32:22 PASS Locational Mean PWAT Time Series
+2022-07-01 14:32:22 PASS Spatiotemporal Mean PWAT Time Series
+2022-07-01 14:32:22 PASS Dewpoint Temperature Time Series
+2022-07-01 14:32:22 PASS Mean Sky Temperature and PWAT Time Series
+2022-07-01 14:32:23 PASS Mean Sky Temperature and RH Time Series
+2022-07-01 14:32:23 PASS Mean PWAT and RH Time Series
+2022-07-01 14:32:23 PASS Mean PWAT and Dewpoint Time Series
+2022-07-01 14:32:23 PASS Mean Sky Temperature and PWAT Time Series
+2022-07-01 14:32:23 PASS Mean Sky Temperature and RH Time Series
+2022-07-01 14:32:23 PASS Mean PWAT and RH Time Series
+2022-07-01 14:32:23 PASS Mean PWAT and Dewpoint Time Series
+2022-07-01 14:32:23 PASS Normalized Index for Weighted PWAT Time Series
+2022-07-01 14:32:23 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-07-01 14:32:23 INFO Analytics Plot Set
+2022-07-01 14:32:23 PASS Correlation between PWAT and Temperature
+2022-07-01 14:32:23 PASS Correlation between Locational Mean PWAT and Temperature
+2022-07-01 14:32:23 PASS Correlation between Temporal Mean PWAT and Temperature
+2022-07-01 14:32:23 PASS Regression between Spatiotemporal Mean PWAT and Temperature
+2022-07-01 14:32:23 PASS Regression between Weighted PWAT and Temperature
+2022-07-01 14:32:23 PASS SVM Analysis between Sky Temperature and PWAT
+2022-07-01 14:32:23 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-07-01 14:32:23 INFO Sensor Plot Set
+2022-07-01 14:32:23 PASS Overcast Condition Percentage: AMES 2
+2022-07-01 14:32:23 PASS Sky-Ground Time Series: AMES
+2022-07-01 14:32:23 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-07-01 14:32:23 INFO Chart Set
+2022-07-01 14:32:23 PASS Weighted PWAT
+2022-07-01 14:32:23 PASS Average Temperature
+2022-07-01 14:32:23 PASS Relative Humidity
+2022-07-01 14:32:23 PASS Dewpoint Temperature
+2022-07-01 14:32:23 PASS Predicted clear sky PWAT from IR Product
+2022-07-01 14:32:23 PASS Distribution of PWAT in RAP
+2022-07-01 14:32:23 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-07-01 14:32:23 INFO Poster Plot Set
+2022-07-01 14:32:23 PASS Sky-Ground-Delta Temperature Time Series
+2022-07-01 14:32:23 PASS Analytical Plots
+2022-07-01 14:32:23 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-07-01 14:32:23 INFO Pac-Man Plot Set
+2022-07-01 14:32:23 PASS Correlation between Spatiotemporal Mean PWAT and Temperature
+2022-07-01 14:32:24 PASS Pac-Man Residual of the Mean PWAT and Temperature Model
+2022-07-01 14:32:24 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-07-01 14:32:24 PASS Data sent to data/data.csv
+2022-07-01 14:32:24 PASS Data sent to ./util/tests/data_small_sd/../out/data/ml_data.csv
+2022-07-01 14:32:24 ALOHA Program Complete
+2022-07-01 14:32:42 ALOHA Precipitable-water Model Analysis Tool
+2022-07-01 14:32:42 ALOHA Program Start
+2022-07-01 14:32:43 INFO Collecting Data from sources
+2022-07-01 14:32:43 DEBUG Step 1 out of 3
+2022-07-01 14:32:43 DEBUG Step 2 out of 3
+2022-07-01 14:32:44 DEBUG Step 3 out of 3
+2022-07-01 14:32:44 INFO Time Series Plot Set
+2022-07-01 14:32:44 PASS Sky Temperature Time Series
+2022-07-01 14:32:44 PASS Ground Temperature Time Series
+2022-07-01 14:32:44 PASS Difference Between Ground-Sky Temperature Time Series
+2022-07-01 14:32:44 PASS PWAT Time Series
+2022-07-01 14:32:44 PASS Temporal Mean PWAT Time Series
+2022-07-01 14:32:44 PASS Locational Mean PWAT Time Series
+2022-07-01 14:32:44 PASS Spatiotemporal Mean PWAT Time Series
+2022-07-01 14:32:44 PASS Dewpoint Temperature Time Series
+2022-07-01 14:32:44 PASS Mean Sky Temperature and PWAT Time Series
+2022-07-01 14:32:44 PASS Mean Sky Temperature and RH Time Series
+2022-07-01 14:32:44 PASS Mean PWAT and RH Time Series
+2022-07-01 14:32:44 PASS Mean PWAT and Dewpoint Time Series
+2022-07-01 14:32:44 PASS Mean Sky Temperature and PWAT Time Series
+2022-07-01 14:32:44 PASS Mean Sky Temperature and RH Time Series
+2022-07-01 14:32:44 PASS Mean PWAT and RH Time Series
+2022-07-01 14:32:44 PASS Mean PWAT and Dewpoint Time Series
+2022-07-01 14:32:44 PASS Normalized Index for Weighted PWAT Time Series
+2022-07-01 14:32:44 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-07-01 14:32:44 ALOHA Program Complete
+2022-07-01 14:32:49 ALOHA Precipitable-water Model Analysis Tool
+2022-07-01 14:32:49 ALOHA Program Start
+2022-07-01 14:32:50 INFO Collecting Data from sources
+2022-07-01 14:32:50 DEBUG Step 1 out of 3
+2022-07-01 14:32:50 DEBUG Step 2 out of 3
+2022-07-01 14:32:50 DEBUG Step 3 out of 3
+2022-07-01 14:32:50 INFO Analytics Plot Set
+2022-07-01 14:32:51 PASS Correlation between PWAT and Temperature
+2022-07-01 14:32:51 PASS Correlation between Locational Mean PWAT and Temperature
+2022-07-01 14:32:51 PASS Correlation between Temporal Mean PWAT and Temperature
+2022-07-01 14:32:51 PASS Regression between Spatiotemporal Mean PWAT and Temperature
+2022-07-01 14:32:51 PASS Regression between Weighted PWAT and Temperature
+2022-07-01 14:32:51 PASS SVM Analysis between Sky Temperature and PWAT
+2022-07-01 14:32:51 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-07-01 14:32:51 ALOHA Program Complete
+2022-07-01 14:32:57 ALOHA Precipitable-water Model Analysis Tool
+2022-07-01 14:32:57 ALOHA Program Start
+2022-07-01 14:32:58 INFO Collecting Data from sources
+2022-07-01 14:32:58 DEBUG Step 1 out of 3
+2022-07-01 14:32:58 DEBUG Step 2 out of 3
+2022-07-01 14:32:58 DEBUG Step 3 out of 3
+2022-07-01 14:32:58 INFO Chart Set
+2022-07-01 14:32:59 PASS Weighted PWAT
+2022-07-01 14:32:59 PASS Average Temperature
+2022-07-01 14:32:59 PASS Relative Humidity
+2022-07-01 14:32:59 PASS Dewpoint Temperature
+2022-07-01 14:32:59 PASS Predicted clear sky PWAT from IR Product
+2022-07-01 14:32:59 PASS Distribution of PWAT in RAP
+2022-07-01 14:32:59 PASS Plot set downloaded to ./util/tests/data_small_sd/../out/figs/
+2022-07-01 14:32:59 ALOHA Program Complete

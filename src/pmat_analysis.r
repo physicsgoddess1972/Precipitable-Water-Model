@@ -11,7 +11,7 @@ exp.regression 	<- function(t=NULL,mean.out){
 	#' :rtype: list
 	idx 	<- mean.out[[1]]
 	dat 	<- mean.out[[2]][[1]]
-	# creates a uniform sequence of numbers that fit within the limits of x
+
 	if (!is.null(t)){
 		data_sep <- data.partition(dat$x[idx], dat$y[idx], t)
 		train <- data_sep$train
@@ -65,7 +65,6 @@ lin.regression <- function(x,y){
 	#' :param double y: the range of the dataset
 	#' :return: returns the data series and model statistics
 	#' :rtype: list
-	print("lin.regression")
 	nans <- c(grep("NaN", y)); nans <- append(nans, grep("NaN", x))
 	x <- x[-(nans)]; y <- y[-(nans)]
 
@@ -81,7 +80,7 @@ lin.regression <- function(x,y){
 	return(output)
 }
 
-data.partition <- function(x,y, tr.sz=0.7){
+data.partition <- function(x,y, tr.sz=tr.sz){
 	#' :detail: splits the data into a training/testing set
 	#' :param double x: domain of the data
 	#' :param double y: range of the data
@@ -102,14 +101,14 @@ data.partition <- function(x,y, tr.sz=0.7){
 	return(list(train=train, test=test, train_idx=train_idx))
 }
 
-iterative.analysis <- function(obool, mean.out){
+iterative.analysis <- function(out.bool, mean.out){
 	#' :detail: computes regression statistics and outputs to a yaml file
-	#' :param logical obool: determine whether to generate new _output.yml
+	#' :param logical out.bool: determine whether to generate new _output.yml
 	#' :param list mean.out: output of mean.filter
 	#' :return: iterative stats and _output.yml
 	#' :rtype: list
 	out <- resids <- mims <- seeds <- kelsey <- list()
-	if (obool){
+	if (out.bool){
 		for (i in 1:step){
 			if (length(config[[length(config)]]$seed) > 0){
 				def_seed 	<- config[[length(config)]]$seed
@@ -119,7 +118,7 @@ iterative.analysis <- function(obool, mean.out){
 			}
 			logg("DEBUG", sprintf("Step %d out of %d", i,step), lev = level)
 			set.seed(def_seed)
-			exp_reg <- exp.regression(train_frac,mean.out)
+			exp_reg <- exp.regression(tr.sz, mean.out)
 			out 	<- append(out, data.step(def_seed, i,
 											list(A=exp(coef(exp_reg$model)[1]),
 												 B=coef(exp_reg$model)[2]),
@@ -136,12 +135,12 @@ iterative.analysis <- function(obool, mean.out){
 		write(as.yaml(out, precision=4),
 			  file = file.path(dat.dir, "_output.yml"))
 	} else {
-		for (i in 1:length(oname)){
+		for (i in 1:length(out.name)){
 			logg("DEBUG", sprintf("Step %d out of %d", i,step), lev = level)
-			yml 	<- read_yaml(text=as.yaml(oname[[i]]))
+			yml 	<- read_yaml(text=as.yaml(out.name[[i]]))
 			seeds 	<- append(seeds, yml$seed)
 			set.seed(yml$seed)
-			exp_reg <- exp.regression(train_frac,mean.out)
+			exp_reg <- exp.regression(tr.sz,mean.out)
 			resids 	<- append(resids, resid(exp_reg$model.0))
 			mims_y  <- (30.55 * exp(exp_reg$x/28.725) - 2.63)
 			mims <- append(mims, sqrt(sum((mims_y - exp_reg$y)^2)/length(exp_reg$y)))
@@ -179,7 +178,8 @@ iterative.analysis <- function(obool, mean.out){
 	output[["filter.mean"]] <- mean.out
 	output[["nan.out"]]	<- mean.out[[2]]
 	if (is.na(output$S)){
-		logg("WARN", a01, lev = level)
+		logg("WARN", warn$a[[1]]$code, lev = level)
+		logg("WARN", warn$a[[1]]$fix, lev = level)
 	}
 	return(output)
 }
