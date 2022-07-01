@@ -25,7 +25,7 @@ pmat_analysis.r
 	:return: returns the data series and model statistics
 	:rtype: list
 
-.. function:: data.partition(x,y,tr.sz=0.7)
+.. function:: data.partition(x,y,tr.sz=tr.sz)
 
 	:detail: splits the data into a training/testing set
 	:param double x: domain of the data
@@ -34,10 +34,10 @@ pmat_analysis.r
 	:return: a list containing the training and testing sets
 	:rtype: list
 
-.. function:: iterative.analysis(obool,mean.out)
+.. function:: iterative.analysis(out.bool,mean.out)
 
 	:detail: computes regression statistics and outputs to a yaml file
-	:param logical obool: determine whether to generate new _output.yml
+	:param logical out.bool: determine whether to generate new _output.yml
 	:param list mean.out: output of mean.filter
 	:return: iterative stats and _output.yml
 	:rtype: list
@@ -74,10 +74,10 @@ pmat_processing.r
 	:return: an array of indices for PWV values to be analyzed
 	:rtype: list
 
-.. function:: dna.filter(fover)
+.. function:: dna.filter(filter.res)
 
 	:detail: removes data labels as Do Not Analyze
-	:param list fover: overcast.filter results
+	:param list filter.res: overcast.filter results
 	:return: overcast.filter results with DNA points removed
 	:rtype: list
 
@@ -85,7 +85,7 @@ pmat_processing.r
 
 	:detail: removes nan values from a set of lists
 	:param list stuff: list of arrays
-	:return: returns list with filtered data and the indicies with nans
+	:return: returns list with filtered data and the indices with nans
 	:rtype: list
 
 .. function:: inf.counter(bool,snsr_data,label)
@@ -93,7 +93,7 @@ pmat_processing.r
 	:detail: identifies the -Inf values
 	:param logical bool: decides if -Inf is not replaced with NaN
 	:param list snsr_data: the dataset
-	:param character label: the identifer for the dataset (e.g. sky, gro, skyo, groo)
+	:param character label: the identifier for the dataset (e.g. sky, gro, skyo, groo)
 	:return: data set that replaces all -Infs for NaN (If bool == FALSE).
 	:rtype: list
 
@@ -104,7 +104,7 @@ pmat_processing.r
 	:return: an array of values between 0 and 1
 	:rtype: double
 
-.. function:: overcast.filter(col_con,col_date,col_com,pw_name,snsr_name,cloud_bool)
+.. function:: overcast.filter(col_con,col_date,col_com,pw_name,snsr_name,cloud.bool)
 
 	:detail: Filters our data with overcast condition
 	:param integer col_con: column index for condition labels
@@ -116,10 +116,10 @@ pmat_processing.r
 	:return: A list of lists containing either clear-sky/overcast data
 	:rtype: list
 
-.. function:: sky.processing(overcast)
+.. function:: sky.processing(filter.res)
 
 	:detail: Computes average values and weighted averages
-	:param list overcast: results of the overcast.filter function
+	:param list filter.res: results of the overcast.filter function
 	:return: series of arrays including average PWV, RH, etc.
 	:rtype: list
 
@@ -132,157 +132,162 @@ pmat_products.r
 .. function:: time.pwindex(datetime)
 
 	:detail: Normalized PWV index for both clear sky and overcast data
-	:param date: the datestamp of the data
+	:param datetime: the datestamp of the data
 
-.. function:: time.nth_range(range,title,color,leg.lab,ylab,datetime,overcast)
+.. function:: time.nth_range(y,title,color,leg.lab,ylab,datetime,over.bool)
 
 	:detail: Multirange Time Series plot series
-	:param range:
-	:param title:
-	:param color:
-	:param leg.lab:
-	:param ylab:
-	:param datetime:
-	:param logical overcast: the condition of data (clear sky/overcast)
+	:param list y: the range of the plot
+	:param character title: the title/description of the plot
+	:param character color: the color string for the data range
+	:param list leg.lab: a list of
+	:param character ylab: the y-axis label
+	:param double datetime: the datetime array
+	:param logical over.bool: the condition of data (clear sky/overcast)
 
-.. function:: time.composite(range,title,color,ylab,datetime,overcast)
-
-	:detail: Time Series composite plot series
-	:param range:
-	:param title:
-	:param color:
-	:param ylab:
-	:param datetime:
-	:param logical overcast: the condition of data (clear sky/overcast)
-	:return: A sky temperature time series plot
-
-.. function:: time.mono_composite(range,title,ylab,datetime,overcast)
+.. function:: time.composite(y,title,color,ylab,datetime,over.bool)
 
 	:detail: Time Series composite plot series
-	:param range:
-	:param title:
-	:param ylab:
-	:param datetime:
+	:param list y: the range of the plot
+	:param character title: the title/description of the plot
+	:param character color: the color string for the data range
+	:param character ylab: the y-axis label
+	:param double datetime: the datetime array
+	:param logical over.bool: the condition of data (clear sky/overcast)
+
+.. function:: time.mono_composite(y,title,ylab,datetime,over.bool)
+
+	:detail: Time Series composite plot series
+	:param list y: the range of the plot
+	:param character title: the title/description of the plot
+	:param character ylab: the y-axis label
+	:param double datetime: the datetime array
 	:param logical overcast: the condition of data (clear sky/overcast)
-	:return: A sky temperature time series plot
 
-.. function:: time.multiyear(range,title,color,datetime,ylab,overcast)
+.. function:: time.multiyear(y,title,color,datetime,ylab,over.bool)
 
-
-.. function:: analysis.nth_range(overcast,x,y,title,label,color,leg.lab)
-
-	:detail: Super Average Plot with Exponential Fit
+	:detail: Climatology plot
+	:param list y: the range of the plot
+	:param character title: the title/description of the plot
+	:param character color: the color string for the data range
+	:param double datetime: the datetime array
+	:param character ylab: the y-axis label
 	:param logical overcast: the condition of data (clear sky/overcast)
-	:param x:
-	:param y:
-	:param title:
+
+.. function:: analysis.nth_range(over.bool,x,y,title,label,color,leg.lab)
+
+	:detail: Comparative analysis plot
+	:param logical overcast: the condition of data (clear sky/overcast)
+	:param x: the domain of the plot
+	:param y: the range of the plot
+	:param title: the title/description of the plot
 	:param label:
-	:param color:
+	:param color: the color string for the data
 	:param leg.lab:
-	:return: A sky temperature time series plot
 
-.. function:: analysis.regression(overcast,x,y,des,label,iter)
+.. function:: analysis.regression(over.bool,x,y,title,label,iter)
 
 	:detail: Super Average Plot with Exponential Fit
 	:param bool overcast: the condition of data (clear sky/overcast)
-	:param x:
-	:param y:
-	:param des:
-	:param label:
-	:param iter:
-	:return: A sky temperature time series plot
+	:param double x: the domain of the plot
+	:param double y: the range of the plot
+	:param character title: the title/description of the plot
+	:param list label: list containing the x-axis and y-axis labels
+	:param list iter: the output of iter.analysis
 
 .. function:: analysis.svm(model)
 
-	:detail:
-	:param model:
+	:detail: plots SVM
+	:param list model: output of lsvm
 
-.. function:: pac.compare(overcast,des,x,y,angular,radial)
+.. function:: pac.compare(over.bool,title,x,y,angular,radial)
 
 	:detail: Pac-Man plot of Super Average Plot
 	:param logical overcast: the condition of data (clear sky/overcast)
-	:param des:
-	:param x:
-	:param y:
-	:param angular:
-	:param radial:
+	:param character title: the title/description of the plot
+	:param double x: the domain of the plot
+	:param double y: the range of the plot
+	:param character angular: the angular axis label and units
+	:param character radial: the radial axis label and units
 
-.. function:: pac.regression(overcast)
+.. function:: pac.regression(over.bool)
 
 	:detail: Pac-Man residual plot
-	:param bool overcast: the condition of data (clear sky/overcast)
+	:param bool over.bool: the condition of data (clear sky/overcast)
 
 .. function:: chart.histogram(range,xlabel,title)
 
 	:detail: Histograms of defined quantities
-	:param range: a data range
-	:param xlabel: the xaxis label
-	:param title: the title of the histogram
+	:param double range: the range of the plot
+	:param list xlabel: the x-axis label of the plot
+	:param list title: the title/description of the histogram
 
-.. function:: poster.plots(overcast,iter,mean.out)
+.. function:: poster.plots(over.bool,iter,mean.out)
 
 	:detail: The set of all poster
 	:param bool overcast: the condition of data (clear sky/overcast)
+	:param list iter: output of iterative.analysis
+	:param list mean.out:
 	:return: All available poster plots
 
 .. function:: poster1(...)
 
 
-.. function:: poster2(overcast,iter,mean.out)
+.. function:: poster2(over.bool,iter,mean.out)
 
 	:detail: The analytics poster plot
 	:param logical overcast: the condition of data (clear sky/overcast)
-	:param iter:
+	:param iter: the output of iterative.analysis
 	:param mean.out:
 
 .. function:: sensor.chart(...)
 
-	:detail: overcast distribution charts
+	:detail: sensor specific data type distribution charts
 
-.. function:: sensor.time(overcast)
+.. function:: sensor.time(over.bool)
 
 	:detail: Instrumentation time series plots
-	:param logical overcast:
+	:param logical over.bool: the condition of data (clear sky/overcast)
 
-.. function:: data.gen(overcast,dir)
+.. function:: data.gen(over.bool,dir)
 
 	:detail: creates a datafile containing the date, avg temp, and avg pwv for a defined condition
-	:param bool overcast: the condition of the data (clear sky/overcast)
+	:param bool over.bool: the condition of the data (clear sky/overcast)
 	:param dir: directory path
 
-.. function:: data.ml(dir)
+.. function:: data.ml(out.dir)
 
 	:detail: creates a datafile containing the machine learning relavant information
-	:param dir: directory path
+	:param character out.dir: directory path
 
 .. function:: data.step(seed,i,coef,r,S)
 
-	:detail:
-	:param seed:
-	:param i:
-	:param coef:
-	:param r:
-	:param S:
-	:return: 
+	:detail: writes a yaml object that contains the analysis results of each step in the iterative analysis
+	:param integer seed: the generated seed
+	:param integer i:  the step number
+	:param list coef: the coefficients of the best-fit
+	:param double r: the RSME value
+	:param double S: the standard deviation
+	:return: a yaml object
 	:rtype: list
 
-.. function:: data.final(dir,lengths,frac.kept,coef,std,rmse,overcast=args$overcast)
+.. function:: data.final(out.dir,lengths,frac.kept,coef,std,rmse,over.bool=args$overcast)
 
-	:detail:
-	:param dir:
-	:param lengths:
-	:param coef:
-	:param std:
-	:param rmse:
-	:param overcast:
+	:detail: writes the final results of iterative.analysi
+	:param character out.dir: the output directory
+	:param list lengths: list of lengths
+	:param list coef: the average coefficients of the best-fit
+	:param double std: the average standard deviation
+	:param double rmse: the average rsme values
+	:param logical over.bool: the condition of data (clear sky/overcast)
 
-.. function:: visual.products(set,mean.out,datetime=datetime,overcast=args$overcast)
+.. function:: visual.products(set,mean.out,datetime=datetime,over.bool=args$overcast)
 
 	:detail: saves plot sets
-	:param character set: the set identifier
-	:param mean.out:
-	:param datetime:
-	:param logical overcast: ovecast boolean
+	:param character set: the --set parameter
+	:param mean.out: output of mean.filter
+	:param datetime: the datetime range of the data
+	:param logical over.bool: the condition of data (clear sky/overcast)
 
 ----------
 pmat_run.r
@@ -299,10 +304,10 @@ pmat_utility.r
 .. function:: logg(msglevel,msg,dir=out.dir,lev="INFO")
 
 	:detail: creates log entries for _log.txt
-	:param character msglevel:
-	:param character msg:
-	:param character dir:
-	:param character lev:
+	:param character msglevel: log level of the message
+	:param character msg: the message itself
+	:param character dir: directory that stores the log file
+	:param character lev: the log level of the user
 
 .. function:: aloha.first()
 
