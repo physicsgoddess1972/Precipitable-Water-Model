@@ -28,11 +28,11 @@ Precipitable water is the vertically integrated amount of water vapor in a colum
 Precipitable water data can be used in weather forecasting to determine the amount of potential rainfall available and to study the dynamical evolution of convective storms. The lack of reliable and sufficient precipitable water data can have a significant impact on the quality of weather forecasts [@Yang:2018; @Smith:2008]. ``PMAT`` addresses the need for an easily integrated analysis workflow to quantitatively characterize the relationship between regional PWAT and localized atmospheric brightness temperature observations for areas that lack high to moderate-resolution data collection infrastructure. The software suite has already been configured and deployed for use in the South-Central New Mexico climate zone using a series of handheld infrared thermometers as the source of atmospheric brightness temperature data [@Kelsey:2021]. As we plan to expand the scope of atmospheric science research, we aim to incorporate community science endeavors in South Dakota.
 
 # Software Architecture and Design
-``PMAT`` contains three primary elements: deployment, pre-processing, and analysis. The three components can configure the container, collect and organize data, conduct primary and secondary analysis functions, then visualize the results. 
+``PMAT`` contains three primary elements: deployment, pre-processing, and analysis. The three components together can configure the container, collect and organize data, conduct primary and secondary analysis functions, then visualize the results. 
 
-There are two primary prerequisites for the full deployment of ``PMAT``:
+The prerequisites for the full deployment of ``PMAT`` include:
 
-(1) A data file consisting of measurements that include ground and sky temperatures, time and date stamps, and visual condition of the sky (either clear-sky or overcast)
+(1) A data file consisting of measurements that include date and time stamps, ground and sky temperatures, and visual condition of the sky (either "clear sky" or "overcast")
 
 (2) A configuration file written in YAML that details sensor information, analysis parameters, and information required to retrieve data
 
@@ -40,7 +40,7 @@ The deployment mechanism allows end-users to implement the software suite on loc
  
 The pre-processing module involves aggregating atmospheric brightness temperature data collected in the field with data from radiosondes and local ground stations. The core of this subprocess is a Python script that will read in the raw data and collect atmospheric data from the University of Wyoming Upper-Air database via ``siphon`` [@siphon] in addition to the University of Utah MesoWest database. ``PMAT`` supports the usage of external data sources, such that local data files that contain precipitable water and relative humidity data may be processed. This process also includes a series of three primary filters to organize and refine the data. These filters
 
-- separate the data into structures based on the assigned label (overcast or clear sky)
+- separate the data into structures based on the assigned label ("clear sky" or "overcast")
 - removes entries that are manually labeled Do-Not-Analyze or DNA.
 - compares the standard deviation of the individual days with the average standard deviation of the dataset
 
