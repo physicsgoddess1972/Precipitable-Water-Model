@@ -14,7 +14,7 @@ authors:
   - name: Kenneth Minschwaner
     afilliation: 2
 affiliations:
-  - name: Physics Department, Montana State University, USA
+  - name: Now at Physics Department, Montana State University, USA
     index: 1
   - name: Physics Department, New Mexico Institute of Mining and Technology, USA
     index: 2
@@ -40,7 +40,7 @@ The prerequisites for the full deployment of ``PMAT`` include:
 
 The deployment mechanism allows end-users to implement the software suite on local and cloud-based systems, which facilitates access to the generated data products and visualizations. We have configured a template repository that illustrates the required directory structure. 
  
-The pre-processing module involves aggrefating the raw data file defined in Prerequisite (1) with data from National Weather Service balloon lunches via `siohon` [@siphon] and surface dewpoint and relative humidity data from local ground stations via the University of Utah's MesoWest database. ``PMAT`` supports the usage of external data sources, such that local data files that contain precipitable water and relative humidity data may be processed. This process also includes a series of three primary filters to organize and refine the data. These filters
+The pre-processing module involves aggrefating the raw data file defined in Prerequisite (1) with data from National Weather Service balloon lunches via `siphon` [@siphon] and surface dewpoint and relative humidity data from local ground stations via the University of Utah's MesoWest database. ``PMAT`` supports the usage of external data sources, such that local data files that contain precipitable water and relative humidity data may be processed. This process also includes a series of three primary filters to organize and refine the data. These filters
 
 - separate the data into structures based on the assigned label ("clear sky" or "overcast")
 - removes entries that are manually labeled Do-Not-Analyze or DNA.
