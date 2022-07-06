@@ -9,10 +9,10 @@ authors:
   - name: Spencer Riley^[corresponding author]
     orcid: 0000-0001-7949-9163 
     affiliation: "1, 2"
-  - name: Kenneth Minschwaner
-    afilliation: 2
   - name: Vicki Kelsey
     affiliation: 3
+  - name: Kenneth Minschwaner
+    affiliation: 2
 affiliations:
   - name: Now at Physics Department, Montana State University, USA
     index: 1
