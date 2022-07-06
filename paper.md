@@ -8,17 +8,17 @@ tags:
 authors:
   - name: Spencer Riley^[corresponding author]
     orcid: 0000-0001-7949-9163 
-    affiliation: 1, 2
+    affiliation: 1
   - name: Vicki Kelsey
     affiliation: 3
   - name: Kenneth Minschwaner
-    afilliation: 3
+    afilliation: 2
 affiliations:
   - name: Now at Physics Department, Montana State University, USA
     index: 1
   - name: Physics Department, New Mexico Institute of Mining and Technology, USA
     index: 2
-  - name:  Atmospheric and Environmental Sciences Program, South Dakota School of Mines and Technology, USA
+  - name: Atmospheric and Environmental Sciences Program, South Dakota School of Mines and Technology, USA
     index: 3
 date:
 bibliography: paper.bib
