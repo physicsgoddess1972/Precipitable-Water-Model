@@ -12,7 +12,7 @@ authors:
   - name: Vicki Kelsey
     affiliation: 3
   - name: Kenneth Minschwaner
-    afilliation: 2
+    afilliation: 3
 affiliations:
   - name: Now at Physics Department, Montana State University, USA
     index: 1
