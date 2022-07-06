@@ -8,7 +8,7 @@ tags:
 authors:
   - name: Spencer Riley^[corresponding author]
     orcid: 0000-0001-7949-9163 
-    affiliation: "1, 2"
+    affiliation: 1, 2
   - name: Vicki Kelsey
     affiliation: 3
   - name: Kenneth Minschwaner
