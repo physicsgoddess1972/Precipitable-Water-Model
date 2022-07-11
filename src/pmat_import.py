@@ -340,12 +340,12 @@ class PMAT_Import():
 
 
 r = robjects.r
-r['source']('./src/pmat_utility.r')
+r['source']('/pmat/src/pmat_utility.r')
 
 dir = sys.argv[1]
 out_dir = sys.argv[2]
 
-err_warn_codes = list(yaml.safe_load_all(open("./src/pmat_codes.yml")))
+err_warn_codes = list(yaml.safe_load_all(open("/pmat/src/pmat_codes.yml")))
 err = err_warn_codes[0]["error"]
 warn = err_warn_codes[0]["warn"]
 
