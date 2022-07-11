@@ -81,7 +81,7 @@ time.nth_range <- function(y, title, color, leg.lab, ylab, datetime, over.bool){
         }
     }
     # defines the legend
-    if (!is.na(leg.lab)){
+    if (length(leg.lab) > 1){
         legend("topright", inset=c(-0.21, 0),
                            legend=c(gsub("_", " ",leg.lab)),
                            col=c(color),
@@ -208,7 +208,7 @@ analysis.nth_range <- function(over.bool, x, y, title, label, color, leg.lab){
           points(x, y[[j]], pch=16, col=color[[j]])
       }
   }
-  if (!is.na(leg.lab)){
+  if (length(leg.lab) > 1){
       legend("topright",  inset=c(-0.21, 0),
                           legend=leg.lab,
                           col=color,
@@ -985,7 +985,7 @@ visual.products <- function(set, mean.out, datetime=datetime, over.bool=args$ove
         range.leg <- unlist(list(rep(list(snsr_name), 3),
                           list(pw_name),
                           list(unique(pw_place)),
-                          list(paste(unique(pw_time), "Z")), NA, NA),
+                          list(paste(unique(pw_time), "Z")), NA, NA, NA),
                      recursive=FALSE)
         range.ylab <- unlist(list(rep(list("Temperature [C]"), 3),
                           rep(list(sprintf("%s [mm]", pw_lab)), 4), "Temperature [C]"),
@@ -1131,7 +1131,7 @@ visual.products <- function(set, mean.out, datetime=datetime, over.bool=args$ove
                          unlist(clear_sky.data$snsr_sky_calc)),
                   cbind(overcast.data$rh, clear_sky.data$rh),
                   cbind(overcast.data$dew, clear_sky.data$dew),
-                  c(18.48 * exp(0.034 * clear_sky.data$snsr_sky_calc)))
+                  c(iter.results$A * exp(iter.results$B * clear_sky.data$snsr_sky_calc)))
 
         xlab <- list(sprintf("%s [mm]", pw_lab),
                      "Temperature [C]",
@@ -1144,16 +1144,20 @@ visual.products <- function(set, mean.out, datetime=datetime, over.bool=args$ove
                       "Dewpoint Temperature",
                       sprintf("Predicted clear sky %s from IR Product", pw_lab))
 
-        for (i in 1:length(unique(pw_place))){
-            x <- append(x, list(c(cbind(unlist(clear_sky.data$tmp_avg[i]),
-                                        unlist(overcast.data$tmp_avg[i])))))
-            xlab <- append(xlab, sprintf("%s [mm]", pw_lab))
-            title <- append(title, sprintf("Distribution of %s in %s", pw_lab, unique(pw_place)[i]))
+        for (i in 1:length(unique(pw_place))){		
+	    x <- append(x, list(c(cbind(unlist(clear_sky.data$tmp_avg[i]),
+					unlist(overcast.data$tmp_avg[i])))))
+	    xlab <- append(xlab, sprintf("%s [mm]", pw_lab))
+	    title <- append(title, sprintf("Distribution of %s in %s", pw_lab, unique(pw_place)[i]))
+		
         }
         # plot function calls
         for (count in 1:length(x)){
-          chart.histogram(x[[count]], xlab[count], title[count])
-        }
+		if (length(x[[count]]) > 0){
+	          chart.histogram(x[[count]], xlab[count], title[count])
+        	}
+	}
+		
         return(NULL)
 	} else if (set == "p") {
         logg("INFO", "Pac-Man Plot Set", lev = level)
@@ -1169,8 +1173,10 @@ visual.products <- function(set, mean.out, datetime=datetime, over.bool=args$ove
 
         # plot function calls
         for (i in 1:length(x1)){
-          pac.compare(over.bool, t1[[i]], x1[[i]], y1[[i]], th1[[i]], ra1[[i]])
-        }
+		if (length(x1[[i]]) > 0 && length(y1[[i]]) > 0){
+	          pac.compare(over.bool, t1[[i]], x1[[i]], y1[[i]], th1[[i]], ra1[[i]])
+        	}
+	}
         pac.regression(over.bool)
         return(NULL)
 	} else if (set == "o"){
