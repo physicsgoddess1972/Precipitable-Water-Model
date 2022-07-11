@@ -129,8 +129,7 @@ if (args$overcast){
 }
 # Converts datetime into a POSIX object
 datetime <- as.POSIXct(paste(as.Date(unlist(res$date), origin="1970-01-01"), paste(unlist(res$time),":00", sep="")), 
-						format="%Y-%m-%d %H:%M:%S", 
-						tz = "MST")
+						format="%Y-%m-%d %H:%M:%S")
 # Pulls values labeled NaN out
 nan.out <- nan.filter(list(x=res$snsr_sky_calc,
 						   y=res$wt_avg,
