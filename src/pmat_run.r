@@ -1,3 +1,4 @@
+
 #' :file: pmat_run.r
 #' :module: Precipitable-Water Model Analysis Tool
 #' :author: Spencer Riley <sriley@pmat.app>
@@ -18,6 +19,7 @@ options(warn=-1)
 # Used for argument parsing run Rscript model.r --help
 parser <- ArgumentParser(formatter_class='argparse.RawTextHelpFormatter')
 parser$add_argument('--dir', help="Directory path to data folder", default="./data/")
+parser$add_argument('--out', help="Directory path to out folder")
 parser$add_argument("-s", "--set", type="character", default=FALSE,
 	help="Select plot sets: \\n\  [t]ime series\\n\  [a]nalytics\\n\  [c]harts\\n\  [i]ndividual sensors\\n\  [p]acman\\n\  p[o]ster")
 parser$add_argument("-d", "--data", type="character", default=FALSE,
@@ -41,7 +43,7 @@ cloudblue 	<- make_style("lightskyblue")
 
 # Defines short-hand for directory names
 src.dir <- 	file.path(args$dir)
-out.dir <- 	file.path(src.dir, "../out")
+out.dir <- 	file.path(args$out)
 if (grepl("//", out.dir, fixed=TRUE)){
 	out.dir <- gsub("//", "/", out.dir)
 }
@@ -50,14 +52,13 @@ dat.dir <-	file.path(out.dir, "data/")
 dir.create(out.dir)
 dir.create(fig.dir)
 dir.create(dat.dir)
-
 # Error/Warning definitions
-err_war = yaml.load_file(file.path("./pmat_codes.yml"))
+err_war = yaml.load_file(file.path("./src/pmat_codes.yml"))
 err = err_war$error
 warn = err_war$warn
 
 # Imports utility functions
-source("./pmat_utility.r")
+source("./src/pmat_utility.r")
 
 # Checks to see if _pmat.yml is present
 # Throws error if the file is not in the expected directory
@@ -99,7 +100,7 @@ if(!file.exists(file.path(dat.dir, sprintf("_output%s.yml", ifelse(args$overcast
 }
 
 # Processing functions
-source("./pmat_processing.r")
+source("./src/pmat_processing.r")
 
 # Pulls only data labeled "clear sky"
 filter.overcast.clear <- overcast.filter(col_con,
@@ -127,8 +128,9 @@ if (args$overcast){
 	res <- clear_sky.data
 }
 # Converts datetime into a POSIX object
-datetime <- as.POSIXct(paste(as.Date(unlist(res$date), origin="1970-01-01"), paste(unlist(res$time),":00", sep="")), format="%Y-%m-%d %H:%M:%S")
-
+datetime <- as.POSIXct(paste(as.Date(unlist(res$date), origin="1970-01-01"), paste(unlist(res$time),":00", sep="")), 
+						format="%Y-%m-%d %H:%M:%S", 
+						tz = "MST")
 # Pulls values labeled NaN out
 nan.out <- nan.filter(list(x=res$snsr_sky_calc,
 						   y=res$wt_avg,
@@ -139,9 +141,9 @@ nan.out <- nan.filter(list(x=res$snsr_sky_calc,
 filter.mean	<- mean.filter(nan.out, rel_diff)
 
 # Analysis functions
-source("pmat_analysis.r")
+source("./src/pmat_analysis.r")
 # Visual and Data products functions
-source("pmat_products.r")
+source("./src/pmat_products.r")
 
 # Checks to see if there is any data available
 if (length(res$date) > 0){
