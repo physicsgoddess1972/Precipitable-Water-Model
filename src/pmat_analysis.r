@@ -226,8 +226,3 @@ lsvm <- function(x,y,l, tr.sz=0.7, seed=sample(1:2^15, 1)) {
 	output[["cf"]] <- coef(svmfit)
 	return(output)
 }
-
-
-
-
-
