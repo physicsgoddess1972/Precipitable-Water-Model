@@ -1,6 +1,18 @@
 # action.yml
 name: 'PMAT Deployment Module'
 description: 'Deployment package for the PMAT software'
+inputs:
+  dir:
+    description: "Input Directory"
+    required: true
+    default: ${{github.workspace}}/data/
+  out:
+    description: "Output directory"
+    required: true
+    default: ${{github.workspace}}/out/
+  flags:
+    description: "Other flags"
+    required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
