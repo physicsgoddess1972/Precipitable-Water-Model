@@ -53,12 +53,12 @@ dir.create(out.dir)
 dir.create(fig.dir)
 dir.create(dat.dir)
 # Error/Warning definitions
-err_war = yaml.load_file(file.path("./src/pmat_codes.yml"))
+err_war = yaml.load_file(file.path("/pmat/src/pmat_codes.yml"))
 err = err_war$error
 warn = err_war$warn
 
 # Imports utility functions
-source("./src/pmat_utility.r")
+source("/pmat/src/pmat_utility.r")
 
 # Checks to see if _pmat.yml is present
 # Throws error if the file is not in the expected directory
@@ -100,7 +100,7 @@ if(!file.exists(file.path(dat.dir, sprintf("_output%s.yml", ifelse(args$overcast
 }
 
 # Processing functions
-source("./src/pmat_processing.r")
+source("/pmat/src/pmat_processing.r")
 
 # Pulls only data labeled "clear sky"
 filter.overcast.clear <- overcast.filter(col_con,
@@ -140,9 +140,9 @@ nan.out <- nan.filter(list(x=res$snsr_sky_calc,
 filter.mean	<- mean.filter(nan.out, rel_diff)
 
 # Analysis functions
-source("./src/pmat_analysis.r")
+source("/pmat/src/pmat_analysis.r")
 # Visual and Data products functions
-source("./src/pmat_products.r")
+source("/pmat/src/pmat_products.r")
 
 # Checks to see if there is any data available
 if (length(res$date) > 0){
