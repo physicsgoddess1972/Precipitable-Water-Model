@@ -1,34 +1,18 @@
 # Container image that runs your code
-FROM debian:stable
-RUN apt-get update -y && apt-get install -y python3 \
-                                          git \
-                                         python3-pip \
-                                         gfortran \
-                                         libbz2-dev \
-                                         libv8-dev \
-                                         libcurl4-openssl-dev \
-                                         libxml2-dev \
-                                         libssl-dev \
-                                         libfontconfig1-dev \
-                                         zlib1g-dev \
-                                         libpcre3-dev \
-                                         liblzma-dev \
-                                         g++ \
-                                         libgit2-dev \
-                                         default-jdk \
-                                         libharfbuzz-dev \
-                                         libfribidi-dev \
-                                         libfreetype6-dev \
-                                         libpng-dev \
-                                         libtiff5-dev \
-                                         libjpeg-dev \
-                                         r-base && rm -rf /var/lib/apt/lists/*
-# RUN cp /usr/bin/python3 /usr/bin/python
-COPY requirements.txt /requirements.txt
-COPY DESCRIPTION /DESCRIPTION
-RUN python3 -m pip install -r /requirements.txt && R -e "install.packages('remotes')"; R -e "remotes::install_deps(dependencies = TRUE)"
-# Copies your code file from your action repository to the filesystem path `/` of the container
-COPY src/ /src
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+FROM r-base:latest
+ENV DEBIAN_FRONTEND=noninteractive
+
+COPY src/ /pmat/src
+COPY requirements.txt /pmat/requirements.txt
+COPY DESCRIPTION /pmat/DESCRIPTION
+
+RUN apt-get update && apt-get install -y --no-install-recommends build-essential libpq-dev python3 python3-pip python3-setuptools python3-dev
+ENV PYTHONPATH "${PYTHONPATH}:/pmat"
+
+WORKDIR /pmat
+
+RUN pip3 install -r requirements.txt
+RUN R -e "install.packages('remotes')"
+RUN R -e "remotes::install_deps()"
+
+ENTRYPOINT Rscript /pmat/src/pmat_run.r --dir $INPUT_DIR --out $INPUT_OUT $INPUT_FLAGS
