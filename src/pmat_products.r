@@ -56,13 +56,12 @@ time.nth_range <- function(y, title, color, leg.lab, ylab, datetime, over.bool){
     #' :param character ylab: the y-axis label
     #' :param double datetime: the datetime array
     #' :param logical over.bool: the condition of data (clear sky/overcast)
-
+    #print(datetime)
     test <- unlist(y)
     test[!is.finite(unlist(y))] <- NA
     # defines the max and min of the y-axis
     ymin <- min(as.numeric(unlist(test)), na.rm=TRUE)
     ymax <- max(as.numeric(unlist(test)), na.rm=TRUE)
-
     plot(datetime, y[[1]],
          ylab=ylab[1],
          xaxt='n',
@@ -1031,33 +1030,42 @@ visual.products <- function(set, mean.out, datetime=datetime, over.bool=args$ove
         if (length(datetime) > 0){
             # plot function calls
             par(mar=c(5.1, 5.1, 5.1, 5.3), xpd=TRUE)
+            
             for (i in 1:length(range.r)){
-                time.nth_range(range.r[[i]],
-                               range.t[[i]],
-                               range.col[[i]],
-                               range.leg[[i]],
-                               range.ylab[[i]],
-                               datetime, over.bool)
+                if (length(range.r[[i]][[1]]) > 0){
+                    time.nth_range(range.r[[i]],
+                                range.t[[i]],
+                                range.col[[i]],
+                                range.leg[[i]],
+                                range.ylab[[i]],
+                                datetime, over.bool)
+                }
             }
             for (i in 1:length(composite.r)){
-                time.composite(composite.r[[i]],
-                               composite.title[[i]],
-                               composite.col[[i]],
-                               composite.ylab[[i]],
-                               datetime, over.bool)
+                if (length(composite.r[[i]][[1]]) > 0 && length(composite.r[[i]][[2]]) > 0){
+                    time.composite(composite.r[[i]],
+                                composite.title[[i]],
+                                composite.col[[i]],
+                                composite.ylab[[i]],
+                                datetime, over.bool)
+                }
             }
             for (i in 1:length(composite_mono.r)){
-                time.mono_composite(composite_mono.r[[i]],
-                               composite_mono.title[[i]],
-                               composite_mono.ylab[[i]], datetime, over.bool)
+                if (length(composite.r[[i]][[1]]) > 0 && length(composite.r[[i]][[2]]) > 0){
+                    time.mono_composite(composite_mono.r[[i]],
+                                composite_mono.title[[i]],
+                                composite_mono.ylab[[i]], datetime, over.bool)
+                }
             }
             par(mar=c(5.1, 4.1, 4.1, 2.1), xpd=TRUE)
             for (i in 1:length(multiyear.r)){
-              time.multiyear(multiyear.r[[i]],
-                             multiyear.title[[i]],
-                             multiyear.col[[i]],
-                             datetime, multiyear.ylab,
-                             over.bool)
+                if (length(multiyear.r[[i]]) > 0){
+                    time.multiyear(multiyear.r[[i]],
+                                    multiyear.title[[i]],
+                                    multiyear.col[[i]],
+                                    datetime, multiyear.ylab,
+                                    over.bool)
+                }
             }
             time.pwindex(datetime)
             return(NULL)
@@ -1103,11 +1111,15 @@ visual.products <- function(set, mean.out, datetime=datetime, over.bool=args$ove
         par(mar=c(5.1, 4.1, 4.1, 5.3), xpd=TRUE)
         # plot function calls
         for (i in 1:length(x1)){
-            analysis.nth_range(over.bool, x1[[i]], y1[[i]], t1[[i]], l1[[i]], c1[[i]], leg.lab[[i]])
+            if (length(x1[[i]]) > 0 && length(y1[[i]]) > 0){
+                analysis.nth_range(over.bool, x1[[i]], y1[[i]], t1[[i]], l1[[i]], c1[[i]], leg.lab[[i]])
+            }
         }
         par(mar=c(5.1, 4.1, 4.1, 2.1), xpd=FALSE)
         for (i in 1:length(x2)){
-            analysis.regression(over.bool, x2[[i]], y2[[i]], t2[[i]], l2[[i]], iter.results)
+            if (length(x2[[i]]) > 0 && length(y2[[i]]) > 0){
+                analysis.regression(over.bool, x2[[i]], y2[[i]], t2[[i]], l2[[i]], iter.results)
+            }
         }
         par(mar=c(5.1, 4.1, 4.1, 2.1), xpd=FALSE)
         analysis.svm(ml)

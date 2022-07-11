@@ -3,7 +3,7 @@
 #' :synopsis: functions for preprocessing
 #' :author: Spencer Riley
 
-system(sprintf("python3 pmat_import.py %s %s", args$dir, out.dir))
+system(sprintf("python3 ./src/pmat_import.py %s %s", args$dir, out.dir))
 
 fname	<- read.table(file.path(src.dir, "master_data.csv"),
 					   sep=",",
@@ -22,7 +22,7 @@ col_pw 		<- grep("PW", colnames(fname))
 # Pulls the column number of the date
 col_date 	<- grep("Date", colnames(fname))
 # Pulls the column number of measurement time
-col_time 	<- grep("Time", colnames(fname))
+col_time 	<- grep("Time", colnames(fname))[1]
 # Pulls the column number of the Relative Humidity
 col_rh 		<- grep("RH", colnames(fname))
 # Pulls the column number of the Relative Humidity
@@ -270,7 +270,7 @@ overcast.filter <- function(col_con, col_date, col_com, pw_name, snsr_name, clou
 			}
 			rh <- append(x=rh, value=fname[i, col_rh[1]])
 			com <- append(x=com, value=fname[i, col_com[1]])
-			time <- append(x=time, value=fname[i, col_time[1]])
+			time <- append(x=time, value=sprintf("%s", fname[i, col_time[1]]))
 			dew <- append(x=dew, value=fname[i, col_dew[1]])
 			lab <- append(x=lab, value=-1)
 		}else{
@@ -284,14 +284,13 @@ overcast.filter <- function(col_con, col_date, col_com, pw_name, snsr_name, clou
 			}
 			rho <- append(x=rho, value=fname[i, col_rh[1]])
 			como <- append(x=como, value=fname[i, col_com[1]])
-			timeo <- append(x=timeo, value=fname[i, col_time[1]])
+			timeo <- append(x=timeo, value=sprintf("%s", fname[i, col_time[1]]))
 			dewo <- append(x=dewo, value=fname[i, col_dew[1]])
 			labo <- append(x=labo, value=1)
 		}
 	}
 	# Adds divided data into list to output from function
 	output1 <- list()
-
 	if (cloud.bool){
 		output1[["date"]] 	<- date_over
 		output1[["time"]] 	<- timeo
@@ -335,6 +334,7 @@ sky.processing <- function(filter.res){
 	#' :rtype: list
 	# Pulls date from filter function
 	output <- list()
+	#print(filter.res$time)
 	output[["date"]]  	<- filter.res$date	# Date
 	output[["time"]]  	<- filter.res$time
 	output[["rh"]]		<- filter.res$rh
@@ -399,4 +399,3 @@ sky.processing <- function(filter.res){
 	output[["pw.index"]]<- index.norm(output[["wt_avg"]])
 	return(output)
 }
-

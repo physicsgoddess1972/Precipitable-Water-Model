@@ -1,11 +1,11 @@
 name: Update PMAT
 on:
-  push:
-    paths:
-      - "src/*.r"
-      - "src/*.py"
-      - "DESCRIPTION"
-      - "requirements.txt"
+#   push:
+#     paths:
+#       - "src/*.r"
+#       - "src/*.py"
+#       - "DESCRIPTION"
+#       - "requirements.txt"
   workflow_dispatch:
   
 jobs:

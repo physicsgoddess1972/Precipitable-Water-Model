@@ -88,11 +88,13 @@ time_axis_init <- function(date){
     #' :param double date: A date or datetime object
     #' :return: The max, min, and tick mark positions
     #' :rtype: list
+    #print(date)
     xmin <- reset_time(paste(substr(date[[1]], 1, 8),"01",sep=""))
     dm <- ifelse(round(as.integer(substr(date[[length(date)]], 9, 10))) > 1, 1, 0)
     xmax <- reset_time(paste(substr(date[[length(date)]], 1, 5),
                       sprintf("%02d", as.integer(substr(date[[length(date)]], 6, 7)) + dm),
                       "-01", sep=""))
+    #print(list(xmin, xmax))
     ticks.at <- seq(xmin, xmax, by = "months")
     if (length(ticks.at) <= 3){
         xmin <- reset_time(date[[1]])
