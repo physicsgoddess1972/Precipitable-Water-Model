@@ -3,7 +3,7 @@
 #' :synopsis: functions for preprocessing
 #' :author: Spencer Riley
 
-system(sprintf("python3 ./src/pmat_import.py %s %s", args$dir, out.dir))
+system(sprintf("python3 /pmat/src/pmat_import.py %s %s", args$dir, out.dir))
 
 fname	<- read.table(file.path(src.dir, "master_data.csv"),
 					   sep=",",
