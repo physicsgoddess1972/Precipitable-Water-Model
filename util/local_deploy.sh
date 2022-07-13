@@ -22,6 +22,7 @@ while getopts "iRU" opt; do
         sudo docker pull ghcr.io/physicsgoddess1972/pmat
         ;;
     R)
+    # sudo docker run -e INPUT_DIR="/data" -e INPUT_OUT="/out/" -v "/workspaces/Development/data_large":"/data/"  ghcr.io/physicsgoddess1972/pmat:latest
         sudo docker container create --name pmat ghcr.io/physicsgoddess1972/pmat
         sudo docker start pmat
         sudo docker cp data/. pmat:/data
