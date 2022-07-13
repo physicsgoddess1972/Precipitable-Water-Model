@@ -52,11 +52,7 @@ The analysis module has primary and secondary functionality. First and foremost,
 \begin{equation}
 \text{PW} = Ae^{T_b B}\, .
 \end{equation}
-The result of this process is two output files. One is for the results at each step, and the other is the final averaged regression statistics. The plots associated with the analysis process will utilize the averaged coefficients and statistics.
-
-The secondary analysis functions consist of climatological modeling, time series analysis, and a linear support vector machine. The climatological analysis computes the average value on the same day of the year. The time series analysis includes the computation of regression models for sinusoidal data. Finally, the included linear support vector machine employs the ``e1071`` R package [@e1071] to classify atmospheric brightness temperature and precipitable water data into the aforementioned label scheme.
-
-At the conclusion of this workflow, the end-users have access to a collection of generated data files, plot sets, and analysis results.
+The result of this process is two output files. One is for the results at each step, and the other is the final averaged regression statistics. The plots associated with the analysis process will utilize the averaged coefficients and statistics. The secondary analysis functions consist of climatological modeling and a linear support vector machine. The climatological analysis computes the average value on the same day of the year for the available data provided. Finally, the included linear support vector machine employs the ``e1071`` R package [@e1071] to classify atmospheric brightness temperature and precipitable water data into the aforementioned label scheme. At the conclusion of this workflow, the end-users have access to a collection of generated data files, plot sets, and analysis results.
 
 # Acknowledgements
 
