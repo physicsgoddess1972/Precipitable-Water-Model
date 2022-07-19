@@ -154,7 +154,7 @@ if (length(res$date) > 0){
 				list(length(clear_sky.data$date),
 				     length(overcast.data$date),
 				     iter.results$train.len,
-				     length(iter.results$nan.out)),
+				     length(iter.results$nan.out[[2]])),
                 length(iter.results$filter.mean[[1]])/(length(clear_sky.data$date) - length(iter.results$nan.out)),
 				list(A=iter.results$A, B=iter.results$B),
 			   	iter.results$S,
