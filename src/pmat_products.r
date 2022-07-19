@@ -917,10 +917,10 @@ data.final <- function(out.dir, lengths, frac.kept, coef, std, rmse, over.bool=a
     #' :param double rmse: the average rsme values
     #' :param logical over.bool: the condition of data (clear sky/overcast)
 
-    clear.len   = lengths[1]
-    over.len    = lengths[2]
-    train.len  = lengths[3]
-    nan.len     = lengths[4]
+    clear.len   = unlist(lengths[1])
+    over.len    = unlist(lengths[2])
+    train.len  = unlist(lengths[3])
+    nan.len     = unlist(lengths[4])
     yml <- list(data=list(clear=list(total.count=c(clear.len)),
 									overcast=list(total.count=c(over.len)),
 									train.count=c(train.len),
