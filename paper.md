@@ -32,7 +32,7 @@ Precipitable water data is important for setting initial conditions in weather f
 # Software Architecture and Design
 ``PMAT`` contains three primary elements: deployment, pre-processing, and analysis. The three components together can configure the container, collect and organize data, conduct primary and secondary analysis functions, then visualize the results. 
 
-The prerequisites for the full deployment of ``PMAT`` include:
+The Prerequisites for the full deployment of ``PMAT`` include:
 
 (1) A data file consisting of measurements that include date and time stamps, ground and sky temperatures, and visual condition of the sky (either "clear sky" or "overcast")
 
@@ -52,7 +52,9 @@ The analysis module has primary and secondary functionality. First and foremost,
 \begin{equation}
 \text{PW} = Ae^{T_b B}\, .
 \end{equation}
-The result of this process is two output files. One is for the results at each step, and the other is the final averaged regression statistics. The plots associated with the analysis process will utilize the averaged coefficients and statistics. The secondary analysis functions consist of climatological modeling and a linear support vector machine. The climatological analysis computes the average value on the same day of the year for the available data provided. Finally, the included linear support vector machine employs the ``e1071`` R package [@e1071] to classify atmospheric brightness temperature and precipitable water data into the aforementioned label scheme. At the conclusion of this workflow, the end-users have access to a collection of generated data files, plot sets, and analysis results.
+The result of this process is two output files. One is for the results at each step, and the other is the final averaged regression statistics. The plots associated with the analysis process will utilize the averaged coefficients and statistics. 
+
+The secondary analysis functions consist of climatological modeling and a linear support vector machine. The climatological analysis computes the average value on the same day of the year for the available data provided. Finally, the included linear support vector machine employs the ``e1071`` R package [@e1071] to classify atmospheric brightness temperature and precipitable water data into the aforementioned label scheme. At the conclusion of this workflow, the end-users have access to a collection of generated data files, plot sets, and analysis results for a specific site location.
 
 # Acknowledgements
 
