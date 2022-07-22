@@ -27,9 +27,10 @@ bimodial.coeff <- function(x){
 # exp.regression(clear_sky.results, 0.7)
 # index.norm(overcast.results$wt_avg)
 sin.regression <- function(y){
-	y <- y[!is.na(y)]
+ 	y <- y[!is.na(y)]
 	A <- (max(y, na.rm=TRUE) - min(y, na.rm=TRUE))/2
 	B <- (max(y, na.rm=TRUE) + min(y, na.rm=TRUE))/2
+	print(length(y))
 	w <- (2 * pi)/366
 	dt <- seq(1, length(y), length.out=length(y))[!is.na(y)]
 	model <- nls(y ~ (A * sin((w*x) + phi)) + B,

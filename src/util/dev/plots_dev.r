@@ -19,7 +19,7 @@ dev.plots <- function(){
               test[!is.finite(unlist(range[[i]]))] <- NA
               # defines the max and min of the y-axis
               ymin <- min(as.numeric(unlist(test)), na.rm=TRUE)
-              ymax <- max(as.numeric(unlist(test)), na.rm=TyRUE)
+              ymax <- max(as.numeric(unlist(test)), na.rm=TRUE)
               dt <- seq(0, length(datetime), length.out=length(datetime))
               plot(dt, range[[i]][[1]],
                    ylab=ylab[[i]][1],
@@ -80,7 +80,7 @@ dev.plots <- function(){
               time_axis(datetime)
               s <- coef(sin.regression(clear_sky.data$snsr_sky_calc)$model)
 
-              curve(18.48 * exp(0.034 * ((s[1] * sin((s[4]*x)+s[2])) + s[3])),
+              curve(18.4658 * exp(0.0357 * ((s[1] * sin((s[4]*x)+s[2])) + s[3])),
                     col="black", add=TRUE)
               # plots all other ranges in the list if the length of range is greater than 1
               if (length(range[[i]]) > 1){
@@ -102,10 +102,8 @@ dev.plots <- function(){
 
   dev.agg_temp <- function(...){
     datetime1 <- as.POSIXlt(paste(as.Date(unlist(clear_sky.data$date), origin="1970-01-01")), format="%Y-%m-%d")
-    print(unclass(datetime1))
-    # print(unclass(datetime1))
     x <- unclass(datetime1)$yday
-    y <- clear_sky.data$snsr_sky_calc
+    y <- clear_sky.data$dewpoint
     t1 <- with(data.frame(x=x,y=y),
                aggregate(list(y=y), list(x = x), mean))
     plot(t1$x, t1$y,
@@ -128,7 +126,32 @@ dev.plots <- function(){
     curve(s[1] * sin((s[4]*x) + s[2]) + s[3], col="red", add=TRUE)
    logg("PASS", "Time series of aggregated temperature")
   }
+  dev.climat_pw <- function(...){
+    datetime1 <- as.POSIXlt(paste(as.Date(unlist(clear_sky.data$date), origin="1970-01-01")), format="%Y-%m-%d")
+    x <- unclass(datetime1)$yday
+    y <- clear_sky.data$wt_avg
+    t1 <- with(data.frame(x=x,y=y),
+               aggregate(list(y=y), list(x = x), mean))
+    plot(t1$x, t1$y,
+         pch=16,
+         main="Multi-year Average Time Series",
+         col="black",
+         xlab="Day number",
+         xlim=c(1, 366),
+         ylab="Y-axis")
+    # mj_ticks <- seq(1, 12,  length.out=12)
+    # axis.POSIXct(1,mj_ticks, at=mj_ticks, format="%b", tck=-0.03)
+    # axis.POSIXct(1,ticks.at, at=ticks.at, format=" ", tck=-0.015)
+    minor.tick(nx=2, ny=2, tick.ratio=0.5,
+               x.args = list(), y.args = list())
 
+    s <- coef(sin.regression(clear_sky.data$snsr_sky_calc)$model)
+
+    curve(18.4658 * exp(0.0357 * ((s[1] * sin((s[4]*x)+s[2])) + s[3])),
+        col="black", add=TRUE)
+
+   logg("PASS", "Time series of aggregated temperature")
+  }
   dev.agg_deiv <- function(...){
     datetime1 <- unclass(as.POSIXlt(paste(as.Date(unlist(clear_sky.data$date), origin="1970-01-01")),
                        format="%Y-%m-%d"))$yday
@@ -168,7 +191,6 @@ dev.plots <- function(){
 
   ml.plot <- function(model){
     cf <- model$cf
-    print(model$con.mat)
     A <- -cf[2]/cf[3]
     plot(model$x,model$y,
          pch=16, col=model$color,
@@ -197,6 +219,7 @@ dev.plots <- function(){
   ml <- lsvm(nan.ml$x, log(nan.ml$y, base=exp(1)), nan.ml$l)
   return(c(dev.temp(),
            dev.pw(),
+           dev.climat_pw(),
            dev.agg_temp(),
            dev.agg_deiv(),
            fft.test(),

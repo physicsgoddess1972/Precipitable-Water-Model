@@ -1,6 +1,15 @@
+<<<<<<< HEAD
 Good morning,
 
 This is a test.
 
 Have a nice day.
 
+=======
+Good morning,
+
+This is a test.
+
+Have a nice day.
+
+>>>>>>> 47addb531525c32ecd60a78ae867ca064c77857a

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 sensor:
     - name: 1610 TE
       error: 2.5
@@ -41,4 +42,49 @@ wyoming:
     - id: EPZ
 analysis:
     rel_diff: 10
+=======
+sensor:
+    - name: 1610 TE
+      error: 2.5
+      color: FA5301
+      ratio: 12 to 1
+      poster: true
+      range: -20 ~ 537
+      emissivity: 0.95
+    - name: FLIR i3
+      error: null
+      color: 01A8FA
+      ratio: 12 to 1
+      poster: true
+      range: null
+      emissivity: 0.95
+    - name: AMES_1
+      error: 7
+      color: 2BFA01
+      ratio: 12 to 1
+      poster: true
+      range: -50 ~ 550
+      emissivity: 0.95
+    - name: AMES_2
+      error: 7
+      color: D001FA
+      ratio: 12 to 1
+      poster: true
+      range: -50 ~ 550
+      emissivity: 0.95
+    - name: AMES_3
+      error: 7
+      color: 30AF9B
+      ratio: 12 to 1
+      poster: true
+      range: -50 ~ 550
+      emissivity: 0.95
+mesowest:
+    - id: KONM
+wyoming:
+    - id: ABQ
+    - id: EPZ
+analysis:
+    rel_diff: 10
+>>>>>>> 47addb531525c32ecd60a78ae867ca064c77857a
     train_pct: 80

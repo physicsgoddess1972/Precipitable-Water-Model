@@ -3,9 +3,9 @@
 #' :synopsis: functions for preprocessing
 #' :author: Spencer Riley
 
-system(sprintf("python3 /pmat/src/pmat_import.py %s %s", args$dir, out.dir))
+system(sprintf("python3 %spmat_import.py %s %s %s", src.dir, src.dir, raw.dir, out.dir))
 
-fname	<- read.table(file.path(src.dir, "master_data.csv"),
+fname	<- read.table(file.path(raw.dir, "master_data.csv"),
 					   sep=",",
 					   header=TRUE,
 					   strip.white=TRUE)
@@ -112,12 +112,12 @@ col_pwtm <- unique(col_pwtm)
 pw_color <- brewer.pal(length(pw_name),"Set1")
 temp_col <- brewer.pal(length(temp_name), "Spectral")
 
-colscheme <- function(range){
+colscheme <- function(range, set="Set1"){
 	#' :detail: a function that generates an array of colors based on the number of elements
 	#' :param list range: a list of data series
 	#' :return: a list of colors
 	#' :rtype: list
-	col <- brewer.pal(length(range)+1, "Set1")
+	col <- brewer.pal(range+1, set)
 	return(col)
 }
 # Pull general location tag from the label
@@ -126,6 +126,38 @@ snsr_tag 	<- gsub("*_.", "", snsr_name)
 col_snsr <- list()
 for (j in unique(snsr_tag)){
 	col_snsr <- append(col_snsr, list(grep(j, snsr_tag)))
+}
+
+nan.filter <- function(stuff){
+	#' :detail: removes nan values from a set of lists
+	#' :param list stuff: list of arrays
+	#' :return: returns list with filtered data and the indices with nans
+	#' :rtype: list
+	nans <- list()
+	for (i in 1:length(stuff)){
+		if (length(stuff[[i]][[1]]) > length(lengths(stuff[[i]]))){
+			for (j in 1:length(stuff[[i]])){
+				stuff[[i]][[j]] <- stuff[[i]][[j]]
+				nans <- append(nans, which(is.na(stuff[[i]][[j]])))
+			}
+		} else {
+			stuff[[i]] <- stuff[[i]]
+			nans <- append(nans, which(is.na(stuff[[i]])))
+		}
+	}
+	nans <- unique(unlist(nans))
+	if (length(nans) > 0){
+		for (i in 1:length(stuff)){
+			if (length(stuff[[i]][[1]]) > length(lengths(stuff[[i]]))){
+				for (j in 1:length(stuff[[i]])){
+					stuff[[i]][[j]] <- stuff[[i]][[j]][-(nans)]
+				}
+			} else {
+				stuff[[i]] <- stuff[[i]][-(nans)]
+			}
+		}
+	}
+	return(list(stuff, nans))
 }
 
 mean.filter <- function(nan.out, n){
@@ -166,10 +198,18 @@ dna.filter <- function(filter.res){
 	#' :return: overcast.filter results with DNA points removed
 	#' :rtype: list
 	sky.len <- length(grep("snsr_sky", names(filter.res), fixed=TRUE))
+	if (sky.len == 0){
+		stop(err$D[[1]]$code)
+	}
 	gro.len <- length(grep("snsr_gro", names(filter.res), fixed=TRUE))
+	if (gro.len == 0){
+		stop(err$D[[1]]$code)
+	}
 	pw.len 	<- length(grep("pw_loc", names(filter.res), fixed=TRUE))
+	if (pw.len == 0){
+		stop(err$D[[3]]$code)
+	}
 	dna.len <- grep("DNA", filter.res$com, fixed=TRUE)
-
 	if (length(dna.len) > 0){
 		for (j in 1:sky.len){
 			filter.res[[ paste("snsr_sky",j,sep="") ]][dna.len] <- NaN
@@ -182,38 +222,6 @@ dna.filter <- function(filter.res){
 		}
 	}
 	return(filter.res)
-}
-
-nan.filter <- function(stuff){
-	#' :detail: removes nan values from a set of lists
-	#' :param list stuff: list of arrays
-	#' :return: returns list with filtered data and the indices with nans
-	#' :rtype: list
-	nans <- list()
-	for (i in 1:length(stuff)){
-		if (length(stuff[[i]][[1]]) > length(lengths(stuff[[i]]))){
-			for (j in 1:length(stuff[[i]])){
-				stuff[[i]][[j]] <- stuff[[i]][[j]]
-				nans <- append(nans, which(is.na(stuff[[i]][[j]])))
-			}
-		} else {
-			stuff[[i]] <- stuff[[i]]
-			nans <- append(nans, which(is.na(stuff[[i]])))
-		}
-	}
-	nans <- unique(unlist(nans))
-	if (length(nans) > 0){
-		for (i in 1:length(stuff)){
-			if (length(stuff[[i]][[1]]) > length(lengths(stuff[[i]]))){
-				for (j in 1:length(stuff[[i]])){
-					stuff[[i]][[j]] <- stuff[[i]][[j]][-(nans)]
-				}
-			} else {
-				stuff[[i]] <- stuff[[i]][-(nans)]
-			}
-		}
-	}
-	return(list(stuff, nans))
 }
 
 inf.counter <- function(bool, snsr_data, label){
@@ -231,6 +239,9 @@ inf.counter <- function(bool, snsr_data, label){
             }
         }
         output <- append(output, values=list(snsr_data[[ paste(paste("snsr_",label,sep=""),i,sep="") ]]))
+		if (is.null(output[[i]])){
+			stop(err$error$D[[4]]$code)
+		}
     }
     return(output)
 }
@@ -240,7 +251,12 @@ index.norm <- function(x){
 	#' :param double x: data range
 	#' :return: an array of values between 0 and 1
 	#' :rtype: double
-	return((x - min(x, na.rm=TRUE)) / (max(x, na.rm = TRUE) - min(x, na.rm = TRUE)))
+	indx = (x - min(x, na.rm=TRUE)) / (max(x, na.rm = TRUE) - min(x, na.rm = TRUE))
+	if (length(indx) > 0){
+		return(indx)
+	} else {
+		stop(err$error$D[[1]]$code)
+	}
 }
 
 overcast.filter <- function(col_con, col_date, col_com, pw_name, snsr_name, cloud.bool){

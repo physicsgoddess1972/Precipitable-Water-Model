@@ -339,13 +339,15 @@ class PMAT_Import():
             out.to_csv(wname, index=False, mode="a", header=False)
 
 
+src_dir = sys.argv[1]
+dir = sys.argv[2]
+out_dir = sys.argv[3]
+
 r = robjects.r
-r['source']('/pmat/src/pmat_utility.r')
+r['source']('{}pmat_utility.r'.format(src_dir))
 
-dir = sys.argv[1]
-out_dir = sys.argv[2]
 
-err_warn_codes = list(yaml.safe_load_all(open("/pmat/src/pmat_codes.yml")))
+err_warn_codes = list(yaml.safe_load_all(open("{}pmat_codes.yml".format(src_dir))))
 err = err_warn_codes[0]["error"]
 warn = err_warn_codes[0]["warn"]
 
