@@ -1,11 +1,8 @@
 name: Testing PMAT
 on:
-  push:
-    paths:
-      - "src/*.r"
-      - "src/*.py"
-      - "DESCRIPTION"
-      - "requirements.txt"
+  workflow_run:
+    workflows: ["Update PMAT"]
+    types: [completed]  
   workflow_dispatch:
 
 jobs:
