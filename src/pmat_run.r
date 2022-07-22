@@ -20,6 +20,7 @@ options(warn=-1)
 parser <- ArgumentParser(formatter_class='argparse.RawTextHelpFormatter')
 parser$add_argument('--dir', help="Directory path to data folder", default="./data/")
 parser$add_argument("--src", help="Directory path to src folder", default="/pmat/src/")
+
 parser$add_argument('--out', help="Directory path to out folder")
 parser$add_argument("-s", "--set", type="character", default=FALSE,
 	help="Select plot sets: \\n\  [t]ime series\\n\  [a]nalytics\\n\  [c]harts\\n\  [i]ndividual sensors\\n\  [p]acman\\n\  p[o]ster")
