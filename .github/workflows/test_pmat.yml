@@ -9,15 +9,15 @@ on:
   workflow_dispatch:
 
 jobs:
-  unit:
-    name: Unit testing
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Master
-        uses: actions/checkout@master
-        with:
-          ref: master
-          path: main
+  # unit:
+  #   name: Unit testing
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout Master
+  #       uses: actions/checkout@master
+  #       with:
+  #         ref: master
+  #         path: main
   global:
     name: Global tests
     strategy:
