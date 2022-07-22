@@ -11,7 +11,6 @@ exp.regression 	<- function(t=NULL,mean.out){
 	#' :rtype: list
 	idx 	<- mean.out[[1]]
 	dat 	<- mean.out[[2]][[1]]
-
 	if (!is.null(t)){
 		data_sep <- data.partition(dat$x[idx], dat$y[idx], t)
 		train <- data_sep$train
@@ -29,6 +28,7 @@ exp.regression 	<- function(t=NULL,mean.out){
 	xmin 	<- min(x, na.rm=TRUE)
 	xmax 	<- max(x, na.rm=TRUE)
 	if (!is.finite(xmax) || !is.finite(xmax)){
+		stop(err$D[[1]]$code)
 	    logg("ERROR", err$D[[1]]$code, lev=level)
 	    logg("ERROR", err$D[[1]]$fix, lev=level)
 	    aloha.closing()
