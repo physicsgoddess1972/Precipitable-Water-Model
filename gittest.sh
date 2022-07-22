@@ -1,4 +1,4 @@
-git filter-branch -f --commit-filter '
+git filter-branch --commit-filter '
         if [ "$GIT_COMMITTER_NAME" = "PharaohCola13" ] || [ "$GIT_COMMITTER_NAME" = "spencerriley620" ] || [ "$GIT_COMMITTER_NAME" = "Spencer Riley" ]; 
         then
                 GIT_COMMITTER_NAME="PharaohCola13";
