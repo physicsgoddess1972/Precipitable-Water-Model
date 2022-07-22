@@ -1,0 +1,67 @@
+2022-06-26 16:49:28 ALOHA Precipitable-water Model Analysis Tool
+2022-06-26 16:49:28 ALOHA Program Start
+2022-06-26 16:49:28 WARN _output.yml is not found
+2022-06-26 16:49:28 WARN Automatically creating _output.yml.
+2022-06-26 16:49:29 INFO Collecting Data from sources
+2022-06-26 16:49:31 DEBUG Step 1 out of 10
+2022-06-26 16:49:31 DEBUG Step 2 out of 10
+2022-06-26 16:49:31 DEBUG Step 3 out of 10
+2022-06-26 16:49:31 DEBUG Step 4 out of 10
+2022-06-26 16:49:31 DEBUG Step 5 out of 10
+2022-06-26 16:49:31 DEBUG Step 6 out of 10
+2022-06-26 16:49:31 DEBUG Step 7 out of 10
+2022-06-26 16:49:31 DEBUG Step 8 out of 10
+2022-06-26 16:49:31 DEBUG Step 9 out of 10
+2022-06-26 16:49:31 DEBUG Step 10 out of 10
+2022-06-26 16:49:31 INFO Time Series Plot Set
+2022-06-26 16:49:31 PASS Sky Temperature Time Series
+2022-06-26 16:49:31 PASS Ground Temperature Time Series
+2022-06-26 16:49:31 PASS Difference Between Ground-Sky Temperature Time Series
+2022-06-26 16:49:31 PASS PWAT Time Series
+2022-06-26 16:49:31 PASS Temporal Mean PWAT Time Series
+2022-06-26 16:49:31 PASS Locational Mean PWAT Time Series
+2022-06-26 16:49:31 PASS Spatiotemporal Mean PWAT Time Series
+2022-06-26 16:51:25 ALOHA Precipitable-water Model Analysis Tool
+2022-06-26 16:51:25 ALOHA Program Start
+2022-06-26 16:51:47 ALOHA Precipitable-water Model Analysis Tool
+2022-06-26 16:51:47 ALOHA Program Start
+2022-06-26 16:51:47 ERROR cool_data.csv is not found
+2022-06-26 16:51:47 ERROR Check the --dir option to see if cool_data.csv is present
+2022-06-26 16:51:47 ALOHA Program Complete
+2022-06-26 16:52:00 ERROR _pmat.yml is not found
+2022-06-26 16:52:00 ERROR Check the --dir option to see if _pmat.yml is present.
+2022-06-26 16:52:00 ALOHA Program Complete
+2022-06-26 16:52:09 ALOHA Precipitable-water Model Analysis Tool
+2022-06-26 16:52:09 ALOHA Program Start
+2022-06-26 16:52:09 WARN _output.yml is not found
+2022-06-26 16:52:09 WARN Automatically creating _output.yml.
+2022-06-26 16:52:10 INFO Collecting Data from sources
+2022-06-26 16:52:10 DEBUG Collecting data for 2019-01-22		 Progress: 0.00%
+2022-06-26 16:57:36 ALOHA Precipitable-water Model Analysis Tool
+2022-06-26 16:57:36 ALOHA Program Start
+2022-06-26 16:57:37 INFO Collecting Data from sources
+2022-06-26 16:57:38 DEBUG Step 1 out of 1
+2022-06-26 17:02:09 ALOHA Precipitable-water Model Analysis Tool
+2022-06-26 17:02:09 ALOHA Program Start
+2022-06-26 17:02:10 INFO Collecting Data from sources
+2022-06-26 17:02:11 DEBUG Step 1 out of 1
+2022-06-26 17:05:05 ALOHA Precipitable-water Model Analysis Tool
+2022-06-26 17:05:05 ALOHA Program Start
+2022-06-26 17:05:06 INFO Collecting Data from sources
+2022-06-26 17:05:17 ALOHA Precipitable-water Model Analysis Tool
+2022-06-26 17:05:17 ALOHA Program Start
+2022-06-26 17:05:18 INFO Collecting Data from sources
+2022-06-26 17:05:19 DEBUG Step 1 out of 1
+2022-06-26 17:05:33 ALOHA Precipitable-water Model Analysis Tool
+2022-06-26 17:05:33 ALOHA Program Start
+2022-06-26 17:05:34 INFO Collecting Data from sources
+2022-06-26 17:05:34 DEBUG Step 1 out of 1
+2022-06-26 17:05:34 ERROR Insufficient finite clear sky/overcast data.
+2022-06-26 17:05:34 ERROR Add more clear sky/overcast data and then run again.
+2022-06-26 17:05:50 ALOHA Precipitable-water Model Analysis Tool
+2022-06-26 17:05:50 ALOHA Program Start
+2022-06-26 17:05:51 INFO Collecting Data from sources
+2022-06-26 17:05:52 DEBUG Step 1 out of 1
+2022-06-26 17:05:52 ERROR Insufficient finite clear sky/overcast data.
+2022-06-26 17:05:52 ERROR Add more clear sky/overcast data and then run again.
+2022-06-26 17:05:52 ALOHA Program Complete

@@ -1,0 +1,12 @@
+Date,Condition,Time,PW ABQ_12Z,PW ABQ_00Z,PW EPZ_12Z,PW EPZ_00Z,KONM_Time,KONM_RH,KONM_Temp,KONM_Dewpoint,1610 TE (Sky),FLIRi3 (Sky),AMES 1 (Sky),AMES 2 (Sky),AMES 3 (Sky),1610 TE (Ground),FLIRi3 (Ground),AMES 1 (Ground),AMES 2 (Ground),AMES 3 (Ground),comments
+2019-01-22,overcast,10:38,5.93,6.15,8.14,6.17,11:55,26,5.5,-12.61,-13.3,-13.2,NaN,-Inf,-Inf,7.2,5.3,NaN,-Inf,-Inf,
+2019-01-23,clear sky,13:38,2.89,4.86,4.37,4.81,11:55,30,7.72,-8.78,NaN,NaN,NaN,-Inf,-Inf,17,13.7,NaN,-Inf,-Inf,
+2019-01-24,clear sky,10:38,4.73,2.95,4.76,3.15,11:55,24,8.39,-10.78,NaN,NaN,NaN,-Inf,-Inf,11.2,7.2,NaN,-Inf,-Inf,
+2019-01-25,clear sky,15:02,3.27,3.16,3.85,2.64,11:55,26,7.72,-10.5,NaN,NaN,NaN,-Inf,-Inf,16.1,12.9,NaN,-Inf,-Inf,
+2019-01-26,clear sky,11:33,4.35,4.56,3.61,4.25,11:55,30,7.28,-9.11,NaN,NaN,NaN,-Inf,-Inf,15.3,12.5,NaN,-Inf,-Inf,
+2019-01-27,clear sky,14:33,4.76,5.73,5.09,4.94,11:55,29,10.89,-6.61,NaN,NaN,NaN,-Inf,-Inf,15.9,14.7,NaN,-Inf,-Inf,
+2019-01-28,clear sky,11:28,6.07,4.08,5.22,6.32,11:55,51,1.78,-7.22,NaN,NaN,NaN,-Inf,-Inf,17.4,15.7,NaN,-Inf,-Inf,
+2019-01-29,overcast,10:26,4.82,4.94,9.47,9.31,11:55,29,7.5,-9.28,-20,-21.5,NaN,-Inf,-Inf,34,37,NaN,-Inf,-Inf,
+2019-01-30,clear sky,10:44,3.47,2.29,11.53,11.2,11:55,22,10.0,-10.61,NaN,NaN,NaN,-Inf,-Inf,10.2,8.7,NaN,-Inf,-Inf,
+2019-01-31,clear sky,10:46,3.14,4.18,10.73,8.44,11:55,24,12.28,-7.78,NaN,NaN,NaN,-Inf,-Inf,10.2,9.8,NaN,-Inf,-Inf,
+2019-02-01,clear sky,11:35,8.76,8.65,12.2,14.39,11:55,41,12.0,-1.0,NaN,NaN,NaN,-Inf,-Inf,15.3,13.5,NaN,-Inf,-Inf,

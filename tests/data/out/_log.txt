@@ -1,0 +1,2717 @@
+2022-07-19 15:44:29 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 15:44:29 ALOHA Program Start
+2022-07-19 15:44:29 WARN _output.yml is not found
+2022-07-19 15:44:29 WARN Automatically creating _output.yml.
+2022-07-19 15:44:31 DEBUG Step 1 out of 10
+2022-07-19 15:44:31 DEBUG Step 2 out of 10
+2022-07-19 15:44:31 DEBUG Step 3 out of 10
+2022-07-19 15:44:31 DEBUG Step 4 out of 10
+2022-07-19 15:44:31 DEBUG Step 5 out of 10
+2022-07-19 15:44:31 DEBUG Step 6 out of 10
+2022-07-19 15:44:31 DEBUG Step 7 out of 10
+2022-07-19 15:44:31 DEBUG Step 8 out of 10
+2022-07-19 15:44:31 DEBUG Step 9 out of 10
+2022-07-19 15:44:31 DEBUG Step 10 out of 10
+2022-07-19 15:45:10 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 15:45:10 ALOHA Program Start
+2022-07-19 15:45:11 INFO Collecting Data from sources
+2022-07-19 15:45:11 WARN Raw data mix match. No Data will be collected
+2022-07-19 15:45:11 WARN Check cool_data.csv for proper date format.
+2022-07-19 15:45:11 DEBUG Step 1 out of 10
+2022-07-19 15:45:11 DEBUG Step 2 out of 10
+2022-07-19 15:45:12 DEBUG Step 3 out of 10
+2022-07-19 15:45:12 DEBUG Step 4 out of 10
+2022-07-19 15:45:12 DEBUG Step 5 out of 10
+2022-07-19 15:45:12 DEBUG Step 6 out of 10
+2022-07-19 15:45:12 DEBUG Step 7 out of 10
+2022-07-19 15:45:12 DEBUG Step 8 out of 10
+2022-07-19 15:45:12 DEBUG Step 9 out of 10
+2022-07-19 15:45:12 DEBUG Step 10 out of 10
+2022-07-19 15:50:17 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 15:50:17 ALOHA Program Start
+2022-07-19 15:50:18 INFO Collecting Data from sources
+2022-07-19 15:50:18 WARN Raw data mix match. No Data will be collected
+2022-07-19 15:50:18 WARN Check cool_data.csv for proper date format.
+2022-07-19 15:50:19 DEBUG Step 1 out of 10
+2022-07-19 15:50:19 DEBUG Step 2 out of 10
+2022-07-19 15:50:19 DEBUG Step 3 out of 10
+2022-07-19 15:50:19 DEBUG Step 4 out of 10
+2022-07-19 15:50:19 DEBUG Step 5 out of 10
+2022-07-19 15:50:19 DEBUG Step 6 out of 10
+2022-07-19 15:50:19 DEBUG Step 7 out of 10
+2022-07-19 15:50:19 DEBUG Step 8 out of 10
+2022-07-19 15:50:19 DEBUG Step 9 out of 10
+2022-07-19 15:50:19 DEBUG Step 10 out of 10
+2022-07-19 15:52:37 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 15:52:37 ALOHA Program Start
+2022-07-19 15:52:38 INFO Collecting Data from sources
+2022-07-19 15:52:38 WARN Raw data mix match. No Data will be collected
+2022-07-19 15:52:38 WARN Check cool_data.csv for proper date format.
+2022-07-19 15:52:39 DEBUG Step 1 out of 10
+2022-07-19 15:52:39 DEBUG Step 2 out of 10
+2022-07-19 15:52:39 DEBUG Step 3 out of 10
+2022-07-19 15:52:39 DEBUG Step 4 out of 10
+2022-07-19 15:52:39 DEBUG Step 5 out of 10
+2022-07-19 15:52:39 DEBUG Step 6 out of 10
+2022-07-19 15:52:39 DEBUG Step 7 out of 10
+2022-07-19 15:52:39 DEBUG Step 8 out of 10
+2022-07-19 15:52:39 DEBUG Step 9 out of 10
+2022-07-19 15:52:39 DEBUG Step 10 out of 10
+2022-07-19 15:53:23 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 15:53:23 ALOHA Program Start
+2022-07-19 15:53:24 INFO Collecting Data from sources
+2022-07-19 15:53:24 WARN Raw data mix match. No Data will be collected
+2022-07-19 15:53:24 WARN Check cool_data.csv for proper date format.
+2022-07-19 15:53:25 DEBUG Step 1 out of 10
+2022-07-19 15:53:25 DEBUG Step 2 out of 10
+2022-07-19 15:53:25 DEBUG Step 3 out of 10
+2022-07-19 15:53:25 DEBUG Step 4 out of 10
+2022-07-19 15:53:25 DEBUG Step 5 out of 10
+2022-07-19 15:53:25 DEBUG Step 6 out of 10
+2022-07-19 15:53:25 DEBUG Step 7 out of 10
+2022-07-19 15:53:25 DEBUG Step 8 out of 10
+2022-07-19 15:53:25 DEBUG Step 9 out of 10
+2022-07-19 15:53:25 DEBUG Step 10 out of 10
+2022-07-19 15:55:51 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 15:55:51 ALOHA Program Start
+2022-07-19 15:55:51 INFO Collecting Data from sources
+2022-07-19 15:55:51 WARN Raw data mix match. No Data will be collected
+2022-07-19 15:55:51 WARN Check cool_data.csv for proper date format.
+2022-07-19 15:55:52 DEBUG Step 1 out of 10
+2022-07-19 15:55:52 DEBUG Step 2 out of 10
+2022-07-19 15:55:52 DEBUG Step 3 out of 10
+2022-07-19 15:55:52 DEBUG Step 4 out of 10
+2022-07-19 15:55:52 DEBUG Step 5 out of 10
+2022-07-19 15:55:52 DEBUG Step 6 out of 10
+2022-07-19 15:55:52 DEBUG Step 7 out of 10
+2022-07-19 15:55:52 DEBUG Step 8 out of 10
+2022-07-19 15:55:52 DEBUG Step 9 out of 10
+2022-07-19 15:55:52 DEBUG Step 10 out of 10
+2022-07-19 15:56:41 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 15:56:41 ALOHA Program Start
+2022-07-19 15:56:42 INFO Collecting Data from sources
+2022-07-19 15:56:42 WARN Raw data mix match. No Data will be collected
+2022-07-19 15:56:42 WARN Check cool_data.csv for proper date format.
+2022-07-19 15:56:42 DEBUG Step 1 out of 10
+2022-07-19 15:56:43 DEBUG Step 2 out of 10
+2022-07-19 15:56:43 DEBUG Step 3 out of 10
+2022-07-19 15:56:43 DEBUG Step 4 out of 10
+2022-07-19 15:56:43 DEBUG Step 5 out of 10
+2022-07-19 15:56:43 DEBUG Step 6 out of 10
+2022-07-19 15:56:43 DEBUG Step 7 out of 10
+2022-07-19 15:56:43 DEBUG Step 8 out of 10
+2022-07-19 15:56:43 DEBUG Step 9 out of 10
+2022-07-19 15:56:43 DEBUG Step 10 out of 10
+2022-07-19 15:57:22 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 15:57:22 ALOHA Program Start
+2022-07-19 15:57:23 INFO Collecting Data from sources
+2022-07-19 15:57:23 WARN Raw data mix match. No Data will be collected
+2022-07-19 15:57:23 WARN Check cool_data.csv for proper date format.
+2022-07-19 15:57:24 DEBUG Step 1 out of 10
+2022-07-19 15:57:24 DEBUG Step 2 out of 10
+2022-07-19 15:57:24 DEBUG Step 3 out of 10
+2022-07-19 15:57:24 DEBUG Step 4 out of 10
+2022-07-19 15:57:24 DEBUG Step 5 out of 10
+2022-07-19 15:57:24 DEBUG Step 6 out of 10
+2022-07-19 15:57:24 DEBUG Step 7 out of 10
+2022-07-19 15:57:24 DEBUG Step 8 out of 10
+2022-07-19 15:57:24 DEBUG Step 9 out of 10
+2022-07-19 15:57:24 DEBUG Step 10 out of 10
+2022-07-19 15:57:50 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 15:57:50 ALOHA Program Start
+2022-07-19 15:57:51 INFO Collecting Data from sources
+2022-07-19 15:57:51 WARN Raw data mix match. No Data will be collected
+2022-07-19 15:57:51 WARN Check cool_data.csv for proper date format.
+2022-07-19 15:57:52 DEBUG Step 1 out of 10
+2022-07-19 15:57:52 DEBUG Step 2 out of 10
+2022-07-19 15:57:52 DEBUG Step 3 out of 10
+2022-07-19 15:57:52 DEBUG Step 4 out of 10
+2022-07-19 15:57:52 DEBUG Step 5 out of 10
+2022-07-19 15:57:52 DEBUG Step 6 out of 10
+2022-07-19 15:57:52 DEBUG Step 7 out of 10
+2022-07-19 15:57:52 DEBUG Step 8 out of 10
+2022-07-19 15:57:52 DEBUG Step 9 out of 10
+2022-07-19 15:57:52 DEBUG Step 10 out of 10
+2022-07-19 15:59:31 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 15:59:31 ALOHA Program Start
+2022-07-19 15:59:32 INFO Collecting Data from sources
+2022-07-19 15:59:32 WARN Raw data mix match. No Data will be collected
+2022-07-19 15:59:32 WARN Check cool_data.csv for proper date format.
+2022-07-19 15:59:33 DEBUG Step 1 out of 10
+2022-07-19 15:59:33 DEBUG Step 2 out of 10
+2022-07-19 15:59:33 DEBUG Step 3 out of 10
+2022-07-19 15:59:33 DEBUG Step 4 out of 10
+2022-07-19 15:59:33 DEBUG Step 5 out of 10
+2022-07-19 15:59:33 DEBUG Step 6 out of 10
+2022-07-19 15:59:33 DEBUG Step 7 out of 10
+2022-07-19 15:59:33 DEBUG Step 8 out of 10
+2022-07-19 15:59:33 DEBUG Step 9 out of 10
+2022-07-19 15:59:33 DEBUG Step 10 out of 10
+2022-07-19 15:59:50 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 15:59:50 ALOHA Program Start
+2022-07-19 15:59:51 INFO Collecting Data from sources
+2022-07-19 15:59:52 WARN Raw data mix match. No Data will be collected
+2022-07-19 15:59:52 WARN Check cool_data.csv for proper date format.
+2022-07-19 15:59:52 DEBUG Step 1 out of 10
+2022-07-19 15:59:52 DEBUG Step 2 out of 10
+2022-07-19 15:59:52 DEBUG Step 3 out of 10
+2022-07-19 15:59:52 DEBUG Step 4 out of 10
+2022-07-19 15:59:52 DEBUG Step 5 out of 10
+2022-07-19 15:59:52 DEBUG Step 6 out of 10
+2022-07-19 15:59:52 DEBUG Step 7 out of 10
+2022-07-19 15:59:52 DEBUG Step 8 out of 10
+2022-07-19 15:59:52 DEBUG Step 9 out of 10
+2022-07-19 15:59:52 DEBUG Step 10 out of 10
+2022-07-19 16:00:15 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 16:00:15 ALOHA Program Start
+2022-07-19 16:00:16 INFO Collecting Data from sources
+2022-07-19 16:00:16 WARN Raw data mix match. No Data will be collected
+2022-07-19 16:00:16 WARN Check cool_data.csv for proper date format.
+2022-07-19 16:00:17 DEBUG Step 1 out of 10
+2022-07-19 16:00:17 DEBUG Step 2 out of 10
+2022-07-19 16:00:17 DEBUG Step 3 out of 10
+2022-07-19 16:00:17 DEBUG Step 4 out of 10
+2022-07-19 16:00:17 DEBUG Step 5 out of 10
+2022-07-19 16:00:17 DEBUG Step 6 out of 10
+2022-07-19 16:00:17 DEBUG Step 7 out of 10
+2022-07-19 16:00:17 DEBUG Step 8 out of 10
+2022-07-19 16:00:17 DEBUG Step 9 out of 10
+2022-07-19 16:00:17 DEBUG Step 10 out of 10
+2022-07-19 16:00:52 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 16:00:52 ALOHA Program Start
+2022-07-19 16:00:52 INFO Collecting Data from sources
+2022-07-19 16:00:52 WARN Raw data mix match. No Data will be collected
+2022-07-19 16:00:52 WARN Check cool_data.csv for proper date format.
+2022-07-19 16:00:53 DEBUG Step 1 out of 10
+2022-07-19 16:00:53 DEBUG Step 2 out of 10
+2022-07-19 16:00:53 DEBUG Step 3 out of 10
+2022-07-19 16:00:53 DEBUG Step 4 out of 10
+2022-07-19 16:00:53 DEBUG Step 5 out of 10
+2022-07-19 16:00:53 DEBUG Step 6 out of 10
+2022-07-19 16:00:53 DEBUG Step 7 out of 10
+2022-07-19 16:00:53 DEBUG Step 8 out of 10
+2022-07-19 16:00:53 DEBUG Step 9 out of 10
+2022-07-19 16:00:54 DEBUG Step 10 out of 10
+2022-07-19 16:01:06 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 16:01:06 ALOHA Program Start
+2022-07-19 16:01:07 INFO Collecting Data from sources
+2022-07-19 16:01:07 WARN Raw data mix match. No Data will be collected
+2022-07-19 16:01:07 WARN Check cool_data.csv for proper date format.
+2022-07-19 16:01:08 DEBUG Step 1 out of 10
+2022-07-19 16:01:08 DEBUG Step 2 out of 10
+2022-07-19 16:01:08 DEBUG Step 3 out of 10
+2022-07-19 16:01:08 DEBUG Step 4 out of 10
+2022-07-19 16:01:08 DEBUG Step 5 out of 10
+2022-07-19 16:01:08 DEBUG Step 6 out of 10
+2022-07-19 16:01:08 DEBUG Step 7 out of 10
+2022-07-19 16:01:08 DEBUG Step 8 out of 10
+2022-07-19 16:01:08 DEBUG Step 9 out of 10
+2022-07-19 16:01:08 DEBUG Step 10 out of 10
+2022-07-19 16:01:19 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 16:01:19 ALOHA Program Start
+2022-07-19 16:01:20 INFO Collecting Data from sources
+2022-07-19 16:01:20 WARN Raw data mix match. No Data will be collected
+2022-07-19 16:01:20 WARN Check cool_data.csv for proper date format.
+2022-07-19 16:01:21 DEBUG Step 1 out of 10
+2022-07-19 16:01:21 DEBUG Step 2 out of 10
+2022-07-19 16:01:21 DEBUG Step 3 out of 10
+2022-07-19 16:01:21 DEBUG Step 4 out of 10
+2022-07-19 16:01:21 DEBUG Step 5 out of 10
+2022-07-19 16:01:21 DEBUG Step 6 out of 10
+2022-07-19 16:01:21 DEBUG Step 7 out of 10
+2022-07-19 16:01:21 DEBUG Step 8 out of 10
+2022-07-19 16:01:21 DEBUG Step 9 out of 10
+2022-07-19 16:01:21 DEBUG Step 10 out of 10
+2022-07-19 16:02:45 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 16:02:45 ALOHA Program Start
+2022-07-19 16:02:46 INFO Collecting Data from sources
+2022-07-19 16:02:46 WARN Raw data mix match. No Data will be collected
+2022-07-19 16:02:46 WARN Check cool_data.csv for proper date format.
+2022-07-19 16:02:46 DEBUG Step 1 out of 10
+2022-07-19 16:02:46 DEBUG Step 2 out of 10
+2022-07-19 16:02:47 DEBUG Step 3 out of 10
+2022-07-19 16:02:47 DEBUG Step 4 out of 10
+2022-07-19 16:02:47 DEBUG Step 5 out of 10
+2022-07-19 16:02:47 DEBUG Step 6 out of 10
+2022-07-19 16:02:47 DEBUG Step 7 out of 10
+2022-07-19 16:02:47 DEBUG Step 8 out of 10
+2022-07-19 16:02:47 DEBUG Step 9 out of 10
+2022-07-19 16:02:47 DEBUG Step 10 out of 10
+2022-07-19 16:02:47 ALOHA Program Complete
+2022-07-19 16:03:09 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 16:03:09 ALOHA Program Start
+2022-07-19 16:03:10 INFO Collecting Data from sources
+2022-07-19 16:03:10 WARN Raw data mix match. No Data will be collected
+2022-07-19 16:03:10 WARN Check cool_data.csv for proper date format.
+2022-07-19 16:03:11 DEBUG Step 1 out of 10
+2022-07-19 16:03:11 DEBUG Step 2 out of 10
+2022-07-19 16:03:11 DEBUG Step 3 out of 10
+2022-07-19 16:03:11 DEBUG Step 4 out of 10
+2022-07-19 16:03:11 DEBUG Step 5 out of 10
+2022-07-19 16:03:11 DEBUG Step 6 out of 10
+2022-07-19 16:03:11 DEBUG Step 7 out of 10
+2022-07-19 16:03:11 DEBUG Step 8 out of 10
+2022-07-19 16:03:11 DEBUG Step 9 out of 10
+2022-07-19 16:03:11 DEBUG Step 10 out of 10
+2022-07-19 16:03:12 ALOHA Program Complete
+2022-07-19 16:05:45 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 16:05:45 ALOHA Program Start
+2022-07-19 16:05:45 INFO Collecting Data from sources
+2022-07-19 16:05:46 WARN Raw data mix match. No Data will be collected
+2022-07-19 16:05:46 WARN Check cool_data.csv for proper date format.
+2022-07-19 16:05:46 DEBUG Step 1 out of 10
+2022-07-19 16:05:46 DEBUG Step 2 out of 10
+2022-07-19 16:05:46 DEBUG Step 3 out of 10
+2022-07-19 16:05:46 DEBUG Step 4 out of 10
+2022-07-19 16:05:46 DEBUG Step 5 out of 10
+2022-07-19 16:05:46 DEBUG Step 6 out of 10
+2022-07-19 16:05:46 DEBUG Step 7 out of 10
+2022-07-19 16:05:46 DEBUG Step 8 out of 10
+2022-07-19 16:05:46 DEBUG Step 9 out of 10
+2022-07-19 16:05:46 DEBUG Step 10 out of 10
+2022-07-19 16:05:47 ALOHA Program Complete
+2022-07-19 16:27:32 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 16:27:32 ALOHA Program Start
+2022-07-19 16:27:33 INFO Collecting Data from sources
+2022-07-19 16:27:33 WARN Raw data mix match. No Data will be collected
+2022-07-19 16:27:33 WARN Check cool_data.csv for proper date format.
+2022-07-19 16:27:35 DEBUG Step 1 out of 10
+2022-07-19 16:27:35 DEBUG Step 2 out of 10
+2022-07-19 16:27:35 DEBUG Step 3 out of 10
+2022-07-19 16:27:35 DEBUG Step 4 out of 10
+2022-07-19 16:27:35 DEBUG Step 5 out of 10
+2022-07-19 16:27:35 DEBUG Step 6 out of 10
+2022-07-19 16:27:35 DEBUG Step 7 out of 10
+2022-07-19 16:27:35 DEBUG Step 8 out of 10
+2022-07-19 16:27:35 DEBUG Step 9 out of 10
+2022-07-19 16:27:35 DEBUG Step 10 out of 10
+2022-07-19 16:28:02 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 16:28:02 ALOHA Program Start
+2022-07-19 16:28:03 INFO Collecting Data from sources
+2022-07-19 16:28:03 WARN Raw data mix match. No Data will be collected
+2022-07-19 16:28:03 WARN Check cool_data.csv for proper date format.
+2022-07-19 16:28:05 DEBUG Step 1 out of 10
+2022-07-19 16:28:05 DEBUG Step 2 out of 10
+2022-07-19 16:28:05 DEBUG Step 3 out of 10
+2022-07-19 16:28:05 DEBUG Step 4 out of 10
+2022-07-19 16:28:05 DEBUG Step 5 out of 10
+2022-07-19 16:28:05 DEBUG Step 6 out of 10
+2022-07-19 16:28:05 DEBUG Step 7 out of 10
+2022-07-19 16:28:05 DEBUG Step 8 out of 10
+2022-07-19 16:28:05 DEBUG Step 9 out of 10
+2022-07-19 16:28:05 DEBUG Step 10 out of 10
+2022-07-19 16:28:05 ALOHA Program Complete
+2022-07-19 16:28:26 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 16:28:26 ALOHA Program Start
+2022-07-19 16:28:27 INFO Collecting Data from sources
+2022-07-19 16:28:27 WARN Raw data mix match. No Data will be collected
+2022-07-19 16:28:27 WARN Check cool_data.csv for proper date format.
+2022-07-19 16:28:28 DEBUG Step 1 out of 10
+2022-07-19 16:28:28 DEBUG Step 2 out of 10
+2022-07-19 16:28:28 DEBUG Step 3 out of 10
+2022-07-19 16:28:28 DEBUG Step 4 out of 10
+2022-07-19 16:28:28 DEBUG Step 5 out of 10
+2022-07-19 16:28:28 DEBUG Step 6 out of 10
+2022-07-19 16:28:28 DEBUG Step 7 out of 10
+2022-07-19 16:28:29 DEBUG Step 8 out of 10
+2022-07-19 16:28:29 DEBUG Step 9 out of 10
+2022-07-19 16:28:29 DEBUG Step 10 out of 10
+2022-07-19 16:28:29 INFO Time Series Plot Set
+2022-07-19 16:28:29 PASS Sky Temperature Time Series
+2022-07-19 16:28:29 PASS Ground Temperature Time Series
+2022-07-19 16:28:29 PASS Difference Between Ground-Sky Temperature Time Series
+2022-07-19 16:28:29 PASS PWAT Time Series
+2022-07-19 16:28:29 PASS Temporal Mean PWAT Time Series
+2022-07-19 16:28:29 PASS Locational Mean PWAT Time Series
+2022-07-19 16:28:29 PASS Spatiotemporal Mean PWAT Time Series
+2022-07-19 16:28:29 PASS Mean Sky Temperature and PWAT Time Series
+2022-07-19 16:28:29 PASS Mean Sky Temperature and RH Time Series
+2022-07-19 16:28:29 PASS Mean PWAT and RH Time Series
+2022-07-19 16:28:29 PASS Mean Sky Temperature and PWAT Time Series
+2022-07-19 16:28:29 PASS Mean Sky Temperature and RH Time Series
+2022-07-19 16:28:30 PASS Mean PWAT and RH Time Series
+2022-07-19 16:28:30 PASS Normalized Index for Weighted PWAT Time Series
+2022-07-19 16:28:30 PASS Plot set downloaded to ../tests/data/out/figs/
+2022-07-19 16:28:30 ALOHA Program Complete
+2022-07-19 16:28:47 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 16:28:47 ALOHA Program Start
+2022-07-19 16:28:49 INFO Collecting Data from sources
+2022-07-19 16:28:49 WARN Raw data mix match. No Data will be collected
+2022-07-19 16:28:49 WARN Check cool_data.csv for proper date format.
+2022-07-19 16:28:50 DEBUG Step 1 out of 10
+2022-07-19 16:28:50 DEBUG Step 2 out of 10
+2022-07-19 16:28:50 DEBUG Step 3 out of 10
+2022-07-19 16:28:50 DEBUG Step 4 out of 10
+2022-07-19 16:28:50 DEBUG Step 5 out of 10
+2022-07-19 16:28:50 DEBUG Step 6 out of 10
+2022-07-19 16:28:50 DEBUG Step 7 out of 10
+2022-07-19 16:28:50 DEBUG Step 8 out of 10
+2022-07-19 16:28:50 DEBUG Step 9 out of 10
+2022-07-19 16:28:50 DEBUG Step 10 out of 10
+2022-07-19 16:28:50 INFO Time Series Plot Set
+2022-07-19 16:28:50 PASS Sky Temperature Time Series
+2022-07-19 16:28:50 PASS Ground Temperature Time Series
+2022-07-19 16:28:50 PASS Difference Between Ground-Sky Temperature Time Series
+2022-07-19 16:28:50 PASS PWAT Time Series
+2022-07-19 16:28:50 PASS Temporal Mean PWAT Time Series
+2022-07-19 16:28:50 PASS Locational Mean PWAT Time Series
+2022-07-19 16:28:51 PASS Spatiotemporal Mean PWAT Time Series
+2022-07-19 16:28:51 PASS Mean Sky Temperature and PWAT Time Series
+2022-07-19 16:28:51 PASS Mean Sky Temperature and RH Time Series
+2022-07-19 16:28:51 PASS Mean PWAT and RH Time Series
+2022-07-19 16:28:51 PASS Mean Sky Temperature and PWAT Time Series
+2022-07-19 16:28:51 PASS Mean Sky Temperature and RH Time Series
+2022-07-19 16:28:51 PASS Mean PWAT and RH Time Series
+2022-07-19 16:28:51 PASS Normalized Index for Weighted PWAT Time Series
+2022-07-19 16:28:51 PASS Plot set downloaded to ../tests/data/out/figs/
+2022-07-19 16:28:51 ALOHA Program Complete
+2022-07-19 16:29:27 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 16:29:27 ALOHA Program Start
+2022-07-19 16:29:28 INFO Collecting Data from sources
+2022-07-19 16:29:28 WARN Raw data mix match. No Data will be collected
+2022-07-19 16:29:28 WARN Check cool_data.csv for proper date format.
+2022-07-19 16:29:29 DEBUG Step 1 out of 10
+2022-07-19 16:29:30 DEBUG Step 2 out of 10
+2022-07-19 16:29:30 DEBUG Step 3 out of 10
+2022-07-19 16:29:30 DEBUG Step 4 out of 10
+2022-07-19 16:29:30 DEBUG Step 5 out of 10
+2022-07-19 16:29:30 DEBUG Step 6 out of 10
+2022-07-19 16:29:30 DEBUG Step 7 out of 10
+2022-07-19 16:29:30 DEBUG Step 8 out of 10
+2022-07-19 16:29:30 DEBUG Step 9 out of 10
+2022-07-19 16:29:30 DEBUG Step 10 out of 10
+2022-07-19 16:29:30 INFO Time Series Plot Set
+2022-07-19 16:29:30 PASS Sky Temperature Time Series
+2022-07-19 16:29:30 PASS Ground Temperature Time Series
+2022-07-19 16:29:30 PASS Difference Between Ground-Sky Temperature Time Series
+2022-07-19 16:29:30 PASS PWAT Time Series
+2022-07-19 16:29:30 PASS Temporal Mean PWAT Time Series
+2022-07-19 16:29:30 PASS Locational Mean PWAT Time Series
+2022-07-19 16:29:30 PASS Spatiotemporal Mean PWAT Time Series
+2022-07-19 16:29:30 PASS Mean Sky Temperature and PWAT Time Series
+2022-07-19 16:29:30 PASS Mean Sky Temperature and RH Time Series
+2022-07-19 16:29:30 PASS Mean PWAT and RH Time Series
+2022-07-19 16:29:30 PASS Mean Sky Temperature and PWAT Time Series
+2022-07-19 16:29:30 PASS Mean Sky Temperature and RH Time Series
+2022-07-19 16:29:30 PASS Mean PWAT and RH Time Series
+2022-07-19 16:29:30 PASS Normalized Index for Weighted PWAT Time Series
+2022-07-19 16:29:30 PASS Plot set downloaded to ../tests/data/out/figs/
+2022-07-19 16:30:36 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 16:30:36 ALOHA Program Start
+2022-07-19 16:30:37 INFO Collecting Data from sources
+2022-07-19 16:30:37 WARN Raw data mix match. No Data will be collected
+2022-07-19 16:30:37 WARN Check cool_data.csv for proper date format.
+2022-07-19 16:30:38 DEBUG Step 1 out of 10
+2022-07-19 16:30:38 DEBUG Step 2 out of 10
+2022-07-19 16:30:38 DEBUG Step 3 out of 10
+2022-07-19 16:30:38 DEBUG Step 4 out of 10
+2022-07-19 16:30:38 DEBUG Step 5 out of 10
+2022-07-19 16:30:38 DEBUG Step 6 out of 10
+2022-07-19 16:30:38 DEBUG Step 7 out of 10
+2022-07-19 16:30:38 DEBUG Step 8 out of 10
+2022-07-19 16:30:38 DEBUG Step 9 out of 10
+2022-07-19 16:30:38 DEBUG Step 10 out of 10
+2022-07-19 16:30:38 INFO Time Series Plot Set
+2022-07-19 16:30:38 PASS Sky Temperature Time Series
+2022-07-19 16:30:39 PASS Ground Temperature Time Series
+2022-07-19 16:30:39 PASS Difference Between Ground-Sky Temperature Time Series
+2022-07-19 16:30:39 PASS PWAT Time Series
+2022-07-19 16:30:39 PASS Temporal Mean PWAT Time Series
+2022-07-19 16:30:39 PASS Locational Mean PWAT Time Series
+2022-07-19 16:30:39 PASS Spatiotemporal Mean PWAT Time Series
+2022-07-19 16:30:39 PASS Mean Sky Temperature and PWAT Time Series
+2022-07-19 16:30:39 PASS Mean Sky Temperature and RH Time Series
+2022-07-19 16:30:39 PASS Mean PWAT and RH Time Series
+2022-07-19 16:30:39 PASS Mean Sky Temperature and PWAT Time Series
+2022-07-19 16:30:39 PASS Mean Sky Temperature and RH Time Series
+2022-07-19 16:30:39 PASS Mean PWAT and RH Time Series
+2022-07-19 16:30:39 PASS Normalized Index for Weighted PWAT Time Series
+2022-07-19 16:30:39 PASS Plot set downloaded to ../tests/data/out/figs/
+2022-07-19 16:30:39 ALOHA Program Complete
+2022-07-19 16:31:40 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 16:31:40 ALOHA Program Start
+2022-07-19 16:31:42 INFO Collecting Data from sources
+2022-07-19 16:31:42 WARN Raw data mix match. No Data will be collected
+2022-07-19 16:31:42 WARN Check cool_data.csv for proper date format.
+2022-07-19 16:31:43 DEBUG Step 1 out of 10
+2022-07-19 16:31:43 DEBUG Step 2 out of 10
+2022-07-19 16:31:43 DEBUG Step 3 out of 10
+2022-07-19 16:31:43 DEBUG Step 4 out of 10
+2022-07-19 16:31:43 DEBUG Step 5 out of 10
+2022-07-19 16:31:43 DEBUG Step 6 out of 10
+2022-07-19 16:31:43 DEBUG Step 7 out of 10
+2022-07-19 16:31:43 DEBUG Step 8 out of 10
+2022-07-19 16:31:43 DEBUG Step 9 out of 10
+2022-07-19 16:31:43 DEBUG Step 10 out of 10
+2022-07-19 16:31:43 INFO Time Series Plot Set
+2022-07-19 16:31:43 PASS Sky Temperature Time Series
+2022-07-19 16:31:43 PASS Ground Temperature Time Series
+2022-07-19 16:31:43 PASS Difference Between Ground-Sky Temperature Time Series
+2022-07-19 16:31:43 PASS PWAT Time Series
+2022-07-19 16:31:43 PASS Temporal Mean PWAT Time Series
+2022-07-19 16:31:43 PASS Locational Mean PWAT Time Series
+2022-07-19 16:31:43 PASS Spatiotemporal Mean PWAT Time Series
+2022-07-19 16:31:43 PASS Mean Sky Temperature and PWAT Time Series
+2022-07-19 16:31:43 PASS Mean Sky Temperature and RH Time Series
+2022-07-19 16:31:43 PASS Mean PWAT and RH Time Series
+2022-07-19 16:31:44 PASS Mean Sky Temperature and PWAT Time Series
+2022-07-19 16:31:44 PASS Mean Sky Temperature and RH Time Series
+2022-07-19 16:31:44 PASS Mean PWAT and RH Time Series
+2022-07-19 16:31:44 PASS Normalized Index for Weighted PWAT Time Series
+2022-07-19 16:31:44 PASS Plot set downloaded to ../tests/data/out/figs/
+2022-07-19 16:33:24 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 16:33:24 ALOHA Program Start
+2022-07-19 16:33:25 INFO Collecting Data from sources
+2022-07-19 16:33:26 WARN Raw data mix match. No Data will be collected
+2022-07-19 16:33:26 WARN Check cool_data.csv for proper date format.
+2022-07-19 16:33:27 DEBUG Step 1 out of 10
+2022-07-19 16:33:27 DEBUG Step 2 out of 10
+2022-07-19 16:33:27 DEBUG Step 3 out of 10
+2022-07-19 16:33:27 DEBUG Step 4 out of 10
+2022-07-19 16:33:27 DEBUG Step 5 out of 10
+2022-07-19 16:33:27 DEBUG Step 6 out of 10
+2022-07-19 16:33:27 DEBUG Step 7 out of 10
+2022-07-19 16:33:27 DEBUG Step 8 out of 10
+2022-07-19 16:33:27 DEBUG Step 9 out of 10
+2022-07-19 16:33:27 DEBUG Step 10 out of 10
+2022-07-19 16:33:50 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 16:33:50 ALOHA Program Start
+2022-07-19 16:33:51 INFO Collecting Data from sources
+2022-07-19 16:33:51 WARN Raw data mix match. No Data will be collected
+2022-07-19 16:33:51 WARN Check cool_data.csv for proper date format.
+2022-07-19 16:33:52 DEBUG Step 1 out of 10
+2022-07-19 16:33:52 DEBUG Step 2 out of 10
+2022-07-19 16:33:52 DEBUG Step 3 out of 10
+2022-07-19 16:33:52 DEBUG Step 4 out of 10
+2022-07-19 16:33:52 DEBUG Step 5 out of 10
+2022-07-19 16:33:52 DEBUG Step 6 out of 10
+2022-07-19 16:33:52 DEBUG Step 7 out of 10
+2022-07-19 16:33:52 DEBUG Step 8 out of 10
+2022-07-19 16:33:52 DEBUG Step 9 out of 10
+2022-07-19 16:33:52 DEBUG Step 10 out of 10
+2022-07-19 16:34:30 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 16:34:30 ALOHA Program Start
+2022-07-19 16:34:31 INFO Collecting Data from sources
+2022-07-19 16:34:31 WARN Raw data mix match. No Data will be collected
+2022-07-19 16:34:31 WARN Check cool_data.csv for proper date format.
+2022-07-19 16:34:33 DEBUG Step 1 out of 10
+2022-07-19 16:34:33 DEBUG Step 2 out of 10
+2022-07-19 16:34:33 DEBUG Step 3 out of 10
+2022-07-19 16:34:33 DEBUG Step 4 out of 10
+2022-07-19 16:34:33 DEBUG Step 5 out of 10
+2022-07-19 16:34:33 DEBUG Step 6 out of 10
+2022-07-19 16:34:33 DEBUG Step 7 out of 10
+2022-07-19 16:34:33 DEBUG Step 8 out of 10
+2022-07-19 16:34:33 DEBUG Step 9 out of 10
+2022-07-19 16:34:33 DEBUG Step 10 out of 10
+2022-07-19 16:34:33 ALOHA Program Complete
+2022-07-19 16:36:52 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 16:36:52 ALOHA Program Start
+2022-07-19 16:36:53 INFO Collecting Data from sources
+2022-07-19 16:36:53 WARN Raw data mix match. No Data will be collected
+2022-07-19 16:36:53 WARN Check cool_data.csv for proper date format.
+2022-07-19 16:36:54 DEBUG Step 1 out of 10
+2022-07-19 16:36:55 DEBUG Step 2 out of 10
+2022-07-19 16:36:55 DEBUG Step 3 out of 10
+2022-07-19 16:36:55 DEBUG Step 4 out of 10
+2022-07-19 16:36:55 DEBUG Step 5 out of 10
+2022-07-19 16:36:55 DEBUG Step 6 out of 10
+2022-07-19 16:36:55 DEBUG Step 7 out of 10
+2022-07-19 16:36:55 DEBUG Step 8 out of 10
+2022-07-19 16:36:55 DEBUG Step 9 out of 10
+2022-07-19 16:36:55 DEBUG Step 10 out of 10
+2022-07-19 16:46:08 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 16:46:08 ALOHA Program Start
+2022-07-19 16:46:09 INFO Collecting Data from sources
+2022-07-19 16:46:09 WARN Raw data mix match. No Data will be collected
+2022-07-19 16:46:09 WARN Check cool_data.csv for proper date format.
+2022-07-19 16:46:10 DEBUG Step 1 out of 10
+2022-07-19 16:46:10 DEBUG Step 2 out of 10
+2022-07-19 16:46:10 DEBUG Step 3 out of 10
+2022-07-19 16:46:10 DEBUG Step 4 out of 10
+2022-07-19 16:46:10 DEBUG Step 5 out of 10
+2022-07-19 16:46:10 DEBUG Step 6 out of 10
+2022-07-19 16:46:10 DEBUG Step 7 out of 10
+2022-07-19 16:46:10 DEBUG Step 8 out of 10
+2022-07-19 16:46:10 DEBUG Step 9 out of 10
+2022-07-19 16:46:10 DEBUG Step 10 out of 10
+2022-07-19 16:46:20 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 16:46:20 ALOHA Program Start
+2022-07-19 16:46:21 INFO Collecting Data from sources
+2022-07-19 16:46:21 WARN Raw data mix match. No Data will be collected
+2022-07-19 16:46:21 WARN Check cool_data.csv for proper date format.
+2022-07-19 16:46:22 DEBUG Step 1 out of 10
+2022-07-19 16:46:23 DEBUG Step 2 out of 10
+2022-07-19 16:46:23 DEBUG Step 3 out of 10
+2022-07-19 16:46:23 DEBUG Step 4 out of 10
+2022-07-19 16:46:23 DEBUG Step 5 out of 10
+2022-07-19 16:46:23 DEBUG Step 6 out of 10
+2022-07-19 16:46:23 DEBUG Step 7 out of 10
+2022-07-19 16:46:23 DEBUG Step 8 out of 10
+2022-07-19 16:46:23 DEBUG Step 9 out of 10
+2022-07-19 16:46:23 DEBUG Step 10 out of 10
+2022-07-19 16:46:51 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 16:46:51 ALOHA Program Start
+2022-07-19 16:46:52 INFO Collecting Data from sources
+2022-07-19 16:46:52 WARN Raw data mix match. No Data will be collected
+2022-07-19 16:46:52 WARN Check cool_data.csv for proper date format.
+2022-07-19 16:46:53 DEBUG Step 1 out of 10
+2022-07-19 16:46:54 DEBUG Step 2 out of 10
+2022-07-19 16:46:54 DEBUG Step 3 out of 10
+2022-07-19 16:46:54 DEBUG Step 4 out of 10
+2022-07-19 16:46:54 DEBUG Step 5 out of 10
+2022-07-19 16:46:54 DEBUG Step 6 out of 10
+2022-07-19 16:46:54 DEBUG Step 7 out of 10
+2022-07-19 16:46:54 DEBUG Step 8 out of 10
+2022-07-19 16:46:54 DEBUG Step 9 out of 10
+2022-07-19 16:46:54 DEBUG Step 10 out of 10
+2022-07-19 16:47:33 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 16:47:33 ALOHA Program Start
+2022-07-19 16:47:34 INFO Collecting Data from sources
+2022-07-19 16:47:34 WARN Raw data mix match. No Data will be collected
+2022-07-19 16:47:35 WARN Check cool_data.csv for proper date format.
+2022-07-19 16:47:36 DEBUG Step 1 out of 10
+2022-07-19 16:47:36 DEBUG Step 2 out of 10
+2022-07-19 16:47:36 DEBUG Step 3 out of 10
+2022-07-19 16:47:36 DEBUG Step 4 out of 10
+2022-07-19 16:47:36 DEBUG Step 5 out of 10
+2022-07-19 16:47:36 DEBUG Step 6 out of 10
+2022-07-19 16:47:36 DEBUG Step 7 out of 10
+2022-07-19 16:47:36 DEBUG Step 8 out of 10
+2022-07-19 16:47:36 DEBUG Step 9 out of 10
+2022-07-19 16:47:36 DEBUG Step 10 out of 10
+2022-07-19 16:48:01 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 16:48:01 ALOHA Program Start
+2022-07-19 16:48:03 INFO Collecting Data from sources
+2022-07-19 16:48:03 WARN Raw data mix match. No Data will be collected
+2022-07-19 16:48:03 WARN Check cool_data.csv for proper date format.
+2022-07-19 16:48:04 DEBUG Step 1 out of 10
+2022-07-19 16:48:04 DEBUG Step 2 out of 10
+2022-07-19 16:48:04 DEBUG Step 3 out of 10
+2022-07-19 16:48:04 DEBUG Step 4 out of 10
+2022-07-19 16:48:04 DEBUG Step 5 out of 10
+2022-07-19 16:48:04 DEBUG Step 6 out of 10
+2022-07-19 16:48:04 DEBUG Step 7 out of 10
+2022-07-19 16:48:04 DEBUG Step 8 out of 10
+2022-07-19 16:48:04 DEBUG Step 9 out of 10
+2022-07-19 16:48:04 DEBUG Step 10 out of 10
+2022-07-19 16:49:38 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 16:49:38 ALOHA Program Start
+2022-07-19 16:49:39 INFO Collecting Data from sources
+2022-07-19 16:49:39 WARN Raw data mix match. No Data will be collected
+2022-07-19 16:49:39 WARN Check cool_data.csv for proper date format.
+2022-07-19 16:49:40 DEBUG Step 1 out of 10
+2022-07-19 16:49:41 DEBUG Step 2 out of 10
+2022-07-19 16:49:41 DEBUG Step 3 out of 10
+2022-07-19 16:49:41 DEBUG Step 4 out of 10
+2022-07-19 16:49:41 DEBUG Step 5 out of 10
+2022-07-19 16:49:41 DEBUG Step 6 out of 10
+2022-07-19 16:49:41 DEBUG Step 7 out of 10
+2022-07-19 16:49:41 DEBUG Step 8 out of 10
+2022-07-19 16:49:41 DEBUG Step 9 out of 10
+2022-07-19 16:49:41 DEBUG Step 10 out of 10
+2022-07-19 16:49:55 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 16:49:55 ALOHA Program Start
+2022-07-19 16:49:56 INFO Collecting Data from sources
+2022-07-19 16:49:56 WARN Raw data mix match. No Data will be collected
+2022-07-19 16:49:56 WARN Check cool_data.csv for proper date format.
+2022-07-19 16:49:57 DEBUG Step 1 out of 10
+2022-07-19 16:49:57 DEBUG Step 2 out of 10
+2022-07-19 16:49:57 DEBUG Step 3 out of 10
+2022-07-19 16:49:57 DEBUG Step 4 out of 10
+2022-07-19 16:49:57 DEBUG Step 5 out of 10
+2022-07-19 16:49:57 DEBUG Step 6 out of 10
+2022-07-19 16:49:57 DEBUG Step 7 out of 10
+2022-07-19 16:49:57 DEBUG Step 8 out of 10
+2022-07-19 16:49:57 DEBUG Step 9 out of 10
+2022-07-19 16:49:57 DEBUG Step 10 out of 10
+2022-07-19 18:39:01 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 18:39:01 ALOHA Program Start
+2022-07-19 18:39:02 INFO Collecting Data from sources
+2022-07-19 18:39:02 WARN Raw data mix match. No Data will be collected
+2022-07-19 18:39:02 WARN Check cool_data.csv for proper date format.
+2022-07-19 18:39:03 DEBUG Step 1 out of 10
+2022-07-19 18:39:03 DEBUG Step 2 out of 10
+2022-07-19 18:39:03 DEBUG Step 3 out of 10
+2022-07-19 18:39:03 DEBUG Step 4 out of 10
+2022-07-19 18:39:03 DEBUG Step 5 out of 10
+2022-07-19 18:39:03 DEBUG Step 6 out of 10
+2022-07-19 18:39:03 DEBUG Step 7 out of 10
+2022-07-19 18:39:03 DEBUG Step 8 out of 10
+2022-07-19 18:39:03 DEBUG Step 9 out of 10
+2022-07-19 18:39:03 DEBUG Step 10 out of 10
+2022-07-19 18:40:05 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 18:40:05 ALOHA Program Start
+2022-07-19 18:40:06 INFO Collecting Data from sources
+2022-07-19 18:40:06 WARN Raw data mix match. No Data will be collected
+2022-07-19 18:40:06 WARN Check cool_data.csv for proper date format.
+2022-07-19 18:40:07 DEBUG Step 1 out of 10
+2022-07-19 18:40:07 DEBUG Step 2 out of 10
+2022-07-19 18:40:07 DEBUG Step 3 out of 10
+2022-07-19 18:40:07 DEBUG Step 4 out of 10
+2022-07-19 18:40:07 DEBUG Step 5 out of 10
+2022-07-19 18:40:07 DEBUG Step 6 out of 10
+2022-07-19 18:40:07 DEBUG Step 7 out of 10
+2022-07-19 18:40:07 DEBUG Step 8 out of 10
+2022-07-19 18:40:07 DEBUG Step 9 out of 10
+2022-07-19 18:40:07 DEBUG Step 10 out of 10
+2022-07-19 18:40:08 ALOHA Program Complete
+2022-07-19 18:40:30 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 18:40:30 ALOHA Program Start
+2022-07-19 18:40:32 INFO Collecting Data from sources
+2022-07-19 18:40:32 WARN Raw data mix match. No Data will be collected
+2022-07-19 18:40:32 WARN Check cool_data.csv for proper date format.
+2022-07-19 18:40:33 DEBUG Step 1 out of 10
+2022-07-19 18:40:33 DEBUG Step 2 out of 10
+2022-07-19 18:40:33 DEBUG Step 3 out of 10
+2022-07-19 18:40:33 DEBUG Step 4 out of 10
+2022-07-19 18:40:33 DEBUG Step 5 out of 10
+2022-07-19 18:40:33 DEBUG Step 6 out of 10
+2022-07-19 18:40:33 DEBUG Step 7 out of 10
+2022-07-19 18:40:33 DEBUG Step 8 out of 10
+2022-07-19 18:40:33 DEBUG Step 9 out of 10
+2022-07-19 18:40:33 DEBUG Step 10 out of 10
+2022-07-19 18:40:33 ALOHA Program Complete
+2022-07-19 18:40:55 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 18:40:55 ALOHA Program Start
+2022-07-19 18:40:57 INFO Collecting Data from sources
+2022-07-19 18:40:57 WARN Raw data mix match. No Data will be collected
+2022-07-19 18:40:57 WARN Check cool_data.csv for proper date format.
+2022-07-19 18:40:58 DEBUG Step 1 out of 10
+2022-07-19 18:40:58 DEBUG Step 2 out of 10
+2022-07-19 18:40:58 DEBUG Step 3 out of 10
+2022-07-19 18:40:58 DEBUG Step 4 out of 10
+2022-07-19 18:40:58 DEBUG Step 5 out of 10
+2022-07-19 18:40:58 DEBUG Step 6 out of 10
+2022-07-19 18:40:58 DEBUG Step 7 out of 10
+2022-07-19 18:40:58 DEBUG Step 8 out of 10
+2022-07-19 18:40:58 DEBUG Step 9 out of 10
+2022-07-19 18:40:58 DEBUG Step 10 out of 10
+2022-07-19 18:41:13 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 18:41:13 ALOHA Program Start
+2022-07-19 18:41:14 INFO Collecting Data from sources
+2022-07-19 18:41:14 WARN Raw data mix match. No Data will be collected
+2022-07-19 18:41:14 WARN Check cool_data.csv for proper date format.
+2022-07-19 18:41:15 DEBUG Step 1 out of 10
+2022-07-19 18:41:15 DEBUG Step 2 out of 10
+2022-07-19 18:41:15 DEBUG Step 3 out of 10
+2022-07-19 18:41:15 DEBUG Step 4 out of 10
+2022-07-19 18:41:15 DEBUG Step 5 out of 10
+2022-07-19 18:41:15 DEBUG Step 6 out of 10
+2022-07-19 18:41:15 DEBUG Step 7 out of 10
+2022-07-19 18:41:15 DEBUG Step 8 out of 10
+2022-07-19 18:41:15 DEBUG Step 9 out of 10
+2022-07-19 18:41:15 DEBUG Step 10 out of 10
+2022-07-19 18:41:16 ALOHA Program Complete
+2022-07-19 18:42:20 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 18:42:20 ALOHA Program Start
+2022-07-19 18:42:21 INFO Collecting Data from sources
+2022-07-19 18:42:21 WARN Raw data mix match. No Data will be collected
+2022-07-19 18:42:21 WARN Check cool_data.csv for proper date format.
+2022-07-19 18:42:22 DEBUG Step 1 out of 10
+2022-07-19 18:42:22 DEBUG Step 2 out of 10
+2022-07-19 18:42:22 DEBUG Step 3 out of 10
+2022-07-19 18:42:22 DEBUG Step 4 out of 10
+2022-07-19 18:42:22 DEBUG Step 5 out of 10
+2022-07-19 18:42:22 DEBUG Step 6 out of 10
+2022-07-19 18:42:22 DEBUG Step 7 out of 10
+2022-07-19 18:42:22 DEBUG Step 8 out of 10
+2022-07-19 18:42:22 DEBUG Step 9 out of 10
+2022-07-19 18:42:22 DEBUG Step 10 out of 10
+2022-07-19 18:42:34 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 18:42:34 ALOHA Program Start
+2022-07-19 18:42:35 INFO Collecting Data from sources
+2022-07-19 18:42:35 WARN Raw data mix match. No Data will be collected
+2022-07-19 18:42:35 WARN Check cool_data.csv for proper date format.
+2022-07-19 18:42:36 DEBUG Step 1 out of 10
+2022-07-19 18:42:36 DEBUG Step 2 out of 10
+2022-07-19 18:42:36 DEBUG Step 3 out of 10
+2022-07-19 18:42:36 DEBUG Step 4 out of 10
+2022-07-19 18:42:36 DEBUG Step 5 out of 10
+2022-07-19 18:42:36 DEBUG Step 6 out of 10
+2022-07-19 18:42:36 DEBUG Step 7 out of 10
+2022-07-19 18:42:36 DEBUG Step 8 out of 10
+2022-07-19 18:42:36 DEBUG Step 9 out of 10
+2022-07-19 18:42:36 DEBUG Step 10 out of 10
+2022-07-19 18:42:37 ALOHA Program Complete
+2022-07-19 18:43:00 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 18:43:00 ALOHA Program Start
+2022-07-19 18:43:02 INFO Collecting Data from sources
+2022-07-19 18:43:02 WARN Raw data mix match. No Data will be collected
+2022-07-19 18:43:02 WARN Check cool_data.csv for proper date format.
+2022-07-19 18:43:03 DEBUG Step 1 out of 10
+2022-07-19 18:43:03 DEBUG Step 2 out of 10
+2022-07-19 18:43:03 DEBUG Step 3 out of 10
+2022-07-19 18:43:03 DEBUG Step 4 out of 10
+2022-07-19 18:43:03 DEBUG Step 5 out of 10
+2022-07-19 18:43:03 DEBUG Step 6 out of 10
+2022-07-19 18:43:03 DEBUG Step 7 out of 10
+2022-07-19 18:43:03 DEBUG Step 8 out of 10
+2022-07-19 18:43:03 DEBUG Step 9 out of 10
+2022-07-19 18:43:03 DEBUG Step 10 out of 10
+2022-07-19 18:43:04 ALOHA Program Complete
+2022-07-19 18:43:28 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 18:43:28 ALOHA Program Start
+2022-07-19 18:43:30 INFO Collecting Data from sources
+2022-07-19 18:43:30 WARN Raw data mix match. No Data will be collected
+2022-07-19 18:43:30 WARN Check cool_data.csv for proper date format.
+2022-07-19 18:43:31 DEBUG Step 1 out of 10
+2022-07-19 18:43:31 DEBUG Step 2 out of 10
+2022-07-19 18:43:31 DEBUG Step 3 out of 10
+2022-07-19 18:43:31 DEBUG Step 4 out of 10
+2022-07-19 18:43:31 DEBUG Step 5 out of 10
+2022-07-19 18:43:31 DEBUG Step 6 out of 10
+2022-07-19 18:43:31 DEBUG Step 7 out of 10
+2022-07-19 18:43:31 DEBUG Step 8 out of 10
+2022-07-19 18:43:31 DEBUG Step 9 out of 10
+2022-07-19 18:43:31 DEBUG Step 10 out of 10
+2022-07-19 18:43:31 ALOHA Program Complete
+2022-07-19 18:44:13 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 18:44:13 ALOHA Program Start
+2022-07-19 18:44:14 INFO Collecting Data from sources
+2022-07-19 18:44:14 WARN Raw data mix match. No Data will be collected
+2022-07-19 18:44:14 WARN Check cool_data.csv for proper date format.
+2022-07-19 18:44:15 DEBUG Step 1 out of 10
+2022-07-19 18:44:16 DEBUG Step 2 out of 10
+2022-07-19 18:44:16 DEBUG Step 3 out of 10
+2022-07-19 18:44:16 DEBUG Step 4 out of 10
+2022-07-19 18:44:16 DEBUG Step 5 out of 10
+2022-07-19 18:44:16 DEBUG Step 6 out of 10
+2022-07-19 18:44:16 DEBUG Step 7 out of 10
+2022-07-19 18:44:16 DEBUG Step 8 out of 10
+2022-07-19 18:44:16 DEBUG Step 9 out of 10
+2022-07-19 18:44:16 DEBUG Step 10 out of 10
+2022-07-19 18:44:34 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 18:44:34 ALOHA Program Start
+2022-07-19 18:44:35 INFO Collecting Data from sources
+2022-07-19 18:44:35 WARN Raw data mix match. No Data will be collected
+2022-07-19 18:44:35 WARN Check cool_data.csv for proper date format.
+2022-07-19 18:44:36 DEBUG Step 1 out of 10
+2022-07-19 18:44:36 DEBUG Step 2 out of 10
+2022-07-19 18:44:36 DEBUG Step 3 out of 10
+2022-07-19 18:44:36 DEBUG Step 4 out of 10
+2022-07-19 18:44:36 DEBUG Step 5 out of 10
+2022-07-19 18:44:36 DEBUG Step 6 out of 10
+2022-07-19 18:44:36 DEBUG Step 7 out of 10
+2022-07-19 18:44:36 DEBUG Step 8 out of 10
+2022-07-19 18:44:36 DEBUG Step 9 out of 10
+2022-07-19 18:44:36 DEBUG Step 10 out of 10
+2022-07-19 18:44:57 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 18:44:57 ALOHA Program Start
+2022-07-19 18:44:58 INFO Collecting Data from sources
+2022-07-19 18:44:58 WARN Raw data mix match. No Data will be collected
+2022-07-19 18:44:58 WARN Check cool_data.csv for proper date format.
+2022-07-19 18:44:59 DEBUG Step 1 out of 10
+2022-07-19 18:44:59 DEBUG Step 2 out of 10
+2022-07-19 18:44:59 DEBUG Step 3 out of 10
+2022-07-19 18:44:59 DEBUG Step 4 out of 10
+2022-07-19 18:44:59 DEBUG Step 5 out of 10
+2022-07-19 18:44:59 DEBUG Step 6 out of 10
+2022-07-19 18:44:59 DEBUG Step 7 out of 10
+2022-07-19 18:44:59 DEBUG Step 8 out of 10
+2022-07-19 18:44:59 DEBUG Step 9 out of 10
+2022-07-19 18:44:59 DEBUG Step 10 out of 10
+2022-07-19 18:45:00 ALOHA Program Complete
+2022-07-19 18:45:29 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 18:45:29 ALOHA Program Start
+2022-07-19 18:45:30 INFO Collecting Data from sources
+2022-07-19 18:45:30 WARN Raw data mix match. No Data will be collected
+2022-07-19 18:45:30 WARN Check cool_data.csv for proper date format.
+2022-07-19 18:45:31 DEBUG Step 1 out of 10
+2022-07-19 18:45:31 DEBUG Step 2 out of 10
+2022-07-19 18:45:31 DEBUG Step 3 out of 10
+2022-07-19 18:45:31 DEBUG Step 4 out of 10
+2022-07-19 18:45:31 DEBUG Step 5 out of 10
+2022-07-19 18:45:31 DEBUG Step 6 out of 10
+2022-07-19 18:45:31 DEBUG Step 7 out of 10
+2022-07-19 18:45:31 DEBUG Step 8 out of 10
+2022-07-19 18:45:31 DEBUG Step 9 out of 10
+2022-07-19 18:45:31 DEBUG Step 10 out of 10
+2022-07-19 18:45:32 ALOHA Program Complete
+2022-07-19 18:45:48 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 18:45:48 ALOHA Program Start
+2022-07-19 18:45:49 INFO Collecting Data from sources
+2022-07-19 18:45:49 WARN Raw data mix match. No Data will be collected
+2022-07-19 18:45:49 WARN Check cool_data.csv for proper date format.
+2022-07-19 18:45:50 DEBUG Step 1 out of 10
+2022-07-19 18:45:50 DEBUG Step 2 out of 10
+2022-07-19 18:45:50 DEBUG Step 3 out of 10
+2022-07-19 18:45:50 DEBUG Step 4 out of 10
+2022-07-19 18:45:50 DEBUG Step 5 out of 10
+2022-07-19 18:45:50 DEBUG Step 6 out of 10
+2022-07-19 18:45:50 DEBUG Step 7 out of 10
+2022-07-19 18:45:50 DEBUG Step 8 out of 10
+2022-07-19 18:45:50 DEBUG Step 9 out of 10
+2022-07-19 18:45:50 DEBUG Step 10 out of 10
+2022-07-19 18:46:23 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 18:46:23 ALOHA Program Start
+2022-07-19 18:46:25 INFO Collecting Data from sources
+2022-07-19 18:46:25 WARN Raw data mix match. No Data will be collected
+2022-07-19 18:46:25 WARN Check cool_data.csv for proper date format.
+2022-07-19 18:46:26 DEBUG Step 1 out of 10
+2022-07-19 18:46:26 DEBUG Step 2 out of 10
+2022-07-19 18:46:26 DEBUG Step 3 out of 10
+2022-07-19 18:46:26 DEBUG Step 4 out of 10
+2022-07-19 18:46:26 DEBUG Step 5 out of 10
+2022-07-19 18:46:26 DEBUG Step 6 out of 10
+2022-07-19 18:46:26 DEBUG Step 7 out of 10
+2022-07-19 18:46:26 DEBUG Step 8 out of 10
+2022-07-19 18:46:26 DEBUG Step 9 out of 10
+2022-07-19 18:46:26 DEBUG Step 10 out of 10
+2022-07-19 18:52:27 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 18:52:27 ALOHA Program Start
+2022-07-19 18:52:29 INFO Collecting Data from sources
+2022-07-19 18:52:29 WARN Raw data mix match. No Data will be collected
+2022-07-19 18:52:29 WARN Check cool_data.csv for proper date format.
+2022-07-19 18:52:30 DEBUG Step 1 out of 10
+2022-07-19 18:52:30 DEBUG Step 2 out of 10
+2022-07-19 18:52:30 DEBUG Step 3 out of 10
+2022-07-19 18:52:30 DEBUG Step 4 out of 10
+2022-07-19 18:52:30 DEBUG Step 5 out of 10
+2022-07-19 18:52:30 DEBUG Step 6 out of 10
+2022-07-19 18:52:30 DEBUG Step 7 out of 10
+2022-07-19 18:52:30 DEBUG Step 8 out of 10
+2022-07-19 18:52:30 DEBUG Step 9 out of 10
+2022-07-19 18:52:30 DEBUG Step 10 out of 10
+2022-07-19 18:52:50 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 18:52:50 ALOHA Program Start
+2022-07-19 18:52:52 INFO Collecting Data from sources
+2022-07-19 18:52:52 WARN Raw data mix match. No Data will be collected
+2022-07-19 18:52:52 WARN Check cool_data.csv for proper date format.
+2022-07-19 18:52:53 DEBUG Step 1 out of 10
+2022-07-19 18:52:53 DEBUG Step 2 out of 10
+2022-07-19 18:52:53 DEBUG Step 3 out of 10
+2022-07-19 18:52:53 DEBUG Step 4 out of 10
+2022-07-19 18:52:53 DEBUG Step 5 out of 10
+2022-07-19 18:52:53 DEBUG Step 6 out of 10
+2022-07-19 18:52:53 DEBUG Step 7 out of 10
+2022-07-19 18:52:53 DEBUG Step 8 out of 10
+2022-07-19 18:52:53 DEBUG Step 9 out of 10
+2022-07-19 18:52:53 DEBUG Step 10 out of 10
+2022-07-19 18:53:16 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 18:53:16 ALOHA Program Start
+2022-07-19 18:53:17 INFO Collecting Data from sources
+2022-07-19 18:53:17 WARN Raw data mix match. No Data will be collected
+2022-07-19 18:53:17 WARN Check cool_data.csv for proper date format.
+2022-07-19 18:53:18 DEBUG Step 1 out of 10
+2022-07-19 18:53:18 DEBUG Step 2 out of 10
+2022-07-19 18:53:18 DEBUG Step 3 out of 10
+2022-07-19 18:53:18 DEBUG Step 4 out of 10
+2022-07-19 18:53:18 DEBUG Step 5 out of 10
+2022-07-19 18:53:18 DEBUG Step 6 out of 10
+2022-07-19 18:53:18 DEBUG Step 7 out of 10
+2022-07-19 18:53:18 DEBUG Step 8 out of 10
+2022-07-19 18:53:18 DEBUG Step 9 out of 10
+2022-07-19 18:53:18 DEBUG Step 10 out of 10
+2022-07-19 18:53:38 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 18:53:38 ALOHA Program Start
+2022-07-19 18:53:39 INFO Collecting Data from sources
+2022-07-19 18:53:39 WARN Raw data mix match. No Data will be collected
+2022-07-19 18:53:39 WARN Check cool_data.csv for proper date format.
+2022-07-19 18:53:40 DEBUG Step 1 out of 10
+2022-07-19 18:53:41 DEBUG Step 2 out of 10
+2022-07-19 18:53:41 DEBUG Step 3 out of 10
+2022-07-19 18:53:41 DEBUG Step 4 out of 10
+2022-07-19 18:53:41 DEBUG Step 5 out of 10
+2022-07-19 18:53:41 DEBUG Step 6 out of 10
+2022-07-19 18:53:41 DEBUG Step 7 out of 10
+2022-07-19 18:53:41 DEBUG Step 8 out of 10
+2022-07-19 18:53:41 DEBUG Step 9 out of 10
+2022-07-19 18:53:41 DEBUG Step 10 out of 10
+2022-07-19 18:54:06 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 18:54:06 ALOHA Program Start
+2022-07-19 18:54:07 INFO Collecting Data from sources
+2022-07-19 18:54:08 WARN Raw data mix match. No Data will be collected
+2022-07-19 18:54:08 WARN Check cool_data.csv for proper date format.
+2022-07-19 18:54:09 DEBUG Step 1 out of 10
+2022-07-19 18:54:09 DEBUG Step 2 out of 10
+2022-07-19 18:54:09 DEBUG Step 3 out of 10
+2022-07-19 18:54:09 DEBUG Step 4 out of 10
+2022-07-19 18:54:09 DEBUG Step 5 out of 10
+2022-07-19 18:54:09 DEBUG Step 6 out of 10
+2022-07-19 18:54:09 DEBUG Step 7 out of 10
+2022-07-19 18:54:09 DEBUG Step 8 out of 10
+2022-07-19 18:54:09 DEBUG Step 9 out of 10
+2022-07-19 18:54:09 DEBUG Step 10 out of 10
+2022-07-19 18:55:46 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 18:55:46 ALOHA Program Start
+2022-07-19 18:55:47 INFO Collecting Data from sources
+2022-07-19 18:55:47 WARN Raw data mix match. No Data will be collected
+2022-07-19 18:55:47 WARN Check cool_data.csv for proper date format.
+2022-07-19 18:55:48 DEBUG Step 1 out of 10
+2022-07-19 18:55:48 DEBUG Step 2 out of 10
+2022-07-19 18:55:49 DEBUG Step 3 out of 10
+2022-07-19 18:55:49 DEBUG Step 4 out of 10
+2022-07-19 18:55:49 DEBUG Step 5 out of 10
+2022-07-19 18:55:49 DEBUG Step 6 out of 10
+2022-07-19 18:55:49 DEBUG Step 7 out of 10
+2022-07-19 18:55:49 DEBUG Step 8 out of 10
+2022-07-19 18:55:49 DEBUG Step 9 out of 10
+2022-07-19 18:55:49 DEBUG Step 10 out of 10
+2022-07-19 18:55:49 ALOHA Program Complete
+2022-07-19 19:00:03 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 19:00:03 ALOHA Program Start
+2022-07-19 19:00:04 INFO Collecting Data from sources
+2022-07-19 19:00:04 WARN Raw data mix match. No Data will be collected
+2022-07-19 19:00:04 WARN Check cool_data.csv for proper date format.
+2022-07-19 19:00:05 DEBUG Step 1 out of 10
+2022-07-19 19:00:05 DEBUG Step 2 out of 10
+2022-07-19 19:00:05 DEBUG Step 3 out of 10
+2022-07-19 19:00:05 DEBUG Step 4 out of 10
+2022-07-19 19:00:05 DEBUG Step 5 out of 10
+2022-07-19 19:00:05 DEBUG Step 6 out of 10
+2022-07-19 19:00:05 DEBUG Step 7 out of 10
+2022-07-19 19:00:05 DEBUG Step 8 out of 10
+2022-07-19 19:00:05 DEBUG Step 9 out of 10
+2022-07-19 19:00:05 DEBUG Step 10 out of 10
+2022-07-19 19:00:27 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 19:00:27 ALOHA Program Start
+2022-07-19 19:00:29 INFO Collecting Data from sources
+2022-07-19 19:00:29 WARN Raw data mix match. No Data will be collected
+2022-07-19 19:00:29 WARN Check cool_data.csv for proper date format.
+2022-07-19 19:00:30 DEBUG Step 1 out of 10
+2022-07-19 19:00:30 DEBUG Step 2 out of 10
+2022-07-19 19:00:30 DEBUG Step 3 out of 10
+2022-07-19 19:00:30 DEBUG Step 4 out of 10
+2022-07-19 19:00:30 DEBUG Step 5 out of 10
+2022-07-19 19:00:30 DEBUG Step 6 out of 10
+2022-07-19 19:00:30 DEBUG Step 7 out of 10
+2022-07-19 19:00:30 DEBUG Step 8 out of 10
+2022-07-19 19:00:30 DEBUG Step 9 out of 10
+2022-07-19 19:00:30 DEBUG Step 10 out of 10
+2022-07-19 19:00:30 INFO Starting PMAT Utility Unit Tests
+2022-07-19 19:00:57 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 19:00:57 ALOHA Program Start
+2022-07-19 19:00:58 INFO Collecting Data from sources
+2022-07-19 19:00:58 WARN Raw data mix match. No Data will be collected
+2022-07-19 19:00:58 WARN Check cool_data.csv for proper date format.
+2022-07-19 19:00:59 DEBUG Step 1 out of 10
+2022-07-19 19:00:59 DEBUG Step 2 out of 10
+2022-07-19 19:00:59 DEBUG Step 3 out of 10
+2022-07-19 19:00:59 DEBUG Step 4 out of 10
+2022-07-19 19:00:59 DEBUG Step 5 out of 10
+2022-07-19 19:01:00 DEBUG Step 6 out of 10
+2022-07-19 19:01:00 DEBUG Step 7 out of 10
+2022-07-19 19:01:00 DEBUG Step 8 out of 10
+2022-07-19 19:01:00 DEBUG Step 9 out of 10
+2022-07-19 19:01:00 DEBUG Step 10 out of 10
+2022-07-19 19:01:00 INFO Starting PMAT Utility Unit Tests
+2022-07-19 19:01:00 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 19:03:04 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 19:03:04 ALOHA Program Start
+2022-07-19 19:03:05 INFO Collecting Data from sources
+2022-07-19 19:03:05 WARN Raw data mix match. No Data will be collected
+2022-07-19 19:03:05 WARN Check cool_data.csv for proper date format.
+2022-07-19 19:03:07 DEBUG Step 1 out of 10
+2022-07-19 19:03:07 DEBUG Step 2 out of 10
+2022-07-19 19:03:07 DEBUG Step 3 out of 10
+2022-07-19 19:03:07 DEBUG Step 4 out of 10
+2022-07-19 19:03:07 DEBUG Step 5 out of 10
+2022-07-19 19:03:07 DEBUG Step 6 out of 10
+2022-07-19 19:03:07 DEBUG Step 7 out of 10
+2022-07-19 19:03:07 DEBUG Step 8 out of 10
+2022-07-19 19:03:07 DEBUG Step 9 out of 10
+2022-07-19 19:03:07 DEBUG Step 10 out of 10
+2022-07-19 19:03:07 INFO Starting PMAT Utility Unit Tests
+2022-07-19 19:03:07 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 19:03:21 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 19:03:21 ALOHA Program Start
+2022-07-19 19:03:23 INFO Collecting Data from sources
+2022-07-19 19:03:23 WARN Raw data mix match. No Data will be collected
+2022-07-19 19:03:23 WARN Check cool_data.csv for proper date format.
+2022-07-19 19:03:24 DEBUG Step 1 out of 10
+2022-07-19 19:03:24 DEBUG Step 2 out of 10
+2022-07-19 19:03:24 DEBUG Step 3 out of 10
+2022-07-19 19:03:24 DEBUG Step 4 out of 10
+2022-07-19 19:03:24 DEBUG Step 5 out of 10
+2022-07-19 19:03:24 DEBUG Step 6 out of 10
+2022-07-19 19:03:24 DEBUG Step 7 out of 10
+2022-07-19 19:03:24 DEBUG Step 8 out of 10
+2022-07-19 19:03:24 DEBUG Step 9 out of 10
+2022-07-19 19:03:24 DEBUG Step 10 out of 10
+2022-07-19 19:03:24 INFO Starting PMAT Utility Unit Tests
+2022-07-19 19:03:25 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 19:04:50 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 19:04:50 ALOHA Program Start
+2022-07-19 19:04:51 INFO Collecting Data from sources
+2022-07-19 19:04:51 WARN Raw data mix match. No Data will be collected
+2022-07-19 19:04:51 WARN Check cool_data.csv for proper date format.
+2022-07-19 19:04:52 DEBUG Step 1 out of 10
+2022-07-19 19:04:52 DEBUG Step 2 out of 10
+2022-07-19 19:04:52 DEBUG Step 3 out of 10
+2022-07-19 19:04:52 DEBUG Step 4 out of 10
+2022-07-19 19:04:52 DEBUG Step 5 out of 10
+2022-07-19 19:04:52 DEBUG Step 6 out of 10
+2022-07-19 19:04:52 DEBUG Step 7 out of 10
+2022-07-19 19:04:52 DEBUG Step 8 out of 10
+2022-07-19 19:04:52 DEBUG Step 9 out of 10
+2022-07-19 19:04:52 DEBUG Step 10 out of 10
+2022-07-19 19:04:53 INFO Starting PMAT Utility Unit Tests
+2022-07-19 19:04:53 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 19:07:59 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 19:07:59 ALOHA Program Start
+2022-07-19 19:08:00 INFO Collecting Data from sources
+2022-07-19 19:08:00 WARN Raw data mix match. No Data will be collected
+2022-07-19 19:08:00 WARN Check cool_data.csv for proper date format.
+2022-07-19 19:08:01 DEBUG Step 1 out of 10
+2022-07-19 19:08:01 DEBUG Step 2 out of 10
+2022-07-19 19:08:01 DEBUG Step 3 out of 10
+2022-07-19 19:08:01 DEBUG Step 4 out of 10
+2022-07-19 19:08:01 DEBUG Step 5 out of 10
+2022-07-19 19:08:01 DEBUG Step 6 out of 10
+2022-07-19 19:08:01 DEBUG Step 7 out of 10
+2022-07-19 19:08:01 DEBUG Step 8 out of 10
+2022-07-19 19:08:01 DEBUG Step 9 out of 10
+2022-07-19 19:08:01 DEBUG Step 10 out of 10
+2022-07-19 19:08:02 INFO Starting PMAT Utility Unit Tests
+2022-07-19 19:08:02 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 19:09:07 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 19:09:07 ALOHA Program Start
+2022-07-19 19:09:08 INFO Collecting Data from sources
+2022-07-19 19:09:08 WARN Raw data mix match. No Data will be collected
+2022-07-19 19:09:08 WARN Check cool_data.csv for proper date format.
+2022-07-19 19:09:09 DEBUG Step 1 out of 10
+2022-07-19 19:09:09 DEBUG Step 2 out of 10
+2022-07-19 19:09:09 DEBUG Step 3 out of 10
+2022-07-19 19:09:09 DEBUG Step 4 out of 10
+2022-07-19 19:09:09 DEBUG Step 5 out of 10
+2022-07-19 19:09:09 DEBUG Step 6 out of 10
+2022-07-19 19:09:09 DEBUG Step 7 out of 10
+2022-07-19 19:09:09 DEBUG Step 8 out of 10
+2022-07-19 19:09:09 DEBUG Step 9 out of 10
+2022-07-19 19:09:09 DEBUG Step 10 out of 10
+2022-07-19 19:09:09 INFO Starting PMAT Utility Unit Tests
+2022-07-19 19:09:10 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 19:09:39 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 19:09:39 ALOHA Program Start
+2022-07-19 19:09:40 INFO Collecting Data from sources
+2022-07-19 19:09:40 WARN Raw data mix match. No Data will be collected
+2022-07-19 19:09:40 WARN Check cool_data.csv for proper date format.
+2022-07-19 19:09:42 DEBUG Step 1 out of 10
+2022-07-19 19:09:42 DEBUG Step 2 out of 10
+2022-07-19 19:09:42 DEBUG Step 3 out of 10
+2022-07-19 19:09:42 DEBUG Step 4 out of 10
+2022-07-19 19:09:42 DEBUG Step 5 out of 10
+2022-07-19 19:09:42 DEBUG Step 6 out of 10
+2022-07-19 19:09:42 DEBUG Step 7 out of 10
+2022-07-19 19:09:42 DEBUG Step 8 out of 10
+2022-07-19 19:09:42 DEBUG Step 9 out of 10
+2022-07-19 19:09:42 DEBUG Step 10 out of 10
+2022-07-19 19:09:42 INFO Starting PMAT Utility Unit Tests
+2022-07-19 19:09:42 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 19:09:42 ALOHA Program Complete
+2022-07-19 19:10:26 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 19:10:26 ALOHA Program Start
+2022-07-19 19:10:27 INFO Collecting Data from sources
+2022-07-19 19:10:28 WARN Raw data mix match. No Data will be collected
+2022-07-19 19:10:28 WARN Check cool_data.csv for proper date format.
+2022-07-19 19:10:29 DEBUG Step 1 out of 10
+2022-07-19 19:10:29 DEBUG Step 2 out of 10
+2022-07-19 19:10:29 DEBUG Step 3 out of 10
+2022-07-19 19:10:29 DEBUG Step 4 out of 10
+2022-07-19 19:10:29 DEBUG Step 5 out of 10
+2022-07-19 19:10:29 DEBUG Step 6 out of 10
+2022-07-19 19:10:29 DEBUG Step 7 out of 10
+2022-07-19 19:10:29 DEBUG Step 8 out of 10
+2022-07-19 19:10:29 DEBUG Step 9 out of 10
+2022-07-19 19:10:29 DEBUG Step 10 out of 10
+2022-07-19 19:10:29 INFO Starting PMAT Utility Unit Tests
+2022-07-19 19:10:29 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 19:11:00 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 19:11:00 ALOHA Program Start
+2022-07-19 19:11:01 INFO Collecting Data from sources
+2022-07-19 19:11:01 WARN Raw data mix match. No Data will be collected
+2022-07-19 19:11:01 WARN Check cool_data.csv for proper date format.
+2022-07-19 19:11:02 DEBUG Step 1 out of 10
+2022-07-19 19:11:02 DEBUG Step 2 out of 10
+2022-07-19 19:11:02 DEBUG Step 3 out of 10
+2022-07-19 19:11:02 DEBUG Step 4 out of 10
+2022-07-19 19:11:02 DEBUG Step 5 out of 10
+2022-07-19 19:11:02 DEBUG Step 6 out of 10
+2022-07-19 19:11:02 DEBUG Step 7 out of 10
+2022-07-19 19:11:02 DEBUG Step 8 out of 10
+2022-07-19 19:11:02 DEBUG Step 9 out of 10
+2022-07-19 19:11:02 DEBUG Step 10 out of 10
+2022-07-19 19:11:02 INFO Starting PMAT Utility Unit Tests
+2022-07-19 19:11:03 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 19:11:28 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 19:11:28 ALOHA Program Start
+2022-07-19 19:11:29 INFO Collecting Data from sources
+2022-07-19 19:11:29 WARN Raw data mix match. No Data will be collected
+2022-07-19 19:11:29 WARN Check cool_data.csv for proper date format.
+2022-07-19 19:11:30 DEBUG Step 1 out of 10
+2022-07-19 19:11:30 DEBUG Step 2 out of 10
+2022-07-19 19:11:30 DEBUG Step 3 out of 10
+2022-07-19 19:11:30 DEBUG Step 4 out of 10
+2022-07-19 19:11:30 DEBUG Step 5 out of 10
+2022-07-19 19:11:30 DEBUG Step 6 out of 10
+2022-07-19 19:11:30 DEBUG Step 7 out of 10
+2022-07-19 19:11:30 DEBUG Step 8 out of 10
+2022-07-19 19:11:30 DEBUG Step 9 out of 10
+2022-07-19 19:11:30 DEBUG Step 10 out of 10
+2022-07-19 19:11:30 INFO Starting PMAT Utility Unit Tests
+2022-07-19 19:11:31 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 19:11:47 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 19:11:47 ALOHA Program Start
+2022-07-19 19:11:48 INFO Collecting Data from sources
+2022-07-19 19:11:48 WARN Raw data mix match. No Data will be collected
+2022-07-19 19:11:48 WARN Check cool_data.csv for proper date format.
+2022-07-19 19:11:49 DEBUG Step 1 out of 10
+2022-07-19 19:11:49 DEBUG Step 2 out of 10
+2022-07-19 19:11:49 DEBUG Step 3 out of 10
+2022-07-19 19:11:49 DEBUG Step 4 out of 10
+2022-07-19 19:11:49 DEBUG Step 5 out of 10
+2022-07-19 19:11:49 DEBUG Step 6 out of 10
+2022-07-19 19:11:49 DEBUG Step 7 out of 10
+2022-07-19 19:11:49 DEBUG Step 8 out of 10
+2022-07-19 19:11:49 DEBUG Step 9 out of 10
+2022-07-19 19:11:49 DEBUG Step 10 out of 10
+2022-07-19 19:11:49 INFO Starting PMAT Utility Unit Tests
+2022-07-19 19:11:50 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 19:11:50 ALOHA Program Complete
+2022-07-19 19:12:38 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 19:12:38 ALOHA Program Start
+2022-07-19 19:12:40 INFO Collecting Data from sources
+2022-07-19 19:12:40 WARN Raw data mix match. No Data will be collected
+2022-07-19 19:12:40 WARN Check cool_data.csv for proper date format.
+2022-07-19 19:12:41 DEBUG Step 1 out of 10
+2022-07-19 19:12:41 DEBUG Step 2 out of 10
+2022-07-19 19:12:41 DEBUG Step 3 out of 10
+2022-07-19 19:12:41 DEBUG Step 4 out of 10
+2022-07-19 19:12:41 DEBUG Step 5 out of 10
+2022-07-19 19:12:41 DEBUG Step 6 out of 10
+2022-07-19 19:12:41 DEBUG Step 7 out of 10
+2022-07-19 19:12:41 DEBUG Step 8 out of 10
+2022-07-19 19:12:41 DEBUG Step 9 out of 10
+2022-07-19 19:12:41 DEBUG Step 10 out of 10
+2022-07-19 19:12:41 INFO Starting PMAT Utility Unit Tests
+2022-07-19 19:12:41 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 19:13:13 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 19:13:13 ALOHA Program Start
+2022-07-19 19:13:14 INFO Collecting Data from sources
+2022-07-19 19:13:14 WARN Raw data mix match. No Data will be collected
+2022-07-19 19:13:14 WARN Check cool_data.csv for proper date format.
+2022-07-19 19:13:15 DEBUG Step 1 out of 10
+2022-07-19 19:13:16 DEBUG Step 2 out of 10
+2022-07-19 19:13:16 DEBUG Step 3 out of 10
+2022-07-19 19:13:16 DEBUG Step 4 out of 10
+2022-07-19 19:13:16 DEBUG Step 5 out of 10
+2022-07-19 19:13:16 DEBUG Step 6 out of 10
+2022-07-19 19:13:16 DEBUG Step 7 out of 10
+2022-07-19 19:13:16 DEBUG Step 8 out of 10
+2022-07-19 19:13:16 DEBUG Step 9 out of 10
+2022-07-19 19:13:16 DEBUG Step 10 out of 10
+2022-07-19 19:13:16 INFO Starting PMAT Utility Unit Tests
+2022-07-19 19:13:16 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 19:13:16 ALOHA Program Complete
+2022-07-19 19:14:52 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 19:14:52 ALOHA Program Start
+2022-07-19 19:14:53 INFO Collecting Data from sources
+2022-07-19 19:14:53 WARN Raw data mix match. No Data will be collected
+2022-07-19 19:14:53 WARN Check cool_data.csv for proper date format.
+2022-07-19 19:14:55 DEBUG Step 1 out of 10
+2022-07-19 19:14:55 DEBUG Step 2 out of 10
+2022-07-19 19:14:55 DEBUG Step 3 out of 10
+2022-07-19 19:14:55 DEBUG Step 4 out of 10
+2022-07-19 19:14:55 DEBUG Step 5 out of 10
+2022-07-19 19:14:55 DEBUG Step 6 out of 10
+2022-07-19 19:14:55 DEBUG Step 7 out of 10
+2022-07-19 19:14:55 DEBUG Step 8 out of 10
+2022-07-19 19:14:55 DEBUG Step 9 out of 10
+2022-07-19 19:14:55 DEBUG Step 10 out of 10
+2022-07-19 19:14:55 INFO Starting PMAT Utility Unit Tests
+2022-07-19 19:14:55 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 19:14:55 ALOHA Program Complete
+2022-07-19 19:17:06 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 19:17:06 ALOHA Program Start
+2022-07-19 19:17:07 INFO Collecting Data from sources
+2022-07-19 19:17:07 WARN Raw data mix match. No Data will be collected
+2022-07-19 19:17:07 WARN Check cool_data.csv for proper date format.
+2022-07-19 19:17:08 DEBUG Step 1 out of 10
+2022-07-19 19:17:08 DEBUG Step 2 out of 10
+2022-07-19 19:17:08 DEBUG Step 3 out of 10
+2022-07-19 19:17:08 DEBUG Step 4 out of 10
+2022-07-19 19:17:08 DEBUG Step 5 out of 10
+2022-07-19 19:17:09 DEBUG Step 6 out of 10
+2022-07-19 19:17:09 DEBUG Step 7 out of 10
+2022-07-19 19:17:09 DEBUG Step 8 out of 10
+2022-07-19 19:17:09 DEBUG Step 9 out of 10
+2022-07-19 19:17:09 DEBUG Step 10 out of 10
+2022-07-19 19:17:09 INFO Starting PMAT Utility Unit Tests
+2022-07-19 19:17:09 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 19:17:09 ALOHA Program Complete
+2022-07-19 19:17:32 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 19:17:32 ALOHA Program Start
+2022-07-19 19:17:33 INFO Collecting Data from sources
+2022-07-19 19:17:33 WARN Raw data mix match. No Data will be collected
+2022-07-19 19:17:33 WARN Check cool_data.csv for proper date format.
+2022-07-19 19:17:34 DEBUG Step 1 out of 10
+2022-07-19 19:17:34 DEBUG Step 2 out of 10
+2022-07-19 19:17:34 DEBUG Step 3 out of 10
+2022-07-19 19:17:34 DEBUG Step 4 out of 10
+2022-07-19 19:17:34 DEBUG Step 5 out of 10
+2022-07-19 19:17:34 DEBUG Step 6 out of 10
+2022-07-19 19:17:34 DEBUG Step 7 out of 10
+2022-07-19 19:17:34 DEBUG Step 8 out of 10
+2022-07-19 19:17:34 DEBUG Step 9 out of 10
+2022-07-19 19:17:34 DEBUG Step 10 out of 10
+2022-07-19 19:17:34 INFO Starting PMAT Utility Unit Tests
+2022-07-19 19:17:35 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 19:17:35 ALOHA Program Complete
+2022-07-19 19:19:00 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 19:19:00 ALOHA Program Start
+2022-07-19 19:19:02 INFO Collecting Data from sources
+2022-07-19 19:19:02 WARN Raw data mix match. No Data will be collected
+2022-07-19 19:19:02 WARN Check cool_data.csv for proper date format.
+2022-07-19 19:19:03 DEBUG Step 1 out of 10
+2022-07-19 19:19:03 DEBUG Step 2 out of 10
+2022-07-19 19:19:03 DEBUG Step 3 out of 10
+2022-07-19 19:19:03 DEBUG Step 4 out of 10
+2022-07-19 19:19:03 DEBUG Step 5 out of 10
+2022-07-19 19:19:03 DEBUG Step 6 out of 10
+2022-07-19 19:19:03 DEBUG Step 7 out of 10
+2022-07-19 19:19:03 DEBUG Step 8 out of 10
+2022-07-19 19:19:03 DEBUG Step 9 out of 10
+2022-07-19 19:19:03 DEBUG Step 10 out of 10
+2022-07-19 19:19:03 INFO Starting PMAT Utility Unit Tests
+2022-07-19 19:19:04 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 19:19:04 ALOHA Program Complete
+2022-07-19 19:19:23 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 19:19:23 ALOHA Program Start
+2022-07-19 19:19:24 INFO Collecting Data from sources
+2022-07-19 19:19:24 WARN Raw data mix match. No Data will be collected
+2022-07-19 19:19:24 WARN Check cool_data.csv for proper date format.
+2022-07-19 19:19:26 DEBUG Step 1 out of 10
+2022-07-19 19:19:26 DEBUG Step 2 out of 10
+2022-07-19 19:19:26 DEBUG Step 3 out of 10
+2022-07-19 19:19:26 DEBUG Step 4 out of 10
+2022-07-19 19:19:26 DEBUG Step 5 out of 10
+2022-07-19 19:19:26 DEBUG Step 6 out of 10
+2022-07-19 19:19:26 DEBUG Step 7 out of 10
+2022-07-19 19:19:26 DEBUG Step 8 out of 10
+2022-07-19 19:19:26 DEBUG Step 9 out of 10
+2022-07-19 19:19:26 DEBUG Step 10 out of 10
+2022-07-19 19:19:26 INFO Starting PMAT Utility Unit Tests
+2022-07-19 19:19:27 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 19:19:27 ALOHA Program Complete
+2022-07-19 19:22:01 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 19:22:01 ALOHA Program Start
+2022-07-19 19:22:02 INFO Collecting Data from sources
+2022-07-19 19:22:02 WARN Raw data mix match. No Data will be collected
+2022-07-19 19:22:02 WARN Check cool_data.csv for proper date format.
+2022-07-19 19:22:03 DEBUG Step 1 out of 10
+2022-07-19 19:22:03 DEBUG Step 2 out of 10
+2022-07-19 19:22:03 DEBUG Step 3 out of 10
+2022-07-19 19:22:03 DEBUG Step 4 out of 10
+2022-07-19 19:22:03 DEBUG Step 5 out of 10
+2022-07-19 19:22:03 DEBUG Step 6 out of 10
+2022-07-19 19:22:03 DEBUG Step 7 out of 10
+2022-07-19 19:22:03 DEBUG Step 8 out of 10
+2022-07-19 19:22:03 DEBUG Step 9 out of 10
+2022-07-19 19:22:03 DEBUG Step 10 out of 10
+2022-07-19 19:22:03 INFO Starting PMAT Utility Unit Tests
+2022-07-19 19:22:04 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 19:22:04 ALOHA Program Complete
+2022-07-19 19:22:58 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 19:22:58 ALOHA Program Start
+2022-07-19 19:22:59 INFO Collecting Data from sources
+2022-07-19 19:22:59 WARN Raw data mix match. No Data will be collected
+2022-07-19 19:22:59 WARN Check cool_data.csv for proper date format.
+2022-07-19 19:23:00 DEBUG Step 1 out of 10
+2022-07-19 19:23:01 DEBUG Step 2 out of 10
+2022-07-19 19:23:01 DEBUG Step 3 out of 10
+2022-07-19 19:23:01 DEBUG Step 4 out of 10
+2022-07-19 19:23:01 DEBUG Step 5 out of 10
+2022-07-19 19:23:01 DEBUG Step 6 out of 10
+2022-07-19 19:23:01 DEBUG Step 7 out of 10
+2022-07-19 19:23:01 DEBUG Step 8 out of 10
+2022-07-19 19:23:01 DEBUG Step 9 out of 10
+2022-07-19 19:23:01 DEBUG Step 10 out of 10
+2022-07-19 19:23:01 INFO Starting PMAT Utility Unit Tests
+2022-07-19 19:23:01 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 19:23:01 ALOHA Program Complete
+2022-07-19 19:23:40 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 19:23:40 ALOHA Program Start
+2022-07-19 19:23:41 INFO Collecting Data from sources
+2022-07-19 19:23:41 WARN Raw data mix match. No Data will be collected
+2022-07-19 19:23:41 WARN Check cool_data.csv for proper date format.
+2022-07-19 19:23:42 DEBUG Step 1 out of 10
+2022-07-19 19:23:42 DEBUG Step 2 out of 10
+2022-07-19 19:23:42 DEBUG Step 3 out of 10
+2022-07-19 19:23:42 DEBUG Step 4 out of 10
+2022-07-19 19:23:42 DEBUG Step 5 out of 10
+2022-07-19 19:23:42 DEBUG Step 6 out of 10
+2022-07-19 19:23:42 DEBUG Step 7 out of 10
+2022-07-19 19:23:42 DEBUG Step 8 out of 10
+2022-07-19 19:23:42 DEBUG Step 9 out of 10
+2022-07-19 19:23:42 DEBUG Step 10 out of 10
+2022-07-19 19:23:43 INFO Starting PMAT Utility Unit Tests
+2022-07-19 19:23:43 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 19:24:02 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 19:24:02 ALOHA Program Start
+2022-07-19 19:24:04 INFO Collecting Data from sources
+2022-07-19 19:24:04 WARN Raw data mix match. No Data will be collected
+2022-07-19 19:24:04 WARN Check cool_data.csv for proper date format.
+2022-07-19 19:24:05 DEBUG Step 1 out of 10
+2022-07-19 19:24:05 DEBUG Step 2 out of 10
+2022-07-19 19:24:05 DEBUG Step 3 out of 10
+2022-07-19 19:24:05 DEBUG Step 4 out of 10
+2022-07-19 19:24:05 DEBUG Step 5 out of 10
+2022-07-19 19:24:05 DEBUG Step 6 out of 10
+2022-07-19 19:24:05 DEBUG Step 7 out of 10
+2022-07-19 19:24:05 DEBUG Step 8 out of 10
+2022-07-19 19:24:05 DEBUG Step 9 out of 10
+2022-07-19 19:24:05 DEBUG Step 10 out of 10
+2022-07-19 19:24:05 INFO Starting PMAT Utility Unit Tests
+2022-07-19 19:24:06 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 19:24:06 ALOHA Program Complete
+2022-07-19 19:25:36 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 19:25:36 ALOHA Program Start
+2022-07-19 19:25:38 INFO Collecting Data from sources
+2022-07-19 19:25:38 WARN Raw data mix match. No Data will be collected
+2022-07-19 19:25:38 WARN Check cool_data.csv for proper date format.
+2022-07-19 19:25:39 DEBUG Step 1 out of 10
+2022-07-19 19:25:39 DEBUG Step 2 out of 10
+2022-07-19 19:25:39 DEBUG Step 3 out of 10
+2022-07-19 19:25:39 DEBUG Step 4 out of 10
+2022-07-19 19:25:39 DEBUG Step 5 out of 10
+2022-07-19 19:25:39 DEBUG Step 6 out of 10
+2022-07-19 19:25:39 DEBUG Step 7 out of 10
+2022-07-19 19:25:39 DEBUG Step 8 out of 10
+2022-07-19 19:25:39 DEBUG Step 9 out of 10
+2022-07-19 19:25:39 DEBUG Step 10 out of 10
+2022-07-19 19:25:39 INFO Starting PMAT Utility Unit Tests
+2022-07-19 19:25:40 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 19:27:10 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 19:27:10 ALOHA Program Start
+2022-07-19 19:27:11 INFO Collecting Data from sources
+2022-07-19 19:27:11 WARN Raw data mix match. No Data will be collected
+2022-07-19 19:27:11 WARN Check cool_data.csv for proper date format.
+2022-07-19 19:27:12 DEBUG Step 1 out of 10
+2022-07-19 19:27:12 DEBUG Step 2 out of 10
+2022-07-19 19:27:12 DEBUG Step 3 out of 10
+2022-07-19 19:27:12 DEBUG Step 4 out of 10
+2022-07-19 19:27:12 DEBUG Step 5 out of 10
+2022-07-19 19:27:12 DEBUG Step 6 out of 10
+2022-07-19 19:27:12 DEBUG Step 7 out of 10
+2022-07-19 19:27:12 DEBUG Step 8 out of 10
+2022-07-19 19:27:12 DEBUG Step 9 out of 10
+2022-07-19 19:27:12 DEBUG Step 10 out of 10
+2022-07-19 19:27:12 INFO Starting PMAT Utility Unit Tests
+2022-07-19 19:27:13 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 19:29:44 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 19:29:44 ALOHA Program Start
+2022-07-19 19:29:45 INFO Collecting Data from sources
+2022-07-19 19:29:45 WARN Raw data mix match. No Data will be collected
+2022-07-19 19:29:45 WARN Check cool_data.csv for proper date format.
+2022-07-19 19:29:46 DEBUG Step 1 out of 10
+2022-07-19 19:29:47 DEBUG Step 2 out of 10
+2022-07-19 19:29:47 DEBUG Step 3 out of 10
+2022-07-19 19:29:47 DEBUG Step 4 out of 10
+2022-07-19 19:29:47 DEBUG Step 5 out of 10
+2022-07-19 19:29:47 DEBUG Step 6 out of 10
+2022-07-19 19:29:47 DEBUG Step 7 out of 10
+2022-07-19 19:29:47 DEBUG Step 8 out of 10
+2022-07-19 19:29:47 DEBUG Step 9 out of 10
+2022-07-19 19:29:47 DEBUG Step 10 out of 10
+2022-07-19 19:29:47 INFO Starting PMAT Utility Unit Tests
+2022-07-19 19:29:47 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 19:32:31 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 19:32:31 ALOHA Program Start
+2022-07-19 19:32:32 INFO Collecting Data from sources
+2022-07-19 19:32:32 WARN Raw data mix match. No Data will be collected
+2022-07-19 19:32:32 WARN Check cool_data.csv for proper date format.
+2022-07-19 19:32:34 DEBUG Step 1 out of 10
+2022-07-19 19:32:34 DEBUG Step 2 out of 10
+2022-07-19 19:32:34 DEBUG Step 3 out of 10
+2022-07-19 19:32:34 DEBUG Step 4 out of 10
+2022-07-19 19:32:34 DEBUG Step 5 out of 10
+2022-07-19 19:32:34 DEBUG Step 6 out of 10
+2022-07-19 19:32:34 DEBUG Step 7 out of 10
+2022-07-19 19:32:34 DEBUG Step 8 out of 10
+2022-07-19 19:32:34 DEBUG Step 9 out of 10
+2022-07-19 19:32:34 DEBUG Step 10 out of 10
+2022-07-19 19:32:34 INFO Starting PMAT Utility Unit Tests
+2022-07-19 19:32:35 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 19:33:34 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 19:33:34 ALOHA Program Start
+2022-07-19 19:33:36 INFO Collecting Data from sources
+2022-07-19 19:33:36 WARN Raw data mix match. No Data will be collected
+2022-07-19 19:33:36 WARN Check cool_data.csv for proper date format.
+2022-07-19 19:33:37 DEBUG Step 1 out of 10
+2022-07-19 19:33:37 DEBUG Step 2 out of 10
+2022-07-19 19:33:37 DEBUG Step 3 out of 10
+2022-07-19 19:33:37 DEBUG Step 4 out of 10
+2022-07-19 19:33:37 DEBUG Step 5 out of 10
+2022-07-19 19:33:38 DEBUG Step 6 out of 10
+2022-07-19 19:33:38 DEBUG Step 7 out of 10
+2022-07-19 19:33:38 DEBUG Step 8 out of 10
+2022-07-19 19:33:38 DEBUG Step 9 out of 10
+2022-07-19 19:33:38 DEBUG Step 10 out of 10
+2022-07-19 19:33:38 INFO Starting PMAT Utility Unit Tests
+2022-07-19 19:33:38 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 19:34:17 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 19:34:17 ALOHA Program Start
+2022-07-19 19:34:18 INFO Collecting Data from sources
+2022-07-19 19:34:18 WARN Raw data mix match. No Data will be collected
+2022-07-19 19:34:18 WARN Check cool_data.csv for proper date format.
+2022-07-19 19:34:20 DEBUG Step 1 out of 10
+2022-07-19 19:34:20 DEBUG Step 2 out of 10
+2022-07-19 19:34:20 DEBUG Step 3 out of 10
+2022-07-19 19:34:20 DEBUG Step 4 out of 10
+2022-07-19 19:34:20 DEBUG Step 5 out of 10
+2022-07-19 19:34:20 DEBUG Step 6 out of 10
+2022-07-19 19:34:20 DEBUG Step 7 out of 10
+2022-07-19 19:34:20 DEBUG Step 8 out of 10
+2022-07-19 19:34:20 DEBUG Step 9 out of 10
+2022-07-19 19:34:20 DEBUG Step 10 out of 10
+2022-07-19 19:34:20 INFO Starting PMAT Utility Unit Tests
+2022-07-19 19:34:21 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 19:34:42 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 19:34:42 ALOHA Program Start
+2022-07-19 19:34:43 INFO Collecting Data from sources
+2022-07-19 19:34:43 WARN Raw data mix match. No Data will be collected
+2022-07-19 19:34:43 WARN Check cool_data.csv for proper date format.
+2022-07-19 19:34:45 DEBUG Step 1 out of 10
+2022-07-19 19:34:45 DEBUG Step 2 out of 10
+2022-07-19 19:34:45 DEBUG Step 3 out of 10
+2022-07-19 19:34:45 DEBUG Step 4 out of 10
+2022-07-19 19:34:45 DEBUG Step 5 out of 10
+2022-07-19 19:34:45 DEBUG Step 6 out of 10
+2022-07-19 19:34:45 DEBUG Step 7 out of 10
+2022-07-19 19:34:45 DEBUG Step 8 out of 10
+2022-07-19 19:34:45 DEBUG Step 9 out of 10
+2022-07-19 19:34:45 DEBUG Step 10 out of 10
+2022-07-19 19:34:45 INFO Starting PMAT Utility Unit Tests
+2022-07-19 19:34:46 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 19:35:16 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 19:35:16 ALOHA Program Start
+2022-07-19 19:35:17 INFO Collecting Data from sources
+2022-07-19 19:35:17 WARN Raw data mix match. No Data will be collected
+2022-07-19 19:35:17 WARN Check cool_data.csv for proper date format.
+2022-07-19 19:35:19 DEBUG Step 1 out of 10
+2022-07-19 19:35:19 DEBUG Step 2 out of 10
+2022-07-19 19:35:19 DEBUG Step 3 out of 10
+2022-07-19 19:35:19 DEBUG Step 4 out of 10
+2022-07-19 19:35:19 DEBUG Step 5 out of 10
+2022-07-19 19:35:19 DEBUG Step 6 out of 10
+2022-07-19 19:35:19 DEBUG Step 7 out of 10
+2022-07-19 19:35:19 DEBUG Step 8 out of 10
+2022-07-19 19:35:19 DEBUG Step 9 out of 10
+2022-07-19 19:35:19 DEBUG Step 10 out of 10
+2022-07-19 19:35:19 INFO Starting PMAT Utility Unit Tests
+2022-07-19 19:35:19 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 19:36:08 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 19:36:08 ALOHA Program Start
+2022-07-19 19:36:10 INFO Collecting Data from sources
+2022-07-19 19:36:10 WARN Raw data mix match. No Data will be collected
+2022-07-19 19:36:10 WARN Check cool_data.csv for proper date format.
+2022-07-19 19:36:11 DEBUG Step 1 out of 10
+2022-07-19 19:36:12 DEBUG Step 2 out of 10
+2022-07-19 19:36:12 DEBUG Step 3 out of 10
+2022-07-19 19:36:12 DEBUG Step 4 out of 10
+2022-07-19 19:36:12 DEBUG Step 5 out of 10
+2022-07-19 19:36:12 DEBUG Step 6 out of 10
+2022-07-19 19:36:12 DEBUG Step 7 out of 10
+2022-07-19 19:36:12 DEBUG Step 8 out of 10
+2022-07-19 19:36:12 DEBUG Step 9 out of 10
+2022-07-19 19:36:12 DEBUG Step 10 out of 10
+2022-07-19 19:36:12 INFO Starting PMAT Utility Unit Tests
+2022-07-19 19:36:12 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 19:36:13 ALOHA Program Complete
+2022-07-19 19:36:21 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 19:36:21 ALOHA Program Start
+2022-07-19 19:36:22 INFO Collecting Data from sources
+2022-07-19 19:36:22 WARN Raw data mix match. No Data will be collected
+2022-07-19 19:36:22 WARN Check cool_data.csv for proper date format.
+2022-07-19 19:36:23 DEBUG Step 1 out of 10
+2022-07-19 19:36:23 DEBUG Step 2 out of 10
+2022-07-19 19:36:23 DEBUG Step 3 out of 10
+2022-07-19 19:36:23 DEBUG Step 4 out of 10
+2022-07-19 19:36:23 DEBUG Step 5 out of 10
+2022-07-19 19:36:23 DEBUG Step 6 out of 10
+2022-07-19 19:36:24 DEBUG Step 7 out of 10
+2022-07-19 19:36:24 DEBUG Step 8 out of 10
+2022-07-19 19:36:24 DEBUG Step 9 out of 10
+2022-07-19 19:36:24 DEBUG Step 10 out of 10
+2022-07-19 19:36:24 INFO Starting PMAT Utility Unit Tests
+2022-07-19 19:36:24 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 19:36:24 ALOHA Program Complete
+2022-07-19 19:37:29 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 19:37:29 ALOHA Program Start
+2022-07-19 19:37:30 INFO Collecting Data from sources
+2022-07-19 19:37:30 WARN Raw data mix match. No Data will be collected
+2022-07-19 19:37:30 WARN Check cool_data.csv for proper date format.
+2022-07-19 19:37:31 DEBUG Step 1 out of 10
+2022-07-19 19:37:32 DEBUG Step 2 out of 10
+2022-07-19 19:37:32 DEBUG Step 3 out of 10
+2022-07-19 19:37:32 DEBUG Step 4 out of 10
+2022-07-19 19:37:32 DEBUG Step 5 out of 10
+2022-07-19 19:37:32 DEBUG Step 6 out of 10
+2022-07-19 19:37:32 DEBUG Step 7 out of 10
+2022-07-19 19:37:32 DEBUG Step 8 out of 10
+2022-07-19 19:37:32 DEBUG Step 9 out of 10
+2022-07-19 19:37:32 DEBUG Step 10 out of 10
+2022-07-19 19:37:32 INFO Starting PMAT Utility Unit Tests
+2022-07-19 19:37:32 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 19:37:32 ALOHA Program Complete
+2022-07-19 19:38:29 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 19:38:29 ALOHA Program Start
+2022-07-19 19:38:31 INFO Collecting Data from sources
+2022-07-19 19:38:31 WARN Raw data mix match. No Data will be collected
+2022-07-19 19:38:31 WARN Check cool_data.csv for proper date format.
+2022-07-19 19:38:32 DEBUG Step 1 out of 10
+2022-07-19 19:38:32 DEBUG Step 2 out of 10
+2022-07-19 19:38:32 DEBUG Step 3 out of 10
+2022-07-19 19:38:32 DEBUG Step 4 out of 10
+2022-07-19 19:38:32 DEBUG Step 5 out of 10
+2022-07-19 19:38:32 DEBUG Step 6 out of 10
+2022-07-19 19:38:32 DEBUG Step 7 out of 10
+2022-07-19 19:38:32 DEBUG Step 8 out of 10
+2022-07-19 19:38:32 DEBUG Step 9 out of 10
+2022-07-19 19:38:32 DEBUG Step 10 out of 10
+2022-07-19 19:38:32 INFO Starting PMAT Utility Unit Tests
+2022-07-19 19:38:33 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 19:38:52 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 19:38:52 ALOHA Program Start
+2022-07-19 19:38:54 INFO Collecting Data from sources
+2022-07-19 19:38:54 WARN Raw data mix match. No Data will be collected
+2022-07-19 19:38:54 WARN Check cool_data.csv for proper date format.
+2022-07-19 19:38:55 DEBUG Step 1 out of 10
+2022-07-19 19:38:55 DEBUG Step 2 out of 10
+2022-07-19 19:38:55 DEBUG Step 3 out of 10
+2022-07-19 19:38:55 DEBUG Step 4 out of 10
+2022-07-19 19:38:55 DEBUG Step 5 out of 10
+2022-07-19 19:38:55 DEBUG Step 6 out of 10
+2022-07-19 19:38:55 DEBUG Step 7 out of 10
+2022-07-19 19:38:55 DEBUG Step 8 out of 10
+2022-07-19 19:38:55 DEBUG Step 9 out of 10
+2022-07-19 19:38:55 DEBUG Step 10 out of 10
+2022-07-19 19:38:55 INFO Starting PMAT Utility Unit Tests
+2022-07-19 19:38:56 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 19:39:15 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 19:39:15 ALOHA Program Start
+2022-07-19 19:39:16 INFO Collecting Data from sources
+2022-07-19 19:39:16 WARN Raw data mix match. No Data will be collected
+2022-07-19 19:39:16 WARN Check cool_data.csv for proper date format.
+2022-07-19 19:39:29 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 19:39:29 ALOHA Program Start
+2022-07-19 19:39:30 INFO Collecting Data from sources
+2022-07-19 19:39:30 WARN Raw data mix match. No Data will be collected
+2022-07-19 19:39:30 WARN Check cool_data.csv for proper date format.
+2022-07-19 19:39:31 DEBUG Step 1 out of 10
+2022-07-19 19:39:32 DEBUG Step 2 out of 10
+2022-07-19 19:39:32 DEBUG Step 3 out of 10
+2022-07-19 19:39:32 DEBUG Step 4 out of 10
+2022-07-19 19:39:32 DEBUG Step 5 out of 10
+2022-07-19 19:39:32 DEBUG Step 6 out of 10
+2022-07-19 19:39:32 DEBUG Step 7 out of 10
+2022-07-19 19:39:32 DEBUG Step 8 out of 10
+2022-07-19 19:39:32 DEBUG Step 9 out of 10
+2022-07-19 19:39:32 DEBUG Step 10 out of 10
+2022-07-19 19:39:32 INFO Starting PMAT Utility Unit Tests
+2022-07-19 19:39:32 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 19:42:01 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 19:42:01 ALOHA Program Start
+2022-07-19 19:42:02 INFO Collecting Data from sources
+2022-07-19 19:42:03 WARN Raw data mix match. No Data will be collected
+2022-07-19 19:42:03 WARN Check cool_data.csv for proper date format.
+2022-07-19 19:42:04 DEBUG Step 1 out of 10
+2022-07-19 19:42:04 DEBUG Step 2 out of 10
+2022-07-19 19:42:04 DEBUG Step 3 out of 10
+2022-07-19 19:42:04 DEBUG Step 4 out of 10
+2022-07-19 19:42:04 DEBUG Step 5 out of 10
+2022-07-19 19:42:04 DEBUG Step 6 out of 10
+2022-07-19 19:42:04 DEBUG Step 7 out of 10
+2022-07-19 19:42:04 DEBUG Step 8 out of 10
+2022-07-19 19:42:04 DEBUG Step 9 out of 10
+2022-07-19 19:42:04 DEBUG Step 10 out of 10
+2022-07-19 19:42:04 INFO Starting PMAT Utility Unit Tests
+2022-07-19 19:42:05 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 19:42:05 ALOHA Program Complete
+2022-07-19 19:42:56 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 19:42:56 ALOHA Program Start
+2022-07-19 19:42:57 INFO Collecting Data from sources
+2022-07-19 19:42:57 WARN Raw data mix match. No Data will be collected
+2022-07-19 19:42:57 WARN Check cool_data.csv for proper date format.
+2022-07-19 19:42:58 DEBUG Step 1 out of 10
+2022-07-19 19:42:58 DEBUG Step 2 out of 10
+2022-07-19 19:42:58 DEBUG Step 3 out of 10
+2022-07-19 19:42:58 DEBUG Step 4 out of 10
+2022-07-19 19:42:58 DEBUG Step 5 out of 10
+2022-07-19 19:42:58 DEBUG Step 6 out of 10
+2022-07-19 19:42:58 DEBUG Step 7 out of 10
+2022-07-19 19:42:58 DEBUG Step 8 out of 10
+2022-07-19 19:42:58 DEBUG Step 9 out of 10
+2022-07-19 19:42:58 DEBUG Step 10 out of 10
+2022-07-19 19:42:59 INFO Starting PMAT Utility Unit Tests
+2022-07-19 19:42:59 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 19:42:59 ALOHA Program Complete
+2022-07-19 19:43:31 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 19:43:31 ALOHA Program Start
+2022-07-19 19:43:32 INFO Collecting Data from sources
+2022-07-19 19:43:32 WARN Raw data mix match. No Data will be collected
+2022-07-19 19:43:32 WARN Check cool_data.csv for proper date format.
+2022-07-19 19:43:33 DEBUG Step 1 out of 10
+2022-07-19 19:43:34 DEBUG Step 2 out of 10
+2022-07-19 19:43:34 DEBUG Step 3 out of 10
+2022-07-19 19:43:34 DEBUG Step 4 out of 10
+2022-07-19 19:43:34 DEBUG Step 5 out of 10
+2022-07-19 19:43:34 DEBUG Step 6 out of 10
+2022-07-19 19:43:34 DEBUG Step 7 out of 10
+2022-07-19 19:43:34 DEBUG Step 8 out of 10
+2022-07-19 19:43:34 DEBUG Step 9 out of 10
+2022-07-19 19:43:34 DEBUG Step 10 out of 10
+2022-07-19 19:43:34 INFO Starting PMAT Utility Unit Tests
+2022-07-19 19:43:34 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 19:43:35 ALOHA Program Complete
+2022-07-19 19:44:05 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 19:44:05 ALOHA Program Start
+2022-07-19 19:44:06 INFO Collecting Data from sources
+2022-07-19 19:44:06 WARN Raw data mix match. No Data will be collected
+2022-07-19 19:44:06 WARN Check cool_data.csv for proper date format.
+2022-07-19 19:44:07 DEBUG Step 1 out of 10
+2022-07-19 19:44:07 DEBUG Step 2 out of 10
+2022-07-19 19:44:07 DEBUG Step 3 out of 10
+2022-07-19 19:44:07 DEBUG Step 4 out of 10
+2022-07-19 19:44:07 DEBUG Step 5 out of 10
+2022-07-19 19:44:07 DEBUG Step 6 out of 10
+2022-07-19 19:44:07 DEBUG Step 7 out of 10
+2022-07-19 19:44:07 DEBUG Step 8 out of 10
+2022-07-19 19:44:07 DEBUG Step 9 out of 10
+2022-07-19 19:44:07 DEBUG Step 10 out of 10
+2022-07-19 19:44:07 INFO Starting PMAT Utility Unit Tests
+2022-07-19 19:44:08 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 19:44:08 ALOHA Program Complete
+2022-07-19 19:45:36 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 19:45:36 ALOHA Program Start
+2022-07-19 19:45:37 INFO Collecting Data from sources
+2022-07-19 19:45:37 WARN Raw data mix match. No Data will be collected
+2022-07-19 19:45:37 WARN Check cool_data.csv for proper date format.
+2022-07-19 19:45:38 DEBUG Step 1 out of 10
+2022-07-19 19:45:38 DEBUG Step 2 out of 10
+2022-07-19 19:45:38 DEBUG Step 3 out of 10
+2022-07-19 19:45:38 DEBUG Step 4 out of 10
+2022-07-19 19:45:38 DEBUG Step 5 out of 10
+2022-07-19 19:45:38 DEBUG Step 6 out of 10
+2022-07-19 19:45:38 DEBUG Step 7 out of 10
+2022-07-19 19:45:38 DEBUG Step 8 out of 10
+2022-07-19 19:45:38 DEBUG Step 9 out of 10
+2022-07-19 19:45:38 DEBUG Step 10 out of 10
+2022-07-19 19:45:38 INFO Starting PMAT Utility Unit Tests
+2022-07-19 19:45:39 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 19:45:39 ALOHA Program Complete
+2022-07-19 19:48:05 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 19:48:05 ALOHA Program Start
+2022-07-19 19:48:06 INFO Collecting Data from sources
+2022-07-19 19:48:06 WARN Raw data mix match. No Data will be collected
+2022-07-19 19:48:06 WARN Check cool_data.csv for proper date format.
+2022-07-19 19:48:08 DEBUG Step 1 out of 10
+2022-07-19 19:48:08 DEBUG Step 2 out of 10
+2022-07-19 19:48:08 DEBUG Step 3 out of 10
+2022-07-19 19:48:08 DEBUG Step 4 out of 10
+2022-07-19 19:48:08 DEBUG Step 5 out of 10
+2022-07-19 19:48:08 DEBUG Step 6 out of 10
+2022-07-19 19:48:08 DEBUG Step 7 out of 10
+2022-07-19 19:48:08 DEBUG Step 8 out of 10
+2022-07-19 19:48:08 DEBUG Step 9 out of 10
+2022-07-19 19:48:08 DEBUG Step 10 out of 10
+2022-07-19 19:48:08 INFO Starting PMAT Utility Unit Tests
+2022-07-19 19:48:08 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 19:48:38 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 19:48:38 ALOHA Program Start
+2022-07-19 19:48:40 INFO Collecting Data from sources
+2022-07-19 19:48:40 WARN Raw data mix match. No Data will be collected
+2022-07-19 19:48:40 WARN Check cool_data.csv for proper date format.
+2022-07-19 19:48:41 DEBUG Step 1 out of 10
+2022-07-19 19:48:41 DEBUG Step 2 out of 10
+2022-07-19 19:48:41 DEBUG Step 3 out of 10
+2022-07-19 19:48:41 DEBUG Step 4 out of 10
+2022-07-19 19:48:41 DEBUG Step 5 out of 10
+2022-07-19 19:48:41 DEBUG Step 6 out of 10
+2022-07-19 19:48:41 DEBUG Step 7 out of 10
+2022-07-19 19:48:41 DEBUG Step 8 out of 10
+2022-07-19 19:48:41 DEBUG Step 9 out of 10
+2022-07-19 19:48:41 DEBUG Step 10 out of 10
+2022-07-19 19:48:41 INFO Starting PMAT Utility Unit Tests
+2022-07-19 19:48:42 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 19:49:43 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 19:49:43 ALOHA Program Start
+2022-07-19 19:49:44 INFO Collecting Data from sources
+2022-07-19 19:49:44 WARN Raw data mix match. No Data will be collected
+2022-07-19 19:49:44 WARN Check cool_data.csv for proper date format.
+2022-07-19 19:49:45 DEBUG Step 1 out of 10
+2022-07-19 19:49:45 DEBUG Step 2 out of 10
+2022-07-19 19:49:45 DEBUG Step 3 out of 10
+2022-07-19 19:49:45 DEBUG Step 4 out of 10
+2022-07-19 19:49:46 DEBUG Step 5 out of 10
+2022-07-19 19:49:46 DEBUG Step 6 out of 10
+2022-07-19 19:49:46 DEBUG Step 7 out of 10
+2022-07-19 19:49:46 DEBUG Step 8 out of 10
+2022-07-19 19:49:46 DEBUG Step 9 out of 10
+2022-07-19 19:49:46 DEBUG Step 10 out of 10
+2022-07-19 19:49:46 INFO Starting PMAT Utility Unit Tests
+2022-07-19 19:49:46 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 19:50:13 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 19:50:13 ALOHA Program Start
+2022-07-19 19:50:14 INFO Collecting Data from sources
+2022-07-19 19:50:14 WARN Raw data mix match. No Data will be collected
+2022-07-19 19:50:14 WARN Check cool_data.csv for proper date format.
+2022-07-19 19:50:15 DEBUG Step 1 out of 10
+2022-07-19 19:50:15 DEBUG Step 2 out of 10
+2022-07-19 19:50:15 DEBUG Step 3 out of 10
+2022-07-19 19:50:15 DEBUG Step 4 out of 10
+2022-07-19 19:50:15 DEBUG Step 5 out of 10
+2022-07-19 19:50:15 DEBUG Step 6 out of 10
+2022-07-19 19:50:15 DEBUG Step 7 out of 10
+2022-07-19 19:50:15 DEBUG Step 8 out of 10
+2022-07-19 19:50:15 DEBUG Step 9 out of 10
+2022-07-19 19:50:15 DEBUG Step 10 out of 10
+2022-07-19 19:50:15 INFO Starting PMAT Utility Unit Tests
+2022-07-19 19:50:16 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 19:52:25 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 19:52:25 ALOHA Program Start
+2022-07-19 19:52:27 INFO Collecting Data from sources
+2022-07-19 19:52:27 WARN Raw data mix match. No Data will be collected
+2022-07-19 19:52:27 WARN Check cool_data.csv for proper date format.
+2022-07-19 19:52:28 DEBUG Step 1 out of 10
+2022-07-19 19:52:28 DEBUG Step 2 out of 10
+2022-07-19 19:52:28 DEBUG Step 3 out of 10
+2022-07-19 19:52:28 DEBUG Step 4 out of 10
+2022-07-19 19:52:28 DEBUG Step 5 out of 10
+2022-07-19 19:52:28 DEBUG Step 6 out of 10
+2022-07-19 19:52:28 DEBUG Step 7 out of 10
+2022-07-19 19:52:28 DEBUG Step 8 out of 10
+2022-07-19 19:52:28 DEBUG Step 9 out of 10
+2022-07-19 19:52:28 DEBUG Step 10 out of 10
+2022-07-19 19:52:28 INFO Starting PMAT Utility Unit Tests
+2022-07-19 19:52:29 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 19:54:46 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 19:54:46 ALOHA Program Start
+2022-07-19 19:54:48 INFO Collecting Data from sources
+2022-07-19 19:54:48 WARN Raw data mix match. No Data will be collected
+2022-07-19 19:54:48 WARN Check cool_data.csv for proper date format.
+2022-07-19 19:54:49 DEBUG Step 1 out of 10
+2022-07-19 19:54:49 DEBUG Step 2 out of 10
+2022-07-19 19:54:49 DEBUG Step 3 out of 10
+2022-07-19 19:54:49 DEBUG Step 4 out of 10
+2022-07-19 19:54:49 DEBUG Step 5 out of 10
+2022-07-19 19:54:49 DEBUG Step 6 out of 10
+2022-07-19 19:54:49 DEBUG Step 7 out of 10
+2022-07-19 19:54:49 DEBUG Step 8 out of 10
+2022-07-19 19:54:49 DEBUG Step 9 out of 10
+2022-07-19 19:54:49 DEBUG Step 10 out of 10
+2022-07-19 19:54:50 INFO Starting PMAT Utility Unit Tests
+2022-07-19 19:54:50 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 19:56:03 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 19:56:03 ALOHA Program Start
+2022-07-19 19:56:04 INFO Collecting Data from sources
+2022-07-19 19:56:04 WARN Raw data mix match. No Data will be collected
+2022-07-19 19:56:04 WARN Check cool_data.csv for proper date format.
+2022-07-19 19:56:05 DEBUG Step 1 out of 10
+2022-07-19 19:56:05 DEBUG Step 2 out of 10
+2022-07-19 19:56:05 DEBUG Step 3 out of 10
+2022-07-19 19:56:05 DEBUG Step 4 out of 10
+2022-07-19 19:56:05 DEBUG Step 5 out of 10
+2022-07-19 19:56:05 DEBUG Step 6 out of 10
+2022-07-19 19:56:05 DEBUG Step 7 out of 10
+2022-07-19 19:56:05 DEBUG Step 8 out of 10
+2022-07-19 19:56:05 DEBUG Step 9 out of 10
+2022-07-19 19:56:05 DEBUG Step 10 out of 10
+2022-07-19 19:56:05 INFO Starting PMAT Utility Unit Tests
+2022-07-19 19:56:06 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 19:57:06 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 19:57:06 ALOHA Program Start
+2022-07-19 19:57:07 INFO Collecting Data from sources
+2022-07-19 19:57:08 WARN Raw data mix match. No Data will be collected
+2022-07-19 19:57:08 WARN Check cool_data.csv for proper date format.
+2022-07-19 19:57:09 DEBUG Step 1 out of 10
+2022-07-19 19:57:09 DEBUG Step 2 out of 10
+2022-07-19 19:57:09 DEBUG Step 3 out of 10
+2022-07-19 19:57:09 DEBUG Step 4 out of 10
+2022-07-19 19:57:09 DEBUG Step 5 out of 10
+2022-07-19 19:57:09 DEBUG Step 6 out of 10
+2022-07-19 19:57:09 DEBUG Step 7 out of 10
+2022-07-19 19:57:09 DEBUG Step 8 out of 10
+2022-07-19 19:57:09 DEBUG Step 9 out of 10
+2022-07-19 19:57:09 DEBUG Step 10 out of 10
+2022-07-19 19:57:09 INFO Starting PMAT Utility Unit Tests
+2022-07-19 19:57:09 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 19:57:25 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 19:57:25 ALOHA Program Start
+2022-07-19 19:57:26 INFO Collecting Data from sources
+2022-07-19 19:57:26 WARN Raw data mix match. No Data will be collected
+2022-07-19 19:57:26 WARN Check cool_data.csv for proper date format.
+2022-07-19 19:57:27 DEBUG Step 1 out of 10
+2022-07-19 19:57:27 DEBUG Step 2 out of 10
+2022-07-19 19:57:27 DEBUG Step 3 out of 10
+2022-07-19 19:57:27 DEBUG Step 4 out of 10
+2022-07-19 19:57:27 DEBUG Step 5 out of 10
+2022-07-19 19:57:27 DEBUG Step 6 out of 10
+2022-07-19 19:57:27 DEBUG Step 7 out of 10
+2022-07-19 19:57:27 DEBUG Step 8 out of 10
+2022-07-19 19:57:27 DEBUG Step 9 out of 10
+2022-07-19 19:57:27 DEBUG Step 10 out of 10
+2022-07-19 19:57:28 INFO Starting PMAT Utility Unit Tests
+2022-07-19 19:57:28 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 19:58:15 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 19:58:15 ALOHA Program Start
+2022-07-19 19:58:16 INFO Collecting Data from sources
+2022-07-19 19:58:16 WARN Raw data mix match. No Data will be collected
+2022-07-19 19:58:16 WARN Check cool_data.csv for proper date format.
+2022-07-19 19:58:17 DEBUG Step 1 out of 10
+2022-07-19 19:58:17 DEBUG Step 2 out of 10
+2022-07-19 19:58:17 DEBUG Step 3 out of 10
+2022-07-19 19:58:17 DEBUG Step 4 out of 10
+2022-07-19 19:58:17 DEBUG Step 5 out of 10
+2022-07-19 19:58:17 DEBUG Step 6 out of 10
+2022-07-19 19:58:17 DEBUG Step 7 out of 10
+2022-07-19 19:58:17 DEBUG Step 8 out of 10
+2022-07-19 19:58:17 DEBUG Step 9 out of 10
+2022-07-19 19:58:17 DEBUG Step 10 out of 10
+2022-07-19 19:58:17 INFO Starting PMAT Utility Unit Tests
+2022-07-19 19:58:18 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 19:58:55 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 19:58:55 ALOHA Program Start
+2022-07-19 19:58:56 INFO Collecting Data from sources
+2022-07-19 19:58:56 WARN Raw data mix match. No Data will be collected
+2022-07-19 19:58:56 WARN Check cool_data.csv for proper date format.
+2022-07-19 19:58:57 DEBUG Step 1 out of 10
+2022-07-19 19:58:57 DEBUG Step 2 out of 10
+2022-07-19 19:58:57 DEBUG Step 3 out of 10
+2022-07-19 19:58:57 DEBUG Step 4 out of 10
+2022-07-19 19:58:57 DEBUG Step 5 out of 10
+2022-07-19 19:58:57 DEBUG Step 6 out of 10
+2022-07-19 19:58:57 DEBUG Step 7 out of 10
+2022-07-19 19:58:58 DEBUG Step 8 out of 10
+2022-07-19 19:58:58 DEBUG Step 9 out of 10
+2022-07-19 19:58:58 DEBUG Step 10 out of 10
+2022-07-19 19:58:58 INFO Starting PMAT Utility Unit Tests
+2022-07-19 19:58:58 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 20:00:26 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 20:00:26 ALOHA Program Start
+2022-07-19 20:00:27 INFO Collecting Data from sources
+2022-07-19 20:00:27 WARN Raw data mix match. No Data will be collected
+2022-07-19 20:00:27 WARN Check cool_data.csv for proper date format.
+2022-07-19 20:01:01 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 20:01:01 ALOHA Program Start
+2022-07-19 20:01:02 INFO Collecting Data from sources
+2022-07-19 20:01:02 WARN Raw data mix match. No Data will be collected
+2022-07-19 20:01:02 WARN Check cool_data.csv for proper date format.
+2022-07-19 20:01:03 DEBUG Step 1 out of 10
+2022-07-19 20:01:03 DEBUG Step 2 out of 10
+2022-07-19 20:01:03 DEBUG Step 3 out of 10
+2022-07-19 20:01:03 DEBUG Step 4 out of 10
+2022-07-19 20:01:03 DEBUG Step 5 out of 10
+2022-07-19 20:01:03 DEBUG Step 6 out of 10
+2022-07-19 20:01:03 DEBUG Step 7 out of 10
+2022-07-19 20:01:03 DEBUG Step 8 out of 10
+2022-07-19 20:01:03 DEBUG Step 9 out of 10
+2022-07-19 20:01:03 DEBUG Step 10 out of 10
+2022-07-19 20:01:03 INFO Starting PMAT Utility Unit Tests
+2022-07-19 20:01:04 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 20:01:38 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 20:01:38 ALOHA Program Start
+2022-07-19 20:01:39 INFO Collecting Data from sources
+2022-07-19 20:01:39 WARN Raw data mix match. No Data will be collected
+2022-07-19 20:01:39 WARN Check cool_data.csv for proper date format.
+2022-07-19 20:01:40 DEBUG Step 1 out of 10
+2022-07-19 20:01:40 DEBUG Step 2 out of 10
+2022-07-19 20:01:40 DEBUG Step 3 out of 10
+2022-07-19 20:01:40 DEBUG Step 4 out of 10
+2022-07-19 20:01:40 DEBUG Step 5 out of 10
+2022-07-19 20:01:40 DEBUG Step 6 out of 10
+2022-07-19 20:01:40 DEBUG Step 7 out of 10
+2022-07-19 20:01:40 DEBUG Step 8 out of 10
+2022-07-19 20:01:40 DEBUG Step 9 out of 10
+2022-07-19 20:01:40 DEBUG Step 10 out of 10
+2022-07-19 20:01:40 INFO Starting PMAT Utility Unit Tests
+2022-07-19 20:01:41 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 20:02:15 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 20:02:15 ALOHA Program Start
+2022-07-19 20:02:17 INFO Collecting Data from sources
+2022-07-19 20:02:17 WARN Raw data mix match. No Data will be collected
+2022-07-19 20:02:17 WARN Check cool_data.csv for proper date format.
+2022-07-19 20:02:18 DEBUG Step 1 out of 10
+2022-07-19 20:02:18 DEBUG Step 2 out of 10
+2022-07-19 20:02:18 DEBUG Step 3 out of 10
+2022-07-19 20:02:18 DEBUG Step 4 out of 10
+2022-07-19 20:02:18 DEBUG Step 5 out of 10
+2022-07-19 20:02:18 DEBUG Step 6 out of 10
+2022-07-19 20:02:18 DEBUG Step 7 out of 10
+2022-07-19 20:02:18 DEBUG Step 8 out of 10
+2022-07-19 20:02:18 DEBUG Step 9 out of 10
+2022-07-19 20:02:18 DEBUG Step 10 out of 10
+2022-07-19 20:02:18 INFO Starting PMAT Utility Unit Tests
+2022-07-19 20:02:19 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 20:02:54 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 20:02:54 ALOHA Program Start
+2022-07-19 20:02:55 INFO Collecting Data from sources
+2022-07-19 20:02:55 WARN Raw data mix match. No Data will be collected
+2022-07-19 20:02:55 WARN Check cool_data.csv for proper date format.
+2022-07-19 20:02:56 DEBUG Step 1 out of 10
+2022-07-19 20:02:56 DEBUG Step 2 out of 10
+2022-07-19 20:02:56 DEBUG Step 3 out of 10
+2022-07-19 20:02:56 DEBUG Step 4 out of 10
+2022-07-19 20:02:56 DEBUG Step 5 out of 10
+2022-07-19 20:02:56 DEBUG Step 6 out of 10
+2022-07-19 20:02:56 DEBUG Step 7 out of 10
+2022-07-19 20:02:56 DEBUG Step 8 out of 10
+2022-07-19 20:02:56 DEBUG Step 9 out of 10
+2022-07-19 20:02:56 DEBUG Step 10 out of 10
+2022-07-19 20:02:56 INFO Starting PMAT Utility Unit Tests
+2022-07-19 20:02:57 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 20:03:16 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 20:03:16 ALOHA Program Start
+2022-07-19 20:03:18 INFO Collecting Data from sources
+2022-07-19 20:03:18 WARN Raw data mix match. No Data will be collected
+2022-07-19 20:03:18 WARN Check cool_data.csv for proper date format.
+2022-07-19 20:03:19 DEBUG Step 1 out of 10
+2022-07-19 20:03:19 DEBUG Step 2 out of 10
+2022-07-19 20:03:19 DEBUG Step 3 out of 10
+2022-07-19 20:03:19 DEBUG Step 4 out of 10
+2022-07-19 20:03:19 DEBUG Step 5 out of 10
+2022-07-19 20:03:19 DEBUG Step 6 out of 10
+2022-07-19 20:03:19 DEBUG Step 7 out of 10
+2022-07-19 20:03:19 DEBUG Step 8 out of 10
+2022-07-19 20:03:19 DEBUG Step 9 out of 10
+2022-07-19 20:03:19 DEBUG Step 10 out of 10
+2022-07-19 20:03:19 INFO Starting PMAT Utility Unit Tests
+2022-07-19 20:03:20 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 20:03:35 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 20:03:35 ALOHA Program Start
+2022-07-19 20:03:36 INFO Collecting Data from sources
+2022-07-19 20:03:36 WARN Raw data mix match. No Data will be collected
+2022-07-19 20:03:36 WARN Check cool_data.csv for proper date format.
+2022-07-19 20:03:37 DEBUG Step 1 out of 10
+2022-07-19 20:03:37 DEBUG Step 2 out of 10
+2022-07-19 20:03:37 DEBUG Step 3 out of 10
+2022-07-19 20:03:37 DEBUG Step 4 out of 10
+2022-07-19 20:03:37 DEBUG Step 5 out of 10
+2022-07-19 20:03:37 DEBUG Step 6 out of 10
+2022-07-19 20:03:37 DEBUG Step 7 out of 10
+2022-07-19 20:03:37 DEBUG Step 8 out of 10
+2022-07-19 20:03:37 DEBUG Step 9 out of 10
+2022-07-19 20:03:37 DEBUG Step 10 out of 10
+2022-07-19 20:03:37 INFO Starting PMAT Utility Unit Tests
+2022-07-19 20:03:38 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 20:04:01 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 20:04:01 ALOHA Program Start
+2022-07-19 20:04:03 INFO Collecting Data from sources
+2022-07-19 20:04:03 WARN Raw data mix match. No Data will be collected
+2022-07-19 20:04:03 WARN Check cool_data.csv for proper date format.
+2022-07-19 20:04:04 DEBUG Step 1 out of 10
+2022-07-19 20:04:04 DEBUG Step 2 out of 10
+2022-07-19 20:04:04 DEBUG Step 3 out of 10
+2022-07-19 20:04:04 DEBUG Step 4 out of 10
+2022-07-19 20:04:04 DEBUG Step 5 out of 10
+2022-07-19 20:04:04 DEBUG Step 6 out of 10
+2022-07-19 20:04:04 DEBUG Step 7 out of 10
+2022-07-19 20:04:04 DEBUG Step 8 out of 10
+2022-07-19 20:04:04 DEBUG Step 9 out of 10
+2022-07-19 20:04:04 DEBUG Step 10 out of 10
+2022-07-19 20:04:04 INFO Starting PMAT Utility Unit Tests
+2022-07-19 20:04:05 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 20:04:16 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 20:04:16 ALOHA Program Start
+2022-07-19 20:04:17 INFO Collecting Data from sources
+2022-07-19 20:04:17 WARN Raw data mix match. No Data will be collected
+2022-07-19 20:04:17 WARN Check cool_data.csv for proper date format.
+2022-07-19 20:04:18 DEBUG Step 1 out of 10
+2022-07-19 20:04:18 DEBUG Step 2 out of 10
+2022-07-19 20:04:18 DEBUG Step 3 out of 10
+2022-07-19 20:04:18 DEBUG Step 4 out of 10
+2022-07-19 20:04:18 DEBUG Step 5 out of 10
+2022-07-19 20:04:18 DEBUG Step 6 out of 10
+2022-07-19 20:04:18 DEBUG Step 7 out of 10
+2022-07-19 20:04:18 DEBUG Step 8 out of 10
+2022-07-19 20:04:18 DEBUG Step 9 out of 10
+2022-07-19 20:04:18 DEBUG Step 10 out of 10
+2022-07-19 20:04:19 INFO Starting PMAT Utility Unit Tests
+2022-07-19 20:04:19 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 20:04:49 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 20:04:49 ALOHA Program Start
+2022-07-19 20:04:50 INFO Collecting Data from sources
+2022-07-19 20:04:50 WARN Raw data mix match. No Data will be collected
+2022-07-19 20:04:50 WARN Check cool_data.csv for proper date format.
+2022-07-19 20:05:01 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 20:05:01 ALOHA Program Start
+2022-07-19 20:05:02 INFO Collecting Data from sources
+2022-07-19 20:05:02 WARN Raw data mix match. No Data will be collected
+2022-07-19 20:05:02 WARN Check cool_data.csv for proper date format.
+2022-07-19 20:05:34 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 20:05:34 ALOHA Program Start
+2022-07-19 20:05:35 INFO Collecting Data from sources
+2022-07-19 20:05:35 WARN Raw data mix match. No Data will be collected
+2022-07-19 20:05:35 WARN Check cool_data.csv for proper date format.
+2022-07-19 20:05:37 DEBUG Step 1 out of 10
+2022-07-19 20:05:37 DEBUG Step 2 out of 10
+2022-07-19 20:05:37 DEBUG Step 3 out of 10
+2022-07-19 20:05:37 DEBUG Step 4 out of 10
+2022-07-19 20:05:37 DEBUG Step 5 out of 10
+2022-07-19 20:05:37 DEBUG Step 6 out of 10
+2022-07-19 20:05:37 DEBUG Step 7 out of 10
+2022-07-19 20:05:37 DEBUG Step 8 out of 10
+2022-07-19 20:05:37 DEBUG Step 9 out of 10
+2022-07-19 20:05:37 DEBUG Step 10 out of 10
+2022-07-19 20:05:37 INFO Starting PMAT Utility Unit Tests
+2022-07-19 20:05:38 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 20:06:04 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 20:06:04 ALOHA Program Start
+2022-07-19 20:06:05 INFO Collecting Data from sources
+2022-07-19 20:06:05 WARN Raw data mix match. No Data will be collected
+2022-07-19 20:06:05 WARN Check cool_data.csv for proper date format.
+2022-07-19 20:06:07 DEBUG Step 1 out of 10
+2022-07-19 20:06:07 DEBUG Step 2 out of 10
+2022-07-19 20:06:07 DEBUG Step 3 out of 10
+2022-07-19 20:06:07 DEBUG Step 4 out of 10
+2022-07-19 20:06:07 DEBUG Step 5 out of 10
+2022-07-19 20:06:07 DEBUG Step 6 out of 10
+2022-07-19 20:06:07 DEBUG Step 7 out of 10
+2022-07-19 20:06:07 DEBUG Step 8 out of 10
+2022-07-19 20:06:07 DEBUG Step 9 out of 10
+2022-07-19 20:06:07 DEBUG Step 10 out of 10
+2022-07-19 20:06:07 INFO Starting PMAT Utility Unit Tests
+2022-07-19 20:06:08 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 20:06:12 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 20:06:12 ALOHA Program Start
+2022-07-19 20:06:14 INFO Collecting Data from sources
+2022-07-19 20:06:14 WARN Raw data mix match. No Data will be collected
+2022-07-19 20:06:14 WARN Check cool_data.csv for proper date format.
+2022-07-19 20:06:15 DEBUG Step 1 out of 10
+2022-07-19 20:06:15 DEBUG Step 2 out of 10
+2022-07-19 20:06:15 DEBUG Step 3 out of 10
+2022-07-19 20:06:15 DEBUG Step 4 out of 10
+2022-07-19 20:06:15 DEBUG Step 5 out of 10
+2022-07-19 20:06:15 DEBUG Step 6 out of 10
+2022-07-19 20:06:15 DEBUG Step 7 out of 10
+2022-07-19 20:06:15 DEBUG Step 8 out of 10
+2022-07-19 20:06:15 DEBUG Step 9 out of 10
+2022-07-19 20:06:15 DEBUG Step 10 out of 10
+2022-07-19 20:06:15 INFO Starting PMAT Utility Unit Tests
+2022-07-19 20:06:16 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 20:06:41 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 20:06:41 ALOHA Program Start
+2022-07-19 20:06:42 INFO Collecting Data from sources
+2022-07-19 20:06:42 WARN Raw data mix match. No Data will be collected
+2022-07-19 20:06:42 WARN Check cool_data.csv for proper date format.
+2022-07-19 20:06:43 DEBUG Step 1 out of 10
+2022-07-19 20:06:43 DEBUG Step 2 out of 10
+2022-07-19 20:06:43 DEBUG Step 3 out of 10
+2022-07-19 20:06:43 DEBUG Step 4 out of 10
+2022-07-19 20:06:43 DEBUG Step 5 out of 10
+2022-07-19 20:06:43 DEBUG Step 6 out of 10
+2022-07-19 20:06:43 DEBUG Step 7 out of 10
+2022-07-19 20:06:43 DEBUG Step 8 out of 10
+2022-07-19 20:06:43 DEBUG Step 9 out of 10
+2022-07-19 20:06:43 DEBUG Step 10 out of 10
+2022-07-19 20:06:43 INFO Starting PMAT Utility Unit Tests
+2022-07-19 20:06:44 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 20:07:34 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 20:07:34 ALOHA Program Start
+2022-07-19 20:07:35 INFO Collecting Data from sources
+2022-07-19 20:07:35 WARN Raw data mix match. No Data will be collected
+2022-07-19 20:07:36 WARN Check cool_data.csv for proper date format.
+2022-07-19 20:07:37 DEBUG Step 1 out of 10
+2022-07-19 20:07:37 DEBUG Step 2 out of 10
+2022-07-19 20:07:37 DEBUG Step 3 out of 10
+2022-07-19 20:07:37 DEBUG Step 4 out of 10
+2022-07-19 20:07:37 DEBUG Step 5 out of 10
+2022-07-19 20:07:37 DEBUG Step 6 out of 10
+2022-07-19 20:07:37 DEBUG Step 7 out of 10
+2022-07-19 20:07:37 DEBUG Step 8 out of 10
+2022-07-19 20:07:37 DEBUG Step 9 out of 10
+2022-07-19 20:07:37 DEBUG Step 10 out of 10
+2022-07-19 20:07:37 INFO Starting PMAT Utility Unit Tests
+2022-07-19 20:07:38 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 20:08:03 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 20:08:03 ALOHA Program Start
+2022-07-19 20:08:04 INFO Collecting Data from sources
+2022-07-19 20:08:05 WARN Raw data mix match. No Data will be collected
+2022-07-19 20:08:05 WARN Check cool_data.csv for proper date format.
+2022-07-19 20:08:06 DEBUG Step 1 out of 10
+2022-07-19 20:08:06 DEBUG Step 2 out of 10
+2022-07-19 20:08:06 DEBUG Step 3 out of 10
+2022-07-19 20:08:06 DEBUG Step 4 out of 10
+2022-07-19 20:08:06 DEBUG Step 5 out of 10
+2022-07-19 20:08:06 DEBUG Step 6 out of 10
+2022-07-19 20:08:06 DEBUG Step 7 out of 10
+2022-07-19 20:08:06 DEBUG Step 8 out of 10
+2022-07-19 20:08:06 DEBUG Step 9 out of 10
+2022-07-19 20:08:06 DEBUG Step 10 out of 10
+2022-07-19 20:08:06 INFO Starting PMAT Utility Unit Tests
+2022-07-19 20:08:06 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 20:08:39 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 20:08:39 ALOHA Program Start
+2022-07-19 20:08:40 INFO Collecting Data from sources
+2022-07-19 20:08:40 WARN Raw data mix match. No Data will be collected
+2022-07-19 20:08:40 WARN Check cool_data.csv for proper date format.
+2022-07-19 20:08:41 DEBUG Step 1 out of 10
+2022-07-19 20:08:41 DEBUG Step 2 out of 10
+2022-07-19 20:08:41 DEBUG Step 3 out of 10
+2022-07-19 20:08:41 DEBUG Step 4 out of 10
+2022-07-19 20:08:41 DEBUG Step 5 out of 10
+2022-07-19 20:08:41 DEBUG Step 6 out of 10
+2022-07-19 20:08:41 DEBUG Step 7 out of 10
+2022-07-19 20:08:41 DEBUG Step 8 out of 10
+2022-07-19 20:08:42 DEBUG Step 9 out of 10
+2022-07-19 20:08:42 DEBUG Step 10 out of 10
+2022-07-19 20:08:42 INFO Starting PMAT Utility Unit Tests
+2022-07-19 20:08:42 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 20:09:06 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 20:09:06 ALOHA Program Start
+2022-07-19 20:09:07 INFO Collecting Data from sources
+2022-07-19 20:09:07 WARN Raw data mix match. No Data will be collected
+2022-07-19 20:09:07 WARN Check cool_data.csv for proper date format.
+2022-07-19 20:09:08 DEBUG Step 1 out of 10
+2022-07-19 20:09:08 DEBUG Step 2 out of 10
+2022-07-19 20:09:08 DEBUG Step 3 out of 10
+2022-07-19 20:09:08 DEBUG Step 4 out of 10
+2022-07-19 20:09:08 DEBUG Step 5 out of 10
+2022-07-19 20:09:09 DEBUG Step 6 out of 10
+2022-07-19 20:09:09 DEBUG Step 7 out of 10
+2022-07-19 20:09:09 DEBUG Step 8 out of 10
+2022-07-19 20:09:09 DEBUG Step 9 out of 10
+2022-07-19 20:09:09 DEBUG Step 10 out of 10
+2022-07-19 20:09:09 INFO Starting PMAT Utility Unit Tests
+2022-07-19 20:09:09 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 20:09:09 ALOHA Program Complete
+2022-07-19 20:09:46 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 20:09:46 ALOHA Program Start
+2022-07-19 20:09:47 INFO Collecting Data from sources
+2022-07-19 20:09:47 WARN Raw data mix match. No Data will be collected
+2022-07-19 20:09:47 WARN Check cool_data.csv for proper date format.
+2022-07-19 20:09:49 DEBUG Step 1 out of 10
+2022-07-19 20:09:49 DEBUG Step 2 out of 10
+2022-07-19 20:09:49 DEBUG Step 3 out of 10
+2022-07-19 20:09:49 DEBUG Step 4 out of 10
+2022-07-19 20:09:49 DEBUG Step 5 out of 10
+2022-07-19 20:09:49 DEBUG Step 6 out of 10
+2022-07-19 20:09:49 DEBUG Step 7 out of 10
+2022-07-19 20:09:49 DEBUG Step 8 out of 10
+2022-07-19 20:09:49 DEBUG Step 9 out of 10
+2022-07-19 20:09:49 DEBUG Step 10 out of 10
+2022-07-19 20:09:49 INFO Starting PMAT Utility Unit Tests
+2022-07-19 20:09:49 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 20:09:50 ALOHA Program Complete
+2022-07-19 20:10:38 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 20:10:38 ALOHA Program Start
+2022-07-19 20:10:40 INFO Collecting Data from sources
+2022-07-19 20:10:40 WARN Raw data mix match. No Data will be collected
+2022-07-19 20:10:40 WARN Check cool_data.csv for proper date format.
+2022-07-19 20:10:41 DEBUG Step 1 out of 10
+2022-07-19 20:10:41 DEBUG Step 2 out of 10
+2022-07-19 20:10:41 DEBUG Step 3 out of 10
+2022-07-19 20:10:41 DEBUG Step 4 out of 10
+2022-07-19 20:10:41 DEBUG Step 5 out of 10
+2022-07-19 20:10:41 DEBUG Step 6 out of 10
+2022-07-19 20:10:41 DEBUG Step 7 out of 10
+2022-07-19 20:10:41 DEBUG Step 8 out of 10
+2022-07-19 20:10:41 DEBUG Step 9 out of 10
+2022-07-19 20:10:41 DEBUG Step 10 out of 10
+2022-07-19 20:10:41 INFO Starting PMAT Utility Unit Tests
+2022-07-19 20:10:42 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 20:10:42 ALOHA Program Complete
+2022-07-19 20:14:54 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 20:14:54 ALOHA Program Start
+2022-07-19 20:14:55 INFO Collecting Data from sources
+2022-07-19 20:14:55 WARN Raw data mix match. No Data will be collected
+2022-07-19 20:14:55 WARN Check cool_data.csv for proper date format.
+2022-07-19 20:14:56 DEBUG Step 1 out of 10
+2022-07-19 20:14:56 DEBUG Step 2 out of 10
+2022-07-19 20:14:56 DEBUG Step 3 out of 10
+2022-07-19 20:14:56 DEBUG Step 4 out of 10
+2022-07-19 20:14:56 DEBUG Step 5 out of 10
+2022-07-19 20:14:56 DEBUG Step 6 out of 10
+2022-07-19 20:14:56 DEBUG Step 7 out of 10
+2022-07-19 20:14:56 DEBUG Step 8 out of 10
+2022-07-19 20:14:56 DEBUG Step 9 out of 10
+2022-07-19 20:14:56 DEBUG Step 10 out of 10
+2022-07-19 20:14:56 INFO Starting PMAT Utility Unit Tests
+2022-07-19 20:14:57 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 20:24:36 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 20:24:36 ALOHA Program Start
+2022-07-19 20:24:37 INFO Collecting Data from sources
+2022-07-19 20:24:38 DEBUG Step 1 out of 1
+2022-07-19 20:24:38 DEBUG Step 2 out of 1
+2022-07-19 20:24:38 DEBUG Step 3 out of 1
+2022-07-19 20:24:38 DEBUG Step 4 out of 1
+2022-07-19 20:24:38 DEBUG Step 5 out of 1
+2022-07-19 20:24:38 DEBUG Step 6 out of 1
+2022-07-19 20:24:38 DEBUG Step 7 out of 1
+2022-07-19 20:24:38 DEBUG Step 8 out of 1
+2022-07-19 20:24:38 DEBUG Step 9 out of 1
+2022-07-19 20:24:38 DEBUG Step 10 out of 1
+2022-07-19 20:24:38 INFO Starting PMAT Utility Unit Tests
+2022-07-19 20:24:39 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 20:24:39 ALOHA Program Complete
+2022-07-19 20:24:50 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 20:24:50 ALOHA Program Start
+2022-07-19 20:24:51 INFO Collecting Data from sources
+2022-07-19 20:24:52 DEBUG Step 1 out of 1
+2022-07-19 20:24:52 INFO Starting PMAT Utility Unit Tests
+2022-07-19 20:24:52 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 20:24:53 ALOHA Program Complete
+2022-07-19 20:25:21 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 20:25:21 ALOHA Program Start
+2022-07-19 20:25:23 INFO Collecting Data from sources
+2022-07-19 20:25:23 DEBUG Step 1 out of 10
+2022-07-19 20:25:23 DEBUG Step 2 out of 10
+2022-07-19 20:25:23 DEBUG Step 3 out of 10
+2022-07-19 20:25:23 DEBUG Step 4 out of 10
+2022-07-19 20:25:23 DEBUG Step 5 out of 10
+2022-07-19 20:25:23 DEBUG Step 6 out of 10
+2022-07-19 20:25:23 DEBUG Step 7 out of 10
+2022-07-19 20:25:23 DEBUG Step 8 out of 10
+2022-07-19 20:25:23 DEBUG Step 9 out of 10
+2022-07-19 20:25:23 DEBUG Step 10 out of 10
+2022-07-19 20:25:24 INFO Starting PMAT Utility Unit Tests
+2022-07-19 20:25:24 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 20:25:24 ALOHA Program Complete
+2022-07-19 20:25:38 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 20:25:38 ALOHA Program Start
+2022-07-19 20:25:39 INFO Collecting Data from sources
+2022-07-19 20:25:40 DEBUG Step 1 out of 10
+2022-07-19 20:25:40 DEBUG Step 2 out of 10
+2022-07-19 20:25:40 DEBUG Step 3 out of 10
+2022-07-19 20:25:40 DEBUG Step 4 out of 10
+2022-07-19 20:25:40 DEBUG Step 5 out of 10
+2022-07-19 20:25:40 DEBUG Step 6 out of 10
+2022-07-19 20:25:40 DEBUG Step 7 out of 10
+2022-07-19 20:25:40 DEBUG Step 8 out of 10
+2022-07-19 20:25:40 DEBUG Step 9 out of 10
+2022-07-19 20:25:40 DEBUG Step 10 out of 10
+2022-07-19 20:25:40 ALOHA Program Complete
+2022-07-19 20:26:39 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 20:26:39 ALOHA Program Start
+2022-07-19 20:26:41 INFO Collecting Data from sources
+2022-07-19 20:26:41 DEBUG Step 1 out of 10
+2022-07-19 20:26:41 DEBUG Step 2 out of 10
+2022-07-19 20:26:41 DEBUG Step 3 out of 10
+2022-07-19 20:26:41 DEBUG Step 4 out of 10
+2022-07-19 20:26:41 DEBUG Step 5 out of 10
+2022-07-19 20:26:41 DEBUG Step 6 out of 10
+2022-07-19 20:26:41 DEBUG Step 7 out of 10
+2022-07-19 20:26:41 DEBUG Step 8 out of 10
+2022-07-19 20:26:41 DEBUG Step 9 out of 10
+2022-07-19 20:26:41 DEBUG Step 10 out of 10
+2022-07-19 20:26:41 INFO Time Series Plot Set
+2022-07-19 20:26:42 PASS Sky Temperature Time Series
+2022-07-19 20:26:42 PASS Ground Temperature Time Series
+2022-07-19 20:26:42 PASS Difference Between Ground-Sky Temperature Time Series
+2022-07-19 20:26:42 PASS PWAT Time Series
+2022-07-19 20:26:42 PASS Temporal Mean PWAT Time Series
+2022-07-19 20:26:42 PASS Locational Mean PWAT Time Series
+2022-07-19 20:26:42 PASS Spatiotemporal Mean PWAT Time Series
+2022-07-19 20:26:42 PASS Dewpoint Temperature Time Series
+2022-07-19 20:26:42 PASS Mean Sky Temperature and PWAT Time Series
+2022-07-19 20:26:42 PASS Mean Sky Temperature and RH Time Series
+2022-07-19 20:26:42 PASS Mean PWAT and RH Time Series
+2022-07-19 20:26:42 PASS Mean PWAT and Dewpoint Time Series
+2022-07-19 20:26:42 PASS Mean Sky Temperature and PWAT Time Series
+2022-07-19 20:26:42 PASS Mean Sky Temperature and RH Time Series
+2022-07-19 20:26:42 PASS Mean PWAT and RH Time Series
+2022-07-19 20:26:42 PASS Mean PWAT and Dewpoint Time Series
+2022-07-19 20:26:42 PASS Normalized Index for Weighted PWAT Time Series
+2022-07-19 20:26:42 PASS Plot set downloaded to ../tests/data/out/figs/
+2022-07-19 20:26:42 ALOHA Program Complete
+2022-07-19 20:27:14 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 20:27:14 ALOHA Program Start
+2022-07-19 20:27:15 INFO Collecting Data from sources
+2022-07-19 20:27:16 DEBUG Step 1 out of 10
+2022-07-19 20:27:16 DEBUG Step 2 out of 10
+2022-07-19 20:27:16 DEBUG Step 3 out of 10
+2022-07-19 20:27:16 DEBUG Step 4 out of 10
+2022-07-19 20:27:16 DEBUG Step 5 out of 10
+2022-07-19 20:27:16 DEBUG Step 6 out of 10
+2022-07-19 20:27:16 DEBUG Step 7 out of 10
+2022-07-19 20:27:16 DEBUG Step 8 out of 10
+2022-07-19 20:27:16 DEBUG Step 9 out of 10
+2022-07-19 20:27:16 DEBUG Step 10 out of 10
+2022-07-19 20:27:16 INFO Time Series Plot Set
+2022-07-19 20:27:17 PASS Sky Temperature Time Series
+2022-07-19 20:27:17 PASS Ground Temperature Time Series
+2022-07-19 20:27:17 PASS Difference Between Ground-Sky Temperature Time Series
+2022-07-19 20:27:17 PASS PWAT Time Series
+2022-07-19 20:27:17 PASS Temporal Mean PWAT Time Series
+2022-07-19 20:27:17 PASS Locational Mean PWAT Time Series
+2022-07-19 20:27:17 PASS Spatiotemporal Mean PWAT Time Series
+2022-07-19 20:27:17 PASS Dewpoint Temperature Time Series
+2022-07-19 20:27:17 PASS Mean Sky Temperature and PWAT Time Series
+2022-07-19 20:27:17 PASS Mean Sky Temperature and RH Time Series
+2022-07-19 20:27:17 PASS Mean PWAT and RH Time Series
+2022-07-19 20:27:17 PASS Mean PWAT and Dewpoint Time Series
+2022-07-19 20:27:17 PASS Mean Sky Temperature and PWAT Time Series
+2022-07-19 20:27:17 PASS Mean Sky Temperature and RH Time Series
+2022-07-19 20:27:17 PASS Mean PWAT and RH Time Series
+2022-07-19 20:27:17 PASS Mean PWAT and Dewpoint Time Series
+2022-07-19 20:27:17 PASS Normalized Index for Weighted PWAT Time Series
+2022-07-19 20:27:17 PASS Plot set downloaded to ../tests/data/out/figs/
+2022-07-19 20:27:17 ALOHA Program Complete
+2022-07-19 20:33:20 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 20:33:20 ALOHA Program Start
+2022-07-19 20:33:21 INFO Collecting Data from sources
+2022-07-19 20:33:22 DEBUG Step 1 out of 10
+2022-07-19 20:33:22 DEBUG Step 2 out of 10
+2022-07-19 20:33:22 DEBUG Step 3 out of 10
+2022-07-19 20:33:22 DEBUG Step 4 out of 10
+2022-07-19 20:33:22 DEBUG Step 5 out of 10
+2022-07-19 20:33:22 DEBUG Step 6 out of 10
+2022-07-19 20:33:22 DEBUG Step 7 out of 10
+2022-07-19 20:33:22 DEBUG Step 8 out of 10
+2022-07-19 20:33:22 DEBUG Step 9 out of 10
+2022-07-19 20:33:22 DEBUG Step 10 out of 10
+2022-07-19 20:33:22 INFO Time Series Plot Set
+2022-07-19 20:33:22 PASS Sky Temperature Time Series
+2022-07-19 20:33:22 PASS Ground Temperature Time Series
+2022-07-19 20:33:22 PASS Difference Between Ground-Sky Temperature Time Series
+2022-07-19 20:33:22 PASS PWAT Time Series
+2022-07-19 20:33:22 PASS Temporal Mean PWAT Time Series
+2022-07-19 20:33:22 PASS Locational Mean PWAT Time Series
+2022-07-19 20:33:22 PASS Spatiotemporal Mean PWAT Time Series
+2022-07-19 20:33:22 PASS Dewpoint Temperature Time Series
+2022-07-19 20:33:22 PASS Mean Sky Temperature and PWAT Time Series
+2022-07-19 20:33:22 PASS Mean Sky Temperature and RH Time Series
+2022-07-19 20:33:22 PASS Mean PWAT and RH Time Series
+2022-07-19 20:33:22 PASS Mean PWAT and Dewpoint Time Series
+2022-07-19 20:33:22 PASS Mean Sky Temperature and PWAT Time Series
+2022-07-19 20:33:22 PASS Mean Sky Temperature and RH Time Series
+2022-07-19 20:33:22 PASS Mean PWAT and RH Time Series
+2022-07-19 20:33:22 PASS Mean PWAT and Dewpoint Time Series
+2022-07-19 20:33:22 PASS Normalized Index for Weighted PWAT Time Series
+2022-07-19 20:33:22 PASS Plot set downloaded to ../tests/data/out/figs/
+2022-07-19 20:33:22 ALOHA Program Complete
+2022-07-19 20:33:46 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 20:33:46 ALOHA Program Start
+2022-07-19 20:33:47 INFO Collecting Data from sources
+2022-07-19 20:33:47 WARN Raw data mix match. No Data will be collected
+2022-07-19 20:33:47 WARN Check cool_data.csv for proper date format.
+2022-07-19 20:33:48 DEBUG Step 1 out of 10
+2022-07-19 20:33:48 DEBUG Step 2 out of 10
+2022-07-19 20:33:48 DEBUG Step 3 out of 10
+2022-07-19 20:33:48 DEBUG Step 4 out of 10
+2022-07-19 20:33:48 DEBUG Step 5 out of 10
+2022-07-19 20:33:48 DEBUG Step 6 out of 10
+2022-07-19 20:33:48 DEBUG Step 7 out of 10
+2022-07-19 20:33:48 DEBUG Step 8 out of 10
+2022-07-19 20:33:49 DEBUG Step 9 out of 10
+2022-07-19 20:33:49 DEBUG Step 10 out of 10
+2022-07-19 20:33:49 INFO Starting PMAT Utility Unit Tests
+2022-07-19 20:33:49 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 20:34:29 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 20:34:29 ALOHA Program Start
+2022-07-19 20:34:30 INFO Collecting Data from sources
+2022-07-19 20:34:30 WARN Raw data mix match. No Data will be collected
+2022-07-19 20:34:30 WARN Check cool_data.csv for proper date format.
+2022-07-19 20:34:31 DEBUG Step 1 out of 10
+2022-07-19 20:34:32 DEBUG Step 2 out of 10
+2022-07-19 20:34:32 DEBUG Step 3 out of 10
+2022-07-19 20:34:32 DEBUG Step 4 out of 10
+2022-07-19 20:34:32 DEBUG Step 5 out of 10
+2022-07-19 20:34:32 DEBUG Step 6 out of 10
+2022-07-19 20:34:32 DEBUG Step 7 out of 10
+2022-07-19 20:34:32 DEBUG Step 8 out of 10
+2022-07-19 20:34:32 DEBUG Step 9 out of 10
+2022-07-19 20:34:32 DEBUG Step 10 out of 10
+2022-07-19 20:34:32 INFO Starting PMAT Utility Unit Tests
+2022-07-19 20:34:32 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 20:34:33 ALOHA Program Complete
+2022-07-19 20:35:03 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 20:35:03 ALOHA Program Start
+2022-07-19 20:35:05 INFO Collecting Data from sources
+2022-07-19 20:35:05 WARN Raw data mix match. No Data will be collected
+2022-07-19 20:35:05 WARN Check cool_data.csv for proper date format.
+2022-07-19 20:35:06 DEBUG Step 1 out of 10
+2022-07-19 20:35:06 DEBUG Step 2 out of 10
+2022-07-19 20:35:06 DEBUG Step 3 out of 10
+2022-07-19 20:35:06 DEBUG Step 4 out of 10
+2022-07-19 20:35:06 DEBUG Step 5 out of 10
+2022-07-19 20:35:06 DEBUG Step 6 out of 10
+2022-07-19 20:35:06 DEBUG Step 7 out of 10
+2022-07-19 20:35:06 DEBUG Step 8 out of 10
+2022-07-19 20:35:06 DEBUG Step 9 out of 10
+2022-07-19 20:35:06 DEBUG Step 10 out of 10
+2022-07-19 20:35:06 INFO Starting PMAT Utility Unit Tests
+2022-07-19 20:35:07 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 20:35:20 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 20:35:20 ALOHA Program Start
+2022-07-19 20:35:21 INFO Collecting Data from sources
+2022-07-19 20:35:21 WARN Raw data mix match. No Data will be collected
+2022-07-19 20:35:21 WARN Check cool_data.csv for proper date format.
+2022-07-19 20:35:22 DEBUG Step 1 out of 10
+2022-07-19 20:35:22 DEBUG Step 2 out of 10
+2022-07-19 20:35:22 DEBUG Step 3 out of 10
+2022-07-19 20:35:22 DEBUG Step 4 out of 10
+2022-07-19 20:35:22 DEBUG Step 5 out of 10
+2022-07-19 20:35:22 DEBUG Step 6 out of 10
+2022-07-19 20:35:22 DEBUG Step 7 out of 10
+2022-07-19 20:35:22 DEBUG Step 8 out of 10
+2022-07-19 20:35:22 DEBUG Step 9 out of 10
+2022-07-19 20:35:22 DEBUG Step 10 out of 10
+2022-07-19 20:35:22 INFO Starting PMAT Utility Unit Tests
+2022-07-19 20:35:23 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 20:35:23 ALOHA Program Complete
+2022-07-19 20:35:46 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 20:35:46 ALOHA Program Start
+2022-07-19 20:35:48 INFO Collecting Data from sources
+2022-07-19 20:35:48 WARN Raw data mix match. No Data will be collected
+2022-07-19 20:35:48 WARN Check cool_data.csv for proper date format.
+2022-07-19 20:35:49 DEBUG Step 1 out of 10
+2022-07-19 20:35:49 DEBUG Step 2 out of 10
+2022-07-19 20:35:49 DEBUG Step 3 out of 10
+2022-07-19 20:35:49 DEBUG Step 4 out of 10
+2022-07-19 20:35:49 DEBUG Step 5 out of 10
+2022-07-19 20:35:49 DEBUG Step 6 out of 10
+2022-07-19 20:35:49 DEBUG Step 7 out of 10
+2022-07-19 20:35:49 DEBUG Step 8 out of 10
+2022-07-19 20:35:49 DEBUG Step 9 out of 10
+2022-07-19 20:35:49 DEBUG Step 10 out of 10
+2022-07-19 20:35:49 INFO Starting PMAT Utility Unit Tests
+2022-07-19 20:35:50 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 20:36:13 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 20:36:13 ALOHA Program Start
+2022-07-19 20:36:14 INFO Collecting Data from sources
+2022-07-19 20:36:14 WARN Raw data mix match. No Data will be collected
+2022-07-19 20:36:14 WARN Check cool_data.csv for proper date format.
+2022-07-19 20:36:16 DEBUG Step 1 out of 10
+2022-07-19 20:36:16 DEBUG Step 2 out of 10
+2022-07-19 20:36:16 DEBUG Step 3 out of 10
+2022-07-19 20:36:16 DEBUG Step 4 out of 10
+2022-07-19 20:36:16 DEBUG Step 5 out of 10
+2022-07-19 20:36:16 DEBUG Step 6 out of 10
+2022-07-19 20:36:16 DEBUG Step 7 out of 10
+2022-07-19 20:36:16 DEBUG Step 8 out of 10
+2022-07-19 20:36:16 DEBUG Step 9 out of 10
+2022-07-19 20:36:16 DEBUG Step 10 out of 10
+2022-07-19 20:36:16 INFO Starting PMAT Utility Unit Tests
+2022-07-19 20:36:16 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 20:38:19 ALOHA Precipitable-water Model Analysis Tool
+2022-07-19 20:38:19 ALOHA Program Start
+2022-07-19 20:38:20 INFO Collecting Data from sources
+2022-07-19 20:38:20 WARN Raw data mix match. No Data will be collected
+2022-07-19 20:38:20 WARN Check cool_data.csv for proper date format.
+2022-07-19 20:38:21 DEBUG Step 1 out of 10
+2022-07-19 20:38:21 DEBUG Step 2 out of 10
+2022-07-19 20:38:21 DEBUG Step 3 out of 10
+2022-07-19 20:38:21 DEBUG Step 4 out of 10
+2022-07-19 20:38:21 DEBUG Step 5 out of 10
+2022-07-19 20:38:21 DEBUG Step 6 out of 10
+2022-07-19 20:38:21 DEBUG Step 7 out of 10
+2022-07-19 20:38:21 DEBUG Step 8 out of 10
+2022-07-19 20:38:21 DEBUG Step 9 out of 10
+2022-07-19 20:38:21 DEBUG Step 10 out of 10
+2022-07-19 20:38:22 INFO Starting PMAT Utility Unit Tests
+2022-07-19 20:38:22 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-19 20:38:22 ALOHA Program Complete
+2022-07-20 08:39:04 ALOHA Precipitable-water Model Analysis Tool
+2022-07-20 08:39:04 ALOHA Program Start
+2022-07-20 08:39:05 INFO Collecting Data from sources
+2022-07-20 08:39:05 WARN Raw data mix match. No Data will be collected
+2022-07-20 08:39:05 WARN Check cool_data.csv for proper date format.
+2022-07-20 08:39:07 DEBUG Step 1 out of 10
+2022-07-20 08:39:07 DEBUG Step 2 out of 10
+2022-07-20 08:39:07 DEBUG Step 3 out of 10
+2022-07-20 08:39:07 DEBUG Step 4 out of 10
+2022-07-20 08:39:07 DEBUG Step 5 out of 10
+2022-07-20 08:39:07 DEBUG Step 6 out of 10
+2022-07-20 08:39:07 DEBUG Step 7 out of 10
+2022-07-20 08:39:07 DEBUG Step 8 out of 10
+2022-07-20 08:39:07 DEBUG Step 9 out of 10
+2022-07-20 08:39:07 DEBUG Step 10 out of 10
+2022-07-20 08:39:07 INFO Starting PMAT Utility Unit Tests
+2022-07-20 08:39:07 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-20 08:39:08 ALOHA Program Complete
+2022-07-20 08:56:16 ALOHA Precipitable-water Model Analysis Tool
+2022-07-20 08:56:16 ALOHA Program Start
+2022-07-20 08:56:17 INFO Collecting Data from sources
+2022-07-20 08:56:18 WARN Raw data mix match. No Data will be collected
+2022-07-20 08:56:18 WARN Check cool_data.csv for proper date format.
+2022-07-20 08:56:19 DEBUG Step 1 out of 10
+2022-07-20 08:56:19 DEBUG Step 2 out of 10
+2022-07-20 08:56:19 DEBUG Step 3 out of 10
+2022-07-20 08:56:19 DEBUG Step 4 out of 10
+2022-07-20 08:56:19 DEBUG Step 5 out of 10
+2022-07-20 08:56:19 DEBUG Step 6 out of 10
+2022-07-20 08:56:19 DEBUG Step 7 out of 10
+2022-07-20 08:56:19 DEBUG Step 8 out of 10
+2022-07-20 08:56:19 DEBUG Step 9 out of 10
+2022-07-20 08:56:19 DEBUG Step 10 out of 10
+2022-07-20 08:56:19 INFO Starting PMAT Utility Unit Tests
+2022-07-20 08:56:20 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-20 08:56:20 ERROR Insufficient finite clear sky/overcast data.
+2022-07-20 08:56:20 ERROR Add more clear sky/overcast data and then run again.
+2022-07-20 08:56:20 ALOHA Program Complete
+2022-07-20 08:56:42 ALOHA Precipitable-water Model Analysis Tool
+2022-07-20 08:56:42 ALOHA Program Start
+2022-07-20 08:56:43 INFO Collecting Data from sources
+2022-07-20 08:56:43 WARN Raw data mix match. No Data will be collected
+2022-07-20 08:56:43 WARN Check cool_data.csv for proper date format.
+2022-07-20 08:56:44 DEBUG Step 1 out of 10
+2022-07-20 08:56:44 DEBUG Step 2 out of 10
+2022-07-20 08:56:44 DEBUG Step 3 out of 10
+2022-07-20 08:56:44 DEBUG Step 4 out of 10
+2022-07-20 08:56:44 DEBUG Step 5 out of 10
+2022-07-20 08:56:44 DEBUG Step 6 out of 10
+2022-07-20 08:56:44 DEBUG Step 7 out of 10
+2022-07-20 08:56:44 DEBUG Step 8 out of 10
+2022-07-20 08:56:44 DEBUG Step 9 out of 10
+2022-07-20 08:56:44 DEBUG Step 10 out of 10
+2022-07-20 08:56:44 INFO Starting PMAT Utility Unit Tests
+2022-07-20 08:56:45 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-20 08:56:45 ERROR Insufficient finite clear sky/overcast data.
+2022-07-20 08:56:45 ERROR Add more clear sky/overcast data and then run again.
+2022-07-20 08:56:45 ALOHA Program Complete
+2022-07-20 08:57:04 ALOHA Precipitable-water Model Analysis Tool
+2022-07-20 08:57:04 ALOHA Program Start
+2022-07-20 08:57:06 INFO Collecting Data from sources
+2022-07-20 08:57:06 WARN Raw data mix match. No Data will be collected
+2022-07-20 08:57:06 WARN Check cool_data.csv for proper date format.
+2022-07-20 08:57:07 DEBUG Step 1 out of 10
+2022-07-20 08:57:07 DEBUG Step 2 out of 10
+2022-07-20 08:57:07 DEBUG Step 3 out of 10
+2022-07-20 08:57:07 DEBUG Step 4 out of 10
+2022-07-20 08:57:07 DEBUG Step 5 out of 10
+2022-07-20 08:57:07 DEBUG Step 6 out of 10
+2022-07-20 08:57:07 DEBUG Step 7 out of 10
+2022-07-20 08:57:07 DEBUG Step 8 out of 10
+2022-07-20 08:57:07 DEBUG Step 9 out of 10
+2022-07-20 08:57:07 DEBUG Step 10 out of 10
+2022-07-20 08:57:07 INFO Starting PMAT Utility Unit Tests
+2022-07-20 08:57:08 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-20 08:57:08 ALOHA Program Complete
+2022-07-20 08:59:33 ALOHA Precipitable-water Model Analysis Tool
+2022-07-20 08:59:33 ALOHA Program Start
+2022-07-20 08:59:34 INFO Collecting Data from sources
+2022-07-20 08:59:34 WARN Raw data mix match. No Data will be collected
+2022-07-20 08:59:34 WARN Check cool_data.csv for proper date format.
+2022-07-20 08:59:35 DEBUG Step 1 out of 10
+2022-07-20 08:59:35 DEBUG Step 2 out of 10
+2022-07-20 08:59:35 DEBUG Step 3 out of 10
+2022-07-20 08:59:35 DEBUG Step 4 out of 10
+2022-07-20 08:59:35 DEBUG Step 5 out of 10
+2022-07-20 08:59:35 DEBUG Step 6 out of 10
+2022-07-20 08:59:35 DEBUG Step 7 out of 10
+2022-07-20 08:59:35 DEBUG Step 8 out of 10
+2022-07-20 08:59:35 DEBUG Step 9 out of 10
+2022-07-20 08:59:35 DEBUG Step 10 out of 10
+2022-07-20 08:59:35 INFO Starting PMAT Utility Unit Tests
+2022-07-20 08:59:36 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-20 09:00:36 ALOHA Precipitable-water Model Analysis Tool
+2022-07-20 09:00:36 ALOHA Program Start
+2022-07-20 09:00:37 INFO Collecting Data from sources
+2022-07-20 09:00:37 WARN Raw data mix match. No Data will be collected
+2022-07-20 09:00:37 WARN Check cool_data.csv for proper date format.
+2022-07-20 09:00:38 DEBUG Step 1 out of 10
+2022-07-20 09:00:38 DEBUG Step 2 out of 10
+2022-07-20 09:00:38 DEBUG Step 3 out of 10
+2022-07-20 09:00:38 DEBUG Step 4 out of 10
+2022-07-20 09:00:38 DEBUG Step 5 out of 10
+2022-07-20 09:00:38 DEBUG Step 6 out of 10
+2022-07-20 09:00:38 DEBUG Step 7 out of 10
+2022-07-20 09:00:38 DEBUG Step 8 out of 10
+2022-07-20 09:00:38 DEBUG Step 9 out of 10
+2022-07-20 09:00:38 DEBUG Step 10 out of 10
+2022-07-20 09:00:38 INFO Starting PMAT Utility Unit Tests
+2022-07-20 09:00:39 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-20 09:01:03 ALOHA Precipitable-water Model Analysis Tool
+2022-07-20 09:01:03 ALOHA Program Start
+2022-07-20 09:01:05 INFO Collecting Data from sources
+2022-07-20 09:01:05 WARN Raw data mix match. No Data will be collected
+2022-07-20 09:01:05 WARN Check cool_data.csv for proper date format.
+2022-07-20 09:01:06 DEBUG Step 1 out of 10
+2022-07-20 09:01:06 DEBUG Step 2 out of 10
+2022-07-20 09:01:06 DEBUG Step 3 out of 10
+2022-07-20 09:01:06 DEBUG Step 4 out of 10
+2022-07-20 09:01:06 DEBUG Step 5 out of 10
+2022-07-20 09:01:06 DEBUG Step 6 out of 10
+2022-07-20 09:01:06 DEBUG Step 7 out of 10
+2022-07-20 09:01:06 DEBUG Step 8 out of 10
+2022-07-20 09:01:06 DEBUG Step 9 out of 10
+2022-07-20 09:01:06 DEBUG Step 10 out of 10
+2022-07-20 09:01:06 INFO Starting PMAT Utility Unit Tests
+2022-07-20 09:01:07 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-20 09:01:47 ALOHA Precipitable-water Model Analysis Tool
+2022-07-20 09:01:47 ALOHA Program Start
+2022-07-20 09:01:48 INFO Collecting Data from sources
+2022-07-20 09:01:48 WARN Raw data mix match. No Data will be collected
+2022-07-20 09:01:48 WARN Check cool_data.csv for proper date format.
+2022-07-20 09:01:49 DEBUG Step 1 out of 10
+2022-07-20 09:01:49 DEBUG Step 2 out of 10
+2022-07-20 09:01:49 DEBUG Step 3 out of 10
+2022-07-20 09:01:49 DEBUG Step 4 out of 10
+2022-07-20 09:01:49 DEBUG Step 5 out of 10
+2022-07-20 09:01:49 DEBUG Step 6 out of 10
+2022-07-20 09:01:49 DEBUG Step 7 out of 10
+2022-07-20 09:01:49 DEBUG Step 8 out of 10
+2022-07-20 09:01:49 DEBUG Step 9 out of 10
+2022-07-20 09:01:49 DEBUG Step 10 out of 10
+2022-07-20 09:01:49 INFO Starting PMAT Utility Unit Tests
+2022-07-20 09:01:50 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-20 09:02:22 ALOHA Precipitable-water Model Analysis Tool
+2022-07-20 09:02:22 ALOHA Program Start
+2022-07-20 09:02:23 INFO Collecting Data from sources
+2022-07-20 09:02:23 WARN Raw data mix match. No Data will be collected
+2022-07-20 09:02:23 WARN Check cool_data.csv for proper date format.
+2022-07-20 09:02:25 DEBUG Step 1 out of 10
+2022-07-20 09:02:25 DEBUG Step 2 out of 10
+2022-07-20 09:02:25 DEBUG Step 3 out of 10
+2022-07-20 09:02:25 DEBUG Step 4 out of 10
+2022-07-20 09:02:25 DEBUG Step 5 out of 10
+2022-07-20 09:02:25 DEBUG Step 6 out of 10
+2022-07-20 09:02:25 DEBUG Step 7 out of 10
+2022-07-20 09:02:25 DEBUG Step 8 out of 10
+2022-07-20 09:02:25 DEBUG Step 9 out of 10
+2022-07-20 09:02:25 DEBUG Step 10 out of 10
+2022-07-20 09:02:25 INFO Starting PMAT Utility Unit Tests
+2022-07-20 09:02:26 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-20 09:03:05 ALOHA Precipitable-water Model Analysis Tool
+2022-07-20 09:03:05 ALOHA Program Start
+2022-07-20 09:03:06 INFO Collecting Data from sources
+2022-07-20 09:03:06 WARN Raw data mix match. No Data will be collected
+2022-07-20 09:03:06 WARN Check cool_data.csv for proper date format.
+2022-07-20 09:03:07 DEBUG Step 1 out of 10
+2022-07-20 09:03:07 DEBUG Step 2 out of 10
+2022-07-20 09:03:08 DEBUG Step 3 out of 10
+2022-07-20 09:03:08 DEBUG Step 4 out of 10
+2022-07-20 09:03:08 DEBUG Step 5 out of 10
+2022-07-20 09:03:08 DEBUG Step 6 out of 10
+2022-07-20 09:03:08 DEBUG Step 7 out of 10
+2022-07-20 09:03:08 DEBUG Step 8 out of 10
+2022-07-20 09:03:08 DEBUG Step 9 out of 10
+2022-07-20 09:03:08 DEBUG Step 10 out of 10
+2022-07-20 09:03:08 INFO Starting PMAT Utility Unit Tests
+2022-07-20 09:03:08 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-20 09:03:27 ALOHA Precipitable-water Model Analysis Tool
+2022-07-20 09:03:27 ALOHA Program Start
+2022-07-20 09:03:29 INFO Collecting Data from sources
+2022-07-20 09:03:29 WARN Raw data mix match. No Data will be collected
+2022-07-20 09:03:29 WARN Check cool_data.csv for proper date format.
+2022-07-20 09:03:30 DEBUG Step 1 out of 10
+2022-07-20 09:03:30 DEBUG Step 2 out of 10
+2022-07-20 09:03:30 DEBUG Step 3 out of 10
+2022-07-20 09:03:30 DEBUG Step 4 out of 10
+2022-07-20 09:03:30 DEBUG Step 5 out of 10
+2022-07-20 09:03:30 DEBUG Step 6 out of 10
+2022-07-20 09:03:30 DEBUG Step 7 out of 10
+2022-07-20 09:03:30 DEBUG Step 8 out of 10
+2022-07-20 09:03:30 DEBUG Step 9 out of 10
+2022-07-20 09:03:30 DEBUG Step 10 out of 10
+2022-07-20 09:03:30 INFO Starting PMAT Utility Unit Tests
+2022-07-20 09:03:31 INFO Starting PMAT Preprocessing Unit Tests
+2022-07-20 09:03:55 ALOHA Precipitable-water Model Analysis Tool
+2022-07-20 09:03:55 ALOHA Program Start
+2022-07-20 09:03:56 INFO Collecting Data from sources
+2022-07-20 09:03:56 WARN Raw data mix match. No Data will be collected
+2022-07-20 09:03:56 WARN Check cool_data.csv for proper date format.
+2022-07-20 09:03:57 DEBUG Step 1 out of 10
+2022-07-20 09:03:57 DEBUG Step 2 out of 10
+2022-07-20 09:03:57 DEBUG Step 3 out of 10
+2022-07-20 09:03:57 DEBUG Step 4 out of 10
+2022-07-20 09:03:57 DEBUG Step 5 out of 10
+2022-07-20 09:03:57 DEBUG Step 6 out of 10
+2022-07-20 09:03:57 DEBUG Step 7 out of 10
+2022-07-20 09:03:57 DEBUG Step 8 out of 10
+2022-07-20 09:03:57 DEBUG Step 9 out of 10
+2022-07-20 09:03:57 DEBUG Step 10 out of 10
+2022-07-20 09:03:57 INFO Starting PMAT Utility Unit Tests
+2022-07-20 09:03:58 INFO Starting PMAT Preprocessing Unit Tests
