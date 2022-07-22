@@ -3,6 +3,15 @@ error:
     - id: D01
       code: "Insufficient finite clear sky/overcast data."
       fix: "Add more clear sky/overcast data and then run again."
+    - id: D02
+      code: "datetime format needs to be in %Y-%m-%d %H:%M:%S"
+      fix: "Fix datetime to be the appropriate format"
+    - id: D03
+      code: "Insufficient finite precipitable water data"
+      fix: "Add more precipitable water data and then run again."
+    - id: D04
+      code: "Sensor data labeling incorrect"
+      fix: "Make sure that in cool_data.csv has sky temperature labeled as (Sky) and ground temperature labeled as (Ground)"
   F:
     - id: F01
       code: "_pmat.yml is not found"
