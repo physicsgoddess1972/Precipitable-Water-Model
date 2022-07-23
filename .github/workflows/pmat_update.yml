@@ -1,0 +1,106 @@
+name: Update PMAT
+on:
+  push:
+    paths:
+      - "src/*.r"
+      - "src/*.py"
+      - "DESCRIPTION"
+      - "requirements.txt"
+  workflow_dispatch:
+      
+jobs:
+  docs:
+    name: Updating PMAT Reference
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Docs
+        uses: actions/checkout@master
+        with:
+         ref: docs
+      - name: Checkout Master
+        uses: actions/checkout@master
+        with:
+          ref: master
+          path: main
+      - name: AutoDoc for R
+        run: |
+          fname="docsrc/pmat-reference.rst"
+          repeat(){
+              for ((i = 0; i < $2; i++)); do echo -n "$1"; done
+          }
+          echo -e "**************\nPMAT Reference\n**************\n" > $fname
+          
+          for i in ./main/src/*.r; do
+            input=$i
+            j=${i##*/}
+            echo -e "\n$(repeat "-" ${#j})\n$j\n$(repeat "-" ${#j})" >> $fname
+            while read -r line; do
+              case $line in
+                *":module:"* | \
+                *":synopsis:"* | \
+                *":detail:"* | \
+                *":param"* | \
+                *":rtype:"* | *":todo:"*)
+                 echo -e "\t${line:3:${#line}}" >> $fname
+                 ;;
+                *"<- function"*)
+                  func=${line/<- function/}
+                  func=${func/{/}
+                  func=$(echo -e "${func}" | tr -d '[:space:]')
+                  echo -e "\n.. function:: ${func}\n" >> $fname
+                ;;
+                *":return:"*)
+                  echo -e "\t:return: ${line:12:${#line}}" >> $fname
+                ;;
+              esac
+            done < "$input"
+          done
+      - name: Run GitHub File Sync
+        uses: kbrashears5/github-action-file-sync@master
+        with:
+          REPOSITORIES: |
+            physicsgoddess1972/Precipitable-Water-Model@docs
+          FILES: |
+            docsrc/pmat-reference.rst=docsrc/pmat-reference.rst
+          TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
+  update:
+    needs: docs
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Master Branch
+      uses: actions/checkout@master
+      with:
+        ref: master
+    - name: Run GitHub File Sync
+      uses: kbrashears5/github-action-file-sync@master
+      with:
+        REPOSITORIES: |
+          physicsgoddess1972/Precipitable-Water-Model@deployment
+        FILES: |
+          src/pmat_processing.r=src/pmat_processing.r
+          src/pmat_analysis.r=src/pmat_analysis.r
+          src/pmat_products.r=src/pmat_products.r
+          src/pmat_utility.r=src/pmat_utility.r
+          src/pmat_import.py=src/pmat_import.py
+          src/pmat_run.r=src/pmat_run.r
+          src/pmat_codes.yml=src/pmat_codes.yml
+          DESCRIPTION
+          requirements.txt
+        TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
+  publish_pmat_package:
+    needs: update
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Deployment Branch
+      uses: actions/checkout@master
+      with:
+       ref: deployment
+    - name: Login to GHCR
+      run: |
+        echo $CR_PAT | docker login ghcr.io -u physicsgoddess1972 --password-stdin
+      env:
+        CR_PAT: ${{ secrets.CR_TOKEN }}
+    - name: Build and Publish the PMAT Package
+      run: |
+        docker build . --tag ghcr.io/physicsgoddess1972/pmat:latest
+        docker push ghcr.io/physicsgoddess1972/pmat:latest
