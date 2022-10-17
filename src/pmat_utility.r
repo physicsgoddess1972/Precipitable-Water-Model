@@ -79,7 +79,6 @@ reset_time <- function(datetime){
     #' :param character datetime: a Date or datetime object
     #' :return: A datetime object with time 00:00:00
     #' :rtype: double
-<<<<<<< HEAD
     if (!is.na(as.Date(datetime, tryFormats=c("%Y-%m-%d", "%Y-%m-%d %H:%M:%S"), optional=TRUE))){
         dt_zero <- as.POSIXct(paste(substr(datetime, 1, 11),"00:00:00",sep=" "), format="%Y-%m-%d %H:%M:%S")
         return(dt_zero)
@@ -88,10 +87,7 @@ reset_time <- function(datetime){
         logg("ERROR", err$D[[2]]$code, lev = "DEBUG")
         logg("ERROR", err$D[[2]]$fix, lev = "DEBUG")
     }
-    
-=======
     return(as.POSIXct(paste(substr(datetime, 1, 11),"00:00:00",sep=" "), format="%Y-%m-%d %H:%M:%S"))
->>>>>>> 47addb531525c32ecd60a78ae867ca064c77857a
 }
 
 time_axis_init <- function(date){
@@ -100,7 +96,6 @@ time_axis_init <- function(date){
     #' :param double date: A date or datetime object
     #' :return: The max, min, and tick mark positions
     #' :rtype: list
-<<<<<<< HEAD
     if (!is.na(as.Date(date, tryFormats=c("%Y-%m-%d", "%Y-%m-%d %H:%M:%S"), optional=TRUE))){
         xmin <- reset_time(paste(substr(date[[1]], 1, 8),"01",sep=""))
         dm <- ifelse(round(as.integer(substr(date[[length(date)]], 9, 10))) > 1, 1, 0)
@@ -117,20 +112,6 @@ time_axis_init <- function(date){
         logg("ERROR", err$D[[2]]$code, lev = "DEBUG")
         logg("ERROR", err$D[[2]]$fix, lev = "DEBUG")
     }
-=======
-    #print(date)
-    xmin <- reset_time(paste(substr(date[[1]], 1, 8),"01",sep=""))
-    dm <- ifelse(round(as.integer(substr(date[[length(date)]], 9, 10))) > 1, 1, 0)
-    xmax <- reset_time(paste(substr(date[[length(date)]], 1, 5),
-                      sprintf("%02d", as.integer(substr(date[[length(date)]], 6, 7)) + dm),
-                      "-01", sep=""))
-    #print(list(xmin, xmax))
-    ticks.at <- seq(xmin, xmax, by = "months")
-    if (length(ticks.at) <= 3){
-        xmin <- reset_time(date[[1]])
-    }
-    return(list(c(xmin, xmax), ticks.at))
->>>>>>> 47addb531525c32ecd60a78ae867ca064c77857a
 }
 
 time_axis <- function(datetime){
