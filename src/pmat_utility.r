@@ -87,7 +87,6 @@ reset_time <- function(datetime){
         logg("ERROR", err$D[[2]]$code, lev = "DEBUG")
         logg("ERROR", err$D[[2]]$fix, lev = "DEBUG")
     }
-    return(as.POSIXct(paste(substr(datetime, 1, 11),"00:00:00",sep=" "), format="%Y-%m-%d %H:%M:%S"))
 }
 
 time_axis_init <- function(date){
