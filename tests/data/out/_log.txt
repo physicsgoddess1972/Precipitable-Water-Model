@@ -2715,3 +2715,334 @@
 2022-07-20 09:03:57 DEBUG Step 10 out of 10
 2022-07-20 09:03:57 INFO Starting PMAT Utility Unit Tests
 2022-07-20 09:03:58 INFO Starting PMAT Preprocessing Unit Tests
+2022-10-17 17:11:30 ERROR _pmat.yml is not found
+2022-10-17 17:11:30 ERROR Check the --dir option to see if _pmat.yml is present.
+2022-10-17 17:11:30 ALOHA Program Complete
+2022-10-17 17:11:51 ALOHA Precipitable-water Model Analysis Tool
+2022-10-17 17:11:51 ALOHA Program Start
+2022-10-17 17:11:52 INFO Collecting Data from sources
+2022-10-17 17:11:53 DEBUG Step 1 out of 1
+2022-10-17 17:11:53 DEBUG Step 2 out of 1
+2022-10-17 17:11:53 DEBUG Step 3 out of 1
+2022-10-17 17:11:53 DEBUG Step 4 out of 1
+2022-10-17 17:11:53 DEBUG Step 5 out of 1
+2022-10-17 17:11:53 DEBUG Step 6 out of 1
+2022-10-17 17:11:53 DEBUG Step 7 out of 1
+2022-10-17 17:11:53 DEBUG Step 8 out of 1
+2022-10-17 17:11:53 DEBUG Step 9 out of 1
+2022-10-17 17:11:53 DEBUG Step 10 out of 1
+2022-10-17 17:11:53 ALOHA Program Complete
+2022-10-17 17:12:06 ALOHA Precipitable-water Model Analysis Tool
+2022-10-17 17:12:06 ALOHA Program Start
+2022-10-17 17:12:07 INFO Collecting Data from sources
+2022-10-17 17:12:07 WARN Raw data mix match. No Data will be collected
+2022-10-17 17:12:07 WARN Check cool_data.csv for proper date format.
+2022-10-17 17:12:08 DEBUG Step 1 out of 10
+2022-10-17 17:12:08 DEBUG Step 2 out of 10
+2022-10-17 17:12:08 DEBUG Step 3 out of 10
+2022-10-17 17:12:08 DEBUG Step 4 out of 10
+2022-10-17 17:12:08 DEBUG Step 5 out of 10
+2022-10-17 17:12:08 DEBUG Step 6 out of 10
+2022-10-17 17:12:08 DEBUG Step 7 out of 10
+2022-10-17 17:12:08 DEBUG Step 8 out of 10
+2022-10-17 17:12:08 DEBUG Step 9 out of 10
+2022-10-17 17:12:08 DEBUG Step 10 out of 10
+2022-10-17 17:12:08 ALOHA Program Complete
+2022-10-17 17:16:46 ALOHA Precipitable-water Model Analysis Tool
+2022-10-17 17:16:46 ALOHA Program Start
+2022-10-17 17:16:47 INFO Collecting Data from sources
+2022-10-17 17:16:47 DEBUG Collecting data for 2021-01-24		 Progress: 58.97%
+2022-10-17 17:17:02 DEBUG Collecting data for 2021-01-25		 Progress: 59.05%
+2022-10-17 17:17:20 DEBUG Collecting data for 2021-01-26		 Progress: 59.13%
+2022-10-17 17:17:38 DEBUG Collecting data for 2021-01-27		 Progress: 59.21%
+2022-10-17 17:17:52 DEBUG Collecting data for 2021-01-28		 Progress: 59.29%
+2022-10-17 17:18:21 DEBUG Collecting data for 2021-01-29		 Progress: 59.37%
+2022-10-17 17:18:37 DEBUG Collecting data for 2021-01-30		 Progress: 59.45%
+2022-10-17 17:19:05 DEBUG Collecting data for 2021-01-31		 Progress: 59.53%
+2022-10-17 17:19:20 DEBUG Collecting data for 2021-02-01		 Progress: 59.61%
+2022-10-17 17:19:34 DEBUG Collecting data for 2021-02-02		 Progress: 59.69%
+2022-10-17 17:19:51 DEBUG Collecting data for 2021-02-03		 Progress: 59.77%
+2022-10-17 17:20:06 DEBUG Collecting data for 2021-02-04		 Progress: 59.86%
+2022-10-17 17:20:19 DEBUG Collecting data for 2021-02-05		 Progress: 59.94%
+2022-10-17 17:20:35 DEBUG Collecting data for 2021-02-06		 Progress: 60.02%
+2022-10-17 17:20:50 DEBUG Collecting data for 2021-02-07		 Progress: 60.10%
+2022-10-17 17:21:04 DEBUG Collecting data for 2021-02-08		 Progress: 60.18%
+2022-10-17 17:21:19 DEBUG Collecting data for 2021-02-09		 Progress: 60.26%
+2022-10-17 17:21:33 DEBUG Collecting data for 2021-02-10		 Progress: 60.34%
+2022-10-17 17:21:49 DEBUG Collecting data for 2021-02-11		 Progress: 60.42%
+2022-10-17 17:22:05 DEBUG Collecting data for 2021-02-12		 Progress: 60.50%
+2022-10-17 17:22:25 DEBUG Collecting data for 2021-02-13		 Progress: 60.58%
+2022-10-17 17:22:42 DEBUG Collecting data for 2021-02-14		 Progress: 60.66%
+2022-10-17 17:23:05 DEBUG Collecting data for 2021-02-15		 Progress: 60.74%
+2022-10-17 17:23:19 DEBUG Collecting data for 2021-02-16		 Progress: 60.82%
+2022-10-17 17:23:35 DEBUG Collecting data for 2021-02-17		 Progress: 60.90%
+2022-10-17 17:23:57 DEBUG Collecting data for 2021-02-18		 Progress: 60.98%
+2022-10-17 17:24:14 DEBUG Collecting data for 2021-02-19		 Progress: 61.06%
+2022-10-17 17:24:28 DEBUG Collecting data for 2021-02-20		 Progress: 61.14%
+2022-10-17 17:24:42 DEBUG Collecting data for 2021-02-21		 Progress: 61.22%
+2022-10-17 17:25:00 DEBUG Collecting data for 2021-02-22		 Progress: 61.30%
+2022-10-17 17:25:16 DEBUG Collecting data for 2021-02-23		 Progress: 61.38%
+2022-10-17 17:25:30 DEBUG Collecting data for 2021-02-24		 Progress: 61.46%
+2022-10-17 17:25:44 DEBUG Collecting data for 2021-02-25		 Progress: 61.54%
+2022-10-17 17:25:59 DEBUG Collecting data for 2021-02-26		 Progress: 61.63%
+2022-10-17 17:26:20 DEBUG Collecting data for 2021-02-27		 Progress: 61.71%
+2022-10-17 17:26:34 DEBUG Collecting data for 2021-02-28		 Progress: 61.79%
+2022-10-17 17:26:51 DEBUG Collecting data for 2021-03-01		 Progress: 61.87%
+2022-10-17 17:27:08 DEBUG Collecting data for 2021-03-02		 Progress: 61.95%
+2022-10-17 17:27:22 DEBUG Collecting data for 2021-03-03		 Progress: 62.03%
+2022-10-17 17:27:42 DEBUG Collecting data for 2021-03-04		 Progress: 62.11%
+2022-10-17 17:27:57 DEBUG Collecting data for 2021-03-05		 Progress: 62.19%
+2022-10-17 17:28:12 DEBUG Collecting data for 2021-03-06		 Progress: 62.27%
+2022-10-17 17:28:27 DEBUG Collecting data for 2021-03-07		 Progress: 62.35%
+2022-10-17 17:28:46 DEBUG Collecting data for 2021-03-08		 Progress: 62.43%
+2022-10-17 17:29:09 DEBUG Collecting data for 2021-03-09		 Progress: 62.51%
+2022-10-17 17:29:22 DEBUG Collecting data for 2021-03-10		 Progress: 62.59%
+2022-10-17 17:29:37 DEBUG Collecting data for 2021-03-11		 Progress: 62.67%
+2022-10-17 17:29:56 DEBUG Collecting data for 2021-03-12		 Progress: 62.75%
+2022-10-17 17:30:11 DEBUG Collecting data for 2021-03-13		 Progress: 62.83%
+2022-10-17 17:30:29 DEBUG Collecting data for 2021-03-14		 Progress: 62.91%
+2022-10-17 17:30:44 DEBUG Collecting data for 2021-03-15		 Progress: 62.99%
+2022-10-17 17:31:00 DEBUG Collecting data for 2021-03-16		 Progress: 63.07%
+2022-10-17 17:31:21 DEBUG Collecting data for 2021-03-17		 Progress: 63.15%
+2022-10-17 17:31:34 DEBUG Collecting data for 2021-03-18		 Progress: 63.23%
+2022-10-17 17:31:49 DEBUG Collecting data for 2021-03-19		 Progress: 63.31%
+2022-10-17 17:32:10 DEBUG Collecting data for 2021-03-20		 Progress: 63.40%
+2022-10-17 17:32:23 DEBUG Collecting data for 2021-03-21		 Progress: 63.48%
+2022-10-17 17:32:41 DEBUG Collecting data for 2021-03-22		 Progress: 63.56%
+2022-10-17 17:32:42 WARN Radiosonde data not available for 2021-03-22 12:00:00 at ABQ
+2022-10-17 17:32:42 WARN Using NaN
+2022-10-17 17:32:55 DEBUG Collecting data for 2021-03-23		 Progress: 63.64%
+2022-10-17 17:33:19 DEBUG Collecting data for 2021-03-24		 Progress: 63.72%
+2022-10-17 17:33:33 DEBUG Collecting data for 2021-03-25		 Progress: 63.80%
+2022-10-17 17:34:00 DEBUG Collecting data for 2021-03-26		 Progress: 63.88%
+2022-10-17 17:34:17 DEBUG Collecting data for 2021-03-27		 Progress: 63.96%
+2022-10-17 17:34:30 DEBUG Collecting data for 2021-03-28		 Progress: 64.04%
+2022-10-17 17:34:46 DEBUG Collecting data for 2021-03-29		 Progress: 64.12%
+2022-10-17 17:35:03 DEBUG Collecting data for 2021-03-30		 Progress: 64.20%
+2022-10-17 17:35:21 DEBUG Collecting data for 2021-03-31		 Progress: 64.28%
+2022-10-17 17:35:28 ALOHA Precipitable-water Model Analysis Tool
+2022-10-17 17:35:28 ALOHA Program Start
+2022-10-17 17:35:29 INFO Collecting Data from sources
+2022-10-17 17:35:29 DEBUG Collecting data for 2021-03-31		 Progress: 89.88%
+2022-10-17 17:36:05 ALOHA Precipitable-water Model Analysis Tool
+2022-10-17 17:36:05 ALOHA Program Start
+2022-10-17 17:36:05 INFO Collecting Data from sources
+2022-10-17 17:36:05 DEBUG Collecting data for 2021-03-31		 Progress: 89.88%
+2022-10-17 17:36:14 DEBUG Collecting data for 2021-04-01		 Progress: 89.99%
+2022-10-17 17:36:27 DEBUG Collecting data for 2021-04-02		 Progress: 90.10%
+2022-10-17 17:36:39 DEBUG Collecting data for 2021-04-03		 Progress: 90.21%
+2022-10-17 17:36:58 DEBUG Collecting data for 2021-04-04		 Progress: 90.33%
+2022-10-17 17:37:12 DEBUG Collecting data for 2021-04-05		 Progress: 90.44%
+2022-10-17 17:37:29 DEBUG Collecting data for 2021-04-06		 Progress: 90.55%
+2022-10-17 17:37:44 DEBUG Collecting data for 2021-04-07		 Progress: 90.66%
+2022-10-17 17:37:59 DEBUG Collecting data for 2021-04-08		 Progress: 90.78%
+2022-10-17 17:38:14 DEBUG Collecting data for 2021-04-09		 Progress: 90.89%
+2022-10-17 17:38:29 DEBUG Collecting data for 2021-04-10		 Progress: 91.00%
+2022-10-17 17:38:34 WARN Radiosonde data not available for 2021-04-10 12:00:00 at EPZ
+2022-10-17 17:38:34 WARN Using NaN
+2022-10-17 17:38:42 DEBUG Collecting data for 2021-04-11		 Progress: 91.11%
+2022-10-17 17:38:59 DEBUG Collecting data for 2021-04-12		 Progress: 91.23%
+2022-10-17 17:39:15 DEBUG Collecting data for 2021-04-13		 Progress: 91.34%
+2022-10-17 17:39:34 DEBUG Collecting data for 2021-04-14		 Progress: 91.45%
+2022-10-17 17:39:48 DEBUG Collecting data for 2021-04-15		 Progress: 91.56%
+2022-10-17 17:40:03 DEBUG Collecting data for 2021-04-16		 Progress: 91.68%
+2022-10-17 17:40:17 DEBUG Collecting data for 2021-04-17		 Progress: 91.79%
+2022-10-17 17:40:31 DEBUG Collecting data for 2021-04-18		 Progress: 91.90%
+2022-10-17 17:40:49 ALOHA Precipitable-water Model Analysis Tool
+2022-10-17 17:40:49 ALOHA Program Start
+2022-10-17 17:40:49 INFO Collecting Data from sources
+2022-10-17 17:40:49 DEBUG Collecting data for 2021-04-18		 Progress: 98.67%
+2022-10-17 17:40:59 DEBUG Collecting data for 2021-04-19		 Progress: 98.79%
+2022-10-17 17:41:17 DEBUG Collecting data for 2021-04-20		 Progress: 98.91%
+2022-10-17 17:41:33 DEBUG Collecting data for 2021-04-21		 Progress: 99.03%
+2022-10-17 17:41:48 DEBUG Collecting data for 2021-04-22		 Progress: 99.15%
+2022-10-17 17:42:04 DEBUG Collecting data for 2021-04-23		 Progress: 99.28%
+2022-10-17 17:42:19 DEBUG Collecting data for 2021-04-25		 Progress: 99.40%
+2022-10-17 17:42:34 DEBUG Collecting data for 2021-04-26		 Progress: 99.52%
+2022-10-17 17:42:51 DEBUG Collecting data for 2021-04-27		 Progress: 99.64%
+2022-10-17 17:43:17 DEBUG Collecting data for 2021-04-28		 Progress: 99.76%
+2022-10-17 17:43:30 DEBUG Collecting data for 2021-04-29		 Progress: 99.88%
+2022-10-17 17:45:37 ALOHA Precipitable-water Model Analysis Tool
+2022-10-17 17:45:37 ALOHA Program Start
+2022-10-17 17:45:38 INFO Collecting Data from sources
+2022-10-17 17:47:43 ALOHA Precipitable-water Model Analysis Tool
+2022-10-17 17:47:43 ALOHA Program Start
+2022-10-17 17:47:44 INFO Collecting Data from sources
+2022-10-17 17:47:45 DEBUG Step 1 out of 10
+2022-10-17 17:47:45 DEBUG Step 2 out of 10
+2022-10-17 17:47:45 DEBUG Step 3 out of 10
+2022-10-17 17:47:45 DEBUG Step 4 out of 10
+2022-10-17 17:47:45 DEBUG Step 5 out of 10
+2022-10-17 17:47:45 DEBUG Step 6 out of 10
+2022-10-17 17:47:45 DEBUG Step 7 out of 10
+2022-10-17 17:47:45 DEBUG Step 8 out of 10
+2022-10-17 17:47:45 DEBUG Step 9 out of 10
+2022-10-17 17:47:45 DEBUG Step 10 out of 10
+2022-10-17 17:47:45 ALOHA Program Complete
+2022-10-17 17:47:54 ALOHA Precipitable-water Model Analysis Tool
+2022-10-17 17:47:54 ALOHA Program Start
+2022-10-17 17:47:54 INFO Collecting Data from sources
+2022-10-17 17:47:56 DEBUG Step 1 out of 10
+2022-10-17 17:47:56 DEBUG Step 2 out of 10
+2022-10-17 17:47:56 DEBUG Step 3 out of 10
+2022-10-17 17:47:56 DEBUG Step 4 out of 10
+2022-10-17 17:47:56 DEBUG Step 5 out of 10
+2022-10-17 17:47:56 DEBUG Step 6 out of 10
+2022-10-17 17:47:56 DEBUG Step 7 out of 10
+2022-10-17 17:47:56 DEBUG Step 8 out of 10
+2022-10-17 17:47:56 DEBUG Step 9 out of 10
+2022-10-17 17:47:56 DEBUG Step 10 out of 10
+2022-10-17 17:47:56 INFO Time Series Plot Set
+2022-10-17 17:47:56 PASS Sky Temperature Time Series
+2022-10-17 17:47:56 PASS Ground Temperature Time Series
+2022-10-17 17:47:56 PASS Difference Between Ground-Sky Temperature Time Series
+2022-10-17 17:47:56 PASS PWAT Time Series
+2022-10-17 17:47:56 PASS Temporal Mean PWAT Time Series
+2022-10-17 17:47:56 PASS Locational Mean PWAT Time Series
+2022-10-17 17:47:56 PASS Spatiotemporal Mean PWAT Time Series
+2022-10-17 17:47:56 PASS Dewpoint Temperature Time Series
+2022-10-17 17:47:56 PASS Mean Sky Temperature and PWAT Time Series
+2022-10-17 17:47:56 PASS Mean Sky Temperature and RH Time Series
+2022-10-17 17:47:56 PASS Mean PWAT and RH Time Series
+2022-10-17 17:47:56 PASS Mean PWAT and Dewpoint Time Series
+2022-10-17 17:47:56 PASS Mean Sky Temperature and PWAT Time Series
+2022-10-17 17:47:56 PASS Mean Sky Temperature and RH Time Series
+2022-10-17 17:47:56 PASS Mean PWAT and RH Time Series
+2022-10-17 17:47:56 PASS Mean PWAT and Dewpoint Time Series
+2022-10-17 17:47:56 PASS Normalized Index for Weighted PWAT Time Series
+2022-10-17 17:47:56 PASS Plot set downloaded to ./tests/data/out//figs/
+2022-10-17 17:47:56 ALOHA Program Complete
+2022-10-17 17:48:19 ALOHA Precipitable-water Model Analysis Tool
+2022-10-17 17:48:19 ALOHA Program Start
+2022-10-17 17:48:20 INFO Collecting Data from sources
+2022-10-17 17:48:21 DEBUG Step 1 out of 10
+2022-10-17 17:48:21 DEBUG Step 2 out of 10
+2022-10-17 17:48:21 DEBUG Step 3 out of 10
+2022-10-17 17:48:21 DEBUG Step 4 out of 10
+2022-10-17 17:48:21 DEBUG Step 5 out of 10
+2022-10-17 17:48:21 DEBUG Step 6 out of 10
+2022-10-17 17:48:21 DEBUG Step 7 out of 10
+2022-10-17 17:48:21 DEBUG Step 8 out of 10
+2022-10-17 17:48:21 DEBUG Step 9 out of 10
+2022-10-17 17:48:21 DEBUG Step 10 out of 10
+2022-10-17 17:48:21 INFO Condition: Clear Sky
+2022-10-17 17:48:21 INFO Time Series Plot Set
+2022-10-17 17:48:21 PASS Sky Temperature Time Series
+2022-10-17 17:48:21 PASS Ground Temperature Time Series
+2022-10-17 17:48:21 PASS Difference Between Ground-Sky Temperature Time Series
+2022-10-17 17:48:21 PASS PWAT Time Series
+2022-10-17 17:48:21 PASS Temporal Mean PWAT Time Series
+2022-10-17 17:48:21 PASS Locational Mean PWAT Time Series
+2022-10-17 17:48:21 PASS Spatiotemporal Mean PWAT Time Series
+2022-10-17 17:48:21 PASS Dewpoint Temperature Time Series
+2022-10-17 17:48:21 PASS Mean Sky Temperature and PWAT Time Series
+2022-10-17 17:48:21 PASS Mean Sky Temperature and RH Time Series
+2022-10-17 17:48:21 PASS Mean PWAT and RH Time Series
+2022-10-17 17:48:22 PASS Mean PWAT and Dewpoint Time Series
+2022-10-17 17:48:22 PASS Mean Sky Temperature and PWAT Time Series
+2022-10-17 17:48:22 PASS Mean Sky Temperature and RH Time Series
+2022-10-17 17:48:22 PASS Mean PWAT and RH Time Series
+2022-10-17 17:48:22 PASS Mean PWAT and Dewpoint Time Series
+2022-10-17 17:48:22 PASS Normalized Index for Weighted PWAT Time Series
+2022-10-17 17:48:22 PASS Plot set downloaded to ./tests/data/out//figs/
+2022-10-17 17:48:22 INFO Analytics Plot Set
+2022-10-17 17:48:22 PASS Correlation between PWAT and Temperature
+2022-10-17 17:48:22 PASS Correlation between Locational Mean PWAT and Temperature
+2022-10-17 17:48:22 PASS Correlation between Temporal Mean PWAT and Temperature
+2022-10-17 17:48:22 PASS Regression between Spatiotemporal Mean PWAT and Temperature
+2022-10-17 17:48:22 PASS Regression between Weighted PWAT and Temperature
+2022-10-17 17:48:22 PASS SVM Analysis between Sky Temperature and PWAT
+2022-10-17 17:48:22 PASS Plot set downloaded to ./tests/data/out//figs/
+2022-10-17 17:48:22 INFO Sensor Plot Set
+2022-10-17 17:48:22 PASS Overcast Condition Percentage: AMES 1
+2022-10-17 17:48:22 PASS Overcast Condition Percentage: AMES 2
+2022-10-17 17:48:22 PASS Overcast Condition Percentage: AMES 3
+2022-10-17 17:48:22 PASS Sky-Ground Time Series: AMES
+2022-10-17 17:48:22 PASS Plot set downloaded to ./tests/data/out//figs/
+2022-10-17 17:48:22 INFO Chart Set
+2022-10-17 17:48:22 PASS Weighted PWAT
+2022-10-17 17:48:22 PASS Average Temperature
+2022-10-17 17:48:22 PASS Relative Humidity
+2022-10-17 17:48:22 PASS Dewpoint Temperature
+2022-10-17 17:48:22 PASS Predicted clear sky PWAT from IR Product
+2022-10-17 17:48:22 PASS Distribution of PWAT in ABQ
+2022-10-17 17:48:22 PASS Distribution of PWAT in EPZ
+2022-10-17 17:48:22 PASS Plot set downloaded to ./tests/data/out//figs/
+2022-10-17 17:48:22 INFO Poster Plot Set
+2022-10-17 17:48:22 PASS Sky-Ground-Delta Temperature Time Series
+2022-10-17 17:48:23 PASS Analytical Plots
+2022-10-17 17:48:23 PASS Plot set downloaded to ./tests/data/out//figs/
+2022-10-17 17:48:23 INFO Pac-Man Plot Set
+2022-10-17 17:48:23 PASS Correlation between Spatiotemporal Mean PWAT and Temperature
+2022-10-17 17:48:23 PASS Pac-Man Residual of the Mean PWAT and Temperature Model
+2022-10-17 17:48:23 PASS Plot set downloaded to ./tests/data/out//figs/
+2022-10-17 17:48:23 PASS Data sent to data/data.csv
+2022-10-17 17:48:23 PASS Data sent to ./tests/data/out//data/ml_data.csv
+2022-10-17 17:48:23 ALOHA Program Complete
+2022-10-17 17:48:41 ALOHA Precipitable-water Model Analysis Tool
+2022-10-17 17:48:41 ALOHA Program Start
+2022-10-17 17:48:42 INFO Collecting Data from sources
+2022-10-17 17:48:43 DEBUG Step 1 out of 10
+2022-10-17 17:48:43 DEBUG Step 2 out of 10
+2022-10-17 17:48:43 DEBUG Step 3 out of 10
+2022-10-17 17:48:43 DEBUG Step 4 out of 10
+2022-10-17 17:48:43 DEBUG Step 5 out of 10
+2022-10-17 17:48:43 DEBUG Step 6 out of 10
+2022-10-17 17:48:43 DEBUG Step 7 out of 10
+2022-10-17 17:48:43 DEBUG Step 8 out of 10
+2022-10-17 17:48:43 DEBUG Step 9 out of 10
+2022-10-17 17:48:43 DEBUG Step 10 out of 10
+2022-10-17 17:48:43 INFO Condition: Clear Sky
+2022-10-17 17:48:43 INFO Time Series Plot Set
+2022-10-17 17:48:43 PASS Sky Temperature Time Series
+2022-10-17 17:48:43 PASS Ground Temperature Time Series
+2022-10-17 17:48:43 PASS Difference Between Ground-Sky Temperature Time Series
+2022-10-17 17:48:43 PASS PWAT Time Series
+2022-10-17 17:48:43 PASS Temporal Mean PWAT Time Series
+2022-10-17 17:48:43 PASS Locational Mean PWAT Time Series
+2022-10-17 17:48:43 PASS Spatiotemporal Mean PWAT Time Series
+2022-10-17 17:48:43 PASS Dewpoint Temperature Time Series
+2022-10-17 17:48:43 PASS Mean Sky Temperature and PWAT Time Series
+2022-10-17 17:48:44 PASS Mean Sky Temperature and RH Time Series
+2022-10-17 17:48:44 PASS Mean PWAT and RH Time Series
+2022-10-17 17:48:44 PASS Mean PWAT and Dewpoint Time Series
+2022-10-17 17:48:44 PASS Mean Sky Temperature and PWAT Time Series
+2022-10-17 17:48:44 PASS Mean Sky Temperature and RH Time Series
+2022-10-17 17:48:44 PASS Mean PWAT and RH Time Series
+2022-10-17 17:48:44 PASS Mean PWAT and Dewpoint Time Series
+2022-10-17 17:48:44 PASS Normalized Index for Weighted PWAT Time Series
+2022-10-17 17:48:44 PASS Plot set downloaded to ./tests/data/out//figs/
+2022-10-17 17:48:44 INFO Analytics Plot Set
+2022-10-17 17:48:44 PASS Correlation between PWAT and Temperature
+2022-10-17 17:48:44 PASS Correlation between Locational Mean PWAT and Temperature
+2022-10-17 17:48:44 PASS Correlation between Temporal Mean PWAT and Temperature
+2022-10-17 17:48:44 PASS Regression between Spatiotemporal Mean PWAT and Temperature
+2022-10-17 17:48:44 PASS Regression between Weighted PWAT and Temperature
+2022-10-17 17:48:44 PASS SVM Analysis between Sky Temperature and PWAT
+2022-10-17 17:48:44 PASS Plot set downloaded to ./tests/data/out//figs/
+2022-10-17 17:48:44 INFO Sensor Plot Set
+2022-10-17 17:48:44 PASS Overcast Condition Percentage: AMES 1
+2022-10-17 17:48:44 PASS Overcast Condition Percentage: AMES 2
+2022-10-17 17:48:44 PASS Overcast Condition Percentage: AMES 3
+2022-10-17 17:48:44 PASS Sky-Ground Time Series: AMES
+2022-10-17 17:48:44 PASS Plot set downloaded to ./tests/data/out//figs/
+2022-10-17 17:48:44 INFO Chart Set
+2022-10-17 17:48:44 PASS Weighted PWAT
+2022-10-17 17:48:44 PASS Average Temperature
+2022-10-17 17:48:44 PASS Relative Humidity
+2022-10-17 17:48:44 PASS Dewpoint Temperature
+2022-10-17 17:48:44 PASS Predicted clear sky PWAT from IR Product
+2022-10-17 17:48:44 PASS Distribution of PWAT in ABQ
+2022-10-17 17:48:44 PASS Distribution of PWAT in EPZ
+2022-10-17 17:48:44 PASS Plot set downloaded to ./tests/data/out//figs/
+2022-10-17 17:48:44 INFO Poster Plot Set
+2022-10-17 17:48:45 PASS Sky-Ground-Delta Temperature Time Series
+2022-10-17 17:48:45 PASS Analytical Plots
+2022-10-17 17:48:45 PASS Plot set downloaded to ./tests/data/out//figs/
+2022-10-17 17:48:45 INFO Pac-Man Plot Set
+2022-10-17 17:48:45 PASS Correlation between Spatiotemporal Mean PWAT and Temperature
+2022-10-17 17:48:45 PASS Pac-Man Residual of the Mean PWAT and Temperature Model
+2022-10-17 17:48:45 PASS Plot set downloaded to ./tests/data/out//figs/
+2022-10-17 17:48:45 PASS Data sent to data/data.csv
+2022-10-17 17:48:45 PASS Data sent to ./tests/data/out//data/ml_data.csv
+2022-10-17 17:48:45 ALOHA Program Complete
