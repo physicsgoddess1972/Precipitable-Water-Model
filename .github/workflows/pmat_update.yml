@@ -102,5 +102,5 @@ jobs:
         CR_PAT: ${{ secrets.CR_TOKEN }}
     - name: Build and Publish the PMAT Package
       run: |
-        docker build . --tag ghcr.io/physicsgoddess1972/pmat:latest
-        docker push ghcr.io/physicsgoddess1972/pmat:latest
+        docker build . --tag ghcr.io/physicsgoddess1972/pmat:unstable
+        docker push ghcr.io/physicsgoddess1972/pmat:unstable
