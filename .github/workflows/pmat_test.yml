@@ -23,13 +23,13 @@ jobs:
       - name: Starting global tests
         run: echo ${{matrix.datadirs}}
       - name: PMAT testing with ${{matrix.datadirs}} (clear sky)
-        uses: docker://ghcr.io/physicsgoddess1972/pmat:latest
+        uses: docker://ghcr.io/physicsgoddess1972/pmat:unstable
         with:
           dir: ${{github.workspace}}/tests/data/${{matrix.datadirs}}
           out: ${{github.workspace}}/tests/data/out/${{matrix.datadirs}}
           flags: "-all -u"
       - name: PMAT testing with ${{matrix.datadirs}} (overcast)
-        uses: docker://ghcr.io/physicsgoddess1972/pmat:latest
+        uses: docker://ghcr.io/physicsgoddess1972/pmat:unstable
         with:
           dir: ${{github.workspace}}/tests/data/${{matrix.datadirs}}
           out: ${{github.workspace}}/tests/data/out/${{matrix.datadirs}}
@@ -52,13 +52,13 @@ jobs:
       - name: Starting global tests
         run: echo ${{matrix.datadirs}}
       - name: PMAT testing with ${{matrix.datadirs}} (clear sky)
-        uses: docker://ghcr.io/physicsgoddess1972/pmat:latest
+        uses: docker://ghcr.io/physicsgoddess1972/pmat:unstable
         with:
           dir: ${{github.workspace}}/tests/data/data_errs/${{matrix.datadirs}}
           out: ${{github.workspace}}/tests/data/out/${{matrix.datadirs}}
           flags: "-all -u"
       - name: PMAT testing with ${{matrix.datadirs}} (overcast)
-        uses: docker://ghcr.io/physicsgoddess1972/pmat:latest
+        uses: docker://ghcr.io/physicsgoddess1972/pmat:unstable
         with:
           dir: ${{github.workspace}}/tests/data/data_errs/${{matrix.datadirs}}
           out: ${{github.workspace}}/tests/data/out/${{matrix.datadirs}}
