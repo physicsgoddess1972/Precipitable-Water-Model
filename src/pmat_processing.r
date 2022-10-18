@@ -199,15 +199,21 @@ dna.filter <- function(filter.res){
 	#' :rtype: list
 	sky.len <- length(grep("snsr_sky", names(filter.res), fixed=TRUE))
 	if (sky.len == 0){
-		stop(err$D[[1]]$code)
+		logg("ERROR", err$D[[1]]$code, lev = "DEBUG")
+		logg("ERROR", err$D[[1]]$fix, lev = "DEBUG")
+		aloha.closing()	
 	}
 	gro.len <- length(grep("snsr_gro", names(filter.res), fixed=TRUE))
 	if (gro.len == 0){
-		stop(err$D[[1]]$code)
+		logg("ERROR", err$D[[1]]$code, lev = "DEBUG")
+		logg("ERROR", err$D[[1]]$fix, lev = "DEBUG")
+		aloha.closing()	
 	}
 	pw.len 	<- length(grep("pw_loc", names(filter.res), fixed=TRUE))
 	if (pw.len == 0){
-		stop(err$D[[3]]$code)
+		logg("ERROR", err$D[[3]]$code, lev = "DEBUG")
+		logg("ERROR", err$D[[3]]$fix, lev = "DEBUG")
+		aloha.closing()	
 	}
 	dna.len <- grep("DNA", filter.res$com, fixed=TRUE)
 	if (length(dna.len) > 0){
@@ -240,7 +246,9 @@ inf.counter <- function(bool, snsr_data, label){
         }
         output <- append(output, values=list(snsr_data[[ paste(paste("snsr_",label,sep=""),i,sep="") ]]))
 		if (is.null(output[[i]])){
-			stop(err$error$D[[4]]$code)
+				logg("ERROR", err$D[[4]]$code, lev = "DEBUG")
+				logg("ERROR", err$D[[4]]$fix, lev = "DEBUG")
+				aloha.closing()	
 		}
     }
     return(output)
@@ -251,11 +259,13 @@ index.norm <- function(x){
 	#' :param double x: data range
 	#' :return: an array of values between 0 and 1
 	#' :rtype: double
-	indx = (x - min(x, na.rm=TRUE)) / (max(x, na.rm = TRUE) - min(x, na.rm = TRUE))
-	if (length(indx) > 0){
+	if (length(x) > 0){
+		indx = (x - min(x, na.rm=TRUE)) / (max(x, na.rm = TRUE) - min(x, na.rm = TRUE))
 		return(indx)
 	} else {
-		stop(err$error$D[[1]]$code)
+		logg("ERROR", err$D[[1]]$code, lev = "DEBUG")
+		logg("ERROR", err$D[[1]]$fix, lev = "DEBUG")
+		aloha.closing()	
 	}
 }
 
