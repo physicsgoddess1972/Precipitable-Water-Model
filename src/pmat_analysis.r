@@ -195,18 +195,17 @@ lsvm <- function(x,y,l, tr.sz=0.7, seed=sample(1:2^15, 1)) {
 	#' :rtype: list
 	output <- list()
 
-    pre       <- svm.partition(x,y,
-							   l, tr.sz, seed)
-    train     <- pre$train
-    test      <- pre$test
+	pre       <- pacviz:::svm.partition(x,y, l, tr.sz, seed)
+	train     <- pre$train
+	test      <- pre$test
 
 	output[["color"]]  <- ifelse(l[1:length(l)]==sort(unique(train[3])[,1])[1], "blue", "red")
 
-    svmfit <- svm(x=train[1:2], y=train[3],
+	svmfit <- svm(x=train[1:2], y=train[3],
 				  type="C-classification",
 				  kernel="linear",
 				  scale=FALSE)
-    pred  <- predict(svmfit, test[1:2])
+	pred  <- predict(svmfit, test[1:2])
 	con <- 	data.frame(list(x=test[3], y=pred))
 	names(con) <- c("x", "y")
 
