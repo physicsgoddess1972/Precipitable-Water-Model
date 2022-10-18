@@ -6,13 +6,16 @@ on:
   workflow_dispatch:
 
 jobs:
-  global:
+  globaltesting:
     name: Global tests
     strategy:
       matrix:
-        datadirs: [data_large, data_small, data_small_sd, data_errs/no_cool, data_errs/no_data, data_errs/no_yaml]
+        datadirs: [data_large, data_small, data_small_sd]
     runs-on: ubuntu-latest
     steps:
+      - name: Starting global tests
+        run: |
+          echo ${{matrix.datadirs}}
       - name: Checkout Master
         uses: actions/checkout@master
         with:
@@ -30,4 +33,33 @@ jobs:
         with:
           dir: ${{github.workspace}}/tests/data/${{matrix.datadirs}}
           out: ${{github.workspace}}/tests/data/out/${{matrix.datadirs}}
+          flags: "-all -o -u"
+  globalnopes:
+    needs: globaltesting
+    name: Global Fails
+    strategy:
+      matrix:
+        datadirs: [no_cool, no_data, no_yaml]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Starting global tests
+        run: |
+          echo ${{matrix.datadirs}}
+      - name: Checkout Master
+        uses: actions/checkout@master
+        with:
+          ref: master
+      - name: Starting global tests
+        run: echo ${{matrix.datadirs}}
+      - name: PMAT testing with ${{matrix.datadirs}} (clear sky)
+        uses: docker://ghcr.io/physicsgoddess1972/pmat:latest
+        with:
+          dir: ${{github.workspace}}/tests/data/data_errs/${{matrix.datadirs}}
+          out: ${{github.workspace}}/tests/data/out/data_errs/${{matrix.datadirs}}
+          flags: "-all -u"
+      - name: PMAT testing with ${{matrix.datadirs}} (overcast)
+        uses: docker://ghcr.io/physicsgoddess1972/pmat:latest
+        with:
+          dir: ${{github.workspace}}/tests/data/data_errs/${{matrix.datadirs}}
+          out: ${{github.workspace}}/tests/data/out/data_errs/${{matrix.datadirs}}
           flags: "-all -o -u"
