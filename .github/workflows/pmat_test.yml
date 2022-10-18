@@ -22,12 +22,12 @@ jobs:
       - name: PMAT testing with ${{matrix.datadirs}} (clear sky)
         uses: docker://ghcr.io/physicsgoddess1972/pmat:latest
         with:
-          dir: ${{github.workspace}}/tests/data/${{matrix.datadirs}}/
-          out: ${{github.workspace}}/tests/out/${{matrix.datadirs}}/
+          dir: ${{github.workspace}}/tests/data/${{matrix.datadirs}}
+          out: ${{github.workspace}}/tests/data/out/${{matrix.datadirs}}
           flags: "-all -u"
       - name: PMAT testing with ${{matrix.datadirs}} (overcast)
         uses: docker://ghcr.io/physicsgoddess1972/pmat:latest
         with:
-          dir: ${{github.workspace}}/tests/data/${{matrix.datadirs}}/
-          out: ${{github.workspace}}/tests/out/${{matrix.datadirs}}/
+          dir: ${{github.workspace}}/tests/data/${{matrix.datadirs}}
+          out: ${{github.workspace}}/tests/data/out/${{matrix.datadirs}}
           flags: "-all -o -u"
