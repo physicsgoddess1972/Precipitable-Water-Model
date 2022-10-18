@@ -3046,3 +3046,1125 @@
 2022-10-17 17:48:45 PASS Data sent to data/data.csv
 2022-10-17 17:48:45 PASS Data sent to ./tests/data/out//data/ml_data.csv
 2022-10-17 17:48:45 ALOHA Program Complete
+2022-10-17 18:07:41 ALOHA Precipitable-water Model Analysis Tool
+2022-10-17 18:07:41 ALOHA Program Start
+2022-10-17 18:07:42 INFO Collecting Data from sources
+2022-10-17 18:07:43 DEBUG Step 1 out of 10
+2022-10-17 18:07:43 DEBUG Step 2 out of 10
+2022-10-17 18:07:43 DEBUG Step 3 out of 10
+2022-10-17 18:07:43 DEBUG Step 4 out of 10
+2022-10-17 18:07:43 DEBUG Step 5 out of 10
+2022-10-17 18:07:43 DEBUG Step 6 out of 10
+2022-10-17 18:07:43 DEBUG Step 7 out of 10
+2022-10-17 18:07:43 DEBUG Step 8 out of 10
+2022-10-17 18:07:43 DEBUG Step 9 out of 10
+2022-10-17 18:07:43 DEBUG Step 10 out of 10
+2022-10-17 18:07:43 INFO Condition: Clear Sky
+2022-10-17 18:07:43 INFO Time Series Plot Set
+2022-10-17 18:07:43 PASS Sky Temperature Time Series
+2022-10-17 18:07:43 PASS Ground Temperature Time Series
+2022-10-17 18:07:43 PASS Difference Between Ground-Sky Temperature Time Series
+2022-10-17 18:07:43 PASS PWAT Time Series
+2022-10-17 18:07:43 PASS Temporal Mean PWAT Time Series
+2022-10-17 18:07:43 PASS Locational Mean PWAT Time Series
+2022-10-17 18:07:43 PASS Spatiotemporal Mean PWAT Time Series
+2022-10-17 18:07:43 PASS Dewpoint Temperature Time Series
+2022-10-17 18:07:44 PASS Mean Sky Temperature and PWAT Time Series
+2022-10-17 18:07:44 PASS Mean Sky Temperature and RH Time Series
+2022-10-17 18:07:44 PASS Mean PWAT and RH Time Series
+2022-10-17 18:07:44 PASS Mean PWAT and Dewpoint Time Series
+2022-10-17 18:07:44 PASS Mean Sky Temperature and PWAT Time Series
+2022-10-17 18:07:44 PASS Mean Sky Temperature and RH Time Series
+2022-10-17 18:07:44 PASS Mean PWAT and RH Time Series
+2022-10-17 18:07:44 PASS Mean PWAT and Dewpoint Time Series
+2022-10-17 18:07:44 PASS Normalized Index for Weighted PWAT Time Series
+2022-10-17 18:07:44 PASS Plot set downloaded to ./tests/data/out//figs/
+2022-10-17 18:07:44 INFO Analytics Plot Set
+2022-10-17 18:07:44 PASS Correlation between PWAT and Temperature
+2022-10-17 18:07:44 PASS Correlation between Locational Mean PWAT and Temperature
+2022-10-17 18:07:44 PASS Correlation between Temporal Mean PWAT and Temperature
+2022-10-17 18:07:44 PASS Regression between Spatiotemporal Mean PWAT and Temperature
+2022-10-17 18:07:44 PASS Regression between Weighted PWAT and Temperature
+2022-10-17 18:07:44 PASS SVM Analysis between Sky Temperature and PWAT
+2022-10-17 18:07:44 PASS Plot set downloaded to ./tests/data/out//figs/
+2022-10-17 18:07:44 INFO Sensor Plot Set
+2022-10-17 18:07:44 PASS Overcast Condition Percentage: AMES 1
+2022-10-17 18:07:44 PASS Overcast Condition Percentage: AMES 2
+2022-10-17 18:07:44 PASS Overcast Condition Percentage: AMES 3
+2022-10-17 18:07:44 PASS Sky-Ground Time Series: AMES
+2022-10-17 18:07:44 PASS Plot set downloaded to ./tests/data/out//figs/
+2022-10-17 18:07:44 INFO Chart Set
+2022-10-17 18:07:44 PASS Weighted PWAT
+2022-10-17 18:07:44 PASS Average Temperature
+2022-10-17 18:07:44 PASS Relative Humidity
+2022-10-17 18:07:44 PASS Dewpoint Temperature
+2022-10-17 18:07:44 PASS Predicted clear sky PWAT from IR Product
+2022-10-17 18:07:44 PASS Distribution of PWAT in ABQ
+2022-10-17 18:07:44 PASS Distribution of PWAT in EPZ
+2022-10-17 18:07:44 PASS Plot set downloaded to ./tests/data/out//figs/
+2022-10-17 18:07:44 INFO Poster Plot Set
+2022-10-17 18:07:45 PASS Sky-Ground-Delta Temperature Time Series
+2022-10-17 18:07:45 PASS Analytical Plots
+2022-10-17 18:07:45 PASS Plot set downloaded to ./tests/data/out//figs/
+2022-10-17 18:07:45 INFO Pac-Man Plot Set
+2022-10-17 18:07:45 PASS Correlation between Spatiotemporal Mean PWAT and Temperature
+2022-10-17 18:07:45 PASS Pac-Man Residual of the Mean PWAT and Temperature Model
+2022-10-17 18:07:45 PASS Plot set downloaded to ./tests/data/out//figs/
+2022-10-17 18:07:45 PASS Data sent to data/data.csv
+2022-10-17 18:07:45 PASS Data sent to ./tests/data/out//data/ml_data.csv
+2022-10-17 18:07:45 ALOHA Program Complete
+2022-10-17 18:18:15 ALOHA Precipitable-water Model Analysis Tool
+2022-10-17 18:18:15 ALOHA Program Start
+2022-10-17 18:18:16 INFO Collecting Data from sources
+2022-10-17 18:18:17 DEBUG Step 1 out of 100
+2022-10-17 18:18:17 DEBUG Step 2 out of 100
+2022-10-17 18:18:17 DEBUG Step 3 out of 100
+2022-10-17 18:18:17 DEBUG Step 4 out of 100
+2022-10-17 18:18:17 DEBUG Step 5 out of 100
+2022-10-17 18:18:17 DEBUG Step 6 out of 100
+2022-10-17 18:18:17 DEBUG Step 7 out of 100
+2022-10-17 18:18:17 DEBUG Step 8 out of 100
+2022-10-17 18:18:17 DEBUG Step 9 out of 100
+2022-10-17 18:18:17 DEBUG Step 10 out of 100
+2022-10-17 18:18:17 DEBUG Step 11 out of 100
+2022-10-17 18:18:17 DEBUG Step 12 out of 100
+2022-10-17 18:18:17 DEBUG Step 13 out of 100
+2022-10-17 18:18:17 DEBUG Step 14 out of 100
+2022-10-17 18:18:17 DEBUG Step 15 out of 100
+2022-10-17 18:18:17 DEBUG Step 16 out of 100
+2022-10-17 18:18:17 DEBUG Step 17 out of 100
+2022-10-17 18:18:17 DEBUG Step 18 out of 100
+2022-10-17 18:18:17 DEBUG Step 19 out of 100
+2022-10-17 18:18:17 DEBUG Step 20 out of 100
+2022-10-17 18:18:17 DEBUG Step 21 out of 100
+2022-10-17 18:18:17 DEBUG Step 22 out of 100
+2022-10-17 18:18:17 DEBUG Step 23 out of 100
+2022-10-17 18:18:17 DEBUG Step 24 out of 100
+2022-10-17 18:18:17 DEBUG Step 25 out of 100
+2022-10-17 18:18:17 DEBUG Step 26 out of 100
+2022-10-17 18:18:17 DEBUG Step 27 out of 100
+2022-10-17 18:18:17 DEBUG Step 28 out of 100
+2022-10-17 18:18:17 DEBUG Step 29 out of 100
+2022-10-17 18:18:17 DEBUG Step 30 out of 100
+2022-10-17 18:18:17 DEBUG Step 31 out of 100
+2022-10-17 18:18:17 DEBUG Step 32 out of 100
+2022-10-17 18:18:17 DEBUG Step 33 out of 100
+2022-10-17 18:18:17 DEBUG Step 34 out of 100
+2022-10-17 18:18:17 DEBUG Step 35 out of 100
+2022-10-17 18:18:17 DEBUG Step 36 out of 100
+2022-10-17 18:18:17 DEBUG Step 37 out of 100
+2022-10-17 18:18:17 DEBUG Step 38 out of 100
+2022-10-17 18:18:17 DEBUG Step 39 out of 100
+2022-10-17 18:18:17 DEBUG Step 40 out of 100
+2022-10-17 18:18:17 DEBUG Step 41 out of 100
+2022-10-17 18:18:17 DEBUG Step 42 out of 100
+2022-10-17 18:18:17 DEBUG Step 43 out of 100
+2022-10-17 18:18:17 DEBUG Step 44 out of 100
+2022-10-17 18:18:17 DEBUG Step 45 out of 100
+2022-10-17 18:18:17 DEBUG Step 46 out of 100
+2022-10-17 18:18:17 DEBUG Step 47 out of 100
+2022-10-17 18:18:17 DEBUG Step 48 out of 100
+2022-10-17 18:18:17 DEBUG Step 49 out of 100
+2022-10-17 18:18:17 DEBUG Step 50 out of 100
+2022-10-17 18:18:17 DEBUG Step 51 out of 100
+2022-10-17 18:18:17 DEBUG Step 52 out of 100
+2022-10-17 18:18:17 DEBUG Step 53 out of 100
+2022-10-17 18:18:17 DEBUG Step 54 out of 100
+2022-10-17 18:18:17 DEBUG Step 55 out of 100
+2022-10-17 18:18:17 DEBUG Step 56 out of 100
+2022-10-17 18:18:17 DEBUG Step 57 out of 100
+2022-10-17 18:18:17 DEBUG Step 58 out of 100
+2022-10-17 18:18:17 DEBUG Step 59 out of 100
+2022-10-17 18:18:17 DEBUG Step 60 out of 100
+2022-10-17 18:18:17 DEBUG Step 61 out of 100
+2022-10-17 18:18:17 DEBUG Step 62 out of 100
+2022-10-17 18:18:17 DEBUG Step 63 out of 100
+2022-10-17 18:18:17 DEBUG Step 64 out of 100
+2022-10-17 18:18:18 DEBUG Step 65 out of 100
+2022-10-17 18:18:18 DEBUG Step 66 out of 100
+2022-10-17 18:18:18 DEBUG Step 67 out of 100
+2022-10-17 18:18:18 DEBUG Step 68 out of 100
+2022-10-17 18:18:18 DEBUG Step 69 out of 100
+2022-10-17 18:18:18 DEBUG Step 70 out of 100
+2022-10-17 18:18:18 DEBUG Step 71 out of 100
+2022-10-17 18:18:18 DEBUG Step 72 out of 100
+2022-10-17 18:18:18 DEBUG Step 73 out of 100
+2022-10-17 18:18:18 DEBUG Step 74 out of 100
+2022-10-17 18:18:18 DEBUG Step 75 out of 100
+2022-10-17 18:18:18 DEBUG Step 76 out of 100
+2022-10-17 18:18:18 DEBUG Step 77 out of 100
+2022-10-17 18:18:18 DEBUG Step 78 out of 100
+2022-10-17 18:18:18 DEBUG Step 79 out of 100
+2022-10-17 18:18:18 DEBUG Step 80 out of 100
+2022-10-17 18:18:18 DEBUG Step 81 out of 100
+2022-10-17 18:18:18 DEBUG Step 82 out of 100
+2022-10-17 18:18:18 DEBUG Step 83 out of 100
+2022-10-17 18:18:18 DEBUG Step 84 out of 100
+2022-10-17 18:18:18 DEBUG Step 85 out of 100
+2022-10-17 18:18:18 DEBUG Step 86 out of 100
+2022-10-17 18:18:18 DEBUG Step 87 out of 100
+2022-10-17 18:18:18 DEBUG Step 88 out of 100
+2022-10-17 18:18:18 DEBUG Step 89 out of 100
+2022-10-17 18:18:18 DEBUG Step 90 out of 100
+2022-10-17 18:18:18 DEBUG Step 91 out of 100
+2022-10-17 18:18:18 DEBUG Step 92 out of 100
+2022-10-17 18:18:18 DEBUG Step 93 out of 100
+2022-10-17 18:18:18 DEBUG Step 94 out of 100
+2022-10-17 18:18:18 DEBUG Step 95 out of 100
+2022-10-17 18:18:18 DEBUG Step 96 out of 100
+2022-10-17 18:18:18 DEBUG Step 97 out of 100
+2022-10-17 18:18:18 DEBUG Step 98 out of 100
+2022-10-17 18:18:18 DEBUG Step 99 out of 100
+2022-10-17 18:18:18 DEBUG Step 100 out of 100
+2022-10-17 18:18:18 INFO Condition: Clear Sky
+2022-10-17 18:18:18 INFO Time Series Plot Set
+2022-10-17 18:18:18 PASS Sky Temperature Time Series
+2022-10-17 18:18:18 PASS Ground Temperature Time Series
+2022-10-17 18:18:18 PASS Difference Between Ground-Sky Temperature Time Series
+2022-10-17 18:18:18 PASS PWAT Time Series
+2022-10-17 18:18:18 PASS Temporal Mean PWAT Time Series
+2022-10-17 18:18:18 PASS Locational Mean PWAT Time Series
+2022-10-17 18:18:18 PASS Spatiotemporal Mean PWAT Time Series
+2022-10-17 18:18:18 PASS Dewpoint Temperature Time Series
+2022-10-17 18:18:18 PASS Mean Sky Temperature and PWAT Time Series
+2022-10-17 18:18:18 PASS Mean Sky Temperature and RH Time Series
+2022-10-17 18:18:18 PASS Mean PWAT and RH Time Series
+2022-10-17 18:18:18 PASS Mean PWAT and Dewpoint Time Series
+2022-10-17 18:18:18 PASS Mean Sky Temperature and PWAT Time Series
+2022-10-17 18:18:18 PASS Mean Sky Temperature and RH Time Series
+2022-10-17 18:18:18 PASS Mean PWAT and RH Time Series
+2022-10-17 18:18:18 PASS Mean PWAT and Dewpoint Time Series
+2022-10-17 18:18:19 PASS Normalized Index for Weighted PWAT Time Series
+2022-10-17 18:18:19 PASS Plot set downloaded to ./tests/data/out//figs/
+2022-10-17 18:18:19 INFO Analytics Plot Set
+2022-10-17 18:18:19 PASS Correlation between PWAT and Temperature
+2022-10-17 18:18:19 PASS Correlation between Locational Mean PWAT and Temperature
+2022-10-17 18:18:19 PASS Correlation between Temporal Mean PWAT and Temperature
+2022-10-17 18:18:19 PASS Regression between Spatiotemporal Mean PWAT and Temperature
+2022-10-17 18:18:19 PASS Regression between Weighted PWAT and Temperature
+2022-10-17 18:18:19 PASS SVM Analysis between Sky Temperature and PWAT
+2022-10-17 18:18:19 PASS Plot set downloaded to ./tests/data/out//figs/
+2022-10-17 18:18:19 INFO Sensor Plot Set
+2022-10-17 18:18:19 PASS Overcast Condition Percentage: AMES 1
+2022-10-17 18:18:19 PASS Overcast Condition Percentage: AMES 2
+2022-10-17 18:18:19 PASS Overcast Condition Percentage: AMES 3
+2022-10-17 18:18:19 PASS Sky-Ground Time Series: AMES
+2022-10-17 18:18:19 PASS Plot set downloaded to ./tests/data/out//figs/
+2022-10-17 18:18:19 INFO Chart Set
+2022-10-17 18:18:19 PASS Weighted PWAT
+2022-10-17 18:18:19 PASS Average Temperature
+2022-10-17 18:18:19 PASS Relative Humidity
+2022-10-17 18:18:19 PASS Dewpoint Temperature
+2022-10-17 18:18:19 PASS Predicted clear sky PWAT from IR Product
+2022-10-17 18:18:19 PASS Distribution of PWAT in ABQ
+2022-10-17 18:18:19 PASS Distribution of PWAT in EPZ
+2022-10-17 18:18:19 PASS Plot set downloaded to ./tests/data/out//figs/
+2022-10-17 18:18:19 INFO Poster Plot Set
+2022-10-17 18:18:19 PASS Sky-Ground-Delta Temperature Time Series
+2022-10-17 18:18:19 PASS Analytical Plots
+2022-10-17 18:18:19 PASS Plot set downloaded to ./tests/data/out//figs/
+2022-10-17 18:18:19 INFO Pac-Man Plot Set
+2022-10-17 18:18:19 PASS Correlation between Spatiotemporal Mean PWAT and Temperature
+2022-10-17 18:18:19 PASS Pac-Man Residual of the Mean PWAT and Temperature Model
+2022-10-17 18:18:19 PASS Plot set downloaded to ./tests/data/out//figs/
+2022-10-17 18:18:19 PASS Data sent to data/data.csv
+2022-10-17 18:18:20 PASS Data sent to ./tests/data/out//data/ml_data.csv
+2022-10-17 18:18:20 ALOHA Program Complete
+2022-10-17 18:19:14 ALOHA Precipitable-water Model Analysis Tool
+2022-10-17 18:19:14 ALOHA Program Start
+2022-10-17 18:19:15 INFO Collecting Data from sources
+2022-10-17 18:19:16 DEBUG Step 1 out of 100
+2022-10-17 18:19:16 DEBUG Step 2 out of 100
+2022-10-17 18:19:16 DEBUG Step 3 out of 100
+2022-10-17 18:19:16 DEBUG Step 4 out of 100
+2022-10-17 18:19:16 DEBUG Step 5 out of 100
+2022-10-17 18:19:16 DEBUG Step 6 out of 100
+2022-10-17 18:19:16 DEBUG Step 7 out of 100
+2022-10-17 18:19:16 DEBUG Step 8 out of 100
+2022-10-17 18:19:16 DEBUG Step 9 out of 100
+2022-10-17 18:19:16 DEBUG Step 10 out of 100
+2022-10-17 18:19:16 DEBUG Step 11 out of 100
+2022-10-17 18:19:16 DEBUG Step 12 out of 100
+2022-10-17 18:19:16 DEBUG Step 13 out of 100
+2022-10-17 18:19:16 DEBUG Step 14 out of 100
+2022-10-17 18:19:16 DEBUG Step 15 out of 100
+2022-10-17 18:19:16 DEBUG Step 16 out of 100
+2022-10-17 18:19:16 DEBUG Step 17 out of 100
+2022-10-17 18:19:16 DEBUG Step 18 out of 100
+2022-10-17 18:19:16 DEBUG Step 19 out of 100
+2022-10-17 18:19:16 DEBUG Step 20 out of 100
+2022-10-17 18:19:16 DEBUG Step 21 out of 100
+2022-10-17 18:19:16 DEBUG Step 22 out of 100
+2022-10-17 18:19:16 DEBUG Step 23 out of 100
+2022-10-17 18:19:16 DEBUG Step 24 out of 100
+2022-10-17 18:19:16 DEBUG Step 25 out of 100
+2022-10-17 18:19:16 DEBUG Step 26 out of 100
+2022-10-17 18:19:16 DEBUG Step 27 out of 100
+2022-10-17 18:19:16 DEBUG Step 28 out of 100
+2022-10-17 18:19:16 DEBUG Step 29 out of 100
+2022-10-17 18:19:16 DEBUG Step 30 out of 100
+2022-10-17 18:19:16 DEBUG Step 31 out of 100
+2022-10-17 18:19:16 DEBUG Step 32 out of 100
+2022-10-17 18:19:16 DEBUG Step 33 out of 100
+2022-10-17 18:19:16 DEBUG Step 34 out of 100
+2022-10-17 18:19:16 DEBUG Step 35 out of 100
+2022-10-17 18:19:16 DEBUG Step 36 out of 100
+2022-10-17 18:19:16 DEBUG Step 37 out of 100
+2022-10-17 18:19:16 DEBUG Step 38 out of 100
+2022-10-17 18:19:16 DEBUG Step 39 out of 100
+2022-10-17 18:19:16 DEBUG Step 40 out of 100
+2022-10-17 18:19:16 DEBUG Step 41 out of 100
+2022-10-17 18:19:16 DEBUG Step 42 out of 100
+2022-10-17 18:19:16 DEBUG Step 43 out of 100
+2022-10-17 18:19:16 DEBUG Step 44 out of 100
+2022-10-17 18:19:16 DEBUG Step 45 out of 100
+2022-10-17 18:19:16 DEBUG Step 46 out of 100
+2022-10-17 18:19:16 DEBUG Step 47 out of 100
+2022-10-17 18:19:16 DEBUG Step 48 out of 100
+2022-10-17 18:19:16 DEBUG Step 49 out of 100
+2022-10-17 18:19:16 DEBUG Step 50 out of 100
+2022-10-17 18:19:16 DEBUG Step 51 out of 100
+2022-10-17 18:19:16 DEBUG Step 52 out of 100
+2022-10-17 18:19:16 DEBUG Step 53 out of 100
+2022-10-17 18:19:16 DEBUG Step 54 out of 100
+2022-10-17 18:19:16 DEBUG Step 55 out of 100
+2022-10-17 18:19:16 DEBUG Step 56 out of 100
+2022-10-17 18:19:16 DEBUG Step 57 out of 100
+2022-10-17 18:19:16 DEBUG Step 58 out of 100
+2022-10-17 18:19:17 DEBUG Step 59 out of 100
+2022-10-17 18:19:17 DEBUG Step 60 out of 100
+2022-10-17 18:19:17 DEBUG Step 61 out of 100
+2022-10-17 18:19:17 DEBUG Step 62 out of 100
+2022-10-17 18:19:17 DEBUG Step 63 out of 100
+2022-10-17 18:19:17 DEBUG Step 64 out of 100
+2022-10-17 18:19:17 DEBUG Step 65 out of 100
+2022-10-17 18:19:17 DEBUG Step 66 out of 100
+2022-10-17 18:19:17 DEBUG Step 67 out of 100
+2022-10-17 18:19:17 DEBUG Step 68 out of 100
+2022-10-17 18:19:17 DEBUG Step 69 out of 100
+2022-10-17 18:19:17 DEBUG Step 70 out of 100
+2022-10-17 18:19:17 DEBUG Step 71 out of 100
+2022-10-17 18:19:17 DEBUG Step 72 out of 100
+2022-10-17 18:19:17 DEBUG Step 73 out of 100
+2022-10-17 18:19:17 DEBUG Step 74 out of 100
+2022-10-17 18:19:17 DEBUG Step 75 out of 100
+2022-10-17 18:19:17 DEBUG Step 76 out of 100
+2022-10-17 18:19:17 DEBUG Step 77 out of 100
+2022-10-17 18:19:17 DEBUG Step 78 out of 100
+2022-10-17 18:19:17 DEBUG Step 79 out of 100
+2022-10-17 18:19:17 DEBUG Step 80 out of 100
+2022-10-17 18:19:17 DEBUG Step 81 out of 100
+2022-10-17 18:19:17 DEBUG Step 82 out of 100
+2022-10-17 18:19:17 DEBUG Step 83 out of 100
+2022-10-17 18:19:17 DEBUG Step 84 out of 100
+2022-10-17 18:19:17 DEBUG Step 85 out of 100
+2022-10-17 18:19:17 DEBUG Step 86 out of 100
+2022-10-17 18:19:17 DEBUG Step 87 out of 100
+2022-10-17 18:19:17 DEBUG Step 88 out of 100
+2022-10-17 18:19:17 DEBUG Step 89 out of 100
+2022-10-17 18:19:17 DEBUG Step 90 out of 100
+2022-10-17 18:19:17 DEBUG Step 91 out of 100
+2022-10-17 18:19:17 DEBUG Step 92 out of 100
+2022-10-17 18:19:17 DEBUG Step 93 out of 100
+2022-10-17 18:19:17 DEBUG Step 94 out of 100
+2022-10-17 18:19:17 DEBUG Step 95 out of 100
+2022-10-17 18:19:17 DEBUG Step 96 out of 100
+2022-10-17 18:19:17 DEBUG Step 97 out of 100
+2022-10-17 18:19:17 DEBUG Step 98 out of 100
+2022-10-17 18:19:17 DEBUG Step 99 out of 100
+2022-10-17 18:19:17 DEBUG Step 100 out of 100
+2022-10-17 18:19:17 INFO Condition: Clear Sky
+2022-10-17 18:19:17 INFO Time Series Plot Set
+2022-10-17 18:19:17 PASS Sky Temperature Time Series
+2022-10-17 18:19:17 PASS Ground Temperature Time Series
+2022-10-17 18:19:17 PASS Difference Between Ground-Sky Temperature Time Series
+2022-10-17 18:19:17 PASS PWAT Time Series
+2022-10-17 18:19:17 PASS Temporal Mean PWAT Time Series
+2022-10-17 18:19:17 PASS Locational Mean PWAT Time Series
+2022-10-17 18:19:17 PASS Spatiotemporal Mean PWAT Time Series
+2022-10-17 18:19:17 PASS Dewpoint Temperature Time Series
+2022-10-17 18:19:17 PASS Mean Sky Temperature and PWAT Time Series
+2022-10-17 18:19:17 PASS Mean Sky Temperature and RH Time Series
+2022-10-17 18:19:17 PASS Mean PWAT and RH Time Series
+2022-10-17 18:19:17 PASS Mean PWAT and Dewpoint Time Series
+2022-10-17 18:19:17 PASS Mean Sky Temperature and PWAT Time Series
+2022-10-17 18:19:17 PASS Mean Sky Temperature and RH Time Series
+2022-10-17 18:19:17 PASS Mean PWAT and RH Time Series
+2022-10-17 18:19:18 PASS Mean PWAT and Dewpoint Time Series
+2022-10-17 18:19:18 PASS Normalized Index for Weighted PWAT Time Series
+2022-10-17 18:19:18 PASS Plot set downloaded to ./tests/data/out//figs/
+2022-10-17 18:19:18 INFO Analytics Plot Set
+2022-10-17 18:19:18 PASS Correlation between PWAT and Temperature
+2022-10-17 18:19:18 PASS Correlation between Locational Mean PWAT and Temperature
+2022-10-17 18:19:18 PASS Correlation between Temporal Mean PWAT and Temperature
+2022-10-17 18:19:18 PASS Regression between Spatiotemporal Mean PWAT and Temperature
+2022-10-17 18:19:18 PASS Regression between Weighted PWAT and Temperature
+2022-10-17 18:19:18 PASS SVM Analysis between Sky Temperature and PWAT
+2022-10-17 18:19:18 PASS Plot set downloaded to ./tests/data/out//figs/
+2022-10-17 18:19:18 INFO Sensor Plot Set
+2022-10-17 18:19:18 PASS Overcast Condition Percentage: AMES 1
+2022-10-17 18:19:18 PASS Overcast Condition Percentage: AMES 2
+2022-10-17 18:19:18 PASS Overcast Condition Percentage: AMES 3
+2022-10-17 18:19:18 PASS Sky-Ground Time Series: AMES
+2022-10-17 18:19:18 PASS Plot set downloaded to ./tests/data/out//figs/
+2022-10-17 18:19:18 INFO Chart Set
+2022-10-17 18:19:18 PASS Weighted PWAT
+2022-10-17 18:19:18 PASS Average Temperature
+2022-10-17 18:19:18 PASS Relative Humidity
+2022-10-17 18:19:18 PASS Dewpoint Temperature
+2022-10-17 18:19:18 PASS Predicted clear sky PWAT from IR Product
+2022-10-17 18:19:18 PASS Distribution of PWAT in ABQ
+2022-10-17 18:19:18 PASS Distribution of PWAT in EPZ
+2022-10-17 18:19:18 PASS Plot set downloaded to ./tests/data/out//figs/
+2022-10-17 18:19:18 INFO Poster Plot Set
+2022-10-17 18:19:18 PASS Sky-Ground-Delta Temperature Time Series
+2022-10-17 18:19:18 PASS Analytical Plots
+2022-10-17 18:19:18 PASS Plot set downloaded to ./tests/data/out//figs/
+2022-10-17 18:19:18 INFO Pac-Man Plot Set
+2022-10-17 18:19:19 PASS Correlation between Spatiotemporal Mean PWAT and Temperature
+2022-10-17 18:19:19 PASS Pac-Man Residual of the Mean PWAT and Temperature Model
+2022-10-17 18:19:19 PASS Plot set downloaded to ./tests/data/out//figs/
+2022-10-17 18:19:19 PASS Data sent to data/data.csv
+2022-10-17 18:19:19 PASS Data sent to ./tests/data/out//data/ml_data.csv
+2022-10-17 18:19:19 ALOHA Program Complete
+2022-10-17 18:54:36 ALOHA Precipitable-water Model Analysis Tool
+2022-10-17 18:54:36 ALOHA Program Start
+2022-10-17 18:54:36 WARN _output.yml is not found
+2022-10-17 18:54:36 WARN Automatically creating _output.yml.
+2022-10-17 18:54:36 INFO Collecting Data from sources
+2022-10-17 18:54:38 DEBUG Step 1 out of 100
+2022-10-17 18:54:38 DEBUG Step 2 out of 100
+2022-10-17 18:54:38 DEBUG Step 3 out of 100
+2022-10-17 18:54:38 DEBUG Step 4 out of 100
+2022-10-17 18:54:38 DEBUG Step 5 out of 100
+2022-10-17 18:54:38 DEBUG Step 6 out of 100
+2022-10-17 18:54:38 DEBUG Step 7 out of 100
+2022-10-17 18:54:38 DEBUG Step 8 out of 100
+2022-10-17 18:54:38 DEBUG Step 9 out of 100
+2022-10-17 18:54:38 DEBUG Step 10 out of 100
+2022-10-17 18:54:38 DEBUG Step 11 out of 100
+2022-10-17 18:54:38 DEBUG Step 12 out of 100
+2022-10-17 18:54:38 DEBUG Step 13 out of 100
+2022-10-17 18:54:38 DEBUG Step 14 out of 100
+2022-10-17 18:54:38 DEBUG Step 15 out of 100
+2022-10-17 18:54:38 DEBUG Step 16 out of 100
+2022-10-17 18:54:38 DEBUG Step 17 out of 100
+2022-10-17 18:54:38 DEBUG Step 18 out of 100
+2022-10-17 18:54:38 DEBUG Step 19 out of 100
+2022-10-17 18:54:38 DEBUG Step 20 out of 100
+2022-10-17 18:54:38 DEBUG Step 21 out of 100
+2022-10-17 18:54:38 DEBUG Step 22 out of 100
+2022-10-17 18:54:38 DEBUG Step 23 out of 100
+2022-10-17 18:54:38 DEBUG Step 24 out of 100
+2022-10-17 18:54:38 DEBUG Step 25 out of 100
+2022-10-17 18:54:38 DEBUG Step 26 out of 100
+2022-10-17 18:54:38 DEBUG Step 27 out of 100
+2022-10-17 18:54:38 DEBUG Step 28 out of 100
+2022-10-17 18:54:38 DEBUG Step 29 out of 100
+2022-10-17 18:54:38 DEBUG Step 30 out of 100
+2022-10-17 18:54:38 DEBUG Step 31 out of 100
+2022-10-17 18:54:38 DEBUG Step 32 out of 100
+2022-10-17 18:54:38 DEBUG Step 33 out of 100
+2022-10-17 18:54:38 DEBUG Step 34 out of 100
+2022-10-17 18:54:38 DEBUG Step 35 out of 100
+2022-10-17 18:54:38 DEBUG Step 36 out of 100
+2022-10-17 18:54:38 DEBUG Step 37 out of 100
+2022-10-17 18:54:38 DEBUG Step 38 out of 100
+2022-10-17 18:54:38 DEBUG Step 39 out of 100
+2022-10-17 18:54:38 DEBUG Step 40 out of 100
+2022-10-17 18:54:38 DEBUG Step 41 out of 100
+2022-10-17 18:54:38 DEBUG Step 42 out of 100
+2022-10-17 18:54:38 DEBUG Step 43 out of 100
+2022-10-17 18:54:38 DEBUG Step 44 out of 100
+2022-10-17 18:54:38 DEBUG Step 45 out of 100
+2022-10-17 18:54:38 DEBUG Step 46 out of 100
+2022-10-17 18:54:38 DEBUG Step 47 out of 100
+2022-10-17 18:54:38 DEBUG Step 48 out of 100
+2022-10-17 18:54:38 DEBUG Step 49 out of 100
+2022-10-17 18:54:38 DEBUG Step 50 out of 100
+2022-10-17 18:54:38 DEBUG Step 51 out of 100
+2022-10-17 18:54:38 DEBUG Step 52 out of 100
+2022-10-17 18:54:38 DEBUG Step 53 out of 100
+2022-10-17 18:54:38 DEBUG Step 54 out of 100
+2022-10-17 18:54:38 DEBUG Step 55 out of 100
+2022-10-17 18:54:38 DEBUG Step 56 out of 100
+2022-10-17 18:54:38 DEBUG Step 57 out of 100
+2022-10-17 18:54:38 DEBUG Step 58 out of 100
+2022-10-17 18:54:38 DEBUG Step 59 out of 100
+2022-10-17 18:54:38 DEBUG Step 60 out of 100
+2022-10-17 18:54:38 DEBUG Step 61 out of 100
+2022-10-17 18:54:38 DEBUG Step 62 out of 100
+2022-10-17 18:54:38 DEBUG Step 63 out of 100
+2022-10-17 18:54:38 DEBUG Step 64 out of 100
+2022-10-17 18:54:38 DEBUG Step 65 out of 100
+2022-10-17 18:54:38 DEBUG Step 66 out of 100
+2022-10-17 18:54:38 DEBUG Step 67 out of 100
+2022-10-17 18:54:38 DEBUG Step 68 out of 100
+2022-10-17 18:54:38 DEBUG Step 69 out of 100
+2022-10-17 18:54:38 DEBUG Step 70 out of 100
+2022-10-17 18:54:38 DEBUG Step 71 out of 100
+2022-10-17 18:54:38 DEBUG Step 72 out of 100
+2022-10-17 18:54:38 DEBUG Step 73 out of 100
+2022-10-17 18:54:38 DEBUG Step 74 out of 100
+2022-10-17 18:54:38 DEBUG Step 75 out of 100
+2022-10-17 18:54:38 DEBUG Step 76 out of 100
+2022-10-17 18:54:38 DEBUG Step 77 out of 100
+2022-10-17 18:54:38 DEBUG Step 78 out of 100
+2022-10-17 18:54:38 DEBUG Step 79 out of 100
+2022-10-17 18:54:38 DEBUG Step 80 out of 100
+2022-10-17 18:54:38 DEBUG Step 81 out of 100
+2022-10-17 18:54:38 DEBUG Step 82 out of 100
+2022-10-17 18:54:38 DEBUG Step 83 out of 100
+2022-10-17 18:54:38 DEBUG Step 84 out of 100
+2022-10-17 18:54:38 DEBUG Step 85 out of 100
+2022-10-17 18:54:38 DEBUG Step 86 out of 100
+2022-10-17 18:54:38 DEBUG Step 87 out of 100
+2022-10-17 18:54:39 DEBUG Step 88 out of 100
+2022-10-17 18:54:39 DEBUG Step 89 out of 100
+2022-10-17 18:54:39 DEBUG Step 90 out of 100
+2022-10-17 18:54:39 DEBUG Step 91 out of 100
+2022-10-17 18:54:39 DEBUG Step 92 out of 100
+2022-10-17 18:54:39 DEBUG Step 93 out of 100
+2022-10-17 18:54:39 DEBUG Step 94 out of 100
+2022-10-17 18:54:39 DEBUG Step 95 out of 100
+2022-10-17 18:54:39 DEBUG Step 96 out of 100
+2022-10-17 18:54:39 DEBUG Step 97 out of 100
+2022-10-17 18:54:39 DEBUG Step 98 out of 100
+2022-10-17 18:54:39 DEBUG Step 99 out of 100
+2022-10-17 18:54:39 DEBUG Step 100 out of 100
+2022-10-17 18:54:39 INFO Condition: Overcast
+2022-10-17 18:54:39 INFO Time Series Plot Set
+2022-10-17 18:54:39 PASS Sky Temperature Time Series
+2022-10-17 18:54:39 PASS Ground Temperature Time Series
+2022-10-17 18:54:39 PASS Difference Between Ground-Sky Temperature Time Series
+2022-10-17 18:54:39 PASS PWAT Time Series
+2022-10-17 18:54:39 PASS Temporal Mean PWAT Time Series
+2022-10-17 18:54:39 PASS Locational Mean PWAT Time Series
+2022-10-17 18:54:39 PASS Spatiotemporal Mean PWAT Time Series
+2022-10-17 18:54:39 PASS Dewpoint Temperature Time Series
+2022-10-17 18:54:39 PASS Mean Sky Temperature and PWAT Time Series
+2022-10-17 18:54:39 PASS Mean Sky Temperature and RH Time Series
+2022-10-17 18:54:39 PASS Mean PWAT and RH Time Series
+2022-10-17 18:54:39 PASS Mean PWAT and Dewpoint Time Series
+2022-10-17 18:54:39 PASS Mean Sky Temperature and PWAT Time Series
+2022-10-17 18:54:39 PASS Mean Sky Temperature and RH Time Series
+2022-10-17 18:54:39 PASS Mean PWAT and RH Time Series
+2022-10-17 18:54:39 PASS Mean PWAT and Dewpoint Time Series
+2022-10-17 18:54:39 PASS Normalized Index for Weighted PWAT Time Series
+2022-10-17 18:54:39 PASS Plot set downloaded to ./tests/data/out//figs/
+2022-10-17 18:54:39 INFO Analytics Plot Set
+2022-10-17 18:54:39 PASS Correlation between PWAT and Temperature
+2022-10-17 18:54:39 PASS Correlation between Locational Mean PWAT and Temperature
+2022-10-17 18:54:39 PASS Correlation between Temporal Mean PWAT and Temperature
+2022-10-17 18:54:39 PASS Regression between Spatiotemporal Mean PWAT and Temperature
+2022-10-17 18:54:39 PASS Regression between Weighted PWAT and Temperature
+2022-10-17 18:54:39 PASS SVM Analysis between Sky Temperature and PWAT
+2022-10-17 18:54:39 PASS Plot set downloaded to ./tests/data/out//figs/
+2022-10-17 18:54:39 INFO Sensor Plot Set
+2022-10-17 18:54:40 PASS Overcast Condition Percentage: AMES 1
+2022-10-17 18:54:40 PASS Overcast Condition Percentage: AMES 2
+2022-10-17 18:54:40 PASS Overcast Condition Percentage: AMES 3
+2022-10-17 18:54:40 PASS Sky-Ground Time Series: AMES
+2022-10-17 18:54:40 PASS Plot set downloaded to ./tests/data/out//figs/
+2022-10-17 18:54:40 INFO Chart Set
+2022-10-17 18:54:40 PASS Weighted PWAT
+2022-10-17 18:54:40 PASS Average Temperature
+2022-10-17 18:54:40 PASS Relative Humidity
+2022-10-17 18:54:40 PASS Dewpoint Temperature
+2022-10-17 18:54:40 PASS Predicted clear sky PWAT from IR Product
+2022-10-17 18:54:40 PASS Distribution of PWAT in ABQ
+2022-10-17 18:54:40 PASS Distribution of PWAT in EPZ
+2022-10-17 18:54:40 PASS Plot set downloaded to ./tests/data/out//figs/
+2022-10-17 18:54:40 INFO Poster Plot Set
+2022-10-17 18:54:40 PASS Sky-Ground-Delta Temperature Time Series
+2022-10-17 18:54:40 PASS Analytical Plots
+2022-10-17 18:54:40 PASS Plot set downloaded to ./tests/data/out//figs/
+2022-10-17 18:54:40 INFO Pac-Man Plot Set
+2022-10-17 18:54:40 PASS Correlation between Spatiotemporal Mean PWAT and Temperature
+2022-10-17 18:54:40 PASS Pac-Man Residual of the Mean PWAT and Temperature Model
+2022-10-17 18:54:40 PASS Plot set downloaded to ./tests/data/out//figs/
+2022-10-17 18:54:40 PASS Data sent to data/data_overcast.csv
+2022-10-17 18:54:40 PASS Data sent to ./tests/data/out//data/ml_data.csv
+2022-10-17 18:54:40 ALOHA Program Complete
+2022-10-17 19:09:54 ALOHA Precipitable-water Model Analysis Tool
+2022-10-17 19:09:54 ALOHA Program Start
+2022-10-17 19:09:54 INFO Collecting Data from sources
+2022-10-17 19:09:56 DEBUG Step 1 out of 100
+2022-10-17 19:09:56 DEBUG Step 2 out of 100
+2022-10-17 19:09:56 DEBUG Step 3 out of 100
+2022-10-17 19:09:56 DEBUG Step 4 out of 100
+2022-10-17 19:09:56 DEBUG Step 5 out of 100
+2022-10-17 19:09:56 DEBUG Step 6 out of 100
+2022-10-17 19:09:56 DEBUG Step 7 out of 100
+2022-10-17 19:09:56 DEBUG Step 8 out of 100
+2022-10-17 19:09:56 DEBUG Step 9 out of 100
+2022-10-17 19:09:56 DEBUG Step 10 out of 100
+2022-10-17 19:09:56 DEBUG Step 11 out of 100
+2022-10-17 19:09:56 DEBUG Step 12 out of 100
+2022-10-17 19:09:56 DEBUG Step 13 out of 100
+2022-10-17 19:09:56 DEBUG Step 14 out of 100
+2022-10-17 19:09:56 DEBUG Step 15 out of 100
+2022-10-17 19:09:56 DEBUG Step 16 out of 100
+2022-10-17 19:09:56 DEBUG Step 17 out of 100
+2022-10-17 19:09:56 DEBUG Step 18 out of 100
+2022-10-17 19:09:56 DEBUG Step 19 out of 100
+2022-10-17 19:09:56 DEBUG Step 20 out of 100
+2022-10-17 19:09:56 DEBUG Step 21 out of 100
+2022-10-17 19:09:56 DEBUG Step 22 out of 100
+2022-10-17 19:09:56 DEBUG Step 23 out of 100
+2022-10-17 19:09:56 DEBUG Step 24 out of 100
+2022-10-17 19:09:56 DEBUG Step 25 out of 100
+2022-10-17 19:09:56 DEBUG Step 26 out of 100
+2022-10-17 19:09:56 DEBUG Step 27 out of 100
+2022-10-17 19:09:56 DEBUG Step 28 out of 100
+2022-10-17 19:09:56 DEBUG Step 29 out of 100
+2022-10-17 19:09:56 DEBUG Step 30 out of 100
+2022-10-17 19:09:56 DEBUG Step 31 out of 100
+2022-10-17 19:09:56 DEBUG Step 32 out of 100
+2022-10-17 19:09:56 DEBUG Step 33 out of 100
+2022-10-17 19:09:56 DEBUG Step 34 out of 100
+2022-10-17 19:09:56 DEBUG Step 35 out of 100
+2022-10-17 19:09:56 DEBUG Step 36 out of 100
+2022-10-17 19:09:56 DEBUG Step 37 out of 100
+2022-10-17 19:09:56 DEBUG Step 38 out of 100
+2022-10-17 19:09:56 DEBUG Step 39 out of 100
+2022-10-17 19:09:56 DEBUG Step 40 out of 100
+2022-10-17 19:09:56 DEBUG Step 41 out of 100
+2022-10-17 19:09:56 DEBUG Step 42 out of 100
+2022-10-17 19:09:56 DEBUG Step 43 out of 100
+2022-10-17 19:09:56 DEBUG Step 44 out of 100
+2022-10-17 19:09:56 DEBUG Step 45 out of 100
+2022-10-17 19:09:56 DEBUG Step 46 out of 100
+2022-10-17 19:09:56 DEBUG Step 47 out of 100
+2022-10-17 19:09:56 DEBUG Step 48 out of 100
+2022-10-17 19:09:56 DEBUG Step 49 out of 100
+2022-10-17 19:09:56 DEBUG Step 50 out of 100
+2022-10-17 19:09:56 DEBUG Step 51 out of 100
+2022-10-17 19:09:56 DEBUG Step 52 out of 100
+2022-10-17 19:09:56 DEBUG Step 53 out of 100
+2022-10-17 19:09:56 DEBUG Step 54 out of 100
+2022-10-17 19:09:56 DEBUG Step 55 out of 100
+2022-10-17 19:09:56 DEBUG Step 56 out of 100
+2022-10-17 19:09:56 DEBUG Step 57 out of 100
+2022-10-17 19:09:56 DEBUG Step 58 out of 100
+2022-10-17 19:09:56 DEBUG Step 59 out of 100
+2022-10-17 19:09:56 DEBUG Step 60 out of 100
+2022-10-17 19:09:56 DEBUG Step 61 out of 100
+2022-10-17 19:09:56 DEBUG Step 62 out of 100
+2022-10-17 19:09:56 DEBUG Step 63 out of 100
+2022-10-17 19:09:56 DEBUG Step 64 out of 100
+2022-10-17 19:09:56 DEBUG Step 65 out of 100
+2022-10-17 19:09:56 DEBUG Step 66 out of 100
+2022-10-17 19:09:56 DEBUG Step 67 out of 100
+2022-10-17 19:09:56 DEBUG Step 68 out of 100
+2022-10-17 19:09:56 DEBUG Step 69 out of 100
+2022-10-17 19:09:56 DEBUG Step 70 out of 100
+2022-10-17 19:09:56 DEBUG Step 71 out of 100
+2022-10-17 19:09:56 DEBUG Step 72 out of 100
+2022-10-17 19:09:56 DEBUG Step 73 out of 100
+2022-10-17 19:09:56 DEBUG Step 74 out of 100
+2022-10-17 19:09:56 DEBUG Step 75 out of 100
+2022-10-17 19:09:56 DEBUG Step 76 out of 100
+2022-10-17 19:09:56 DEBUG Step 77 out of 100
+2022-10-17 19:09:56 DEBUG Step 78 out of 100
+2022-10-17 19:09:56 DEBUG Step 79 out of 100
+2022-10-17 19:09:56 DEBUG Step 80 out of 100
+2022-10-17 19:09:56 DEBUG Step 81 out of 100
+2022-10-17 19:09:56 DEBUG Step 82 out of 100
+2022-10-17 19:09:56 DEBUG Step 83 out of 100
+2022-10-17 19:09:56 DEBUG Step 84 out of 100
+2022-10-17 19:09:56 DEBUG Step 85 out of 100
+2022-10-17 19:09:56 DEBUG Step 86 out of 100
+2022-10-17 19:09:56 DEBUG Step 87 out of 100
+2022-10-17 19:09:56 DEBUG Step 88 out of 100
+2022-10-17 19:09:56 DEBUG Step 89 out of 100
+2022-10-17 19:09:56 DEBUG Step 90 out of 100
+2022-10-17 19:09:56 DEBUG Step 91 out of 100
+2022-10-17 19:09:56 DEBUG Step 92 out of 100
+2022-10-17 19:09:56 DEBUG Step 93 out of 100
+2022-10-17 19:09:56 DEBUG Step 94 out of 100
+2022-10-17 19:09:56 DEBUG Step 95 out of 100
+2022-10-17 19:09:56 DEBUG Step 96 out of 100
+2022-10-17 19:09:56 DEBUG Step 97 out of 100
+2022-10-17 19:09:56 DEBUG Step 98 out of 100
+2022-10-17 19:09:56 DEBUG Step 99 out of 100
+2022-10-17 19:09:56 DEBUG Step 100 out of 100
+2022-10-17 19:09:56 INFO Condition: Overcast
+2022-10-17 19:09:56 INFO Time Series Plot Set
+2022-10-17 19:09:57 PASS Sky Temperature Time Series
+2022-10-17 19:09:57 PASS Ground Temperature Time Series
+2022-10-17 19:09:57 PASS Difference Between Ground-Sky Temperature Time Series
+2022-10-17 19:09:57 PASS PWAT Time Series
+2022-10-17 19:09:57 PASS Temporal Mean PWAT Time Series
+2022-10-17 19:09:57 PASS Locational Mean PWAT Time Series
+2022-10-17 19:09:57 PASS Spatiotemporal Mean PWAT Time Series
+2022-10-17 19:09:57 PASS Dewpoint Temperature Time Series
+2022-10-17 19:09:57 PASS Mean Sky Temperature and PWAT Time Series
+2022-10-17 19:09:57 PASS Mean Sky Temperature and RH Time Series
+2022-10-17 19:09:57 PASS Mean PWAT and RH Time Series
+2022-10-17 19:09:57 PASS Mean PWAT and Dewpoint Time Series
+2022-10-17 19:09:57 PASS Mean Sky Temperature and PWAT Time Series
+2022-10-17 19:09:57 PASS Mean Sky Temperature and RH Time Series
+2022-10-17 19:09:57 PASS Mean PWAT and RH Time Series
+2022-10-17 19:09:57 PASS Mean PWAT and Dewpoint Time Series
+2022-10-17 19:09:57 PASS Normalized Index for Weighted PWAT Time Series
+2022-10-17 19:09:57 PASS Plot set downloaded to ./tests/data/out//figs/
+2022-10-17 19:09:57 INFO Analytics Plot Set
+2022-10-17 19:09:57 PASS Correlation between PWAT and Temperature
+2022-10-17 19:09:57 PASS Correlation between Locational Mean PWAT and Temperature
+2022-10-17 19:09:57 PASS Correlation between Temporal Mean PWAT and Temperature
+2022-10-17 19:09:57 PASS Regression between Spatiotemporal Mean PWAT and Temperature
+2022-10-17 19:09:57 PASS Regression between Weighted PWAT and Temperature
+2022-10-17 19:09:57 PASS SVM Analysis between Sky Temperature and PWAT
+2022-10-17 19:09:57 PASS Plot set downloaded to ./tests/data/out//figs/
+2022-10-17 19:09:57 INFO Sensor Plot Set
+2022-10-17 19:09:57 PASS Overcast Condition Percentage: AMES 1
+2022-10-17 19:09:57 PASS Overcast Condition Percentage: AMES 2
+2022-10-17 19:09:57 PASS Overcast Condition Percentage: AMES 3
+2022-10-17 19:09:57 PASS Sky-Ground Time Series: AMES
+2022-10-17 19:09:57 PASS Plot set downloaded to ./tests/data/out//figs/
+2022-10-17 19:09:57 INFO Chart Set
+2022-10-17 19:09:57 PASS Weighted PWAT
+2022-10-17 19:09:57 PASS Average Temperature
+2022-10-17 19:09:58 PASS Relative Humidity
+2022-10-17 19:09:58 PASS Dewpoint Temperature
+2022-10-17 19:09:58 PASS Predicted clear sky PWAT from IR Product
+2022-10-17 19:09:58 PASS Distribution of PWAT in ABQ
+2022-10-17 19:09:58 PASS Distribution of PWAT in EPZ
+2022-10-17 19:09:58 PASS Plot set downloaded to ./tests/data/out//figs/
+2022-10-17 19:09:58 INFO Poster Plot Set
+2022-10-17 19:09:58 PASS Sky-Ground-Delta Temperature Time Series
+2022-10-17 19:09:58 PASS Analytical Plots
+2022-10-17 19:09:58 PASS Plot set downloaded to ./tests/data/out//figs/
+2022-10-17 19:09:58 INFO Pac-Man Plot Set
+2022-10-17 19:09:58 PASS Correlation between Spatiotemporal Mean PWAT and Temperature
+2022-10-17 19:09:58 PASS Pac-Man Residual of the Mean PWAT and Temperature Model
+2022-10-17 19:09:58 PASS Plot set downloaded to ./tests/data/out//figs/
+2022-10-17 19:09:58 PASS Data sent to data/data_overcast.csv
+2022-10-17 19:09:58 PASS Data sent to ./tests/data/out//data/ml_data.csv
+2022-10-17 19:09:58 ALOHA Program Complete
+2022-10-17 19:10:25 ALOHA Precipitable-water Model Analysis Tool
+2022-10-17 19:10:25 ALOHA Program Start
+2022-10-17 19:10:26 INFO Collecting Data from sources
+2022-10-17 19:10:27 DEBUG Step 1 out of 100
+2022-10-17 19:10:27 DEBUG Step 2 out of 100
+2022-10-17 19:10:27 DEBUG Step 3 out of 100
+2022-10-17 19:10:27 DEBUG Step 4 out of 100
+2022-10-17 19:10:27 DEBUG Step 5 out of 100
+2022-10-17 19:10:27 DEBUG Step 6 out of 100
+2022-10-17 19:10:27 DEBUG Step 7 out of 100
+2022-10-17 19:10:27 DEBUG Step 8 out of 100
+2022-10-17 19:10:27 DEBUG Step 9 out of 100
+2022-10-17 19:10:27 DEBUG Step 10 out of 100
+2022-10-17 19:10:27 DEBUG Step 11 out of 100
+2022-10-17 19:10:27 DEBUG Step 12 out of 100
+2022-10-17 19:10:27 DEBUG Step 13 out of 100
+2022-10-17 19:10:27 DEBUG Step 14 out of 100
+2022-10-17 19:10:27 DEBUG Step 15 out of 100
+2022-10-17 19:10:27 DEBUG Step 16 out of 100
+2022-10-17 19:10:27 DEBUG Step 17 out of 100
+2022-10-17 19:10:27 DEBUG Step 18 out of 100
+2022-10-17 19:10:27 DEBUG Step 19 out of 100
+2022-10-17 19:10:27 DEBUG Step 20 out of 100
+2022-10-17 19:10:27 DEBUG Step 21 out of 100
+2022-10-17 19:10:27 DEBUG Step 22 out of 100
+2022-10-17 19:10:27 DEBUG Step 23 out of 100
+2022-10-17 19:10:27 DEBUG Step 24 out of 100
+2022-10-17 19:10:27 DEBUG Step 25 out of 100
+2022-10-17 19:10:27 DEBUG Step 26 out of 100
+2022-10-17 19:10:27 DEBUG Step 27 out of 100
+2022-10-17 19:10:27 DEBUG Step 28 out of 100
+2022-10-17 19:10:27 DEBUG Step 29 out of 100
+2022-10-17 19:10:27 DEBUG Step 30 out of 100
+2022-10-17 19:10:27 DEBUG Step 31 out of 100
+2022-10-17 19:10:27 DEBUG Step 32 out of 100
+2022-10-17 19:10:27 DEBUG Step 33 out of 100
+2022-10-17 19:10:27 DEBUG Step 34 out of 100
+2022-10-17 19:10:27 DEBUG Step 35 out of 100
+2022-10-17 19:10:27 DEBUG Step 36 out of 100
+2022-10-17 19:10:27 DEBUG Step 37 out of 100
+2022-10-17 19:10:27 DEBUG Step 38 out of 100
+2022-10-17 19:10:27 DEBUG Step 39 out of 100
+2022-10-17 19:10:27 DEBUG Step 40 out of 100
+2022-10-17 19:10:27 DEBUG Step 41 out of 100
+2022-10-17 19:10:28 DEBUG Step 42 out of 100
+2022-10-17 19:10:28 DEBUG Step 43 out of 100
+2022-10-17 19:10:28 DEBUG Step 44 out of 100
+2022-10-17 19:10:28 DEBUG Step 45 out of 100
+2022-10-17 19:10:28 DEBUG Step 46 out of 100
+2022-10-17 19:10:28 DEBUG Step 47 out of 100
+2022-10-17 19:10:28 DEBUG Step 48 out of 100
+2022-10-17 19:10:28 DEBUG Step 49 out of 100
+2022-10-17 19:10:28 DEBUG Step 50 out of 100
+2022-10-17 19:10:28 DEBUG Step 51 out of 100
+2022-10-17 19:10:28 DEBUG Step 52 out of 100
+2022-10-17 19:10:28 DEBUG Step 53 out of 100
+2022-10-17 19:10:28 DEBUG Step 54 out of 100
+2022-10-17 19:10:28 DEBUG Step 55 out of 100
+2022-10-17 19:10:28 DEBUG Step 56 out of 100
+2022-10-17 19:10:28 DEBUG Step 57 out of 100
+2022-10-17 19:10:28 DEBUG Step 58 out of 100
+2022-10-17 19:10:28 DEBUG Step 59 out of 100
+2022-10-17 19:10:28 DEBUG Step 60 out of 100
+2022-10-17 19:10:28 DEBUG Step 61 out of 100
+2022-10-17 19:10:28 DEBUG Step 62 out of 100
+2022-10-17 19:10:28 DEBUG Step 63 out of 100
+2022-10-17 19:10:28 DEBUG Step 64 out of 100
+2022-10-17 19:10:28 DEBUG Step 65 out of 100
+2022-10-17 19:10:28 DEBUG Step 66 out of 100
+2022-10-17 19:10:28 DEBUG Step 67 out of 100
+2022-10-17 19:10:28 DEBUG Step 68 out of 100
+2022-10-17 19:10:28 DEBUG Step 69 out of 100
+2022-10-17 19:10:28 DEBUG Step 70 out of 100
+2022-10-17 19:10:28 DEBUG Step 71 out of 100
+2022-10-17 19:10:28 DEBUG Step 72 out of 100
+2022-10-17 19:10:28 DEBUG Step 73 out of 100
+2022-10-17 19:10:28 DEBUG Step 74 out of 100
+2022-10-17 19:10:28 DEBUG Step 75 out of 100
+2022-10-17 19:10:28 DEBUG Step 76 out of 100
+2022-10-17 19:10:28 DEBUG Step 77 out of 100
+2022-10-17 19:10:28 DEBUG Step 78 out of 100
+2022-10-17 19:10:28 DEBUG Step 79 out of 100
+2022-10-17 19:10:28 DEBUG Step 80 out of 100
+2022-10-17 19:10:28 DEBUG Step 81 out of 100
+2022-10-17 19:10:28 DEBUG Step 82 out of 100
+2022-10-17 19:10:28 DEBUG Step 83 out of 100
+2022-10-17 19:10:28 DEBUG Step 84 out of 100
+2022-10-17 19:10:28 DEBUG Step 85 out of 100
+2022-10-17 19:10:28 DEBUG Step 86 out of 100
+2022-10-17 19:10:28 DEBUG Step 87 out of 100
+2022-10-17 19:10:28 DEBUG Step 88 out of 100
+2022-10-17 19:10:28 DEBUG Step 89 out of 100
+2022-10-17 19:10:28 DEBUG Step 90 out of 100
+2022-10-17 19:10:28 DEBUG Step 91 out of 100
+2022-10-17 19:10:28 DEBUG Step 92 out of 100
+2022-10-17 19:10:28 DEBUG Step 93 out of 100
+2022-10-17 19:10:28 DEBUG Step 94 out of 100
+2022-10-17 19:10:28 DEBUG Step 95 out of 100
+2022-10-17 19:10:28 DEBUG Step 96 out of 100
+2022-10-17 19:10:28 DEBUG Step 97 out of 100
+2022-10-17 19:10:28 DEBUG Step 98 out of 100
+2022-10-17 19:10:28 DEBUG Step 99 out of 100
+2022-10-17 19:10:28 DEBUG Step 100 out of 100
+2022-10-17 19:10:28 INFO Condition: Overcast
+2022-10-17 19:10:28 INFO Time Series Plot Set
+2022-10-17 19:10:28 PASS Sky Temperature Time Series
+2022-10-17 19:10:28 PASS Ground Temperature Time Series
+2022-10-17 19:10:28 PASS Difference Between Ground-Sky Temperature Time Series
+2022-10-17 19:10:28 PASS PWAT Time Series
+2022-10-17 19:10:28 PASS Temporal Mean PWAT Time Series
+2022-10-17 19:10:28 PASS Locational Mean PWAT Time Series
+2022-10-17 19:10:28 PASS Spatiotemporal Mean PWAT Time Series
+2022-10-17 19:10:28 PASS Dewpoint Temperature Time Series
+2022-10-17 19:10:29 PASS Mean Sky Temperature and PWAT Time Series
+2022-10-17 19:10:29 PASS Mean Sky Temperature and RH Time Series
+2022-10-17 19:10:29 PASS Mean PWAT and RH Time Series
+2022-10-17 19:10:29 PASS Mean PWAT and Dewpoint Time Series
+2022-10-17 19:10:29 PASS Mean Sky Temperature and PWAT Time Series
+2022-10-17 19:10:29 PASS Mean Sky Temperature and RH Time Series
+2022-10-17 19:10:29 PASS Mean PWAT and RH Time Series
+2022-10-17 19:10:29 PASS Mean PWAT and Dewpoint Time Series
+2022-10-17 19:10:29 PASS Normalized Index for Weighted PWAT Time Series
+2022-10-17 19:10:29 PASS Plot set downloaded to ./tests/data/out//figs/
+2022-10-17 19:10:29 INFO Analytics Plot Set
+2022-10-17 19:10:29 PASS Correlation between PWAT and Temperature
+2022-10-17 19:10:29 PASS Correlation between Locational Mean PWAT and Temperature
+2022-10-17 19:10:29 PASS Correlation between Temporal Mean PWAT and Temperature
+2022-10-17 19:10:29 PASS Regression between Spatiotemporal Mean PWAT and Temperature
+2022-10-17 19:10:29 PASS Regression between Weighted PWAT and Temperature
+2022-10-17 19:10:29 PASS SVM Analysis between Sky Temperature and PWAT
+2022-10-17 19:10:29 PASS Plot set downloaded to ./tests/data/out//figs/
+2022-10-17 19:10:29 INFO Sensor Plot Set
+2022-10-17 19:10:29 PASS Overcast Condition Percentage: AMES 1
+2022-10-17 19:10:29 PASS Overcast Condition Percentage: AMES 2
+2022-10-17 19:10:29 PASS Overcast Condition Percentage: AMES 3
+2022-10-17 19:10:29 PASS Sky-Ground Time Series: AMES
+2022-10-17 19:10:29 PASS Plot set downloaded to ./tests/data/out//figs/
+2022-10-17 19:10:29 INFO Chart Set
+2022-10-17 19:10:29 PASS Weighted PWAT
+2022-10-17 19:10:29 PASS Average Temperature
+2022-10-17 19:10:29 PASS Relative Humidity
+2022-10-17 19:10:29 PASS Dewpoint Temperature
+2022-10-17 19:10:29 PASS Predicted clear sky PWAT from IR Product
+2022-10-17 19:10:29 PASS Distribution of PWAT in ABQ
+2022-10-17 19:10:29 PASS Distribution of PWAT in EPZ
+2022-10-17 19:10:29 PASS Plot set downloaded to ./tests/data/out//figs/
+2022-10-17 19:10:29 INFO Poster Plot Set
+2022-10-17 19:10:30 PASS Sky-Ground-Delta Temperature Time Series
+2022-10-17 19:10:30 PASS Analytical Plots
+2022-10-17 19:10:30 PASS Plot set downloaded to ./tests/data/out//figs/
+2022-10-17 19:10:30 INFO Pac-Man Plot Set
+2022-10-17 19:10:30 PASS Correlation between Spatiotemporal Mean PWAT and Temperature
+2022-10-17 19:10:30 PASS Pac-Man Residual of the Mean PWAT and Temperature Model
+2022-10-17 19:10:30 PASS Plot set downloaded to ./tests/data/out//figs/
+2022-10-17 19:10:30 PASS Data sent to data/data_overcast.csv
+2022-10-17 19:10:30 PASS Data sent to ./tests/data/out//data/ml_data.csv
+2022-10-17 19:10:30 ALOHA Program Complete
+2022-10-17 19:53:52 ALOHA Precipitable-water Model Analysis Tool
+2022-10-17 19:53:52 ALOHA Program Start
+2022-10-17 19:53:53 INFO Collecting Data from sources
+2022-10-17 19:53:54 DEBUG Step 1 out of 10
+2022-10-17 19:53:54 DEBUG Step 2 out of 10
+2022-10-17 19:53:54 DEBUG Step 3 out of 10
+2022-10-17 19:53:54 DEBUG Step 4 out of 10
+2022-10-17 19:53:54 DEBUG Step 5 out of 10
+2022-10-17 19:53:54 DEBUG Step 6 out of 10
+2022-10-17 19:53:54 DEBUG Step 7 out of 10
+2022-10-17 19:53:54 DEBUG Step 8 out of 10
+2022-10-17 19:53:54 DEBUG Step 9 out of 10
+2022-10-17 19:53:54 DEBUG Step 10 out of 10
+2022-10-17 19:53:54 INFO Condition: Clear Sky
+2022-10-17 19:53:54 INFO Time Series Plot Set
+2022-10-17 19:53:54 PASS Sky Temperature Time Series
+2022-10-17 19:53:55 PASS Ground Temperature Time Series
+2022-10-17 19:53:55 PASS Difference Between Ground-Sky Temperature Time Series
+2022-10-17 19:53:55 PASS PWAT Time Series
+2022-10-17 19:53:55 PASS Temporal Mean PWAT Time Series
+2022-10-17 19:53:55 PASS Locational Mean PWAT Time Series
+2022-10-17 19:53:55 PASS Spatiotemporal Mean PWAT Time Series
+2022-10-17 19:53:55 PASS Dewpoint Temperature Time Series
+2022-10-17 19:53:55 PASS Mean Sky Temperature and PWAT Time Series
+2022-10-17 19:53:55 PASS Mean Sky Temperature and RH Time Series
+2022-10-17 19:53:55 PASS Mean PWAT and RH Time Series
+2022-10-17 19:53:55 PASS Mean PWAT and Dewpoint Time Series
+2022-10-17 19:53:55 PASS Mean Sky Temperature and PWAT Time Series
+2022-10-17 19:53:55 PASS Mean Sky Temperature and RH Time Series
+2022-10-17 19:53:55 PASS Mean PWAT and RH Time Series
+2022-10-17 19:53:55 PASS Mean PWAT and Dewpoint Time Series
+2022-10-17 19:53:55 PASS Normalized Index for Weighted PWAT Time Series
+2022-10-17 19:53:55 PASS Plot set downloaded to ./tests/data/out//figs/
+2022-10-17 19:53:55 INFO Analytics Plot Set
+2022-10-17 19:53:55 PASS Correlation between PWAT and Temperature
+2022-10-17 19:53:55 PASS Correlation between Locational Mean PWAT and Temperature
+2022-10-17 19:53:55 PASS Correlation between Temporal Mean PWAT and Temperature
+2022-10-17 19:53:55 PASS Regression between Spatiotemporal Mean PWAT and Temperature
+2022-10-17 19:53:55 PASS Regression between Weighted PWAT and Temperature
+2022-10-17 19:53:55 PASS SVM Analysis between Sky Temperature and PWAT
+2022-10-17 19:53:55 PASS Plot set downloaded to ./tests/data/out//figs/
+2022-10-17 19:53:55 INFO Sensor Plot Set
+2022-10-17 19:53:55 PASS Overcast Condition Percentage: AMES 1
+2022-10-17 19:53:55 PASS Overcast Condition Percentage: AMES 2
+2022-10-17 19:53:55 PASS Overcast Condition Percentage: AMES 3
+2022-10-17 19:53:56 PASS Sky-Ground Time Series: AMES
+2022-10-17 19:53:56 PASS Plot set downloaded to ./tests/data/out//figs/
+2022-10-17 19:53:56 INFO Chart Set
+2022-10-17 19:53:56 PASS Weighted PWAT
+2022-10-17 19:53:56 PASS Average Temperature
+2022-10-17 19:53:56 PASS Relative Humidity
+2022-10-17 19:53:56 PASS Dewpoint Temperature
+2022-10-17 19:53:56 PASS Predicted clear sky PWAT from IR Product
+2022-10-17 19:53:56 PASS Distribution of PWAT in ABQ
+2022-10-17 19:53:56 PASS Distribution of PWAT in EPZ
+2022-10-17 19:53:56 PASS Plot set downloaded to ./tests/data/out//figs/
+2022-10-17 19:53:56 INFO Poster Plot Set
+2022-10-17 19:53:56 PASS Sky-Ground-Delta Temperature Time Series
+2022-10-17 19:53:56 PASS Analytical Plots
+2022-10-17 19:53:56 PASS Plot set downloaded to ./tests/data/out//figs/
+2022-10-17 19:53:56 INFO Pac-Man Plot Set
+2022-10-17 19:53:56 PASS Correlation between Spatiotemporal Mean PWAT and Temperature
+2022-10-17 19:53:56 PASS Pac-Man Residual of the Mean PWAT and Temperature Model
+2022-10-17 19:53:56 PASS Plot set downloaded to ./tests/data/out//figs/
+2022-10-17 19:53:56 PASS Data sent to data/data.csv
+2022-10-17 19:53:56 PASS Data sent to ./tests/data/out//data/ml_data.csv
+2022-10-17 19:53:56 ALOHA Program Complete
+2022-10-17 19:54:26 ALOHA Precipitable-water Model Analysis Tool
+2022-10-17 19:54:26 ALOHA Program Start
+2022-10-17 19:54:27 INFO Collecting Data from sources
+2022-10-17 19:54:28 DEBUG Step 1 out of 10
+2022-10-17 19:54:28 DEBUG Step 2 out of 10
+2022-10-17 19:54:28 DEBUG Step 3 out of 10
+2022-10-17 19:54:28 DEBUG Step 4 out of 10
+2022-10-17 19:54:28 DEBUG Step 5 out of 10
+2022-10-17 19:54:28 DEBUG Step 6 out of 10
+2022-10-17 19:54:28 DEBUG Step 7 out of 10
+2022-10-17 19:54:28 DEBUG Step 8 out of 10
+2022-10-17 19:54:28 DEBUG Step 9 out of 10
+2022-10-17 19:54:28 DEBUG Step 10 out of 10
+2022-10-17 19:54:28 INFO Condition: Clear Sky
+2022-10-17 19:54:28 INFO Time Series Plot Set
+2022-10-17 19:54:28 PASS Sky Temperature Time Series
+2022-10-17 19:54:28 PASS Ground Temperature Time Series
+2022-10-17 19:54:28 PASS Difference Between Ground-Sky Temperature Time Series
+2022-10-17 19:54:28 PASS PWAT Time Series
+2022-10-17 19:54:28 PASS Temporal Mean PWAT Time Series
+2022-10-17 19:54:28 PASS Locational Mean PWAT Time Series
+2022-10-17 19:54:28 PASS Spatiotemporal Mean PWAT Time Series
+2022-10-17 19:54:28 PASS Dewpoint Temperature Time Series
+2022-10-17 19:54:28 PASS Mean Sky Temperature and PWAT Time Series
+2022-10-17 19:54:28 PASS Mean Sky Temperature and RH Time Series
+2022-10-17 19:54:29 PASS Mean PWAT and RH Time Series
+2022-10-17 19:54:29 PASS Mean PWAT and Dewpoint Time Series
+2022-10-17 19:54:29 PASS Mean Sky Temperature and PWAT Time Series
+2022-10-17 19:54:29 PASS Mean Sky Temperature and RH Time Series
+2022-10-17 19:54:29 PASS Mean PWAT and RH Time Series
+2022-10-17 19:54:29 PASS Mean PWAT and Dewpoint Time Series
+2022-10-17 19:54:29 PASS Normalized Index for Weighted PWAT Time Series
+2022-10-17 19:54:29 PASS Plot set downloaded to ./tests/data/out/figs/
+2022-10-17 19:54:29 INFO Analytics Plot Set
+2022-10-17 19:54:29 PASS Correlation between PWAT and Temperature
+2022-10-17 19:54:29 PASS Correlation between Locational Mean PWAT and Temperature
+2022-10-17 19:54:29 PASS Correlation between Temporal Mean PWAT and Temperature
+2022-10-17 19:54:29 PASS Regression between Spatiotemporal Mean PWAT and Temperature
+2022-10-17 19:54:29 PASS Regression between Weighted PWAT and Temperature
+2022-10-17 19:54:29 PASS SVM Analysis between Sky Temperature and PWAT
+2022-10-17 19:54:29 PASS Plot set downloaded to ./tests/data/out/figs/
+2022-10-17 19:54:29 INFO Sensor Plot Set
+2022-10-17 19:54:29 PASS Overcast Condition Percentage: AMES 1
+2022-10-17 19:54:29 PASS Overcast Condition Percentage: AMES 2
+2022-10-17 19:54:29 PASS Overcast Condition Percentage: AMES 3
+2022-10-17 19:54:29 PASS Sky-Ground Time Series: AMES
+2022-10-17 19:54:29 PASS Plot set downloaded to ./tests/data/out/figs/
+2022-10-17 19:54:29 INFO Chart Set
+2022-10-17 19:54:29 PASS Weighted PWAT
+2022-10-17 19:54:29 PASS Average Temperature
+2022-10-17 19:54:29 PASS Relative Humidity
+2022-10-17 19:54:29 PASS Dewpoint Temperature
+2022-10-17 19:54:29 PASS Predicted clear sky PWAT from IR Product
+2022-10-17 19:54:29 PASS Distribution of PWAT in ABQ
+2022-10-17 19:54:29 PASS Distribution of PWAT in EPZ
+2022-10-17 19:54:29 PASS Plot set downloaded to ./tests/data/out/figs/
+2022-10-17 19:54:29 INFO Poster Plot Set
+2022-10-17 19:54:29 PASS Sky-Ground-Delta Temperature Time Series
+2022-10-17 19:54:30 PASS Analytical Plots
+2022-10-17 19:54:30 PASS Plot set downloaded to ./tests/data/out/figs/
+2022-10-17 19:54:30 INFO Pac-Man Plot Set
+2022-10-17 19:54:30 PASS Correlation between Spatiotemporal Mean PWAT and Temperature
+2022-10-17 19:54:30 PASS Pac-Man Residual of the Mean PWAT and Temperature Model
+2022-10-17 19:54:30 PASS Plot set downloaded to ./tests/data/out/figs/
+2022-10-17 19:54:30 PASS Data sent to data/data.csv
+2022-10-17 19:54:30 PASS Data sent to ./tests/data/out/data/ml_data.csv
+2022-10-17 19:54:30 ALOHA Program Complete
+2022-10-17 20:18:33 ALOHA Precipitable-water Model Analysis Tool
+2022-10-17 20:18:33 ALOHA Program Start
+2022-10-17 20:18:34 INFO Collecting Data from sources
+2022-10-17 20:18:35 DEBUG Step 1 out of 10
+2022-10-17 20:18:35 DEBUG Step 2 out of 10
+2022-10-17 20:18:35 DEBUG Step 3 out of 10
+2022-10-17 20:18:35 DEBUG Step 4 out of 10
+2022-10-17 20:18:35 DEBUG Step 5 out of 10
+2022-10-17 20:18:35 DEBUG Step 6 out of 10
+2022-10-17 20:18:35 DEBUG Step 7 out of 10
+2022-10-17 20:18:35 DEBUG Step 8 out of 10
+2022-10-17 20:18:35 DEBUG Step 9 out of 10
+2022-10-17 20:18:35 DEBUG Step 10 out of 10
+2022-10-17 20:18:35 INFO Condition: Clear Sky
+2022-10-17 20:18:35 INFO Time Series Plot Set
+2022-10-17 20:18:35 PASS Sky Temperature Time Series
+2022-10-17 20:18:35 PASS Ground Temperature Time Series
+2022-10-17 20:18:35 PASS Difference Between Ground-Sky Temperature Time Series
+2022-10-17 20:18:35 PASS PWAT Time Series
+2022-10-17 20:18:36 PASS Temporal Mean PWAT Time Series
+2022-10-17 20:18:36 PASS Locational Mean PWAT Time Series
+2022-10-17 20:18:36 PASS Spatiotemporal Mean PWAT Time Series
+2022-10-17 20:18:36 PASS Dewpoint Temperature Time Series
+2022-10-17 20:18:36 PASS Mean Sky Temperature and PWAT Time Series
+2022-10-17 20:18:36 PASS Mean Sky Temperature and RH Time Series
+2022-10-17 20:18:36 PASS Mean PWAT and RH Time Series
+2022-10-17 20:18:36 PASS Mean PWAT and Dewpoint Time Series
+2022-10-17 20:18:36 PASS Mean Sky Temperature and PWAT Time Series
+2022-10-17 20:18:36 PASS Mean Sky Temperature and RH Time Series
+2022-10-17 20:18:36 PASS Mean PWAT and RH Time Series
+2022-10-17 20:18:36 PASS Mean PWAT and Dewpoint Time Series
+2022-10-17 20:18:36 PASS Normalized Index for Weighted PWAT Time Series
+2022-10-17 20:18:36 PASS Plot set downloaded to ./tests/data/out/figs/
+2022-10-17 20:18:36 INFO Analytics Plot Set
+2022-10-17 20:18:36 PASS Correlation between PWAT and Temperature
+2022-10-17 20:18:36 PASS Correlation between Locational Mean PWAT and Temperature
+2022-10-17 20:18:36 PASS Correlation between Temporal Mean PWAT and Temperature
+2022-10-17 20:18:36 PASS Regression between Spatiotemporal Mean PWAT and Temperature
+2022-10-17 20:18:36 PASS Regression between Weighted PWAT and Temperature
+2022-10-17 20:18:36 PASS SVM Analysis between Sky Temperature and PWAT
+2022-10-17 20:18:36 PASS Plot set downloaded to ./tests/data/out/figs/
+2022-10-17 20:18:36 INFO Sensor Plot Set
+2022-10-17 20:18:36 PASS Overcast Condition Percentage: AMES 1
+2022-10-17 20:18:36 PASS Overcast Condition Percentage: AMES 2
+2022-10-17 20:18:36 PASS Overcast Condition Percentage: AMES 3
+2022-10-17 20:18:36 PASS Sky-Ground Time Series: AMES
+2022-10-17 20:18:36 PASS Plot set downloaded to ./tests/data/out/figs/
+2022-10-17 20:18:36 INFO Chart Set
+2022-10-17 20:18:36 PASS Weighted PWAT
+2022-10-17 20:18:36 PASS Average Temperature
+2022-10-17 20:18:36 PASS Relative Humidity
+2022-10-17 20:18:36 PASS Dewpoint Temperature
+2022-10-17 20:18:36 PASS Predicted clear sky PWAT from IR Product
+2022-10-17 20:18:36 PASS Distribution of PWAT in ABQ
+2022-10-17 20:18:36 PASS Distribution of PWAT in EPZ
+2022-10-17 20:18:36 PASS Plot set downloaded to ./tests/data/out/figs/
+2022-10-17 20:18:37 INFO Poster Plot Set
+2022-10-17 20:18:37 PASS Sky-Ground-Delta Temperature Time Series
+2022-10-17 20:18:37 PASS Analytical Plots
+2022-10-17 20:18:37 PASS Plot set downloaded to ./tests/data/out/figs/
+2022-10-17 20:18:37 INFO Pac-Man Plot Set
+2022-10-17 20:18:37 PASS Correlation between Spatiotemporal Mean PWAT and Temperature
+2022-10-17 20:18:37 PASS Pac-Man Residual of the Mean PWAT and Temperature Model
+2022-10-17 20:18:37 PASS Plot set downloaded to ./tests/data/out/figs/
+2022-10-17 20:18:37 PASS Data sent to data/data.csv
+2022-10-17 20:18:37 PASS Data sent to ./tests/data/out/data/ml_data.csv
+2022-10-17 20:18:37 ALOHA Program Complete
+2022-10-17 20:20:59 ALOHA Precipitable-water Model Analysis Tool
+2022-10-17 20:20:59 ALOHA Program Start
+2022-10-17 20:20:59 INFO Collecting Data from sources
+2022-10-17 20:21:01 DEBUG Step 1 out of 10
+2022-10-17 20:21:01 DEBUG Step 2 out of 10
+2022-10-17 20:21:01 DEBUG Step 3 out of 10
+2022-10-17 20:21:01 DEBUG Step 4 out of 10
+2022-10-17 20:21:01 DEBUG Step 5 out of 10
+2022-10-17 20:21:01 DEBUG Step 6 out of 10
+2022-10-17 20:21:01 DEBUG Step 7 out of 10
+2022-10-17 20:21:01 DEBUG Step 8 out of 10
+2022-10-17 20:21:01 DEBUG Step 9 out of 10
+2022-10-17 20:21:01 DEBUG Step 10 out of 10
+2022-10-17 20:21:01 INFO Condition: Clear Sky
+2022-10-17 20:21:01 INFO Time Series Plot Set
+2022-10-17 20:21:01 PASS Sky Temperature Time Series
+2022-10-17 20:21:01 PASS Ground Temperature Time Series
+2022-10-17 20:21:01 PASS Difference Between Ground-Sky Temperature Time Series
+2022-10-17 20:21:01 PASS PWAT Time Series
+2022-10-17 20:21:01 PASS Temporal Mean PWAT Time Series
+2022-10-17 20:21:01 PASS Locational Mean PWAT Time Series
+2022-10-17 20:21:01 PASS Spatiotemporal Mean PWAT Time Series
+2022-10-17 20:21:01 PASS Dewpoint Temperature Time Series
+2022-10-17 20:21:01 PASS Mean Sky Temperature and PWAT Time Series
+2022-10-17 20:21:01 PASS Mean Sky Temperature and RH Time Series
+2022-10-17 20:21:01 PASS Mean PWAT and RH Time Series
+2022-10-17 20:21:01 PASS Mean PWAT and Dewpoint Time Series
+2022-10-17 20:21:01 PASS Mean Sky Temperature and PWAT Time Series
+2022-10-17 20:21:01 PASS Mean Sky Temperature and RH Time Series
+2022-10-17 20:21:01 PASS Mean PWAT and RH Time Series
+2022-10-17 20:21:01 PASS Mean PWAT and Dewpoint Time Series
+2022-10-17 20:21:01 PASS Normalized Index for Weighted PWAT Time Series
+2022-10-17 20:21:01 PASS Plot set downloaded to ./tests/data/out/figs/
+2022-10-17 20:21:01 INFO Analytics Plot Set
+2022-10-17 20:21:02 PASS Correlation between PWAT and Temperature
+2022-10-17 20:21:02 PASS Correlation between Locational Mean PWAT and Temperature
+2022-10-17 20:21:02 PASS Correlation between Temporal Mean PWAT and Temperature
+2022-10-17 20:21:02 PASS Regression between Spatiotemporal Mean PWAT and Temperature
+2022-10-17 20:21:02 PASS Regression between Weighted PWAT and Temperature
+2022-10-17 20:21:02 PASS SVM Analysis between Sky Temperature and PWAT
+2022-10-17 20:21:02 PASS Plot set downloaded to ./tests/data/out/figs/
+2022-10-17 20:21:02 INFO Sensor Plot Set
+2022-10-17 20:21:02 PASS Overcast Condition Percentage: AMES 1
+2022-10-17 20:21:02 PASS Overcast Condition Percentage: AMES 2
+2022-10-17 20:21:02 PASS Overcast Condition Percentage: AMES 3
+2022-10-17 20:21:02 PASS Sky-Ground Time Series: AMES
+2022-10-17 20:21:02 PASS Plot set downloaded to ./tests/data/out/figs/
+2022-10-17 20:21:02 INFO Chart Set
+2022-10-17 20:21:02 PASS Weighted PWAT
+2022-10-17 20:21:02 PASS Average Temperature
+2022-10-17 20:21:02 PASS Relative Humidity
+2022-10-17 20:21:02 PASS Dewpoint Temperature
+2022-10-17 20:21:02 PASS Predicted clear sky PWAT from IR Product
+2022-10-17 20:21:02 PASS Distribution of PWAT in ABQ
+2022-10-17 20:21:02 PASS Distribution of PWAT in EPZ
+2022-10-17 20:21:02 PASS Plot set downloaded to ./tests/data/out/figs/
+2022-10-17 20:21:02 INFO Poster Plot Set
+2022-10-17 20:21:02 PASS Sky-Ground-Delta Temperature Time Series
+2022-10-17 20:21:02 PASS Analytical Plots
+2022-10-17 20:21:02 PASS Plot set downloaded to ./tests/data/out/figs/
+2022-10-17 20:21:02 INFO Pac-Man Plot Set
+2022-10-17 20:21:02 PASS Correlation between Spatiotemporal Mean PWAT and Temperature
+2022-10-17 20:21:02 PASS Pac-Man Residual of the Mean PWAT and Temperature Model
+2022-10-17 20:21:02 PASS Plot set downloaded to ./tests/data/out/figs/
+2022-10-17 20:21:02 PASS Data sent to data/data.csv
+2022-10-17 20:21:03 PASS Data sent to ./tests/data/out/data/ml_data.csv
+2022-10-17 20:21:03 ALOHA Program Complete

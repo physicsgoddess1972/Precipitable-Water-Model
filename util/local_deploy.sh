@@ -21,17 +21,16 @@ while getopts "iRU" opt; do
         sudo apt install docker-ce
         sudo docker pull ghcr.io/physicsgoddess1972/pmat
         ;;
-    R)
-    # sudo docker run -e INPUT_DIR="/data" -e INPUT_OUT="/out/" -v "/workspaces/Development/data_large":"/data/"  ghcr.io/physicsgoddess1972/pmat:latest
-        sudo docker container create --name pmat ghcr.io/physicsgoddess1972/pmat
-        sudo docker start pmat
-        sudo docker cp data/. pmat:/data
-        sudo docker exec pmat bash entrypoint.sh
-        sudo docker cp pmat:/figs/. figs
-        sudo docker cp pmat:/data/. data
-        sudo docker stop pmat
-        sudo docker rm pmat
-        ;;
+#    R)
+        #sudo docker run -e INPUT_DIR="/data" -e INPUT_OUT="/out/" -v "/workspaces/Development/data_large":"/data/"  ghcr.io/physicsgoddess1972/pmat:latest
+        # sudo docker container create --name pmat ghcr.io/physicsgoddess1972/pmat
+        # sudo docker start pmat
+        # sudo docker cp ../tests/data/data_large pmat:/data
+        # sudo docker exec pmat bash entrypoint.sh
+        # sudo docker cp pmat:/out/. ../tests/data/out/
+        # sudo docker stop pmat
+        # sudo docker rm pmat
+        # ;;
     U)
         sudo docker pull ghcr.io/physicsgoddess1972/pmat
         ;;
