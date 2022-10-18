@@ -1,0 +1,9 @@
+- step: 1
+  seed: 1388831077
+  analysis:
+    coeff:
+      A: 42.2319
+      B: 0.0538
+    rmse: 0.8212
+    rstd: 1.1614
+

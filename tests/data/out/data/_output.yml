@@ -1,81 +1,81 @@
 - step: 1
-  seed: 829009210
+  seed: 1800895493
   analysis:
     coeff:
-      A: 18.6102
+      A: 18.5511
       B: 0.0357
-    rmse: 2.9005
-    rstd: 2.9223
+    rmse: 3.4068
+    rstd: 3.4325
 - step: 2
-  seed: 458464035
+  seed: 871198940
   analysis:
     coeff:
-      A: 18.6052
-      B: 0.0358
-    rmse: 3.3854
-    rstd: 3.4109
+      A: 18.6466
+      B: 0.036
+    rmse: 2.824
+    rstd: 2.8454
 - step: 3
-  seed: 1454934143
+  seed: 989222807
   analysis:
     coeff:
-      A: 18.9019
+      A: 18.8398
       B: 0.036
-    rmse: 2.5046
-    rstd: 2.5235
+    rmse: 2.8381
+    rstd: 2.8595
 - step: 4
-  seed: 764558677
+  seed: 928845449
   analysis:
     coeff:
-      A: 18.4734
-      B: 0.036
-    rmse: 3.2521
-    rstd: 3.2766
-- step: 5
-  seed: 500706867
-  analysis:
-    coeff:
-      A: 18.6914
+      A: 18.5404
       B: 0.0358
-    rmse: 3.058
-    rstd: 3.0811
+    rmse: 3.2289
+    rstd: 3.2533
+- step: 5
+  seed: 1465104271
+  analysis:
+    coeff:
+      A: 18.3943
+      B: 0.0354
+    rmse: 3.2423
+    rstd: 3.2668
 - step: 6
-  seed: 1376562166
+  seed: 1802545052
   analysis:
     coeff:
-      A: 18.6387
-      B: 0.0359
-    rmse: 3.0334
-    rstd: 3.0563
+      A: 18.3152
+      B: 0.0357
+    rmse: 3.5087
+    rstd: 3.5352
 - step: 7
-  seed: 1489632093
+  seed: 1548223367
   analysis:
     coeff:
-      A: 18.795
-      B: 0.0363
-    rmse: 3.0732
-    rstd: 3.0964
-- step: 8
-  seed: 392241092
-  analysis:
-    coeff:
-      A: 18.5505
-      B: 0.0359
-    rmse: 2.7109
-    rstd: 2.7313
-- step: 9
-  seed: 607412630
-  analysis:
-    coeff:
-      A: 18.705
-      B: 0.036
-    rmse: 2.868
-    rstd: 2.8896
-- step: 10
-  seed: 607747040
-  analysis:
-    coeff:
-      A: 18.2541
+      A: 18.1563
       B: 0.0351
-    rmse: 3.3811
-    rstd: 3.4066
+    rmse: 3.5746
+    rstd: 3.6016
+- step: 8
+  seed: 1421124481
+  analysis:
+    coeff:
+      A: 18.5974
+      B: 0.0356
+    rmse: 2.7261
+    rstd: 2.7467
+- step: 9
+  seed: 1807187688
+  analysis:
+    coeff:
+      A: 18.736
+      B: 0.0366
+    rmse: 3.2664
+    rstd: 3.2911
+- step: 10
+  seed: 907417176
+  analysis:
+    coeff:
+      A: 18.5664
+      B: 0.0357
+    rmse: 3.0772
+    rstd: 3.1005
 

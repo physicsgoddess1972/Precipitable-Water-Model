@@ -1,0 +1,27 @@
+2022-10-18 09:06:06 ALOHA Precipitable-water Model Analysis Tool
+2022-10-18 09:06:06 ALOHA Program Start
+2022-10-18 09:06:06 WARN _output.yml is not found
+2022-10-18 09:06:06 WARN Automatically creating _output.yml.
+2022-10-18 09:06:07 INFO Collecting Data from sources
+2022-10-18 09:06:07 DEBUG Step 1 out of 1
+2022-10-18 09:06:07 INFO Condition: Clear Sky
+2022-10-18 09:06:07 INFO Time Series Plot Set
+2022-10-18 09:06:07 PASS Sky Temperature Time Series
+2022-10-18 09:06:07 PASS Ground Temperature Time Series
+2022-10-18 09:06:07 PASS Difference Between Ground-Sky Temperature Time Series
+2022-10-18 09:06:07 PASS PWAT Time Series
+2022-10-18 09:06:07 PASS Temporal Mean PWAT Time Series
+2022-10-18 09:06:07 PASS Locational Mean PWAT Time Series
+2022-10-18 09:06:07 PASS Spatiotemporal Mean PWAT Time Series
+2022-10-18 09:06:07 PASS Dewpoint Temperature Time Series
+2022-10-18 09:06:07 PASS Mean Sky Temperature and PWAT Time Series
+2022-10-18 09:06:07 PASS Mean Sky Temperature and RH Time Series
+2022-10-18 09:06:07 PASS Mean PWAT and RH Time Series
+2022-10-18 09:06:07 PASS Mean PWAT and Dewpoint Time Series
+2022-10-18 09:06:07 PASS Mean Sky Temperature and PWAT Time Series
+2022-10-18 09:06:07 PASS Mean Sky Temperature and RH Time Series
+2022-10-18 09:06:07 PASS Mean PWAT and RH Time Series
+2022-10-18 09:06:07 PASS Mean PWAT and Dewpoint Time Series
+2022-10-18 09:06:07 PASS Normalized Index for Weighted PWAT Time Series
+2022-10-18 09:06:07 PASS Plot set downloaded to ./tests/data/out/data_small//figs/
+2022-10-18 09:06:07 INFO Analytics Plot Set

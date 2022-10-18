@@ -1,0 +1,25 @@
+- step: 1
+  seed: 810256123
+  analysis:
+    coeff:
+      A: 17.2824
+      B: -0.0049
+    rmse: 6.1497
+    rstd: 6.5469
+- step: 2
+  seed: 82520960
+  analysis:
+    coeff:
+      A: 18.1821
+      B: -0.0067
+    rmse: 5.1935
+    rstd: 5.5289
+- step: 3
+  seed: 1789958467
+  analysis:
+    coeff:
+      A: 16.692
+      B: -0.005
+    rmse: 6.4291
+    rstd: 6.8443
+
