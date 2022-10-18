@@ -79,7 +79,7 @@ reset_time <- function(datetime){
     #' :param character datetime: a Date or datetime object
     #' :return: A datetime object with time 00:00:00
     #' :rtype: double
-    if (!is.na(as.Date(datetime, tryFormats=c("%Y-%m-%d", "%Y-%m-%d %H:%M:%S"), optional=TRUE))){
+    if (any(!is.na(as.Date(datetime, tryFormats=c("%Y-%m-%d", "%Y-%m-%d %H:%M:%S"), optional=TRUE)))){
         dt_zero <- as.POSIXct(paste(substr(datetime, 1, 11),"00:00:00",sep=" "), format="%Y-%m-%d %H:%M:%S")
         return(dt_zero)
     } else {
@@ -95,7 +95,7 @@ time_axis_init <- function(date){
     #' :param double date: A date or datetime object
     #' :return: The max, min, and tick mark positions
     #' :rtype: list
-    if (!is.na(as.Date(date, tryFormats=c("%Y-%m-%d", "%Y-%m-%d %H:%M:%S"), optional=TRUE))){
+    if (any(!is.na(as.Date(date, tryFormats=c("%Y-%m-%d", "%Y-%m-%d %H:%M:%S"), optional=TRUE)))){
         xmin <- reset_time(paste(substr(date[[1]], 1, 8),"01",sep=""))
         dm <- ifelse(round(as.integer(substr(date[[length(date)]], 9, 10))) > 1, 1, 0)
         xmax <- reset_time(paste(substr(date[[length(date)]], 1, 5),
