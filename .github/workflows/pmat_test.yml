@@ -63,3 +63,20 @@ jobs:
           dir: ${{github.workspace}}/tests/data/data_errs/${{matrix.datadirs}}
           out: ${{github.workspace}}/tests/data/out/${{matrix.datadirs}}
           flags: "-all -o -u"
+  publish_pmat_package:
+    needs: globalnopes
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Deployment Branch
+      uses: actions/checkout@master
+      with:
+       ref: deployment
+    - name: Login to GHCR
+      run: |
+        echo $CR_PAT | docker login ghcr.io -u physicsgoddess1972 --password-stdin
+      env:
+        CR_PAT: ${{ secrets.CR_TOKEN }}
+    - name: Build and Publish the Stable PMAT Package
+      run: |
+        docker build . --tag ghcr.io/physicsgoddess1972/pmat:stable
+        docker push ghcr.io/physicsgoddess1972/pmat:stable

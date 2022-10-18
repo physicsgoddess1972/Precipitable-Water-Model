@@ -195,7 +195,7 @@ lsvm <- function(x,y,l, tr.sz=0.7, seed=sample(1:2^15, 1)) {
 	#' :rtype: list
 	output <- list()
 
-    pre       <- svm.partition(x,y, l, tr.sz, seed)
+    pre       <- pacviz:::svm.partition(x,y, l, tr.sz, seed)
     train     <- pre$train
     test      <- pre$test
 
