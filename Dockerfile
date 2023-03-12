@@ -9,9 +9,9 @@ COPY DESCRIPTION /pmat/DESCRIPTION
 RUN apt-get update && apt-get install -y --no-install-recommends build-essential libpq-dev python3 python3-pip python3-setuptools python3-dev
 ENV PYTHONPATH "${PYTHONPATH}:/pmat"
 
-RUN python3 -m pip install -Ur requirements.txt --break-system-packages
-
 WORKDIR /pmat
+
+RUN python3 -m pip install -Ur requirements.txt --break-system-packages
 RUN R -e "install.packages('remotes')"
 RUN R -e "remotes::install_deps()"
 
