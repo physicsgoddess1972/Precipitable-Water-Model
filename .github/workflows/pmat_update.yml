@@ -1,6 +1,8 @@
 name: Update PMAT
 on:
   push:
+    branches: 
+      - master
     paths:
       - "src/*.r"
       - "src/*.py"
