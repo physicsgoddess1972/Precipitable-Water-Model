@@ -8,12 +8,12 @@ data:
   nans: 54
 analysis:
   coeff:
-    A: 19.1995
-    B: 0.0369
-  stdev: 3.4515
+    A: 19.2807
+    B: 0.037
+  stdev: 3.3557
   rmse:
-    mims: 4.3368
-    kelsey: 3.2695
-    yours: 3.4268
+    mims: 4.3498
+    kelsey: 3.2886
+    yours: 3.3317
 
 site: "socorro-nm"
