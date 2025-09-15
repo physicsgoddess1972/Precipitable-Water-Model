@@ -1,9 +1,9 @@
-gunicorn==19.9.0
+gunicorn==22.0.0
 chart_studio
 pandas
 sklearn
 numpy
-dash==1.0.0
+dash==2.15.0
 dash-renderer==1.0.0
-dash-html-components==1.0.0
+dash-html-components==2.0.0
 dash-core-components==1.0.0
