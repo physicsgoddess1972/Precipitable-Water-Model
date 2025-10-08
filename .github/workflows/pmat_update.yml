@@ -58,7 +58,7 @@ jobs:
             done < "$input"
           done
       - name: Run GitHub File Sync
-        uses: kbrashears5/github-action-file-sync@master
+        uses: kbrashears5/github-action-file-sync@main
         with:
           REPOSITORIES: |
             physicsgoddess1972/Precipitable-Water-Model@docs
@@ -74,7 +74,7 @@ jobs:
       with:
         ref: master
     - name: Run GitHub File Sync
-      uses: kbrashears5/github-action-file-sync@master
+      uses: kbrashears5/github-action-file-sync@main
       with:
         REPOSITORIES: |
           physicsgoddess1972/Precipitable-Water-Model@deployment
@@ -106,3 +106,4 @@ jobs:
       run: |
         docker build . --tag ghcr.io/physicsgoddess1972/pmat:unstable
         docker push ghcr.io/physicsgoddess1972/pmat:unstable
+
