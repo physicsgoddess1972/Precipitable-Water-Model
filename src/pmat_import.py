@@ -2,7 +2,7 @@
 #' :file: pmat_import.r
 #' :module: Precipitable Water Model Analysis Tool: Import
 #' :synopsis: data import script for PMAT
-#' :author: Spencer Riley <sriley@pmat.app>
+#' :author: Sarah Riley <sriley@pmat.app>
 """
 
 import csv

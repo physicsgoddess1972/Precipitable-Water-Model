@@ -1,7 +1,7 @@
 #' :file: pmat_products.r
 #' :module: Precipitable Water Model Analysis Tool: Products
 #' :synopsis: plotting functions for PMAT
-#' :author: Spencer Riley <sriley@pmat.app>
+#' :author: Sarah Riley <sriley@pmat.app>
 
 # Time series plots
 time.pwindex <- function(datetime){

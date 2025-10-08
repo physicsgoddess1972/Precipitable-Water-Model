@@ -2,7 +2,7 @@ Package: PMAT
 Title: Precipitable-Water Model Analysis Tool
 Version: 2.0
 Authors@R:
-    person(given = "Spencer",
+    person(given = "Sarah",
            family = "Riley",
            role = c("aut", "cre"),
            email = "sriley@pmat.app")

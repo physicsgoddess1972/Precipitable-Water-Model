@@ -1,7 +1,7 @@
 <<<<<<< HEAD
 #' @title Precipitable Water Model Analysis Tool: Offical paper plots
 #' @file paper_run.r
-#' @author Spencer Riley
+#' @author Sarah Riley
 
 ## Necessary Libraries for the script to run, for installation run install.sh
 library(argparse); library(crayon); library(RColorBrewer); library(plotrix)
@@ -109,7 +109,7 @@ if ("FLIR i3" %in% unlist(snsr_name)){
 =======
 #' @title Precipitable Water Model Analysis Tool: Offical paper plots
 #' @file paper_run.r
-#' @author Spencer Riley
+#' @author Sarah Riley
 
 ## Necessary Libraries for the script to run, for installation run install.sh
 library(argparse); library(crayon); library(RColorBrewer); library(plotrix)

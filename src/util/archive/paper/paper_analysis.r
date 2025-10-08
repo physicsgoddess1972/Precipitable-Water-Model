@@ -1,6 +1,6 @@
 <<<<<<< HEAD
 #' @file pmat_analysis.r
-#' @author Spencer Riley
+#' @author Sarah Riley
 #' @brief functions for analysis
 #' @docs https://docs.pmat.app
 #' @help To get a list of arguments run [Rscript model.r --help]
@@ -145,7 +145,7 @@ clear_sky.analysis <- function(overcast){
 
 =======
 #' @file pmat_analysis.r
-#' @author Spencer Riley
+#' @author Sarah Riley
 #' @brief functions for analysis
 #' @docs https://docs.pmat.app
 #' @help To get a list of arguments run [Rscript model.r --help]

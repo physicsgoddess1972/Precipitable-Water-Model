@@ -1,7 +1,7 @@
 <<<<<<< HEAD
 ####
 ## Title: 	MesoWest Data Extraction Submodule
-## Author: 	Spencer Riley / Vicki Kelsey
+## Author: 	Sarah Riley / Vicki Kelsey
 ## Documentation Page: https://git.io/fjVHo
 ####
 
@@ -124,7 +124,7 @@ class MesoWest(HTTPEndPoint):
 =======
 ####
 ## Title: 	MesoWest Data Extraction Submodule
-## Author: 	Spencer Riley / Vicki Kelsey
+## Author: 	Sarah Riley / Vicki Kelsey
 ## Documentation Page: https://git.io/fjVHo
 ####
 

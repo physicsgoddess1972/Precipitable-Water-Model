@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 ####
 ## Title: 	pmat.sh
-## Author: 	Spencer Riley / Vicki Kelsey
+## Author: 	Sarah Riley / Vicki Kelsey
 ## Documentation Page: https://git.io/fjVHo
 ## To get a list of arguments run [bash pmat.sh -h]
 ####

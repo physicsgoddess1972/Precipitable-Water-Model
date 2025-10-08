@@ -1,7 +1,7 @@
 <<<<<<< HEAD
 #' @title Precipitable Water Model Analysis Tool: Offical paper plots
 #' @file paper_figures.r
-#' @author Spencer Riley
+#' @author Sarah Riley
 #' @docs https://git.io/fjVHo
 
 ## Necessary Libraries for the script to run, for installation run install.sh
@@ -85,7 +85,7 @@ cat(unlist(list(round(exp_reg$rsme,3),
 =======
 #' @title Precipitable Water Model Analysis Tool: Offical paper plots
 #' @file paper_figures.r
-#' @author Spencer Riley
+#' @author Sarah Riley
 #' @docs https://git.io/fjVHo
 
 ## Necessary Libraries for the script to run, for installation run install.sh

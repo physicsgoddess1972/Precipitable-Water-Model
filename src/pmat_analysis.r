@@ -1,7 +1,7 @@
 #' :file: pmat_analysis.r
 #' :module: Precipitable Water Model Analysis Tool: Analysis
 #' :synopsis: This module contains analysis functions
-#' :author: Spencer Riley <sriley@pmat.app>
+#' :author: Sarah Riley <sriley@pmat.app>
 
 exp.regression 	<- function(t=NULL,mean.out){
 	#' :detail: Function includes all of the stuff to generate the exponential regression model with intervals

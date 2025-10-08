@@ -1,7 +1,7 @@
 #' :file: pmat_processing.r
 #' :module: Precipitable Water Model Analysis Tool: Pre-processing
 #' :synopsis: functions for preprocessing
-#' :author: Spencer Riley
+#' :author: Sarah Riley
 
 system(sprintf("python3 %spmat_import.py %s %s %s", src.dir, src.dir, raw.dir, out.dir))
 

@@ -1,7 +1,7 @@
 <<<<<<< HEAD
 ####
 ## Title: 	Precipitable Water Model
-## Author: 	Spencer Riley / Vicki Kelsey
+## Author: 	Sarah Riley / Vicki Kelsey
 ## Documentation Page: https://git.io/fjVHo
 ## To get a list of arguments run Rscript model.r --help
 ####
@@ -1613,7 +1613,7 @@ quit_it()
 =======
 ####
 ## Title: 	Precipitable Water Model
-## Author: 	Spencer Riley / Vicki Kelsey
+## Author: 	Sarah Riley / Vicki Kelsey
 ## Documentation Page: https://git.io/fjVHo
 ## To get a list of arguments run Rscript model.r --help
 ####

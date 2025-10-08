@@ -1,7 +1,7 @@
 #' :file: pmat_utility.r
 #' :module: Precipitable Water Model Analysis Tool: Utility
 #' :synopsis: general functions for PMAT
-#' :author: Spencer Riley <sriley@pmat.app>
+#' :author: Sarah Riley <sriley@pmat.app>
 
 logg <- function(msglevel, msg, dir=out.dir, lev="INFO") {
     #' :detail: creates log entries for _log.txt

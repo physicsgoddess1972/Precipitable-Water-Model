@@ -1,7 +1,7 @@
 <<<<<<< HEAD
 ####
 ## Title: 	Instrument Configuration Converter
-## Author: 	Spencer Riley / Vicki Kelsey
+## Author: 	Sarah Riley / Vicki Kelsey
 ## Documentation Page: https://git.io/fjVHo
 ####
 import yaml, csv
@@ -17,7 +17,7 @@ with open("instruments.conf", 'x', newline='') as csvfile:
 =======
 ####
 ## Title: 	Instrument Configuration Converter
-## Author: 	Spencer Riley / Vicki Kelsey
+## Author: 	Sarah Riley / Vicki Kelsey
 ## Documentation Page: https://git.io/fjVHo
 ####
 import yaml, csv

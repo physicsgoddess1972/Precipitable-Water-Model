@@ -1,6 +1,6 @@
 <<<<<<< HEAD
 #### Precipitable Water Model
-## Spencer Riley / Vicki Kelsey
+## Sarah Riley / Vicki Kelsey
 ## To get a list of arguments run Rscript model.r --help
 ####
 ## Necessary Libraries for the script to run, for installation run install.sh
@@ -856,7 +856,7 @@ if(args$dev){
 ## Ends the script
 =======
 #### Precipitable Water Model
-## Spencer Riley / Vicki Kelsey
+## Sarah Riley / Vicki Kelsey
 ## To get a list of arguments run Rscript model.r --help
 ####
 ## Necessary Libraries for the script to run, for installation run install.sh

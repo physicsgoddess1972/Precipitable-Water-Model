@@ -1,6 +1,6 @@
 <<<<<<< HEAD
 #' @file pmat_analysis.r
-#' @author Spencer Riley
+#' @author Sarah Riley
 #' @brief functions for analysis
 #' @docs https://docs.pmat.app
 #' @help To get a list of arguments run [Rscript model.r --help]
@@ -228,7 +228,7 @@ overcast.filter <- function(col_con, col_date, col_com, pw_name, snsr_name){
 }
 =======
 #' @file pmat_analysis.r
-#' @author Spencer Riley
+#' @author Sarah Riley
 #' @brief functions for analysis
 #' @docs https://docs.pmat.app
 #' @help To get a list of arguments run [Rscript model.r --help]

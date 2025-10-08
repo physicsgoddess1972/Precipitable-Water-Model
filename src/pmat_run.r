@@ -1,7 +1,7 @@
 
 #' :file: pmat_run.r
 #' :module: Precipitable-Water Model Analysis Tool
-#' :author: Spencer Riley <sriley@pmat.app>
+#' :author: Sarah Riley <sriley@pmat.app>
 #' :synopsis: The main file for PMAT. Documentation available at <https://docs.pmat.app>.
 
 # Necessary Libraries for the script to run
